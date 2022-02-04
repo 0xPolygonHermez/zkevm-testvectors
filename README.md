@@ -3,7 +3,7 @@ Maintained tests:
 
 ```
 /calldata-test-vectors
-/executor
+/inputs-executor
 /merkle-tree
 /receipt-test-vectors
 /state-transition
