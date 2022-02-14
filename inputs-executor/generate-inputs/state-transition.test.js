@@ -343,7 +343,13 @@ describe("smt test vectors: key-genesis", async function () {
             if (!output.batchL2Data)
                 output.batchL2Data = "0x";
 
-            output.batchHashData = zkcommonjs.contractUtils.calculateBatchHashData(output.batchL2Data, output.globalExitRoot);
+            output.batchHashData = zkcommonjs.contractUtils.calculateBatchHashData(
+                output.batchL2Data,
+                output.globalExitRoot,
+                output.timestamp,
+                sequencerAddress,
+                output.chainId
+            );
 
             //Check balances and nonces
             for (const [address, leaf] of Object.entries(expectedNewLeafs)) {
