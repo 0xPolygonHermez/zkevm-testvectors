@@ -53,7 +53,6 @@ describe("smt test vectors: key-genesis", async function () {
     it("Should check test vectors", async () => {
         for (let i = 0; i < testVectors.length; i++) {
             const output = {};
-            output.keys = {};
             const {
                 id,
                 sequencerAddress,
@@ -83,19 +82,11 @@ describe("smt test vectors: key-genesis", async function () {
 
             // build genesis and load wallets
             let root = F.zero;
-            const keys = [];
             for (let j = 0; j < genesis.length; j++) {
                 const { address, pvtKey, balance, nonce } = genesis[j];
 
                 const keyBalance = await zkcommonjs.smtUtils.keyEthAddrBalance(address, arity);
                 const keyNonce = await zkcommonjs.smtUtils.keyEthAddrNonce(address, arity);
-
-                //Populate output
-                output.keys[helpers.stringToHex32(F.toString(keyBalance))] = helpers.stringToHex32(balance);
-                output.keys[helpers.stringToHex32(F.toString(keyNonce))] = helpers.stringToHex32(nonce);
-
-                keys.push(keyBalance);
-                keys.push(keyNonce);
 
                 let auxRes = await smt.set(root, keyBalance, Scalar.e(balance));
                 auxRes = await smt.set(auxRes.newRoot, keyNonce, Scalar.e(nonce));
@@ -339,10 +330,12 @@ describe("smt test vectors: key-genesis", async function () {
             expect(F.toString(root)).to.be.equal(expectedNewRoot);
             output.newStateRoot = helpers.stringToHex32(expectedNewRoot, true);
 
-            output.globalExitRoot = "4091651772388093439828475955668620102367778455436412389529460210592290187513";
-            output.newLocalExitRoot = "10742956179515319100591595038388130427995406579252011098325992000171378207294";
-            output.oldLocalExitRoot = "10742956179515319100591595038388130427995406579252011098325992000171378207294";
+            output.globalExitRoot = "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9";
+            output.newLocalExitRoot = "0x17c04c3760510b48c6012742c540a81aba4bca2f78b9d14bfd2f123e2e53ea3e";
+            output.oldLocalExitRoot = "0x17c04c3760510b48c6012742c540a81aba4bca2f78b9d14bfd2f123e2e53ea3e";
             output.numBatch = 1;
+            output.timestamp = 1944498031;
+
             if (!output.batchL2Data)
                 output.batchL2Data = "0x";
 
