@@ -6,7 +6,7 @@ const path = require("path");
 const ethers = require("ethers");
 
 const helpers = require("./helpers");
-const zkcommonjs = require("zkevm-commonjs");
+const zkcommonjs = require("@polygon-hermez/zkevm-commonjs");
 
 const { argv } = require('yargs');
 // Command: npx mocha ${test} --vectors ${fileName vectors}

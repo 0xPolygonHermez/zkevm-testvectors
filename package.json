@@ -18,7 +18,7 @@
     "ethers": "^5.4.7",
     "ffjavascript": "^0.2.46",
     "fs": "^0.0.1-security",
-    "zkevm-commonjs": "https://github.com/hermeznetwork/zkevm-commonjs"
+    "@polygon-hermez/zkevm-commonjs": "https://github.com/hermeznetwork/zkevm-commonjs"
   },
   "devDependencies": {
     "chai": "^4.3.4",
