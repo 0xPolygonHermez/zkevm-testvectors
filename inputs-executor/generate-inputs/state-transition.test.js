@@ -47,7 +47,7 @@ describe("smt test vectors: key-genesis", async function () {
                 inputName = 'input_'
         }
 
-        testVectors = require(`./test-vector-data/${file}`);
+        testVectors = require(`../../test-vector-data/${file}`);
     });
 
     it("Should check test vectors", async () => {
@@ -64,7 +64,8 @@ describe("smt test vectors: key-genesis", async function () {
                 expectedNewRoot,
                 chainIdSequencer,
                 expectedNewLeafs,
-                defaultChainId
+                defaultChainId,
+                timestamp
             } = testVectors[i];
             console.log(`Executing test-vector id: ${id}`);
 
@@ -334,7 +335,10 @@ describe("smt test vectors: key-genesis", async function () {
             output.newLocalExitRoot = "0x17c04c3760510b48c6012742c540a81aba4bca2f78b9d14bfd2f123e2e53ea3e";
             output.oldLocalExitRoot = "0x17c04c3760510b48c6012742c540a81aba4bca2f78b9d14bfd2f123e2e53ea3e";
             output.numBatch = 1;
-            output.timestamp = 1944498031;
+            if(timestamp)
+                output.timestamp = timestamp;
+            else
+                output.timestamp = 1944498032;
 
             if (!output.batchL2Data)
                 output.batchL2Data = "0x";
@@ -351,7 +355,7 @@ describe("smt test vectors: key-genesis", async function () {
             console.log("\n");
 
             // Save outuput in file
-            const dir = path.join(__dirname, '../');
+            const dir = path.join(__dirname, '../inputs/');
             await fs.writeFileSync(`${dir}${inputName}${id}.json`, JSON.stringify(output, null, 2));
         }
     });
