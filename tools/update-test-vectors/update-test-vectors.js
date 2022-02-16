@@ -14,12 +14,10 @@ const {
 
 const { rawTxToCustomRawTx, toHexStringRlp } = processorUtils;
 
-const { setGenesisBlock } = require('../../test/src/zk-EVM/helpers/test-helpers');
-
 async function main() {
     const poseidon = await buildPoseidon();
     const { F } = poseidon;
-    const testVectors = JSON.parse(fs.readFileSync(path.join(__dirname, '../../test/src/zk-EVM/helpers/test-vector-data/state-transition.json')));
+    const testVectors = JSON.parse(fs.readFileSync(path.join(__dirname, '../../test-vector-data/state-transition.json')));
 
     for (let i = 0; i < testVectors.length; i++) {
         const {
@@ -60,7 +58,7 @@ async function main() {
             nonceArray.push(Scalar.e(nonce));
         }
 
-        const genesisRoot = await setGenesisBlock(addressArray, amountArray, nonceArray, smt);
+        const genesisRoot = await stateUtils.setGenesisBlock(addressArray, amountArray, nonceArray, smt);
         for (let j = 0; j < addressArray.length; j++) {
             const currentState = await stateUtils.getState(addressArray[j], smt, genesisRoot);
 
