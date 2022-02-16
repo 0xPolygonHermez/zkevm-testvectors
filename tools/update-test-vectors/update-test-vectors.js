@@ -30,7 +30,7 @@ async function main() {
             expectedNewLeafs,
             localExitRoot,
             globalExitRoot,
-            timestamp,
+            timestamp
         } = testVectors[i];
 
         const currentTestVector = testVectors[i];
@@ -65,7 +65,7 @@ async function main() {
             expect(currentState.balance).to.be.equal(amountArray[j]);
             expect(currentState.nonce).to.be.equal(nonceArray[j]);
         }
-        currentTestVector.expectedOldRoot = F.toString(genesisRoot);
+        currentTestVector.expectedOldRoot = `0x${Scalar.e(F.toString(genesisRoot)).toString(16).padStart(64, '0')}`;
 
         /*
          * build, sign transaction and generate rawTxs
@@ -78,9 +78,9 @@ async function main() {
             const tx = {
                 to: txData.to,
                 nonce: txData.nonce,
-                value: ethers.utils.parseEther(txData.value),
+                value: ethers.BigNumber.from(txData.value),
                 gasLimit: txData.gasLimit,
-                gasPrice: ethers.utils.parseUnits(txData.gasPrice, 'gwei'),
+                gasPrice: ethers.BigNumber.from(txData.gasPrice),
                 chainId: txData.chainId,
                 data: txData.data || '0x',
             };
@@ -92,7 +92,7 @@ async function main() {
 
             try {
                 let customRawTx;
-
+                let rawTx;
                 if (tx.chainId === 0) {
                     const signData = ethers.utils.RLP.encode([
                         toHexStringRlp(Scalar.e(tx.nonce)),
@@ -112,14 +112,36 @@ async function main() {
                     const s = signature.s.slice(2).padStart(64, '0'); // 32 bytes
                     const v = (signature.v).toString(16).padStart(2, '0'); // 1 bytes
                     customRawTx = signData.concat(r).concat(s).concat(v);
+                    
+                    const signDataRawTx = ethers.utils.RLP.encode([
+                        toHexStringRlp(Scalar.e(tx.nonce)),
+                        toHexStringRlp(tx.gasPrice),
+                        toHexStringRlp(tx.gasLimit),
+                        toHexStringRlp(tx.to),
+                        toHexStringRlp(tx.value),
+                        toHexStringRlp(tx.data)
+                    ]);
+                    const digestRawTx = ethers.utils.keccak256(signDataRawTx);
+                    const signatureRawTx = signingKey.signDigest(digestRawTx);
+                    rawTx = ethers.utils.RLP.encode([
+                        toHexStringRlp(Scalar.e(tx.nonce)),
+                        toHexStringRlp(tx.gasPrice),
+                        toHexStringRlp(tx.gasLimit),
+                        toHexStringRlp(tx.to),
+                        toHexStringRlp(tx.value),
+                        toHexStringRlp(tx.data),
+                        toHexStringRlp(signatureRawTx.v),
+                        toHexStringRlp(signatureRawTx.r),
+                        toHexStringRlp(signatureRawTx.s)
+                    ]);
+
                 } else {
-                    const rawTxEthers = await walletMap[txData.from].signTransaction(tx);
-                    customRawTx = rawTxToCustomRawTx(rawTxEthers);
+                    rawTx= await walletMap[txData.from].signTransaction(tx);
+                    customRawTx = rawTxToCustomRawTx(rawTx);
                 }
 
-                expect(customRawTx).to.equal(txData.rawTx);
-
-                currentTestVector.txs[j].rawTx = customRawTx;
+                currentTestVector.txs[j].customRawTx = customRawTx;
+                currentTestVector.txs[j].rawTx = rawTx;
 
                 if (txData.encodeInvalidData) {
                     customRawTx = customRawTx.slice(0, -6);
@@ -127,6 +149,7 @@ async function main() {
                 rawTxs.push(customRawTx);
                 txProcessed.push(txData);
             } catch (error) {
+                console.log(error)
                 expect(txData.rawTx).to.equal(undefined);
             }
         }
@@ -134,16 +157,14 @@ async function main() {
         // create a zkEVMDB and build a batch
         const zkEVMDB = await ZkEVMDB.newZkEVM(
             db,
-            chainIdSequencer,
             arity,
             poseidon,
-            sequencerAddress,
             genesisRoot,
             F.e(Scalar.e(localExitRoot)),
-            F.e(Scalar.e(globalExitRoot)),
         );
 
-        const batch = await zkEVMDB.buildBatch(timestamp);
+
+            const batch = await zkEVMDB.buildBatch(timestamp, sequencerAddress, chainIdSequencer, F.e(Scalar.e(globalExitRoot)));
         for (let j = 0; j < rawTxs.length; j++) {
             batch.addRawTx(rawTxs[j]);
         }
@@ -153,7 +174,7 @@ async function main() {
 
         const newRoot = batch.currentStateRoot;
 
-        currentTestVector.expectedNewRoot = F.toString(newRoot);
+        currentTestVector.expectedNewRoot = `0x${Scalar.e(F.toString(newRoot)).toString(16).padStart(64, '0')}`;
 
         // consoldate state
         await zkEVMDB.consolidate(batch);
@@ -167,7 +188,7 @@ async function main() {
 
         // Check errors on decode transactions
         const decodedTx = await batch.getDecodedTxs();
-
+        
         for (let j = 0; j < decodedTx.length; j++) {
             const currentTx = decodedTx[j];
             const expectedTx = txProcessed[j];
@@ -185,15 +206,15 @@ async function main() {
         // Check the encode transaction match with the vector test
         currentTestVector.batchL2Data = batch.getBatchL2Data();
 
-        currentTestVector.batchHashData = Scalar.e(circuitInput.batchHashData).toString();
-        currentTestVector.inputHash = Scalar.e(circuitInput.inputHash).toString();
+        currentTestVector.batchHashData = `0x${Scalar.e(circuitInput.batchHashData).toString(16).padStart(64, '0')}`;
+        currentTestVector.inputHash = `0x${Scalar.e(circuitInput.inputHash).toString(16).padStart(64, '0')}`;
 
-        currentTestVector.globalExitRoot = Scalar.e(circuitInput.globalExitRoot).toString();
-        currentTestVector.localExitRoot = Scalar.e(circuitInput.oldLocalExitRoot).toString();
-        currentTestVector.newLocalExitRoot = Scalar.e(circuitInput.newLocalExitRoot).toString();
+        currentTestVector.globalExitRoot = `0x${Scalar.e(circuitInput.globalExitRoot).toString(16).padStart(64, '0')}`;
+        currentTestVector.localExitRoot = `0x${Scalar.e(circuitInput.oldLocalExitRoot).toString(16).padStart(64, '0')}`;
+        currentTestVector.newLocalExitRoot = `0x${Scalar.e(circuitInput.newLocalExitRoot).toString(16).padStart(64, '0')}`;
     }
 
-    const dir = path.join(__dirname, '../../test/src/zk-EVM/helpers/test-vector-data/state-transition.json');
+    const dir = path.join(__dirname, '../../test-vector-data/state-transition.json');
     await fs.writeFileSync(dir, JSON.stringify(testVectors, null, 2));
 }
 
