@@ -18,15 +18,17 @@ const { Transaction } = require('@ethereumjs/tx');
 const { argv } = require('yargs');
 const fs = require("fs");
 const path = require("path");
-const helpers = require("./helpers/helpers");
-const helpers2 = require("../generate-inputs/helpers");
+const helpers = require("../helpers");
 const artifactsPath = path.join(__dirname, "artifacts/contracts");
+
+//example: npx mocha evm-test-inputs.js --vectors txs-calldata
 
 describe("Deploy and interact with TEST in the EVMjs", async function () {
     this.timeout(20000);
     let poseidon;
     let F;
     let sequencerFees = 0;
+    let inputName;
 
     before(async () => {
         poseidon = await buildPoseidon();
@@ -43,7 +45,7 @@ describe("Deploy and interact with TEST in the EVMjs", async function () {
             default:
                 inputName = 'input_'
         }
-        testVectors = require(`../../test-vector-data/${file}`);
+        testVectors = require(`../../../test-vector-data/${file}`);
 
         await hre.run("compile");
     });
@@ -54,7 +56,6 @@ describe("Deploy and interact with TEST in the EVMjs", async function () {
             const {
                 id,
                 sequencerAddress,
-                sequencerPvtKey,
                 arity,
                 genesis,
                 expectedOldRoot,
@@ -62,7 +63,6 @@ describe("Deploy and interact with TEST in the EVMjs", async function () {
                 expectedNewRoot,
                 chainIdSequencer,
                 expectedNewLeafs,
-                defaultChainId,
                 timestamp
             } = testVectors[i];
             console.log(`Executing test-vector id: ${id}`);
@@ -157,9 +157,9 @@ describe("Deploy and interact with TEST in the EVMjs", async function () {
             }
             expect(F.toString(newRoot)).to.be.equal(expectedOldRoot);
 
-            output.oldStateRoot = helpers2.stringToHex32(expectedOldRoot, true);
+            output.oldStateRoot = helpers.stringToHex32(expectedOldRoot, true);
             output.chainId = chainIdSequencer;
-            output.db = await helpers2.getSMT(newRoot, db, F);
+            output.db = await helpers.getSMT(newRoot, db, F);
             output.sequencerAddr = sequencerAddress;
 
             const txsList = [];
@@ -279,7 +279,7 @@ describe("Deploy and interact with TEST in the EVMjs", async function () {
                 expect(newLeaf.nonce.toString()).to.equal(leaf.nonce);
             }
 
-            output.newStateRoot = helpers2.stringToHex32(expectedNewRoot, true);
+            output.newStateRoot = helpers.stringToHex32(expectedNewRoot, true);
             output.globalExitRoot = "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9";
             output.newLocalExitRoot = "0x17c04c3760510b48c6012742c540a81aba4bca2f78b9d14bfd2f123e2e53ea3e";
             output.oldLocalExitRoot = "0x17c04c3760510b48c6012742c540a81aba4bca2f78b9d14bfd2f123e2e53ea3e";
@@ -300,7 +300,7 @@ describe("Deploy and interact with TEST in the EVMjs", async function () {
             );
 
             // Save outuput in file
-            const dir = path.join(__dirname, '../inputs/');
+            const dir = path.join(__dirname, '../../inputs/');
             await fs.writeFileSync(`${dir}${inputName}${id}.json`, JSON.stringify(output, null, 2));
         }
     });
