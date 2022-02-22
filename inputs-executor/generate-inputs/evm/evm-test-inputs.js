@@ -108,7 +108,6 @@ describe("Deploy and interact with TEST in the EVMjs", async function () {
                     const contractAddress = await helpers.deployContract(vm, accountPk, bytecode);
                     const contract = {
                         contractName,
-                        bytecode,
                         contractAddress,
                         interface
                     };
@@ -161,7 +160,7 @@ describe("Deploy and interact with TEST in the EVMjs", async function () {
                 for (let j = 0; j < keys.length; j++){
                     await vm2.stateManager.putContractStorageRaw(contract.contractAddress, keys[j], values[j]);
                 }
-                newRoot = await zkcommonjs.stateUtils.setContractBytecode(contract.contractAddress, smt, newRoot, contract.bytecode);
+                newRoot = await zkcommonjs.stateUtils.setContractBytecode(contract.contractAddress, smt, newRoot, smCode.toString("hex"));
 
                 const sto2 = await vm2.stateManager.dumpStorage(contract.contractAddress);
                 let storage2 = {};
