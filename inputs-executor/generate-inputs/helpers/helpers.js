@@ -1,6 +1,7 @@
 const { Transaction } = require('@ethereumjs/tx');
 const { Address } = require('ethereumjs-util');
 const Scalar = require("ffjavascript").Scalar;
+const zkcommonjs = require("@polygon-hermez/zkevm-commonjs");
 
 async function deployContract(
     vm,
@@ -66,9 +67,24 @@ async function getAccountNonce(vm, accountPrivateKey) {
     return account.nonce
 }
 
+function calculatebatchHashDataFromInput(input) {
+    console.log("Old batchHashData: ", input.batchHashData);
+    const batchHashData = zkcommonjs.contractUtils.calculateBatchHashData(
+        input.batchL2Data,
+        input.globalExitRoot,
+        input.timestamp,
+        input.sequencerAddr,
+        input.chainId
+    );
+    console.log("New batchHashData: ", batchHashData);
+    input.batchHashData = batchHashData;
+    return input;
+}
+
 module.exports = {
     deployContract,
     stringToHex32,
     getSMT,
-    getAccountNonce
+    getAccountNonce,
+    calculatebatchHashDataFromInput
 }

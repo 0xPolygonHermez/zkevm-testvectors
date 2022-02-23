@@ -5,7 +5,7 @@ const fs = require("fs");
 const path = require("path");
 const ethers = require("ethers");
 
-const helpers = require("./helpers");
+const helpers = require("./helpers/helpers");
 const zkcommonjs = require("@polygon-hermez/zkevm-commonjs");
 
 const { argv } = require('yargs');
@@ -83,8 +83,8 @@ describe("smt test vectors: key-genesis", async function () {
 
             // build genesis and load wallets
             let root = F.zero;
-            for (let j = 0; j < genesis.length; j++) {
-                const { address, pvtKey, balance, nonce } = genesis[j];
+            for (let j = 0; j < genesis.accounts.length; j++) {
+                const { address, pvtKey, balance, nonce } = genesis.accounts[j];
 
                 const keyBalance = await zkcommonjs.smtUtils.keyEthAddrBalance(address, arity);
                 const keyNonce = await zkcommonjs.smtUtils.keyEthAddrNonce(address, arity);
