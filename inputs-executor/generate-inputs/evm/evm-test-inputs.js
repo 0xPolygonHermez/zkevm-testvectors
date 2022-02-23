@@ -146,7 +146,7 @@ describe("Deploy and interact with TEST in the EVMjs", async function () {
                 const smCode = await vm.stateManager.getContractCode(contract.contractAddress);
 
                 const accountContract = {
-                    nonce: 0,
+                    nonce: 1,
                     balance: 0,
                 }
                 const smAcc = Account.fromAccountData(accountContract);
