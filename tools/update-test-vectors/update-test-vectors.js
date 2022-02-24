@@ -189,7 +189,6 @@ async function main() {
 
         // Check errors on decode transactions
         const decodedTx = await batch.getDecodedTxs();
-        if (id == 6) console.log(decodedTx);
         for (let j = 0; j < decodedTx.length; j++) {
             const currentTx = decodedTx[j];
             const expectedTx = txProcessed[j];
