@@ -53,8 +53,38 @@ describe("Deploy and interact with TEST in the EVMjs", async function () {
             case 'seq-fees.json':
                 inputName = 'input_seq_fees_';
                 break;
+            case 'calldata-op-arith.json':
+                inputName = 'input_op_arith_';
+                break;
+            case 'calldata-op-block.json':
+                inputName = 'input_op_block_';
+                break;
+            case 'calldata-op-compbit.json':
+                inputName = 'input_op_compbit_';
+                break;
+            case 'calldata-op-env.json':
+                inputName = 'input_op_env_';
+                break;
+            case 'calldata-op-flow.json':
+                inputName = 'input_op_flow_';
+                break;
+            case 'calldata-op-log.json':
+                inputName = 'input_op_log_';
+                break;
+            case 'calldata-op-push.json':
+                inputName = 'input_op_push_';
+                break;
+            case 'calldata-op-sha3.json':
+                inputName = 'input_op_sha3_';
+                break;
+            case 'calldata-op-syst.json':
+                inputName = 'input_op_syst_';
+                break;
+            case 'state-transition.json':
+                inputName = "input_";
+                break;
             default:
-                inputName = 'input_'
+                inputName = 'input_X_'
         }
         testVectorDataPath = `../../../test-vector-data/${file}`;
         testVectors = require(testVectorDataPath);
