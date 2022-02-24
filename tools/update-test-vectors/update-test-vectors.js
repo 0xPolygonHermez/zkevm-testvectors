@@ -43,11 +43,11 @@ async function main() {
         const amountArray = [];
         const nonceArray = [];
 
-        // create genesis block
-        for (let j = 0; j < genesis.length; j++) {
+        // create genesis block with accounts
+        for (let j = 0; j < genesis.accounts.length; j++) {
             const {
                 address, pvtKey, balance, nonce,
-            } = genesis[j];
+            } = genesis.accounts[j];
 
             const newWallet = new ethers.Wallet(pvtKey);
             expect(address).to.be.equal(newWallet.address);
@@ -74,6 +74,7 @@ async function main() {
         const txProcessed = [];
         const rawTxs = [];
         for (let j = 0; j < txs.length; j++) {
+            console.log("txid: ", j);
             const txData = txs[j];
             const tx = {
                 to: txData.to,
@@ -112,7 +113,7 @@ async function main() {
                     const s = signature.s.slice(2).padStart(64, '0'); // 32 bytes
                     const v = (signature.v).toString(16).padStart(2, '0'); // 1 bytes
                     customRawTx = signData.concat(r).concat(s).concat(v);
-                    
+
                     const signDataRawTx = ethers.utils.RLP.encode([
                         toHexStringRlp(Scalar.e(tx.nonce)),
                         toHexStringRlp(tx.gasPrice),
@@ -136,7 +137,7 @@ async function main() {
                     ]);
 
                 } else {
-                    rawTx= await walletMap[txData.from].signTransaction(tx);
+                    rawTx = await walletMap[txData.from].signTransaction(tx);
                     customRawTx = rawTxToCustomRawTx(rawTx);
                 }
 
@@ -188,7 +189,7 @@ async function main() {
 
         // Check errors on decode transactions
         const decodedTx = await batch.getDecodedTxs();
-        
+        if (id == 6) console.log(decodedTx);
         for (let j = 0; j < decodedTx.length; j++) {
             const currentTx = decodedTx[j];
             const expectedTx = txProcessed[j];
@@ -196,7 +197,7 @@ async function main() {
                 if (currentTx.reason !== expectedTx.reason) currentTestVector.txs[expectedTx.id].reason = currentTx.reason;
             } catch (error) {
                 console.log({ currentTx }, { expectedTx }); // eslint-disable-line no-console
-                throw new Error(`Batch Id : ${id} TxId:${expectedTx.id} ${error}`);
+                throw new Error(`Test Id : ${id} TxId:${expectedTx.id} ${error}`);
             }
         }
 

@@ -37,6 +37,7 @@ describe("Deploy and interact with TEST in the EVMjs", async function () {
         update = (argv.update) ? true : false;
         let file = (argv.vectors) ? argv.vectors : 'txs-calldata.json';
         file = file.endsWith('.json') ? file : file + '.json';
+        console.log(file);
         switch (file) {
             case 'txs-calldata.json':
                 inputName = 'input_txs_';
@@ -188,7 +189,7 @@ describe("Deploy and interact with TEST in the EVMjs", async function () {
                 const values = Object.values(sto).map(v => toBuffer("0x" + v));
 
                 for (let j = 0; j < keys.length; j++){
-                    await vm2.stateManager.putContractStorageRaw(contract.contractAddress, keys[j], values[j]);
+                    await vm2.stateManager.putContractStorage(contract.contractAddress, keys[j], values[j]);
                 }
                 newRoot = await zkcommonjs.stateUtils.setContractBytecode(contract.contractAddress, smt, newRoot, smCode.toString("hex"));
 
@@ -406,7 +407,8 @@ describe("Deploy and interact with TEST in the EVMjs", async function () {
                 output.globalExitRoot,
                 output.timestamp,
                 sequencerAddress,
-                output.chainId
+                output.chainId,
+                output.numBatch,
             );
 
             // Save outuput in file
