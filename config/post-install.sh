@@ -13,19 +13,23 @@ fi
 # update @ethereumjs library to add:
 # - add customTouched seet for handling updated accounts between checkpoints
 
-cp config/baseStateManager.js node_modules/@ethereumjs/vm/dist/state/baseStateManager.js
+SCRIPT=`realpath $0`
+echo$SCRIPT
+SCRIPTPATH=`dirname $SCRIPT`
+
+cp $SCRIPTPATH/../config/baseStateManager.js $SCRIPTPATH/../node_modules/@ethereumjs/vm/dist/state/baseStateManager.js
 
 TOREPLACE="SecureTrie"
 NEW="CheckpointTrie"
 
 # node
-sed -i'' -e "s|$TOREPLACE|$NEW|" node_modules/@ethereumjs/vm/dist/index.d.ts
-sed -i'' -e "s|$TOREPLACE|$NEW|" node_modules/@ethereumjs/vm/dist/index.js
-sed -i'' -e "s|$TOREPLACE|$NEW|" node_modules/@ethereumjs/vm/dist/state/stateManager.d.ts
-sed -i'' -e "s|$TOREPLACE|$NEW|" node_modules/@ethereumjs/vm/dist/state/stateManager.js
+sed -i'' -e "s|$TOREPLACE|$NEW|" $SCRIPTPATH/../node_modules/@ethereumjs/vm/dist/index.d.ts
+sed -i'' -e "s|$TOREPLACE|$NEW|" $SCRIPTPATH/../node_modules/@ethereumjs/vm/dist/index.js
+sed -i'' -e "s|$TOREPLACE|$NEW|" $SCRIPTPATH/../node_modules/@ethereumjs/vm/dist/state/stateManager.d.ts
+sed -i'' -e "s|$TOREPLACE|$NEW|" $SCRIPTPATH/../node_modules/@ethereumjs/vm/dist/state/stateManager.js
 
 # browser
-sed -i'' -e "s|$TOREPLACE|$NEW|" node_modules/@ethereumjs/vm/dist.browser/index.d.ts
-sed -i'' -e "s|$TOREPLACE|$NEW|" node_modules/@ethereumjs/vm/dist.browser/index.js
-sed -i'' -e "s|$TOREPLACE|$NEW|" node_modules/@ethereumjs/vm/dist.browser/state/stateManager.d.ts
-sed -i'' -e "s|$TOREPLACE|$NEW|" node_modules/@ethereumjs/vm/dist.browser/state/stateManager.js
+sed -i'' -e "s|$TOREPLACE|$NEW|" $SCRIPTPATH/../node_modules/@ethereumjs/vm/dist.browser/index.d.ts
+sed -i'' -e "s|$TOREPLACE|$NEW|" $SCRIPTPATH/../node_modules/@ethereumjs/vm/dist.browser/index.js
+sed -i'' -e "s|$TOREPLACE|$NEW|" $SCRIPTPATH/../node_modules/@ethereumjs/vm/dist.browser/state/stateManager.d.ts
+sed -i'' -e "s|$TOREPLACE|$NEW|" $SCRIPTPATH/../node_modules/@ethereumjs/vm/dist.browser/state/stateManager.js
