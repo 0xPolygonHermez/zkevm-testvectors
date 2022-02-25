@@ -14,7 +14,6 @@ fi
 # - add customTouched seet for handling updated accounts between checkpoints
 
 SCRIPT=`realpath $0`
-echo$SCRIPT
 SCRIPTPATH=`dirname $SCRIPT`
 
 cp $SCRIPTPATH/../config/baseStateManager.js $SCRIPTPATH/../node_modules/@ethereumjs/vm/dist/state/baseStateManager.js
@@ -22,6 +21,10 @@ cp $SCRIPTPATH/../config/baseStateManager.js $SCRIPTPATH/../node_modules/@ethere
 TOREPLACE="SecureTrie"
 NEW="CheckpointTrie"
 
+echo $SCRIPT
+echo $SCRIPTPATH
+ls
+pwd 
 # node
 sed -i'' -e "s|$TOREPLACE|$NEW|" $SCRIPTPATH/../node_modules/@ethereumjs/vm/dist/index.d.ts
 sed -i'' -e "s|$TOREPLACE|$NEW|" $SCRIPTPATH/../node_modules/@ethereumjs/vm/dist/index.js
