@@ -1,4 +1,4 @@
-const VM = require("@ethereumjs/vm").default;
+const VM = require("@polygon-hermez/vm").default;
 const Common = require("@ethereumjs/common").default;
 const { Chain, Hardfork } = require("@ethereumjs/common");
 const { Address, Account, BN, toBuffer } = require('ethereumjs-util');
