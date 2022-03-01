@@ -1,15 +1,15 @@
-## Stata transistion
+## Test vectors data
 ### Description
 - Defines a genesis state, apply transactions and gets the final state
 - It also contains useful data as sanity check
 
-## Units
+### Units
 - `balance`: weis
 - `value`: weis
 - `gasLimit`: weis
 - `gasPrice`: weis
 
-## Params
+### Params
 - `id (number)`: test identifier
 - `description (string)`: brief test description
 - `arity (number)`: number of childs per branch of the merkle tree
@@ -21,9 +21,11 @@
     - `pvtKey (string hex)`: wallet private key
     - `balance (string number)`: balance in weis
     - `nonce (string number)`: initial nonce
+    - `bytecode (string hex)`: contract deployed bytecode
+    - `abi (array[objects])`: contract abi
 - `expectedOldRoot (string hex)`: root of the genesis
 - `txs`: Array of transactions for the test
-    - `id (number)`: trnsaction identifier
+    - `id (number)`: transaction identifier
     - `from (string hex)`: source address
     - `to (string hex)`: destination address
     - `nonce (number)`: nonce to sign
@@ -31,6 +33,7 @@
     - `gasLimit (number)`: gas limit
     - `gasPrice (string number)`: gas price
     - `chainId (number)`: chain identifier
+    - `data (string hex)`: data
     - `rawTx (string hex)`: the raw ethereum transaction: `RLP(nonce, gasPrice, gasLimit, to, value, data, v, r, s)`
     - `customRawTx (string hex)`: internal transaction format. The one used to encode a tx and send it to the contract: ` RLP(nonce, gasPrice, gasLimit, to, value, data, vahinID, 0, 0) # v(sign) # r # s`
 - `expectedNewRoot (string hex)`: new root after the transactions
@@ -95,7 +98,7 @@
     - valid tx: tx.value + tx.gas == balance
 - id: 5 -> 2 accounts 1 valid tx, 1 invalid tx
     - valid tx: tx.value == balance-1
-    - invalid tx: tx.value > blanace
+    - invalid tx: tx.value > balance
 
 ### chain-ids.json
 - id: 0 -> 2 accounts 1 valid tx
@@ -124,9 +127,22 @@
     - invalid tx: bigger nonce
     - valid tx
 
-### seq-fees.jsjon
+### seq-fees.json
 - id: 0 --> 2 accounts and 1 valid tx
     -  valid tx: from, to and sequencer are the same
 - id: 1 --> 2 accounts and 2 valid tx
     - valid tx
     - valid tx: sequencer is able to do the transaction because the fees are payed at the end of every tx
+
+### txs-calldata.json
+- id: 0 -> 2 accounts 1 valid tx (to contract)
+- id: 1 -> 2 accounts and 1 valid transaction. (transfer)
+- id: 2 -> 2 accounts and 2 valid transaction. (to contract & transfer)
+- id: 3 -> 2 accounts and 1 invalid transaction (nonce).
+- id: 4 -> 2 accounts and 1 invalid transaction (balance).
+- id: 5 -> 2 accounts and 1 invalid transaction (chain Id).
+- id: 6 -> 2 accounts and 1 invalid transaction (to).
+- id: 7 -> 2 accounts and 1 invalid transaction (from).
+
+### calldata-op-X
+- Txs to call functions of `opcode contracts`

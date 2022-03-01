@@ -7,46 +7,135 @@
     "defaultChainId": 1000,
     "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-    "genesis": {
-      "accounts": [
-        {
-          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-          "balance": "100000000000000000000",
-          "nonce": "0"
-        },
-        {
-          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
-          "balance": "200000000000000000000",
-          "nonce": "0"
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x608060405234801561001057600080fd5b50600436106100625760003560e01c80630f0db778146100675780635ef3d3dd146100835780638ca3165d1461009f578063b698c129146100bd578063e4081625146100d9578063e795befc146100f7575b600080fd5b610081600480360381019061007c91906101bd565b610127565b005b61009d60048036038101906100989190610190565b610143565b005b6100a761014d565b6040516100b4919061020c565b60405180910390f35b6100d760048036038101906100d29190610190565b610153565b005b6100e161015d565b6040516100ee919061020c565b60405180910390f35b610111600480360381019061010c9190610190565b610163565b60405161011e919061020c565b60405180910390f35b8060026000848152602001908152602001600020819055505050565b8060008190555050565b60005481565b8060018190555050565b60015481565b60026020528060005260406000206000915090505481565b60008135905061018a81610236565b92915050565b6000602082840312156101a6576101a5610231565b5b60006101b48482850161017b565b91505092915050565b600080604083850312156101d4576101d3610231565b5b60006101e28582860161017b565b92505060206101f38582860161017b565b9150509250929050565b61020681610227565b82525050565b600060208201905061022160008301846101fd565b92915050565b6000819050919050565b600080fd5b61023f81610227565b811461024a57600080fd5b5056fea2646970667358221220f2b0f3f22d7910ad84c31be49bddfc8b0d2a4e362965987ae9afaedd6e41023a64736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [
+              {
+                "internalType": "uint256",
+                "name": "_stoFirst",
+                "type": "uint256"
+              }
+            ],
+            "name": "setFirst",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint256",
+                "name": "key",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "value",
+                "type": "uint256"
+              }
+            ],
+            "name": "setMapping",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint256",
+                "name": "_stoSecond",
+                "type": "uint256"
+              }
+            ],
+            "name": "setSecond",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "stoFirst",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "name": "stoMapping",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "stoSecond",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          }
+        ],
+        "storage": {
+          "0000000000000000000000000000000000000000000000000000000000000000": "01",
+          "0000000000000000000000000000000000000000000000000000000000000001": "02"
         }
-      ],
-      "contracts": [
-        {
-          "contractName": "Test",
-          "paramsDeploy": []
-        }
-      ]
-    },
-    "expectedOldRoot": "0x0c1495368d013a98e9f1e434fdfae1cbf58f774547f6be9bd86e25a0f09a90f5",
+      }
+    ],
+    "expectedOldRoot": "0x2b2d5a02a7ba7a1e7e007825c80af4bafd9d6e7e25de420509f6d21f2635a492",
     "txs": [
       {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-        "to": "contract",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
         "nonce": "0",
         "value": "0",
-        "contractName": "Test",
-        "function": "setFirst",
-        "params": [
-          7
-        ],
+        "data": "0x5ef3d3dd0000000000000000000000000000000000000000000000000000000000000007",
         "gasLimit": 100000,
         "gasPrice": "1000000000",
         "chainId": 1001
       }
     ],
-    "expectedNewRoot": "0x1293ed0ae3fe14e2541148e86c6931c72097edc8442425049099b5ff751a6fc8",
+    "expectedNewRoot": "0x0df5e48435f9b969c6ef1c6d482fcdd66db53e4f4356b742470b569c3c62980a",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000026624000000000",
@@ -67,22 +156,20 @@
     "defaultChainId": 1000,
     "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-    "genesis": {
-      "accounts": [
-        {
-          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-          "balance": "100000000000000000000",
-          "nonce": "0"
-        },
-        {
-          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
-          "balance": "200000000000000000000",
-          "nonce": "0"
-        }
-      ]
-    },
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      }
+    ],
     "expectedOldRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "txs": [
       {
@@ -116,40 +203,129 @@
     "defaultChainId": 1000,
     "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-    "genesis": {
-      "accounts": [
-        {
-          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-          "balance": "100000000000000000000",
-          "nonce": "0"
-        },
-        {
-          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
-          "balance": "200000000000000000000",
-          "nonce": "0"
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x608060405234801561001057600080fd5b50600436106100625760003560e01c80630f0db778146100675780635ef3d3dd146100835780638ca3165d1461009f578063b698c129146100bd578063e4081625146100d9578063e795befc146100f7575b600080fd5b610081600480360381019061007c91906101bd565b610127565b005b61009d60048036038101906100989190610190565b610143565b005b6100a761014d565b6040516100b4919061020c565b60405180910390f35b6100d760048036038101906100d29190610190565b610153565b005b6100e161015d565b6040516100ee919061020c565b60405180910390f35b610111600480360381019061010c9190610190565b610163565b60405161011e919061020c565b60405180910390f35b8060026000848152602001908152602001600020819055505050565b8060008190555050565b60005481565b8060018190555050565b60015481565b60026020528060005260406000206000915090505481565b60008135905061018a81610236565b92915050565b6000602082840312156101a6576101a5610231565b5b60006101b48482850161017b565b91505092915050565b600080604083850312156101d4576101d3610231565b5b60006101e28582860161017b565b92505060206101f38582860161017b565b9150509250929050565b61020681610227565b82525050565b600060208201905061022160008301846101fd565b92915050565b6000819050919050565b600080fd5b61023f81610227565b811461024a57600080fd5b5056fea2646970667358221220f2b0f3f22d7910ad84c31be49bddfc8b0d2a4e362965987ae9afaedd6e41023a64736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [
+              {
+                "internalType": "uint256",
+                "name": "_stoFirst",
+                "type": "uint256"
+              }
+            ],
+            "name": "setFirst",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint256",
+                "name": "key",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "value",
+                "type": "uint256"
+              }
+            ],
+            "name": "setMapping",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint256",
+                "name": "_stoSecond",
+                "type": "uint256"
+              }
+            ],
+            "name": "setSecond",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "stoFirst",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "name": "stoMapping",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "stoSecond",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          }
+        ],
+        "storage": {
+          "0000000000000000000000000000000000000000000000000000000000000000": "01",
+          "0000000000000000000000000000000000000000000000000000000000000001": "02"
         }
-      ],
-      "contracts": [
-        {
-          "contractName": "Test",
-          "paramsDeploy": []
-        }
-      ]
-    },
-    "expectedOldRoot": "0x0c1495368d013a98e9f1e434fdfae1cbf58f774547f6be9bd86e25a0f09a90f5",
+      }
+    ],
+    "expectedOldRoot": "0x2b2d5a02a7ba7a1e7e007825c80af4bafd9d6e7e25de420509f6d21f2635a492",
     "txs": [
       {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-        "to": "contract",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
         "nonce": "0",
         "value": "0",
-        "contractName": "Test",
-        "function": "setFirst",
-        "params": [
-          7
-        ],
+        "data": "0x5ef3d3dd0000000000000000000000000000000000000000000000000000000000000007",
         "gasLimit": 100000,
         "gasPrice": "1000000000",
         "chainId": 1001
@@ -164,7 +340,7 @@
         "chainId": 1001
       }
     ],
-    "expectedNewRoot": "0x0f289f0aed73fc5c5fd27970dfd0a2b1b16898e404e8a0962229557755698edf",
+    "expectedNewRoot": "0x0b90d83ad488b33010ec840afb69c43d099eebd3a5660c6da4466ef4191469be",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "99900026624000000000",
@@ -185,22 +361,20 @@
     "defaultChainId": 1000,
     "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-    "genesis": {
-      "accounts": [
-        {
-          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-          "balance": "100000000000000000000",
-          "nonce": "0"
-        },
-        {
-          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
-          "balance": "200000000000000000000",
-          "nonce": "0"
-        }
-      ]
-    },
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      }
+    ],
     "expectedOldRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "txs": [
       {
@@ -234,22 +408,20 @@
     "defaultChainId": 1000,
     "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-    "genesis": {
-      "accounts": [
-        {
-          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-          "balance": "0",
-          "nonce": "0"
-        },
-        {
-          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
-          "balance": "200000000000000000000",
-          "nonce": "0"
-        }
-      ]
-    },
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "0",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      }
+    ],
     "expectedOldRoot": "0x1a6403ad411addc4d3324a00903f9cad30b9516d4b1cb1f03e02607ce2c85d97",
     "txs": [
       {
@@ -283,22 +455,20 @@
     "defaultChainId": 1000,
     "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-    "genesis": {
-      "accounts": [
-        {
-          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-          "balance": "100000000000000000000",
-          "nonce": "0"
-        },
-        {
-          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
-          "balance": "200000000000000000000",
-          "nonce": "0"
-        }
-      ]
-    },
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      }
+    ],
     "expectedOldRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "txs": [
       {
@@ -332,22 +502,20 @@
     "defaultChainId": 1000,
     "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-    "genesis": {
-      "accounts": [
-        {
-          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-          "balance": "100000000000000000000",
-          "nonce": "0"
-        },
-        {
-          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
-          "balance": "200000000000000000000",
-          "nonce": "0"
-        }
-      ]
-    },
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      }
+    ],
     "expectedOldRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "txs": [
       {
@@ -381,22 +549,20 @@
     "defaultChainId": 1000,
     "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-    "genesis": {
-      "accounts": [
-        {
-          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-          "balance": "100000000000000000000",
-          "nonce": "0"
-        },
-        {
-          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
-          "balance": "200000000000000000000",
-          "nonce": "0"
-        }
-      ]
-    },
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      }
+    ],
     "expectedOldRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "txs": [
       {
