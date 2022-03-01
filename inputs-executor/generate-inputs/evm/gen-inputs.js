@@ -17,9 +17,9 @@ const path = require("path");
 const helpers = require("../helpers/helpers");
 const artifactsPath = path.join(__dirname, "artifacts/contracts");
 
-//example: npx mocha evm-test-inputs.js --vectors txs-calldata --update
+//example: npx mocha gen-inputs.js --vectors txs-calldata --inputs input_ --update
 
-describe("Deploy and interact with TEST in the EVMjs", async function () {
+describe("Generate inputs executor from test-vectors", async function () {
     this.timeout(20000);
     let poseidon;
     let F;
@@ -37,62 +37,15 @@ describe("Deploy and interact with TEST in the EVMjs", async function () {
         update = (argv.update) ? true : false;
         let file = (argv.vectors) ? argv.vectors : 'txs-calldata.json';
         file = file.endsWith('.json') ? file : file + '.json';
-        console.log(file);
-        switch (file) {
-            case 'txs-calldata.json':
-                inputName = 'input_txs_';
-                break;
-            case 'chain-ids.json':
-                inputName = 'input_ci_';
-                break;
-            case 'nonces.json':
-                inputName = 'input_n_';
-                break;
-            case 'balances.json':
-                inputName = 'input_b_';
-                break;
-            case 'seq-fees.json':
-                inputName = 'input_seq_fees_';
-                break;
-            case 'calldata-op-arith.json':
-                inputName = 'input_op_arith_';
-                break;
-            case 'calldata-op-block.json':
-                inputName = 'input_op_block_';
-                break;
-            case 'calldata-op-compbit.json':
-                inputName = 'input_op_compbit_';
-                break;
-            case 'calldata-op-env.json':
-                inputName = 'input_op_env_';
-                break;
-            case 'calldata-op-flow.json':
-                inputName = 'input_op_flow_';
-                break;
-            case 'calldata-op-log.json':
-                inputName = 'input_op_log_';
-                break;
-            case 'calldata-op-push.json':
-                inputName = 'input_op_push_';
-                break;
-            case 'calldata-op-sha3.json':
-                inputName = 'input_op_sha3_';
-                break;
-            case 'calldata-op-syst.json':
-                inputName = 'input_op_syst_';
-                break;
-            case 'state-transition.json':
-                inputName = "input_";
-                break;
-            default:
-                inputName = 'input_X_'
-        }
+        inputName = (argv.inputs)? argv.inputs : ("input_" + file.replace(".json", "_"));
         testVectorDataPath = `../../../test-vector-data/${file}`;
         testVectors = require(testVectorDataPath);
+        internalTestVectorsPath = `./generate-test-vectors/gen-${file}`;
+        internalTestVectors = require(internalTestVectorsPath);
         await hre.run("compile");
     });
 
-    it("Should check test vectors", async () => {
+    it("Generate inputs", async () => {
         for (let i = 0; i < testVectors.length; i++) {
             const output = {};
             let {
@@ -112,39 +65,6 @@ describe("Deploy and interact with TEST in the EVMjs", async function () {
 
             const common = Common.custom({ chainId: chainIdSequencer, hardfork: Hardfork.Berlin });
             let vm = new VM({ common });
-            let vm2 = new VM({ common });
-
-            if(!genesis.accounts){
-                console.log("Error: account genesis required");
-                process.exit(1);
-            }
-
-            const accountDeploy = genesis.accounts[0];
-            const contracts = [];
-            if(genesis.contracts) {
-                //Create account with balance
-                const accountPk = toBuffer(accountDeploy.pvtKey);
-                const accountAddress = Address.fromPrivateKey(accountPk);
-                const acctDataDeploy = {
-                    nonce: 0,
-                    balance: new BN(10).pow(new BN(18)), // 1 eth
-                }
-                const account = Account.fromAccountData(acctDataDeploy);
-                await vm.stateManager.putAccount(accountAddress, account);
-                //Deploy contracts
-                for(let j = 0; j < genesis.contracts.length; j++){
-                    const contractName = genesis.contracts[j].contractName;
-                    const { abi, bytecode } = require(`${artifactsPath}/${contractName}.sol/${contractName}.json`);
-                    const interface = new ethers.utils.Interface(abi);
-                    const contractAddress = await helpers.deployContract(vm, accountPk, bytecode);
-                    const contract = {
-                        contractName,
-                        contractAddress,
-                        interface
-                    };
-                    contracts.push(contract);
-                }
-            }
 
             // init SMT Db
             const db = new zkcommonjs.MemDB(F);
@@ -153,56 +73,39 @@ describe("Deploy and interact with TEST in the EVMjs", async function () {
 
             // NEW VM
             // setup new VM
-
             let newRoot = root;
-            // GENESIS
-            // add accounts
-            for(let j = 0; j < genesis.accounts.length; j++) {
-                const {address, balance, nonce} = genesis.accounts[j];
+            const contracts = [];
+            output.contractsBytecode = {}
+            for(let j = 0; j < genesis.length; j++) {
+                const {address, balance, nonce, bytecode, storage} = genesis[j];
                 const evmAddr = new Address(toBuffer(address));
                 const acctData = {
                     nonce: Number(nonce),
-                    balance: new BN(balance), // 1 eth
+                    balance: new BN(balance),
                 }
                 const account = Account.fromAccountData(acctData);
-                await vm2.stateManager.putAccount(evmAddr, account);
+                await vm.stateManager.putAccount(evmAddr, account);
+
                 // Update SMT
                 newRoot = await zkcommonjs.stateUtils.setAccountState(address, smt, newRoot, acctData.balance, acctData.nonce);
+
+                if(bytecode){
+                    const hashByteCode = await zkcommonjs.smtUtils.hashContractBytecode(bytecode);
+                    output.contractsBytecode[hashByteCode] = bytecode;
+                    await vm.stateManager.putContractCode(evmAddr, toBuffer(bytecode));
+                    newRoot = await zkcommonjs.stateUtils.setContractBytecode(address, smt, newRoot, bytecode);
+                }
+
+                if(storage) {
+                    const keys = Object.keys(storage).map(v => toBuffer("0x" + v));
+                    const values = Object.values(storage).map(v => toBuffer("0x" + v));
+                    for (let k = 0; k < keys.length; k++){
+                        await vm.stateManager.putContractStorage(evmAddr, keys[k], values[k]);
+                    }
+                    newRoot = await zkcommonjs.stateUtils.setContractStorage(address, smt, newRoot, storage);
+                }
             }
-            // add contract account
-            // add contract bytecode
-            for(let j = 0; j < contracts.length; j++) {
-                const contract = contracts[j];
-                const sto = await vm.stateManager.dumpStorage(contract.contractAddress);
-                const smCode = await vm.stateManager.getContractCode(contract.contractAddress);
 
-                const accountContract = {
-                    nonce: 1,
-                    balance: 0,
-                }
-                const smAcc = Account.fromAccountData(accountContract);
-                await vm2.stateManager.putAccount(contract.contractAddress, smAcc);
-                await vm2.stateManager.putContractCode(contract.contractAddress, smCode);
-
-                // add contract storage
-                const keys = Object.keys(sto).map(v => toBuffer("0x" + v));
-                const values = Object.values(sto).map(v => toBuffer("0x" + v));
-
-                for (let j = 0; j < keys.length; j++){
-                    await vm2.stateManager.putContractStorage(contract.contractAddress, keys[j], values[j]);
-                }
-                newRoot = await zkcommonjs.stateUtils.setContractBytecode(contract.contractAddress, smt, newRoot, smCode.toString("hex"));
-
-                const sto2 = await vm2.stateManager.dumpStorage(contract.contractAddress);
-                let storage2 = {};
-
-                const keys2 = Object.keys(sto2).map(v => "0x" + v);
-                const values2 = Object.values(sto2).map(v => "0x" + v);
-                for (let k = 0; k < keys2.length; k++) {
-                    storage2[keys2[k]] = values2[k];
-                }
-                newRoot = await zkcommonjs.stateUtils.setContractStorage(contract.contractAddress, smt, newRoot, storage2);
-            }
             if(update)
                 expectedOldRoot = helpers.stringToHex32(F.toString(newRoot), true);
             expect(helpers.stringToHex32(F.toString(newRoot), true)).to.be.equal(expectedOldRoot);
@@ -216,12 +119,11 @@ describe("Deploy and interact with TEST in the EVMjs", async function () {
             const txsList = [];
             for(let j = 0; j < txs.length; j++) {
                 let currentTx = txs[j];
-                let txData;
                 let invalidTx = false;
 
                 //CHECK TX DATA
                 //check tx from
-                let accountFrom = genesis.accounts.filter(x => x.address.toLowerCase() == currentTx.from.toLowerCase())[0];
+                let accountFrom = genesis.filter(x => x.address.toLowerCase() == currentTx.from.toLowerCase())[0];
                 if (!accountFrom) {
                     // Ignore transaction
                     console.log("*******Tx Invalid --> Error: Invalid from address (tx ignored)");
@@ -229,33 +131,17 @@ describe("Deploy and interact with TEST in the EVMjs", async function () {
                 }
                 const accountAddressFrom = new Address(toBuffer(accountFrom.address));
                 const accountPkFrom = toBuffer(accountFrom.pvtKey);
-                let accountAddressTo;
-
                 //prepare tx
-                if(currentTx.to == "contract") {
-                    const contract = contracts.filter(x => x.contractName == currentTx.contractName)[0];
-                    const functionData = contract.interface.encodeFunctionData(currentTx.function, currentTx.params);
-                    txData = {
-                        to: contract.contractAddress,
-                        value: new BN(currentTx.value),
-                        gasLimit: new BN(currentTx.gasLimit),
-                        gasPrice: new BN(currentTx.gasPrice),
-                        data: functionData,
-                        nonce: Number(currentTx.nonce),
-                        chainId: new BN(currentTx.chainId)
-                    }
-                    accountAddressTo = new Address(toBuffer(contract.contractAddress));
-                } else {
-                    txData = {
-                        to: currentTx.to,
-                        nonce: Number(currentTx.nonce),
-                        value: new BN(currentTx.value),
-                        gasLimit: new BN(currentTx.gasLimit),
-                        gasPrice: new BN(currentTx.gasPrice),
-                        chainId: new BN(currentTx.chainId)
-                    }
-                    accountAddressTo = new Address(toBuffer(txData.to));
+                const txData = {
+                    to: currentTx.to,
+                    nonce: Number(currentTx.nonce),
+                    value: new BN(currentTx.value),
+                    data: currentTx.data,
+                    gasLimit: new BN(currentTx.gasLimit),
+                    gasPrice: new BN(currentTx.gasPrice),
+                    chainId: new BN(currentTx.chainId)
                 }
+                const accountAddressTo = new Address(toBuffer(txData.to));
                 const commonCustom = Common.custom({ chainId: txData.chainId, hardfork: Hardfork.Berlin });
                 let tx = Transaction.fromTxData(txData, {common: commonCustom}).sign(accountPkFrom);
                 if(currentTx.overwrite){
@@ -323,7 +209,7 @@ describe("Deploy and interact with TEST in the EVMjs", async function () {
                 let resultTx;
                 try {
                     if(!invalidTx)
-                        resultTx = await vm2.runTx({ tx });
+                        resultTx = await vm.runTx({ tx });
                 } catch(e){
                     //console invalid tx info
                     console.log("*******Tx Invalid --> ", e.toString().split(".")[0])
@@ -332,11 +218,11 @@ describe("Deploy and interact with TEST in the EVMjs", async function () {
                 // update state if(!invalidTx)
                 if(!invalidTx){
                     //Sub fees&value from sender
-                    const acctDataFrom = await vm2.stateManager.getAccount(accountAddressFrom);
+                    const acctDataFrom = await vm.stateManager.getAccount(accountAddressFrom);
                     newRoot = await zkcommonjs.stateUtils.setAccountState(accountAddressFrom, smt, newRoot, acctDataFrom.balance, acctDataFrom.nonce);
 
                     //Update account receiver
-                    const acctDataTo = await vm2.stateManager.getAccount(accountAddressTo);
+                    const acctDataTo = await vm.stateManager.getAccount(accountAddressTo);
                     newRoot = await zkcommonjs.stateUtils.setAccountState(accountAddressTo, smt, newRoot, acctDataTo.balance, acctDataTo.nonce);
 
                     //Add fees to sequencer
@@ -345,18 +231,18 @@ describe("Deploy and interact with TEST in the EVMjs", async function () {
                     sequencerFees = Scalar.mul(gasUsed, gasPrice);
 
                     const seqAddr = new Address(toBuffer(sequencerAddress));
-                    const seqAcc = await vm2.stateManager.getAccount(seqAddr);
+                    const seqAcc = await vm.stateManager.getAccount(seqAddr);
                     const seqAccData = {
                         nonce: seqAcc.nonce,
                         balance: new BN(Scalar.add(sequencerFees, seqAcc.balance)),
                     };
-                    await vm2.stateManager.putAccount(seqAddr, Account.fromAccountData(seqAccData));
+                    await vm.stateManager.putAccount(seqAddr, Account.fromAccountData(seqAccData));
                     newRoot = await zkcommonjs.stateUtils.setAccountState(sequencerAddress, smt, newRoot, seqAccData.balance, seqAccData.nonce);
 
                     //Update contract storage
                     if(currentTx.to == "contract"){
                         const contract = contracts.filter(x => x.contractName == currentTx.contractName)[0];
-                        const sto3 = await vm2.stateManager.dumpStorage(contract.contractAddress);
+                        const sto3 = await vm.stateManager.dumpStorage(contract.contractAddress);
                         let storage3 = {};
 
                         const keys3 = Object.keys(sto3).map(v => "0x" + v);
@@ -411,6 +297,10 @@ describe("Deploy and interact with TEST in the EVMjs", async function () {
                 output.numBatch,
             );
 
+            if(Object.keys(output.contractsBytecode).length === 0){
+                output.contractsBytecode = undefined;
+            }
+
             // Save outuput in file
             const dir = path.join(__dirname, '../../inputs/');
             await fs.writeFileSync(`${dir}${inputName}${id}.json`, JSON.stringify(output, null, 2));
@@ -418,10 +308,15 @@ describe("Deploy and interact with TEST in the EVMjs", async function () {
                 testVectors[i].expectedOldRoot = expectedOldRoot;
                 testVectors[i].expectedNewRoot = expectedNewRoot;
                 testVectors[i].expectedNewLeafs = expectedNewLeafs;
+                internalTestVectors[i].expectedOldRoot = expectedOldRoot;
+                internalTestVectors[i].expectedNewRoot = expectedNewRoot;
+                internalTestVectors[i].expectedNewLeafs = expectedNewLeafs;
             }
         }
-        if(update)
+        if(update) {
             await fs.writeFileSync(testVectorDataPath, JSON.stringify(testVectors, null, 2));
+            await fs.writeFileSync(internalTestVectorsPath, JSON.stringify(internalTestVectors, null, 2));
+        }
     });
 });
 

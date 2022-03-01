@@ -7,20 +7,22 @@
     "defaultChainId": 1000,
     "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-    "genesis": [
-      {
-        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-        "nonce": "0",
-        "balance": "100000000000000000000",
-        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
-      },
-      {
-        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-        "nonce": "0",
-        "balance": "200000000000000000000",
-        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
-      }
-    ],
+    "genesis": {
+      "accounts": [
+        {
+          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+          "balance": "100000000000000000000",
+          "nonce": "0"
+        },
+        {
+          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
+          "balance": "200000000000000000000",
+          "nonce": "0"
+        }
+      ]
+    },
     "expectedOldRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "txs": [
       {
@@ -64,38 +66,40 @@
     "defaultChainId": 1000,
     "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-    "genesis": [
-      {
-        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-        "nonce": "0",
-        "balance": "100000000000000000000",
-        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
-      },
-      {
-        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-        "nonce": "0",
-        "balance": "200000000000000000000",
-        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
-      },
-      {
-        "address": "0xeB17ce701E9D92724AA2ABAdA7E4B28830597Dd9",
-        "nonce": "0",
-        "balance": "100000000000000000000",
-        "pvtKey": "0x1d0722aff4b29780e9a78e0bf28d5e127fb276cfbb0c3eb6a0e1728401777f17"
-      },
-      {
-        "address": "0x187Bd40226A7073b49163b1f6c2b73d8F2aa8478",
-        "nonce": "0",
-        "balance": "000000000000000000000",
-        "pvtKey": "0xd049e68efa0d85a3824c0b79f6817a986bb0cb3a075bcc2699118eca881d70ce"
-      },
-      {
-        "address": "0xabCcEd19d7f290B84608feC510bEe872CC8F5112",
-        "nonce": "0",
-        "balance": "000000000000000000000",
-        "pvtKey": "0x0b929d50d7fda8155539e6befa96ff297e3e9ebce4d908f570310bdf774cb32b"
-      }
-    ],
+    "genesis": {
+      "accounts": [
+        {
+          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+          "balance": "100000000000000000000",
+          "nonce": "0"
+        },
+        {
+          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
+          "balance": "200000000000000000000",
+          "nonce": "0"
+        },
+        {
+          "address": "0xeB17ce701E9D92724AA2ABAdA7E4B28830597Dd9",
+          "pvtKey": "0x1d0722aff4b29780e9a78e0bf28d5e127fb276cfbb0c3eb6a0e1728401777f17",
+          "balance": "100000000000000000000",
+          "nonce": "0"
+        },
+        {
+          "address": "0x187Bd40226A7073b49163b1f6c2b73d8F2aa8478",
+          "pvtKey": "0xd049e68efa0d85a3824c0b79f6817a986bb0cb3a075bcc2699118eca881d70ce",
+          "balance": "000000000000000000000",
+          "nonce": "0"
+        },
+        {
+          "address": "0xabCcEd19d7f290B84608feC510bEe872CC8F5112",
+          "pvtKey": "0x0b929d50d7fda8155539e6befa96ff297e3e9ebce4d908f570310bdf774cb32b",
+          "balance": "000000000000000000000",
+          "nonce": "0"
+        }
+      ]
+    },
     "expectedOldRoot": "0x17c04c3760510b48c6012742c540a81aba4bca2f78b9d14bfd2f123e2e53ea3e",
     "txs": [
       {
@@ -203,20 +207,22 @@
     "defaultChainId": 1000,
     "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-    "genesis": [
-      {
-        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-        "nonce": "0",
-        "balance": "100000000000000000000",
-        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
-      },
-      {
-        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-        "nonce": "0",
-        "balance": "200000000000000000000",
-        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
-      }
-    ],
+    "genesis": {
+      "accounts": [
+        {
+          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+          "balance": "100000000000000000000",
+          "nonce": "0"
+        },
+        {
+          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
+          "balance": "200000000000000000000",
+          "nonce": "0"
+        }
+      ]
+    },
     "expectedOldRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "txs": [
       {
@@ -260,20 +266,22 @@
     "defaultChainId": 1000,
     "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-    "genesis": [
-      {
-        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-        "nonce": "0",
-        "balance": "100000000000000000000",
-        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
-      },
-      {
-        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-        "nonce": "0",
-        "balance": "200000000000000000000",
-        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
-      }
-    ],
+    "genesis": {
+      "accounts": [
+        {
+          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+          "balance": "100000000000000000000",
+          "nonce": "0"
+        },
+        {
+          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
+          "balance": "200000000000000000000",
+          "nonce": "0"
+        }
+      ]
+    },
     "expectedOldRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "txs": [
       {
@@ -350,20 +358,22 @@
     "defaultChainId": 1000,
     "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-    "genesis": [
-      {
-        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-        "nonce": "0",
-        "balance": "100000000000000000000",
-        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
-      },
-      {
-        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-        "nonce": "0",
-        "balance": "200000000000000000000",
-        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
-      }
-    ],
+    "genesis": {
+      "accounts": [
+        {
+          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+          "balance": "100000000000000000000",
+          "nonce": "0"
+        },
+        {
+          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
+          "balance": "200000000000000000000",
+          "nonce": "0"
+        }
+      ]
+    },
     "expectedOldRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "txs": [
       {
@@ -411,20 +421,22 @@
     "defaultChainId": 1000,
     "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-    "genesis": [
-      {
-        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-        "nonce": "0",
-        "balance": "100000000000000000000",
-        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
-      },
-      {
-        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-        "nonce": "0",
-        "balance": "200000000000000000000",
-        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
-      }
-    ],
+    "genesis": {
+      "accounts": [
+        {
+          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+          "balance": "100000000000000000000",
+          "nonce": "0"
+        },
+        {
+          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
+          "balance": "200000000000000000000",
+          "nonce": "0"
+        }
+      ]
+    },
     "expectedOldRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "txs": [
       {
@@ -494,20 +506,22 @@
     "defaultChainId": 1000,
     "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-    "genesis": [
-      {
-        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-        "nonce": "0",
-        "balance": "100000000000000000000",
-        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
-      },
-      {
-        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-        "nonce": "0",
-        "balance": "200000000000000000000",
-        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
-      }
-    ],
+    "genesis": {
+      "accounts": [
+        {
+          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+          "balance": "100000000000000000000",
+          "nonce": "0"
+        },
+        {
+          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
+          "balance": "200000000000000000000",
+          "nonce": "0"
+        }
+      ]
+    },
     "expectedOldRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "txs": [
       {
@@ -577,20 +591,22 @@
     "defaultChainId": 1000,
     "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-    "genesis": [
-      {
-        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-        "nonce": "0",
-        "balance": "100000000000000000000",
-        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
-      },
-      {
-        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-        "nonce": "0",
-        "balance": "200000000000000000000",
-        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
-      }
-    ],
+    "genesis": {
+      "accounts": [
+        {
+          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+          "balance": "100000000000000000000",
+          "nonce": "0"
+        },
+        {
+          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
+          "balance": "200000000000000000000",
+          "nonce": "0"
+        }
+      ]
+    },
     "expectedOldRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "txs": [],
     "expectedNewRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
