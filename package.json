@@ -16,7 +16,7 @@
   "dependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.5",
     "@nomiclabs/hardhat-waffle": "^2.0.2",
-    "@polygon-hermez/contracts-zkevm": "github:hermeznetwork/contracts-zkevm#feature/updateTypesPoE",
+    "@polygon-hermez/contracts-zkevm": "github:hermeznetwork/contracts-zkevm#v0.0.2",
     "@polygon-hermez/vm": "^5.7.2",
     "@polygon-hermez/zkevm-commonjs": "https://github.com/hermeznetwork/zkevm-commonjs#v0.0.4",
     "chai": "^4.3.6",
