@@ -1,20 +1,27 @@
+/* eslint-disable max-len */
 const { buildPoseidon } = require('circomlibjs');
 const { Scalar } = require('ffjavascript');
-
-const hre = require('hardhat');
+const fs = require('fs');
+const path = require('path');
 const { ethers } = require('hardhat');
 const { expect } = require('chai');
 
 const {
-    MemDB, SMT, stateUtils, contractUtils, ZkEVMDB, processorUtils,
+    MemDB, stateUtils, contractUtils, ZkEVMDB, processorUtils,
 } = require('@polygon-hermez/zkevm-commonjs');
 
-const { setGenesisBlock } = stateUtils;
 const { rawTxToCustomRawTx, toHexStringRlp } = processorUtils;
 
 const { calculateCircuitInput } = contractUtils;
 
-const testVectors = require('../test-vector-data/state-transition.json');
+const {
+    ERC20PermitMock, GlobalExitRootManagerMock, Bridge, ProofOfEfficiencyMock, VerifierRollupHelperMock,
+} = require('@polygon-hermez/contracts-zkevm');
+
+const { pathTestVectors } = require('../helpers/helpers');
+
+const pathStateTransition = path.join(pathTestVectors, './test-vector-data/state-transition.json');
+const testVectors = JSON.parse(fs.readFileSync(pathStateTransition));
 
 async function takeSnapshop() {
     return (ethers.provider.send('evm_snapshot', []));
@@ -29,12 +36,9 @@ async function setNextBlockTimestamp(timestamp) {
     return (ethers.provider.send('evm_setNextBlockTimestamp', [timestamp]));
 }
 
-const {
-    ERC20PermitMock, GlobalExitRootManagerMock, Bridge, ProofOfEfficiencyMock, VerifierRollupHelperMock
-} = require('@polygon-hermez/contracts-zkevm');
+describe('Proof of efficiency test vectors', function () {
+    this.timeout(20000);
 
-
-describe('Proof of efficiency test vectors', () => {
     let poseidon;
     let F;
 
@@ -126,11 +130,11 @@ describe('Proof of efficiency test vectors', () => {
             inputHash,
             timestamp,
         } = testVectors[i];
+        // eslint-disable-next-line no-loop-func
         it(`Test vectors id: ${id}`, async () => {
             const snapshotID = await takeSnapshop();
 
             const db = new MemDB(F);
-            const smt = new SMT(db, arity, poseidon, poseidon.F);
 
             const walletMap = {};
             const addressArray = [];
@@ -138,10 +142,10 @@ describe('Proof of efficiency test vectors', () => {
             const nonceArray = [];
 
             // create genesis block
-            for (let j = 0; j < genesis.accounts.length; j++) {
+            for (let j = 0; j < genesis.length; j++) {
                 const {
                     address, pvtKey, balance, nonce,
-                } = genesis.accounts[j];
+                } = genesis[j];
 
                 const newWallet = new ethers.Wallet(pvtKey);
                 expect(address).to.be.equal(newWallet.address);
@@ -151,16 +155,6 @@ describe('Proof of efficiency test vectors', () => {
                 amountArray.push(Scalar.e(balance));
                 nonceArray.push(Scalar.e(nonce));
             }
-
-            const genesisRoot = await setGenesisBlock(addressArray, amountArray, nonceArray, smt);
-            for (let j = 0; j < addressArray.length; j++) {
-                const currentState = await stateUtils.getState(addressArray[j], smt, genesisRoot);
-
-                expect(currentState.balance).to.be.equal(amountArray[j]);
-                expect(currentState.nonce).to.be.equal(nonceArray[j]);
-            }
-
-            expect(`0x${Scalar.e(F.toString(genesisRoot)).toString(16).padStart(64, '0')}`).to.be.equal(expectedOldRoot);
 
             /*
              * build, sign transaction and generate rawTxs
@@ -181,6 +175,7 @@ describe('Proof of efficiency test vectors', () => {
                 };
                 if (!ethers.utils.isAddress(tx.to) || !ethers.utils.isAddress(txData.from)) {
                     expect(txData.customRawTx).to.equal(undefined);
+                    // eslint-disable-next-line no-continue
                     continue;
                 }
 
@@ -228,9 +223,21 @@ describe('Proof of efficiency test vectors', () => {
                 db,
                 arity,
                 poseidon,
-                genesisRoot,
+                F.zero,
                 F.e(Scalar.e(localExitRoot)),
+                genesis,
             );
+
+            // check genesis root
+            for (let j = 0; j < addressArray.length; j++) {
+                const currentState = await stateUtils.getState(addressArray[j], zkEVMDB.smt, zkEVMDB.stateRoot);
+
+                expect(currentState.balance).to.be.equal(amountArray[j]);
+                expect(currentState.nonce).to.be.equal(nonceArray[j]);
+            }
+
+            expect(`0x${Scalar.e(F.toString(zkEVMDB.stateRoot)).toString(16).padStart(64, '0')}`).to.be.equal(expectedOldRoot);
+
             const batch = await zkEVMDB.buildBatch(timestamp, sequencerAddress, chainIdSequencer, F.e(Scalar.e(globalExitRoot)));
             for (let j = 0; j < rawTxs.length; j++) {
                 batch.addRawTx(rawTxs[j]);
