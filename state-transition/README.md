@@ -1,4 +1,4 @@
-## Test vectors data
+## State-transition
 ### Description
 - Defines a genesis state, apply transactions and gets the final state
 - It also contains useful data as sanity check
@@ -23,6 +23,7 @@
     - `nonce (string number)`: initial nonce
     - `bytecode (string hex)`: contract deployed bytecode
     - `abi (array[objects])`: contract abi
+    - `storage (object(string hex, string hex))`: object containing all key-values storage
 - `expectedOldRoot (string hex)`: root of the genesis
 - `txs`: Array of transactions for the test
     - `id (number)`: transaction identifier
