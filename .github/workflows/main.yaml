@@ -42,7 +42,9 @@ jobs:
           cd ..
       - name: eslint
         run: npm run eslint
-      - name: state-transition:general
-        run: npm run test:st:general
-      - name: smt
+      - name: check no-data state-transition
+        run: npm run test:st:no-data
+      - name: check smt
         run: npm run test:smt
+      - name: check contracts
+        run: npm run test:contracts
