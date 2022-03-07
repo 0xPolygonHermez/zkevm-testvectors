@@ -20,9 +20,9 @@ const {
     ERC20PermitMock, GlobalExitRootManagerMock, Bridge, ProofOfEfficiencyMock, VerifierRollupHelperMock,
 } = require('@polygon-hermez/contracts-zkevm');
 
-const { pathTestVectors } = require('../helpers/helpers');
+const { pathTestVectors } = require('../../helpers/helpers');
 
-const pathStateTransition = path.join(pathTestVectors, './state-transition/general.json');
+const pathStateTransition = path.join(pathTestVectors, './state-transition/no-data/general.json');
 const testVectors = JSON.parse(fs.readFileSync(pathStateTransition));
 
 async function takeSnapshop() {
