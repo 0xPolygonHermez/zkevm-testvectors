@@ -9,7 +9,8 @@
     "eslint:fix": "npx eslint test/** --fix",
     "test:smt": "npx mocha ./test/merkle-tree/**.js",
     "update:smt": "npx mocha ./test/merkle-tree/**.js --update",
-    "test:contracts": "npx mocha ./test/contracts/**.js"
+    "test:st:general": "npx mocha ./test/state-transition/general.test.js",
+    "update:st:general": "npx mocha ./test/state-transition/general.test.js --update"
   },
   "repository": {
     "type": "git",
