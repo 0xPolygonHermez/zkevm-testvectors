@@ -1,3 +1,4 @@
+/* eslint-disable */ 
 const VM = require("@polygon-hermez/vm").default;
 const Common = require("@ethereumjs/common").default;
 const { Chain, Hardfork } = require("@ethereumjs/common");
@@ -70,14 +71,21 @@ describe("Generate inputs executor from test-vectors", async function () {
             const db = new zkcommonjs.MemDB(F);
             const smt = new zkcommonjs.SMT(db, arity, poseidon, poseidon.F);
             let root = F.zero;
-
+            const zkEVMDB = await zkcommonjs.ZkEVMDB.newZkEVM(
+                db,
+                arity,
+                poseidon,
+                root,
+                root,
+                genesis,
+            );
             // NEW VM
             // setup new VM
             let newRoot = root;
             const contracts = [];
             output.contractsBytecode = {}
             for(let j = 0; j < genesis.length; j++) {
-                const {address, balance, nonce, bytecode, storage} = genesis[j];
+                const {address, balance, nonce, deployedBytecode, storage} = genesis[j];
                 const evmAddr = new Address(toBuffer(address));
                 const acctData = {
                     nonce: Number(nonce),
@@ -89,16 +97,16 @@ describe("Generate inputs executor from test-vectors", async function () {
                 // Update SMT
                 newRoot = await zkcommonjs.stateUtils.setAccountState(address, smt, newRoot, acctData.balance, acctData.nonce);
 
-                if(bytecode){
-                    const hashByteCode = await zkcommonjs.smtUtils.hashContractBytecode(bytecode);
-                    output.contractsBytecode[hashByteCode] = bytecode;
-                    await vm.stateManager.putContractCode(evmAddr, toBuffer(bytecode));
-                    newRoot = await zkcommonjs.stateUtils.setContractBytecode(address, smt, newRoot, bytecode);
+                if(deployedBytecode){
+                    const hashByteCode = await zkcommonjs.smtUtils.hashContractBytecode(deployedBytecode);
+                    output.contractsBytecode[hashByteCode] = deployedBytecode;
+                    await vm.stateManager.putContractCode(evmAddr, toBuffer(deployedBytecode));
+                    newRoot = await zkcommonjs.stateUtils.setContractBytecode(address, smt, newRoot, deployedBytecode);
                 }
 
                 if(storage) {
-                    const keys = Object.keys(storage).map(v => toBuffer("0x" + v));
-                    const values = Object.values(storage).map(v => toBuffer("0x" + v));
+                    const keys = Object.keys(storage).map(v => toBuffer(v));
+                    const values = Object.values(storage).map(v => toBuffer(v));
                     for (let k = 0; k < keys.length; k++){
                         await vm.stateManager.putContractStorage(evmAddr, keys[k], values[k]);
                     }
@@ -107,13 +115,21 @@ describe("Generate inputs executor from test-vectors", async function () {
             }
 
             if(update)
-                expectedOldRoot = helpers.stringToHex32(F.toString(newRoot), true);
-            expect(helpers.stringToHex32(F.toString(newRoot), true)).to.be.equal(expectedOldRoot);
+                expectedOldRoot = helpers.stringToHex32(F.toString(zkEVMDB.stateRoot), true);
+            expect(helpers.stringToHex32(F.toString(zkEVMDB.stateRoot), true)).to.be.equal(expectedOldRoot);
 
             output.oldStateRoot = expectedOldRoot;
             output.chainId = chainIdSequencer;
             output.db = await helpers.getSMT(newRoot, db, F);
             output.sequencerAddr = sequencerAddress;
+
+            output.newStateRoot = expectedNewRoot;
+            output.globalExitRoot = "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9";
+            output.newLocalExitRoot = "0x17c04c3760510b48c6012742c540a81aba4bca2f78b9d14bfd2f123e2e53ea3e";
+            output.oldLocalExitRoot = "0x17c04c3760510b48c6012742c540a81aba4bca2f78b9d14bfd2f123e2e53ea3e";
+            output.numBatch = 1;
+
+            const batch = await zkEVMDB.buildBatch(timestamp, sequencerAddress, chainIdSequencer, F.e(Scalar.e(output.globalExitRoot)));
 
             // TRANSACTIONS
             const txsList = [];
@@ -193,6 +209,7 @@ describe("Generate inputs executor from test-vectors", async function () {
                 let v = (sign + 27).toString(16).padStart(1 * 2, '0');
                 const calldata = signData.concat(r).concat(s).concat(v);
                 txsList.push(calldata);
+                batch.addRawTx(calldata)
                 //check tx signature
                 try {
                     const digest = ethers.utils.keccak256(signData);
@@ -205,17 +222,19 @@ describe("Generate inputs executor from test-vectors", async function () {
                     console.log("*******Tx Invalid --> Error: Failed signature");
                     invalidTx = true;
                 }
-                //process vm tx if(!invalidTx)
-                let resultTx;
-                try {
-                    if(!invalidTx)
-                        resultTx = await vm.runTx({ tx });
-                } catch(e){
-                    //console invalid tx info
-                    console.log("*******Tx Invalid --> ", e.toString().split(".")[0])
-                    invalidTx = true;
-                }
-                // update state if(!invalidTx)
+
+                 //process vm tx if(!invalidTx)
+                 let resultTx;
+                 try {
+                     if(!invalidTx)
+                         resultTx = await vm.runTx({ tx });
+                 } catch(e){
+                     //console invalid tx info
+                     console.log("*******Tx Invalid --> ", e.toString().split(".")[0])
+                     invalidTx = true;
+                 }
+                 
+                //update state if(!invalidTx)
                 if(!invalidTx){
                     //Sub fees&value from sender
                     const acctDataFrom = await vm.stateManager.getAccount(accountAddressFrom);
@@ -255,32 +274,27 @@ describe("Generate inputs executor from test-vectors", async function () {
                 }
             }
 
-            let batchL2Data = "0x";
-            for (let j = 0; j < txsList.length; j++) {
-                batchL2Data = batchL2Data.concat(txsList[j].slice(2));
-            }
-            output.batchL2Data = batchL2Data;
+            //Compare storage
+            await batch.executeTxs();
+            await zkEVMDB.consolidate(batch);
+            const newRoot2 = batch.currentStateRoot;
+            const circuitInput = await batch.getCircuitInput();
 
             if(update)
-                expectedNewRoot = helpers.stringToHex32(F.toString(newRoot), true);
+                expectedNewRoot = helpers.stringToHex32(F.toString(batch.currentStateRoot), true);
             //Check new root
-            expect(helpers.stringToHex32(F.toString(newRoot), true)).to.be.equal(expectedNewRoot);
+            //expect(helpers.stringToHex32(F.toString(batch.currentStateRoot), true)).to.be.equal(expectedNewRoot);
 
             //TODO: delete
             //Check balances and nonces
             for (const [address] of Object.entries(expectedNewLeafs)) {
-                const newLeaf = await zkcommonjs.stateUtils.getState(address, smt, newRoot);
+                const newLeaf = await zkEVMDB.getCurrentAccountState(address);
                 if(update)
                     expectedNewLeafs[address] = {balance: newLeaf.balance.toString(), nonce: newLeaf.nonce.toString()};
                 expect(newLeaf.balance.toString()).to.equal(expectedNewLeafs[address].balance);
                 expect(newLeaf.nonce.toString()).to.equal(expectedNewLeafs[address].nonce);
             }
 
-            output.newStateRoot = expectedNewRoot;
-            output.globalExitRoot = "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9";
-            output.newLocalExitRoot = "0x17c04c3760510b48c6012742c540a81aba4bca2f78b9d14bfd2f123e2e53ea3e";
-            output.oldLocalExitRoot = "0x17c04c3760510b48c6012742c540a81aba4bca2f78b9d14bfd2f123e2e53ea3e";
-            output.numBatch = 1;
             if(timestamp)
                 output.timestamp = timestamp;
             else
@@ -288,14 +302,7 @@ describe("Generate inputs executor from test-vectors", async function () {
             if (!output.batchL2Data)
                 output.batchL2Data = "0x";
 
-            output.batchHashData = zkcommonjs.contractUtils.calculateBatchHashData(
-                output.batchL2Data,
-                output.globalExitRoot,
-                output.timestamp,
-                sequencerAddress,
-                output.chainId,
-                output.numBatch,
-            );
+            output.batchHashData = circuitInput.batchHashData;
 
             if(Object.keys(output.contractsBytecode).length === 0){
                 output.contractsBytecode = undefined;
