@@ -111,7 +111,7 @@ describe('smt-keys', async function () {
             const res = await smtUtils.keyContractStorage(ethAddr, storagePosition, arity);
 
             if (update) {
-                testVectorsKeysContractCode[i].expectedKey = F.toString(res);
+                testVectorsKeysContractStorage[i].expectedKey = F.toString(res);
             } else {
                 expect(F.toString(res)).to.be.equal(expectedKey);
                 expect(leafType).to.be.equal(Constants.SMT_KEY_SC_STORAGE);

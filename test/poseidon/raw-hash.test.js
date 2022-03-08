@@ -36,7 +36,6 @@ describe('poseidon', async function () {
                     expect(output[j].toString()).to.be.equal(expectedOutput[j]);
                 }
             }
-            console.log(expectedOutput);
         }
 
         if (update) {
