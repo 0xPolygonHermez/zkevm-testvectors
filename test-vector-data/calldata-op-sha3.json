@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "description": "2 accounts and 1 valid transaction (to contract).",
+    "description": "Txs to call all functions of OpSha contract (test)",
     "arity": 4,
     "chainIdSequencer": 1001,
     "defaultChainId": 1000,
@@ -24,7 +24,7 @@
         "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
         "nonce": 1,
         "balance": 0,
-        "bytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c80633f27ca8e14602d575b600080fd5b60336035565b005b600160005260206000208060005260206000f3fea264697066735822122087778dcb4c85602caa4e1f73875ab5337bdfddf21efd8083eb98d0a89a7f36de64736f6c63430008070033",
+        "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c80633f27ca8e14602d575b600080fd5b60336035565b005b600160005260206000208060005260206000f3fea264697066735822122087778dcb4c85602caa4e1f73875ab5337bdfddf21efd8083eb98d0a89a7f36de64736f6c63430008070033",
         "abi": [
           {
             "inputs": [],

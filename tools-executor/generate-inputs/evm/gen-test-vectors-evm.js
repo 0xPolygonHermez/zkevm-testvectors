@@ -86,7 +86,7 @@ describe("Generate test-vectors from generate-test-vectors", async function () {
                         contractName,
                         contractAddress,
                         interface,
-                        bytecode: deployedBytecode
+                        deployedBytecode
                     };
                     contracts.push(contract);
 
@@ -96,14 +96,14 @@ describe("Generate test-vectors from generate-test-vectors", async function () {
                     const keys = Object.keys(sto).map(v => toBuffer("0x" + v));
                     const values = Object.values(sto).map(v => toBuffer("0x" + v));
                     for (let k = 0; k < keys.length; k++) {
-                        storage[keys[k].toString("hex")] = values[k].toString("hex");
+                        storage["0x" + keys[k].toString("hex")] = "0x" + values[k].toString("hex");
                     }
 
                     auxGenesis.push({
                         address: contractAddress.toString("hex"),
                         nonce: accountContract.nonce,
                         balance: accountContract.balance,
-                        bytecode: deployedBytecode,
+                        deployedBytecode,
                         abi: abi,
                         storage
                     })

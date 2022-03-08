@@ -1,5 +1,4 @@
 /* eslint-disable */ 
-const VM = require("@polygon-hermez/vm").default;
 const Common = require("@ethereumjs/common").default;
 const { Chain, Hardfork } = require("@ethereumjs/common");
 const { Address, Account, BN, toBuffer } = require('ethereumjs-util');
@@ -64,12 +63,8 @@ describe("Generate inputs executor from test-vectors", async function () {
             } = testVectors[i];
             console.log(`Executing test-vector id: ${id}`);
 
-            const common = Common.custom({ chainId: chainIdSequencer, hardfork: Hardfork.Berlin });
-            let vm = new VM({ common });
-
             // init SMT Db
             const db = new zkcommonjs.MemDB(F);
-            const smt = new zkcommonjs.SMT(db, arity, poseidon, poseidon.F);
             let root = F.zero;
             const zkEVMDB = await zkcommonjs.ZkEVMDB.newZkEVM(
                 db,
@@ -81,36 +76,13 @@ describe("Generate inputs executor from test-vectors", async function () {
             );
             // NEW VM
             // setup new VM
-            let newRoot = root;
-            const contracts = [];
             output.contractsBytecode = {}
             for(let j = 0; j < genesis.length; j++) {
-                const {address, balance, nonce, deployedBytecode, storage} = genesis[j];
-                const evmAddr = new Address(toBuffer(address));
-                const acctData = {
-                    nonce: Number(nonce),
-                    balance: new BN(balance),
-                }
-                const account = Account.fromAccountData(acctData);
-                await vm.stateManager.putAccount(evmAddr, account);
-
-                // Update SMT
-                newRoot = await zkcommonjs.stateUtils.setAccountState(address, smt, newRoot, acctData.balance, acctData.nonce);
+                const {deployedBytecode} = genesis[j];    
 
                 if(deployedBytecode){
                     const hashByteCode = await zkcommonjs.smtUtils.hashContractBytecode(deployedBytecode);
                     output.contractsBytecode[hashByteCode] = deployedBytecode;
-                    await vm.stateManager.putContractCode(evmAddr, toBuffer(deployedBytecode));
-                    newRoot = await zkcommonjs.stateUtils.setContractBytecode(address, smt, newRoot, deployedBytecode);
-                }
-
-                if(storage) {
-                    const keys = Object.keys(storage).map(v => toBuffer(v));
-                    const values = Object.values(storage).map(v => toBuffer(v));
-                    for (let k = 0; k < keys.length; k++){
-                        await vm.stateManager.putContractStorage(evmAddr, keys[k], values[k]);
-                    }
-                    newRoot = await zkcommonjs.stateUtils.setContractStorage(address, smt, newRoot, storage);
                 }
             }
 
@@ -120,7 +92,7 @@ describe("Generate inputs executor from test-vectors", async function () {
 
             output.oldStateRoot = expectedOldRoot;
             output.chainId = chainIdSequencer;
-            output.db = await helpers.getSMT(newRoot, db, F);
+            output.db = await helpers.getSMT(zkEVMDB.stateRoot, db, F);
             output.sequencerAddr = sequencerAddress;
 
             output.newStateRoot = expectedNewRoot;
@@ -135,17 +107,12 @@ describe("Generate inputs executor from test-vectors", async function () {
             const txsList = [];
             for(let j = 0; j < txs.length; j++) {
                 let currentTx = txs[j];
-                let invalidTx = false;
-
-                //CHECK TX DATA
-                //check tx from
                 let accountFrom = genesis.filter(x => x.address.toLowerCase() == currentTx.from.toLowerCase())[0];
                 if (!accountFrom) {
                     // Ignore transaction
                     console.log("*******Tx Invalid --> Error: Invalid from address (tx ignored)");
                     continue;
                 }
-                const accountAddressFrom = new Address(toBuffer(accountFrom.address));
                 const accountPkFrom = toBuffer(accountFrom.pvtKey);
                 //prepare tx
                 const txData = {
@@ -157,7 +124,6 @@ describe("Generate inputs executor from test-vectors", async function () {
                     gasPrice: new BN(currentTx.gasPrice),
                     chainId: new BN(currentTx.chainId)
                 }
-                const accountAddressTo = new Address(toBuffer(txData.to));
                 const commonCustom = Common.custom({ chainId: txData.chainId, hardfork: Hardfork.Berlin });
                 let tx = Transaction.fromTxData(txData, {common: commonCustom}).sign(accountPkFrom);
                 if(currentTx.overwrite){
@@ -167,8 +133,8 @@ describe("Generate inputs executor from test-vectors", async function () {
                         tx = Transaction.fromTxData(txJSON);
                     }
                 }
-                //check tx to
-                if (!ethers.utils.isAddress(txData.to.toString(16))) {
+                 //check tx to
+                 if (!ethers.utils.isAddress(txData.to.toString(16))) {
                     console.log("*******Tx Invalid --> Error: Invalid to address");
                     // invalidTx = true;
                     continue;
@@ -176,10 +142,6 @@ describe("Generate inputs executor from test-vectors", async function () {
                 //check tx chainId
                 const sign = !(Number(tx.v) & 1);
                 const chainId = (Number(tx.v) - 35) >> 1;
-                if (chainId !== chainIdSequencer && chainId !== defaultChainId) {
-                    console.log("*******Tx Invalid --> Error: Invalid chain id");
-                    invalidTx = true;
-                }
                 // add tx to txList with customRawTx
                 let messageToHash = [
                     tx.nonce.toString(16),
@@ -209,69 +171,7 @@ describe("Generate inputs executor from test-vectors", async function () {
                 let v = (sign + 27).toString(16).padStart(1 * 2, '0');
                 const calldata = signData.concat(r).concat(s).concat(v);
                 txsList.push(calldata);
-                batch.addRawTx(calldata)
-                //check tx signature
-                try {
-                    const digest = ethers.utils.keccak256(signData);
-                    fromAddr = ethers.utils.recoverAddress(digest, {
-                        r: "0x" + r,
-                        s: "0x" + s,
-                        v: sign + 27
-                    });
-                } catch (error) {
-                    console.log("*******Tx Invalid --> Error: Failed signature");
-                    invalidTx = true;
-                }
-
-                 //process vm tx if(!invalidTx)
-                 let resultTx;
-                 try {
-                     if(!invalidTx)
-                         resultTx = await vm.runTx({ tx });
-                 } catch(e){
-                     //console invalid tx info
-                     console.log("*******Tx Invalid --> ", e.toString().split(".")[0])
-                     invalidTx = true;
-                 }
-                 
-                //update state if(!invalidTx)
-                if(!invalidTx){
-                    //Sub fees&value from sender
-                    const acctDataFrom = await vm.stateManager.getAccount(accountAddressFrom);
-                    newRoot = await zkcommonjs.stateUtils.setAccountState(accountAddressFrom, smt, newRoot, acctDataFrom.balance, acctDataFrom.nonce);
-
-                    //Update account receiver
-                    const acctDataTo = await vm.stateManager.getAccount(accountAddressTo);
-                    newRoot = await zkcommonjs.stateUtils.setAccountState(accountAddressTo, smt, newRoot, acctDataTo.balance, acctDataTo.nonce);
-
-                    //Add fees to sequencer
-                    const gasUsed = resultTx.gasUsed;
-                    const gasPrice = currentTx.gasPrice;
-                    sequencerFees = Scalar.mul(gasUsed, gasPrice);
-
-                    const seqAddr = new Address(toBuffer(sequencerAddress));
-                    const seqAcc = await vm.stateManager.getAccount(seqAddr);
-                    const seqAccData = {
-                        nonce: seqAcc.nonce,
-                        balance: new BN(Scalar.add(sequencerFees, seqAcc.balance)),
-                    };
-                    await vm.stateManager.putAccount(seqAddr, Account.fromAccountData(seqAccData));
-                    newRoot = await zkcommonjs.stateUtils.setAccountState(sequencerAddress, smt, newRoot, seqAccData.balance, seqAccData.nonce);
-
-                    //Update contract storage
-                    if(currentTx.to == "contract"){
-                        const contract = contracts.filter(x => x.contractName == currentTx.contractName)[0];
-                        const sto3 = await vm.stateManager.dumpStorage(contract.contractAddress);
-                        let storage3 = {};
-
-                        const keys3 = Object.keys(sto3).map(v => "0x" + v);
-                        const values3 = Object.values(sto3).map(v => "0x" + v);
-                        for (let k = 0; k < keys3.length; k++) {
-                            storage3[keys3[k]] = values3[k];
-                        }
-                        newRoot = await zkcommonjs.stateUtils.setContractStorage(contract.contractAddress, smt, newRoot, storage3);
-                    }
-                }
+                batch.addRawTx(calldata)                             
             }
 
             //Compare storage
@@ -279,11 +179,12 @@ describe("Generate inputs executor from test-vectors", async function () {
             await zkEVMDB.consolidate(batch);
             const newRoot2 = batch.currentStateRoot;
             const circuitInput = await batch.getCircuitInput();
+            output.batchL2Data = batch.getBatchL2Data();
 
             if(update)
                 expectedNewRoot = helpers.stringToHex32(F.toString(batch.currentStateRoot), true);
             //Check new root
-            //expect(helpers.stringToHex32(F.toString(batch.currentStateRoot), true)).to.be.equal(expectedNewRoot);
+            expect(helpers.stringToHex32(F.toString(batch.currentStateRoot), true)).to.be.equal(expectedNewRoot);
 
             //TODO: delete
             //Check balances and nonces
@@ -321,8 +222,8 @@ describe("Generate inputs executor from test-vectors", async function () {
             }
         }
         if(update) {
-            await fs.writeFileSync(testVectorDataPath, JSON.stringify(testVectors, null, 2));
-            await fs.writeFileSync(internalTestVectorsPath, JSON.stringify(internalTestVectors, null, 2));
+            await fs.writeFileSync(path.join(__dirname, testVectorDataPath), JSON.stringify(testVectors, null, 2));
+            await fs.writeFileSync(path.join(__dirname, internalTestVectorsPath), JSON.stringify(internalTestVectors, null, 2));
         }
     });
 });
