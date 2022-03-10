@@ -29,12 +29,12 @@ describe('smt-full-genesis', async function () {
     it('Should check test vectors', async () => {
         // build tree and check root
         for (let i = 0; i < testVectors.length; i++) {
-            const { arity, addresses, expectedRoot } = testVectors[i];
+            const { addresses, expectedRoot } = testVectors[i];
 
             const db = new MemDB(F);
-            const smt = new SMT(db, arity, poseidon, poseidon.F);
+            const smt = new SMT(db, poseidon, poseidon.F);
 
-            let tmpRoot = F.zero;
+            let tmpRoot = smt.empty;
 
             for (let j = 0; j < addresses.length; j++) {
                 const {
