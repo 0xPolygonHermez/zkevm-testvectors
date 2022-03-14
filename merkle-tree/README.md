@@ -1,9 +1,15 @@
+## notes
+The merkle-tree root is an array of 4 field elements (63.99 bits): `rootArray = [root[0], root[1], root[2], root[3]]`
+This 4 element array could be represented as a big integer by joining its componenet into a single 256 bit number: `rootBigInteger = root[0] + root[1] * 2^64 + root[2] * 2^128 + root[3] * 2^192`
+All roots are expressed as a big integer representation.
+
+Note that `keys` are also an array of 4 field elements. They are also represented in big integer representation.
+
 ## smt-genesis
 ### Description
 Add ethereum address leaves on the smt to create a genesis state
 
 ### Params
-- `arity (number)`: number of nodes in the smt for each level, 2**arity
 - `addresses (array[object])`: list of objevts that defines the addresses to add to the smt and its values
   - `address (hex string)`: ethereum address
   - `balance (string weis)`: initial balance
@@ -24,8 +30,7 @@ Compute smt path of an ethereum address
 
 ### Params
 - `leafType (number)`: leaf type to add to the merkle tree
-- `ethAddr (hex string)`: list of objects that defines the addresses to add to the smt and its v
-- `arity (number)`: number of nodes in the smt for each level, 2**arity
+- `ethAddr (hex string)`: list of objects that defines the addresses to add to the smt and its value
 - `expectedKey (string number)`: smt key path computed
 
 ## smt-key-contract-storage
@@ -36,7 +41,6 @@ Compute smt path of a smart contract storage
 - `leafType (number)`: leaf type to add to the merkle tree
 - `ethAddr (hex string)`: list of objects that defines the addresses to add to the smt and its v
 - `storagePosition (string number)`: smart contract storage position
-- `arity (number)`: number of nodes in the smt for each level, 2**arity
 - `expectedKey (string number)`: smt key path computed
 
 ## smt-key-eth-balance
@@ -45,8 +49,7 @@ Compute smt path of an ethereum address to store its balance
 
 ### Params
 - `leafType (number)`: leaf type to add to the merkle tree
-- `ethAddr (hex string)`: list of objects that defines the addresses to add to the smt and its v
-- `arity (number)`: number of nodes in the smt for each level, 2**arity
+- `ethAddr (hex string)`: list of objects that defines the addresses to add to the smt and its value
 - `expectedKey (string number)`: smt key path computed
 
 ## smt-key-eth-nonce
@@ -55,8 +58,7 @@ Compute smt path of an ethereum address to store its nonce
 
 ### Params
 - `leafType (number)`: leaf type to add to the merkle tree
-- `ethAddr (hex string)`: list of objects that defines the addresses to add to the smt and its v
-- `arity (number)`: number of nodes in the smt for each level, 2**arity
+- `ethAddr (hex string)`: list of objects that defines the addresses to add to the smt and its value
 - `expectedKey (string number)`: smt key path computed
 
 ## smt-raw
@@ -64,7 +66,6 @@ Compute smt path of an ethereum address to store its nonce
 Add [key-values] to the smt
 
 ### Params
-- `arity (number)`: number of nodes in the smt for each level, 2**arity
 - `keys (array[string number])`: list of keys to add to the smt
 - `values (array[string number])`: list of values to add to the smt
 - `expectedRoot (string number)`: final smt root
@@ -74,7 +75,6 @@ Add [key-values] to the smt
 Add ethereum address leaves and smart contract bytecode-storage on the smt to create a genesis state
 
 ### Params
-- `arity (number)`: number of nodes in the smt for each level, 2**arity
 - `addresses (array[object])`: list of objevts that defines the addresses to add to the smt and its values
   - `address (hex string)`: ethereum address
   - `balance (string weis)`: initial balance

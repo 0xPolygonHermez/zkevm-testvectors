@@ -48,9 +48,9 @@ describe('smt-genesis', async function () {
             }
 
             if (update) {
-                testVectors[i].expectedRoot = F.toString(tmpRoot);
+                testVectors[i].expectedRoot = (smtUtils.h4toScalar(tmpRoot)).toString();
             } else {
-                expect(F.toString(tmpRoot)).to.be.equal(expectedRoot);
+                expect((smtUtils.h4toScalar(tmpRoot)).toString()).to.be.equal(expectedRoot);
             }
         }
 

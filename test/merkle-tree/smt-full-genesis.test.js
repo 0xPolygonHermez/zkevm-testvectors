@@ -4,7 +4,7 @@ const path = require('path');
 const { argv } = require('yargs');
 
 const {
-    MemDB, SMT, stateUtils, getPoseidon,
+    MemDB, SMT, stateUtils, getPoseidon, smtUtils,
 } = require('@polygon-hermez/zkevm-commonjs');
 const { pathTestVectors } = require('../helpers/helpers');
 
@@ -57,9 +57,9 @@ describe('smt-full-genesis', async function () {
             }
 
             if (update) {
-                testVectors[i].expectedRoot = F.toString(tmpRoot);
+                testVectors[i].expectedRoot = (smtUtils.h4toScalar(tmpRoot)).toString();
             } else {
-                expect(F.toString(tmpRoot)).to.be.equal(expectedRoot);
+                expect((smtUtils.h4toScalar(tmpRoot)).toString()).to.be.equal(expectedRoot);
             }
         }
 

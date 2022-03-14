@@ -44,9 +44,9 @@ describe('smt-keys', async function () {
             const res = await smtUtils.keyEthAddrBalance(ethAddr);
 
             if (update) {
-                testVectorsKeysBalance[i].expectedKey = res.toString();
+                testVectorsKeysBalance[i].expectedKey = (smtUtils.h4toScalar(res)).toString();
             } else {
-                expect(res.toString()).to.be.equal(expectedKey);
+                expect((smtUtils.h4toScalar(res)).toString()).to.be.equal(expectedKey);
                 expect(leafType).to.be.equal(Constants.SMT_KEY_BALANCE);
             }
         }
@@ -65,9 +65,9 @@ describe('smt-keys', async function () {
             const res = await smtUtils.keyEthAddrNonce(ethAddr);
 
             if (update) {
-                testVectorsKeysNonce[i].expectedKey = res.toString();
+                testVectorsKeysNonce[i].expectedKey = (smtUtils.h4toScalar(res)).toString();
             } else {
-                expect(res.toString()).to.be.equal(expectedKey);
+                expect((smtUtils.h4toScalar(res)).toString()).to.be.equal(expectedKey);
                 expect(leafType).to.be.equal(Constants.SMT_KEY_NONCE);
             }
         }
@@ -86,9 +86,9 @@ describe('smt-keys', async function () {
             const res = await smtUtils.keyContractCode(ethAddr);
 
             if (update) {
-                testVectorsKeysContractCode[i].expectedKey = res.toString();
+                testVectorsKeysContractCode[i].expectedKey = (smtUtils.h4toScalar(res)).toString();
             } else {
-                expect(res.toString()).to.be.equal(expectedKey);
+                expect((smtUtils.h4toScalar(res)).toString()).to.be.equal(expectedKey);
                 expect(leafType).to.be.equal(Constants.SMT_KEY_SC_CODE);
             }
         }
@@ -107,9 +107,9 @@ describe('smt-keys', async function () {
             const res = await smtUtils.keyContractStorage(ethAddr, storagePosition);
 
             if (update) {
-                testVectorsKeysContractStorage[i].expectedKey = res.toString();
+                testVectorsKeysContractStorage[i].expectedKey = (smtUtils.h4toScalar(res)).toString();
             } else {
-                expect(res.toString()).to.be.equal(expectedKey);
+                expect((smtUtils.h4toScalar(res)).toString()).to.be.equal(expectedKey);
                 expect(leafType).to.be.equal(Constants.SMT_KEY_SC_STORAGE);
             }
         }

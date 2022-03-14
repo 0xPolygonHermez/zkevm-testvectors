@@ -42,7 +42,7 @@ describe('smt-raw', async function () {
             let tmpRoot = smt.empty;
 
             for (let j = 0; j < keys.length; j++) {
-                const key = Scalar.e(keys[j]);
+                const key = smtUtils.scalar2h4(keys[j]);
                 const value = Scalar.e(values[j]);
 
                 const res = await smt.set(tmpRoot, key, value);
