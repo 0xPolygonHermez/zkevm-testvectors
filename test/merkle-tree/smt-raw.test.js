@@ -4,7 +4,9 @@ const fs = require('fs');
 const path = require('path');
 const { argv } = require('yargs');
 
-const { MemDB, SMT, getPoseidon } = require('@polygon-hermez/zkevm-commonjs');
+const {
+    MemDB, SMT, getPoseidon, smtUtils,
+} = require('@polygon-hermez/zkevm-commonjs');
 const { pathTestVectors } = require('../helpers/helpers');
 
 describe('smt-raw', async function () {
@@ -29,18 +31,18 @@ describe('smt-raw', async function () {
         // build tree and check root
         for (let i = 0; i < testVectors.length; i++) {
             const {
-                arity, keys, values, expectedRoot,
+                keys, values, expectedRoot,
             } = testVectors[i];
 
             const db = new MemDB(F);
-            const smt = new SMT(db, arity, poseidon, poseidon.F);
+            const smt = new SMT(db, poseidon, poseidon.F);
 
             expect(keys.length).to.be.equal(values.length);
 
-            let tmpRoot = F.zero;
+            let tmpRoot = smt.empty;
 
             for (let j = 0; j < keys.length; j++) {
-                const key = F.e(keys[j]);
+                const key = smtUtils.scalar2h4(keys[j]);
                 const value = Scalar.e(values[j]);
 
                 const res = await smt.set(tmpRoot, key, value);
@@ -48,9 +50,9 @@ describe('smt-raw', async function () {
             }
 
             if (update) {
-                testVectors[i].expectedRoot = F.toString(tmpRoot);
+                testVectors[i].expectedRoot = smtUtils.h4toString(tmpRoot);
             } else {
-                expect(F.toString(tmpRoot)).to.be.equal(expectedRoot);
+                expect(smtUtils.h4toString(tmpRoot)).to.be.equal(expectedRoot);
             }
         }
 

@@ -2,7 +2,6 @@
 /* eslint-disable no-loop-func */
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-continue */
-const { buildPoseidon } = require('circomlibjs');
 const { Scalar } = require('ffjavascript');
 
 const ethers = require('ethers');
@@ -11,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 const { argv } = require('yargs');
 const {
-    MemDB, stateUtils, ZkEVMDB, processorUtils,
+    MemDB, stateUtils, ZkEVMDB, processorUtils, smtUtils, getPoseidon,
 } = require('@polygon-hermez/zkevm-commonjs');
 
 const { rawTxToCustomRawTx } = processorUtils;
@@ -32,7 +31,7 @@ describe('Run state-transition tests', function () {
     let F;
 
     before(async () => {
-        poseidon = await buildPoseidon();
+        poseidon = await getPoseidon();
         F = poseidon.F;
         update = argv.update === true;
     });
@@ -45,7 +44,6 @@ describe('Run state-transition tests', function () {
             for (let j = 0; j < testVectors.length; j++) {
                 const {
                     id,
-                    arity,
                     genesis,
                     expectedOldRoot,
                     txs,
@@ -154,10 +152,9 @@ describe('Run state-transition tests', function () {
                 // create a zkEVMDB and build a batch
                 const zkEVMDB = await ZkEVMDB.newZkEVM(
                     db,
-                    arity,
                     poseidon,
-                    F.zero,
-                    F.e(Scalar.e(localExitRoot)),
+                    [F.zero, F.zero, F.zero, F.zero],
+                    smtUtils.stringToH4(localExitRoot),
                     genesis,
                 );
 
@@ -170,12 +167,12 @@ describe('Run state-transition tests', function () {
                 }
 
                 if (update) {
-                    testVectors[j].expectedOldRoot = `0x${Scalar.e(F.toString(zkEVMDB.stateRoot)).toString(16).padStart(64, '0')}`;
+                    testVectors[j].expectedOldRoot = smtUtils.h4toString(zkEVMDB.stateRoot);
                 } else {
-                    expect(`0x${Scalar.e(F.toString(zkEVMDB.stateRoot)).toString(16).padStart(64, '0')}`).to.be.equal(expectedOldRoot);
+                    expect(smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
                 }
 
-                const batch = await zkEVMDB.buildBatch(timestamp, sequencerAddress, chainIdSequencer, F.e(Scalar.e(globalExitRoot)));
+                const batch = await zkEVMDB.buildBatch(timestamp, sequencerAddress, chainIdSequencer, smtUtils.stringToH4(globalExitRoot));
                 for (let k = 0; k < rawTxs.length; k++) {
                     batch.addRawTx(rawTxs[k]);
                 }
@@ -186,9 +183,9 @@ describe('Run state-transition tests', function () {
                 const newRoot = batch.currentStateRoot;
 
                 if (update) {
-                    testVectors[j].expectedNewRoot = `0x${Scalar.e(F.toString(newRoot)).toString(16).padStart(64, '0')}`;
+                    testVectors[j].expectedNewRoot = smtUtils.h4toString(newRoot);
                 } else {
-                    expect(`0x${Scalar.e(F.toString(newRoot)).toString(16).padStart(64, '0')}`).to.be.equal(expectedNewRoot);
+                    expect(smtUtils.h4toString(newRoot)).to.be.equal(expectedNewRoot);
                 }
 
                 // consoldate state
@@ -227,15 +224,15 @@ describe('Run state-transition tests', function () {
                 }
 
                 // Check the circuit input
-                const circuitInput = await batch.getCircuitInput();
+                const circuitInput = await batch.getStarkInput();
 
                 if (update) {
                     testVectors[j].batchL2Data = batch.getBatchL2Data();
-                    testVectors[j].batchHashData = `0x${Scalar.e(circuitInput.batchHashData).toString(16).padStart(64, '0')}`;
-                    testVectors[j].inputHash = `0x${Scalar.e(circuitInput.inputHash).toString(16).padStart(64, '0')}`;
-                    testVectors[j].globalExitRoot = `0x${Scalar.e(circuitInput.globalExitRoot).toString(16).padStart(64, '0')}`;
-                    testVectors[j].localExitRoot = `0x${Scalar.e(circuitInput.oldLocalExitRoot).toString(16).padStart(64, '0')}`;
-                    testVectors[j].newLocalExitRoot = `0x${Scalar.e(circuitInput.newLocalExitRoot).toString(16).padStart(64, '0')}`;
+                    testVectors[j].batchHashData = circuitInput.batchHashData;
+                    testVectors[j].inputHash = circuitInput.inputHash;
+                    testVectors[j].globalExitRoot = circuitInput.globalExitRoot;
+                    testVectors[j].localExitRoot = circuitInput.oldLocalExitRoot;
+                    testVectors[j].newLocalExitRoot = circuitInput.newLocalExitRoot;
 
                     const fileName = path.join(folderInputsExecutor, `${path.parse(listTests[i]).name}_${id}.json`);
                     await fs.writeFileSync(fileName, JSON.stringify(circuitInput, null, 2));

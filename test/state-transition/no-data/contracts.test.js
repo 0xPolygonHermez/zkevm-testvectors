@@ -1,6 +1,5 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable max-len */
-const { buildPoseidon } = require('circomlibjs');
 const { Scalar } = require('ffjavascript');
 const fs = require('fs');
 const path = require('path');
@@ -10,11 +9,12 @@ const { argv } = require('yargs');
 
 const {
     MemDB, stateUtils, contractUtils, ZkEVMDB, processorUtils,
+    getPoseidon, smtUtils, Constants,
 } = require('@polygon-hermez/zkevm-commonjs');
 
 const { rawTxToCustomRawTx } = processorUtils;
 
-const { calculateCircuitInput } = contractUtils;
+const { calculateSnarkInput } = contractUtils;
 
 const {
     ERC20PermitMock, GlobalExitRootManagerMock, Bridge, ProofOfEfficiencyMock, VerifierRollupHelperMock,
@@ -68,7 +68,7 @@ describe('Proof of efficiency test vectors', function () {
 
     beforeEach('Deploy contract', async () => {
         // build poseidon
-        poseidon = await buildPoseidon();
+        poseidon = await getPoseidon();
         F = poseidon.F;
 
         // load signers
@@ -122,7 +122,6 @@ describe('Proof of efficiency test vectors', function () {
     for (let i = 0; i < testVectors.length; i++) {
         const {
             id,
-            arity,
             genesis,
             expectedOldRoot,
             txs,
@@ -234,10 +233,9 @@ describe('Proof of efficiency test vectors', function () {
             // create a zkEVMDB and build a batch
             const zkEVMDB = await ZkEVMDB.newZkEVM(
                 db,
-                arity,
                 poseidon,
-                F.zero,
-                F.e(Scalar.e(localExitRoot)),
+                [F.zero, F.zero, F.zero, F.zero],
+                smtUtils.stringToH4(localExitRoot),
                 genesis,
             );
 
@@ -250,12 +248,12 @@ describe('Proof of efficiency test vectors', function () {
             }
 
             if (update) {
-                testVectors[i].expectedOldRoot = `0x${Scalar.e(F.toString(zkEVMDB.stateRoot)).toString(16).padStart(64, '0')}`;
+                testVectors[i].expectedOldRoot = smtUtils.h4toString(zkEVMDB.stateRoot);
             } else {
-                expect(`0x${Scalar.e(F.toString(zkEVMDB.stateRoot)).toString(16).padStart(64, '0')}`).to.be.equal(expectedOldRoot);
+                expect(smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
             }
 
-            const batch = await zkEVMDB.buildBatch(timestamp, sequencerAddress, chainIdSequencer, F.e(Scalar.e(globalExitRoot)));
+            const batch = await zkEVMDB.buildBatch(timestamp, sequencerAddress, chainIdSequencer, smtUtils.stringToH4(globalExitRoot));
             for (let j = 0; j < rawTxs.length; j++) {
                 batch.addRawTx(rawTxs[j]);
             }
@@ -266,9 +264,9 @@ describe('Proof of efficiency test vectors', function () {
             const newRoot = batch.currentStateRoot;
 
             if (update) {
-                testVectors[i].expectedNewRoot = `0x${Scalar.e(F.toString(newRoot)).toString(16).padStart(64, '0')}`;
+                testVectors[i].expectedNewRoot = smtUtils.h4toString(newRoot);
             } else {
-                expect(`0x${Scalar.e(F.toString(newRoot)).toString(16).padStart(64, '0')}`).to.be.equal(expectedNewRoot);
+                expect(smtUtils.h4toString(newRoot)).to.be.equal(expectedNewRoot);
             }
 
             // consoldate state
@@ -307,15 +305,15 @@ describe('Proof of efficiency test vectors', function () {
             }
 
             // Check the circuit input
-            const circuitInput = await batch.getCircuitInput();
+            const circuitInput = await batch.getStarkInput();
 
             if (update) {
                 testVectors[i].batchL2Data = batch.getBatchL2Data();
-                testVectors[i].batchHashData = `0x${Scalar.e(circuitInput.batchHashData).toString(16).padStart(64, '0')}`;
-                testVectors[i].inputHash = `0x${Scalar.e(circuitInput.inputHash).toString(16).padStart(64, '0')}`;
-                testVectors[i].globalExitRoot = `0x${Scalar.e(circuitInput.globalExitRoot).toString(16).padStart(64, '0')}`;
-                testVectors[i].localExitRoot = `0x${Scalar.e(circuitInput.oldLocalExitRoot).toString(16).padStart(64, '0')}`;
-                testVectors[i].newLocalExitRoot = `0x${Scalar.e(circuitInput.newLocalExitRoot).toString(16).padStart(64, '0')}`;
+                testVectors[i].batchHashData = circuitInput.batchHashData;
+                testVectors[i].inputHash = circuitInput.inputHash;
+                testVectors[i].globalExitRoot = circuitInput.globalExitRoot;
+                testVectors[i].localExitRoot = circuitInput.oldLocalExitRoot;
+                testVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
             } else {
                 // Check the encode transaction match with the vector test
                 expect(batchL2Data).to.be.equal(batch.getBatchL2Data());
@@ -395,15 +393,18 @@ describe('Proof of efficiency test vectors', function () {
                 );
 
                 // Compute Js input
-                const circuitInputJS = calculateCircuitInput(
+                const circuitInputJS = calculateSnarkInput(
                     currentStateRoot,
                     currentLocalExitRoot,
                     newStateRoot,
                     newLocalExitRoot,
                     circuitInput.batchHashData,
                 );
-                expect(circuitInputSC).to.be.equal(circuitInputJS);
-                expect(circuitInputSC).to.be.equal(`0x${Scalar.e(inputHash).toString(16)}`);
+                const circuitInputSCHex = `0x${Scalar.e(circuitInputSC).toString(16).padStart(64, '0')}`;
+                expect(circuitInputSCHex).to.be.equal(circuitInputJS);
+                // mod inputHash stark
+                const inputSnark = `0x${Scalar.mod(Scalar.fromString(inputHash, 16), Constants.FrSNARK).toString(16).padStart(64, '0')}`;
+                expect(circuitInputSCHex).to.be.equal(inputSnark);
 
                 // Check the input parameters are correct
                 const circuitNextInputSC = await proofOfEfficiencyContract.getNextCircuitInput(
