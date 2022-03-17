@@ -21,6 +21,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@ethereumjs/common": "^2.6.2",
     "@nomiclabs/hardhat-ethers": "^2.0.5",
     "@nomiclabs/hardhat-waffle": "^2.0.2",
     "@polygon-hermez/contracts-zkevm": "github:hermeznetwork/contracts-zkevm#v0.0.2",
