@@ -42,6 +42,7 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
         testVectors = require(genTestVectorPath);
         testVectorDataPath = '../../state-transition/calldata/';
         await hre.run('compile');
+        console.log(`   test vector name: ${file}`);
     });
 
     it('Generate new test vectors', async () => {
@@ -53,7 +54,7 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                 txs,
                 chainIdSequencer,
             } = testVectors[i];
-            console.log(`Executing test-vector id: ${id}`);
+            console.log(`       executing test-vector id: ${id}`);
 
             const common = Common.custom({ chainId: chainIdSequencer, hardfork: Hardfork.Berlin });
             const vm = new VM({ common });

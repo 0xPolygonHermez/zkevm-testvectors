@@ -42,20 +42,6 @@ function stringToHex32(value, leftAppend = false) {
     return leftAppend ? `0x${aux}` : aux;
 }
 
-function calculatebatchHashDataFromInput(input) {
-    console.log('Old batchHashData: ', input.batchHashData);
-    const batchHashData = zkcommonjs.contractUtils.calculateBatchHashData(
-        input.batchL2Data,
-        input.globalExitRoot,
-        input.timestamp,
-        input.sequencerAddr,
-        input.chainId,
-    );
-    console.log('New batchHashData: ', batchHashData);
-    input.batchHashData = batchHashData;
-    return input;
-}
-
 function updateMessageToHash(messageToHash) {
     const returnMessageToHash = [];
     for (let k = 0; k < messageToHash.length; k++) {
@@ -77,6 +63,5 @@ module.exports = {
     deployContract,
     stringToHex32,
     getAccountNonce,
-    calculatebatchHashDataFromInput,
     updateMessageToHash,
 };

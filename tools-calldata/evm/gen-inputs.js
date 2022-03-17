@@ -45,13 +45,14 @@ describe('Generate inputs executor from test-vectors', async function () {
         outputFlag = !!(argv.output);
         let file = (argv.vectors) ? argv.vectors : 'txs-calldata.json';
         file = file.endsWith('.json') ? file : `${file}.json`;
-        inputName = (argv.inputs) ? argv.inputs : (`input_${file.replace('.json', '_')}`);
+        inputName = (argv.inputs) ? argv.inputs : (`${file.replace('.json', '_')}`);
         testVectorDataPath = `../../state-transition/calldata/${file}`;
         testVectors = require(testVectorDataPath);
         internalTestVectorsPath = `./generate-test-vectors/gen-${file}`;
         internalTestVectors = require(internalTestVectorsPath);
         inputsPath = '../../inputs-executor/calldata/';
         await hre.run('compile');
+        console.log(`   test vector name: ${file}`);
     });
 
     it('Generate inputs', async () => {

@@ -44,6 +44,8 @@ jobs:
         run: npm run eslint
       - name: check no-data state-transition
         run: npm run test:st:no-data
+      - name: check calldata state-transition
+        run: npm run test:st:calldata
       - name: check smt
         run: npm run test:smt
       - name: check contracts
