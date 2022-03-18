@@ -1,0 +1,293 @@
+[
+  {
+    "id": 0,
+    "description": "Txs to call all functions of OpCompBitLogic contract (test)",
+    "arity": 4,
+    "chainIdSequencer": 1001,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x608060405234801561001057600080fd5b50600436106100ea5760003560e01c80639b8ed59c1161008c578063d33e437111610066578063d33e437114610153578063dc6e4ecc1461015d578063e640f52214610167578063f5c7788014610171576100ea565b80639b8ed59c14610135578063bc8671651461013f578063ca31689714610149576100ea565b80635c3ef7f6116100c85780635c3ef7f61461010d5780635e3f303e146101175780637db3fd8f1461012157806395c5863c1461012b576100ea565b8063144a8cba146100ef57806343621fb2146100f95780635b2529f314610103575b600080fd5b6100f761017b565b005b61010161018a565b005b61010b610199565b005b6101156101a6565b005b61011f6101b5565b005b6101296101c4565b005b6101336101d3565b005b61013d6101e2565b005b6101476101f1565b005b6101516101ff565b005b61015b61020e565b005b61016561021d565b005b61016f61022c565b005b610179610239565b005b60026008138060005260206000f35b60086002188060005260206000f35b6002198060005260206000f35b60086002178060005260206000f35b60086002108060005260206000f35b600860021d8060005260206000f35b600860021b8060005260206000f35b60086002118060005260206000f35b600880148060005260206000f35b60026008128060005260206000f35b600860021a8060005260206000f35b600860021c8060005260206000f35b6000158060005260206000f35b60086002168060005260206000f3fea2646970667358221220abc018a6981d472f8ca10c3f4138f2a7700fc89ea3db9e6f998d936f5f68ea1564736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [],
+            "name": "opAnd",
+            "outputs": [],
+            "stateMutability": "pure",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opByte",
+            "outputs": [],
+            "stateMutability": "pure",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opEq",
+            "outputs": [],
+            "stateMutability": "pure",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opGt",
+            "outputs": [],
+            "stateMutability": "pure",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opIsZero",
+            "outputs": [],
+            "stateMutability": "pure",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLt",
+            "outputs": [],
+            "stateMutability": "pure",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opNot",
+            "outputs": [],
+            "stateMutability": "pure",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opOr",
+            "outputs": [],
+            "stateMutability": "pure",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opSGt",
+            "outputs": [],
+            "stateMutability": "pure",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opSLt",
+            "outputs": [],
+            "stateMutability": "pure",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opSar",
+            "outputs": [],
+            "stateMutability": "pure",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opShl",
+            "outputs": [],
+            "stateMutability": "pure",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opShr",
+            "outputs": [],
+            "stateMutability": "pure",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opXor",
+            "outputs": [],
+            "stateMutability": "pure",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      }
+    ],
+    "expectedOldRoot": "0x626fea06e21d1b9f42f3610a93d23264b0e3ad5d594a3467873832ba074d7446",
+    "txs": [
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "0",
+        "value": "0",
+        "data": "0x5e3f303e",
+        "gasLimit": 100000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "1",
+        "value": "0",
+        "data": "0x9b8ed59c",
+        "gasLimit": 100000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "2",
+        "value": "0",
+        "data": "0xca316897",
+        "gasLimit": 100000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "3",
+        "value": "0",
+        "data": "0x144a8cba",
+        "gasLimit": 100000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "4",
+        "value": "0",
+        "data": "0xbc867165",
+        "gasLimit": 100000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "5",
+        "value": "0",
+        "data": "0xe640f522",
+        "gasLimit": 100000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "6",
+        "value": "0",
+        "data": "0xf5c77880",
+        "gasLimit": 100000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "7",
+        "value": "0",
+        "data": "0x5c3ef7f6",
+        "gasLimit": 100000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "8",
+        "value": "0",
+        "data": "0x43621fb2",
+        "gasLimit": 100000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "9",
+        "value": "0",
+        "data": "0x5b2529f3",
+        "gasLimit": 100000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "10",
+        "value": "0",
+        "data": "0xd33e4371",
+        "gasLimit": 100000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "11",
+        "value": "0",
+        "data": "0x95c5863c",
+        "gasLimit": 100000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "12",
+        "value": "0",
+        "data": "0xdc6e4ecc",
+        "gasLimit": 100000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "13",
+        "value": "0",
+        "data": "0x7db3fd8f",
+        "gasLimit": 100000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      }
+    ],
+    "expectedNewRoot": "0xa8d263a3c6c999932ebf61e33fca250241f29724f1c617e002a0fe051f946818",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100000294896000000000",
+        "nonce": "0"
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "199999705104000000000",
+        "nonce": "14"
+      }
+    },
+    "timestamp": 1944498031,
+    "newLocalExitRoot": "0x17c04c3760510b48c6012742c540a81aba4bca2f78b9d14bfd2f123e2e53ea3e",
+    "batchHashData": "0xce02e8a3c8f96c56fa1cc262e43d7ca72247c1c13229f53570394a477776ea46",
+    "inputHash": "0x4308a440766379cfef4c237e74facef4a66029adbb043cc2da8fbb3ec844f82e",
+    "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "localExitRoot": "0x17c04c3760510b48c6012742c540a81aba4bca2f78b9d14bfd2f123e2e53ea3e",
+    "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880845e3f303e8203e980806d2600311b78cf5ed94c4918d3d65d27f42b47f117bc0dd3cb49a5ae8a2a845b4cacf20ac249aa3a177416f319c7427721c524bd88cfb86db0340642bb94003e1bea01843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880849b8ed59c8203e98080ab67bfd4f827c0e4250c4d473a8dc5c821b7990f7692322adba51789d1033c802f84c15eacf0bd271f5c42921d1444ecd23320b232f37792fdcdba09056fa6911cea02843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084ca3168978203e98080000e0a385747a96313232ddea5fcb4444ce7e41a3827230e5338a8f0862f33501786d2fa18a08e523866127fc79e31b0231cc2347b6df02ebaf1bb7afb2ca0921bea03843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084144a8cba8203e980807abfd86f00095aa97aea5db7263b9158258ae5bf191434e5d20008eceb1930a744c894210efd404002a45f4b936977925380e6b7d7af559b4112dbab003654401bea04843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084bc8671658203e980806e94d0088ef1c7670f307db8e2f8e868e8d688d08286af73a6e4b3de4653cbdb7b85de1c7731875a52ee0c4b3ac18a3d7e8cbeadfbbb9326d98dce1f32fc83dc1bea05843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084e640f5228203e9808033b59a606184ea7639d07e440c31fe1dfeebb775565cdc93b4cfdbf04ba1d44112ac07649a81c5dc30e0f6f59787017986df4b8972c9a88ad659ff4c4ec481031cea06843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084f5c778808203e980804c95625066f6a426b4f30cce2b6ad44052ab3fb57c903a5784cd840ea717317d3f426d7cdc51b6c082e88024b3b89e1f915af6733d16e041261b1772460a90f51cea07843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880845c3ef7f68203e9808023da767c6dcc0614cb67c619a1ba091368f95423c8519aa071467b9e1db4d3860d7ca7d7cf53e62f5c906843a44a01ce56c013ba2ca4d662b901a5651b8b77b41bea08843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae98808443621fb28203e980807e9247339b0fd3d401248136749bfa649f1111afedc8c2120d2a5677d822237767837e805ed235ace3ca50c4ad087a1b0be2e9c649c26bf4b7bbe6f6abf0115b1cea09843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880845b2529f38203e9808001eb5c0b14b203db8059812783e4777a749cc07b00d9e7f7864cafe77064bd20462a7f1a654f48220d4b4be4d9422b6e1a6b5fb5193b9bf8d04813d5ec4916281cea0a843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084d33e43718203e98080f39f6e90fe01fb18db0d3a74ec7239de8cac93133834d94d18339ea8e52fcbfb08b82b21c35f0394dd69329c63f03e1767de088d097c773c3c275eb533c138181bea0b843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae98808495c5863c8203e98080e3074ccf628370803b737cf55e853c8d75a5eeb67c887049b0734f76aabd44c16a8a9bf45d5c4f709ddee2b9071a3412f0d57b3e8fe6201ef7938d4c9e3800c91cea0c843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084dc6e4ecc8203e98080e9ba08abb0a14aa6dc67bad6e696dece4ac41ad94bfc09e1709d7a95d0d840b4069e95a1b8b5b147359eda6e9ff1a89f3bd730d2ffa8e53e682915527eac32a91cea0d843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880847db3fd8f8203e980803f54d840a3cc4f65669c47cc267ad29d9437d1123e4a1e621363de53aaba6d13340392ea43d964c35cffad9a771795725db714e8bca3f6c16a3acff854f7306e1c"
+  }
+]

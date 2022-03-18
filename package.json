@@ -10,6 +10,8 @@
     "test:smt": "npx mocha ./test/merkle-tree/**.js",
     "update:smt": "npx mocha ./test/merkle-tree/**.js --update",
     "test:st:no-data": "npx mocha ./test/state-transition/no-data/st-all.test.js",
+    "test:st:calldata": "npx mocha ./test/state-transition/calldata/st-all.test.js",
+    "update:st:calldata": "cd ./tools-calldata/evm && ./gen-all.sh",
     "update:st:no-data": "npx mocha ./test/state-transition/no-data/st-all.test.js --update",
     "test:contracts": "npx mocha ./test/state-transition/no-data/contracts.test.js"
   },

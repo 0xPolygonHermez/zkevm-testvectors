@@ -1,0 +1,72 @@
+[
+  {
+    "id": 0,
+    "description": "Txs to call all functions of OpSha contract (test)",
+    "arity": 4,
+    "chainIdSequencer": 1001,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c80633f27ca8e14602d575b600080fd5b60336035565b005b600160005260206000208060005260206000f3fea26469706673582212207a9bd2acc9c6f9da638357c5e93ac1bc551f8b988ab429b7d640b1fe7a9a310b64736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [],
+            "name": "opKeccak256",
+            "outputs": [],
+            "stateMutability": "pure",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      }
+    ],
+    "expectedOldRoot": "0x626fea06e21d1b9f42f3610a93d23264b0e3ad5d594a3467873832ba074d7446",
+    "txs": [
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "0",
+        "value": "0",
+        "data": "0x3f27ca8e",
+        "gasLimit": 100000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      }
+    ],
+    "expectedNewRoot": "0xb88ae600facb72f85d334844acf4d736634aea37cfc2de53f02d3fbdc42e6027",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100000021064000000000",
+        "nonce": "0"
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "199999978936000000000",
+        "nonce": "1"
+      }
+    },
+    "timestamp": 1944498031,
+    "newLocalExitRoot": "0x17c04c3760510b48c6012742c540a81aba4bca2f78b9d14bfd2f123e2e53ea3e",
+    "batchHashData": "0x258133621f090326e05dd80914b83a18b0ca328b5c6bdbe85217ed996944db32",
+    "inputHash": "0x8a8e17fabf23a7ef9b2d43809e3fe83373b809ac1e13f8d6e1003e33d98c21b9",
+    "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "localExitRoot": "0x17c04c3760510b48c6012742c540a81aba4bca2f78b9d14bfd2f123e2e53ea3e",
+    "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880843f27ca8e8203e980807e3489ea58f27a6f3ec96565046bb072a0c434c57b2c226fac6736cc8bca55bb6775e1b259fb04372cda2112c86baa04dea1138fad7bcb7d2ff188d2009e78fb1b"
+  }
+]
