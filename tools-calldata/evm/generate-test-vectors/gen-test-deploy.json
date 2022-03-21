@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "description": "2 accounts and 1 valid transaction (Contract simple call).",
+    "description": "Deployment Test",
     "arity": 4,
     "chainIdSequencer": 1001,
     "defaultChainId": 1000,
@@ -21,54 +21,47 @@
           "balance": "200000000000000000000",
           "nonce": "0"
         }
-      ],
-      "contracts": [
-        {
-          "contractName": "Test2",
-          "paramsDeploy": []
-        }
       ]
     },
-    "expectedOldRoot": "0x84918c8f273eaf8ee89d766e66b4e558b45d153b1b80b2d8dbd3c09b0dc02064",
+    "expectedOldRoot": "0x9794250a6924d7da41d5ea2fda8fcfd3bb8249ffc9ba94624e439e88baaac13b",
     "txs": [
       {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-        "to": "contract",
+        "to": "deploy",
         "nonce": "0",
         "value": "0",
-        "contractName": "Test2",
-        "function": "opAddTest",
+        "contractName": "Test",
         "params": [],
-        "gasLimit": 3000000,
+        "gasLimit": 80000000,
         "gasPrice": "1000000000",
         "chainId": 1001
       }
     ],
-    "expectedNewRoot": "0x9eee87de1b64bb967731c4c50eadb18ed6216d4e89ffc59a336ff71dacf50dc2",
+    "expectedNewRoot": "0x8afaba098a20f026253a07b7b28a614cf2ccfaba55835b7aa6d92b0aa256b2f9",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
-        "balance": "100000021392000000000",
+        "balance": "100000236361000000000",
         "nonce": "0"
       },
       "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
-        "balance": "199999978608000000000",
+        "balance": "199999763639000000000",
         "nonce": "1"
       },
       "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
         "balance": "0",
-        "nonce": "1"
+        "nonce": "0"
       }
     },
     "timestamp": 1944498031,
     "newLocalExitRoot": "0x17c04c3760510b48c6012742c540a81aba4bca2f78b9d14bfd2f123e2e53ea3e",
-    "batchHashData": "0xcd1bf397f7165a76ea035ef2d1559e8f13555f82688bcd6a5c249e989503e628",
-    "inputHash": "0x057b05d91fb490c62165e147be5190c64616f2f29187cb885a0f3226888084c5",
+    "batchHashData": "0xa808beaf9f1469e11d1f7628e65a028f663cf8ce21c0ab4e4b9639162729e140",
+    "inputHash": "0x9d2b369a212efef47c72b11e28d2519130591d2d71181e778ddcc715db0ec40e",
     "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "localExitRoot": "0x17c04c3760510b48c6012742c540a81aba4bca2f78b9d14bfd2f123e2e53ea3e"
   },
   {
     "id": 1,
-    "description": "2 accounts and 1 valid transaction (Contract assembly call).",
+    "description": "Deployment Test2",
     "arity": 4,
     "chainIdSequencer": 1001,
     "defaultChainId": 1000,
@@ -88,54 +81,107 @@
           "balance": "200000000000000000000",
           "nonce": "0"
         }
-      ],
-      "contracts": [
-        {
-          "contractName": "Test3",
-          "paramsDeploy": []
-        }
       ]
     },
-    "expectedOldRoot": "0x4e067209e173bbcc4c24408581340b308b3b7316ecabb1b94cc0e652d490ed40",
+    "expectedOldRoot": "0x9794250a6924d7da41d5ea2fda8fcfd3bb8249ffc9ba94624e439e88baaac13b",
     "txs": [
       {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-        "to": "contract",
+        "to": "deploy",
         "nonce": "0",
         "value": "0",
-        "contractName": "Test3",
-        "function": "opAddTest",
+        "contractName": "Test2",
         "params": [],
-        "gasLimit": 100000,
+        "gasLimit": 80000000,
         "gasPrice": "1000000000",
         "chainId": 1001
       }
     ],
-    "expectedNewRoot": "0xfc0e887b15530dc543a7a4ebef8a3fd01b36f9cbcbae82014412df31e5543edb",
+    "expectedNewRoot": "0x5e54fabf185685b5e92863d33ffa9b7326804b414988f349544bec513555a999",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
-        "balance": "100000021204000000000",
+        "balance": "100000093807000000000",
         "nonce": "0"
       },
       "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
-        "balance": "199999978796000000000",
+        "balance": "199999906193000000000",
         "nonce": "1"
       },
       "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
         "balance": "0",
-        "nonce": "1"
+        "nonce": "0"
       }
     },
     "timestamp": 1944498031,
     "newLocalExitRoot": "0x17c04c3760510b48c6012742c540a81aba4bca2f78b9d14bfd2f123e2e53ea3e",
-    "batchHashData": "0xb02799479b9522090e35290ca0b4d63141111a0b9193d2a4b7a356702cafcb37",
-    "inputHash": "0x40a90e2822f83d21fec298d3fa0e27000dfbaa5f5c6d5814eeb56e67302a6afb",
+    "batchHashData": "0xc3e82e17dc41127ffdd90f2d0e6e2bda57d132f0053d5600e9bbafca8a835555",
+    "inputHash": "0x880169c7d11985a352ecc18ca3a04f939bf32ac5ebd1bd8c826afd27c9734afc",
     "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "localExitRoot": "0x17c04c3760510b48c6012742c540a81aba4bca2f78b9d14bfd2f123e2e53ea3e"
   },
   {
     "id": 2,
-    "description": "2 accounts and 1 valid transaction (contract update storage).",
+    "description": "Deployment Test3",
+    "arity": 4,
+    "chainIdSequencer": 1001,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": {
+      "accounts": [
+        {
+          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+          "balance": "100000000000000000000",
+          "nonce": "0"
+        },
+        {
+          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
+          "balance": "200000000000000000000",
+          "nonce": "0"
+        }
+      ]
+    },
+    "expectedOldRoot": "0x9794250a6924d7da41d5ea2fda8fcfd3bb8249ffc9ba94624e439e88baaac13b",
+    "txs": [
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "deploy",
+        "nonce": "0",
+        "value": "0",
+        "contractName": "Test3",
+        "params": [],
+        "gasLimit": 80000000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      }
+    ],
+    "expectedNewRoot": "0xb627eed94bcb2ada8e1a5b84067a520eb12e8e184a50dda030b9854ef0d73039",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100000094431000000000",
+        "nonce": "0"
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "199999905569000000000",
+        "nonce": "1"
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "0"
+      }
+    },
+    "timestamp": 1944498031,
+    "newLocalExitRoot": "0x17c04c3760510b48c6012742c540a81aba4bca2f78b9d14bfd2f123e2e53ea3e",
+    "batchHashData": "0xbcb9900e0b9a70c2a513b08028b1c402f392c75003f2dfc0bd7e36c66c5bfbf1",
+    "inputHash": "0x465898b36f6bc7313023aa6cc389f1f8ae49b2a4d15ab7255965f8d477a56465",
+    "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "localExitRoot": "0x17c04c3760510b48c6012742c540a81aba4bca2f78b9d14bfd2f123e2e53ea3e"
+  },
+  {
+    "id": 3,
+    "description": "Deployment Test4 (with one contract in genesis)",
     "arity": 4,
     "chainIdSequencer": 1001,
     "defaultChainId": 1000,
@@ -167,27 +213,26 @@
     "txs": [
       {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-        "to": "contract",
+        "to": "deploy",
         "nonce": "0",
         "value": "0",
-        "contractName": "Test",
-        "function": "setFirst",
+        "contractName": "Test4",
         "params": [
-          5
+          3
         ],
         "gasLimit": 80000000,
         "gasPrice": "1000000000",
         "chainId": 1001
       }
     ],
-    "expectedNewRoot": "0x2c79e1959557a3e7293194f42f4249863e9a64db1de890cd519e579fd29a89e4",
+    "expectedNewRoot": "0xc76f33180fb8b7226c837cf91dd1792174fdb079c76317b7d631dc028c5265c5",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
-        "balance": "100000026624000000000",
+        "balance": "100000148238000000000",
         "nonce": "0"
       },
       "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
-        "balance": "199999973376000000000",
+        "balance": "199999851762000000000",
         "nonce": "1"
       },
       "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
@@ -197,8 +242,8 @@
     },
     "timestamp": 1944498031,
     "newLocalExitRoot": "0x17c04c3760510b48c6012742c540a81aba4bca2f78b9d14bfd2f123e2e53ea3e",
-    "batchHashData": "0xd2f69a35e6a54b88610f0431e248abeff383a27488291ef604d2e955c980043b",
-    "inputHash": "0x14fbd057a8a8a7c6a3e478f43f7cff3bef6fa50574eb8a70496dfb4a301527e5",
+    "batchHashData": "0x10f3b040b02ef6c2fba990c64c9aab2b1a7dcdb54840ac9b0cb6900e9fb4b66b",
+    "inputHash": "0x22e26c3a1e339474fada9bc0ba534c097c480a231dff2f005335761472dc8437",
     "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "localExitRoot": "0x17c04c3760510b48c6012742c540a81aba4bca2f78b9d14bfd2f123e2e53ea3e"
   }
