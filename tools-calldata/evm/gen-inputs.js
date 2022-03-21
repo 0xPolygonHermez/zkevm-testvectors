@@ -151,6 +151,8 @@ describe('Generate inputs executor from test-vectors', async function () {
                     }
                     to = '0x';
                     output.bytecodelength[currentTx.from.toLowerCase() + currentTx.nonce] = currentTx.bytecodelength;
+                    const hashByteCode = await zkcommonjs.smtUtils.hashContractBytecode(currentTx.deployedBytecode);
+                    output.contractsBytecode[currentTx.from.toLowerCase() + currentTx.nonce] = hashByteCode;
                 } else {
                     to = tx.to;
                 }

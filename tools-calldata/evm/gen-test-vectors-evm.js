@@ -145,7 +145,7 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                     if (currentTx.customRawTx) { outputTx.customRawTx = currentTx.customRawTx; }
                 } else if (currentTx.to === 'deploy') {
                     const { contractName } = currentTx;
-                    const { abi, bytecode } = require(`${artifactsPath}/${contractName}.sol/${contractName}.json`);
+                    const { abi, bytecode, deployedBytecode } = require(`${artifactsPath}/${contractName}.sol/${contractName}.json`);
                     const interfaceContract = new ethers.utils.Interface(abi);
                     let params = '';
                     if (currentTx.params.length > 0) { params = interfaceContract.encodeDeploy([currentTx.params]); }
@@ -160,6 +160,7 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                         gasPrice: currentTx.gasPrice,
                         chainId: currentTx.chainId,
                         bytecodelength: bytecode.length,
+                        deployedBytecode,
                     };
                 } else {
                     outputTx = currentTx;
