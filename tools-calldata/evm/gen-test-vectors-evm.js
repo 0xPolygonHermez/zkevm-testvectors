@@ -48,6 +48,7 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
     it('Generate new test vectors', async () => {
         for (let i = 0; i < testVectors.length; i++) {
             outputTestVector = testVectors[i];
+            outputTestVector.expectedNewLeafs = {};
             const {
                 id,
                 genesis,
@@ -65,6 +66,7 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                 const {
                     address, balance, nonce, pvtKey,
                 } = genesis.accounts[j];
+                outputTestVector.expectedNewLeafs[address] = {};
                 auxGenesis.push({
                     address,
                     nonce,
@@ -120,6 +122,7 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                         abi,
                         storage,
                     });
+                    outputTestVector.expectedNewLeafs[contractAddress.toString('hex')] = {};
                 }
             }
 
@@ -162,6 +165,8 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                         bytecodelength: bytecode.length,
                         deployedBytecode,
                     };
+                    const contractAddress = ethers.utils.getContractAddress(outputTx);
+                    outputTestVector.expectedNewLeafs[contractAddress.toString('hex')] = {};
                 } else {
                     outputTx = currentTx;
                 }

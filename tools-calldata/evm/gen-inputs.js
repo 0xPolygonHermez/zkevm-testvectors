@@ -201,7 +201,6 @@ describe('Generate inputs executor from test-vectors', async function () {
             // Check new root
             expect(zkcommonjs.smtUtils.h4toString(batch.currentStateRoot)).to.be.equal(expectedNewRoot);
 
-            // TODO: delete
             // Check balances and nonces
             // eslint-disable-next-line no-restricted-syntax
             for (const [address] of Object.entries(expectedNewLeafs)) {
@@ -209,6 +208,14 @@ describe('Generate inputs executor from test-vectors', async function () {
                 if (update) { expectedNewLeafs[address] = { balance: newLeaf.balance.toString(), nonce: newLeaf.nonce.toString() }; }
                 expect(newLeaf.balance.toString()).to.equal(expectedNewLeafs[address].balance);
                 expect(newLeaf.nonce.toString()).to.equal(expectedNewLeafs[address].nonce);
+                const currentHash = await zkEVMDB.getCurrentContractHashBytecode(address);
+                if (currentHash !== '0x0000000000000000000000000000000000000000000000000000000000000000') {
+                    const storageContract0 = await zkEVMDB.getCurrentContractStorage(address, [0]);
+                    if (Object.keys(storageContract0).length !== 0) {
+                        if (update) { expectedNewLeafs[address].storagePos0 = `0x${storageContract0[0].toString(16)}`; }
+                        expect(`0x${storageContract0[0].toString(16)}`).to.equal(expectedNewLeafs[address].storagePos0);
+                    }
+                }
             }
 
             for (const x in output) {
