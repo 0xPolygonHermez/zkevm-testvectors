@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable prefer-const */
@@ -34,6 +35,8 @@ describe('Generate inputs executor from test-vectors', async function () {
     let inputsPath;
     let internalTestVectors;
     let internalTestVectorsPath;
+    let evmDebug;
+    let file;
 
     before(async () => {
         poseidon = await zkcommonjs.getPoseidon();
@@ -42,8 +45,9 @@ describe('Generate inputs executor from test-vectors', async function () {
 
     it('load test vectors', async () => {
         update = !!(argv.update);
+        evmDebug = !!(argv['evm-debug']);
         outputFlag = !!(argv.output);
-        let file = (argv.vectors) ? argv.vectors : 'txs-calldata.json';
+        file = (argv.vectors) ? argv.vectors : 'txs-calldata.json';
         file = file.endsWith('.json') ? file : `${file}.json`;
         inputName = (argv.inputs) ? argv.inputs : (`${file.replace('.json', '_')}`);
         testVectorDataPath = `../../state-transition/calldata/${file}`;
@@ -183,6 +187,11 @@ describe('Generate inputs executor from test-vectors', async function () {
 
             // Compare storage
             await batch.executeTxs();
+
+            if (evmDebug) {
+                await generateEvmDebugFile(batch.evmSteps, `${file.split('.')[0]}-${i}.json`);
+            }
+
             await zkEVMDB.consolidate(batch);
             const circuitInput = await batch.getStarkInput();
 
@@ -235,4 +244,42 @@ describe('Generate inputs executor from test-vectors', async function () {
             await fs.writeFileSync(path.join(__dirname, internalTestVectorsPath), JSON.stringify(internalTestVectors, null, 2));
         }
     });
+
+    async function generateEvmDebugFile(evmTxSteps, fileName) {
+        // Create dir if not exists
+        const dir = path.join(__dirname, '/evm-stack-logs');
+        if (!fs.existsSync(dir)) {
+            fs.mkdirSync(dir);
+        }
+        const data = {};
+        let txId = 0;
+        for (const txSteps of evmTxSteps) {
+            if (txSteps) {
+                const stepObjs = [];
+                for (const step of txSteps) {
+                    if (step) {
+                        // Format memory
+                        let memory = step.memory.data.map((v) => v.toString(16)).join('').padStart(192, '0');
+                        memory = memory.match(/.{1,32}/g); // split in 32 bytes slots
+                        memory = memory.map((v) => `0x${v}`);
+
+                        stepObjs.push({
+                            pc: step.pc,
+                            opcode: {
+                                name: step.opcode.name,
+                                fee: step.opcode.fee,
+                            },
+                            gasLeft: Number(`0x${step.gasLeft}`),
+                            gasRefund: Number(`0x${step.gasRefund}`),
+                            memory,
+                            stack: step.stack.map((v) => `0x${v.toString('hex')}`),
+                        });
+                    }
+                }
+                data[txId] = stepObjs;
+                txId += 1;
+            }
+        }
+        fs.writeFileSync(path.join(dir, fileName), JSON.stringify(data, null, 2));
+    }
 });
