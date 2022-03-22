@@ -24,12 +24,12 @@ function nameOpCodes(raw, opcodes) {
         const curOpCode = (typeof tmpOpcode === 'undefined' || tmpOpcode === null) ? undefined : tmpOpcode.name;
 
         // no destinations into the middle of PUSH
-        if (curOpCode.slice(0, 4) === 'PUSH') {
+        if (curOpCode?.slice(0, 4) === 'PUSH') {
             const jumpNum = raw[pc] - 0x5f;
             pushData = raw.slice(pc + 1, pc + jumpNum + 1);
             i += jumpNum;
         }
-        const info = `${pad(pc, roundLog(raw.length, 10))}  ${curOpCode} ${pushData.toString('hex')}`;
+        const info = `${pad(pc, roundLog(raw.length, 10))}  ${curOpCode} ${pushData?.toString('hex')}`;
         console.log(info);
         infoFull.push(info);
 
