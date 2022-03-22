@@ -5,9 +5,9 @@ name: Check test-vectors
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
@@ -50,3 +50,5 @@ jobs:
         run: npm run test:smt
       - name: check contracts
         run: npm run test:contracts
+      - name: check mt bridge
+        run: npm run test:mt:bridge
