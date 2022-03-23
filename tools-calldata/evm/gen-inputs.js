@@ -11,6 +11,7 @@ const { Hardfork } = require('@ethereumjs/common');
 const { BN, toBuffer } = require('ethereumjs-util');
 const { ethers } = require('ethers');
 const hre = require('hardhat');
+const lodash = require('lodash');
 
 const zkcommonjs = require('@polygon-hermez/zkevm-commonjs');
 const { expect } = require('chai');
@@ -208,13 +209,10 @@ describe('Generate inputs executor from test-vectors', async function () {
                 if (update) { expectedNewLeafs[address] = { balance: newLeaf.balance.toString(), nonce: newLeaf.nonce.toString() }; }
                 expect(newLeaf.balance.toString()).to.equal(expectedNewLeafs[address].balance);
                 expect(newLeaf.nonce.toString()).to.equal(expectedNewLeafs[address].nonce);
-                const currentHash = await zkEVMDB.getCurrentContractHashBytecode(address);
-                if (currentHash !== '0x0000000000000000000000000000000000000000000000000000000000000000') {
-                    const storageContract0 = await zkEVMDB.getCurrentContractStorage(address, [0]);
-                    if (Object.keys(storageContract0).length !== 0) {
-                        if (update) { expectedNewLeafs[address].storagePos0 = `0x${storageContract0[0].toString(16)}`; }
-                        expect(`0x${storageContract0[0].toString(16)}`).to.equal(expectedNewLeafs[address].storagePos0);
-                    }
+                const storage = await zkEVMDB.dumpStorage(address);
+                if (storage !== null) {
+                    if (update) { expectedNewLeafs[address].storage = storage; }
+                    expect(lodash.isEqual(storage, expectedNewLeafs[address].storage)).to.be.equal(true);
                 }
             }
 
@@ -235,6 +233,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 testVectors[i].inputHash = circuitInput.inputHash;
                 testVectors[i].globalExitRoot = circuitInput.globalExitRoot;
                 testVectors[i].localExitRoot = circuitInput.oldLocalExitRoot;
+                internalTestVectors[i].batchL2Data = batch.getBatchL2Data();
                 internalTestVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
                 internalTestVectors[i].expectedOldRoot = expectedOldRoot;
                 internalTestVectors[i].expectedNewRoot = expectedNewRoot;

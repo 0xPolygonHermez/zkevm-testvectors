@@ -3,7 +3,7 @@ pragma solidity 0.8.7;
 
 contract OpComp {
 
-    uint256 public ret;
+    uint256 public ret = 2;
 
     // opcode 0x10
     function opLt1() public {
