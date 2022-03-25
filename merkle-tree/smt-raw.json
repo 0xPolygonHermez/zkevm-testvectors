@@ -15,7 +15,7 @@
     "values": [
       "1"
     ],
-    "expectedRoot": "0xa261cc116c77dea89237cad6a3dfb3d2e6a96657d16fe33c1aacd42de6bf67d0"
+    "expectedRoot": "0x42bb2f66296df03552203ae337815976ca9c1bf52cc1bdd59399ede8fea8a822"
   },
   {
     "keys": [
@@ -24,7 +24,7 @@
     "values": [
       "18446744073709551615"
     ],
-    "expectedRoot": "0x74b4a1d19a67670932c92638bc693f62958c681d2a9984d8d37002bc28d7729b"
+    "expectedRoot": "0xfe8e54ccf991c23ee0287172ef5dd21f7712b6f9ad22310650ae1c4b83527c96"
   },
   {
     "keys": [
@@ -33,7 +33,7 @@
     "values": [
       "18446744073709551614"
     ],
-    "expectedRoot": "0x8bf113ff707d8eac600c1860515689070f6278751153922e028c5544312111c3"
+    "expectedRoot": "0x33361e22e308403da886199cc3bdfe396fd331378472c119cfbd5b67e8176edc"
   },
   {
     "keys": [
@@ -42,7 +42,7 @@
     "values": [
       "18446744073709551616"
     ],
-    "expectedRoot": "0xf85cd19c6024fc27893d65d0ef8514f16bd7d7fff00e036a4ac542bd7358afd6"
+    "expectedRoot": "0x2ba6b371e7f721f18e705f64747f51a506b7a684fd16fb37caa2347d7e2bb14a"
   },
   {
     "keys": [
@@ -51,7 +51,7 @@
     "values": [
       "340282366920938463463374607431768211455"
     ],
-    "expectedRoot": "0xb280228b7ddc43634475bb966dd09f6ebad669190fc21e9ddee0f6f8888d0ca8"
+    "expectedRoot": "0xa9c0b45fc8ae249981f0ecd85d305c5e7b20f2d3752b0b91a475c3e0a1cec759"
   },
   {
     "keys": [
@@ -60,7 +60,7 @@
     "values": [
       "340282366920938463463374607431768211454"
     ],
-    "expectedRoot": "0xe331503d31fd2a0297b7578af111de5c0a263888eb03ac1c3d08d46f1f137e73"
+    "expectedRoot": "0x64c78ae2095e9023a18058fa0a3681de90eb6b557881cdaecf1cf98b5aeaed11"
   },
   {
     "keys": [
@@ -69,7 +69,7 @@
     "values": [
       "340282366920938463463374607431768211456"
     ],
-    "expectedRoot": "0x3ee39b5521807e6d7638cef78d6fc03c1bd7c320f00b35f3bccfaf1eb60245e7"
+    "expectedRoot": "0xbc0611f295ea1741bfd408f94256239e29f9a24923cf0a44cb17c978994b3dbe"
   },
   {
     "keys": [
@@ -78,7 +78,7 @@
     "values": [
       "6277101735386680763835789423207666416102355444464034512895"
     ],
-    "expectedRoot": "0x66cccabd6b15eea9d551aed72937f6c4f024ffbb4879281e93e0de5baa33d905"
+    "expectedRoot": "0x35e00ac3f1bda4e5ae1919b3181debc3a19c9cd109823e56c677df8d36bf3338"
   },
   {
     "keys": [
@@ -87,7 +87,7 @@
     "values": [
       "6277101735386680763835789423207666416102355444464034512896"
     ],
-    "expectedRoot": "0x241f0849cb17b5079d6d2a1be88f28f62d613a55de3a9e07e65238e90e4a6073"
+    "expectedRoot": "0xc56b249e35e9f3899dcbbe43295e93de38e2f7b11dec248a697dfcf4fbf4c3dd"
   },
   {
     "keys": [
@@ -96,7 +96,7 @@
     "values": [
       "6277101735386680763835789423207666416102355444464034512894"
     ],
-    "expectedRoot": "0x4910427c775ec9d83e371d800894b20b7ded4e6c802a9ee866fef53a1ce4b7db"
+    "expectedRoot": "0x5b62cbf085ca46fa78746b2a91ca460151d98e4da0c770a170dcf6ed1f1986ea"
   },
   {
     "keys": [
@@ -105,7 +105,7 @@
     "values": [
       "115792089237316195423570985008687907853269984665640564039457584007913129639935"
     ],
-    "expectedRoot": "0x106579e9b31108ec75995543453bd6844a513ccf49346146d2f0dd561119efbe"
+    "expectedRoot": "0x9cc0a048793c5ad151b83339e76e9cdc556efc2fbd3f6bea921f0087e3b31d6a"
   },
   {
     "keys": [
@@ -114,37 +114,34 @@
     "values": [
       "115792089237316195423570985008687907853269984665640564039457584007913129639934"
     ],
-    "expectedRoot": "0xa7372cbadd151422670c459fa48c5b0a3187eff7fb26ac6f0fd43cd159858998"
+    "expectedRoot": "0x796c63e633a10025e78d8e99a58e78470f078dbdf01afb3179bfcd73e5a7a43b"
   },
   {
-    "arity": 3,
     "keys": [
       "1"
     ],
     "values": [
       "1"
     ],
-    "expectedRoot": "0x27a35f72df2e65162db5cbc3215a69816eac0bc21ce3afe3f2d1ecf4c0b2fa5b"
+    "expectedRoot": "0xb26e0de762d186d2efc35d9ff4388def6c96ec15f942d83d779141386fe1d2e1"
   },
   {
-    "arity": 3,
     "keys": [
       "2"
     ],
     "values": [
       "115792089237316195423570985008687907853269984665640564039457584007913129639935"
     ],
-    "expectedRoot": "0x106579e9b31108ec75995543453bd6844a513ccf49346146d2f0dd561119efbe"
+    "expectedRoot": "0x9cc0a048793c5ad151b83339e76e9cdc556efc2fbd3f6bea921f0087e3b31d6a"
   },
   {
-    "arity": 3,
     "keys": [
       "2"
     ],
     "values": [
       "1293876327903274693576"
     ],
-    "expectedRoot": "0x64fe280d53736f2e0f3478e7645a3cecf0b61405c6255cac431781a4b8586712"
+    "expectedRoot": "0x2a8bbd5bbf93f0daac12315d36ec50a9a8118be1ae8ea9ebec1f1cc984ae4526"
   },
   {
     "keys": [
@@ -159,7 +156,7 @@
       "3",
       "4"
     ],
-    "expectedRoot": "0x430f6322c93ac3b218c37d42cf53804c013fe29681d269fe369bc0f58d31d7c4"
+    "expectedRoot": "0x085130c4e67235dc830e48acdc6cee540cf204dd4fbfd43d579a838f58031b1f"
   },
   {
     "keys": [
@@ -174,7 +171,7 @@
       "93232784",
       "93287346"
     ],
-    "expectedRoot": "0xa0b14a199b008dcc757f80da8e084d07f61592a7eea6e82e01785371ac224318"
+    "expectedRoot": "0xb7da117ea50981e7fa14a411d3babfb9f2766e0089df2e5978dc9d36a2f681a7"
   },
   {
     "keys": [
@@ -185,7 +182,7 @@
       "1",
       "1"
     ],
-    "expectedRoot": "0x568d2265f6ff775b242a26c0e4be0ddb211093251659630e4fd797fb197daec0"
+    "expectedRoot": "0x5eb96ea83a6f62628dcf350e96214fae3d852fa15d9ee98742b07864be9a5730"
   },
   {
     "keys": [
@@ -198,7 +195,7 @@
       "2",
       "3"
     ],
-    "expectedRoot": "0x605de7d0d9afd6bd9583a17e8a0135e5e98bd0e4a97f406a32c1ca166dbadf72"
+    "expectedRoot": "0xa7db6a59f3df30492054fe2419cf1584e4100f915c75e957938477562c2f2cea"
   },
   {
     "keys": [
@@ -209,7 +206,7 @@
       "9123864",
       "12948357"
     ],
-    "expectedRoot": "0x6b376ce758080d417c4c8fd3e507215e8510d6d0e58a0c7bfe103ed980001def"
+    "expectedRoot": "0x2e359e78489a4085f5059c918d90a0d8075b13d8ad20ab929d614ecc464423f4"
   },
   {
     "keys": [
@@ -228,7 +225,7 @@
       "256",
       "257"
     ],
-    "expectedRoot": "0xfd7e7fcc8c9583c799a9fb54adc76ac58b3b4db989f27c0eb8b3942be4dd5223"
+    "expectedRoot": "0xf80f35e6118c12212bae0fcee99d92af8a7d9be2cf7395cc40b633fb7e2104ec"
   },
   {
     "keys": [
@@ -241,6 +238,6 @@
       "91343852333181432387730302044767688728495783936",
       "1"
     ],
-    "expectedRoot": "0xc230d30cf39eaa0ef31d619b60243f2773c58d4fe2b3178bb9a15657e727600a"
+    "expectedRoot": "0x46a27b5cce9b87692dd7b97920b51bca15cad6f07e001225e8ecfa4d43602dbc"
   }
 ]
