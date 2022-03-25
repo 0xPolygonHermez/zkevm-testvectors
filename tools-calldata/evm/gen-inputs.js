@@ -210,9 +210,14 @@ describe('Generate inputs executor from test-vectors', async function () {
                 expect(newLeaf.balance.toString()).to.equal(expectedNewLeafs[address].balance);
                 expect(newLeaf.nonce.toString()).to.equal(expectedNewLeafs[address].nonce);
                 const storage = await zkEVMDB.dumpStorage(address);
+                const bytecode = await zkEVMDB.getBytecode(address);
                 if (storage !== null) {
                     if (update) { expectedNewLeafs[address].storage = storage; }
                     expect(lodash.isEqual(storage, expectedNewLeafs[address].storage)).to.be.equal(true);
+                }
+                if (bytecode !== null) {
+                    if (update) { expectedNewLeafs[address].bytecode = bytecode; }
+                    expect(bytecode).to.equal(expectedNewLeafs[address].bytecode);
                 }
             }
 
