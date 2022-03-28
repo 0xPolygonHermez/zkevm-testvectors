@@ -7,3 +7,7 @@ cache
 artifacts
 
 evm-stack-logs
+
+# tool print opcodes
+./tools/print-opcodes/input.data
+./tools/print-opcodes/output.json
