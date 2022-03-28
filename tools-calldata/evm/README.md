@@ -8,4 +8,4 @@ Or just step 2 for all files with: `.gen-all-tests-vectors.sh`
 Or just step 3 for all files with: `.gen-all-inputs.sh`
 
 To generate a debug file for bytecode execution and stack traces, add the --evm-debug flag.
-`npx mocha gen-test-vectors-evm.js --vectors gen-example.json --evm-debug`
+`npx mocha gen-inputs.js --vectors example --evm-debug`

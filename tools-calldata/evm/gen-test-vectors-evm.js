@@ -53,7 +53,11 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                 genesis,
                 txs,
                 chainIdSequencer,
+                expectedNewLeafs,
             } = testVectors[i];
+
+            if (expectedNewLeafs) { outputTestVector.expectedNewLeafs = expectedNewLeafs; } else { outputTestVector.expectedNewLeafs = {}; }
+
             console.log(`       executing test-vector id: ${id}`);
 
             const common = Common.custom({ chainId: chainIdSequencer, hardfork: Hardfork.Berlin });
@@ -65,6 +69,9 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                 const {
                     address, balance, nonce, pvtKey,
                 } = genesis.accounts[j];
+                if (outputTestVector.expectedNewLeafs[address] === undefined) {
+                    outputTestVector.expectedNewLeafs[address] = {};
+                }
                 auxGenesis.push({
                     address,
                     nonce,
@@ -120,6 +127,10 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                         abi,
                         storage,
                     });
+
+                    if (outputTestVector.expectedNewLeafs[contractAddress.toString('hex')] === undefined) {
+                        outputTestVector.expectedNewLeafs[contractAddress.toString('hex')] = {};
+                    }
                 }
             }
 
@@ -162,6 +173,10 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                         bytecodelength: bytecode.length,
                         deployedBytecode,
                     };
+                    const contractAddress = ethers.utils.getContractAddress(outputTx);
+                    if (outputTestVector.expectedNewLeafs[contractAddress.toString('hex')] === undefined) {
+                        outputTestVector.expectedNewLeafs[contractAddress.toString('hex')] = {};
+                    }
                 } else {
                     outputTx = currentTx;
                 }
