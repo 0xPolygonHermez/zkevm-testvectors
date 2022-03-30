@@ -50,7 +50,7 @@ describe('Run state-transition tests: calldata', async function () {
                     chainIdSequencer,
                     sequencerAddress,
                     expectedNewLeafs,
-                    localExitRoot,
+                    oldLocalExitRoot,
                     globalExitRoot,
                     timestamp,
                 } = testVectors[i];
@@ -61,7 +61,7 @@ describe('Run state-transition tests: calldata', async function () {
                     db,
                     poseidon,
                     [F.zero, F.zero, F.zero, F.zero],
-                    zkcommonjs.smtUtils.stringToH4(localExitRoot),
+                    zkcommonjs.smtUtils.stringToH4(oldLocalExitRoot),
                     genesis,
                 );
 

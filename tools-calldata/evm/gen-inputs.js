@@ -72,7 +72,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 chainIdSequencer,
                 sequencerAddress,
                 expectedNewLeafs,
-                localExitRoot,
+                oldLocalExitRoot,
                 globalExitRoot,
                 timestamp,
             } = testVectors[i];
@@ -84,7 +84,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 db,
                 poseidon,
                 [F.zero, F.zero, F.zero, F.zero],
-                zkcommonjs.smtUtils.stringToH4(localExitRoot),
+                zkcommonjs.smtUtils.stringToH4(oldLocalExitRoot),
                 genesis,
             );
 
@@ -198,8 +198,10 @@ describe('Generate inputs executor from test-vectors', async function () {
             const circuitInput = await batch.getStarkInput();
 
             if (update) {
+                console.log("hi123")
                 expectedNewRoot = zkcommonjs.smtUtils.h4toString(batch.currentStateRoot);
             }
+            console.log(expectedNewRoot)
             // Check new root
             expect(zkcommonjs.smtUtils.h4toString(batch.currentStateRoot)).to.be.equal(expectedNewRoot);
 
@@ -238,7 +240,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 testVectors[i].batchHashData = circuitInput.batchHashData;
                 testVectors[i].inputHash = circuitInput.inputHash;
                 testVectors[i].globalExitRoot = circuitInput.globalExitRoot;
-                testVectors[i].localExitRoot = circuitInput.oldLocalExitRoot;
+                testVectors[i].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                 internalTestVectors[i].batchL2Data = batch.getBatchL2Data();
                 internalTestVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
                 internalTestVectors[i].expectedOldRoot = expectedOldRoot;
@@ -247,7 +249,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 internalTestVectors[i].batchHashData = circuitInput.batchHashData;
                 internalTestVectors[i].inputHash = circuitInput.inputHash;
                 internalTestVectors[i].globalExitRoot = circuitInput.globalExitRoot;
-                internalTestVectors[i].localExitRoot = circuitInput.oldLocalExitRoot;
+                internalTestVectors[i].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                 internalTestVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
             }
         }
