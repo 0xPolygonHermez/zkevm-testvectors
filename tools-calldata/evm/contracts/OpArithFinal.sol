@@ -43,4 +43,14 @@ contract OpArithFinal {
             sstore(0x0, tmp)
         }
     }
+
+    // opcode 0x04
+    function opCustomDiv(uint256 a, uint256 b) public {
+        res = a / b;
+    }
+
+    // opcode 0x01
+    function opCustomAdd(uint256 a, uint256 b) public {
+        res = a + b;
+    }
 }
