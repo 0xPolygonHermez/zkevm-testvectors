@@ -8,7 +8,6 @@ contract OpPush {
         assembly {
             let num := 0x10
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x61
@@ -16,7 +15,6 @@ contract OpPush {
         assembly {
             let num := 0x1000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x62
@@ -24,7 +22,6 @@ contract OpPush {
         assembly {
             let num := 0x100000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x63
@@ -32,7 +29,6 @@ contract OpPush {
         assembly {
             let num := 0x10000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x64
@@ -40,7 +36,6 @@ contract OpPush {
         assembly {
             let num := 0x1000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x65
@@ -48,7 +43,6 @@ contract OpPush {
         assembly {
             let num := 0x100000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x66
@@ -56,7 +50,6 @@ contract OpPush {
         assembly {
             let num := 0x10000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x67
@@ -64,7 +57,6 @@ contract OpPush {
         assembly {
             let num := 0x1000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x68
@@ -72,7 +64,6 @@ contract OpPush {
         assembly {
             let num := 0x100000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x69
@@ -80,7 +71,6 @@ contract OpPush {
         assembly {
             let num := 0x10000000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x6a
@@ -88,7 +78,6 @@ contract OpPush {
         assembly {
             let num := 0x1000000000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x6b
@@ -96,7 +85,6 @@ contract OpPush {
         assembly {
             let num := 0x100000000000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x6c
@@ -104,7 +92,6 @@ contract OpPush {
         assembly {
             let num := 0x10000000000000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x6d
@@ -112,7 +99,6 @@ contract OpPush {
         assembly {
             let num := 0x1000000000000000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x6e
@@ -120,7 +106,6 @@ contract OpPush {
         assembly {
             let num := 0x100000000000000000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x6f
@@ -128,7 +113,6 @@ contract OpPush {
         assembly {
             let num := 0x10000000000000000000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x70
@@ -136,7 +120,6 @@ contract OpPush {
         assembly {
             let num := 0x1000000000000000000000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x71
@@ -144,7 +127,6 @@ contract OpPush {
         assembly {
             let num := 0x100000000000000000000000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x72
@@ -152,7 +134,6 @@ contract OpPush {
         assembly {
             let num := 0x10000000000000000000000000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x73
@@ -160,7 +141,6 @@ contract OpPush {
         assembly {
             let num := 0x1000000000000000000000000000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x74
@@ -168,7 +148,6 @@ contract OpPush {
         assembly {
             let num := 0x100000000000000000000000000000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x75
@@ -176,7 +155,6 @@ contract OpPush {
         assembly {
             let num := 0x10000000000000000000000000000000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x76
@@ -184,7 +162,6 @@ contract OpPush {
         assembly {
             let num := 0x1000000000000000000000000000000000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x77
@@ -192,7 +169,6 @@ contract OpPush {
         assembly {
             let num := 0x100000000000000000000000000000000000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x78
@@ -200,7 +176,6 @@ contract OpPush {
         assembly {
             let num := 0x10000000000000000000000000000000000000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x79
@@ -208,7 +183,6 @@ contract OpPush {
         assembly {
             let num := 0x1000000000000000000000000000000000000000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x7a
@@ -216,7 +190,6 @@ contract OpPush {
         assembly {
             let num := 0x100000000000000000000000000000000000000000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x7b
@@ -224,7 +197,6 @@ contract OpPush {
         assembly {
             let num := 0x10000000000000000000000000000000000000000000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x7c
@@ -232,7 +204,6 @@ contract OpPush {
         assembly {
             let num := 0x1000000000000000000000000000000000000000000000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x7d
@@ -240,7 +211,6 @@ contract OpPush {
         assembly {
             let num := 0x100000000000000000000000000000000000000000000000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x7e
@@ -248,7 +218,6 @@ contract OpPush {
         assembly {
             let num := 0x10000000000000000000000000000000000000000000000000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
     // opcode 0x7f
@@ -256,7 +225,6 @@ contract OpPush {
         assembly {
             let num := 0x1000000000000000000000000000000000000000000000000000000000000000
             mstore(0x0, num)
-            return(0x0, 32)
         }
     }
 }
