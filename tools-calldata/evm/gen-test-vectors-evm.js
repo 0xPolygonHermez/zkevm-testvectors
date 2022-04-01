@@ -36,6 +36,10 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
     it('Load generate test vectors', async () => {
         let file = (argv.vectors) ? argv.vectors : process.exit(0);
         file = file.endsWith('.json') ? file : `${file}.json`;
+        if (file.includes('ignore')) {
+            console.log(`ignoring ${file} file`);
+            process.exit(0);
+        }
         outputName = file.replace('gen-', '');
         genTestVectorPath = `./generate-test-vectors/${file}`;
         // eslint-disable-next-line import/no-dynamic-require
