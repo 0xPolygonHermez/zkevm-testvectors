@@ -198,10 +198,8 @@ describe('Generate inputs executor from test-vectors', async function () {
             const circuitInput = await batch.getStarkInput();
 
             if (update) {
-                console.log("hi123")
                 expectedNewRoot = zkcommonjs.smtUtils.h4toString(batch.currentStateRoot);
             }
-            console.log(expectedNewRoot)
             // Check new root
             expect(zkcommonjs.smtUtils.h4toString(batch.currentStateRoot)).to.be.equal(expectedNewRoot);
 
