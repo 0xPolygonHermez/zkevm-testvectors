@@ -1,5 +1,6 @@
 /* eslint-disable no-restricted-syntax */
-/* eslint-disable max-len */
+/* eslint-disable max-len, no-plusplus, guard-for-in */
+/* eslint-disable import/no-dynamic-require, global-require */
 const { Scalar } = require('ffjavascript');
 const fs = require('fs');
 const path = require('path');
@@ -15,7 +16,7 @@ const {
     getPoseidon, smtUtils, Constants,
 } = require('@polygon-hermez/zkevm-commonjs');
 
-const { calculateSnarkInput, calculateStarkInput } = contractUtils;
+const { calculateSnarkInput } = contractUtils;
 const MerkleTreeBridge = require('@polygon-hermez/zkevm-commonjs').MTBridge;
 const {
     calculateLeafValue,
@@ -38,7 +39,6 @@ async function setNextBlockTimestamp(timestamp) {
 
 describe('Proof of efficiency test vectors', function () {
     this.timeout(0);
-    let log = 0;
 
     let update;
     let poseidon;
@@ -116,7 +116,7 @@ describe('Proof of efficiency test vectors', function () {
         expect(bridgeContract.address).to.be.equal(precalculatBridgeAddress);
         expect(proofOfEfficiencyContract.address).to.be.equal(precalculatePoEAddress);
     });
-    it(`End to end test`, async () => {
+    it('End to end test', async () => {
         const {
             genesis,
             expectedOldRoot,
@@ -133,7 +133,7 @@ describe('Proof of efficiency test vectors', function () {
             inputHash,
             timestamp,
             bridgeDeployed,
-            sequencerPvtKey
+            sequencerPvtKey,
         } = testE2E;
 
         /*
@@ -151,7 +151,7 @@ describe('Proof of efficiency test vectors', function () {
         const destinationAddress = claimAddress;
 
         const depositCount = 1;
-        const mainnetRoot = "0x843cb84814162b93794ad9087a037a1948f9aff051838ba3a93db0ac92b9f719";
+        const mainnetRoot = '0x843cb84814162b93794ad9087a037a1948f9aff051838ba3a93db0ac92b9f719';
         let lastGlobalExitRootNum = 0;
 
         await expect(bridgeContract.bridge(tokenAddress, amount, destinationNetwork, destinationAddress, { value: amount }))
@@ -180,7 +180,6 @@ describe('Proof of efficiency test vectors', function () {
         await expect(proofOfEfficiencyContract.connect(walletSequencer).registerSequencer(sequencerURL))
             .to.emit(proofOfEfficiencyContract, 'RegisterSequencer')
             .withArgs(sequencerAddress, sequencerURL, ethers.BigNumber.from(defaultChainId + 1));
-
 
         /*
         * /////////////////////////////////////////////////
@@ -216,7 +215,7 @@ describe('Proof of efficiency test vectors', function () {
                 const contractAddres = new Address(toBuffer(contract.address));
 
                 const contractAccount = await zkEVMDB.vm.stateManager.getAccount(contractAddres);
-                expect(await contractAccount.isContract()).to.be.true;
+                expect(await contractAccount.isContract()).to.be.equal(true);
 
                 const contractCode = await zkEVMDB.vm.stateManager.getContractCode(contractAddres);
                 expect(contractCode.toString('hex')).to.be.equal(contract.bytecode.slice(2));
@@ -256,7 +255,6 @@ describe('Proof of efficiency test vectors', function () {
                 data: txData.data || '0x',
             };
 
-
             if (txData.data) {
                 if (txData.to) {
                     if (txData.contractName) {
@@ -268,13 +266,6 @@ describe('Proof of efficiency test vectors', function () {
                             tx.data = functionData;
                         }
                     }
-                } else {
-                    // Contract deployment from tx
-                    delete tx.to;
-
-                    const { bytecode } = require(`${artifactsPath}/${txData.contractName}.sol/${txData.contractName}.json`);
-                    const params = defaultAbiCoder.encode(txData.paramsDeploy.types, txData.paramsDeploy.values);
-                    expect(tx.data).to.equal(bytecode + params.slice(2));
                 }
             }
 
@@ -283,8 +274,6 @@ describe('Proof of efficiency test vectors', function () {
                 // eslint-disable-next-line no-continue
                 continue;
             }
-
-
 
             let customRawTx;
             const address = genesis.find((o) => o.address === txData.from);
@@ -355,7 +344,7 @@ describe('Proof of efficiency test vectors', function () {
                 expect(currentTx.reason).to.be.equal(expectedTx.reason);
             } catch (error) {
                 console.log({ currentTx }, { expectedTx }); // eslint-disable-line no-console
-                throw new Error(`Batch Id : ${id} TxId:${expectedTx.id} ${error}`);
+                throw new Error(`TxId:${expectedTx.id} ${error}`);
             }
         }
 
@@ -575,7 +564,6 @@ describe('Proof of efficiency test vectors', function () {
             ethers.BigNumber.from(initialAggregatorMatic).add(ethers.BigNumber.from(maticAmount)),
         );
 
-
         /*
         * /////////////////////////////////////////////////
         * //Claim funds from L2
@@ -597,7 +585,7 @@ describe('Proof of efficiency test vectors', function () {
             tokenAddressClaim,
             amountClaim,
             destinationNetworkClaim,
-            destinationAddressClaim
+            destinationAddressClaim,
         );
         merkleTree.add(leafValue);
         const rollupExitRoot = merkleTree.getRoot();
@@ -626,7 +614,6 @@ describe('Proof of efficiency test vectors', function () {
                 destinationAddressClaim,
             );
     });
-
 
     after(async () => {
         if (update) {
