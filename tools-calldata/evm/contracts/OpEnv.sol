@@ -1,7 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.7;
+import "./IOpEnv.sol";
 
-contract OpEnv {
+contract OpEnv is IOpEnv {
 
     // constructor() {
     //     address result = address(this);
@@ -106,11 +107,12 @@ contract OpEnv {
         }
     }
     // opcode 0x3d
-    function auxReturn() external returns(uint256){
+    function auxReturn() external override returns(uint256){
         return 0x123456689;
     }
     function opReturnDataSize() public {
         uint256 aux = this.auxReturn();
+        require(aux != 0);
         assembly {
             let result := returndatasize()
             sstore(0x0, result)
@@ -119,6 +121,7 @@ contract OpEnv {
     // opcode 0x3e
     function opReturnDataCopy() public {
         uint256 aux = this.auxReturn();
+        require(aux != 0);
         assembly {
             returndatacopy(0, 0, 32)
             let result := mload(0)
