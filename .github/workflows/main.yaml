@@ -52,3 +52,5 @@ jobs:
         run: npm run test:contracts
       - name: check mt bridge
         run: npm run test:mt:bridge
+      - name: check test e2e
+        run: npm run test:e2e

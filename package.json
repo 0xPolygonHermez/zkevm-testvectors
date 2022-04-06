@@ -12,9 +12,11 @@
     "test:st:no-data": "npx mocha ./test/state-transition/no-data/st-all.test.js",
     "test:st:calldata": "npx mocha ./test/state-transition/calldata/st-all.test.js",
     "test:mt:bridge": "npx mocha ./test/mt-bridge/**.test.js",
+    "test:e2e": "npx mocha ./test/state-transition/e2e/e2e.test.js",
     "update:mt:bridge": "npx mocha ./test/mt-bridge/**.test.js --update",
     "update:st:calldata": "cd ./tools-calldata/evm && ./gen-all.sh",
     "update:st:no-data": "npx mocha ./test/state-transition/no-data/st-all.test.js --update",
+    "update:e2e": "npx mocha ./test/state-transition/e2e/e2e.test.js --update",
     "test:contracts": "npx mocha ./test/state-transition/no-data/contracts.test.js"
   },
   "repository": {
@@ -26,11 +28,12 @@
   "license": "ISC",
   "dependencies": {
     "@ethereumjs/common": "^2.6.2",
+    "ethereumjs-util": "^7.1.4",
     "@nomiclabs/hardhat-ethers": "^2.0.5",
     "@nomiclabs/hardhat-waffle": "^2.0.2",
-    "@polygon-hermez/contracts-zkevm": "github:hermeznetwork/contracts-zkevm#v0.0.2",
-    "@polygon-hermez/vm": "^5.7.2",
-    "@polygon-hermez/zkevm-commonjs": "https://github.com/hermeznetwork/zkevm-commonjs#v0.0.12",
+    "@polygon-hermez/contracts-zkevm": "github:hermeznetwork/contracts-zkevm#v0.0.3",
+    "@polygon-hermez/vm": "5.7.2",
+    "@polygon-hermez/zkevm-commonjs": "github:hermeznetwork/zkevm-commonjs#v0.0.13",
     "chai": "^4.3.6",
     "circomlibjs": "0.1.1",
     "ethereum-waffle": "^3.4.0",

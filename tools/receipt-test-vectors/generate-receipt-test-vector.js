@@ -5,7 +5,10 @@ const fs = require('fs');
 const path = require('path');
 const { Scalar } = require('ffjavascript');
 
-const testVectors = require('../../test/src/zk-EVM/helpers/test-vector-data/state-transition.json');
+
+const { pathTestVectors } = require('../../test/helpers/helpers');
+const fullPathTestVectors = path.join(pathTestVectors, './receipt-test-vectors/receipt-vector.json');
+const testVectors = require(fullPathTestVectors);
 
 function toHexString(num) {
     let numHex;
@@ -67,6 +70,7 @@ async function main() {
             txs,
             expectedNewRoot,
             sequencerAddress,
+            timestamp
         } = testVectors[i];
 
         const currentTestVector = testVectors[i];
@@ -81,6 +85,7 @@ async function main() {
         const gasUsedForTx = 21000;
         const blockGasLimit = 30000000;
         const parentHash = `0x${Scalar.e(0).toString(16).padStart(hashByteLen * 2, '0')}`;
+        const time = timestamp;
 
         // Test case parameters:
         const newRootHex = `0x${Scalar.e(expectedNewRoot).toString(16).padStart(hashByteLen * 2, '0')}`;
@@ -89,7 +94,6 @@ async function main() {
         // TODO parameters
         const txHashRoot = `0x${Scalar.e(0).toString(16).padStart(hashByteLen * 2, '0')}`;
         const receiptRoot = `0x${Scalar.e(0).toString(16).padStart(hashByteLen * 2, '0')}`;
-        const time = 0;
         const bloom = `0x${Scalar.e(0).toString(16).padStart(bloomByteLen * 2, '0')}`;
         const extra = '0x'; // no predefined bytes
 
@@ -134,6 +138,7 @@ async function main() {
             parentHash,
             txHashRoot,
             receiptRoot,
+            timestamp
         };
 
         const gasUsed = gasUsedForTx * (receiptArray.length);
@@ -159,8 +164,7 @@ async function main() {
             receiptArray[j].receipt.blockHash = blockHash;
         }
     }
-    const dir = path.join(__dirname, './receipt-vector.json');
-    await fs.writeFileSync(dir, JSON.stringify(testVectors, null, 2));
+    await fs.writeFileSync(fullPathTestVectors, JSON.stringify(testVectors, null, 2));
 }
 
 main()

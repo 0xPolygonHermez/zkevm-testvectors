@@ -52,7 +52,7 @@ describe('Run state-transition tests', function () {
                     sequencerAddress,
                     expectedNewLeafs,
                     batchL2Data,
-                    localExitRoot,
+                    oldLocalExitRoot,
                     globalExitRoot,
                     batchHashData,
                     inputHash,
@@ -154,7 +154,7 @@ describe('Run state-transition tests', function () {
                     db,
                     poseidon,
                     [F.zero, F.zero, F.zero, F.zero],
-                    smtUtils.stringToH4(localExitRoot),
+                    smtUtils.stringToH4(oldLocalExitRoot),
                     genesis,
                 );
 
@@ -192,7 +192,7 @@ describe('Run state-transition tests', function () {
                 await zkEVMDB.consolidate(batch);
 
                 // Check balances and nonces
-                    for (const [address, leaf] of Object.entries(expectedNewLeafs)) { // eslint-disable-line
+                for (const [address, leaf] of Object.entries(expectedNewLeafs)) { // eslint-disable-line
                     const newLeaf = await zkEVMDB.getCurrentAccountState(address);
 
                     if (update) {
@@ -231,7 +231,7 @@ describe('Run state-transition tests', function () {
                     testVectors[j].batchHashData = circuitInput.batchHashData;
                     testVectors[j].inputHash = circuitInput.inputHash;
                     testVectors[j].globalExitRoot = circuitInput.globalExitRoot;
-                    testVectors[j].localExitRoot = circuitInput.oldLocalExitRoot;
+                    testVectors[j].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                     testVectors[j].newLocalExitRoot = circuitInput.newLocalExitRoot;
 
                     const fileName = path.join(folderInputsExecutor, `${path.parse(listTests[i]).name}_${id}.json`);
