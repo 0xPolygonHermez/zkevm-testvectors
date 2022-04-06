@@ -28,7 +28,6 @@
   "license": "ISC",
   "dependencies": {
     "@ethereumjs/common": "^2.6.2",
-    "ethereumjs-util": "^7.1.4",
     "@nomiclabs/hardhat-ethers": "^2.0.5",
     "@nomiclabs/hardhat-waffle": "^2.0.2",
     "@polygon-hermez/contracts-zkevm": "github:hermeznetwork/contracts-zkevm#v0.0.3",
@@ -37,6 +36,7 @@
     "chai": "^4.3.6",
     "circomlibjs": "0.1.1",
     "ethereum-waffle": "^3.4.0",
+    "ethereumjs-util": "^7.1.4",
     "ethers": "^5.4.7",
     "ffjavascript": "^0.2.46",
     "fs": "^0.0.1-security",
