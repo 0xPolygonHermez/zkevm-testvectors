@@ -46,7 +46,7 @@ contract OpBitLogic {
     // opcode 0x1b
     function opShl() public {
         assembly {
-            let result := shl(2,2) // 0010 << 2 = 1000
+            let result := shl(8, 1) // 1 << 8 = 1 0000 0000
             sstore(0x0, result)
         }
     }
@@ -54,7 +54,7 @@ contract OpBitLogic {
     // opcode 0x1c
     function opShr() public {
         assembly {
-            let result := shr(2,8) // 1000 >> 2 = 0010
+            let result := shr(8, 0x100) // 0001 0000 0000 >> 8 = 1
             sstore(0x0, result)
         }
     }
@@ -62,7 +62,7 @@ contract OpBitLogic {
     // opcode 0x1d (?)
     function opSar() public {
         assembly {
-            let result := sar(2,0xff) // 0xff >> 2 = 0x3f
+            let result := sar(8, 0x100) // 0001 0000 0000 >> 8 = 1
             sstore(0x0, result)
         }
     }
