@@ -1,133 +1,138 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.7;
+import "./IOpEnv.sol";
 
-contract OpEnv {
+contract OpEnv is IOpEnv {
+
+    // constructor() {
+    //     address result = address(this);
+    //     assembly {
+    //         sstore(0x0, result)
+    //     }
+    // }
+
     // opcode 0x30
-    function opAddress() public view {
+    function opAddress() public {
+        address result = address(this);
         assembly {
-            let result := address()
-            mstore(0x0, result)
-            return(0x0, 32)
+            sstore(0x0, result)
         }
     }
     // opcode 0x31
-    function opBalance() public view {
+    function opBalance() public {
+        address a = msg.sender;
         assembly {
-            let a := address()
             let result := balance(a)
-            mstore(0x0, result)
-            return(0x0, 32)
+            sstore(0x1, result)
         }
     }
     // opcode 0x32
-    function opOrigin() public view {
-        assembly {
-            let result := origin()
-            mstore(0x0, result)
-            return(0x0, 32)
-        }
+    function opOrigin() public {
+        address result = tx.origin;
+         assembly {
+            sstore(0x0, result)
+         }
     }
-    // opcode 0x33
-    function opCaller() public view {
+    // // opcode 0x33
+    function opCaller() public {
+        address result = msg.sender;
         assembly {
-            let result := caller()
-            mstore(0x0, result)
-            return(0x0, 32)
+            sstore(0x0, result)
         }
     }
     // opcode 0x34
-    function opCallValue() public view {
+    function opCallValue() public payable {
+        uint256 result = msg.value;
         assembly {
-            let result := callvalue()
-            mstore(0x0, result)
-            return(0x0, 32)
+            sstore(0x0, result)
         }
     }
     // opcode 0x35
-    function opCallDataLoad() public pure {
+    function opCallDataLoad() public {
         assembly {
-            let result := calldataload(0)
-            mstore(0x0, result)
-            return(0x0, 32)
+            let result := calldataload(2)
+            sstore(0x0, result)
         }
     }
     // opcode 0x36
-    function opCallDataSize() public pure {
+    function opCallDataSize() public {
         assembly {
             let result := calldatasize()
-            mstore(0x0, result)
-            return(0x0, 32)
+            sstore(0x0, result)
         }
     }
     // opcode 0x37
-    function opCallDataCopy() public pure {
+    function opCallDataCopy() public {
         assembly {
             calldatacopy(0, 0, 32)
-            return(0x0, 32)
+            let result := mload(0)
+            sstore(0x0, result)
         }
     }
     // opcode 0x38
-    function opCodeSize() public pure {
+    function opCodeSize() public {
         assembly {
             let result := codesize()
-            mstore(0x0, result)
-            return(0x0, 32)
+            sstore(0x0, result)
         }
     }
     // opcode 0x39
-    function opCodeCopy() public pure {
+    function opCodeCopy() public {
         assembly {
-            let result := codesize()
-            codecopy(0, 0, result)
-            return(0x0, result)
+            codecopy(0, 0, 32)
+            let result := mload(0)
+            sstore(0x0, result)
         }
     }
     // opcode 0x3a
-    function opGasPrice() public view {
+    function opGasPrice() public {
         assembly {
             let result := gasprice()
-            mstore(0x0, result)
-            return(0x0, 32)
+            sstore(0x0, result)
         }
     }
     // opcode 0x3b
-    function opExtCodeSize() public view {
+    function opExtCodeSize(address addr) public {
         assembly {
-            let result := extcodesize(address())
-            mstore(0x0, result)
-            return(0x0, 32)
+            let result := extcodesize(addr)
+            sstore(0x0, result)
         }
     }
-    // opcode 0x3c
-    function opExtCodeCopy() public view {
+    // // opcode 0x3c
+    function opExtCodeCopy(address addr) public {
         assembly {
-            let result := extcodesize(address())
-            extcodecopy(address(), 0, 0, result)
-            return(0x0, result)
+            extcodecopy(addr, 0, 0, 32)
+            let result := mload(0)
+            sstore(0x0, result)
         }
     }
     // opcode 0x3d
-    function opReturnDataSize() public pure {
+    function auxReturn() external override returns(uint256){
+        return 0x123456689;
+    }
+    function opReturnDataSize() public {
+        uint256 aux = this.auxReturn();
+        require(aux != 0);
         assembly {
             let result := returndatasize()
-            mstore(0x0, result)
-            return(0x0, 32)
+            sstore(0x0, result)
         }
     }
     // opcode 0x3e
-    function opReturnDataCopy() public pure {
+    function opReturnDataCopy() public {
+        uint256 aux = this.auxReturn();
+        require(aux != 0);
         assembly {
-            let result := returndatasize()
-            returndatacopy(0, 0, result)
-            return(0x0, result)
+            returndatacopy(0, 0, 32)
+            let result := mload(0)
+            sstore(0x0, result)
         }
     }
     // opcode 0x3f
-    function opExtCodeHash() public view {
+    function opExtCodeHash(address addr) public {
         assembly {
-            let result := extcodehash(address())
-            mstore(0x0, result)
-            return(0x0, 32)
+            let result := extcodehash(addr)
+            sstore(0x0, result)
         }
     }
 }
