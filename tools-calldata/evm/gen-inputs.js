@@ -134,7 +134,8 @@ describe('Generate inputs executor from test-vectors', async function () {
                     chainId: new BN(currentTx.chainId),
                 };
 
-                const commonCustom = Common.custom({ chainId: txData.chainId, hardfork: Hardfork.Berlin });
+                const commonCustom = Common.custom({ chainId: txData.chainId }, { hardfork: Hardfork.Berlin });
+
                 let tx = Transaction.fromTxData(txData, { common: commonCustom }).sign(accountPkFrom);
                 if (currentTx.overwrite) {
                     // eslint-disable-next-line no-restricted-syntax

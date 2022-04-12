@@ -56,7 +56,7 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                 id,
                 genesis,
                 txs,
-                chainIdSequencer,
+                defaultChainId,
                 expectedNewLeafs,
             } = testVectors[i];
 
@@ -64,7 +64,7 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
 
             console.log(`       executing test-vector id: ${id}`);
 
-            const common = Common.custom({ chainId: chainIdSequencer, hardfork: Hardfork.Berlin });
+            const common = Common.custom({ chainId: defaultChainId }, { hardfork: Hardfork.Berlin });
             const vm = new VM({ common });
 
             const auxGenesis = [];

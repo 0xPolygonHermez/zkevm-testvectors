@@ -1,68 +1,69 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.7;
 
-// TODO: CHECK
 contract OpBlockInfo {
+
+    address public testCoinbase;
+    bytes32 public testBlockhash;
+    uint256 public test;
+
     // opcode 0x40
-    function opBlockHash() public view {
+    // TODO:
+    function opBlockHash(uint256 numBatch) public {
         assembly {
-            let result := blockhash(1)
-            mstore(0x0, result)
-            return(0x0, 32)
+            let result := blockhash(numBatch)
+            sstore(0x1, result)
         }
     }
     // opcode 0x41
-    function opCoinbase() public view {
+    function opCoinbase() public {
         assembly {
             let result := coinbase()
-            mstore(0x0, result)
-            return(0x0, 32)
+            sstore(0x0, result)
         }
     }
     // opcode 0x42
-    function opTimestamp() public view {
+    function opTimestamp() public {
         assembly {
             let result := timestamp()
-            mstore(0x0, result)
-            return(0x0, 32)
+            sstore(0x2, result)
         }
     }
     // opcode 0x43
-    function opNumber() public view {
+    function opNumber() public {
         assembly {
             let result := number()
-            mstore(0x0, result)
-            return(0x0, 32)
+            sstore(0x2, result)
         }
     }
     // opcode 0x44
-    function opDifficult() public view {
+    function opDifficulty() public {
         assembly {
             let result := difficulty()
-            mstore(0x0, result)
-            return(0x0, 32)
+            sstore(0x2, result)
         }
     }
     // opcode 0x45
-    function opGasLimit() public view {
+    function opGasLimit() public {
         assembly {
             let result := gaslimit()
-            mstore(0x0, result)
-            return(0x0, 32)
+            sstore(0x2, result)
         }
     }
     // opcode 0x46
-    // function opChainId() public view {
-    //     assembly {
-    //         let result := chainid()
-    //         mstore(0x0, result)
-    //     }
-    // }
+    function opChainId() public {
+        assembly {
+            let result := chainid()
+            sstore(0x2, result)
+        }
+    }
     // opcode 0x47
-    // function opSelfBalance() public view {
-    //     assembly {
-    //         let result := balance(msg.sender)
-    //         mstore(0x0, result)
-    //     }
-    // }
+    function opSelfBalance() public {
+        assembly {
+            let result := selfbalance()
+            sstore(0x2, result)
+        }
+    }
+
+    receive() external payable {}
 }
