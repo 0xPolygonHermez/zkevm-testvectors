@@ -146,7 +146,9 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                 if (currentTx.to === 'contract') {
                     const contract = contracts.filter((x) => x.contractName === currentTx.contractName)[0];
                     let functionData = contract.interfaceContract.encodeFunctionData(currentTx.function, currentTx.params);
-                    if (currentTx.data) { functionData += currentTx.data; }
+                    if (currentTx.data) {
+                        functionData += currentTx.data.startsWith('0x') ? currentTx.data.slice(2) : currentTx.data;
+                    }
                     outputTx = {
                         from: currentTx.from,
                         to: contract.contractAddress.toString('hex'),

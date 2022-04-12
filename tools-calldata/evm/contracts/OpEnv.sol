@@ -98,7 +98,7 @@ contract OpEnv is IOpEnv {
             sstore(0x0, result)
         }
     }
-    // // opcode 0x3c
+    // opcode 0x3c
     function opExtCodeCopy(address addr) public {
         assembly {
             extcodecopy(addr, 0, 0, 32)
