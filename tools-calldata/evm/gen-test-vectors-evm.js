@@ -177,7 +177,6 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                         gasLimit: currentTx.gasLimit,
                         gasPrice: currentTx.gasPrice,
                         chainId: currentTx.chainId,
-                        bytecodelength: bytecode.length,
                         deployedBytecode,
                     };
                     const contractAddress = ethers.utils.getContractAddress(outputTx);

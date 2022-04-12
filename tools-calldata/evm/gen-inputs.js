@@ -147,7 +147,6 @@ describe('Generate inputs executor from test-vectors', async function () {
                 }
                 // check tx to
                 let to;
-                output.bytecodelength = {};
                 if (!ethers.utils.isAddress(txData.to.toString(16))) {
                     if (txData.to !== '0x') {
                         console.log('*******Tx Invalid --> Error: Invalid to address');
@@ -156,7 +155,6 @@ describe('Generate inputs executor from test-vectors', async function () {
                         continue;
                     }
                     to = '0x';
-                    output.bytecodelength[currentTx.from.toLowerCase() + currentTx.nonce] = currentTx.bytecodelength;
                     const hashByteCode = await zkcommonjs.smtUtils.hashContractBytecode(currentTx.deployedBytecode);
                     const contractAddress = ethers.utils.getContractAddress({ from: accountFrom.address, nonce: txData.nonce });
                     output.contractsBytecode[contractAddress.toLowerCase()] = hashByteCode;
