@@ -44,13 +44,7 @@ contract OpStackStorageMemFlow {
             sstore(0x0, a)
         }
     }
-    // opcode 0x59
-    function opMsize() public pure {
-        assembly {
-            let result := msize()
-            mstore(0x0, result)
-        }
-    }
+
     // opcode 0x5a
     function opGas() public view {
         assembly {
@@ -70,13 +64,6 @@ contract OpStackStorageMemFlow {
     //     assembly {
     //         let label := 10
     //         jumpi(10, true)
-    //     }
-    // }
-    // // opcode 0x58
-    // function opPC() public view {
-    //     assembly {
-    //         let result := pc()
-    //         mstore(0x0, result)
     //     }
     // }
     // // opcode 0x5b
