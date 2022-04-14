@@ -3,14 +3,14 @@ pragma solidity 0.8.7;
 
 contract OpMstoreMload {
 
-    uint256 a = 0x11111111111111111111111111111111111111111111111111111111111111;
+    uint256 a = 0x12345678912345678912345678912345678912345678912345678912345678;
 
     function opSimple() public {
         assembly {
             let b := sload(0x0)
             mstore(0xa0, b)
             let c := mload(0xa0)
-            sstore(1, c)
+            sstore(0x1, c)
         }
     }
 
@@ -207,4 +207,32 @@ contract OpMstoreMload {
         }
         return aux;
     }
+
+    function opSimple8() public {
+        assembly {
+            let b := 0x11
+            mstore8(0xa0, b)
+            let c := mload(0xa0)
+            sstore(0x0, c)
+        }
+    }
+
+    function opComplex8() public {
+        assembly {
+            let b := sload(0x0)
+            mstore8(0xa0, b)
+            let c := mload(0xa0)
+            sstore(0x0, c)
+        }
+    }
+
+    function opComplex82() public {
+        assembly {
+            let b := sload(0x0)
+            mstore8(0xa5, b)
+            let c := mload(0xa5)
+            sstore(1, c)
+        }
+    }
+
 }
