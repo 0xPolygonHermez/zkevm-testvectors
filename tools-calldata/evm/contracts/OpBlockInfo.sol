@@ -8,7 +8,6 @@ contract OpBlockInfo {
     uint256 public test;
 
     // opcode 0x40
-    // TODO:
     function opBlockHash(uint256 numBatch) public {
         assembly {
             let result := blockhash(numBatch)
