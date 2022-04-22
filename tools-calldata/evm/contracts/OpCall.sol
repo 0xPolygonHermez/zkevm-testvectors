@@ -68,6 +68,7 @@ contract OpCall{
         return aux;
     }
 
+    bytes32 constant auxReturn = 0x6aecbc3300000000000000000000000000000000000000000000000000000000;
     bytes32 constant auxUpdate = 0x3182d9a900000000000000000000000000000000000000000000000000000000;
     bytes32 constant auxUpdateValues = 0xf80efde500000000000000000000000000000000000000000000000000000000;
 
@@ -139,5 +140,55 @@ contract OpCall{
         assembly {
             sstore(0x4, aux)
         }
+    }
+
+    function opStaticCall(address addr) public {
+        assembly {
+            mstore(0x80, auxReturn)
+            let success := staticcall(gas(), addr, 0x80, 0x04, 0x80, 0x20)
+            returndatacopy(0, 22, 10)
+            let result := mload(0)
+            sstore(0x1, result)
+        }
+    }
+
+    function opStaticCallFail(address addr) public {
+        assembly {
+            mstore(0x80, auxUpdate)
+            let success := staticcall(gas(), addr, 0x80, 0x04, 0x80, 0x20)
+            // TODO: RETURN ERROR?
+            // returndatacopy(0, 22, 10)
+            // let result := mload(0)
+            // sstore(0x1, result)
+        }
+    }
+
+    function opCallStop(address addr) public {
+        openv = IOpCallAux(addr);
+        openv.auxStop();
+    }
+
+// bytes32 constant auxCallCall = 0x102ea40b0000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b;
+// bytes32 constant auxCallCall2 = 0x9917ae9800000000000000000000000000000000000000000000000000000000;
+
+    function opCallFail(address addr) external returns(uint256){
+        openv = IOpCallAux(addr);
+        openv.auxFail();
+        return 0x11;
+    }
+
+
+    function opCallFailParams(address addr) external returns(uint256){
+        uint256 success;
+        assembly {
+            mstore(0x80, auxUpdate)
+            success := call(gas(), addr, 0xffffffffffff, 0x80, 0x04, 0x80, 0x20)
+        }
+        return success;
+    }
+
+    function opCallCallFail(address addr) public {
+        uint256 aux = this.opCallFailParams(addr);
+        require(aux != 0);
     }
 }

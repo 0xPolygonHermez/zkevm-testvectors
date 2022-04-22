@@ -25,4 +25,12 @@ contract OpCallAux is IOpCallAux {
         }
         return 0x123456689;
     }
+
+    function auxFail() external override {
+        require(1 == 0);
+    }
+
+    function auxStop() external override {
+        require(0 == 0);
+    }
 }
