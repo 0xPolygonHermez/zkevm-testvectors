@@ -1,0 +1,3110 @@
+[
+  {
+    "id": 0,
+    "description": "Call opcode staticcall fail",
+    "arity": 4,
+    "chainIdSequencer": 1001,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x60806040526004361061004a5760003560e01c806303d3e8a71461004f578063266f6aec146100665780633182d9a91461007d5780636aecbc33146100a8578063f80efde5146100d3575b600080fd5b34801561005b57600080fd5b506100646100f1565b005b34801561007257600080fd5b5061007b610100565b005b34801561008957600080fd5b50610092610110565b60405161009f9190610175565b60405180910390f35b3480156100b457600080fd5b506100bd61012b565b6040516100ca9190610175565b60405180910390f35b6100db610138565b6040516100e89190610175565b60405180910390f35b600080146100fe57600080fd5b565b600060011461010e57600080fd5b565b60006912121212121212121212600055640123456689905090565b6000640123456689905090565b6000803390506000349050691212121212121212121260005581600155806002556401234566899250505090565b61016f81610190565b82525050565b600060208201905061018a6000830184610166565b92915050565b600081905091905056fea2646970667358221220e307b9cb1a9f8054b8e88f8e6e77343d6dd564e32b79f09d392ab309572cbcb664736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [],
+            "name": "auxFail",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxReturn",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxStop",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxUpdate",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxUpdateValues",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      },
+      {
+        "address": "0x85e844b762a271022b692cf99ce5c59ba0650ac8",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x6080604052600436106101145760003560e01c8063731d1a01116100a0578063a419cc1b11610064578063a419cc1b146103a1578063aea87a1d146103ca578063b40a444514610407578063bce68dec14610423578063e268669d1461045357610114565b8063731d1a01146102b95780637719db3e146102e25780637b4fdd7a146102fe578063834905671461033b5780638aebc8121461037857610114565b806333665755116100e757806333665755146101d15780633ad8b228146101fa5780633d434925146102235780634fec21a81461024c57806356d5be741461027c57610114565b8063043b6c7c14610119578063064055bd14610142578063102ea40b1461016b578063334ab9da14610194575b600080fd5b34801561012557600080fd5b50610140600480360381019061013b9190610f83565b610490565b005b34801561014e57600080fd5b5061016960048036038101906101649190610f83565b610531565b005b34801561017757600080fd5b50610192600480360381019061018d9190610f83565b610564565b005b3480156101a057600080fd5b506101bb60048036038101906101b69190610f83565b610605565b6040516101c89190611016565b60405180910390f35b3480156101dd57600080fd5b506101f860048036038101906101f39190610f83565b610649565b005b34801561020657600080fd5b50610221600480360381019061021c9190610f83565b61068d565b005b34801561022f57600080fd5b5061024a60048036038101906102459190610f83565b6106d0565b005b61026660048036038101906102619190610f83565b61071d565b6040516102739190611016565b60405180910390f35b34801561028857600080fd5b506102a3600480360381019061029e9190610f83565b610769565b6040516102b09190611016565b60405180910390f35b3480156102c557600080fd5b506102e060048036038101906102db9190610f83565b610875565b005b6102fc60048036038101906102f79190610f83565b610938565b005b34801561030a57600080fd5b5061032560048036038101906103209190610f83565b6109dd565b6040516103329190611016565b60405180910390f35b34801561034757600080fd5b50610362600480360381019061035d9190610f83565b610aa8565b60405161036f9190611016565b60405180910390f35b34801561038457600080fd5b5061039f600480360381019061039a9190610f83565b610bb4565b005b3480156103ad57600080fd5b506103c860048036038101906103c39190610f83565b610c63565b005b3480156103d657600080fd5b506103f160048036038101906103ec9190610f83565b610ca5565b6040516103fe9190611016565b60405180910390f35b610421600480360381019061041c9190610f83565b610d5a565b005b61043d60048036038101906104389190610f83565b610dff565b60405161044a9190611016565b60405180910390f35b34801561045f57600080fd5b5061047a60048036038101906104759190610f83565b610e4d565b6040516104879190611016565b60405180910390f35b60003073ffffffffffffffffffffffffffffffffffffffff1663334ab9da836040518263ffffffff1660e01b81526004016104cb9190610ffb565b602060405180830381600087803b1580156104e557600080fd5b505af11580156104f9573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061051d9190610fb0565b9050600081141561052d57600080fd5b5050565b7f3182d9a9000000000000000000000000000000000000000000000000000000006080526020608060046080845afa5050565b60003073ffffffffffffffffffffffffffffffffffffffff166356d5be74836040518263ffffffff1660e01b815260040161059f9190610ffb565b602060405180830381600087803b1580156105b957600080fd5b505af11580156105cd573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906105f19190610fb0565b9050600081141561060157600080fd5b5050565b6000807f3182d9a900000000000000000000000000000000000000000000000000000000608052602060806004608065ffffffffffff875af1905080915050919050565b7f3182d9a90000000000000000000000000000000000000000000000000000000060805260206080600460806000855af1600a601660003e60005180600155505050565b7f3182d9a90000000000000000000000000000000000000000000000000000000060805260206080600460806000855af260206000803e60005180600155505050565b7f3182d9a90000000000000000000000000000000000000000000000000000000060805260206080600460806000855af1600a601660173e60005180600155602051905080600255505050565b60007ff80efde5000000000000000000000000000000000000000000000000000000006080526020608060046080855af460206000803e60005180600355505063112233449050919050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16636aecbc336040518163ffffffff1660e01b8152600401602060405180830381600087803b15801561081657600080fd5b505af115801561082a573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061084e9190610fb0565b9050600081141561085e57600080fd5b60206000803e600051806000555080915050919050565b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166303d3e8a76040518163ffffffff1660e01b8152600401600060405180830381600087803b15801561091d57600080fd5b505af1158015610931573d6000803e3d6000fd5b5050505050565b60003073ffffffffffffffffffffffffffffffffffffffff16634fec21a8836040518263ffffffff1660e01b81526004016109739190610ffb565b602060405180830381600087803b15801561098d57600080fd5b505af11580156109a1573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906109c59190610fb0565b905060008114156109d557600080fd5b806004555050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663266f6aec6040518163ffffffff1660e01b8152600401600060405180830381600087803b158015610a8757600080fd5b505af1158015610a9b573d6000803e3d6000fd5b5050505060119050919050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16633182d9a96040518163ffffffff1660e01b8152600401602060405180830381600087803b158015610b5557600080fd5b505af1158015610b69573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610b8d9190610fb0565b90506000811415610b9d57600080fd5b60206000803e600051806001555080915050919050565b60003073ffffffffffffffffffffffffffffffffffffffff1663aea87a1d836040518263ffffffff1660e01b8152600401610bef9190610ffb565b602060405180830381600087803b158015610c0957600080fd5b505af1158015610c1d573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610c419190610fb0565b90506000811415610c5157600080fd5b60206000803e60005180600255505050565b7f6aecbc33000000000000000000000000000000000000000000000000000000006080526020608060046080845afa600a601660003e60005180600155505050565b6000803073ffffffffffffffffffffffffffffffffffffffff166356d5be74846040518263ffffffff1660e01b8152600401610ce19190610ffb565b602060405180830381600087803b158015610cfb57600080fd5b505af1158015610d0f573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610d339190610fb0565b90506000811415610d4357600080fd5b60206000803e600051806001555080915050919050565b60003073ffffffffffffffffffffffffffffffffffffffff1663bce68dec836040518263ffffffff1660e01b8152600401610d959190610ffb565b602060405180830381600087803b158015610daf57600080fd5b505af1158015610dc3573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610de79190610fb0565b90506000811415610df757600080fd5b806004555050565b60007ff80efde50000000000000000000000000000000000000000000000000000000060805260206080600460806000865af260206000803e60005180600355505063443322119050919050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663f80efde56040518163ffffffff1660e01b8152600401602060405180830381600087803b158015610efa57600080fd5b505af1158015610f0e573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610f329190610fb0565b90506000811415610f4257600080fd5b60206000803e600051806003555080915050919050565b600081359050610f6881611072565b92915050565b600081519050610f7d81611089565b92915050565b600060208284031215610f9957610f9861106d565b5b6000610fa784828501610f59565b91505092915050565b600060208284031215610fc657610fc561106d565b5b6000610fd484828501610f6e565b91505092915050565b610fe681611031565b82525050565b610ff581611063565b82525050565b60006020820190506110106000830184610fdd565b92915050565b600060208201905061102b6000830184610fec565b92915050565b600061103c82611043565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b600080fd5b61107b81611031565b811461108657600080fd5b50565b61109281611063565b811461109d57600080fd5b5056fea2646970667358221220fe47239faa5863355eefd92b09163049d8570151bb65340d216694fcfcadf4e564736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCall2",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallCodeValues",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallFail",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallReturn",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallReturnCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCode",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCodeValues",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallDelegateCall",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallExternal",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallExternalUpdate",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallExternalUpdateValues",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallFail",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallFailParams",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallOpcode",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallStop",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opDelegateCall",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opStaticCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opStaticCallFail",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      }
+    ],
+    "expectedOldRoot": "0xec1da4ea31ff76e27e29eb9fe9973f930558bb842cea75c59b92fb5b69d48d3f",
+    "txs": [
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x85e844b762a271022b692cf99ce5c59ba0650ac8",
+        "nonce": "0",
+        "value": "0",
+        "data": "0x064055bd0000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "gasLimit": 3000000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      }
+    ],
+    "expectedNewRoot": "0x031f57b9260ff52a8293a3b1b5df2ea8ae22412184e5236e330297d7cc8f3940",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100002953522000000000",
+        "nonce": "0",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "199997046478000000000",
+        "nonce": "1",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {},
+        "hashBytecode": "0x60400ad749a9ad8a0981f8bec859228da1dec283244ed60e3cf0205896a511a7"
+      },
+      "0x85e844b762a271022b692cf99ce5c59ba0650ac8": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {},
+        "hashBytecode": "0x693fd008877abc37ae0c4e1bf5a8229d5199e0d290c220ac01eedb896989388b"
+      }
+    },
+    "timestamp": 1944498031,
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0xcdf8df48102609989a5470c63592a510adee0141645faec4a8ff473d22349931",
+    "inputHash": "0x6bb44d8c31a18ebbe71d9003c727e0482ffa7c5539970e39f7602fee64aebf72",
+    "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchL2Data": "0xf84a80843b9aca00832dc6c09485e844b762a271022b692cf99ce5c59ba0650ac880a4064055bd0000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae988203e98080872926745142874ab84b320e7d5bc37426adb558952f967ccb47cd1a31f565220d4be5135328d5359c950a3f655aac57bf96f3def00369060e72d23e4dc93f8b1c"
+  },
+  {
+    "id": 1,
+    "description": "Call opcode call fail",
+    "arity": 4,
+    "chainIdSequencer": 1001,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x60806040526004361061004a5760003560e01c806303d3e8a71461004f578063266f6aec146100665780633182d9a91461007d5780636aecbc33146100a8578063f80efde5146100d3575b600080fd5b34801561005b57600080fd5b506100646100f1565b005b34801561007257600080fd5b5061007b610100565b005b34801561008957600080fd5b50610092610110565b60405161009f9190610175565b60405180910390f35b3480156100b457600080fd5b506100bd61012b565b6040516100ca9190610175565b60405180910390f35b6100db610138565b6040516100e89190610175565b60405180910390f35b600080146100fe57600080fd5b565b600060011461010e57600080fd5b565b60006912121212121212121212600055640123456689905090565b6000640123456689905090565b6000803390506000349050691212121212121212121260005581600155806002556401234566899250505090565b61016f81610190565b82525050565b600060208201905061018a6000830184610166565b92915050565b600081905091905056fea2646970667358221220e307b9cb1a9f8054b8e88f8e6e77343d6dd564e32b79f09d392ab309572cbcb664736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [],
+            "name": "auxFail",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxReturn",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxStop",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxUpdate",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxUpdateValues",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      },
+      {
+        "address": "0x85e844b762a271022b692cf99ce5c59ba0650ac8",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x6080604052600436106101145760003560e01c8063731d1a01116100a0578063a419cc1b11610064578063a419cc1b146103a1578063aea87a1d146103ca578063b40a444514610407578063bce68dec14610423578063e268669d1461045357610114565b8063731d1a01146102b95780637719db3e146102e25780637b4fdd7a146102fe578063834905671461033b5780638aebc8121461037857610114565b806333665755116100e757806333665755146101d15780633ad8b228146101fa5780633d434925146102235780634fec21a81461024c57806356d5be741461027c57610114565b8063043b6c7c14610119578063064055bd14610142578063102ea40b1461016b578063334ab9da14610194575b600080fd5b34801561012557600080fd5b50610140600480360381019061013b9190610f83565b610490565b005b34801561014e57600080fd5b5061016960048036038101906101649190610f83565b610531565b005b34801561017757600080fd5b50610192600480360381019061018d9190610f83565b610564565b005b3480156101a057600080fd5b506101bb60048036038101906101b69190610f83565b610605565b6040516101c89190611016565b60405180910390f35b3480156101dd57600080fd5b506101f860048036038101906101f39190610f83565b610649565b005b34801561020657600080fd5b50610221600480360381019061021c9190610f83565b61068d565b005b34801561022f57600080fd5b5061024a60048036038101906102459190610f83565b6106d0565b005b61026660048036038101906102619190610f83565b61071d565b6040516102739190611016565b60405180910390f35b34801561028857600080fd5b506102a3600480360381019061029e9190610f83565b610769565b6040516102b09190611016565b60405180910390f35b3480156102c557600080fd5b506102e060048036038101906102db9190610f83565b610875565b005b6102fc60048036038101906102f79190610f83565b610938565b005b34801561030a57600080fd5b5061032560048036038101906103209190610f83565b6109dd565b6040516103329190611016565b60405180910390f35b34801561034757600080fd5b50610362600480360381019061035d9190610f83565b610aa8565b60405161036f9190611016565b60405180910390f35b34801561038457600080fd5b5061039f600480360381019061039a9190610f83565b610bb4565b005b3480156103ad57600080fd5b506103c860048036038101906103c39190610f83565b610c63565b005b3480156103d657600080fd5b506103f160048036038101906103ec9190610f83565b610ca5565b6040516103fe9190611016565b60405180910390f35b610421600480360381019061041c9190610f83565b610d5a565b005b61043d60048036038101906104389190610f83565b610dff565b60405161044a9190611016565b60405180910390f35b34801561045f57600080fd5b5061047a60048036038101906104759190610f83565b610e4d565b6040516104879190611016565b60405180910390f35b60003073ffffffffffffffffffffffffffffffffffffffff1663334ab9da836040518263ffffffff1660e01b81526004016104cb9190610ffb565b602060405180830381600087803b1580156104e557600080fd5b505af11580156104f9573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061051d9190610fb0565b9050600081141561052d57600080fd5b5050565b7f3182d9a9000000000000000000000000000000000000000000000000000000006080526020608060046080845afa5050565b60003073ffffffffffffffffffffffffffffffffffffffff166356d5be74836040518263ffffffff1660e01b815260040161059f9190610ffb565b602060405180830381600087803b1580156105b957600080fd5b505af11580156105cd573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906105f19190610fb0565b9050600081141561060157600080fd5b5050565b6000807f3182d9a900000000000000000000000000000000000000000000000000000000608052602060806004608065ffffffffffff875af1905080915050919050565b7f3182d9a90000000000000000000000000000000000000000000000000000000060805260206080600460806000855af1600a601660003e60005180600155505050565b7f3182d9a90000000000000000000000000000000000000000000000000000000060805260206080600460806000855af260206000803e60005180600155505050565b7f3182d9a90000000000000000000000000000000000000000000000000000000060805260206080600460806000855af1600a601660173e60005180600155602051905080600255505050565b60007ff80efde5000000000000000000000000000000000000000000000000000000006080526020608060046080855af460206000803e60005180600355505063112233449050919050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16636aecbc336040518163ffffffff1660e01b8152600401602060405180830381600087803b15801561081657600080fd5b505af115801561082a573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061084e9190610fb0565b9050600081141561085e57600080fd5b60206000803e600051806000555080915050919050565b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166303d3e8a76040518163ffffffff1660e01b8152600401600060405180830381600087803b15801561091d57600080fd5b505af1158015610931573d6000803e3d6000fd5b5050505050565b60003073ffffffffffffffffffffffffffffffffffffffff16634fec21a8836040518263ffffffff1660e01b81526004016109739190610ffb565b602060405180830381600087803b15801561098d57600080fd5b505af11580156109a1573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906109c59190610fb0565b905060008114156109d557600080fd5b806004555050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663266f6aec6040518163ffffffff1660e01b8152600401600060405180830381600087803b158015610a8757600080fd5b505af1158015610a9b573d6000803e3d6000fd5b5050505060119050919050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16633182d9a96040518163ffffffff1660e01b8152600401602060405180830381600087803b158015610b5557600080fd5b505af1158015610b69573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610b8d9190610fb0565b90506000811415610b9d57600080fd5b60206000803e600051806001555080915050919050565b60003073ffffffffffffffffffffffffffffffffffffffff1663aea87a1d836040518263ffffffff1660e01b8152600401610bef9190610ffb565b602060405180830381600087803b158015610c0957600080fd5b505af1158015610c1d573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610c419190610fb0565b90506000811415610c5157600080fd5b60206000803e60005180600255505050565b7f6aecbc33000000000000000000000000000000000000000000000000000000006080526020608060046080845afa600a601660003e60005180600155505050565b6000803073ffffffffffffffffffffffffffffffffffffffff166356d5be74846040518263ffffffff1660e01b8152600401610ce19190610ffb565b602060405180830381600087803b158015610cfb57600080fd5b505af1158015610d0f573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610d339190610fb0565b90506000811415610d4357600080fd5b60206000803e600051806001555080915050919050565b60003073ffffffffffffffffffffffffffffffffffffffff1663bce68dec836040518263ffffffff1660e01b8152600401610d959190610ffb565b602060405180830381600087803b158015610daf57600080fd5b505af1158015610dc3573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610de79190610fb0565b90506000811415610df757600080fd5b806004555050565b60007ff80efde50000000000000000000000000000000000000000000000000000000060805260206080600460806000865af260206000803e60005180600355505063443322119050919050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663f80efde56040518163ffffffff1660e01b8152600401602060405180830381600087803b158015610efa57600080fd5b505af1158015610f0e573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610f329190610fb0565b90506000811415610f4257600080fd5b60206000803e600051806003555080915050919050565b600081359050610f6881611072565b92915050565b600081519050610f7d81611089565b92915050565b600060208284031215610f9957610f9861106d565b5b6000610fa784828501610f59565b91505092915050565b600060208284031215610fc657610fc561106d565b5b6000610fd484828501610f6e565b91505092915050565b610fe681611031565b82525050565b610ff581611063565b82525050565b60006020820190506110106000830184610fdd565b92915050565b600060208201905061102b6000830184610fec565b92915050565b600061103c82611043565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b600080fd5b61107b81611031565b811461108657600080fd5b50565b61109281611063565b811461109d57600080fd5b5056fea2646970667358221220fe47239faa5863355eefd92b09163049d8570151bb65340d216694fcfcadf4e564736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCall2",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallCodeValues",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallFail",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallReturn",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallReturnCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCode",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCodeValues",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallDelegateCall",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallExternal",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallExternalUpdate",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallExternalUpdateValues",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallFail",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallFailParams",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallOpcode",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallStop",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opDelegateCall",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opStaticCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opStaticCallFail",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      }
+    ],
+    "expectedOldRoot": "0xec1da4ea31ff76e27e29eb9fe9973f930558bb842cea75c59b92fb5b69d48d3f",
+    "txs": [
+      {
+        "from": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "to": "0x85e844b762a271022b692cf99ce5c59ba0650ac8",
+        "nonce": "0",
+        "value": "0",
+        "data": "0x7b4fdd7a0000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "gasLimit": 1000000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      }
+    ],
+    "expectedNewRoot": "0x913a7c64b5360dd84410797ccc5254a3a78e5cc315486d3f3e4896fbb816701d",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100000000000000000000",
+        "nonce": "0",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "200000000000000000000",
+        "nonce": "0",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {},
+        "hashBytecode": "0x60400ad749a9ad8a0981f8bec859228da1dec283244ed60e3cf0205896a511a7"
+      },
+      "0x85e844b762a271022b692cf99ce5c59ba0650ac8": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {},
+        "hashBytecode": "0x693fd008877abc37ae0c4e1bf5a8229d5199e0d290c220ac01eedb896989388b"
+      }
+    },
+    "timestamp": 1944498031,
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0xbff631dfaf4cc8385a76b3430eb0417bdde46320accce040b40f8326b90d7e97",
+    "inputHash": "0x4df7bef91c74333c8dc1e10af721fd5e08da12348ff00e037acab284f6321ce2",
+    "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchL2Data": "0xf84a80843b9aca00830f42409485e844b762a271022b692cf99ce5c59ba0650ac880a47b4fdd7a0000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae988203e9808023c04ff807474776a1dbd6b8ac00420b9070a4d975697f89aafbc40be3c67bcd0b2e154c828a8d323d6ddd00ed47565cc50587a590de77e135bc322f18daa2701c"
+  },
+  {
+    "id": 2,
+    "description": "Call opcode call fail params",
+    "arity": 4,
+    "chainIdSequencer": 1001,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x60806040526004361061004a5760003560e01c806303d3e8a71461004f578063266f6aec146100665780633182d9a91461007d5780636aecbc33146100a8578063f80efde5146100d3575b600080fd5b34801561005b57600080fd5b506100646100f1565b005b34801561007257600080fd5b5061007b610100565b005b34801561008957600080fd5b50610092610110565b60405161009f9190610175565b60405180910390f35b3480156100b457600080fd5b506100bd61012b565b6040516100ca9190610175565b60405180910390f35b6100db610138565b6040516100e89190610175565b60405180910390f35b600080146100fe57600080fd5b565b600060011461010e57600080fd5b565b60006912121212121212121212600055640123456689905090565b6000640123456689905090565b6000803390506000349050691212121212121212121260005581600155806002556401234566899250505090565b61016f81610190565b82525050565b600060208201905061018a6000830184610166565b92915050565b600081905091905056fea2646970667358221220e307b9cb1a9f8054b8e88f8e6e77343d6dd564e32b79f09d392ab309572cbcb664736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [],
+            "name": "auxFail",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxReturn",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxStop",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxUpdate",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxUpdateValues",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      },
+      {
+        "address": "0x85e844b762a271022b692cf99ce5c59ba0650ac8",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x6080604052600436106101145760003560e01c8063731d1a01116100a0578063a419cc1b11610064578063a419cc1b146103a1578063aea87a1d146103ca578063b40a444514610407578063bce68dec14610423578063e268669d1461045357610114565b8063731d1a01146102b95780637719db3e146102e25780637b4fdd7a146102fe578063834905671461033b5780638aebc8121461037857610114565b806333665755116100e757806333665755146101d15780633ad8b228146101fa5780633d434925146102235780634fec21a81461024c57806356d5be741461027c57610114565b8063043b6c7c14610119578063064055bd14610142578063102ea40b1461016b578063334ab9da14610194575b600080fd5b34801561012557600080fd5b50610140600480360381019061013b9190610f83565b610490565b005b34801561014e57600080fd5b5061016960048036038101906101649190610f83565b610531565b005b34801561017757600080fd5b50610192600480360381019061018d9190610f83565b610564565b005b3480156101a057600080fd5b506101bb60048036038101906101b69190610f83565b610605565b6040516101c89190611016565b60405180910390f35b3480156101dd57600080fd5b506101f860048036038101906101f39190610f83565b610649565b005b34801561020657600080fd5b50610221600480360381019061021c9190610f83565b61068d565b005b34801561022f57600080fd5b5061024a60048036038101906102459190610f83565b6106d0565b005b61026660048036038101906102619190610f83565b61071d565b6040516102739190611016565b60405180910390f35b34801561028857600080fd5b506102a3600480360381019061029e9190610f83565b610769565b6040516102b09190611016565b60405180910390f35b3480156102c557600080fd5b506102e060048036038101906102db9190610f83565b610875565b005b6102fc60048036038101906102f79190610f83565b610938565b005b34801561030a57600080fd5b5061032560048036038101906103209190610f83565b6109dd565b6040516103329190611016565b60405180910390f35b34801561034757600080fd5b50610362600480360381019061035d9190610f83565b610aa8565b60405161036f9190611016565b60405180910390f35b34801561038457600080fd5b5061039f600480360381019061039a9190610f83565b610bb4565b005b3480156103ad57600080fd5b506103c860048036038101906103c39190610f83565b610c63565b005b3480156103d657600080fd5b506103f160048036038101906103ec9190610f83565b610ca5565b6040516103fe9190611016565b60405180910390f35b610421600480360381019061041c9190610f83565b610d5a565b005b61043d60048036038101906104389190610f83565b610dff565b60405161044a9190611016565b60405180910390f35b34801561045f57600080fd5b5061047a60048036038101906104759190610f83565b610e4d565b6040516104879190611016565b60405180910390f35b60003073ffffffffffffffffffffffffffffffffffffffff1663334ab9da836040518263ffffffff1660e01b81526004016104cb9190610ffb565b602060405180830381600087803b1580156104e557600080fd5b505af11580156104f9573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061051d9190610fb0565b9050600081141561052d57600080fd5b5050565b7f3182d9a9000000000000000000000000000000000000000000000000000000006080526020608060046080845afa5050565b60003073ffffffffffffffffffffffffffffffffffffffff166356d5be74836040518263ffffffff1660e01b815260040161059f9190610ffb565b602060405180830381600087803b1580156105b957600080fd5b505af11580156105cd573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906105f19190610fb0565b9050600081141561060157600080fd5b5050565b6000807f3182d9a900000000000000000000000000000000000000000000000000000000608052602060806004608065ffffffffffff875af1905080915050919050565b7f3182d9a90000000000000000000000000000000000000000000000000000000060805260206080600460806000855af1600a601660003e60005180600155505050565b7f3182d9a90000000000000000000000000000000000000000000000000000000060805260206080600460806000855af260206000803e60005180600155505050565b7f3182d9a90000000000000000000000000000000000000000000000000000000060805260206080600460806000855af1600a601660173e60005180600155602051905080600255505050565b60007ff80efde5000000000000000000000000000000000000000000000000000000006080526020608060046080855af460206000803e60005180600355505063112233449050919050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16636aecbc336040518163ffffffff1660e01b8152600401602060405180830381600087803b15801561081657600080fd5b505af115801561082a573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061084e9190610fb0565b9050600081141561085e57600080fd5b60206000803e600051806000555080915050919050565b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166303d3e8a76040518163ffffffff1660e01b8152600401600060405180830381600087803b15801561091d57600080fd5b505af1158015610931573d6000803e3d6000fd5b5050505050565b60003073ffffffffffffffffffffffffffffffffffffffff16634fec21a8836040518263ffffffff1660e01b81526004016109739190610ffb565b602060405180830381600087803b15801561098d57600080fd5b505af11580156109a1573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906109c59190610fb0565b905060008114156109d557600080fd5b806004555050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663266f6aec6040518163ffffffff1660e01b8152600401600060405180830381600087803b158015610a8757600080fd5b505af1158015610a9b573d6000803e3d6000fd5b5050505060119050919050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16633182d9a96040518163ffffffff1660e01b8152600401602060405180830381600087803b158015610b5557600080fd5b505af1158015610b69573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610b8d9190610fb0565b90506000811415610b9d57600080fd5b60206000803e600051806001555080915050919050565b60003073ffffffffffffffffffffffffffffffffffffffff1663aea87a1d836040518263ffffffff1660e01b8152600401610bef9190610ffb565b602060405180830381600087803b158015610c0957600080fd5b505af1158015610c1d573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610c419190610fb0565b90506000811415610c5157600080fd5b60206000803e60005180600255505050565b7f6aecbc33000000000000000000000000000000000000000000000000000000006080526020608060046080845afa600a601660003e60005180600155505050565b6000803073ffffffffffffffffffffffffffffffffffffffff166356d5be74846040518263ffffffff1660e01b8152600401610ce19190610ffb565b602060405180830381600087803b158015610cfb57600080fd5b505af1158015610d0f573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610d339190610fb0565b90506000811415610d4357600080fd5b60206000803e600051806001555080915050919050565b60003073ffffffffffffffffffffffffffffffffffffffff1663bce68dec836040518263ffffffff1660e01b8152600401610d959190610ffb565b602060405180830381600087803b158015610daf57600080fd5b505af1158015610dc3573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610de79190610fb0565b90506000811415610df757600080fd5b806004555050565b60007ff80efde50000000000000000000000000000000000000000000000000000000060805260206080600460806000865af260206000803e60005180600355505063443322119050919050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663f80efde56040518163ffffffff1660e01b8152600401602060405180830381600087803b158015610efa57600080fd5b505af1158015610f0e573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610f329190610fb0565b90506000811415610f4257600080fd5b60206000803e600051806003555080915050919050565b600081359050610f6881611072565b92915050565b600081519050610f7d81611089565b92915050565b600060208284031215610f9957610f9861106d565b5b6000610fa784828501610f59565b91505092915050565b600060208284031215610fc657610fc561106d565b5b6000610fd484828501610f6e565b91505092915050565b610fe681611031565b82525050565b610ff581611063565b82525050565b60006020820190506110106000830184610fdd565b92915050565b600060208201905061102b6000830184610fec565b92915050565b600061103c82611043565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b600080fd5b61107b81611031565b811461108657600080fd5b50565b61109281611063565b811461109d57600080fd5b5056fea2646970667358221220fe47239faa5863355eefd92b09163049d8570151bb65340d216694fcfcadf4e564736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCall2",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallCodeValues",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallFail",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallReturn",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallReturnCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCode",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCodeValues",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallDelegateCall",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallExternal",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallExternalUpdate",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallExternalUpdateValues",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallFail",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallFailParams",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallOpcode",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallStop",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opDelegateCall",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opStaticCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opStaticCallFail",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      }
+    ],
+    "expectedOldRoot": "0xec1da4ea31ff76e27e29eb9fe9973f930558bb842cea75c59b92fb5b69d48d3f",
+    "txs": [
+      {
+        "from": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "to": "0x85e844b762a271022b692cf99ce5c59ba0650ac8",
+        "nonce": "0",
+        "value": "0",
+        "data": "0x043b6c7c0000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "gasLimit": 1000000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      }
+    ],
+    "expectedNewRoot": "0x913a7c64b5360dd84410797ccc5254a3a78e5cc315486d3f3e4896fbb816701d",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100000000000000000000",
+        "nonce": "0",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "200000000000000000000",
+        "nonce": "0",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {},
+        "hashBytecode": "0x60400ad749a9ad8a0981f8bec859228da1dec283244ed60e3cf0205896a511a7"
+      },
+      "0x85e844b762a271022b692cf99ce5c59ba0650ac8": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {},
+        "hashBytecode": "0x693fd008877abc37ae0c4e1bf5a8229d5199e0d290c220ac01eedb896989388b"
+      }
+    },
+    "timestamp": 1944498031,
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0x1dd59301e48d9a64bd435b78fb0626b994f5007f3beb3e255088257857db3342",
+    "inputHash": "0xa811accce88c996c49e0ac1b7aba46ab68b1f76829ba5e85d590356b90e05117",
+    "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchL2Data": "0xf84a80843b9aca00830f42409485e844b762a271022b692cf99ce5c59ba0650ac880a4043b6c7c0000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae988203e98080b76328f7aee08a7cd9a367186aefb7340ac53f1d032b6d7b5a4d19824aaf30e26800cd1de3fd38c66d86d30c24ca1c0bca60080cddc99f528d4737780a892abc1b"
+  },
+  {
+    "id": 3,
+    "description": "Call opcode call fail & call correct",
+    "arity": 4,
+    "chainIdSequencer": 1001,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x60806040526004361061004a5760003560e01c806303d3e8a71461004f578063266f6aec146100665780633182d9a91461007d5780636aecbc33146100a8578063f80efde5146100d3575b600080fd5b34801561005b57600080fd5b506100646100f1565b005b34801561007257600080fd5b5061007b610100565b005b34801561008957600080fd5b50610092610110565b60405161009f9190610175565b60405180910390f35b3480156100b457600080fd5b506100bd61012b565b6040516100ca9190610175565b60405180910390f35b6100db610138565b6040516100e89190610175565b60405180910390f35b600080146100fe57600080fd5b565b600060011461010e57600080fd5b565b60006912121212121212121212600055640123456689905090565b6000640123456689905090565b6000803390506000349050691212121212121212121260005581600155806002556401234566899250505090565b61016f81610190565b82525050565b600060208201905061018a6000830184610166565b92915050565b600081905091905056fea2646970667358221220e307b9cb1a9f8054b8e88f8e6e77343d6dd564e32b79f09d392ab309572cbcb664736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [],
+            "name": "auxFail",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxReturn",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxStop",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxUpdate",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxUpdateValues",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      },
+      {
+        "address": "0x85e844b762a271022b692cf99ce5c59ba0650ac8",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x6080604052600436106101145760003560e01c8063731d1a01116100a0578063a419cc1b11610064578063a419cc1b146103a1578063aea87a1d146103ca578063b40a444514610407578063bce68dec14610423578063e268669d1461045357610114565b8063731d1a01146102b95780637719db3e146102e25780637b4fdd7a146102fe578063834905671461033b5780638aebc8121461037857610114565b806333665755116100e757806333665755146101d15780633ad8b228146101fa5780633d434925146102235780634fec21a81461024c57806356d5be741461027c57610114565b8063043b6c7c14610119578063064055bd14610142578063102ea40b1461016b578063334ab9da14610194575b600080fd5b34801561012557600080fd5b50610140600480360381019061013b9190610f83565b610490565b005b34801561014e57600080fd5b5061016960048036038101906101649190610f83565b610531565b005b34801561017757600080fd5b50610192600480360381019061018d9190610f83565b610564565b005b3480156101a057600080fd5b506101bb60048036038101906101b69190610f83565b610605565b6040516101c89190611016565b60405180910390f35b3480156101dd57600080fd5b506101f860048036038101906101f39190610f83565b610649565b005b34801561020657600080fd5b50610221600480360381019061021c9190610f83565b61068d565b005b34801561022f57600080fd5b5061024a60048036038101906102459190610f83565b6106d0565b005b61026660048036038101906102619190610f83565b61071d565b6040516102739190611016565b60405180910390f35b34801561028857600080fd5b506102a3600480360381019061029e9190610f83565b610769565b6040516102b09190611016565b60405180910390f35b3480156102c557600080fd5b506102e060048036038101906102db9190610f83565b610875565b005b6102fc60048036038101906102f79190610f83565b610938565b005b34801561030a57600080fd5b5061032560048036038101906103209190610f83565b6109dd565b6040516103329190611016565b60405180910390f35b34801561034757600080fd5b50610362600480360381019061035d9190610f83565b610aa8565b60405161036f9190611016565b60405180910390f35b34801561038457600080fd5b5061039f600480360381019061039a9190610f83565b610bb4565b005b3480156103ad57600080fd5b506103c860048036038101906103c39190610f83565b610c63565b005b3480156103d657600080fd5b506103f160048036038101906103ec9190610f83565b610ca5565b6040516103fe9190611016565b60405180910390f35b610421600480360381019061041c9190610f83565b610d5a565b005b61043d60048036038101906104389190610f83565b610dff565b60405161044a9190611016565b60405180910390f35b34801561045f57600080fd5b5061047a60048036038101906104759190610f83565b610e4d565b6040516104879190611016565b60405180910390f35b60003073ffffffffffffffffffffffffffffffffffffffff1663334ab9da836040518263ffffffff1660e01b81526004016104cb9190610ffb565b602060405180830381600087803b1580156104e557600080fd5b505af11580156104f9573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061051d9190610fb0565b9050600081141561052d57600080fd5b5050565b7f3182d9a9000000000000000000000000000000000000000000000000000000006080526020608060046080845afa5050565b60003073ffffffffffffffffffffffffffffffffffffffff166356d5be74836040518263ffffffff1660e01b815260040161059f9190610ffb565b602060405180830381600087803b1580156105b957600080fd5b505af11580156105cd573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906105f19190610fb0565b9050600081141561060157600080fd5b5050565b6000807f3182d9a900000000000000000000000000000000000000000000000000000000608052602060806004608065ffffffffffff875af1905080915050919050565b7f3182d9a90000000000000000000000000000000000000000000000000000000060805260206080600460806000855af1600a601660003e60005180600155505050565b7f3182d9a90000000000000000000000000000000000000000000000000000000060805260206080600460806000855af260206000803e60005180600155505050565b7f3182d9a90000000000000000000000000000000000000000000000000000000060805260206080600460806000855af1600a601660173e60005180600155602051905080600255505050565b60007ff80efde5000000000000000000000000000000000000000000000000000000006080526020608060046080855af460206000803e60005180600355505063112233449050919050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16636aecbc336040518163ffffffff1660e01b8152600401602060405180830381600087803b15801561081657600080fd5b505af115801561082a573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061084e9190610fb0565b9050600081141561085e57600080fd5b60206000803e600051806000555080915050919050565b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166303d3e8a76040518163ffffffff1660e01b8152600401600060405180830381600087803b15801561091d57600080fd5b505af1158015610931573d6000803e3d6000fd5b5050505050565b60003073ffffffffffffffffffffffffffffffffffffffff16634fec21a8836040518263ffffffff1660e01b81526004016109739190610ffb565b602060405180830381600087803b15801561098d57600080fd5b505af11580156109a1573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906109c59190610fb0565b905060008114156109d557600080fd5b806004555050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663266f6aec6040518163ffffffff1660e01b8152600401600060405180830381600087803b158015610a8757600080fd5b505af1158015610a9b573d6000803e3d6000fd5b5050505060119050919050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16633182d9a96040518163ffffffff1660e01b8152600401602060405180830381600087803b158015610b5557600080fd5b505af1158015610b69573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610b8d9190610fb0565b90506000811415610b9d57600080fd5b60206000803e600051806001555080915050919050565b60003073ffffffffffffffffffffffffffffffffffffffff1663aea87a1d836040518263ffffffff1660e01b8152600401610bef9190610ffb565b602060405180830381600087803b158015610c0957600080fd5b505af1158015610c1d573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610c419190610fb0565b90506000811415610c5157600080fd5b60206000803e60005180600255505050565b7f6aecbc33000000000000000000000000000000000000000000000000000000006080526020608060046080845afa600a601660003e60005180600155505050565b6000803073ffffffffffffffffffffffffffffffffffffffff166356d5be74846040518263ffffffff1660e01b8152600401610ce19190610ffb565b602060405180830381600087803b158015610cfb57600080fd5b505af1158015610d0f573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610d339190610fb0565b90506000811415610d4357600080fd5b60206000803e600051806001555080915050919050565b60003073ffffffffffffffffffffffffffffffffffffffff1663bce68dec836040518263ffffffff1660e01b8152600401610d959190610ffb565b602060405180830381600087803b158015610daf57600080fd5b505af1158015610dc3573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610de79190610fb0565b90506000811415610df757600080fd5b806004555050565b60007ff80efde50000000000000000000000000000000000000000000000000000000060805260206080600460806000865af260206000803e60005180600355505063443322119050919050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663f80efde56040518163ffffffff1660e01b8152600401602060405180830381600087803b158015610efa57600080fd5b505af1158015610f0e573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610f329190610fb0565b90506000811415610f4257600080fd5b60206000803e600051806003555080915050919050565b600081359050610f6881611072565b92915050565b600081519050610f7d81611089565b92915050565b600060208284031215610f9957610f9861106d565b5b6000610fa784828501610f59565b91505092915050565b600060208284031215610fc657610fc561106d565b5b6000610fd484828501610f6e565b91505092915050565b610fe681611031565b82525050565b610ff581611063565b82525050565b60006020820190506110106000830184610fdd565b92915050565b600060208201905061102b6000830184610fec565b92915050565b600061103c82611043565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b600080fd5b61107b81611031565b811461108657600080fd5b50565b61109281611063565b811461109d57600080fd5b5056fea2646970667358221220fe47239faa5863355eefd92b09163049d8570151bb65340d216694fcfcadf4e564736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCall2",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallCodeValues",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallFail",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallReturn",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallReturnCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCode",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCodeValues",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallDelegateCall",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallExternal",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallExternalUpdate",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallExternalUpdateValues",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallFail",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallFailParams",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallOpcode",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallStop",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opDelegateCall",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opStaticCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opStaticCallFail",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      }
+    ],
+    "expectedOldRoot": "0xec1da4ea31ff76e27e29eb9fe9973f930558bb842cea75c59b92fb5b69d48d3f",
+    "txs": [
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x85e844b762a271022b692cf99ce5c59ba0650ac8",
+        "nonce": "0",
+        "value": "0",
+        "data": "0x336657550000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "gasLimit": 1000000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x85e844b762a271022b692cf99ce5c59ba0650ac8",
+        "nonce": "1",
+        "value": "0",
+        "data": "0x7b4fdd7a0000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "gasLimit": 1000000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      }
+    ],
+    "expectedNewRoot": "0xa4e27cda3147fccb6706bb23d943b14e9ed18fae5a8dd32c58d125d377a26e4f",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100000069141000000000",
+        "nonce": "0",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "199999930859000000000",
+        "nonce": "1",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {
+          "0x0000000000000000000000000000000000000000000000000000000000000000": "0x12121212121212121212"
+        },
+        "hashBytecode": "0x60400ad749a9ad8a0981f8bec859228da1dec283244ed60e3cf0205896a511a7"
+      },
+      "0x85e844b762a271022b692cf99ce5c59ba0650ac8": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {
+          "0x0000000000000000000000000000000000000000000000000000000000000001": "0x012345668900000000000000000000000000000000000000000000"
+        },
+        "hashBytecode": "0x693fd008877abc37ae0c4e1bf5a8229d5199e0d290c220ac01eedb896989388b"
+      }
+    },
+    "timestamp": 1944498031,
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0x166bb607f6f4ff385e13621fa2b1d3afb0239d24c3fd5d09d5c9a5a566b1c56c",
+    "inputHash": "0x619da0f2f1a332d45762e3054eedca4b4a43a7f1ff8ff30c17c674c8b316db3b",
+    "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchL2Data": "0xf84a80843b9aca00830f42409485e844b762a271022b692cf99ce5c59ba0650ac880a4336657550000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae988203e98080178e3fc670d5eb8826bd00f494cd5bd70de94de0949a5b4a753c4d6a2663fcaa38b336c8b5a197d8a870f790eb8131996b11c2c9378de334b58ba423b339b5831bf84a01843b9aca00830f42409485e844b762a271022b692cf99ce5c59ba0650ac880a47b4fdd7a0000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae988203e98080974ce18aea4c35996dc9bb17ea41d22e3b9e91fbda5edea9d33032cc73646fc857c404ff8b2d946d22c5925a8c4c2465a0981625199886bfae1caaf4b1fa06301b"
+  },
+  {
+    "id": 4,
+    "description": "Call opcode call fail & call correct",
+    "arity": 4,
+    "chainIdSequencer": 1001,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x60806040526004361061004a5760003560e01c806303d3e8a71461004f578063266f6aec146100665780633182d9a91461007d5780636aecbc33146100a8578063f80efde5146100d3575b600080fd5b34801561005b57600080fd5b506100646100f1565b005b34801561007257600080fd5b5061007b610100565b005b34801561008957600080fd5b50610092610110565b60405161009f9190610175565b60405180910390f35b3480156100b457600080fd5b506100bd61012b565b6040516100ca9190610175565b60405180910390f35b6100db610138565b6040516100e89190610175565b60405180910390f35b600080146100fe57600080fd5b565b600060011461010e57600080fd5b565b60006912121212121212121212600055640123456689905090565b6000640123456689905090565b6000803390506000349050691212121212121212121260005581600155806002556401234566899250505090565b61016f81610190565b82525050565b600060208201905061018a6000830184610166565b92915050565b600081905091905056fea2646970667358221220e307b9cb1a9f8054b8e88f8e6e77343d6dd564e32b79f09d392ab309572cbcb664736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [],
+            "name": "auxFail",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxReturn",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxStop",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxUpdate",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxUpdateValues",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      },
+      {
+        "address": "0x85e844b762a271022b692cf99ce5c59ba0650ac8",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x6080604052600436106101145760003560e01c8063731d1a01116100a0578063a419cc1b11610064578063a419cc1b146103a1578063aea87a1d146103ca578063b40a444514610407578063bce68dec14610423578063e268669d1461045357610114565b8063731d1a01146102b95780637719db3e146102e25780637b4fdd7a146102fe578063834905671461033b5780638aebc8121461037857610114565b806333665755116100e757806333665755146101d15780633ad8b228146101fa5780633d434925146102235780634fec21a81461024c57806356d5be741461027c57610114565b8063043b6c7c14610119578063064055bd14610142578063102ea40b1461016b578063334ab9da14610194575b600080fd5b34801561012557600080fd5b50610140600480360381019061013b9190610f83565b610490565b005b34801561014e57600080fd5b5061016960048036038101906101649190610f83565b610531565b005b34801561017757600080fd5b50610192600480360381019061018d9190610f83565b610564565b005b3480156101a057600080fd5b506101bb60048036038101906101b69190610f83565b610605565b6040516101c89190611016565b60405180910390f35b3480156101dd57600080fd5b506101f860048036038101906101f39190610f83565b610649565b005b34801561020657600080fd5b50610221600480360381019061021c9190610f83565b61068d565b005b34801561022f57600080fd5b5061024a60048036038101906102459190610f83565b6106d0565b005b61026660048036038101906102619190610f83565b61071d565b6040516102739190611016565b60405180910390f35b34801561028857600080fd5b506102a3600480360381019061029e9190610f83565b610769565b6040516102b09190611016565b60405180910390f35b3480156102c557600080fd5b506102e060048036038101906102db9190610f83565b610875565b005b6102fc60048036038101906102f79190610f83565b610938565b005b34801561030a57600080fd5b5061032560048036038101906103209190610f83565b6109dd565b6040516103329190611016565b60405180910390f35b34801561034757600080fd5b50610362600480360381019061035d9190610f83565b610aa8565b60405161036f9190611016565b60405180910390f35b34801561038457600080fd5b5061039f600480360381019061039a9190610f83565b610bb4565b005b3480156103ad57600080fd5b506103c860048036038101906103c39190610f83565b610c63565b005b3480156103d657600080fd5b506103f160048036038101906103ec9190610f83565b610ca5565b6040516103fe9190611016565b60405180910390f35b610421600480360381019061041c9190610f83565b610d5a565b005b61043d60048036038101906104389190610f83565b610dff565b60405161044a9190611016565b60405180910390f35b34801561045f57600080fd5b5061047a60048036038101906104759190610f83565b610e4d565b6040516104879190611016565b60405180910390f35b60003073ffffffffffffffffffffffffffffffffffffffff1663334ab9da836040518263ffffffff1660e01b81526004016104cb9190610ffb565b602060405180830381600087803b1580156104e557600080fd5b505af11580156104f9573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061051d9190610fb0565b9050600081141561052d57600080fd5b5050565b7f3182d9a9000000000000000000000000000000000000000000000000000000006080526020608060046080845afa5050565b60003073ffffffffffffffffffffffffffffffffffffffff166356d5be74836040518263ffffffff1660e01b815260040161059f9190610ffb565b602060405180830381600087803b1580156105b957600080fd5b505af11580156105cd573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906105f19190610fb0565b9050600081141561060157600080fd5b5050565b6000807f3182d9a900000000000000000000000000000000000000000000000000000000608052602060806004608065ffffffffffff875af1905080915050919050565b7f3182d9a90000000000000000000000000000000000000000000000000000000060805260206080600460806000855af1600a601660003e60005180600155505050565b7f3182d9a90000000000000000000000000000000000000000000000000000000060805260206080600460806000855af260206000803e60005180600155505050565b7f3182d9a90000000000000000000000000000000000000000000000000000000060805260206080600460806000855af1600a601660173e60005180600155602051905080600255505050565b60007ff80efde5000000000000000000000000000000000000000000000000000000006080526020608060046080855af460206000803e60005180600355505063112233449050919050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16636aecbc336040518163ffffffff1660e01b8152600401602060405180830381600087803b15801561081657600080fd5b505af115801561082a573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061084e9190610fb0565b9050600081141561085e57600080fd5b60206000803e600051806000555080915050919050565b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166303d3e8a76040518163ffffffff1660e01b8152600401600060405180830381600087803b15801561091d57600080fd5b505af1158015610931573d6000803e3d6000fd5b5050505050565b60003073ffffffffffffffffffffffffffffffffffffffff16634fec21a8836040518263ffffffff1660e01b81526004016109739190610ffb565b602060405180830381600087803b15801561098d57600080fd5b505af11580156109a1573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906109c59190610fb0565b905060008114156109d557600080fd5b806004555050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663266f6aec6040518163ffffffff1660e01b8152600401600060405180830381600087803b158015610a8757600080fd5b505af1158015610a9b573d6000803e3d6000fd5b5050505060119050919050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16633182d9a96040518163ffffffff1660e01b8152600401602060405180830381600087803b158015610b5557600080fd5b505af1158015610b69573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610b8d9190610fb0565b90506000811415610b9d57600080fd5b60206000803e600051806001555080915050919050565b60003073ffffffffffffffffffffffffffffffffffffffff1663aea87a1d836040518263ffffffff1660e01b8152600401610bef9190610ffb565b602060405180830381600087803b158015610c0957600080fd5b505af1158015610c1d573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610c419190610fb0565b90506000811415610c5157600080fd5b60206000803e60005180600255505050565b7f6aecbc33000000000000000000000000000000000000000000000000000000006080526020608060046080845afa600a601660003e60005180600155505050565b6000803073ffffffffffffffffffffffffffffffffffffffff166356d5be74846040518263ffffffff1660e01b8152600401610ce19190610ffb565b602060405180830381600087803b158015610cfb57600080fd5b505af1158015610d0f573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610d339190610fb0565b90506000811415610d4357600080fd5b60206000803e600051806001555080915050919050565b60003073ffffffffffffffffffffffffffffffffffffffff1663bce68dec836040518263ffffffff1660e01b8152600401610d959190610ffb565b602060405180830381600087803b158015610daf57600080fd5b505af1158015610dc3573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610de79190610fb0565b90506000811415610df757600080fd5b806004555050565b60007ff80efde50000000000000000000000000000000000000000000000000000000060805260206080600460806000865af260206000803e60005180600355505063443322119050919050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663f80efde56040518163ffffffff1660e01b8152600401602060405180830381600087803b158015610efa57600080fd5b505af1158015610f0e573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610f329190610fb0565b90506000811415610f4257600080fd5b60206000803e600051806003555080915050919050565b600081359050610f6881611072565b92915050565b600081519050610f7d81611089565b92915050565b600060208284031215610f9957610f9861106d565b5b6000610fa784828501610f59565b91505092915050565b600060208284031215610fc657610fc561106d565b5b6000610fd484828501610f6e565b91505092915050565b610fe681611031565b82525050565b610ff581611063565b82525050565b60006020820190506110106000830184610fdd565b92915050565b600060208201905061102b6000830184610fec565b92915050565b600061103c82611043565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b600080fd5b61107b81611031565b811461108657600080fd5b50565b61109281611063565b811461109d57600080fd5b5056fea2646970667358221220fe47239faa5863355eefd92b09163049d8570151bb65340d216694fcfcadf4e564736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCall2",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallCodeValues",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallFail",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallReturn",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallReturnCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCode",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCodeValues",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallDelegateCall",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallExternal",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallExternalUpdate",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallExternalUpdateValues",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallFail",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallFailParams",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallOpcode",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallStop",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opDelegateCall",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opStaticCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opStaticCallFail",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      }
+    ],
+    "expectedOldRoot": "0xec1da4ea31ff76e27e29eb9fe9973f930558bb842cea75c59b92fb5b69d48d3f",
+    "txs": [
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x85e844b762a271022b692cf99ce5c59ba0650ac8",
+        "nonce": "0",
+        "value": "0",
+        "data": "0x7b4fdd7a0000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "gasLimit": 1000000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      },
+      {
+        "from": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "to": "0x85e844b762a271022b692cf99ce5c59ba0650ac8",
+        "nonce": "0",
+        "value": "0",
+        "data": "0x336657550000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "gasLimit": 1000000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      }
+    ],
+    "expectedNewRoot": "0xb0434c692b51ee0b5fb71a449a4420825e2c1086646708bc5391f747c93c62e7",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100000047255000000000",
+        "nonce": "1",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "200000000000000000000",
+        "nonce": "0",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {
+          "0x0000000000000000000000000000000000000000000000000000000000000000": "0x12121212121212121212"
+        },
+        "hashBytecode": "0x60400ad749a9ad8a0981f8bec859228da1dec283244ed60e3cf0205896a511a7"
+      },
+      "0x85e844b762a271022b692cf99ce5c59ba0650ac8": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {
+          "0x0000000000000000000000000000000000000000000000000000000000000001": "0x012345668900000000000000000000000000000000000000000000"
+        },
+        "hashBytecode": "0x693fd008877abc37ae0c4e1bf5a8229d5199e0d290c220ac01eedb896989388b"
+      }
+    },
+    "timestamp": 1944498031,
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0xf6c66a7f77bb0d443445bcab7eb6dc8ea36e0b4b0ed97ebe9350d17909857dff",
+    "inputHash": "0x2889ce5eabdd06bbd139b68f12da681e6d6dbb214cb03462bf6fd822840c3953",
+    "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchL2Data": "0xf84a80843b9aca00830f42409485e844b762a271022b692cf99ce5c59ba0650ac880a47b4fdd7a0000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae988203e98080e507196880c4a67b26bd96e8eb847bb62dc82c928f18d183839bcd73c73d749b16152dca7a08be02df26b91ed9012a801e4b0db50b3013bc4ecade09e029d41c1cf84a80843b9aca00830f42409485e844b762a271022b692cf99ce5c59ba0650ac880a4336657550000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae988203e98080cda0ab3f504aa6af8d3c382ac1262fea2e365bec3045acbe58ad46c4f22fba584efb70a184cb35c96409282ef7be891aa844cb1926d3d97c095b2ed8bc14952b1b"
+  },
+  {
+    "id": 5,
+    "description": "Call opcode call fail & call correct",
+    "arity": 4,
+    "chainIdSequencer": 1001,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x60806040526004361061004a5760003560e01c806303d3e8a71461004f578063266f6aec146100665780633182d9a91461007d5780636aecbc33146100a8578063f80efde5146100d3575b600080fd5b34801561005b57600080fd5b506100646100f1565b005b34801561007257600080fd5b5061007b610100565b005b34801561008957600080fd5b50610092610110565b60405161009f9190610175565b60405180910390f35b3480156100b457600080fd5b506100bd61012b565b6040516100ca9190610175565b60405180910390f35b6100db610138565b6040516100e89190610175565b60405180910390f35b600080146100fe57600080fd5b565b600060011461010e57600080fd5b565b60006912121212121212121212600055640123456689905090565b6000640123456689905090565b6000803390506000349050691212121212121212121260005581600155806002556401234566899250505090565b61016f81610190565b82525050565b600060208201905061018a6000830184610166565b92915050565b600081905091905056fea2646970667358221220e307b9cb1a9f8054b8e88f8e6e77343d6dd564e32b79f09d392ab309572cbcb664736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [],
+            "name": "auxFail",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxReturn",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxStop",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxUpdate",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxUpdateValues",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      },
+      {
+        "address": "0x85e844b762a271022b692cf99ce5c59ba0650ac8",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x6080604052600436106101145760003560e01c8063731d1a01116100a0578063a419cc1b11610064578063a419cc1b146103a1578063aea87a1d146103ca578063b40a444514610407578063bce68dec14610423578063e268669d1461045357610114565b8063731d1a01146102b95780637719db3e146102e25780637b4fdd7a146102fe578063834905671461033b5780638aebc8121461037857610114565b806333665755116100e757806333665755146101d15780633ad8b228146101fa5780633d434925146102235780634fec21a81461024c57806356d5be741461027c57610114565b8063043b6c7c14610119578063064055bd14610142578063102ea40b1461016b578063334ab9da14610194575b600080fd5b34801561012557600080fd5b50610140600480360381019061013b9190610f83565b610490565b005b34801561014e57600080fd5b5061016960048036038101906101649190610f83565b610531565b005b34801561017757600080fd5b50610192600480360381019061018d9190610f83565b610564565b005b3480156101a057600080fd5b506101bb60048036038101906101b69190610f83565b610605565b6040516101c89190611016565b60405180910390f35b3480156101dd57600080fd5b506101f860048036038101906101f39190610f83565b610649565b005b34801561020657600080fd5b50610221600480360381019061021c9190610f83565b61068d565b005b34801561022f57600080fd5b5061024a60048036038101906102459190610f83565b6106d0565b005b61026660048036038101906102619190610f83565b61071d565b6040516102739190611016565b60405180910390f35b34801561028857600080fd5b506102a3600480360381019061029e9190610f83565b610769565b6040516102b09190611016565b60405180910390f35b3480156102c557600080fd5b506102e060048036038101906102db9190610f83565b610875565b005b6102fc60048036038101906102f79190610f83565b610938565b005b34801561030a57600080fd5b5061032560048036038101906103209190610f83565b6109dd565b6040516103329190611016565b60405180910390f35b34801561034757600080fd5b50610362600480360381019061035d9190610f83565b610aa8565b60405161036f9190611016565b60405180910390f35b34801561038457600080fd5b5061039f600480360381019061039a9190610f83565b610bb4565b005b3480156103ad57600080fd5b506103c860048036038101906103c39190610f83565b610c63565b005b3480156103d657600080fd5b506103f160048036038101906103ec9190610f83565b610ca5565b6040516103fe9190611016565b60405180910390f35b610421600480360381019061041c9190610f83565b610d5a565b005b61043d60048036038101906104389190610f83565b610dff565b60405161044a9190611016565b60405180910390f35b34801561045f57600080fd5b5061047a60048036038101906104759190610f83565b610e4d565b6040516104879190611016565b60405180910390f35b60003073ffffffffffffffffffffffffffffffffffffffff1663334ab9da836040518263ffffffff1660e01b81526004016104cb9190610ffb565b602060405180830381600087803b1580156104e557600080fd5b505af11580156104f9573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061051d9190610fb0565b9050600081141561052d57600080fd5b5050565b7f3182d9a9000000000000000000000000000000000000000000000000000000006080526020608060046080845afa5050565b60003073ffffffffffffffffffffffffffffffffffffffff166356d5be74836040518263ffffffff1660e01b815260040161059f9190610ffb565b602060405180830381600087803b1580156105b957600080fd5b505af11580156105cd573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906105f19190610fb0565b9050600081141561060157600080fd5b5050565b6000807f3182d9a900000000000000000000000000000000000000000000000000000000608052602060806004608065ffffffffffff875af1905080915050919050565b7f3182d9a90000000000000000000000000000000000000000000000000000000060805260206080600460806000855af1600a601660003e60005180600155505050565b7f3182d9a90000000000000000000000000000000000000000000000000000000060805260206080600460806000855af260206000803e60005180600155505050565b7f3182d9a90000000000000000000000000000000000000000000000000000000060805260206080600460806000855af1600a601660173e60005180600155602051905080600255505050565b60007ff80efde5000000000000000000000000000000000000000000000000000000006080526020608060046080855af460206000803e60005180600355505063112233449050919050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16636aecbc336040518163ffffffff1660e01b8152600401602060405180830381600087803b15801561081657600080fd5b505af115801561082a573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061084e9190610fb0565b9050600081141561085e57600080fd5b60206000803e600051806000555080915050919050565b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166303d3e8a76040518163ffffffff1660e01b8152600401600060405180830381600087803b15801561091d57600080fd5b505af1158015610931573d6000803e3d6000fd5b5050505050565b60003073ffffffffffffffffffffffffffffffffffffffff16634fec21a8836040518263ffffffff1660e01b81526004016109739190610ffb565b602060405180830381600087803b15801561098d57600080fd5b505af11580156109a1573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906109c59190610fb0565b905060008114156109d557600080fd5b806004555050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663266f6aec6040518163ffffffff1660e01b8152600401600060405180830381600087803b158015610a8757600080fd5b505af1158015610a9b573d6000803e3d6000fd5b5050505060119050919050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16633182d9a96040518163ffffffff1660e01b8152600401602060405180830381600087803b158015610b5557600080fd5b505af1158015610b69573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610b8d9190610fb0565b90506000811415610b9d57600080fd5b60206000803e600051806001555080915050919050565b60003073ffffffffffffffffffffffffffffffffffffffff1663aea87a1d836040518263ffffffff1660e01b8152600401610bef9190610ffb565b602060405180830381600087803b158015610c0957600080fd5b505af1158015610c1d573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610c419190610fb0565b90506000811415610c5157600080fd5b60206000803e60005180600255505050565b7f6aecbc33000000000000000000000000000000000000000000000000000000006080526020608060046080845afa600a601660003e60005180600155505050565b6000803073ffffffffffffffffffffffffffffffffffffffff166356d5be74846040518263ffffffff1660e01b8152600401610ce19190610ffb565b602060405180830381600087803b158015610cfb57600080fd5b505af1158015610d0f573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610d339190610fb0565b90506000811415610d4357600080fd5b60206000803e600051806001555080915050919050565b60003073ffffffffffffffffffffffffffffffffffffffff1663bce68dec836040518263ffffffff1660e01b8152600401610d959190610ffb565b602060405180830381600087803b158015610daf57600080fd5b505af1158015610dc3573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610de79190610fb0565b90506000811415610df757600080fd5b806004555050565b60007ff80efde50000000000000000000000000000000000000000000000000000000060805260206080600460806000865af260206000803e60005180600355505063443322119050919050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663f80efde56040518163ffffffff1660e01b8152600401602060405180830381600087803b158015610efa57600080fd5b505af1158015610f0e573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610f329190610fb0565b90506000811415610f4257600080fd5b60206000803e600051806003555080915050919050565b600081359050610f6881611072565b92915050565b600081519050610f7d81611089565b92915050565b600060208284031215610f9957610f9861106d565b5b6000610fa784828501610f59565b91505092915050565b600060208284031215610fc657610fc561106d565b5b6000610fd484828501610f6e565b91505092915050565b610fe681611031565b82525050565b610ff581611063565b82525050565b60006020820190506110106000830184610fdd565b92915050565b600060208201905061102b6000830184610fec565b92915050565b600061103c82611043565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b600080fd5b61107b81611031565b811461108657600080fd5b50565b61109281611063565b811461109d57600080fd5b5056fea2646970667358221220fe47239faa5863355eefd92b09163049d8570151bb65340d216694fcfcadf4e564736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCall2",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallCodeValues",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallFail",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallReturn",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallReturnCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCode",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCodeValues",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallDelegateCall",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallExternal",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallExternalUpdate",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallExternalUpdateValues",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallFail",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallFailParams",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallOpcode",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallStop",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opDelegateCall",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opStaticCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opStaticCallFail",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      }
+    ],
+    "expectedOldRoot": "0xec1da4ea31ff76e27e29eb9fe9973f930558bb842cea75c59b92fb5b69d48d3f",
+    "txs": [
+      {
+        "from": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "to": "0x85e844b762a271022b692cf99ce5c59ba0650ac8",
+        "nonce": "0",
+        "value": "0",
+        "data": "0x7b4fdd7a0000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "gasLimit": 1000000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x85e844b762a271022b692cf99ce5c59ba0650ac8",
+        "nonce": "0",
+        "value": "0",
+        "data": "0x336657550000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "gasLimit": 1000000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      }
+    ],
+    "expectedNewRoot": "0x660adcea4ce6d5b8c5264b3fdb3665fe0db80754c3a1802fe4677e4c7bbdf515",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100000069141000000000",
+        "nonce": "1",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "199999930859000000000",
+        "nonce": "1",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {
+          "0x0000000000000000000000000000000000000000000000000000000000000000": "0x12121212121212121212"
+        },
+        "hashBytecode": "0x60400ad749a9ad8a0981f8bec859228da1dec283244ed60e3cf0205896a511a7"
+      },
+      "0x85e844b762a271022b692cf99ce5c59ba0650ac8": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {
+          "0x0000000000000000000000000000000000000000000000000000000000000001": "0x012345668900000000000000000000000000000000000000000000"
+        },
+        "hashBytecode": "0x693fd008877abc37ae0c4e1bf5a8229d5199e0d290c220ac01eedb896989388b"
+      }
+    },
+    "timestamp": 1944498031,
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0x929a6bbeca495c1d6fbd893c911b6ed34b22e9b44ce0e130219d7f97ff54d608",
+    "inputHash": "0x5cc3cc2c88f639e88aee2036ff7cc732a663a3722c6fc35f8d7fb6490fb6062a",
+    "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchL2Data": "0xf84a80843b9aca00830f42409485e844b762a271022b692cf99ce5c59ba0650ac880a47b4fdd7a0000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae988203e9808023c04ff807474776a1dbd6b8ac00420b9070a4d975697f89aafbc40be3c67bcd0b2e154c828a8d323d6ddd00ed47565cc50587a590de77e135bc322f18daa2701cf84a80843b9aca00830f42409485e844b762a271022b692cf99ce5c59ba0650ac880a4336657550000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae988203e98080178e3fc670d5eb8826bd00f494cd5bd70de94de0949a5b4a753c4d6a2663fcaa38b336c8b5a197d8a870f790eb8131996b11c2c9378de334b58ba423b339b5831b"
+  },
+  {
+    "id": 6,
+    "description": "Call opcode call fail & call correct",
+    "arity": 4,
+    "chainIdSequencer": 1001,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x60806040526004361061004a5760003560e01c806303d3e8a71461004f578063266f6aec146100665780633182d9a91461007d5780636aecbc33146100a8578063f80efde5146100d3575b600080fd5b34801561005b57600080fd5b506100646100f1565b005b34801561007257600080fd5b5061007b610100565b005b34801561008957600080fd5b50610092610110565b60405161009f9190610175565b60405180910390f35b3480156100b457600080fd5b506100bd61012b565b6040516100ca9190610175565b60405180910390f35b6100db610138565b6040516100e89190610175565b60405180910390f35b600080146100fe57600080fd5b565b600060011461010e57600080fd5b565b60006912121212121212121212600055640123456689905090565b6000640123456689905090565b6000803390506000349050691212121212121212121260005581600155806002556401234566899250505090565b61016f81610190565b82525050565b600060208201905061018a6000830184610166565b92915050565b600081905091905056fea2646970667358221220e307b9cb1a9f8054b8e88f8e6e77343d6dd564e32b79f09d392ab309572cbcb664736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [],
+            "name": "auxFail",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxReturn",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxStop",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxUpdate",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "auxUpdateValues",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      },
+      {
+        "address": "0x85e844b762a271022b692cf99ce5c59ba0650ac8",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x6080604052600436106101145760003560e01c8063731d1a01116100a0578063a419cc1b11610064578063a419cc1b146103a1578063aea87a1d146103ca578063b40a444514610407578063bce68dec14610423578063e268669d1461045357610114565b8063731d1a01146102b95780637719db3e146102e25780637b4fdd7a146102fe578063834905671461033b5780638aebc8121461037857610114565b806333665755116100e757806333665755146101d15780633ad8b228146101fa5780633d434925146102235780634fec21a81461024c57806356d5be741461027c57610114565b8063043b6c7c14610119578063064055bd14610142578063102ea40b1461016b578063334ab9da14610194575b600080fd5b34801561012557600080fd5b50610140600480360381019061013b9190610f83565b610490565b005b34801561014e57600080fd5b5061016960048036038101906101649190610f83565b610531565b005b34801561017757600080fd5b50610192600480360381019061018d9190610f83565b610564565b005b3480156101a057600080fd5b506101bb60048036038101906101b69190610f83565b610605565b6040516101c89190611016565b60405180910390f35b3480156101dd57600080fd5b506101f860048036038101906101f39190610f83565b610649565b005b34801561020657600080fd5b50610221600480360381019061021c9190610f83565b61068d565b005b34801561022f57600080fd5b5061024a60048036038101906102459190610f83565b6106d0565b005b61026660048036038101906102619190610f83565b61071d565b6040516102739190611016565b60405180910390f35b34801561028857600080fd5b506102a3600480360381019061029e9190610f83565b610769565b6040516102b09190611016565b60405180910390f35b3480156102c557600080fd5b506102e060048036038101906102db9190610f83565b610875565b005b6102fc60048036038101906102f79190610f83565b610938565b005b34801561030a57600080fd5b5061032560048036038101906103209190610f83565b6109dd565b6040516103329190611016565b60405180910390f35b34801561034757600080fd5b50610362600480360381019061035d9190610f83565b610aa8565b60405161036f9190611016565b60405180910390f35b34801561038457600080fd5b5061039f600480360381019061039a9190610f83565b610bb4565b005b3480156103ad57600080fd5b506103c860048036038101906103c39190610f83565b610c63565b005b3480156103d657600080fd5b506103f160048036038101906103ec9190610f83565b610ca5565b6040516103fe9190611016565b60405180910390f35b610421600480360381019061041c9190610f83565b610d5a565b005b61043d60048036038101906104389190610f83565b610dff565b60405161044a9190611016565b60405180910390f35b34801561045f57600080fd5b5061047a60048036038101906104759190610f83565b610e4d565b6040516104879190611016565b60405180910390f35b60003073ffffffffffffffffffffffffffffffffffffffff1663334ab9da836040518263ffffffff1660e01b81526004016104cb9190610ffb565b602060405180830381600087803b1580156104e557600080fd5b505af11580156104f9573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061051d9190610fb0565b9050600081141561052d57600080fd5b5050565b7f3182d9a9000000000000000000000000000000000000000000000000000000006080526020608060046080845afa5050565b60003073ffffffffffffffffffffffffffffffffffffffff166356d5be74836040518263ffffffff1660e01b815260040161059f9190610ffb565b602060405180830381600087803b1580156105b957600080fd5b505af11580156105cd573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906105f19190610fb0565b9050600081141561060157600080fd5b5050565b6000807f3182d9a900000000000000000000000000000000000000000000000000000000608052602060806004608065ffffffffffff875af1905080915050919050565b7f3182d9a90000000000000000000000000000000000000000000000000000000060805260206080600460806000855af1600a601660003e60005180600155505050565b7f3182d9a90000000000000000000000000000000000000000000000000000000060805260206080600460806000855af260206000803e60005180600155505050565b7f3182d9a90000000000000000000000000000000000000000000000000000000060805260206080600460806000855af1600a601660173e60005180600155602051905080600255505050565b60007ff80efde5000000000000000000000000000000000000000000000000000000006080526020608060046080855af460206000803e60005180600355505063112233449050919050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16636aecbc336040518163ffffffff1660e01b8152600401602060405180830381600087803b15801561081657600080fd5b505af115801561082a573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061084e9190610fb0565b9050600081141561085e57600080fd5b60206000803e600051806000555080915050919050565b806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166303d3e8a76040518163ffffffff1660e01b8152600401600060405180830381600087803b15801561091d57600080fd5b505af1158015610931573d6000803e3d6000fd5b5050505050565b60003073ffffffffffffffffffffffffffffffffffffffff16634fec21a8836040518263ffffffff1660e01b81526004016109739190610ffb565b602060405180830381600087803b15801561098d57600080fd5b505af11580156109a1573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906109c59190610fb0565b905060008114156109d557600080fd5b806004555050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663266f6aec6040518163ffffffff1660e01b8152600401600060405180830381600087803b158015610a8757600080fd5b505af1158015610a9b573d6000803e3d6000fd5b5050505060119050919050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16633182d9a96040518163ffffffff1660e01b8152600401602060405180830381600087803b158015610b5557600080fd5b505af1158015610b69573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610b8d9190610fb0565b90506000811415610b9d57600080fd5b60206000803e600051806001555080915050919050565b60003073ffffffffffffffffffffffffffffffffffffffff1663aea87a1d836040518263ffffffff1660e01b8152600401610bef9190610ffb565b602060405180830381600087803b158015610c0957600080fd5b505af1158015610c1d573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610c419190610fb0565b90506000811415610c5157600080fd5b60206000803e60005180600255505050565b7f6aecbc33000000000000000000000000000000000000000000000000000000006080526020608060046080845afa600a601660003e60005180600155505050565b6000803073ffffffffffffffffffffffffffffffffffffffff166356d5be74846040518263ffffffff1660e01b8152600401610ce19190610ffb565b602060405180830381600087803b158015610cfb57600080fd5b505af1158015610d0f573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610d339190610fb0565b90506000811415610d4357600080fd5b60206000803e600051806001555080915050919050565b60003073ffffffffffffffffffffffffffffffffffffffff1663bce68dec836040518263ffffffff1660e01b8152600401610d959190610ffb565b602060405180830381600087803b158015610daf57600080fd5b505af1158015610dc3573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610de79190610fb0565b90506000811415610df757600080fd5b806004555050565b60007ff80efde50000000000000000000000000000000000000000000000000000000060805260206080600460806000865af260206000803e60005180600355505063443322119050919050565b6000816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663f80efde56040518163ffffffff1660e01b8152600401602060405180830381600087803b158015610efa57600080fd5b505af1158015610f0e573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610f329190610fb0565b90506000811415610f4257600080fd5b60206000803e600051806003555080915050919050565b600081359050610f6881611072565b92915050565b600081519050610f7d81611089565b92915050565b600060208284031215610f9957610f9861106d565b5b6000610fa784828501610f59565b91505092915050565b600060208284031215610fc657610fc561106d565b5b6000610fd484828501610f6e565b91505092915050565b610fe681611031565b82525050565b610ff581611063565b82525050565b60006020820190506110106000830184610fdd565b92915050565b600060208201905061102b6000830184610fec565b92915050565b600061103c82611043565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b600080fd5b61107b81611031565b811461108657600080fd5b50565b61109281611063565b811461109d57600080fd5b5056fea2646970667358221220fe47239faa5863355eefd92b09163049d8570151bb65340d216694fcfcadf4e564736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCall2",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallCodeValues",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallFail",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallReturn",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCallReturnCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCode",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallCodeValues",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallDelegateCall",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallExternal",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallExternalUpdate",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallExternalUpdateValues",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallFail",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallFailParams",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallOpcode",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opCallStop",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opDelegateCall",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opStaticCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opStaticCallFail",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      }
+    ],
+    "expectedOldRoot": "0xec1da4ea31ff76e27e29eb9fe9973f930558bb842cea75c59b92fb5b69d48d3f",
+    "txs": [
+      {
+        "from": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "to": "0x85e844b762a271022b692cf99ce5c59ba0650ac8",
+        "nonce": "0",
+        "value": "0",
+        "data": "0x336657550000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "gasLimit": 1000000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      },
+      {
+        "from": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "to": "0x85e844b762a271022b692cf99ce5c59ba0650ac8",
+        "nonce": "1",
+        "value": "0",
+        "data": "0x7b4fdd7a0000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "gasLimit": 1000000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      }
+    ],
+    "expectedNewRoot": "0xc9627d40663655be7c4687799f3d44e3289c184452a78701f5c416d6ba522ebf",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100000000000000000000",
+        "nonce": "1",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "200000000000000000000",
+        "nonce": "0",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {
+          "0x0000000000000000000000000000000000000000000000000000000000000000": "0x12121212121212121212"
+        },
+        "hashBytecode": "0x60400ad749a9ad8a0981f8bec859228da1dec283244ed60e3cf0205896a511a7"
+      },
+      "0x85e844b762a271022b692cf99ce5c59ba0650ac8": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {
+          "0x0000000000000000000000000000000000000000000000000000000000000001": "0x012345668900000000000000000000000000000000000000000000"
+        },
+        "hashBytecode": "0x693fd008877abc37ae0c4e1bf5a8229d5199e0d290c220ac01eedb896989388b"
+      }
+    },
+    "timestamp": 1944498031,
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0x2d1b05940196c6fae5b18c3636b15783197a0f2ab7546e1844df7233a8ef92bc",
+    "inputHash": "0x74ea806ba8ae8a64a73284179fb5b34e45a1e31e1d4b47d2ddc19ef26935eb63",
+    "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchL2Data": "0xf84a80843b9aca00830f42409485e844b762a271022b692cf99ce5c59ba0650ac880a4336657550000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae988203e98080cda0ab3f504aa6af8d3c382ac1262fea2e365bec3045acbe58ad46c4f22fba584efb70a184cb35c96409282ef7be891aa844cb1926d3d97c095b2ed8bc14952b1bf84a01843b9aca00830f42409485e844b762a271022b692cf99ce5c59ba0650ac880a47b4fdd7a0000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae988203e9808000582744a12df012666021dbc60e45e234b2d964bdaa63243de8e6496652948952d32a80e0856c3ce9bd6152496559931a27426e51403be302f5466767bdebeb1b"
+  }
+]

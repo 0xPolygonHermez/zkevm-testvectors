@@ -72,7 +72,7 @@ contract OpCall{
     bytes32 constant auxUpdate = 0x3182d9a900000000000000000000000000000000000000000000000000000000;
     bytes32 constant auxUpdateValues = 0xf80efde500000000000000000000000000000000000000000000000000000000;
 
-    function opCall(address addr) public {
+    function opCallOpcode(address addr) public {
         assembly {
             mstore(0x80, auxUpdate)
             let success := call(gas(), addr, 0x00, 0x80, 0x04, 0x80, 0x20)
