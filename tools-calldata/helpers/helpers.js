@@ -27,7 +27,7 @@ async function deployContract(
         nonce: await getAccountNonce(vm, senderPrivateKey),
     };
 
-    if (paramsDeploy) {
+    if (paramsDeploy && paramsDeploy.length > 0) {
         const params = defaultAbiCoder.encode(paramsDeploy.types, paramsDeploy.values);
         txData.data = deploymentBytecode + params.slice(2);
     }
