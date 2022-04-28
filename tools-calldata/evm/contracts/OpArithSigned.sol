@@ -135,4 +135,87 @@ contract OpArithSigned {
       sstore(0x0, result)
     }
   }
+
+  // opcode 1D
+  function opSAR1() public {
+    uint256 shiftedBits = 8;
+    int256 auxNegative2 = 0x100; // 0001 0000 0000 >> 8 = 1
+    assembly {
+      let result := sar(shiftedBits, auxNegative2)
+      sstore(0x0, result)
+    }
+  }
+
+  function opSAR2() public {
+    uint256 shiftedBits = 8;
+    int256 auxNegative2 = -0x100; // 1111 0000 0000 >> 8 = -1
+    assembly {
+      let result := sar(shiftedBits, auxNegative2)
+      sstore(0x0, result)
+    }
+  }
+
+  function opSAR3() public {
+    uint256 shiftedBits = 264;
+    int256 auxNegative2 = 0x100;
+    assembly {
+      let result := sar(shiftedBits, auxNegative2)
+      sstore(0x0, result)
+    }
+  }
+
+  function opSAR4() public {
+    uint256 shiftedBits = 264;
+    int256 auxNegative2 = -0x100;
+    assembly {
+      let result := sar(shiftedBits, auxNegative2)
+      sstore(0x0, result)
+    }
+  }
+
+  // opcode 0x0b: SIGNEXTEND
+  function opSIGNEXTEND1() public {
+    uint256 negativeByte = 0; // 0000 0000 1000 0000
+    int16 auxNegative2 = 0x100; // 0000 0001 0000 0000
+    assembly {
+      let result := signextend(negativeByte, auxNegative2)
+      sstore(0x0, result)
+    }
+  }
+
+  function opSIGNEXTEND2() public {
+    uint256 negativeByte = 0; // 0000 0000 1000 0000
+    int16 auxNegative2 = -0x100; // 1111 1111 0000 0000
+    assembly {
+      let result := signextend(negativeByte, auxNegative2)
+      sstore(0x0, result)
+    }
+  }
+
+  function opSIGNEXTEND3() public {
+    uint256 negativeByte = 1; // 1000 0000 0000 0000
+    int16 auxNegative2 = 0x100; // 0000 0001 0000 0000
+    assembly {
+      let result := signextend(negativeByte, auxNegative2)
+      sstore(0x0, result)
+    }
+  }
+
+  function opSIGNEXTEND4() public {
+    uint256 negativeByte = 1; // 1000 0000 0000 0000
+    int16 auxNegative2 = -0x100; // 1111 1111 0000 0000
+    assembly {
+      let result := signextend(negativeByte, auxNegative2)
+      sstore(0x0, result)
+    }
+  }
+
+  function opSIGNEXTEND5() public {
+    uint256 negativeByte = 264;
+    int256 auxNegative2 = -0x100;
+    assembly {
+      let result := signextend(negativeByte, auxNegative2)
+      sstore(0x0, result)
+    }
+  }
 }
