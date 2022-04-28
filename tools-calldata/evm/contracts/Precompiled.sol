@@ -4,6 +4,7 @@ pragma solidity 0.8.7;
 contract Precompiled {
     bytes32 hashResult;
     address retEcrecover;
+    bytes dataResult;
 
     function preSha256_0() public payable {
         hashResult = sha256(abi.encodePacked(uint16(0x1234)));
@@ -43,5 +44,44 @@ contract Precompiled {
         bytes32 s = 0x4f8ae3bd7535248d0bd448298cc2e2071e56992d0774dc340c368ae950852ada;
 
         retEcrecover = ecrecover(messHash, v, r, s);
+    }
+
+    function identity_0(bytes memory data) public {
+        bytes memory ret = new bytes(data.length);
+        assembly {
+            let len := mload(data)
+            if iszero(call(gas(), 0x04, 0, add(data, 0x20), len, add(ret,0x20), len)) {
+                invalid()
+            }
+        }
+        dataResult = ret;
+    }
+
+    function modexp_0(bytes32 base, bytes32 exponent, bytes32 modulus) public {
+        bytes memory result;
+        assembly {
+            // free memory pointer
+            let memPtr := mload(0x40)
+
+            // length of base, exponent, modulus
+            mstore(memPtr, 0x20)
+            mstore(add(memPtr, 0x20), 0x20)
+            mstore(add(memPtr, 0x40), 0x20)
+
+            // assign base, exponent, modulus
+            mstore(add(memPtr, 0x60), base)
+            mstore(add(memPtr, 0x80), exponent)
+            mstore(add(memPtr, 0xa0), modulus)
+
+            // call the precompiled contract BigModExp (0x05)
+            let success := call(gas(), 0x05, 0x0, memPtr, 0xc0, memPtr, 0x20)
+            switch success
+            case 0 {
+                revert(0x0, 0x0)
+            } default {
+                result := mload(memPtr)
+                sstore(0x1,result)
+            }
+        }
     }
 }
