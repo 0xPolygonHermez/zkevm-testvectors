@@ -104,4 +104,23 @@ contract Precompiled {
         }
         return result;
     }
+
+    function ecMul_0(bytes32 x, bytes32 y, bytes32 scalar) public returns (bytes32[2] memory result) {
+        bytes32[3] memory input;
+        input[0] = x;
+        input[1] = y;
+        input[2] = scalar;
+        assembly {
+            let success := call(gas(), 0x07, 0, input, 0x60, result, 0x40)
+            switch success
+            case 0 {
+                revert(0,0)
+            }
+            let result1 := mload(0x80)
+            let result2 := mload(0xa0)
+            sstore(0x0, result1)
+            sstore(0x1, result2)
+        }
+        return result;
+    }
 }
