@@ -85,7 +85,7 @@ contract Precompiled {
         }
     }
 
-    function ecAdd_0(bytes32 ax, bytes32 ay, bytes32 bx, bytes32 by) public returns (bytes32[2] memory result) {
+    function ecAdd(bytes32 ax, bytes32 ay, bytes32 bx, bytes32 by) public returns (bytes32[2] memory result) {
         bytes32[4] memory input;
         input[0] = ax;
         input[1] = ay;
@@ -105,7 +105,7 @@ contract Precompiled {
         return result;
     }
 
-    function ecMul_0(bytes32 x, bytes32 y, bytes32 scalar) public returns (bytes32[2] memory result) {
+    function ecMul(bytes32 x, bytes32 y, bytes32 scalar) public returns (bytes32[2] memory result) {
         bytes32[3] memory input;
         input[0] = x;
         input[1] = y;
@@ -124,7 +124,7 @@ contract Precompiled {
         return result;
     }
 
-    function ecPairing_0(bytes memory input) public returns (bytes32 result) {
+    function ecPairing(bytes memory input) public returns (bytes32 result) {
         // input is a serialized bytes stream of (a1, b1, a2, b2, ..., ak, bk) from (G_1 x G_2)^k
         uint256 len = input.length;
         require(len % 192 == 0);
