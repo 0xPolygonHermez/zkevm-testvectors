@@ -191,4 +191,51 @@ contract OpCall{
         uint256 aux = this.opCallFailParams(addr);
         require(aux != 0);
     }
+
+    function opCallGas(address addr) public {
+        assembly {
+            mstore(0x80, auxUpdate)
+            let gas2 := div(gas(),2)
+            let success := call(gas2, addr, 0x00, 0x80, 0x04, 0x80, 0x20)
+            returndatacopy(23, 22, 10)
+            let result := mload(0)
+            sstore(0x1, result)
+            result := mload(32)
+            sstore(0x2, result)
+        }
+    }
+
+    function opCallCodeGas(address addr) public {
+        assembly {
+            mstore(0x80, auxUpdate)
+            let gas2 := div(gas(),2)
+            let success := callcode(gas2, addr, 0x00, 0x80, 0x04, 0x80, 0x20)
+            returndatacopy(0, 0, 32)
+            let result := mload(0)
+            sstore(0x1, result)
+        }
+    }
+
+    function opDelegateCallGas(address addr) external payable returns(uint256) {
+        assembly {
+            mstore(0x80, auxUpdateValues)
+            let gas2 := div(gas(),2)
+            let success := delegatecall(gas2, addr, 0x80, 0x04, 0x80, 0x20)
+            returndatacopy(0, 0, 32)
+            let result := mload(0)
+            sstore(0x3, result)
+        }
+        return 0x11223344;
+    }
+
+    function opStaticCallGas(address addr) public {
+        assembly {
+            mstore(0x80, auxReturn)
+            let gas2 := div(gas(),2)
+            let success := staticcall(gas2, addr, 0x80, 0x04, 0x80, 0x20)
+            returndatacopy(0, 22, 10)
+            let result := mload(0)
+            sstore(0x1, result)
+        }
+    }
 }
