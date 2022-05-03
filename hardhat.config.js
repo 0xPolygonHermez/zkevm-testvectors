@@ -11,8 +11,17 @@ module.exports = {
         version: "0.8.9",
         settings: {
           optimizer: {
-            enabled: true,
-            runs: 999999
+            enabled: false,
+            //runs: 999999
+          }
+        }
+      },
+      {
+        version: "0.8.7",
+        settings: {
+          optimizer: {
+            enabled: false,
+            //runs: 999999
           }
         }
       },
