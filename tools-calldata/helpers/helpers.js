@@ -3,7 +3,7 @@
 const { Transaction } = require('@ethereumjs/tx');
 const { Address } = require('ethereumjs-util');
 const { Scalar } = require('ffjavascript');
-const zkcommonjs = require('@polygon-hermez/zkevm-commonjs');
+const { defaultAbiCoder } = require('@ethersproject/abi');
 
 async function getAccountNonce(vm, accountPrivateKey) {
     const address = Address.fromPrivateKey(accountPrivateKey);
@@ -15,6 +15,7 @@ async function deployContract(
     vm,
     senderPrivateKey,
     deploymentBytecode,
+    paramsDeploy,
 ) {
     // Contracts are deployed by sending their deployment bytecode to the address 0
     // The contract params should be abi-encoded and appended to the deployment bytecode.
@@ -25,6 +26,11 @@ async function deployContract(
         data: deploymentBytecode,
         nonce: await getAccountNonce(vm, senderPrivateKey),
     };
+
+    if (paramsDeploy && paramsDeploy.length > 0) {
+        const params = defaultAbiCoder.encode(paramsDeploy.types, paramsDeploy.values);
+        txData.data = deploymentBytecode + params.slice(2);
+    }
 
     const tx = Transaction.fromTxData(txData).sign(senderPrivateKey);
 

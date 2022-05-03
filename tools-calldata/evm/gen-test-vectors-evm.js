@@ -97,11 +97,11 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                 await vm.stateManager.putAccount(accountAddress, account);
                 // Deploy contracts
                 for (let j = 0; j < genesis.contracts.length; j++) {
-                    const { contractName } = genesis.contracts[j];
+                    const { contractName, paramsDeploy } = genesis.contracts[j];
                     // eslint-disable-next-line import/no-dynamic-require
                     const { abi, bytecode, deployedBytecode } = require(`${artifactsPath}/${contractName}.sol/${contractName}.json`);
                     const interfaceContract = new ethers.utils.Interface(abi);
-                    const contractAddress = await helpers.deployContract(vm, accountPk, bytecode);
+                    const contractAddress = await helpers.deployContract(vm, accountPk, bytecode, paramsDeploy);
                     const accountContract = {
                         nonce: 1,
                         balance: 0,
@@ -118,7 +118,7 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                     const storage = {};
                     // add contract storage
                     const keys = Object.keys(sto).map((v) => toBuffer(`0x${v}`));
-                    const values = Object.values(sto).map((v) => toBuffer(`0x${v}`));
+                    const values = Object.values(sto).map((v) => toBuffer(ethers.utils.RLP.decode(`0x${v}`)));
                     for (let k = 0; k < keys.length; k++) {
                         storage[`0x${keys[k].toString('hex')}`] = `0x${values[k].toString('hex')}`;
                     }
