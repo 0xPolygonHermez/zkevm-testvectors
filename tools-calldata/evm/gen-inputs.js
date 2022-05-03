@@ -217,7 +217,12 @@ describe('Generate inputs executor from test-vectors', async function () {
                 if (update) { expectedNewLeafs[address].storage = storage; }
                 expect(lodash.isEqual(storage, expectedNewLeafs[address].storage)).to.be.equal(true);
 
-                if (update) { expectedNewLeafs[address].hashBytecode = hashBytecode; }
+                if (update) {
+                    expectedNewLeafs[address].hashBytecode = hashBytecode;
+                    if (!output.contractsBytecode[address.toLowerCase()]) {
+                        output.contractsBytecode[address.toLowerCase()] = hashBytecode;
+                    }
+                }
                 expect(hashBytecode).to.equal(expectedNewLeafs[address].hashBytecode);
             }
 
