@@ -3,6 +3,7 @@
 const { Transaction } = require('@ethereumjs/tx');
 const { Address } = require('ethereumjs-util');
 const { Scalar } = require('ffjavascript');
+const zkcommonjs = require('@polygon-hermez/zkevm-commonjs');
 const { defaultAbiCoder } = require('@ethersproject/abi');
 
 async function getAccountNonce(vm, accountPrivateKey) {
@@ -21,7 +22,7 @@ async function deployContract(
     // The contract params should be abi-encoded and appended to the deployment bytecode.
     const txData = {
         value: 0,
-        gasLimit: 2000000, // We assume that 2M is enough,
+        gasLimit: 6000000, // We assume that 2M is enough,
         gasPrice: 1,
         data: deploymentBytecode,
         nonce: await getAccountNonce(vm, senderPrivateKey),
