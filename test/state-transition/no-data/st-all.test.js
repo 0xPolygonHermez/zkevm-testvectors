@@ -1,3 +1,4 @@
+/* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-loop-func */
 /* eslint-disable no-await-in-loop */
@@ -9,6 +10,7 @@ const { expect } = require('chai');
 const fs = require('fs');
 const path = require('path');
 const { argv } = require('yargs');
+const lodash = require('lodash');
 const {
     MemDB, stateUtils, ZkEVMDB, processorUtils, smtUtils, getPoseidon,
 } = require('@polygon-hermez/zkevm-commonjs');
@@ -192,17 +194,58 @@ describe('Run state-transition tests', function () {
                 await zkEVMDB.consolidate(batch);
 
                 // Check balances and nonces
-                for (const [address, leaf] of Object.entries(expectedNewLeafs)) { // eslint-disable-line
-                    const newLeaf = await zkEVMDB.getCurrentAccountState(address);
+                const updatedAccounts = batch.getUpdatedAccountsBatch();
+                const newLeafs = {};
+                for (const item in updatedAccounts) {
+                    const address = item;
+                    const account = updatedAccounts[address];
+                    newLeafs[address] = {};
 
-                    if (update) {
-                        const newLeafState = { balance: newLeaf.balance.toString(), nonce: newLeaf.nonce.toString() };
-                        testVectors[j].expectedNewLeafs[address] = newLeafState;
-                    } else {
-                        expect(newLeaf.balance.toString()).to.equal(leaf.balance);
-                        expect(newLeaf.nonce.toString()).to.equal(leaf.nonce);
+                    const newLeaf = await zkEVMDB.getCurrentAccountState(address);
+                    expect(newLeaf.balance.toString()).to.equal(account.balance.toString());
+                    expect(newLeaf.nonce.toString()).to.equal(account.nonce.toString());
+
+                    const smtNewLeaf = await zkEVMDB.getCurrentAccountState(address);
+                    expect(smtNewLeaf.balance.toString()).to.equal(account.balance.toString());
+                    expect(smtNewLeaf.nonce.toString()).to.equal(account.nonce.toString());
+
+                    newLeafs[address].balance = account.balance.toString();
+                    newLeafs[address].nonce = account.nonce.toString();
+
+                    const storage = await zkEVMDB.dumpStorage(address);
+                    const hashBytecode = await zkEVMDB.getHashBytecode(address);
+                    newLeafs[address].storage = storage;
+                    newLeafs[address].hashBytecode = hashBytecode;
+                }
+
+                for (const leaf of genesis) {
+                    if (!newLeafs[leaf.address.toLowerCase()]) {
+                        newLeafs[leaf.address] = { ...leaf };
+                        delete newLeafs[leaf.address].address;
+                        delete newLeafs[leaf.address].bytecode;
+                        delete newLeafs[leaf.address].contractName;
                     }
                 }
+
+                if (!update) {
+                    for (const [address, leaf] of Object.entries(expectedNewLeafs)) {
+                        expect(lodash.isEqual(leaf, newLeafs[address])).to.be.equal(true);
+                    }
+                } else {
+                    testVectors[j].expectedNewLeafs = newLeafs;
+                }
+
+                // for (const [address, leaf] of Object.entries(expectedNewLeafs)) { // eslint-disable-line
+                //     const newLeaf = await zkEVMDB.getCurrentAccountState(address);
+
+                //     if (update) {
+                //         const newLeafState = { balance: newLeaf.balance.toString(), nonce: newLeaf.nonce.toString() };
+                //         testVectors[j].expectedNewLeafs[address] = newLeafState;
+                //     } else {
+                //         expect(newLeaf.balance.toString()).to.equal(leaf.balance);
+                //         expect(newLeaf.nonce.toString()).to.equal(leaf.nonce);
+                //     }
+                // }
 
                 // Check errors on decode transactions
                 const decodedTx = await batch.getDecodedTxs();
