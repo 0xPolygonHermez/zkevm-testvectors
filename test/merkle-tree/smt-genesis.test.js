@@ -49,6 +49,7 @@ describe('smt-genesis', async function () {
 
             if (update) {
                 testVectors[i].expectedRoot = (smtUtils.h4toScalar(tmpRoot)).toString();
+                testVectors[i].expectedRootHex = `0x${(smtUtils.h4toScalar(tmpRoot)).toString(16)}`;
             } else {
                 expect((smtUtils.h4toScalar(tmpRoot)).toString()).to.be.equal(expectedRoot);
             }
