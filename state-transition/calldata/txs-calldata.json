@@ -685,5 +685,62 @@
     "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "batchL2Data": "0x"
+  },
+  {
+    "id": 8,
+    "description": "2 accounts and 1 invalid transaction, enough balance for gas but not enough balance for value.",
+    "arity": 4,
+    "chainIdSequencer": 1001,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      }
+    ],
+    "expectedOldRoot": "0x3a435545e9cca7762809ab33340e96de89bf94811b48088ae8f63e6a520b2409",
+    "txs": [
+      {
+        "from": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "to": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": 0,
+        "value": "100000000000000000",
+        "gasLimit": 10000,
+        "gasPrice": "10000",
+        "chainId": 1001
+      }
+    ],
+    "expectedNewRoot": "0xe84e507431a2739f0aad91f6918e519751d8118ee0c29ba52cc75119131bce13",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100000000",
+        "nonce": "0",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "200000000000000000000",
+        "nonce": "0",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    "timestamp": 1944498031,
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0x3061d3baede89cf54ab11cc4dbeb4302b08ebd2ea599bb65ec2edabf03577bd2",
+    "inputHash": "0xdddbdf2914c1f5a31955d01bf5f9092c8580306fc727b059c769866f6ab840c5",
+    "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchL2Data": "0xeb80822710822710944d5cf5032b2a844602278b01199ed191a86c93ff88016345785d8a0000808203e980803757520820d65e3528e66d9dbb93f43b4466084ec6022f4f3756ec5d5889047213461cef4aed19693e550ce895db18765c5004f0c5baadcaa9e244b8ca2e9cc81b"
   }
 ]
