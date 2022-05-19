@@ -51,10 +51,24 @@ contract OpBitLogic {
         }
     }
 
+    function opShlBig() public {
+        assembly {
+            let result := shl(260, 1) // 1 << 8 = 1 0000 0000
+            sstore(0x0, result)
+        }
+    }
+
     // opcode 0x1c
     function opShr() public {
         assembly {
             let result := shr(8, 0x100) // 0001 0000 0000 >> 8 = 1
+            sstore(0x0, result)
+        }
+    }
+
+    function opShrBig() public {
+        assembly {
+            let result := shr(10, 0x100) // 0001 0000 0000 >> 8 = 1
             sstore(0x0, result)
         }
     }
