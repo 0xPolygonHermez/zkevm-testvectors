@@ -90,7 +90,7 @@ describe('Generate inputs executor from test-vectors', async function () {
 
             // NEW VM
             // setup new VM
-            output.contractsBytecode = {};
+            output.contractsBytecode = { deploy: {} };
             for (let j = 0; j < genesis.length; j++) {
                 const { bytecode } = genesis[j];
                 if (bytecode) {
@@ -155,9 +155,8 @@ describe('Generate inputs executor from test-vectors', async function () {
                         continue;
                     }
                     to = '0x';
-                    const hashByteCode = await zkcommonjs.smtUtils.hashContractBytecode(currentTx.deployedBytecode);
                     const contractAddress = ethers.utils.getContractAddress({ from: accountFrom.address, nonce: txData.nonce });
-                    output.contractsBytecode[contractAddress.toLowerCase()] = hashByteCode;
+                    output.contractsBytecode.deploy[contractAddress.toLowerCase()] = currentTx.deployedBytecode;
                 } else {
                     to = tx.to;
                 }
@@ -219,8 +218,8 @@ describe('Generate inputs executor from test-vectors', async function () {
 
                 if (update) {
                     expectedNewLeafs[address].hashBytecode = hashBytecode;
-                    if (!output.contractsBytecode[address.toLowerCase()]) {
-                        output.contractsBytecode[address.toLowerCase()] = hashBytecode;
+                    if (!output.contractsBytecode.deploy[address.toLowerCase()]) {
+                        output.contractsBytecode.deploy[address.toLowerCase()] = hashBytecode;
                     }
                 }
                 expect(hashBytecode).to.equal(expectedNewLeafs[address].hashBytecode);
