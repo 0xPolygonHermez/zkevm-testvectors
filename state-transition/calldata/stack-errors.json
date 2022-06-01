@@ -1,0 +1,190 @@
+[
+  {
+    "id": 0,
+    "description": "Stack overflow",
+    "arity": 4,
+    "chainIdSequencer": 1001,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x6080604052348015600f57600080fd5b5060043610603c5760003560e01c80638c192bc9146041578063d0657416146049578063ddf91d0c146051575b600080fd5b60476059565b005b604f6065565b005b605760a0565b005b60046003018060005550565b7fddf91d0c00000000000000000000000000000000000000000000000000000000608052602060806004608060003060025a04f18060015550565b60a660a0565b56fea2646970667358221220958f0168315c50ef10ab358eb38e1cbd6a809895af0ed8d3c823532d2862c71e64736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [],
+            "name": "stackOverflow",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "stackOverflowCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "stackUnderflow",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      }
+    ],
+    "expectedOldRoot": "0xd80607bf019b3cb6464feef62934d85d9d0a0b8c3efb8fc9f29512ef1b0ec95e",
+    "txs": [
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "0",
+        "value": "0",
+        "data": "0xddf91d0c",
+        "gasLimit": 8000000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      }
+    ],
+    "expectedNewRoot": "0xf132d09437eec125c8325f580cd71b73016d91f9bc6904da6357d1ff712b3b4b",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100008000000000000000",
+        "nonce": "0",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "199992000000000000000",
+        "nonce": "1",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {},
+        "hashBytecode": "0x325415033d2d306e9e239d00fb882924f2079499c726444c3189bb0da280ab4b"
+      }
+    },
+    "timestamp": 1944498031,
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0xd3083725012d2d899bb4697fddde09127bbd3e8782917f1cbc6118368a3646bc",
+    "inputHash": "0x9e8cc235f0164aecc0fa4fd3ae134d7acd485a4b0ec72cd5e4f54a0bd093ad52",
+    "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchL2Data": "0xea80843b9aca00837a1200941275fbb540c8efc58b812ba83b0d0b8b9917ae988084ddf91d0c8203e980803bc9c571200493df648dde7c81dabd3ce37370d95f8ce6dae63d8a78996ad9903fb16ef100ee0c41d7bc790109b2598497d6de6ec75023582c880cff090849eb1c"
+  },
+  {
+    "id": 1,
+    "description": "Stack overflow call",
+    "arity": 4,
+    "chainIdSequencer": 1001,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x6080604052348015600f57600080fd5b5060043610603c5760003560e01c80638c192bc9146041578063d0657416146049578063ddf91d0c146051575b600080fd5b60476059565b005b604f6065565b005b605760a0565b005b60046003018060005550565b7fddf91d0c00000000000000000000000000000000000000000000000000000000608052602060806004608060003060025a04f18060015550565b60a660a0565b56fea2646970667358221220958f0168315c50ef10ab358eb38e1cbd6a809895af0ed8d3c823532d2862c71e64736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [],
+            "name": "stackOverflow",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "stackOverflowCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "stackUnderflow",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      }
+    ],
+    "expectedOldRoot": "0xd80607bf019b3cb6464feef62934d85d9d0a0b8c3efb8fc9f29512ef1b0ec95e",
+    "txs": [
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "0",
+        "value": "0",
+        "data": "0xd0657416",
+        "gasLimit": 8000000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      }
+    ],
+    "expectedNewRoot": "0xcee4f3ba303bb543c7057be5c4f94c91baaac4249c7e709876827338826a0a8c",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100004012940000000000",
+        "nonce": "0",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "199995987060000000000",
+        "nonce": "1",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {},
+        "hashBytecode": "0x325415033d2d306e9e239d00fb882924f2079499c726444c3189bb0da280ab4b"
+      }
+    },
+    "timestamp": 1944498031,
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0xec23bddae13c43e4766843317b81145e9b0588b51c333ebcc990871968dcdb19",
+    "inputHash": "0x9a6ff1b57215734adea9e6118adf2efa6a81f7afd7bfbffbe8691c5d6fe98ea8",
+    "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchL2Data": "0xea80843b9aca00837a1200941275fbb540c8efc58b812ba83b0d0b8b9917ae988084d06574168203e98080191ed165a59096bbc6c0744a1ec417122647152f8d6ebc2051af4452c3df900d12c89c6f89223e9aeae2254773256dacc30538434d8d00be8de6cc680bc1719b1b"
+  }
+]
