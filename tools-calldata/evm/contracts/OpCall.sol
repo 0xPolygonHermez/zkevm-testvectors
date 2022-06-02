@@ -115,6 +115,13 @@ contract OpCall{
         return 0x44332211;
     }
 
+    function deposit() public payable {}
+
+    function sendBalanceToAddr(address payable addr) public payable {
+        (bool success,) = addr.call{value: msg.value}("");
+        require(success, "Failed to send money");
+    }
+
     function opDelegateCall(address addr) external payable returns(uint256) {
         assembly {
             mstore(0x80, auxUpdateValues)
