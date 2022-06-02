@@ -205,6 +205,15 @@ contract OpCall{
         }
     }
 
+    function opCallOutOfGas(address addr) public {
+        assembly {
+            mstore(0x80, auxUpdate)
+            let gas2 := div(gas(),4)
+            let success := call(gas2, addr, 0x00, 0x80, 0x04, 0x80, 0x20)
+            sstore(0x0,3)
+        }
+    }
+
     function opCallCodeGas(address addr) public {
         assembly {
             mstore(0x80, auxUpdate)

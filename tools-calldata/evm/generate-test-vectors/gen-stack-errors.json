@@ -1,0 +1,233 @@
+[
+  {
+    "id": 0,
+    "description": "Stack overflow",
+    "arity": 4,
+    "chainIdSequencer": 1001,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": {
+      "accounts": [
+        {
+          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+          "balance": "100000000000000000000",
+          "nonce": "0"
+        },
+        {
+          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
+          "balance": "200000000000000000000",
+          "nonce": "0"
+        }
+      ],
+      "contracts": [
+        {
+          "contractName": "StackErrors",
+          "paramsDeploy": {}
+        }
+      ]
+    },
+    "expectedOldRoot": "0xd80607bf019b3cb6464feef62934d85d9d0a0b8c3efb8fc9f29512ef1b0ec95e",
+    "txs": [
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "contract",
+        "nonce": "0",
+        "value": "0",
+        "contractName": "StackErrors",
+        "function": "stackOverflow",
+        "params": [],
+        "gasLimit": 8000000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      }
+    ],
+    "expectedNewRoot": "0xf132d09437eec125c8325f580cd71b73016d91f9bc6904da6357d1ff712b3b4b",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100008000000000000000",
+        "nonce": "0",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "199992000000000000000",
+        "nonce": "1",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {},
+        "hashBytecode": "0x325415033d2d306e9e239d00fb882924f2079499c726444c3189bb0da280ab4b"
+      }
+    },
+    "timestamp": 1944498031,
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0xd3083725012d2d899bb4697fddde09127bbd3e8782917f1cbc6118368a3646bc",
+    "inputHash": "0x9e8cc235f0164aecc0fa4fd3ae134d7acd485a4b0ec72cd5e4f54a0bd093ad52",
+    "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchL2Data": "0xea80843b9aca00837a1200941275fbb540c8efc58b812ba83b0d0b8b9917ae988084ddf91d0c8203e980803bc9c571200493df648dde7c81dabd3ce37370d95f8ce6dae63d8a78996ad9903fb16ef100ee0c41d7bc790109b2598497d6de6ec75023582c880cff090849eb1c"
+  },
+  {
+    "id": 1,
+    "description": "Stack overflow call",
+    "arity": 4,
+    "chainIdSequencer": 1001,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": {
+      "accounts": [
+        {
+          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+          "balance": "100000000000000000000",
+          "nonce": "0"
+        },
+        {
+          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
+          "balance": "200000000000000000000",
+          "nonce": "0"
+        }
+      ],
+      "contracts": [
+        {
+          "contractName": "StackErrors",
+          "paramsDeploy": {}
+        }
+      ]
+    },
+    "expectedOldRoot": "0xd80607bf019b3cb6464feef62934d85d9d0a0b8c3efb8fc9f29512ef1b0ec95e",
+    "txs": [
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "contract",
+        "nonce": "0",
+        "value": "0",
+        "contractName": "StackErrors",
+        "function": "stackOverflowCall",
+        "params": [],
+        "gasLimit": 8000000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      }
+    ],
+    "expectedNewRoot": "0xcee4f3ba303bb543c7057be5c4f94c91baaac4249c7e709876827338826a0a8c",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100004012940000000000",
+        "nonce": "0",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "199995987060000000000",
+        "nonce": "1",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {},
+        "hashBytecode": "0x325415033d2d306e9e239d00fb882924f2079499c726444c3189bb0da280ab4b"
+      }
+    },
+    "timestamp": 1944498031,
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0xec23bddae13c43e4766843317b81145e9b0588b51c333ebcc990871968dcdb19",
+    "inputHash": "0x9a6ff1b57215734adea9e6118adf2efa6a81f7afd7bfbffbe8691c5d6fe98ea8",
+    "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchL2Data": "0xea80843b9aca00837a1200941275fbb540c8efc58b812ba83b0d0b8b9917ae988084d06574168203e98080191ed165a59096bbc6c0744a1ec417122647152f8d6ebc2051af4452c3df900d12c89c6f89223e9aeae2254773256dacc30538434d8d00be8de6cc680bc1719b1b"
+  },
+  {
+    "id": 2,
+    "description": "stack underflow",
+    "arity": 4,
+    "chainIdSequencer": 1001,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": {
+      "accounts": [
+        {
+          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+          "balance": "100000000000000000000",
+          "nonce": "0"
+        },
+        {
+          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
+          "balance": "200000000000000000000",
+          "nonce": "0"
+        }
+      ],
+      "contracts": [
+        {
+          "contractName": "OpCreates",
+          "paramsDeploy": {}
+        }
+      ]
+    },
+    "expectedOldRoot": "0xe4868ec89307adc61025312ee6f403f5f424dc3befbd11f599e85db783c5aef8",
+    "txs": [
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "contract",
+        "nonce": "0",
+        "value": "0",
+        "contractName": "OpCreates",
+        "function": "opCreate",
+        "params": [
+          "0x505050",
+          3
+        ],
+        "gasLimit": 800000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      }
+    ],
+    "expectedNewRoot": "0x7337feedb770fa2c7ac0b9c4b34c2f414ef3ef592ca91deeb37482389a479e81",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100000790819000000000",
+        "nonce": "0",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "199999209181000000000",
+        "nonce": "1",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "2",
+        "storage": {},
+        "hashBytecode": "0x85ac661fe286d3ed9e7df70f5c4363a9fb7b354f29fbae34986ed666c4d45cf0"
+      },
+      "0x0ccfcb97611c13f90693e568e432ecd5f724be52": {
+        "balance": "0",
+        "nonce": "0",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    "timestamp": 1944498031,
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0xefe9ce809ddc384e952e78fe3a1d80f8a4a24322b8751d4880f413bc4d0948d8",
+    "inputHash": "0x3d8a02e5fc526c0e05db562fa94e1fa8e6b458edcb19c0aa8602e5b5a6cf5d03",
+    "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchL2Data": "0xf8ab80843b9aca00830c3500941275fbb540c8efc58b812ba83b0d0b8b9917ae9880b8845b8e995900000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000003000000000000000000000000000000000000000000000000000000000000000350505000000000000000000000000000000000000000000000000000000000008203e980807dd90978ef68fc6e476ea6ef475e6b57093b02ae5b92553b3f4fd41869ff8d2876118e47b96407fe51b36d41d44608d2fc1e19dac28029c568f10d932297b3bc1c"
+  }
+]
