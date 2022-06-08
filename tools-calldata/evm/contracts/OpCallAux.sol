@@ -4,6 +4,8 @@ import "./IOpCallAux.sol";
 
 contract OpCallAux is IOpCallAux {
 
+    uint256 auxVal = 1;
+
     function auxReturn() external override returns(uint256){
         return 0x123456689;
     }
@@ -13,6 +15,10 @@ contract OpCallAux is IOpCallAux {
             sstore(0x0, 0x12121212121212121212)
         }
         return 0x123456689;
+    }
+
+    function opDelegateSelfBalance() external payable returns(uint256) {
+        auxVal = address(this).balance;
     }
 
     function auxUpdateValues() external payable override returns(uint256){
