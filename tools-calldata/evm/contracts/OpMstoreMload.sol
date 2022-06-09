@@ -194,6 +194,30 @@ contract OpMstoreMload {
         }
     }
 
+    function opCalldataCopyComplex5() public {
+        assembly {
+            calldatacopy(0xa0, 10, 10)
+            let result := mload(0xa0)
+            sstore(0x0, result)
+            calldatacopy(0xa8, 10, 10)
+            result := mload(0xa0)
+            sstore(0x1, result)
+        }
+    }
+
+    function opCalldataCopyComplex6() public {
+        assembly {
+            calldatacopy(0xa8, 0, 32)
+            let result := mload(0xa0)
+            sstore(0x0, result)
+            result := mload(0xc0)
+            sstore(0x1, result)
+            calldatacopy(0xa9, 10, 10)
+            result := mload(0xa0)
+            sstore(0x2, result)
+        }
+    }
+
     function auxReturn2() external returns (uint40[5] memory){
         return [0x123456789, 0x123456789, 0x123456789, 0x123456789, 0x123456789];
     }
