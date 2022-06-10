@@ -5,6 +5,7 @@ import "./IOpCallAux.sol";
 contract OpCall{
 
     IOpCallAux openv;
+    int256 val = -1;
 
     function opCallExternal(address addr) external returns (uint256) {
         openv = IOpCallAux(addr);
@@ -104,6 +105,17 @@ contract OpCall{
         }
     }
 
+    function opCallCodeWithValue(address addr) public payable {
+        uint val = msg.value;
+        assembly {
+            mstore(0x80, auxUpdate)
+            let success := callcode(gas(), addr, val, 0x80, 0x04, 0x80, 0x20)
+            returndatacopy(0, 0, 32)
+            let result := mload(0)
+            sstore(0x1, result)
+        }
+    }
+
     function opCallCodeValues(address addr) external payable returns(uint256) {
         assembly {
             mstore(0x80, auxUpdateValues)
@@ -115,6 +127,13 @@ contract OpCall{
         return 0x44332211;
     }
 
+    function deposit() public payable {}
+
+    function sendBalanceToAddr(address payable addr) public payable {
+        (bool success,) = addr.call{value: msg.value}("");
+        require(success, "Failed to send money");
+    }
+
     function opDelegateCall(address addr) external payable returns(uint256) {
         assembly {
             mstore(0x80, auxUpdateValues)
@@ -124,6 +143,15 @@ contract OpCall{
             sstore(0x3, result)
         }
         return 0x11223344;
+    }
+
+    function opDelegateSelfBalance(address addr) external payable {
+        addr.delegatecall(abi.encodeWithSignature("opDelegateSelfBalance()"));
+        //val = abi.decode(returnedData, (int256));   
+    }
+
+    function opDelegateCallSelfBalance(address addrDelegate, address addrCall) external payable returns(uint256) {
+        addrDelegate.delegatecall(abi.encodeWithSignature("opDelegateCallSelfBalance(address)", addrCall));
     }
 
     function opCallCallCodeValues(address addr) public payable {

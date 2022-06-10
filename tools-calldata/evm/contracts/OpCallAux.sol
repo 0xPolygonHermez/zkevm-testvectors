@@ -4,6 +4,8 @@ import "./IOpCallAux.sol";
 
 contract OpCallAux is IOpCallAux {
 
+    uint256 auxVal = 1;
+
     function auxReturn() external override returns(uint256){
         return 0x123456689;
     }
@@ -14,6 +16,15 @@ contract OpCallAux is IOpCallAux {
         }
         return 0x123456689;
     }
+
+    function opDelegateSelfBalance() external payable returns(uint256) {
+        auxVal = address(this).balance;
+    }
+
+    function opDelegateCallSelfBalance(address addrCall) external payable returns(uint256) {
+            addrCall.call{value: msg.value}(abi.encodeWithSignature("opDelegateCallSelfBalance()"));
+    }
+
 
     function auxUpdateValues() external payable override returns(uint256){
         address send = msg.sender;
