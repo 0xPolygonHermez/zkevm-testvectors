@@ -150,6 +150,10 @@ contract OpCall{
         //val = abi.decode(returnedData, (int256));   
     }
 
+    function opDelegateCallSelfBalance(address addrDelegate, address addrCall) external payable returns(uint256) {
+        addrDelegate.delegatecall(abi.encodeWithSignature("opDelegateCallSelfBalance(address)", addrCall));
+    }
+
     function opCallCallCodeValues(address addr) public payable {
         uint256 aux = this.opCallCodeValues(addr);
         require(aux != 0);

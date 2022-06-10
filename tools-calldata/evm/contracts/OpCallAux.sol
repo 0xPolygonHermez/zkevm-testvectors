@@ -21,6 +21,11 @@ contract OpCallAux is IOpCallAux {
         auxVal = address(this).balance;
     }
 
+    function opDelegateCallSelfBalance(address addrCall) external payable returns(uint256) {
+            addrCall.call{value: msg.value}(abi.encodeWithSignature("opDelegateCallSelfBalance()"));
+    }
+
+
     function auxUpdateValues() external payable override returns(uint256){
         address send = msg.sender;
         uint256 val = msg.value;
