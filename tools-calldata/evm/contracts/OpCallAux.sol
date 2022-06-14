@@ -23,6 +23,24 @@ contract OpCallAux is IOpCallAux {
 
     function opDelegateCallSelfBalance(address addrCall) external payable returns(uint256) {
             addrCall.call{value: msg.value}(abi.encodeWithSignature("opDelegateCallSelfBalance()"));
+             assembly {
+            let val := address()
+            sstore(0x3, val)
+            let val2 := codesize()
+            sstore(0x4, val2)
+            let val3 := msize()
+            codecopy(val3, 0x0, val2)
+            let val4 := mload(val3)
+            sstore(0x5, val3)
+        }
+    }
+
+    function addTwo(uint256 a, uint256 b) public returns(uint256) {
+        return a + b;
+    }
+
+    function opReturnCallSelfBalance(address addrCall) external payable returns(uint256) {
+            return address(this).balance;
     }
 
 
