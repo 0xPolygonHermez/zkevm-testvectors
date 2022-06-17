@@ -3,6 +3,7 @@ pragma solidity 0.8.7;
 
 contract OpReturn {
     uint256 val = 1;
+    bytes dataAux = "as";
 
     function opDelegateCallSelfBalance(address addrCall)
         external
@@ -18,15 +19,50 @@ contract OpReturn {
         val = abi.decode(data, (uint256));
     }
 
-    function simpleReturn() external returns (uint256) {
+    function simpleReturn() public payable returns (uint256) {
         (bool success, bytes memory data) = address(this).call(
-            abi.encodeWithSignature("addTwo(uint256, uint256)", 2, 3)
+            abi.encodeWithSignature("addTwo()")
         );
         val = abi.decode(data, (uint256));
         return val;
     }
 
-    function addTwo(uint256 a, uint256 b) private view returns (uint256) {
-        return a + b;
+    function addTwo() public payable returns (uint256) {
+        return 56;
     }
+    
+    function invalidReturn() public payable returns (uint256) {
+        (bool success2, bytes memory data2) = address(this).call(
+            abi.encodeWithSignature("addTwo()")
+        );
+        (bool success, bytes memory data) = address(this).call(
+            abi.encodeWithSignature("addTwoInvalid()")
+        );
+        assembly {
+            let result := returndatasize()
+            sstore(val.slot, result)
+        }
+
+        if(!success) {
+            dataAux = data;
+            return val;
+        }
+        val = abi.decode(data, (uint256));
+        return val;
+    }
+
+    function addTwoInvalid() public payable returns (uint256) {
+         assembly{
+            invalid()
+        }
+    }
+
+    function retVal() external returns (uint) {
+      uint a = 1;
+      uint b = 2;
+      uint result = a + b;
+      return result;
+    }
+
+
 }
