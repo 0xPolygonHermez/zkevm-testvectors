@@ -213,7 +213,7 @@ describe('Generate inputs executor from test-vectors', async function () {
 
                 const storage = await zkEVMDB.dumpStorage(address);
                 const hashBytecode = await zkEVMDB.getHashBytecode(address);
-
+                const bytecodeLength = await zkEVMDB.getLength(address);
                 if (update) { expectedNewLeafs[address].storage = storage; }
                 expect(lodash.isEqual(storage, expectedNewLeafs[address].storage)).to.be.equal(true);
 
@@ -224,6 +224,11 @@ describe('Generate inputs executor from test-vectors', async function () {
                     }
                 }
                 expect(hashBytecode).to.equal(expectedNewLeafs[address].hashBytecode);
+
+                if (update) {
+                    expectedNewLeafs[address].bytecodeLength = bytecodeLength;
+                }
+                expect(lodash.isEqual(bytecodeLength, expectedNewLeafs[address].bytecodeLength)).to.be.equal(true);
             }
 
             for (const x in output) {
