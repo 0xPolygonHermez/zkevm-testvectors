@@ -33,4 +33,51 @@ contract OpLog {
             log4(0, 32, 0, 0, 0, 0)
         }
     }
+
+    function opLogCallWithoutRevert() public payable {
+        assembly {
+            log1(0, 32, 1)
+        }
+        (bool success, bytes memory data) = address(this).call(abi.encodeWithSignature("opLogCallWithoutRevert2()")
+        );
+         assembly {
+            log2(0, 32, 1, 2)
+        }
+    }
+
+   function opLogCallWithoutRevert2() public payable {
+        assembly {
+            log3(0, 32, 4, 5, 6)
+        }
+    }
+
+    function opLogCallWithRevert() public payable {
+        assembly {
+            log1(0, 32, 1)
+        }
+        (bool success, bytes memory data) = address(this).call(abi.encodeWithSignature("opLogCallWithRevert2()")
+        );
+         assembly {
+            log2(0, 32, 1, 2)
+        }
+    }
+
+    function opLogCallWithRevert2() public payable {
+        assembly {
+            log3(0, 32, 4, 5, 6)
+        }
+        require(false);
+    }
+
+    function opLogWithRevert() public payable {
+        assembly {
+            log0(0, 32)
+            log1(0, 32, 1)
+            log2(0, 32, 2, 0)
+            log3(0, 32, 4, 5, 6)
+            log4(0, 32, 7, 8, 9, 10)
+        }
+
+        require(false);
+    }
 }

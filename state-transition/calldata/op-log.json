@@ -24,7 +24,7 @@
         "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
         "nonce": 1,
         "balance": 0,
-        "bytecode": "0x60806040526004361060445760003560e01c80630de4d6c014604957806322e62e29146051578063c7c969db146059578063e44f413d146061578063ecc5544a146069575b600080fd5b604f6071565b005b6057607d565b005b605f6087565b005b60676094565b005b606f609d565b005b600080600060206000a3565b60008060206000a2565b60008060008060206000a4565b600060206000a1565b60206000a056fea264697066735822122014335edfae4546a43aab33673fe7da9244c6d38ee1b6c1ab97aa4aa3dea0b1a864736f6c63430008070033",
+        "bytecode": "0x6080604052600436106100915760003560e01c8063c7c969db11610059578063c7c969db146100c8578063e44f413d146100d2578063ecc5544a146100dc578063f4c02e6b146100e6578063f8b3e8e0146100f057610091565b80630de4d6c01461009657806322e62e29146100a05780633db17295146100aa5780636f990b24146100b457806384f232d3146100be575b600080fd5b61009e6100fa565b005b6100a8610106565b005b6100b2610110565b005b6100bc61011d565b005b6100c6610222565b005b6100d061023a565b005b6100da610247565b005b6100e4610250565b005b6100ee610257565b005b6100f861035c565b005b600080600060206000a3565b60008060206000a2565b60066005600460206000a3565b600160206000a16000803073ffffffffffffffffffffffffffffffffffffffff166040516024016040516020818303038152906040527f3db17295000000000000000000000000000000000000000000000000000000007bffffffffffffffffffffffffffffffffffffffffffffffffffffffff19166020820180517bffffffffffffffffffffffffffffffffffffffffffffffffffffffff83818316178352505050506040516101ce91906103c7565b6000604051808303816000865af19150503d806000811461020b576040519150601f19603f3d011682016040523d82523d6000602084013e610210565b606091505b50915091506002600160206000a25050565b60066005600460206000a3600061023857600080fd5b565b60008060008060206000a4565b600060206000a1565b60206000a0565b600160206000a16000803073ffffffffffffffffffffffffffffffffffffffff166040516024016040516020818303038152906040527f84f232d3000000000000000000000000000000000000000000000000000000007bffffffffffffffffffffffffffffffffffffffffffffffffffffffff19166020820180517bffffffffffffffffffffffffffffffffffffffffffffffffffffffff838183161783525050505060405161030891906103c7565b6000604051808303816000865af19150503d8060008114610345576040519150601f19603f3d011682016040523d82523d6000602084013e61034a565b606091505b50915091506002600160206000a25050565b60206000a0600160206000a16000600260206000a260066005600460206000a3600a60096008600760206000a4600061039457600080fd5b565b60006103a1826103de565b6103ab81856103e9565b93506103bb8185602086016103f4565b80840191505092915050565b60006103d38284610396565b915081905092915050565b600081519050919050565b600081905092915050565b60005b838110156104125780820151818401526020810190506103f7565b83811115610421576000848401525b5050505056fea2646970667358221220e070393197109960a0af554ce0a2893e85633325cc749fc099f9947dfb54509964736f6c63430008070033",
         "abi": [
           {
             "inputs": [],
@@ -60,12 +60,47 @@
             "outputs": [],
             "stateMutability": "payable",
             "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLogCallWithRevert",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLogCallWithRevert2",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLogCallWithoutRevert",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLogCallWithoutRevert2",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLogWithRevert",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
           }
         ],
         "storage": {}
       }
     ],
-    "expectedOldRoot": "0x3832743c40985ae050eea2e86ac43a3a98467832b43a1229da974cda184f25a2",
+    "expectedOldRoot": "0x39277dfa610cff2a3fa46507e1edeac73d8ae34a2560b24f5c654aafd1bb60c0",
     "txs": [
       {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -118,16 +153,16 @@
         "chainId": 1001
       }
     ],
-    "expectedNewRoot": "0x90c2ccfa5668d816ada1356da9936473119e2238fc9ba6e185b35dfe104fef64",
+    "expectedNewRoot": "0x147fdb503e614eb50e953e2680699d232708d6e5fd123ffa77db32a3fdeef4cd",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
-        "balance": "100000112995000000000",
+        "balance": "100000112975000000000",
         "nonce": "0",
         "storage": null,
         "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
       },
       "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
-        "balance": "199999887005000000000",
+        "balance": "199999887025000000000",
         "nonce": "5",
         "storage": null,
         "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
@@ -136,15 +171,444 @@
         "balance": "0",
         "nonce": "1",
         "storage": {},
-        "hashBytecode": "0xe4c42f7e9f803e2b2cdef84f8a3a42efc0eb8f5f7e4fe41e8ecbe813dcd50e54"
+        "hashBytecode": "0xedba16ecfb0e0b047846a9aa17369c24af3976fcac1ad2ed56ea5f31552bc8e2"
       }
     },
     "timestamp": 1944498031,
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "batchHashData": "0x7d513a2526210bbf545aecd5e9168072308c4439467e571510aec6d2859e2b15",
-    "inputHash": "0xd3ce3ccca1bd844027689bf0e2e990836e247947fe90a7e58abc9cf243f3e3d6",
+    "inputHash": "0x46e997d98c63a329d7c0d7493c81614ec10134157aff1a4c1c579da8afdcfef8",
     "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084ecc5544a8203e98080e2433a7d98340c83ffc4d66413b3b2c832fe9593a00f374dd12c4fd2fa9e1d7278bd164e34813f082bc4cb1b9556aed903da3cf62f9a3b1db4cde156730f445e1cea01843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084e44f413d8203e98080a802809424d76e423ab4ba0aded01c2a0085292a3406b495615e3c74f961a5ce1420dc899458826b1878739c623b15fbc25dc85f1dd595fd29e3a6320b33c9191cea02843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae98808422e62e298203e980805189d79fc186b6168a0bdd16ee051b97af95af232d0e8b4e7cb8ff3c65c201fc42021ce57bca00e36facde422b30964fd14e1fc9ac9eb61a96b8e863667e2cbd1cea03843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880840de4d6c08203e98080065b96e4297581c3d104d0b1c0f2978c4c2e8828eca6e168b169e828276332d44fbfc66fa35eec6bfbaea5971bc86b3863cb4c946ab7aebdadeeeb8059c795ad1cea04843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084c7c969db8203e980800019199ae5d96c1dfc0e459e6931f463aa61f741a0507d3702d38910880a3a6a1428463ee7e82c538bff5cc01a10b1e5014643043c096c06995d571405cf73301c"
+  },
+  {
+    "id": 1,
+    "description": "Log function with revert",
+    "arity": 4,
+    "chainIdSequencer": 1001,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x6080604052600436106100915760003560e01c8063c7c969db11610059578063c7c969db146100c8578063e44f413d146100d2578063ecc5544a146100dc578063f4c02e6b146100e6578063f8b3e8e0146100f057610091565b80630de4d6c01461009657806322e62e29146100a05780633db17295146100aa5780636f990b24146100b457806384f232d3146100be575b600080fd5b61009e6100fa565b005b6100a8610106565b005b6100b2610110565b005b6100bc61011d565b005b6100c6610222565b005b6100d061023a565b005b6100da610247565b005b6100e4610250565b005b6100ee610257565b005b6100f861035c565b005b600080600060206000a3565b60008060206000a2565b60066005600460206000a3565b600160206000a16000803073ffffffffffffffffffffffffffffffffffffffff166040516024016040516020818303038152906040527f3db17295000000000000000000000000000000000000000000000000000000007bffffffffffffffffffffffffffffffffffffffffffffffffffffffff19166020820180517bffffffffffffffffffffffffffffffffffffffffffffffffffffffff83818316178352505050506040516101ce91906103c7565b6000604051808303816000865af19150503d806000811461020b576040519150601f19603f3d011682016040523d82523d6000602084013e610210565b606091505b50915091506002600160206000a25050565b60066005600460206000a3600061023857600080fd5b565b60008060008060206000a4565b600060206000a1565b60206000a0565b600160206000a16000803073ffffffffffffffffffffffffffffffffffffffff166040516024016040516020818303038152906040527f84f232d3000000000000000000000000000000000000000000000000000000007bffffffffffffffffffffffffffffffffffffffffffffffffffffffff19166020820180517bffffffffffffffffffffffffffffffffffffffffffffffffffffffff838183161783525050505060405161030891906103c7565b6000604051808303816000865af19150503d8060008114610345576040519150601f19603f3d011682016040523d82523d6000602084013e61034a565b606091505b50915091506002600160206000a25050565b60206000a0600160206000a16000600260206000a260066005600460206000a3600a60096008600760206000a4600061039457600080fd5b565b60006103a1826103de565b6103ab81856103e9565b93506103bb8185602086016103f4565b80840191505092915050565b60006103d38284610396565b915081905092915050565b600081519050919050565b600081905092915050565b60005b838110156104125780820151818401526020810190506103f7565b83811115610421576000848401525b5050505056fea2646970667358221220e070393197109960a0af554ce0a2893e85633325cc749fc099f9947dfb54509964736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [],
+            "name": "opLog0",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLog1",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLog2",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLog3",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLog4",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLogCallWithRevert",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLogCallWithRevert2",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLogCallWithoutRevert",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLogCallWithoutRevert2",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLogWithRevert",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      }
+    ],
+    "expectedOldRoot": "0x39277dfa610cff2a3fa46507e1edeac73d8ae34a2560b24f5c654aafd1bb60c0",
+    "txs": [
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "0",
+        "value": "0",
+        "data": "0xf8b3e8e0",
+        "gasLimit": 100000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      }
+    ],
+    "expectedNewRoot": "0x1f02af5ac8ecefcdc44da14e6cb1404a36b82c20b1931647c96c75f36fddc1c2",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100000028250000000000",
+        "nonce": "0",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "199999971750000000000",
+        "nonce": "1",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {},
+        "hashBytecode": "0xedba16ecfb0e0b047846a9aa17369c24af3976fcac1ad2ed56ea5f31552bc8e2"
+      }
+    },
+    "timestamp": 1944498031,
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0x4f4bdb7da610a0d8236c68e95c86dff148034cec3c8497c245ed610b48ae3af2",
+    "inputHash": "0xeac1949785760ba9841c10f7aebe33f91dcb495ef3cba0a6bc05b8943089edc9",
+    "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084f8b3e8e08203e980808814c1bb0ed48c78024dbb7708f7d0ec84a9e2e9291a9eeea28c29a664b73b326639e701d6cefea767ec57ef77ad37e5347f9671a92ffd5fe63df049db97cdb91b"
+  },
+  {
+    "id": 2,
+    "description": "Log function call with revert",
+    "arity": 4,
+    "chainIdSequencer": 1001,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x6080604052600436106100915760003560e01c8063c7c969db11610059578063c7c969db146100c8578063e44f413d146100d2578063ecc5544a146100dc578063f4c02e6b146100e6578063f8b3e8e0146100f057610091565b80630de4d6c01461009657806322e62e29146100a05780633db17295146100aa5780636f990b24146100b457806384f232d3146100be575b600080fd5b61009e6100fa565b005b6100a8610106565b005b6100b2610110565b005b6100bc61011d565b005b6100c6610222565b005b6100d061023a565b005b6100da610247565b005b6100e4610250565b005b6100ee610257565b005b6100f861035c565b005b600080600060206000a3565b60008060206000a2565b60066005600460206000a3565b600160206000a16000803073ffffffffffffffffffffffffffffffffffffffff166040516024016040516020818303038152906040527f3db17295000000000000000000000000000000000000000000000000000000007bffffffffffffffffffffffffffffffffffffffffffffffffffffffff19166020820180517bffffffffffffffffffffffffffffffffffffffffffffffffffffffff83818316178352505050506040516101ce91906103c7565b6000604051808303816000865af19150503d806000811461020b576040519150601f19603f3d011682016040523d82523d6000602084013e610210565b606091505b50915091506002600160206000a25050565b60066005600460206000a3600061023857600080fd5b565b60008060008060206000a4565b600060206000a1565b60206000a0565b600160206000a16000803073ffffffffffffffffffffffffffffffffffffffff166040516024016040516020818303038152906040527f84f232d3000000000000000000000000000000000000000000000000000000007bffffffffffffffffffffffffffffffffffffffffffffffffffffffff19166020820180517bffffffffffffffffffffffffffffffffffffffffffffffffffffffff838183161783525050505060405161030891906103c7565b6000604051808303816000865af19150503d8060008114610345576040519150601f19603f3d011682016040523d82523d6000602084013e61034a565b606091505b50915091506002600160206000a25050565b60206000a0600160206000a16000600260206000a260066005600460206000a3600a60096008600760206000a4600061039457600080fd5b565b60006103a1826103de565b6103ab81856103e9565b93506103bb8185602086016103f4565b80840191505092915050565b60006103d38284610396565b915081905092915050565b600081519050919050565b600081905092915050565b60005b838110156104125780820151818401526020810190506103f7565b83811115610421576000848401525b5050505056fea2646970667358221220e070393197109960a0af554ce0a2893e85633325cc749fc099f9947dfb54509964736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [],
+            "name": "opLog0",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLog1",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLog2",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLog3",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLog4",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLogCallWithRevert",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLogCallWithRevert2",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLogCallWithoutRevert",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLogCallWithoutRevert2",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLogWithRevert",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      }
+    ],
+    "expectedOldRoot": "0x39277dfa610cff2a3fa46507e1edeac73d8ae34a2560b24f5c654aafd1bb60c0",
+    "txs": [
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "0",
+        "value": "0",
+        "data": "0xf4c02e6b",
+        "gasLimit": 100000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      }
+    ],
+    "expectedNewRoot": "0x92f7dc6869da461cea349d301dfbb061be05fa068f0f08b60f707e1168670791",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100000026392000000000",
+        "nonce": "0",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "199999973608000000000",
+        "nonce": "1",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {},
+        "hashBytecode": "0xedba16ecfb0e0b047846a9aa17369c24af3976fcac1ad2ed56ea5f31552bc8e2"
+      }
+    },
+    "timestamp": 1944498031,
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0x649d961ddb652638df28a88974863d8b065bca869a1e54a2d8cb640c96827d64",
+    "inputHash": "0xf4c007dbd9bda144dc8b3c6ec8999b74bd952187b6a77fe15cc72b68d4b58e0f",
+    "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084f4c02e6b8203e9808091cfbfc66188546838c031d79e708c2ea8d43ad08292670067a551e3a39657ca6e8434319b55d7c59756e5efd2043dcdfce2982360488303f9a045fec12f27901c"
+  },
+  {
+    "id": 3,
+    "description": "Log function call without revert",
+    "arity": 4,
+    "chainIdSequencer": 1001,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x6080604052600436106100915760003560e01c8063c7c969db11610059578063c7c969db146100c8578063e44f413d146100d2578063ecc5544a146100dc578063f4c02e6b146100e6578063f8b3e8e0146100f057610091565b80630de4d6c01461009657806322e62e29146100a05780633db17295146100aa5780636f990b24146100b457806384f232d3146100be575b600080fd5b61009e6100fa565b005b6100a8610106565b005b6100b2610110565b005b6100bc61011d565b005b6100c6610222565b005b6100d061023a565b005b6100da610247565b005b6100e4610250565b005b6100ee610257565b005b6100f861035c565b005b600080600060206000a3565b60008060206000a2565b60066005600460206000a3565b600160206000a16000803073ffffffffffffffffffffffffffffffffffffffff166040516024016040516020818303038152906040527f3db17295000000000000000000000000000000000000000000000000000000007bffffffffffffffffffffffffffffffffffffffffffffffffffffffff19166020820180517bffffffffffffffffffffffffffffffffffffffffffffffffffffffff83818316178352505050506040516101ce91906103c7565b6000604051808303816000865af19150503d806000811461020b576040519150601f19603f3d011682016040523d82523d6000602084013e610210565b606091505b50915091506002600160206000a25050565b60066005600460206000a3600061023857600080fd5b565b60008060008060206000a4565b600060206000a1565b60206000a0565b600160206000a16000803073ffffffffffffffffffffffffffffffffffffffff166040516024016040516020818303038152906040527f84f232d3000000000000000000000000000000000000000000000000000000007bffffffffffffffffffffffffffffffffffffffffffffffffffffffff19166020820180517bffffffffffffffffffffffffffffffffffffffffffffffffffffffff838183161783525050505060405161030891906103c7565b6000604051808303816000865af19150503d8060008114610345576040519150601f19603f3d011682016040523d82523d6000602084013e61034a565b606091505b50915091506002600160206000a25050565b60206000a0600160206000a16000600260206000a260066005600460206000a3600a60096008600760206000a4600061039457600080fd5b565b60006103a1826103de565b6103ab81856103e9565b93506103bb8185602086016103f4565b80840191505092915050565b60006103d38284610396565b915081905092915050565b600081519050919050565b600081905092915050565b60005b838110156104125780820151818401526020810190506103f7565b83811115610421576000848401525b5050505056fea2646970667358221220e070393197109960a0af554ce0a2893e85633325cc749fc099f9947dfb54509964736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [],
+            "name": "opLog0",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLog1",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLog2",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLog3",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLog4",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLogCallWithRevert",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLogCallWithRevert2",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLogCallWithoutRevert",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLogCallWithoutRevert2",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opLogWithRevert",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      }
+    ],
+    "expectedOldRoot": "0x39277dfa610cff2a3fa46507e1edeac73d8ae34a2560b24f5c654aafd1bb60c0",
+    "txs": [
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "0",
+        "value": "0",
+        "data": "0x6f990b24",
+        "gasLimit": 100000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      }
+    ],
+    "expectedNewRoot": "0xc38ebfdc3b86c92d26d9c8f05dcfcad128b4b2642dad3db6fb6281faa4ee65eb",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100000026336000000000",
+        "nonce": "0",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "199999973664000000000",
+        "nonce": "1",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {},
+        "hashBytecode": "0xedba16ecfb0e0b047846a9aa17369c24af3976fcac1ad2ed56ea5f31552bc8e2"
+      }
+    },
+    "timestamp": 1944498031,
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0x24b8a1f3dff8e034657cff14224fe74b3da9691e6f359c18ef3365b80db6e023",
+    "inputHash": "0xd87c75f853cd456f1ff024cd4c918e221dc093770cdd907dfec2be14c5d03014",
+    "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880846f990b248203e98080bb1a49e35f44b8236ea1a5aefb152c7505344453133221ec4e4aceb47e24bb1479e4d682dc6674837c5b8604fef5cd68e70403bc2d3bc862087b994789e854e81c"
   }
 ]
