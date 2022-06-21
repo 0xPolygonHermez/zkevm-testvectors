@@ -37,7 +37,7 @@
         "storage": {}
       }
     ],
-    "expectedOldRoot": "0x5d94b0d8d36c449dfe12bd4afb2550ca7670c0db9082cdc96d55936fdb95783e",
+    "expectedOldRoot": "0x5f7c57c334484dad3be5bbbd67a124733152f53b2c88c5f4d72220e998240fce",
     "txs": [
       {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -50,31 +50,34 @@
         "chainId": 1001
       }
     ],
-    "expectedNewRoot": "0x071d0c0ae1fb9d15a768c360ec2fd3b8fd09f998fcb315273bf1468607394301",
+    "expectedNewRoot": "0x61bc6bad9c252d0188848090575f53d1c2f26d6e2c1223e064e112b51e3b6fd9",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000100000000000000",
         "nonce": "0",
         "storage": null,
-        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "bytecodeLength": 0
       },
       "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
         "balance": "199999900000000000000",
         "nonce": "1",
         "storage": null,
-        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "bytecodeLength": 0
       },
       "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
         "balance": "0",
         "nonce": "1",
         "storage": {},
-        "hashBytecode": "0xcd35e70983cefb2afcd96f34ea42be1adbeaac1b0e9e3af62532acfa9756e78c"
+        "hashBytecode": "0x5127d5ca90e63de075e62ff318fd3a6323d53be9a786d1f9a0677df0115d5dc8",
+        "bytecodeLength": 109
       }
     },
     "timestamp": 1944498031,
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "batchHashData": "0xac748ccccd58894f4c56b7380836e9a74872fbf0dde967ac26015e66a6ef7ece",
-    "inputHash": "0x0d4e14a66e9202a85ec862181dce23710c2b6a1adce3ef638bceebe4cd6b7f54",
+    "inputHash": "0x5c079475461b86f904c05c56879233826592106ccfd9e51411aaf6f0a31261dc",
     "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae98808496e2fd4c8203e980808b3c8452ac0e48217b7efa267be55e11ecbea89c44de77dab5559001b1a1c94b666807567229f4230172fc0d1d6e27d36809113741dbf72e2fb624637401e8f61b"
