@@ -166,7 +166,7 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                     const { abi, bytecode, deployedBytecode } = require(`${artifactsPath}/${contractName}.sol/${contractName}.json`);
                     const interfaceContract = new ethers.utils.Interface(abi);
                     let params = '';
-                    if (currentTx.params.length > 0) { params = interfaceContract.encodeDeploy([currentTx.params]); }
+                    if (currentTx.params.length > 0) { params = interfaceContract.encodeDeploy(currentTx.params); }
                     const functionData = bytecode + params.slice(2);
                     outputTx = {
                         from: currentTx.from,
