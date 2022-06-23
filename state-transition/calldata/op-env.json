@@ -3547,5 +3547,256 @@
     "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880840914e1ec8203e98080ac532ec703be312d7244c18d52a879a4000e0aa1f3ba7dea6f8909221cc08353707d302ba8ac6c687a886e2b26742f909b91f8d0e4c93a8a8041c22d7a1782041c"
+  },
+  {
+    "id": 15,
+    "description": "extcodehash opcode",
+    "arity": 4,
+    "chainIdSequencer": 1001,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x6080604052600436106100fe5760003560e01c80636aecbc33116100955780639d75d264116100645780639d75d26414610261578063adc9af2614610278578063c59b402514610282578063dac9e88414610299578063f801fa50146102b0576100fe565b80636aecbc33146101df57806370ede0231461020a57806374c7363914610221578063942fbf2914610238576100fe565b80633ab08cf9116100d15780633ab08cf9146101835780634ae22a2e1461019a5780634f1f5752146101b15780635a552f87146101c8576100fe565b80630914e1ec1461010357806318512cb91461011a57806319fd5c51146101435780631bdbf00f1461015a575b600080fd5b34801561010f57600080fd5b506101186102c7565b005b34801561012657600080fd5b50610141600480360381019061013c91906104e3565b61036a565b005b34801561014f57600080fd5b50610158610374565b005b34801561016657600080fd5b50610181600480360381019061017c91906104e3565b610380565b005b34801561018f57600080fd5b5061019861038a565b005b3480156101a657600080fd5b506101af610399565b005b3480156101bd57600080fd5b506101c66103a9565b005b3480156101d457600080fd5b506101dd6103b9565b005b3480156101eb57600080fd5b506101f46103c5565b604051610201919061054c565b60405180910390f35b34801561021657600080fd5b5061021f6103d2565b005b34801561022d57600080fd5b506102366103de565b005b34801561024457600080fd5b5061025f600480360381019061025a91906104e3565b6103e6565b005b34801561026d57600080fd5b506102766103f8565b005b610280610400565b005b34801561028e57600080fd5b5061029761040c565b005b3480156102a557600080fd5b506102ae6104a7565b005b3480156102bc57600080fd5b506102c56104b1565b005b60003073ffffffffffffffffffffffffffffffffffffffff16636aecbc336040518163ffffffff1660e01b8152600401602060405180830381600087803b15801561031157600080fd5b505af1158015610325573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906103499190610510565b9050600081141561035957600080fd5b60206000803e600051806000555050565b803b806000555050565b60003090508060005550565b803f806000555050565b60003390508031806001555050565b6020600080396000518060005550565b6020600080376000518060005550565b60003390508060005550565b6000640123456689905090565b60003290508060005550565b3a8060005550565b6020600080833c600051806000555050565b368060005550565b60003490508060005550565b60003073ffffffffffffffffffffffffffffffffffffffff16636aecbc336040518163ffffffff1660e01b8152600401602060405180830381600087803b15801561045657600080fd5b505af115801561046a573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061048e9190610510565b9050600081141561049e57600080fd5b3d806000555050565b6002358060005550565b388060005550565b6000813590506104c8816105a8565b92915050565b6000815190506104dd816105bf565b92915050565b6000602082840312156104f9576104f86105a3565b5b6000610507848285016104b9565b91505092915050565b600060208284031215610526576105256105a3565b5b6000610534848285016104ce565b91505092915050565b61054681610599565b82525050565b6000602082019050610561600083018461053d565b92915050565b600061057282610579565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b600080fd5b6105b181610567565b81146105bc57600080fd5b50565b6105c881610599565b81146105d357600080fd5b5056fea2646970667358221220849afead375fddbeb566f638a61596d2eb40b330d14737798ef7d7837356eca764736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [],
+            "name": "auxReturn",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opAddress",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opBalance",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opCallDataCopy",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opCallDataLoad",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opCallDataSize",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opCallValue",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opCaller",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opCodeCopy",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opCodeSize",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opExtCodeCopy",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opExtCodeHash",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "addr",
+                "type": "address"
+              }
+            ],
+            "name": "opExtCodeSize",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opGasPrice",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opOrigin",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opReturnDataCopy",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "opReturnDataSize",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      }
+    ],
+    "expectedOldRoot": "0x40e68a9c01cd978a93ade2db4d938b260d277573b9487104196be39b11d74b58",
+    "txs": [
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "0",
+        "value": "0",
+        "data": "0x1bdbf00f0000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "gasLimit": 100000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "1",
+        "value": "0",
+        "data": "0x1bdbf00f0000000000000000000000004d5cf5032b2a844602278b01199ed191a86c93ff",
+        "gasLimit": 100000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "2",
+        "value": "0",
+        "data": "0x1bdbf00f000000000000000000000000dbefb887662ca19cd485381f3386fe5f8537b910",
+        "gasLimit": 100000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "3",
+        "value": "0",
+        "data": "0x1bdbf00f0000000000000000000000000000000000000000000000000000000000000008",
+        "gasLimit": 100000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      }
+    ],
+    "expectedNewRoot": "0x861f44423704876d0372c791c3fcbdea6447815daf4ff74854b2fd8cffa09c61",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100000108580000000000",
+        "nonce": "0",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "bytecodeLength": 0
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "199999891420000000000",
+        "nonce": "4",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "bytecodeLength": 0
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {
+          "0x0000000000000000000000000000000000000000000000000000000000000000": "0x00"
+        },
+        "hashBytecode": "0x1544f4d7b6609671be22bdb5cfc1e216130f25220f88ac848e87aab9242e9ef1",
+        "bytecodeLength": 1548
+      }
+    },
+    "timestamp": 1944498031,
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0xef2a2a2c2163153b72546c3b41f5b0c979d51bbae9542c3808a31fe0c865fd22",
+    "inputHash": "0x345c433720868aa09e672d5028aa5f246a26f75013d81570b4a894e175fbf1c9",
+    "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchL2Data": "0xf84a80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880a41bdbf00f0000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae988203e98080c0142e4a449e383bd9fa90fa75eabd40a23fb2690ada9a206e54dcc43946b7ea776ef9d00c6a46cfce075157b1734970dba66a89e2d6d785048364c33f8863b61bf84a01843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880a41bdbf00f0000000000000000000000004d5cf5032b2a844602278b01199ed191a86c93ff8203e980805d318297d3f73d231a53989d1029c9773a44f723d2bba0e9e5c4da9da77ac6872542bc101b997780f4c7233546f26d9d5ef53567ec4879882dfbc2f44aadcd591bf84a02843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880a41bdbf00f000000000000000000000000dbefb887662ca19cd485381f3386fe5f8537b9108203e9808083c60c3a0b14a55ca1ddf8d3f5e229b9f6b01b8977f13f23f60fd71c253a78406a159b819da86d51f8364cb62e1eb09f5b5e5bd15552a6f2742a81311a932c441bf84a03843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880a41bdbf00f00000000000000000000000000000000000000000000000000000000000000088203e9808097cc9adc580244e9789c4569332deed11fc7e597ec420e1c542cd26bda0d96843ffc2c4c90faf3c43ea70c61b7e9cae9070e6d6f4792217ece84200450f9bdee1c"
   }
 ]
