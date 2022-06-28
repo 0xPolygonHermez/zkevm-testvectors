@@ -47,7 +47,6 @@ describe('Run state-transition tests: calldata', async function () {
                     expectedOldRoot,
                     txs,
                     expectedNewRoot,
-                    chainIdSequencer,
                     sequencerAddress,
                     expectedNewLeafs,
                     oldLocalExitRoot,
@@ -70,7 +69,6 @@ describe('Run state-transition tests: calldata', async function () {
                 const batch = await zkEVMDB.buildBatch(
                     timestamp,
                     sequencerAddress,
-                    chainIdSequencer,
                     zkcommonjs.smtUtils.stringToH4(globalExitRoot),
                 );
 

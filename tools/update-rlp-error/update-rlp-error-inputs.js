@@ -35,10 +35,7 @@ async function main() {
         inputRLP.batchHashData = contractUtils.calculateBatchHashData(
             inputRLP.batchL2Data,
             inputRLP.globalExitRoot,
-            inputRLP.timestamp,
             inputRLP.sequencerAddr,
-            inputRLP.chainId,
-            inputRLP.numBatch,
         );
 
         inputRLP.inputHash = contractUtils.calculateStarkInput(
@@ -47,6 +44,8 @@ async function main() {
             inputRLP.newStateRoot,
             inputRLP.newLocalExitRoot,
             inputRLP.batchHashData,
+            inputRLP.numBatch,
+            inputRLP.timestamp,
         );
         delete inputRLP.keys;
 
