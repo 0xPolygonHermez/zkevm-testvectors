@@ -1,0 +1,78 @@
+AssertionError: expected '0' to equal '1'
+../tests/GeneralStateTests/stSStoreTest/InitCollision.json
+--------------------------------------------------
+Error: file .yml
+../tests/GeneralStateTests/stSStoreTest/sstoreGas.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+../tests/GeneralStateTests/stSStoreTest/sstore_0to0.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+../tests/GeneralStateTests/stSStoreTest/sstore_0to0to0.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+../tests/GeneralStateTests/stSStoreTest/sstore_0to0toX.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+../tests/GeneralStateTests/stSStoreTest/sstore_0toX.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+../tests/GeneralStateTests/stSStoreTest/sstore_0toXto0.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+../tests/GeneralStateTests/stSStoreTest/sstore_0toXto0toX.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+../tests/GeneralStateTests/stSStoreTest/sstore_0toXtoX.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+../tests/GeneralStateTests/stSStoreTest/sstore_0toXtoY.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+../tests/GeneralStateTests/stSStoreTest/sstore_Xto0.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+../tests/GeneralStateTests/stSStoreTest/sstore_Xto0to0.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+../tests/GeneralStateTests/stSStoreTest/sstore_Xto0toX.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+../tests/GeneralStateTests/stSStoreTest/sstore_Xto0toXto0.json
+--------------------------------------------------
+AssertionError: expected 1n to equal 2n
+../tests/GeneralStateTests/stSStoreTest/sstore_Xto0toY.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+../tests/GeneralStateTests/stSStoreTest/sstore_XtoX.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+../tests/GeneralStateTests/stSStoreTest/sstore_XtoXto0.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+../tests/GeneralStateTests/stSStoreTest/sstore_XtoXtoX.json
+--------------------------------------------------
+AssertionError: expected 1n to equal 2n
+../tests/GeneralStateTests/stSStoreTest/sstore_XtoXtoY.json
+--------------------------------------------------
+AssertionError: expected 2n to equal 1n
+../tests/GeneralStateTests/stSStoreTest/sstore_XtoY.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+../tests/GeneralStateTests/stSStoreTest/sstore_XtoYto0.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+../tests/GeneralStateTests/stSStoreTest/sstore_XtoYtoX.json
+--------------------------------------------------
+AssertionError: expected 1n to equal 2n
+../tests/GeneralStateTests/stSStoreTest/sstore_XtoYtoY.json
+--------------------------------------------------
+AssertionError: expected 3n to equal 1n
+../tests/GeneralStateTests/stSStoreTest/sstore_XtoYtoZ.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+../tests/GeneralStateTests/stSStoreTest/sstore_changeFromExternalCallInInitCode.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+../tests/GeneralStateTests/stSStoreTest/sstore_gasLeft.json
+--------------------------------------------------
