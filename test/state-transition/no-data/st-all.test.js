@@ -48,7 +48,6 @@ describe('Run state-transition tests', function () {
                     expectedOldRoot,
                     txs,
                     expectedNewRoot,
-                    chainIdSequencer,
                     sequencerAddress,
                     expectedNewLeafs,
                     batchL2Data,
@@ -172,7 +171,7 @@ describe('Run state-transition tests', function () {
                     expect(smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
                 }
 
-                const batch = await zkEVMDB.buildBatch(timestamp, sequencerAddress, chainIdSequencer, smtUtils.stringToH4(globalExitRoot));
+                const batch = await zkEVMDB.buildBatch(timestamp, sequencerAddress, smtUtils.stringToH4(globalExitRoot));
                 for (let k = 0; k < rawTxs.length; k++) {
                     batch.addRawTx(rawTxs[k]);
                 }

@@ -44,18 +44,18 @@
         "chainId": 1001
       }
     ],
-    "expectedNewRoot": "0x092af1be4e4825eda0aac4e0b4eeae667182dd4262ba63d1d26388f14012399c",
+    "expectedNewRoot": "0x733130fb12c58ed40f5bd3ca48569db2dcb0f7f19e5ee0e6ec038c88882b5f10",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
-        "balance": "100000026386000000000",
+        "balance": "100000000000000000000",
         "nonce": "0",
         "storage": null,
         "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "bytecodeLength": 0
       },
       "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
-        "balance": "199999973614000000000",
-        "nonce": "1",
+        "balance": "200000000000000000000",
+        "nonce": "0",
         "storage": null,
         "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "bytecodeLength": 0
@@ -64,7 +64,7 @@
         "balance": "0",
         "nonce": "1",
         "storage": {
-          "0x0000000000000000000000000000000000000000000000000000000000000000": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+          "0x0000000000000000000000000000000000000000000000000000000000000000": "0x01"
         },
         "hashBytecode": "0xbf966f4ce87917a5536474e95ec4b0b78252ed6ec140d2d497d153fca150eddb",
         "bytecodeLength": 1810
@@ -72,8 +72,8 @@
     },
     "timestamp": 1944498031,
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "batchHashData": "0x95db64bcee116fd6793fef31dd665c728aa0ce0b974dd5d010d4d7b10e5305c1",
-    "inputHash": "0xdd20e4ed9c82409cf7a97c6543746c6220b360df9aef294ad5e7dd5656f98bc5",
+    "batchHashData": "0x0a60d60bc35ad7fda8d52f29a5e09d0866ba0ba3c463a6e0fa5d068a1cb99586",
+    "inputHash": "0xeab33a16f08e513493554bcdb694b78331d05bd0bd11249ea146fbbe13743ebe",
     "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae98808489219dec8203e9808088aa71d2128d6b208cf1d6d0815dd6fb87cc5f8421ac2f7a3713fdaca278d2e53f5016e6fbbcce25ce25a821f901830710706cd8faa9a07eae6ebff35d92e9d51c"
@@ -123,18 +123,18 @@
         "chainId": 1001
       }
     ],
-    "expectedNewRoot": "0x06ede38414e4b60ab0070d5b31ac34551ea5d2d2beffb6a244fcbeeb40a383bf",
+    "expectedNewRoot": "0x733130fb12c58ed40f5bd3ca48569db2dcb0f7f19e5ee0e6ec038c88882b5f10",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
-        "balance": "100000023587000000000",
+        "balance": "100000000000000000000",
         "nonce": "0",
         "storage": null,
         "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "bytecodeLength": 0
       },
       "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
-        "balance": "199999976413000000000",
-        "nonce": "1",
+        "balance": "200000000000000000000",
+        "nonce": "0",
         "storage": null,
         "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "bytecodeLength": 0
@@ -151,8 +151,8 @@
     },
     "timestamp": 1944498031,
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "batchHashData": "0xe052c0f0d4ae06b6e0c180b5921acd6f927d4e0e16f40ebffac6ce7eb11fdbaf",
-    "inputHash": "0xc6f6004ad14fa8f6658d712d538e50a7df332080afded9d19ddb945aa1b9047e",
+    "batchHashData": "0x02f62af72b4a3c09873ade43f30302deaaa9c022257a0bf9f1af6828bd622371",
+    "inputHash": "0x86efd3adc1a64ba88faa6357080e3220e3f1229a0c3c909698860ff458162d70",
     "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880842a9f83748203e98080b145b0def5cfaaf5f395a384ad2c8e09ca9086afea6f51c312cedb9cbe36c7eb457f8df09f60411451661140b4d737130ce395ae761b34be3e3de08a8204d3831c"
@@ -202,18 +202,18 @@
         "chainId": 1001
       }
     ],
-    "expectedNewRoot": "0x308fdc55059e350581bb672ac339bbd8d2cd89c7a06073dfa51e98cffc6a878b",
+    "expectedNewRoot": "0x733130fb12c58ed40f5bd3ca48569db2dcb0f7f19e5ee0e6ec038c88882b5f10",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
-        "balance": "100000026319000000000",
+        "balance": "100000000000000000000",
         "nonce": "0",
         "storage": null,
         "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "bytecodeLength": 0
       },
       "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
-        "balance": "199999973681000000000",
-        "nonce": "1",
+        "balance": "200000000000000000000",
+        "nonce": "0",
         "storage": null,
         "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "bytecodeLength": 0
@@ -222,7 +222,7 @@
         "balance": "0",
         "nonce": "1",
         "storage": {
-          "0x0000000000000000000000000000000000000000000000000000000000000000": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+          "0x0000000000000000000000000000000000000000000000000000000000000000": "0x01"
         },
         "hashBytecode": "0xbf966f4ce87917a5536474e95ec4b0b78252ed6ec140d2d497d153fca150eddb",
         "bytecodeLength": 1810
@@ -230,8 +230,8 @@
     },
     "timestamp": 1944498031,
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "batchHashData": "0x50156cc8efa472018a390af683d5e52efd70e9977cd02ed973c2a643bc74d66d",
-    "inputHash": "0x2bea6d0d12ef4d58a875fb778859c1bf4c2212ace56c0a1b37565e6a365d8d7d",
+    "batchHashData": "0x1df3f8d4df380a08401f81e40f72bd535d81c96465716136d813552f508f1d48",
+    "inputHash": "0xb2ed773b9e6c279c59d5290305ecda4fc610ef775f7ad84f5f697b693bf4e88c",
     "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084a0070b318203e980806c68db1411fcbdc2d7cdcd50bcd3a1bb2fec53f2e23e72cb2660d55511addfcf5270847114a462a63f129ee25d7d9d6497c0404074386fc79be1623f6c2aba6e1b"
@@ -281,18 +281,18 @@
         "chainId": 1001
       }
     ],
-    "expectedNewRoot": "0xcca9761959c6530c8693c0f06c9908427f6ee1c1ff8eb288fc50a76369a939ee",
+    "expectedNewRoot": "0x733130fb12c58ed40f5bd3ca48569db2dcb0f7f19e5ee0e6ec038c88882b5f10",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
-        "balance": "100000023476000000000",
+        "balance": "100000000000000000000",
         "nonce": "0",
         "storage": null,
         "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "bytecodeLength": 0
       },
       "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
-        "balance": "199999976524000000000",
-        "nonce": "1",
+        "balance": "200000000000000000000",
+        "nonce": "0",
         "storage": null,
         "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "bytecodeLength": 0
@@ -309,8 +309,8 @@
     },
     "timestamp": 1944498031,
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "batchHashData": "0x0f20a5bbf14b9a6c5c65c21b473a5b78723baedaa7a90aab8bc331b891aa6533",
-    "inputHash": "0x9d711e260c2565774168e56a67e272ff5cfed8c89d959b5fcaa3da69e74b1358",
+    "batchHashData": "0x51824c3611265dddb2b5204992b8d705cec4a9f8d841057569980eae4abebff1",
+    "inputHash": "0xe079217e6677ace849c5b9285eb5170e801fd0be49d6edc96334a7985867c5cd",
     "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880845c918a3e8203e980807235ca59b05d783bed9d31186e7ff59124083df6feb3a616f26ab266f4498e172e627c07ab151dd448cc9ba289c08b715cb5817a35668e26343db2d6c0ba1c941b"

@@ -69,7 +69,6 @@ describe('Generate inputs executor from test-vectors', async function () {
                 expectedOldRoot,
                 txs,
                 expectedNewRoot,
-                chainIdSequencer,
                 sequencerAddress,
                 expectedNewLeafs,
                 oldLocalExitRoot,
@@ -107,7 +106,6 @@ describe('Generate inputs executor from test-vectors', async function () {
             const batch = await zkEVMDB.buildBatch(
                 timestamp,
                 sequencerAddress,
-                chainIdSequencer,
                 zkcommonjs.smtUtils.stringToH4(globalExitRoot),
             );
 
