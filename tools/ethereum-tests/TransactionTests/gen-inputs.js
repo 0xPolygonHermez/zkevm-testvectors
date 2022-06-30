@@ -8,10 +8,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const Common = require('@ethereumjs/common').default;
 const { Hardfork } = require('@ethereumjs/common');
-const { BN, toBuffer } = require('ethereumjs-util');
+const { toBuffer } = require('ethereumjs-util');
 const { ethers } = require('ethers');
 const hre = require('hardhat');
-const lodash = require('lodash');
 const { Scalar } = require('ffjavascript');
 const zkcommonjs = require('@polygon-hermez/zkevm-commonjs');
 const { expect } = require('chai');
@@ -74,7 +73,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 const oldLocalExitRoot = '0x0000000000000000000000000000000000000000000000000000000000000000';
                 const timestamp = 1944498031;
                 const sequencerAddress = '0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D';
-                const chainIdSequencer = 1001;
+                const chainIdSequencer = 1000;
                 const globalExitRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
                 const accountFrom = {
                     address: '0x4d5Cf5032B2a844602278b01199ED191A86c93ff',
@@ -149,7 +148,6 @@ describe('Generate inputs executor from test-vectors', async function () {
                 const batch = await zkEVMDB.buildBatch(
                     timestamp,
                     sequencerAddress,
-                    chainIdSequencer,
                     zkcommonjs.smtUtils.stringToH4(globalExitRoot),
                 );
 

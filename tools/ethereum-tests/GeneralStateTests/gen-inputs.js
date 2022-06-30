@@ -8,7 +8,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const Common = require('@ethereumjs/common').default;
 const { Hardfork } = require('@ethereumjs/common');
-const { BN, toBuffer } = require('ethereumjs-util');
+const { toBuffer } = require('ethereumjs-util');
 const { ethers } = require('ethers');
 const hre = require('hardhat');
 const { Scalar } = require('ffjavascript');
@@ -109,7 +109,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                     const oldLocalExitRoot = '0x0000000000000000000000000000000000000000000000000000000000000000';
                     const timestamp = 1944498031;
                     const sequencerAddress = test[file.split('.json')[0]].env.currentCoinbase;
-                    const chainIdSequencer = 1001;
+                    const chainIdSequencer = 1000;
                     const globalExitRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
                     const txTest = test[file.split('.json')[0]].transaction;
                     const { pre } = test[file.split('.json')[0]];
@@ -146,7 +146,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                     const batch = await zkEVMDB.buildBatch(
                         timestamp,
                         sequencerAddress,
-                        chainIdSequencer,
                         zkcommonjs.smtUtils.stringToH4(globalExitRoot),
                     );
 
@@ -257,6 +256,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                 // }
                 }
             } catch (e) {
+                console.log(e);
                 if (e.toString().includes('yml')) {
                     info += `${chalk.red('Error file yml')}\n`;
                 } else if (e.toString().includes('time')) {
@@ -272,8 +272,10 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
             }
         }
         if (argv.folder) {
-            const dir = path.join(__dirname, outputPath);
-            await fs.writeFileSync(`${dir}/errors.txt`, infoErrors);
+            if (infoErrors !== '') {
+                const dir = path.join(__dirname, outputPath);
+                await fs.writeFileSync(`${dir}/errors.txt`, infoErrors);
+            }
         }
         console.log(info);
     });
