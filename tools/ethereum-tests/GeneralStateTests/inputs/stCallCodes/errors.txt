@@ -10,20 +10,8 @@ Error: error time
 Error: error time
 ../tests/GeneralStateTests/stCallCodes/callcallcodecallcode_011_SuicideMiddle.json
 --------------------------------------------------
-TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000000' of null
-../tests/GeneralStateTests/stCallCodes/callcodeDynamicCode.json
---------------------------------------------------
-TypeError: Cannot read property '0x000000000000000000000000000000000000000000000000000000000000000b' of null
+AssertionError: expected '0' to equal '1'
 ../tests/GeneralStateTests/stCallCodes/callcodeDynamicCode2SelfCall.json
---------------------------------------------------
-TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000002' of null
-../tests/GeneralStateTests/stCallCodes/callcodeInInitcodeToEmptyContract.json
---------------------------------------------------
-TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
-../tests/GeneralStateTests/stCallCodes/callcodeInInitcodeToExistingContract.json
---------------------------------------------------
-TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000000' of null
-../tests/GeneralStateTests/stCallCodes/callcodeInInitcodeToExistingContractWithValueTransfer.json
 --------------------------------------------------
 Error: error time
 ../tests/GeneralStateTests/stCallCodes/callcodecallcall_100_SuicideMiddle.json

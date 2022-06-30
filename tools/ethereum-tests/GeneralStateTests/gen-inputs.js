@@ -210,6 +210,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                         // console.log(b);
                         // const c = await zkEVMDB.getLength(address);
                         // console.log(c);
+                        // const storage2 = await zkEVMDB.dumpStorage(address);
+                        // console.log(storage2);
                         if (infoExpect.balance) {
                             expect(Scalar.e(newLeaf.balance).toString()).to.be.equal(Scalar.e(infoExpect.balance).toString());
                         }
