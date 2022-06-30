@@ -1,27 +1,36 @@
 Error: error time
-../tests/GeneralStateTests/stCallCodes/callcallcall_000_SuicideMiddle.json
+../tests/BlockchainTests/GeneralStateTests/stCallCodes/callcallcall_000_SuicideMiddle.json
 --------------------------------------------------
 Error: error time
-../tests/GeneralStateTests/stCallCodes/callcallcallcode_001_SuicideMiddle.json
+../tests/BlockchainTests/GeneralStateTests/stCallCodes/callcallcallcode_001_SuicideMiddle.json
 --------------------------------------------------
 Error: error time
-../tests/GeneralStateTests/stCallCodes/callcallcodecall_010_SuicideMiddle.json
+../tests/BlockchainTests/GeneralStateTests/stCallCodes/callcallcodecall_010_SuicideMiddle.json
 --------------------------------------------------
 Error: error time
-../tests/GeneralStateTests/stCallCodes/callcallcodecallcode_011_SuicideMiddle.json
+../tests/BlockchainTests/GeneralStateTests/stCallCodes/callcallcodecallcode_011_SuicideMiddle.json
 --------------------------------------------------
 AssertionError: expected '0' to equal '1'
-../tests/GeneralStateTests/stCallCodes/callcodeDynamicCode2SelfCall.json
+../tests/BlockchainTests/GeneralStateTests/stCallCodes/callcodeDynamicCode.json
+--------------------------------------------------
+AssertionError: expected '10000' to equal '9999'
+../tests/BlockchainTests/GeneralStateTests/stCallCodes/callcodeDynamicCode2SelfCall.json
+--------------------------------------------------
+AssertionError: expected '10000' to equal '9999'
+../tests/BlockchainTests/GeneralStateTests/stCallCodes/callcodeInInitcodeToExistingContract.json
+--------------------------------------------------
+AssertionError: expected '10000' to equal '9995'
+../tests/BlockchainTests/GeneralStateTests/stCallCodes/callcodeInInitcodeToExistingContractWithValueTransfer.json
 --------------------------------------------------
 Error: error time
-../tests/GeneralStateTests/stCallCodes/callcodecallcall_100_SuicideMiddle.json
+../tests/BlockchainTests/GeneralStateTests/stCallCodes/callcodecallcall_100_SuicideMiddle.json
 --------------------------------------------------
 Error: error time
-../tests/GeneralStateTests/stCallCodes/callcodecallcallcode_101_SuicideMiddle.json
+../tests/BlockchainTests/GeneralStateTests/stCallCodes/callcodecallcallcode_101_SuicideMiddle.json
 --------------------------------------------------
 Error: error time
-../tests/GeneralStateTests/stCallCodes/callcodecallcodecall_110_SuicideMiddle.json
+../tests/BlockchainTests/GeneralStateTests/stCallCodes/callcodecallcodecall_110_SuicideMiddle.json
 --------------------------------------------------
 Error: error time
-../tests/GeneralStateTests/stCallCodes/callcodecallcodecallcode_111_SuicideMiddle.json
+../tests/BlockchainTests/GeneralStateTests/stCallCodes/callcodecallcodecallcode_111_SuicideMiddle.json
 --------------------------------------------------

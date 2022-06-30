@@ -23,7 +23,7 @@ const path = require('path');
 const chalk = require('chalk');
 const helpers = require('../../../tools-calldata/helpers/helpers');
 
-// example: npx mocha gen-inputs.js --test xxxx --folder xxxx --executor
+// example: npx mocha gen-inputs.js --test xxxx --folder xxxx --ignore
 describe('Generate inputs executor from ethereum tests GeneralStateTests', async function () {
     this.timeout(30000);
     let poseidon;
@@ -31,9 +31,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
     let outputName;
     let outputPath;
     let testPath;
-    let sourcePath;
     let test;
-    let source;
     let file;
     let folder;
     let evmDebug;
@@ -54,15 +52,15 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
         evmDebug = !!(argv['evm-debug']);
         let files = [];
         if (file === 'all') {
-            const direc = fs.readdirSync('../tests/GeneralStateTests');
+            const direc = fs.readdirSync('../tests/BlockchainTests/GeneralStateTests');
             for (let x = 0; x < direc.length; x++) {
-                const filesDirec = fs.readdirSync(`../tests/GeneralStateTests/${direc[x]}`);
+                const filesDirec = fs.readdirSync(`../tests/BlockchainTests/GeneralStateTests/${direc[x]}`);
                 for (let y = 0; y < filesDirec.length; y++) {
                     files.push(`${direc[x]}/${filesDirec[y]}`);
                 }
             }
         } else if (folder) {
-            const filesDirec = fs.readdirSync(`../tests/GeneralStateTests/${folder}`);
+            const filesDirec = fs.readdirSync(`../tests/BlockchainTests/GeneralStateTests/${folder}`);
             for (let y = 0; y < filesDirec.length; y++) {
                 files.push(`${folder}/${filesDirec[y]}`);
             }
@@ -84,36 +82,30 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
 
                 outputPath = `./inputs/${file.substring(0, file.lastIndexOf('/'))}/`;
                 outputName = `${file.split('/')[file.split('/').length - 1]}`;
-                testPath = `../tests/GeneralStateTests/${file}`;
+                testPath = `../tests/BlockchainTests/GeneralStateTests/${file}`;
                 // eslint-disable-next-line import/no-dynamic-require
                 test = require(testPath);
                 file = file.split('/')[file.split('/').length - 1];
-                sourcePath = `../tests/${test[file.split('.json')[0]]._info.source}`;
-                if (sourcePath.includes('yml')) {
-                    throw new Error('file .yml');
-                }
-                source = require(sourcePath);
+
                 await hre.run('compile');
                 console.log(`test vector name: ${file}`);
-                const sourceExpects = source[file.split('.json')[0]].expect.filter(
-                    (e) => e.network.find(
-                        (el) => (el === 'Berlin' || el === '>=Istanbul' || el === '>=Berlin'),
-                    ),
-                );
-                const txsLength = sourceExpects.length;
+                const keysTests = Object.keys(test).filter((op) => op.includes('_Berlin') === true);
+                const txsLength = keysTests.length;
                 for (let y = 0; y < txsLength; y++) {
                     let newOutputName;
                     if (txsLength > 1) newOutputName = `${outputName.split('.json')[0]}_${y}.json`;
                     else newOutputName = outputName;
-                    const sourceExpect = sourceExpects[y];
+                    const currentTest = test[keysTests[y]];
+                    const source = require(`../tests/${currentTest._info.source}`);
+                    const accountPkFrom = toBuffer(`0x${source[file.split('.json')[0]].transaction.secretKey}`);
                     const oldLocalExitRoot = '0x0000000000000000000000000000000000000000000000000000000000000000';
-                    const timestamp = 1944498031;
-                    const sequencerAddress = test[file.split('.json')[0]].env.currentCoinbase;
+                    const { timestamp } = currentTest.blocks[0].blockHeader;
+                    const sequencerAddress = currentTest.blocks[0].blockHeader.coinbase;
                     const chainIdSequencer = 1000;
                     const globalExitRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
-                    const txTest = test[file.split('.json')[0]].transaction;
-                    const { pre } = test[file.split('.json')[0]];
-                    const { sender, secretKey } = txTest;
+                    const txsTest = currentTest.blocks[0].transactions;
+                    const { pre } = currentTest;
+
                     const genesis = [];
                     for (let i in pre) {
                         const account = {
@@ -122,9 +114,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                             balance: Scalar.e(pre[i].balance, 16).toString(),
                             storage: {},
                         };
-                        if (i === sender) {
-                            account.pvtKey = secretKey;
-                        }
                         for (let key in pre[i].storage) {
                             account.storage[`0x${key.slice(2).padStart(64, '0')}`] = pre[i].storage[key];
                         }
@@ -149,79 +138,67 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                         zkcommonjs.smtUtils.stringToH4(globalExitRoot),
                     );
 
-                    const accountPkFrom = toBuffer(secretKey);
-                    const txData = {
-                        nonce: txTest.nonce,
-                        gasPrice: txTest.gasPrice,
-                        gasLimit: sourceExpect.indexes.gas === -1 ? txTest.gasLimit[0] : txTest.gasLimit[sourceExpect.indexes.gas],
-                        to: txTest.to,
-                        value: sourceExpect.indexes.value === -1 ? txTest.value[0] : txTest.value[sourceExpect.indexes.value],
-                        data: sourceExpect.indexes.data === -1 ? txTest.data[0] : txTest.data[sourceExpect.indexes.data],
-                        chainId: chainIdSequencer,
-                    };
+                    for (let tx = 0; tx < txsTest.length; tx++) {
+                        const txTest = txsTest[tx];
 
-                    if (Scalar.e(txData.gasLimit) === Scalar.e('0x05f5e100')) {
-                    // chainId tests
-                        txData.gasLimit = Math.trunc(txData.gasLimit / 10);
-                    } else if ((Scalar.e(txData.gasLimit) >= Scalar.e('0x05f5e100'))) {
-                        throw new Error('error gas');
+                        if (Scalar.e(txTest.gasLimit) === Scalar.e('0x05f5e100')) {
+                            // chainId tests
+                            txTest.gasLimit = Math.trunc(txTest.gasLimit / 10);
+                        } else if ((Scalar.e(txTest.gasLimit) >= Scalar.e('0x05f5e100'))) {
+                            throw new Error('error gas');
+                        }
+
+                        const commonCustom = Common.custom({ chainId: chainIdSequencer }, { hardfork: Hardfork.Berlin });
+                        let txSigned = Transaction.fromTxData(txTest, { common: commonCustom }).sign(accountPkFrom);
+                        const sign = !(Number(txSigned.v) & 1);
+                        const chainId = (Number(txSigned.v) - 35) >> 1;
+                        const messageToHash = [
+                            Scalar.e(txTest.nonce).toString(16),
+                            Scalar.e(txTest.gasPrice).toString(16),
+                            Scalar.e(txTest.gasLimit).toString(16),
+                            txTest.to ? Scalar.e(txTest.to).toString(16) : '',
+                            Scalar.e(txTest.value).toString(16),
+                            txTest.data,
+                            ethers.utils.hexlify(chainId),
+                            '0x',
+                            '0x',
+                        ];
+
+                        const newMessageToHash = helpers.updateMessageToHash(messageToHash);
+                        const signData = ethers.utils.RLP.encode(newMessageToHash);
+                        const rCalldata = txSigned.r.toString(16).padStart(32 * 2, '0');
+                        const sCalldata = txSigned.s.toString(16).padStart(32 * 2, '0');
+                        const vCalldata = (sign + 27).toString(16).padStart(1 * 2, '0');
+                        const calldata = signData.concat(rCalldata).concat(sCalldata).concat(vCalldata);
+
+                        batch.addRawTx(calldata);
                     }
 
-                    const commonCustom = Common.custom({ chainId: chainIdSequencer }, { hardfork: Hardfork.Berlin });
-                    let txSigned = Transaction.fromTxData(txData, { common: commonCustom }).sign(accountPkFrom);
-                    const sign = !(Number(txSigned.v) & 1);
-                    const chainId = (Number(txSigned.v) - 35) >> 1;
-                    const messageToHash = [
-                        txSigned.nonce.toString(16),
-                        txSigned.gasPrice.toString(16),
-                        txSigned.gasLimit.toString(16),
-                        txSigned.to ? txSigned.to.toString(16) : '',
-                        txSigned.value.toString(16),
-                        txSigned.data.toString('hex'),
-                        ethers.utils.hexlify(chainId),
-                        '0x',
-                        '0x',
-                    ];
-
-                    const newMessageToHash = helpers.updateMessageToHash(messageToHash);
-                    const signData = ethers.utils.RLP.encode(newMessageToHash);
-                    const rCalldata = txSigned.r.toString(16).padStart(32 * 2, '0');
-                    const sCalldata = txSigned.s.toString(16).padStart(32 * 2, '0');
-                    const vCalldata = (sign + 27).toString(16).padStart(1 * 2, '0');
-                    const calldata = signData.concat(rCalldata).concat(sCalldata).concat(vCalldata);
-
-                    batch.addRawTx(calldata);
                     await batch.executeTxs();
                     if (evmDebug) {
                         await generateEvmDebugFile(batch.evmSteps, newOutputName);
                     }
                     await zkEVMDB.consolidate(batch);
 
-                    const { result } = sourceExpect;
-                    const addresses = Object.keys(result);
+                    const { postState } = currentTest;
+                    const addresses = Object.keys(postState);
                     for (let j = 0; j < addresses.length; j++) {
                         let address = addresses[j];
-                        const infoExpect = result[address];
-                        const newLeaf = await zkEVMDB.getCurrentAccountState(address);
-                        // console.log(address);
-                        // console.log(newLeaf);
-                        // const b = await zkEVMDB.getHashBytecode(address);
-                        // console.log(b);
-                        // const c = await zkEVMDB.getLength(address);
-                        // console.log(c);
-                        // const storage2 = await zkEVMDB.dumpStorage(address);
-                        // console.log(storage2);
-                        if (infoExpect.balance) {
-                            expect(Scalar.e(newLeaf.balance).toString()).to.be.equal(Scalar.e(infoExpect.balance).toString());
-                        }
-                        if (infoExpect.nonce) {
-                            expect(Scalar.e(newLeaf.nonce).toString()).to.be.equal(Scalar.e(infoExpect.nonce).toString());
-                        }
-                        if (infoExpect.storage && Object.keys(infoExpect.storage).length > 0) {
-                            const storage = await zkEVMDB.dumpStorage(address);
-                            for (let elem in infoExpect.storage) {
-                                if (Scalar.e(infoExpect.storage[elem]) !== Scalar.e(0)) {
-                                    expect(Scalar.e(infoExpect.storage[elem])).to.be.equal(Scalar.e(storage[`0x${elem.slice(2).padStart(64, '0')}`]));
+                        if (address !== sequencerAddress) {
+                            const infoExpect = postState[address];
+                            const newLeaf = await zkEVMDB.getCurrentAccountState(address);
+                            if (infoExpect.balance) {
+                                expect(Scalar.e(newLeaf.balance).toString()).to.be.equal(Scalar.e(infoExpect.balance).toString());
+                            }
+                            if (infoExpect.nonce) {
+                                expect(Scalar.e(newLeaf.nonce).toString()).to.be.equal(Scalar.e(infoExpect.nonce).toString());
+                            }
+                            if (infoExpect.storage && Object.keys(infoExpect.storage).length > 0) {
+                                const storage = await zkEVMDB.dumpStorage(address);
+                                for (let elem in infoExpect.storage) {
+                                    if (Scalar.e(infoExpect.storage[elem]) !== Scalar.e(0)) {
+                                        expect(Scalar.e(infoExpect.storage[elem])).to.be.equal(Scalar.e(storage[`0x${elem.slice(2).padStart(64, '0')}`]));
+                                    }
                                 }
                             }
                         }
@@ -247,6 +224,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                     if (!fs.existsSync(dir)) {
                         fs.mkdirSync(dir);
                     }
+                    if (argv.ig) { newOutputName += '-ignore'; }
                     console.log(`WRITE: ${dir}${newOutputName}`);
                     await fs.writeFileSync(`${dir}${newOutputName}`, JSON.stringify(circuitInput, null, 2));
                     // }
@@ -256,7 +234,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                 // }
                 }
             } catch (e) {
-                console.log(e);
                 if (e.toString().includes('yml')) {
                     info += `${chalk.red('Error file yml')}\n`;
                 } else if (e.toString().includes('time')) {
