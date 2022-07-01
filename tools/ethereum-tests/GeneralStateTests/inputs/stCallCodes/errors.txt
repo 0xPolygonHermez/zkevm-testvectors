@@ -10,19 +10,16 @@ Error: error time
 Error: error time
 ../tests/BlockchainTests/GeneralStateTests/stCallCodes/callcallcodecallcode_011_SuicideMiddle.json
 --------------------------------------------------
-TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000000' of null
+AssertionError: expected '0' to equal '1'
 ../tests/BlockchainTests/GeneralStateTests/stCallCodes/callcodeDynamicCode.json
 --------------------------------------------------
-TypeError: Cannot read property '0x000000000000000000000000000000000000000000000000000000000000000b' of null
+AssertionError: expected '10000' to equal '9999'
 ../tests/BlockchainTests/GeneralStateTests/stCallCodes/callcodeDynamicCode2SelfCall.json
 --------------------------------------------------
-TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000002' of null
-../tests/BlockchainTests/GeneralStateTests/stCallCodes/callcodeInInitcodeToEmptyContract.json
---------------------------------------------------
-TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+AssertionError: expected '10000' to equal '9999'
 ../tests/BlockchainTests/GeneralStateTests/stCallCodes/callcodeInInitcodeToExistingContract.json
 --------------------------------------------------
-TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000000' of null
+AssertionError: expected '10000' to equal '9995'
 ../tests/BlockchainTests/GeneralStateTests/stCallCodes/callcodeInInitcodeToExistingContractWithValueTransfer.json
 --------------------------------------------------
 Error: error time
