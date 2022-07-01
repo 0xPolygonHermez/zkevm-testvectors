@@ -154,6 +154,15 @@ contract OpCall{
         addrDelegate.delegatecall(abi.encodeWithSignature("opDelegateCallSelfBalance(address)", addrCall));
     }
 
+   function opCallSelfBalance(address addrCall) external payable returns(uint256) {
+        addrCall.call{value: msg.value}(abi.encodeWithSignature("opCallSelfBalance()"));
+    }
+
+  function opCallCallSelfBalance(address addrCall, address addrCallCall) external payable returns(uint256) {
+        addrCall.call{value: msg.value/2}(abi.encodeWithSignature("opCallSelfBalance()"));
+        addrCallCall.call{value: msg.value/2}(abi.encodeWithSignature("opCallSelfBalance()"));
+    }
+    
     function opCallCallCodeValues(address addr) public payable {
         uint256 aux = this.opCallCodeValues(addr);
         require(aux != 0);
