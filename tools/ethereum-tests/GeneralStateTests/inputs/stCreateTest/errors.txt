@@ -1,78 +1,51 @@
-TypeError: Cannot convert undefined to a BigInt
-../tests/GeneralStateTests/stCreateTest/CREATE_AcreateB_BSuicide_BStore.json
+AssertionError: expected '999994000000' to equal '999998581060'
+../tests/BlockchainTests/GeneralStateTests/stCreateTest/CREATE_AcreateB_BSuicide_BStore.json
 --------------------------------------------------
-Error: file .yml
-../tests/GeneralStateTests/stCreateTest/CREATE_ContractRETURNBigOffset.json
---------------------------------------------------
-TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000000' of null
-../tests/GeneralStateTests/stCreateTest/CREATE_ContractSSTOREDuringInit.json
---------------------------------------------------
-TypeError: Cannot convert undefined to a BigInt
-../tests/GeneralStateTests/stCreateTest/CREATE_EContractCreateEContractInInit_Tr.json
---------------------------------------------------
-TypeError: Cannot convert undefined to a BigInt
-../tests/GeneralStateTests/stCreateTest/CREATE_EContractCreateNEContractInInitOOG_Tr.json
---------------------------------------------------
-TypeError: Cannot convert undefined to a BigInt
-../tests/GeneralStateTests/stCreateTest/CREATE_EContractCreateNEContractInInit_Tr.json
---------------------------------------------------
-AssertionError: expected '0' to equal '1'
-../tests/GeneralStateTests/stCreateTest/CREATE_EContract_ThenCALLToNonExistentAcc.json
---------------------------------------------------
-Error: file .yml
-../tests/GeneralStateTests/stCreateTest/CREATE_EOF1.json
---------------------------------------------------
-TypeError: Cannot convert undefined to a BigInt
-../tests/GeneralStateTests/stCreateTest/CREATE_EmptyContractWithStorageAndCallIt_0wei.json
+SyntaxError: Invalid or unexpected token
+../tests/BlockchainTests/GeneralStateTests/stCreateTest/CREATE_ContractRETURNBigOffset.json
 --------------------------------------------------
 TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000000' of null
-../tests/GeneralStateTests/stCreateTest/CREATE_EmptyContractWithStorageAndCallIt_1wei.json
+../tests/BlockchainTests/GeneralStateTests/stCreateTest/CREATE_ContractSSTOREDuringInit.json
 --------------------------------------------------
-Error: file .yml
-../tests/GeneralStateTests/stCreateTest/CREATE_FirstByte_loop.json
+SyntaxError: Invalid or unexpected token
+../tests/BlockchainTests/GeneralStateTests/stCreateTest/CREATE_EOF1.json
 --------------------------------------------------
-Error: file .yml
-../tests/GeneralStateTests/stCreateTest/CREATE_HighNonce.json
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000000' of null
+../tests/BlockchainTests/GeneralStateTests/stCreateTest/CREATE_EmptyContractWithStorage.json
 --------------------------------------------------
-Error: file .yml
-../tests/GeneralStateTests/stCreateTest/CREATE_HighNonceMinus1.json
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000000' of null
+../tests/BlockchainTests/GeneralStateTests/stCreateTest/CREATE_EmptyContractWithStorageAndCallIt_0wei.json
 --------------------------------------------------
-TypeError: Cannot convert undefined to a BigInt
-../tests/GeneralStateTests/stCreateTest/CREATE_empty000CreateinInitCode_Transaction.json
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000000' of null
+../tests/BlockchainTests/GeneralStateTests/stCreateTest/CREATE_EmptyContractWithStorageAndCallIt_1wei.json
 --------------------------------------------------
-Error: file .yml
-../tests/GeneralStateTests/stCreateTest/CodeInConstructor.json
+SyntaxError: Invalid or unexpected token
+../tests/BlockchainTests/GeneralStateTests/stCreateTest/CREATE_FirstByte_loop.json
 --------------------------------------------------
-Error: file .yml
-../tests/GeneralStateTests/stCreateTest/CreateCollisionResults.json
+SyntaxError: Invalid or unexpected token
+../tests/BlockchainTests/GeneralStateTests/stCreateTest/CREATE_HighNonce.json
 --------------------------------------------------
-TypeError: Cannot convert undefined to a BigInt
-../tests/GeneralStateTests/stCreateTest/CreateCollisionToEmpty.json
+SyntaxError: Invalid or unexpected token
+../tests/BlockchainTests/GeneralStateTests/stCreateTest/CREATE_HighNonceMinus1.json
 --------------------------------------------------
-Error: file .yml
-../tests/GeneralStateTests/stCreateTest/CreateOOGFromCallRefunds.json
+SyntaxError: Invalid or unexpected token
+../tests/BlockchainTests/GeneralStateTests/stCreateTest/CodeInConstructor.json
 --------------------------------------------------
-Error: file .yml
-../tests/GeneralStateTests/stCreateTest/CreateOOGFromEOARefunds.json
---------------------------------------------------
-Error: file .yml
-../tests/GeneralStateTests/stCreateTest/CreateOOGafterMaxCodesize.json
---------------------------------------------------
-Error: file .yml
-../tests/GeneralStateTests/stCreateTest/CreateResults.json
+SyntaxError: Invalid or unexpected token
+../tests/BlockchainTests/GeneralStateTests/stCreateTest/CreateCollisionResults.json
 --------------------------------------------------
 TypeError: Cannot convert undefined to a BigInt
-../tests/GeneralStateTests/stCreateTest/TransactionCollisionToEmpty.json
+../tests/BlockchainTests/GeneralStateTests/stCreateTest/CreateCollisionToEmpty.json
+--------------------------------------------------
+SyntaxError: Invalid or unexpected token
+../tests/BlockchainTests/GeneralStateTests/stCreateTest/CreateResults.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+../tests/BlockchainTests/GeneralStateTests/stCreateTest/TransactionCollisionToEmpty.json
 --------------------------------------------------
 TypeError: Cannot read property 'caller' of undefined
-../tests/GeneralStateTests/stCreateTest/TransactionCollisionToEmptyButCode.json
+../tests/BlockchainTests/GeneralStateTests/stCreateTest/TransactionCollisionToEmptyButCode.json
 --------------------------------------------------
-TypeError: Cannot convert undefined to a BigInt
-../tests/GeneralStateTests/stCreateTest/TransactionCollisionToEmptyButNonce.json
---------------------------------------------------
-Error: file .yml
-../tests/GeneralStateTests/stCreateTest/createFailResult.json
---------------------------------------------------
-Error: file .yml
-../tests/GeneralStateTests/stCreateTest/createLargeResult.json
+TypeError: Cannot read property 'caller' of undefined
+../tests/BlockchainTests/GeneralStateTests/stCreateTest/TransactionCollisionToEmptyButNonce.json
 --------------------------------------------------
