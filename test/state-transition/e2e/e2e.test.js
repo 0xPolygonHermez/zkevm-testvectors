@@ -19,7 +19,7 @@ const {
 const { calculateSnarkInput, calculateBatchHashData } = contractUtils;
 const MerkleTreeBridge = require('@polygon-hermez/zkevm-commonjs').MTBridge;
 const {
-    calculateLeafValue,
+    getLeafValue,
 } = require('@polygon-hermez/zkevm-commonjs').mtBridgeUtils;
 
 const {
@@ -150,19 +150,22 @@ describe('Proof of efficiency test vectors', function () {
 
         // Add a claim leaf to rollup exit tree
         const claimAddress = '0xC949254d682D8c9ad5682521675b8F43b102aec4';
-        const originalNetwork = networkIDMainnet;
+        const originNetwork = networkIDMainnet;
         const tokenAddress = ethers.constants.AddressZero; // ether
         const amount = ethers.utils.parseEther('10');
         const destinationNetwork = networkIDRollup;
         const destinationAddress = claimAddress;
 
+        const metadata = '0x';// since is ether does not have metadata
+        const metadataHash = ethers.utils.solidityKeccak256(['bytes'], [metadata]);
+
         const depositCount = 1;
-        const mainnetRoot = '0x843cb84814162b93794ad9087a037a1948f9aff051838ba3a93db0ac92b9f719';
+        const mainnetRoot = '0x573768af52d1354a7b83fb784ecbacecf8fead6ad49f25af8909a35b0a7bba05';
         let lastGlobalExitRootNum = 0;
 
-        await expect(bridgeContract.bridge(tokenAddress, amount, destinationNetwork, destinationAddress, { value: amount }))
+        await expect(bridgeContract.bridge(tokenAddress, destinationNetwork, destinationAddress, amount, { value: amount }))
             .to.emit(bridgeContract, 'BridgeEvent')
-            .withArgs(tokenAddress, amount, originalNetwork, destinationNetwork, destinationAddress, depositCount)
+            .withArgs(originNetwork, tokenAddress, destinationNetwork, destinationAddress, amount, metadata, depositCount)
             .to.emit(globalExitRootManager, 'UpdateGlobalExitRoot')
             .withArgs(++lastGlobalExitRootNum, mainnetRoot, ethers.constants.HashZero);
 
@@ -583,7 +586,7 @@ describe('Proof of efficiency test vectors', function () {
         */
 
         // Add a claim leaf to rollup exit tree
-        const originalNetworkClaim = networkIDMainnet;
+        const originNetworkClaim = networkIDMainnet;
         const tokenAddressClaim = ethers.constants.AddressZero; // ether
         const amountClaim = ethers.utils.parseEther('1');
         const destinationNetworkClaim = networkIDMainnet;
@@ -592,12 +595,13 @@ describe('Proof of efficiency test vectors', function () {
         // pre compute root merkle tree in Js
         const height = 32;
         const merkleTree = new MerkleTreeBridge(height);
-        const leafValue = calculateLeafValue(
-            originalNetworkClaim,
+        const leafValue = getLeafValue(
+            originNetworkClaim,
             tokenAddressClaim,
-            amountClaim,
             destinationNetworkClaim,
             destinationAddressClaim,
+            amountClaim,
+            metadataHash,
         );
         merkleTree.add(leafValue);
         const rollupExitRoot = merkleTree.getRoot();
@@ -606,23 +610,24 @@ describe('Proof of efficiency test vectors', function () {
         const index = 0;
         const proof = merkleTree.getProofTreeByIndex(index);
         await expect(bridgeContract.claim(
-            tokenAddressClaim,
-            amountClaim,
-            originalNetworkClaim,
-            destinationNetworkClaim,
-            destinationAddressClaim,
             proof,
             index,
             mainnetRoot,
             rollupExitRoot,
+            originNetworkClaim,
+            tokenAddressClaim,
+            destinationNetworkClaim,
+            destinationAddressClaim,
+            amountClaim,
+            metadata,
         ))
             .to.emit(bridgeContract, 'ClaimEvent')
             .withArgs(
                 index,
-                originalNetworkClaim,
+                originNetworkClaim,
                 tokenAddressClaim,
-                amountClaim,
                 destinationAddressClaim,
+                amountClaim,
             );
     });
 

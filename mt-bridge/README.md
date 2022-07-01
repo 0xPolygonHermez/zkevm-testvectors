@@ -18,10 +18,11 @@ A leaf parameters are defined as:
 - `amount (hex string)`
 - `destinationNetwork (number)`
 - `destinationAddress (hex string)`
+- `metadataHash (bytes)`
 
 And the `leafValue` is calculated as follows:
 
-- `Keccak256(['uint32', 'address', 'uint256', 'uint32', 'address'], [originalNetwork, tokenAddress, amount, destinationNetwork, destinationAddress]);`
+- `Keccak256(['uint32', 'address', 'uint256', 'uint32', 'address', 'metadataHash'], [originalNetwork, tokenAddress, amount, destinationNetwork, destinationAddress, metadata]);`
 
 ### Params
 
@@ -30,6 +31,7 @@ And the `leafValue` is calculated as follows:
 - `amount (hex string)`
 - `destinationNetwork (number)`
 - `destinationAddress (hex string)`
+- `metadataHash (bytes)`
 - `leafValue (hex string)`: expected leaf value
 
 ## root-vectors
