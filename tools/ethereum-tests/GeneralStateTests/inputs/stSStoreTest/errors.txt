@@ -1,0 +1,81 @@
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/InitCollisionNonZeroNonce.json
+--------------------------------------------------
+Error: Cannot convert string to buffer. toBuffer only supports 0x-prefixed hex strings and this string was given: 0x0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d8
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/SstoreCallToSelfSubRefundBelowZero.json
+--------------------------------------------------
+SyntaxError: Invalid or unexpected token
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstoreGas.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_0to0.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_0to0to0.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_0to0toX.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_0toX.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_0toXto0.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_0toXto0toX.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_0toXtoX.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_0toXtoY.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_Xto0.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_Xto0to0.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_Xto0toX.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_Xto0toXto0.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_Xto0toY.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_XtoX.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_XtoXto0.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_XtoXtoX.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_XtoXtoY.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_XtoY.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_XtoYto0.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_XtoYtoX.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_XtoYtoY.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_XtoYtoZ.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000000' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_changeFromExternalCallInInitCode.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000001' of null
+../tests/BlockchainTests/GeneralStateTests/stSStoreTest/sstore_gasLeft.json
+--------------------------------------------------

@@ -25,4 +25,11 @@ contract Selfdestruct {
         }
         selfdestruct(payable(receiver));
     }
+
+    function sstoreDestruct() public {
+        assembly{
+            sstore(0x1,0x2)
+        }
+        selfdestruct(payable(receiver));
+    }
 }

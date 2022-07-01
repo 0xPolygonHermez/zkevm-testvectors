@@ -11,3 +11,6 @@ evm-stack-logs
 # tool print opcodes
 ./tools/print-opcodes/input.data
 ./tools/print-opcodes/output.json
+
+*-ignore.json
+tools/ethereum-tests/tests
