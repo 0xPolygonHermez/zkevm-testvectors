@@ -3,10 +3,11 @@ const fs = require('fs');
 const path = require('path');
 const { argv } = require('yargs');
 const { expect } = require('chai');
+const { ethers } = require('ethers');
 
 const MerkleTreeBridge = require('@polygon-hermez/zkevm-commonjs').MTBridge;
 const {
-    calculateLeafValue,
+    getLeafValue,
 } = require('@polygon-hermez/zkevm-commonjs').mtBridgeUtils;
 
 const leafs = require('./leafs.json');
@@ -21,13 +22,23 @@ describe('mt bridge claim vectors', async function () {
         const output = [];
         for (let i = 0; i < leafs.length; i++) {
             const {
-                originalNetwork,
+                originNetwork,
                 tokenAddress,
                 amount,
                 destinationNetwork,
                 destinationAddress,
+                metadata,
             } = leafs[i];
-            const currentLeafValue = calculateLeafValue(originalNetwork, tokenAddress, amount, destinationNetwork, destinationAddress);
+
+            const metadataHash = ethers.utils.solidityKeccak256(['bytes'], [metadata]);
+            const currentLeafValue = getLeafValue(
+                originNetwork,
+                tokenAddress,
+                destinationNetwork,
+                destinationAddress,
+                amount,
+                metadataHash,
+            );
             leafs[i].leafValue = currentLeafValue;
             merkleTree.add(currentLeafValue);
         }

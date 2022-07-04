@@ -136,7 +136,7 @@ describe('Proof of efficiency test vectors', function () {
         const amount = ethers.utils.parseEther('10');
         const destinationNetwork = 1;
         const destinationAddress = claimAddress;
-        await expect(bridgeContract.bridge(tokenAddress, amount, destinationNetwork, destinationAddress, { value: amount }));
+        await expect(bridgeContract.bridge(tokenAddress, destinationNetwork, destinationAddress, amount, { value: amount }));
     });
 
     for (let i = 0; i < testVectors.length; i++) {

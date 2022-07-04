@@ -2,9 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const { argv } = require('yargs');
 const { expect } = require('chai');
+const { ethers } = require('ethers');
 
 const {
-    calculateLeafValue,
+    getLeafValue,
 } = require('@polygon-hermez/zkevm-commonjs').mtBridgeUtils;
 
 const leafs = require('./leafs.json');
@@ -16,13 +17,23 @@ describe('mt bridge leaf vectors', async function () {
     it('Should check test vectors', async () => {
         for (let i = 0; i < leafs.length; i++) {
             const {
-                originalNetwork,
+                originNetwork,
                 tokenAddress,
                 amount,
                 destinationNetwork,
                 destinationAddress,
+                metadata,
             } = leafs[i];
-            leafs[i].leafValue = calculateLeafValue(originalNetwork, tokenAddress, amount, destinationNetwork, destinationAddress);
+            const metadataHash = ethers.utils.solidityKeccak256(['bytes'], [metadata]);
+            const currentLeafValue = getLeafValue(
+                originNetwork,
+                tokenAddress,
+                destinationNetwork,
+                destinationAddress,
+                amount,
+                metadataHash,
+            );
+            leafs[i].leafValue = currentLeafValue;
             if (!update) {
                 expect(leafs[i]).to.be.deep.equal(currentOutput[i]);
             }
