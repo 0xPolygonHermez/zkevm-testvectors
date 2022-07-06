@@ -33,7 +33,7 @@ npx mocha gen-inputs.js --folder stChainId
 ```
 
 - Flag to generate `evm-stack-logs`: `--evm-debug`
-- Flat to write output (executor input) with `-ignore`: `--ig` -->  test.json-ignore
+- Flag to write output (executor input) with `-ignore`: `--ig` -->  test.json-ignore
 
 ## Inputs
 - If and input does not pass correctly, it ends with `-ignore`
