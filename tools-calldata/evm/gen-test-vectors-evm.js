@@ -2,7 +2,7 @@
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable global-require */
-const VM = require('@polygon-hermez/vm').default;
+const VM = require('@0xpolygonhermez/vm').default;
 const Common = require('@ethereumjs/common').default;
 const { Hardfork } = require('@ethereumjs/common');
 const {

@@ -6,7 +6,7 @@ const { ethers } = require('ethers');
 
 const {
     getLeafValue,
-} = require('@polygon-hermez/zkevm-commonjs').mtBridgeUtils;
+} = require('@0xpolygonhermez/zkevm-commonjs').mtBridgeUtils;
 
 const leafs = require('./leafs.json');
 const currentOutput = require('../../mt-bridge/leaf-vectors.json');

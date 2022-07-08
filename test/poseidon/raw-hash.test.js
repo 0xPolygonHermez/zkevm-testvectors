@@ -5,7 +5,7 @@ const { argv } = require('yargs');
 
 const {
     getPoseidon,
-} = require('@polygon-hermez/zkevm-commonjs');
+} = require('@0xpolygonhermez/zkevm-commonjs');
 const { pathTestVectors } = require('../helpers/helpers');
 
 describe('poseidon', async function () {

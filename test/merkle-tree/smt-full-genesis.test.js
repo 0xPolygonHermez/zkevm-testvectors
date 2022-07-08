@@ -5,7 +5,7 @@ const { argv } = require('yargs');
 
 const {
     MemDB, SMT, stateUtils, getPoseidon, smtUtils,
-} = require('@polygon-hermez/zkevm-commonjs');
+} = require('@0xpolygonhermez/zkevm-commonjs');
 const { pathTestVectors } = require('../helpers/helpers');
 
 describe('smt-full-genesis', async function () {

@@ -5,7 +5,7 @@ const { argv } = require('yargs');
 
 const {
     smtUtils, Constants,
-} = require('@polygon-hermez/zkevm-commonjs');
+} = require('@0xpolygonhermez/zkevm-commonjs');
 const { pathTestVectors } = require('../helpers/helpers');
 
 // eslint-disable-next-line prefer-arrow-callback

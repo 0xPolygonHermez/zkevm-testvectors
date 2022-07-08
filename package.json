@@ -1,5 +1,5 @@
 {
-    "name": "@polygon-hermez/test-vectors",
+    "name": "@0xpolygonhermez/test-vectors",
     "version": "0.0.4",
     "description": "Maintained tests:",
     "main": "index.js",
@@ -23,17 +23,17 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/hermeznetwork/test-vectors.git"
+        "url": "git+https://github.com/0xPolygonHermez/test-vectors.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#v0.0.35",
+        "@0xpolygonhermez/zkevm-contracts": "github:0xPolygonHermez/zkevm-contracts#v0.0.5",
         "@ethereumjs/common": "^2.6.2",
         "@nomiclabs/hardhat-ethers": "^2.0.5",
         "@nomiclabs/hardhat-waffle": "^2.0.2",
-        "@polygon-hermez/contracts-zkevm": "github:hermeznetwork/contracts-zkevm#v0.0.5",
-        "@polygon-hermez/zkevm-commonjs": "github:hermeznetwork/zkevm-commonjs#v0.0.35",
         "chai": "^4.3.6",
         "circomlibjs": "0.1.1",
         "ethereum-waffle": "^3.4.0",
@@ -55,7 +55,7 @@
         "mocha": "^9.1.3"
     },
     "bugs": {
-        "url": "https://github.com/hermeznetwork/test-vectors/issues"
+        "url": "https://github.com/0xPolygonHermez/test-vectors/issues"
     },
-    "homepage": "https://github.com/hermeznetwork/test-vectors#readme"
+    "homepage": "https://github.com/0xPolygonHermez/test-vectors#readme"
 }

@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const { contractUtils } = require('@polygon-hermez/zkevm-commonjs');
+const { contractUtils } = require('@0xpolygonhermez/zkevm-commonjs');
 
 async function main() {
     // path rlp-error inputs

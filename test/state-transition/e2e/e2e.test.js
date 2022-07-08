@@ -14,19 +14,19 @@ const lodash = require('lodash');
 const {
     MemDB, stateUtils, contractUtils, ZkEVMDB, processorUtils,
     getPoseidon, smtUtils, Constants,
-} = require('@polygon-hermez/zkevm-commonjs');
+} = require('@0xpolygonhermez/zkevm-commonjs');
 
 const { calculateSnarkInput, calculateBatchHashData } = contractUtils;
-const MerkleTreeBridge = require('@polygon-hermez/zkevm-commonjs').MTBridge;
+const MerkleTreeBridge = require('@0xpolygonhermez/zkevm-commonjs').MTBridge;
 const {
     getLeafValue,
-} = require('@polygon-hermez/zkevm-commonjs').mtBridgeUtils;
+} = require('@0xpolygonhermez/zkevm-commonjs').mtBridgeUtils;
 
 const {
     ERC20PermitMock, GlobalExitRootManagerMock, Bridge, ProofOfEfficiencyMock, VerifierRollupHelperMock,
-} = require('@polygon-hermez/contracts-zkevm');
+} = require('@0xpolygonhermez/zkevm-contracts');
 
-const contractsPolygonHermez = require('@polygon-hermez/contracts-zkevm');
+const contractsPolygonHermez = require('@0xpolygonhermez/zkevm-contracts');
 
 const { pathTestVectors } = require('../../helpers/helpers');
 

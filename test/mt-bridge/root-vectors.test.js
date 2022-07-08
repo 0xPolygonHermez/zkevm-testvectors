@@ -4,10 +4,10 @@ const { argv } = require('yargs');
 const { expect } = require('chai');
 const { ethers } = require('ethers');
 
-const MerkleTreeBridge = require('@polygon-hermez/zkevm-commonjs').MTBridge;
+const MerkleTreeBridge = require('@0xpolygonhermez/zkevm-commonjs').MTBridge;
 const {
     getLeafValue,
-} = require('@polygon-hermez/zkevm-commonjs').mtBridgeUtils;
+} = require('@0xpolygonhermez/zkevm-commonjs').mtBridgeUtils;
 
 const leafs = require('./leafs.json');
 const currentOutput = require('../../mt-bridge/root-vectors.json');

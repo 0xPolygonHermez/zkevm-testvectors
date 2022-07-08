@@ -11,7 +11,7 @@ const path = require('path');
 const { argv } = require('yargs');
 const {
     MemDB, stateUtils, ZkEVMDB, processorUtils, smtUtils, getPoseidon,
-} = require('@polygon-hermez/zkevm-commonjs');
+} = require('@0xpolygonhermez/zkevm-commonjs');
 
 const { rawTxToCustomRawTx } = processorUtils;
 

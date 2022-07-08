@@ -12,7 +12,7 @@ const { toBuffer } = require('ethereumjs-util');
 const { ethers } = require('ethers');
 const hre = require('hardhat');
 const { Scalar } = require('ffjavascript');
-const zkcommonjs = require('@polygon-hermez/zkevm-commonjs');
+const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
 const { expect } = require('chai');
 const { Transaction } = require('@ethereumjs/tx');
 

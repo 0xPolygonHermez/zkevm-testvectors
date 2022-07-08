@@ -10,7 +10,7 @@ const { argv } = require('yargs');
 const {
     MemDB, stateUtils, contractUtils, ZkEVMDB, processorUtils,
     getPoseidon, smtUtils, Constants,
-} = require('@polygon-hermez/zkevm-commonjs');
+} = require('@0xpolygonhermez/zkevm-commonjs');
 
 const { rawTxToCustomRawTx } = processorUtils;
 
@@ -18,7 +18,7 @@ const { calculateSnarkInput, calculateBatchHashData } = contractUtils;
 
 const {
     ERC20PermitMock, GlobalExitRootManagerMock, Bridge, ProofOfEfficiencyMock, VerifierRollupHelperMock,
-} = require('@polygon-hermez/contracts-zkevm');
+} = require('@0xpolygonhermez/zkevm-contracts');
 
 const { pathTestVectors } = require('../../helpers/helpers');
 
