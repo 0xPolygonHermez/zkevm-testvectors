@@ -2,7 +2,7 @@
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable global-require */
-const VM = require('@0xpolygonhermez/vm').default;
+const VM = require('@polygon-hermez/vm').default;
 const Common = require('@ethereumjs/common').default;
 const { Hardfork } = require('@ethereumjs/common');
 const {
@@ -183,6 +183,13 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                     if (outputTestVector.expectedNewLeafs[contractAddress.toString('hex')] === undefined) {
                         outputTestVector.expectedNewLeafs[contractAddress.toString('hex')] = {};
                     }
+                    const contract = {
+                        contractName,
+                        contractAddress,
+                        interfaceContract,
+                        bytecode: deployedBytecode,
+                    };
+                    contracts.push(contract);
                 } else {
                     outputTx = currentTx;
                 }
