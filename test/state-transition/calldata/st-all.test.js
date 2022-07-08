@@ -27,7 +27,7 @@ let listTests = fs.readdirSync(folderStateTransition);
 listTests = listTests.filter((fileName) => path.extname(fileName) === '.json');
 
 describe('Run state-transition tests: calldata', async function () {
-    this.timeout(20000);
+    this.timeout(40000);
     let poseidon;
     let F;
 
