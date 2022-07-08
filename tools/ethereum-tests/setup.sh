@@ -1,4 +1,4 @@
-if [ -d "/tests" ]
+if [ -d "tests" ]
     then
     echo "ethereum/tests exist"
 else
