@@ -45,17 +45,27 @@ describe('Generate inputs executor from test-vectors', async function () {
     });
 
     it('load test vectors', async () => {
-        update = !!(argv.update);
         evmDebug = !!(argv['evm-debug']);
         outputFlag = !!(argv.output);
-        file = (argv.vectors) ? argv.vectors : 'txs-calldata.json';
-        file = file.endsWith('.json') ? file : `${file}.json`;
-        inputName = (argv.inputs) ? argv.inputs : (`${file.replace('.json', '_')}`);
-        testVectorDataPath = `../../state-transition/calldata/${file}`;
-        testVectors = require(testVectorDataPath);
-        internalTestVectorsPath = `./generate-test-vectors/gen-${file}`;
-        internalTestVectors = require(internalTestVectorsPath);
-        inputsPath = '../../inputs-executor/calldata/';
+        if (argv.e2e) {
+            file = 'e2e.json';
+            testVectorDataPath = `../../state-transition/e2e/${file}`;
+            testVectors = [require(testVectorDataPath)];
+            inputsPath = '../../inputs-executor/e2e/';
+            inputName = (`${file.replace('.json', '_')}`)
+        }
+        else {
+            update = !!(argv.update);
+            file = (argv.vectors) ? argv.vectors : 'txs-calldata.json';
+            file = file.endsWith('.json') ? file : `${file}.json`;
+            inputName = (argv.inputs) ? argv.inputs : (`${file.replace('.json', '_')}`);
+            testVectorDataPath = `../../state-transition/calldata/${file}`;
+            testVectors = require(testVectorDataPath);
+            internalTestVectorsPath = `./generate-test-vectors/gen-${file}`;
+            internalTestVectors = require(internalTestVectorsPath);
+            inputsPath = '../../inputs-executor/calldata/';
+        }
+
         await hre.run('compile');
         console.log(`   test vector name: ${file}`);
     });
