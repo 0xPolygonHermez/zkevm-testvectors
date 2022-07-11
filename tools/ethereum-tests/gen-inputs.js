@@ -28,7 +28,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
     let F;
     let outputName;
     let outputPath;
-    let testPath;
     let test;
     let file;
     let folder;
@@ -66,6 +65,18 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                 outputPath += `/${argv.folder.trim()}`;
             }
         } else {
+            if (argv.test) {
+                const fileTest = `/${argv.test.trim()}`;
+                outputPath += fileTest.replace(`/${fileTest.split('/')[fileTest.split('/').length - 1]}`, '');
+                let auxOutputPath = '';
+                for (let i = 0; i < outputPath.split('/').length; i++) {
+                    auxOutputPath += `${outputPath.split('/')[i]}/`;
+                    dir = path.join(__dirname, auxOutputPath);
+                    if (!fs.existsSync(dir)) {
+                        fs.mkdirSync(dir);
+                    }
+                }
+            }
             file = (argv.test) ? argv.test : 'all';
         }
         evmDebug = !!(argv['evm-debug']);
@@ -128,7 +139,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                 }
             }
         } else {
-            files = [file];
+            files = [`${basePath}/${file}`];
         }
 
         for (let x = 0; x < files.length; x++) {
@@ -156,23 +167,30 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                         if (txsLength > 1) newOutputName = `${outputName.split('.json')[0]}_${y}.json`;
                         else newOutputName = outputName;
 
-                        if (file.includes('RECURSIVE')
-                    || file.includes('Spam')
-                    || file.includes('1024OOG')
-                    || file.includes('CallcodeLoseGasOOG')
-                    || file.includes('createInitFailStackSizeLargerThan1024')
-                    || file.includes('LoopCallsDepthThenRevert')) {
-                            throw new Error('error time');
+                        const noExec = require('./no-exec.json');
+                        for (let e = 0; e < noExec['no-exec'].length; e++) {
+                            if (file.includes(noExec['no-exec'][e])) {
+                                throw new Error('no exec test');
+                            }
                         }
 
                         const currentTest = test[keysTests[y]];
                         let accountPkFrom;
                         if (currentTest._info.source.endsWith('.json')) {
                             const source = require(`./tests/${currentTest._info.source}`);
-                            accountPkFrom = toBuffer(`0x${source[(file.split('/')[file.split('/').length - 1]).split('.json')[0]].transaction.secretKey}`);
+                            accountPkFrom = source[(file.split('/')[file.split('/').length - 1]).split('.json')[0]].transaction.secretKey;
+                            accountPkFrom = accountPkFrom.startsWith('0x') ? accountPkFrom : `0x${accountPkFrom}`;
+                            accountPkFrom = toBuffer(accountPkFrom);
                         } else {
                             const s = fs.readFileSync(`./tests/${currentTest._info.source}`, 'utf8');
-                            accountPkFrom = toBuffer(`0x${s.substring(s.search('secretKey') + 12, s.search('secretKey') + 76)}`);
+                            let indNum = s.search('secretKey');
+                            while (s.substring(indNum, indNum + 1) !== ' ') {
+                                indNum += 1;
+                            }
+                            indNum += 1;
+                            if (s.substring(indNum, indNum + 1) === '"' || s.substring(indNum, indNum + 1) === '\'') { indNum += 1; }
+                            if (s.substring(indNum, indNum + 2) === '0x') { indNum += 2; }
+                            accountPkFrom = toBuffer(`0x${s.substring(indNum, indNum + 64)}`);
                         }
                         const oldLocalExitRoot = '0x0000000000000000000000000000000000000000000000000000000000000000';
                         const { timestamp } = currentTest.blocks[0].blockHeader;
@@ -216,14 +234,9 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
 
                         for (let tx = 0; tx < txsTest.length; tx++) {
                             const txTest = txsTest[tx];
-
-                            if (Scalar.e(txTest.gasLimit) === Scalar.e('0x05f5e100')) {
-                            // chainId tests
-                                txTest.gasLimit = Math.trunc(txTest.gasLimit / 10);
-                            } else if ((Scalar.e(txTest.gasLimit) >= Scalar.e('0x05f5e100'))) {
-                                throw new Error('error gas');
+                            if (Scalar.e(txTest.gasLimit) > Scalar.e('0x1c9c380')) {
+                                txsTest[tx].gasLimit = '0x1c9c380';
                             }
-
                             const commonCustom = Common.custom({ chainId: chainIdSequencer }, { hardfork: Hardfork.Berlin });
                             let txSigned = Transaction.fromTxData(txTest, { common: commonCustom }).sign(accountPkFrom);
                             const sign = !(Number(txSigned.v) & 1);
@@ -257,23 +270,25 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                         await zkEVMDB.consolidate(batch);
 
                         const { postState } = currentTest;
-                        const addresses = Object.keys(postState);
-                        for (let j = 0; j < addresses.length; j++) {
-                            let address = addresses[j];
-                            if (address !== sequencerAddress) {
-                                const infoExpect = postState[address];
-                                const newLeaf = await zkEVMDB.getCurrentAccountState(address);
-                                if (infoExpect.balance) {
-                                    expect(Scalar.e(newLeaf.balance).toString()).to.be.equal(Scalar.e(infoExpect.balance).toString());
-                                }
-                                if (infoExpect.nonce) {
-                                    expect(Scalar.e(newLeaf.nonce).toString()).to.be.equal(Scalar.e(infoExpect.nonce).toString());
-                                }
-                                if (infoExpect.storage && Object.keys(infoExpect.storage).length > 0) {
-                                    const storage = await zkEVMDB.dumpStorage(address);
-                                    for (let elem in infoExpect.storage) {
-                                        if (Scalar.e(infoExpect.storage[elem]) !== Scalar.e(0)) {
-                                            expect(Scalar.e(infoExpect.storage[elem])).to.be.equal(Scalar.e(storage[`0x${elem.slice(2).padStart(64, '0')}`]));
+                        if (postState) {
+                            const addresses = Object.keys(postState);
+                            for (let j = 0; j < addresses.length; j++) {
+                                let address = addresses[j];
+                                if (address !== sequencerAddress) {
+                                    const infoExpect = postState[address];
+                                    const newLeaf = await zkEVMDB.getCurrentAccountState(address);
+                                    if (infoExpect.balance) {
+                                        expect(Scalar.e(newLeaf.balance).toString()).to.be.equal(Scalar.e(infoExpect.balance).toString());
+                                    }
+                                    if (infoExpect.nonce) {
+                                        expect(Scalar.e(newLeaf.nonce).toString()).to.be.equal(Scalar.e(infoExpect.nonce).toString());
+                                    }
+                                    if (infoExpect.storage && Object.keys(infoExpect.storage).length > 0) {
+                                        const storage = await zkEVMDB.dumpStorage(address);
+                                        for (let elem in infoExpect.storage) {
+                                            if (Scalar.e(infoExpect.storage[elem]) !== Scalar.e(0)) {
+                                                expect(Scalar.e(infoExpect.storage[elem])).to.be.equal(Scalar.e(storage[`0x${elem.slice(2).padStart(64, '0')}`]));
+                                            }
                                         }
                                     }
                                 }

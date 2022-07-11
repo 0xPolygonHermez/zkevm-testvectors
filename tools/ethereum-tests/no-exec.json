@@ -1,0 +1,22 @@
+{
+    "no-exec": [
+        "RECURSIVE",
+        "Spam",
+        "1024OOG",
+        "CallcodeLoseGasOOG",
+        "createInitFailStackSizeLargerThan1024",
+        "LoopCallsDepthThenRevert",
+        "expPower256Of256",
+        "FirstByte",
+        "stPreCompiledContracts/blake2B",
+        "stPreCompiledContracts/idPrecomps",
+        "stPreCompiledContracts/precompsEIP2929",
+        "stPreCompiledContracts2/CALLBlake2f",
+        "stPreCompiledContracts2/CALLCODEBlake2f",
+        "stPreCompiledContracts2/CALLCODERipemd160",
+        "stPreCompiledContracts2/CALLCODESha256",
+        "stPreCompiledContracts2/CallRipemd160",
+        "stPreCompiledContracts2/CallSha256"
+    ]
+
+}
