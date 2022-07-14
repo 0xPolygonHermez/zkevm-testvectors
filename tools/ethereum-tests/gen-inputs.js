@@ -314,7 +314,16 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                         if (!fs.existsSync(dir)) {
                             fs.mkdirSync(dir);
                         }
-                        if (argv.ig) { newOutputName += '-ignore'; }
+                        if (argv.ig) {
+                            newOutputName += '-ignore';
+                        } else {
+                            for (let e = 0; e < noExec['not-supported'].length; e++) {
+                                const fileAux = `${dir}${newOutputName}`;
+                                if (fileAux.includes(noExec['not-supported'][e])) {
+                                    newOutputName += '-ignore';
+                                }
+                            }
+                        }
                         console.log(`WRITE: ${dir}/${newOutputName}`);
                         await fs.writeFileSync(`${dir}/${newOutputName}`, JSON.stringify(circuitInput, null, 2));
                         countOK += 1;

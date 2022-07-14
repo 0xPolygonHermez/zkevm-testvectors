@@ -16,7 +16,25 @@
         "stPreCompiledContracts2/CALLCODERipemd160",
         "stPreCompiledContracts2/CALLCODESha256",
         "stPreCompiledContracts2/CallRipemd160",
-        "stPreCompiledContracts2/CallSha256"
+        "stPreCompiledContracts2/CallSha256",
+        "loopExp",
+        "loopMul",
+        "performanceTester",
+        "stStaticCall/static_Call1024",
+        "stStaticCall/static_Call1MB1024",
+        "stStaticCall/static_Call50000",
+        "stStaticFlagEnabled/CallWithZeroValueToPrecompileFromCalledContract",
+        "stStaticFlagEnabled/CallWithZeroValueToPrecompileFromContractInitialization",
+        "stStaticFlagEnabled/CallWithZeroValueToPrecompileFromTransaction",
+        "stStaticFlagEnabled/CallcodeToPrecompileFromCalledContract",
+        "stStaticFlagEnabled/CallcodeToPrecompileFromContractInitialization",
+        "stStaticFlagEnabled/CallcodeToPrecompileFromTransaction",
+        "stStaticFlagEnabled/DelegatecallToPrecompileFromCalledContract.",
+        "stStaticFlagEnabled/DelegatecallToPrecompileFromContractInitialization",
+        "stStaticFlagEnabled/DelegatecallToPrecompileFromTransaction",
+        "stStaticFlagEnabled/StaticcallForPrecompilesIssue683"
+    ],
+    "not-supported": [
+        "stSStoreTest/InitCollision"
     ]
-
 }

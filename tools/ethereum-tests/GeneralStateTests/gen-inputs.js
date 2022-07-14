@@ -70,13 +70,11 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
         for (let x = 0; x < files.length; x++) {
             try {
                 file = files[x];
-                if (file.includes('RECURSIVE')
-                    || file.includes('Spam')
-                    || file.includes('1024OOG')
-                    || file.includes('CallcodeLoseGasOOG')
-                    || file.includes('createInitFailStackSizeLargerThan1024')
-                    || file.includes('LoopCallsDepthThenRevert')) {
-                    throw new Error('error time');
+                const noExec = require('../no-exec.json');
+                for (let e = 0; e < noExec['no-exec'].length; e++) {
+                    if (file.includes(noExec['no-exec'][e])) {
+                        throw new Error('no exec test');
+                    }
                 }
                 file = file.endsWith('.json') ? file : `${file}.json`;
 
@@ -225,7 +223,16 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                     if (!fs.existsSync(dir)) {
                         fs.mkdirSync(dir);
                     }
-                    if (argv.ig) { newOutputName += '-ignore'; }
+                    if (argv.ig) {
+                        newOutputName += '-ignore';
+                    } else {
+                        for (let e = 0; e < noExec['not-supported'].length; e++) {
+                            const fileAux = `${dir}${newOutputName}`;
+                            if (fileAux.includes(noExec['not-supported'][e])) {
+                                newOutputName += '-ignore';
+                            }
+                        }
+                    }
                     console.log(`WRITE: ${dir}${newOutputName}`);
                     await fs.writeFileSync(`${dir}${newOutputName}`, JSON.stringify(circuitInput, null, 2));
                     // }
@@ -286,8 +293,10 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                             gasRefund: Number(`0x${step.gasRefund}`),
                             memory,
                             stack: step.stack.map((v) => `0x${v.toString('hex')}`),
-                            codeAddress: step.codeAddress.buf.data.reduce((previousValue, currentValue) => previousValue + currentValue,
-                                "0x")
+                            codeAddress: step.codeAddress.buf.data.reduce(
+                                (previousValue, currentValue) => previousValue + currentValue,
+                                '0x',
+                            ),
                         });
                     }
                 }
