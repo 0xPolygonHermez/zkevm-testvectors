@@ -48,7 +48,12 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
     });
 
     it('Load tests & generate inputs', async () => {
-        outputPath = './eth-inputs';
+        if (argv.output) {
+            outputPath = argv.output.trim();
+        } else {
+            outputPath = '';
+        }
+
         let dir = path.join(__dirname, outputPath);
         if (!fs.existsSync(dir)) {
             fs.mkdirSync(dir);
@@ -65,8 +70,21 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                 outputPath += `/${argv.folder.trim()}`;
             }
         } else {
-            if (argv.test) {
-                const fileTest = `/${argv.test.trim()}`;
+            group = 'GeneralStateTests';
+            if (argv.folder) {
+                outputPath += `/${group}`;
+                dir = path.join(__dirname, outputPath);
+                if (!fs.existsSync(dir)) {
+                    fs.mkdirSync(dir);
+                }
+                folder = argv.folder;
+                outputPath += `/${argv.folder.trim()}`;
+                dir = path.join(__dirname, outputPath);
+                if (!fs.existsSync(dir)) {
+                    fs.mkdirSync(dir);
+                }
+            } else if (argv.test) {
+                const fileTest = `/${group}/${argv.test.trim()}`;
                 outputPath += fileTest.replace(`/${fileTest.split('/')[fileTest.split('/').length - 1]}`, '');
                 let auxOutputPath = '';
                 for (let i = 0; i < outputPath.split('/').length; i++) {
@@ -76,8 +94,10 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                         fs.mkdirSync(dir);
                     }
                 }
+                file = fileTest;
+            } else {
+                file = 'all';
             }
-            file = (argv.test) ? argv.test : 'all';
         }
         evmDebug = !!(argv['evm-debug']);
         let files = [];
@@ -104,9 +124,25 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                 }
             }
             allTests = true;
-        } else if (group) {
-            if (folder) {
-                const pathFolder = `${basePath}/${group}/${folder}`;
+        } else if (folder) {
+            const pathFolder = `${basePath}/${group}/${folder}`;
+            const filesDirec = fs.readdirSync(pathFolder);
+            for (let y = 0; y < filesDirec.length; y++) {
+                let stats = fs.statSync(`${pathFolder}/${filesDirec[y]}`);
+                if (stats.isFile()) {
+                    files.push(`${pathFolder}/${filesDirec[y]}`);
+                } else {
+                    const filesDirec2 = fs.readdirSync(`${pathFolder}/${filesDirec[y]}`);
+                    for (let q = 0; q < filesDirec2.length; q++) {
+                        files.push(`${pathFolder}/${filesDirec[y]}/${filesDirec2[q]}`);
+                    }
+                }
+            }
+        } else if (!argv.test) {
+            const pathGroup = `${basePath}/${group}`;
+            const direc = fs.readdirSync(pathGroup);
+            for (let x = 0; x < direc.length; x++) {
+                const pathFolder = `${pathGroup}/${direc[x]}`;
                 const filesDirec = fs.readdirSync(pathFolder);
                 for (let y = 0; y < filesDirec.length; y++) {
                     let stats = fs.statSync(`${pathFolder}/${filesDirec[y]}`);
@@ -116,24 +152,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                         const filesDirec2 = fs.readdirSync(`${pathFolder}/${filesDirec[y]}`);
                         for (let q = 0; q < filesDirec2.length; q++) {
                             files.push(`${pathFolder}/${filesDirec[y]}/${filesDirec2[q]}`);
-                        }
-                    }
-                }
-            } else {
-                const pathGroup = `${basePath}/${group}`;
-                const direc = fs.readdirSync(pathGroup);
-                for (let x = 0; x < direc.length; x++) {
-                    const pathFolder = `${pathGroup}/${direc[x]}`;
-                    const filesDirec = fs.readdirSync(pathFolder);
-                    for (let y = 0; y < filesDirec.length; y++) {
-                        let stats = fs.statSync(`${pathFolder}/${filesDirec[y]}`);
-                        if (stats.isFile()) {
-                            files.push(`${pathFolder}/${filesDirec[y]}`);
-                        } else {
-                            const filesDirec2 = fs.readdirSync(`${pathFolder}/${filesDirec[y]}`);
-                            for (let q = 0; q < filesDirec2.length; q++) {
-                                files.push(`${pathFolder}/${filesDirec[y]}/${filesDirec2[q]}`);
-                            }
                         }
                     }
                 }
@@ -377,6 +395,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
 
                         stepObjs.push({
                             pc: step.pc,
+                            depth: step.depth,
                             opcode: {
                                 name: step.opcode.name,
                                 fee: step.opcode.fee,
@@ -385,6 +404,10 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                             gasRefund: Number(`0x${step.gasRefund}`),
                             memory,
                             stack: step.stack.map((v) => `0x${v.toString('hex')}`),
+                            codeAddress: step.codeAddress.buf.data.reduce(
+                                (previousValue, currentValue) => previousValue + currentValue,
+                                '0x',
+                            ),
                         });
                     }
                 }

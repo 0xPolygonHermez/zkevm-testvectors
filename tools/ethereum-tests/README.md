@@ -9,17 +9,20 @@ To create the input and check that it is correct, two files from that repository
 
 These two files contain all the necessary information for each test.
 
+## Options
+
+- `group`: folder inside `BlockhainTests` (default: `GeneralStateTests`)
+- `folder`: folder inside `group`
+- `test`: path test `${folder}/${test}`
+- `output`: path to write inputs, for example: `--output eth-inputs` (default: in this folder)
+- Flag to generate `evm-stack-logs`: `--evm-debug`
+- Flat to write output (executor input) with `-ignore`: `--ig` -->  test.json-ignore
+
 ## Usage
 
 First step: clone `ethereum/tests` repository:
 ```
 ./setup.sh
-```
-Then, inside each folder:
-
-- Create all the inputs of that folder:
-```
-npx mocha gen-inputs.js
 ```
 
 - Create one input:
@@ -31,9 +34,6 @@ npx mocha gen-inputs.js --test stChainId/chainId.json
 ```
 npx mocha gen-inputs.js --folder stChainId
 ```
-
-- Flag to generate `evm-stack-logs`: `--evm-debug`
-- Flag to write output (executor input) with `-ignore`: `--ig` -->  test.json-ignore
 
 ## Inputs
 - If and input does not pass correctly, it ends with `-ignore`

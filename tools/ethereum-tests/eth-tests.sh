@@ -23,7 +23,7 @@ dir=./tests/BlockchainTests/GeneralStateTests
         then
             echo "Exist"
         else
-            npx mocha gen-inputs.js --group $group --folder $folder
+            npx mocha gen-inputs.js --group $group --folder $folder --output eth-inputs
         fi
     done
 # done
