@@ -44,7 +44,8 @@
         "hardhat": "^2.8.4",
         "lodash": "^4.17.21",
         "solc": "^0.8.11",
-        "yargs": "^16.2.0"
+        "yargs": "^16.2.0",
+        "@polygon-hermez/vm": "5.7.18"
     },
     "devDependencies": {
         "chai": "^4.3.4",

@@ -25,7 +25,7 @@ const helpers = require('../../../tools-calldata/helpers/helpers');
 
 // example: npx mocha gen-inputs.js --test xxxx --folder xxxx --ignore
 describe('Generate inputs executor from ethereum tests GeneralStateTests', async function () {
-    this.timeout(30000);
+    this.timeout(0);
     let poseidon;
     let F;
     let outputName;
@@ -71,11 +71,11 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
             try {
                 file = files[x];
                 if (file.includes('RECURSIVE')
-                || file.includes('Spam')
-                || file.includes('1024OOG')
-                || file.includes('CallcodeLoseGasOOG')
-                || file.includes('createInitFailStackSizeLargerThan1024')
-                || file.includes('LoopCallsDepthThenRevert')) {
+                    || file.includes('Spam')
+                    || file.includes('1024OOG')
+                    || file.includes('CallcodeLoseGasOOG')
+                    || file.includes('createInitFailStackSizeLargerThan1024')
+                    || file.includes('LoopCallsDepthThenRevert')) {
                     throw new Error('error time');
                 }
                 file = file.endsWith('.json') ? file : `${file}.json`;
@@ -122,6 +122,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                         }
                         genesis.push(account);
                     }
+
                     // init SMT Db
                     const db = new zkcommonjs.MemDB(F);
                     const zkEVMDB = await zkcommonjs.ZkEVMDB.newZkEVM(
@@ -229,9 +230,9 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                     await fs.writeFileSync(`${dir}${newOutputName}`, JSON.stringify(circuitInput, null, 2));
                     // }
 
-                // if (argv.executor) {
-                //     console.log('RUN EXECUTOR');
-                // }
+                    // if (argv.executor) {
+                    //     console.log('RUN EXECUTOR');
+                    // }
                 }
             } catch (e) {
                 if (e.toString().includes('yml')) {
@@ -274,9 +275,9 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                         let memory = step.memory.data.map((v) => v.toString(16)).join('').padStart(192, '0');
                         memory = memory.match(/.{1,32}/g); // split in 32 bytes slots
                         memory = memory.map((v) => `0x${v}`);
-
                         stepObjs.push({
                             pc: step.pc,
+                            depth: step.depth,
                             opcode: {
                                 name: step.opcode.name,
                                 fee: step.opcode.fee,
@@ -285,6 +286,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                             gasRefund: Number(`0x${step.gasRefund}`),
                             memory,
                             stack: step.stack.map((v) => `0x${v.toString('hex')}`),
+                            codeAddress: step.codeAddress.buf.data.reduce((previousValue, currentValue) => previousValue + currentValue,
+                                "0x")
                         });
                     }
                 }

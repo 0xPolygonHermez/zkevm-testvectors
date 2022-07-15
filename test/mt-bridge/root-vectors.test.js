@@ -20,7 +20,6 @@ describe('mt bridge root vectors', async function () {
         const merkleTree = new MerkleTreeBridge(height);
 
         let currentRoot = merkleTree.getRoot();
-        const leafArray = [];
         const output = [];
 
         for (let i = 0; i < leafs.length; i++) {
@@ -33,7 +32,7 @@ describe('mt bridge root vectors', async function () {
                 metadata,
             } = leafs[i];
             output[i] = {};
-            output[i].previousLeafsValues = Array.from(leafArray);
+            output[i].previousLeafsValues = Array.from(merkleTree.tree[0]);
             output[i].currentRoot = currentRoot;
 
             const metadataHash = ethers.utils.solidityKeccak256(['bytes'], [metadata]);
