@@ -68,6 +68,10 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
             if (argv.folder) {
                 folder = argv.folder;
                 outputPath += `/${argv.folder.trim()}`;
+                dir = path.join(__dirname, outputPath);
+                if (!fs.existsSync(dir)) {
+                    fs.mkdirSync(dir);
+                }
             }
         } else {
             group = 'GeneralStateTests';

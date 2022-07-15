@@ -14,13 +14,13 @@ dir=./tests/BlockchainTests/GeneralStateTests
 group="GeneralStateTests"
 folder=$1
 
-npx mocha gen-inputs.js --group $group --folder $folder --output eth-inputs
+npx mocha gen-inputs.js --group $group --folder $folder --output eth-inputs --max-old-space-size=4096
 
 # pass tests
 cd ../../../zkevm-proverjs/tools/run-test
 dir=../../../zkevm-testvectors/tools/ethereum-tests/eth-inputs/$group/$folder
 
-node run-inputs.js -f $dir -r ../../../zkevm-rom/build/rom.json --info $dir/info-inputs.txt --output $dir/info-output.txt
+node run-inputs.js -f $dir -r ../../../zkevm-rom/build/rom.json --info $dir/info-inputs.txt --output $dir/info-output.txt --max-old-space-size=4096
 
 cd ../../../zkevm-testvectors/tools/ethereum-tests
 ./eth-tests-get-info.sh

@@ -40,6 +40,13 @@ do
             inputs=$( expr $inputs + $inputs2 )
             err_gen=$( expr $err_gen + $err_gen2 )
             err_exec=$( expr $err_exec + $err_exec2 )
+        else
+            if [ -d $entry2 ]
+            then
+                echo -e "Test $entry2" >> eth-inputs/final-info.txt
+                echo -e "ERROR ****************************" >> eth-inputs/final-info.txt
+                echo -e "_______________________________________________________________________________\n" >> eth-inputs/final-info.txt
+            fi
         fi
     done
 done

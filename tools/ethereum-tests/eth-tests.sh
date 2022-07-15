@@ -3,6 +3,7 @@ if [ -d "tests" ]
     if [ "$1" == "update" ]
         then
         rm -rf tests
+        rm -r eth-inputs
         git clone https://github.com/ethereum/tests.git
     fi
 else
@@ -23,7 +24,7 @@ dir=./tests/BlockchainTests/GeneralStateTests
         then
             echo "Exist"
         else
-            npx mocha gen-inputs.js --group $group --folder $folder --output eth-inputs
+            npx mocha gen-inputs.js --group $group --folder $folder --output eth-inputs --max-old-space-size=4096
         fi
     done
 # done
@@ -39,7 +40,10 @@ do
         do
             if [ -d $entry2 ]
             then
-                node run-inputs.js -f $entry2 -r ../../../zkevm-rom/build/rom.json --info $entry2/info-inputs.txt --output $dir/info-output.txt
+                if [ -f "$entry2/info.txt" ]
+                then
+                    node run-inputs.js -f $entry2 -r ../../../zkevm-rom/build/rom.json --info $entry2/info-inputs.txt --output $dir/info-output.txt --max-old-space-size=4096
+                fi
             fi
         done
     fi

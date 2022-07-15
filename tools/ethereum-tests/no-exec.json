@@ -1,6 +1,7 @@
 {
     "no-exec": [
         "RECURSIVE",
+        "Recursive",
         "Spam",
         "1024OOG",
         "CallcodeLoseGasOOG",
@@ -32,7 +33,8 @@
         "stStaticFlagEnabled/DelegatecallToPrecompileFromCalledContract.",
         "stStaticFlagEnabled/DelegatecallToPrecompileFromContractInitialization",
         "stStaticFlagEnabled/DelegatecallToPrecompileFromTransaction",
-        "stStaticFlagEnabled/StaticcallForPrecompilesIssue683"
+        "stStaticFlagEnabled/StaticcallForPrecompilesIssue683",
+        "stCallCreateCallCodeTest/Call1024"
     ],
     "not-supported": [
         "stSStoreTest/InitCollision"
