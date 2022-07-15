@@ -1,0 +1,40 @@
+{
+    "no-exec": [
+        "RECURSIVE",
+        "Spam",
+        "1024OOG",
+        "CallcodeLoseGasOOG",
+        "createInitFailStackSizeLargerThan1024",
+        "LoopCallsDepthThenRevert",
+        "expPower256Of256",
+        "FirstByte",
+        "stPreCompiledContracts/blake2B",
+        "stPreCompiledContracts/idPrecomps",
+        "stPreCompiledContracts/precompsEIP2929",
+        "stPreCompiledContracts2/CALLBlake2f",
+        "stPreCompiledContracts2/CALLCODEBlake2f",
+        "stPreCompiledContracts2/CALLCODERipemd160",
+        "stPreCompiledContracts2/CALLCODESha256",
+        "stPreCompiledContracts2/CallRipemd160",
+        "stPreCompiledContracts2/CallSha256",
+        "loopExp",
+        "loopMul",
+        "performanceTester",
+        "stStaticCall/static_Call1024",
+        "stStaticCall/static_Call1MB1024",
+        "stStaticCall/static_Call50000",
+        "stStaticFlagEnabled/CallWithZeroValueToPrecompileFromCalledContract",
+        "stStaticFlagEnabled/CallWithZeroValueToPrecompileFromContractInitialization",
+        "stStaticFlagEnabled/CallWithZeroValueToPrecompileFromTransaction",
+        "stStaticFlagEnabled/CallcodeToPrecompileFromCalledContract",
+        "stStaticFlagEnabled/CallcodeToPrecompileFromContractInitialization",
+        "stStaticFlagEnabled/CallcodeToPrecompileFromTransaction",
+        "stStaticFlagEnabled/DelegatecallToPrecompileFromCalledContract.",
+        "stStaticFlagEnabled/DelegatecallToPrecompileFromContractInitialization",
+        "stStaticFlagEnabled/DelegatecallToPrecompileFromTransaction",
+        "stStaticFlagEnabled/StaticcallForPrecompilesIssue683"
+    ],
+    "not-supported": [
+        "stSStoreTest/InitCollision"
+    ]
+}
