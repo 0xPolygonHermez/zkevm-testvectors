@@ -1,0 +1,135 @@
+AssertionError: expected 21458959019990627967212755519224791413…n to equal 0n
+callToSuicideThenExtcodehash_0.json
+--------------------------------------------------
+AssertionError: expected 21458959019990627967212755519224791413…n to equal 21207571850350853561968126254607813435…n
+callToSuicideThenExtcodehash_3.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+codeCopyZero.json
+--------------------------------------------------
+AssertionError: expected 89477152217924674838424037953991966239…n to equal 0n
+createEmptyThenExtcodehash.json
+--------------------------------------------------
+AssertionError: expected 79473044380026095197992505206516072304…n to equal 31193360991934089450454849084081218976…n
+dynamicAccountOverwriteEmpty.json
+--------------------------------------------------
+Error: no exec test
+extCodeCopyBounds.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+extCodeHashAccountWithoutCode.json
+--------------------------------------------------
+AssertionError: expected 39052716502752786868548403558894884608…n to equal 66192783235284117971885209808488305726…n
+extCodeHashCALL.json
+--------------------------------------------------
+AssertionError: expected 39052716502752786868548403558894884608…n to equal 66192783235284117971885209808488305726…n
+extCodeHashCALLCODE.json
+--------------------------------------------------
+AssertionError: expected 10412184954725053363071604292574955477…n to equal 44554789828639292044132102127864535148…n
+extCodeHashChangedAccount.json
+--------------------------------------------------
+AssertionError: expected '999999999999133569' to equal '999999999998735569'
+extCodeHashCreatedAndDeletedAccount.json
+--------------------------------------------------
+AssertionError: expected '999999999999133569' to equal '999999999998735569'
+extCodeHashCreatedAndDeletedAccountCall.json
+--------------------------------------------------
+AssertionError: expected '999999999999061219' to equal '999999999998265219'
+extCodeHashCreatedAndDeletedAccountRecheckInOuterCall.json
+--------------------------------------------------
+AssertionError: expected 52365712235016966576158011431198110418…n to equal 81962713292808296945283876143360291293…n
+extCodeHashCreatedAndDeletedAccountStaticCall.json
+--------------------------------------------------
+AssertionError: expected 39052716502752786868548403558894884608…n to equal 66192783235284117971885209808488305726…n
+extCodeHashDELEGATECALL.json
+--------------------------------------------------
+AssertionError: expected 76934369737079099720877105844037904069…n to equal 95550545867509135830471355253995702068…n
+extCodeHashDeletedAccount.json
+--------------------------------------------------
+AssertionError: expected '999999999998887749' to equal '999999999998290719'
+extCodeHashDeletedAccount1.json
+--------------------------------------------------
+AssertionError: expected '999999999998886689' to equal '999999999998289659'
+extCodeHashDeletedAccount2.json
+--------------------------------------------------
+AssertionError: expected '999999999998599709' to equal '999999999998002679'
+extCodeHashDeletedAccount3.json
+--------------------------------------------------
+AssertionError: expected '999999999998570709' to equal '999999999997973679'
+extCodeHashDeletedAccount4.json
+--------------------------------------------------
+AssertionError: expected '999999999999857209' to equal '999999999999714419'
+extCodeHashDynamicArgument_1.json
+--------------------------------------------------
+AssertionError: expected 39052716502752786868548403558894884608…n to equal 66192783235284117971885209808488305726…n
+extCodeHashDynamicArgument_2.json
+--------------------------------------------------
+AssertionError: expected '999999999999838939' to equal '999999999999688939'
+extCodeHashDynamicArgument_3.json
+--------------------------------------------------
+AssertionError: expected 24624841858590107969597134803475345779…n to equal 55863006032546346558815634488266307142…n
+extCodeHashInInitCode_0.json
+--------------------------------------------------
+AssertionError: expected 24624841858590107969597134803475345779…n to equal 55863006032546346558815634488266307142…n
+extCodeHashInInitCode_1.json
+--------------------------------------------------
+AssertionError: expected 80214295957812870938470452906284975297…n to equal 81335522545391371496382549956348905403…n
+extCodeHashMaxCodeSize.json
+--------------------------------------------------
+AssertionError: expected 10273482028619146285716529868078265955…n to equal 55767580366922928241582195403967184526…n
+extCodeHashNewAccount.json
+--------------------------------------------------
+AssertionError: expected 10402486391864709700408230004311649808…n to equal 71045561741464262815474025312397987388…n
+extCodeHashPrecompiles_0.json
+--------------------------------------------------
+AssertionError: expected 39052716502752786868548403558894884608…n to equal 66192783235284117971885209808488305726…n
+extCodeHashSTATICCALL.json
+--------------------------------------------------
+AssertionError: expected 61528395784488386858799082935227248002…n to equal 77341552024404034401817756420935002308…n
+extCodeHashSelf.json
+--------------------------------------------------
+TypeError: Cannot read property '0x0000000000000000000000000000000000000000000000000000000000000000' of null
+extCodeHashSelfInInit.json
+--------------------------------------------------
+AssertionError: expected 72345226436197183965016326323905636034…n to equal 10592378261503473730933985655331717029…n
+extCodeHashSubcallOOG_0.json
+--------------------------------------------------
+AssertionError: expected 72345226436197183965016326323905636034…n to equal 10592378261503473730933985655331717029…n
+extCodeHashSubcallOOG_1.json
+--------------------------------------------------
+AssertionError: expected 72345226436197183965016326323905636034…n to equal 10592378261503473730933985655331717029…n
+extCodeHashSubcallOOG_2.json
+--------------------------------------------------
+AssertionError: expected '1999999999998969509' to equal '1999999999998321239'
+extCodeHashSubcallSuicide.json
+--------------------------------------------------
+AssertionError: expected '838137708090252113' to equal '838137708090053113'
+extcodehashEmpty_0.json
+--------------------------------------------------
+AssertionError: expected '838137708090251993' to equal '838137708090052993'
+extcodehashEmpty_1.json
+--------------------------------------------------
+AssertionError: expected '838137708090501993' to equal '838137708090103993'
+extcodehashEmpty_2.json
+--------------------------------------------------
+AssertionError: expected '838137708090501993' to equal '838137708090103993'
+extcodehashEmpty_3.json
+--------------------------------------------------
+AssertionError: expected '838137708090501993' to equal '838137708090103993'
+extcodehashEmpty_4.json
+--------------------------------------------------
+AssertionError: expected '838137708090501993' to equal '838137708090103993'
+extcodehashEmpty_5.json
+--------------------------------------------------
+AssertionError: expected 85131057757245807317576516368191972321…n to equal 93457169738772493201076959092436042021…n
+extcodehashEmpty_6.json
+--------------------------------------------------
+AssertionError: expected '838137708090482963' to equal '838137708089686933'
+extcodehashEmpty_7.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+extcodehashEmpty_8.json
+--------------------------------------------------
+TypeError: Cannot convert undefined to a BigInt
+extcodehashEmpty_9.json
+--------------------------------------------------
