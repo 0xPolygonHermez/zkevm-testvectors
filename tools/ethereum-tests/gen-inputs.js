@@ -12,7 +12,7 @@ const { toBuffer } = require('ethereumjs-util');
 const { ethers } = require('ethers');
 const hre = require('hardhat');
 const { Scalar } = require('ffjavascript');
-const zkcommonjs = require('@polygon-hermez/zkevm-commonjs');
+const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
 const { expect } = require('chai');
 const { Transaction } = require('@ethereumjs/tx');
 
@@ -41,6 +41,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
     let countTests = 0;
     let countErrors = 0;
     let countOK = 0;
+    let countNotSupport = 0;
 
     before(async () => {
         poseidon = await zkcommonjs.getPoseidon();
@@ -189,10 +190,21 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                         if (txsLength > 1) newOutputName = `${outputName.split('.json')[0]}_${y}.json`;
                         else newOutputName = outputName;
 
+                        dir = path.join(__dirname, outputPath);
+                        if (!fs.existsSync(dir)) {
+                            fs.mkdirSync(dir);
+                        }
+                        const auxOutputPathName = `${dir}/${newOutputName}`;
+
                         const noExec = require('./no-exec.json');
                         for (let e = 0; e < noExec['no-exec'].length; e++) {
-                            if (file.includes(noExec['no-exec'][e])) {
+                            if (auxOutputPathName.includes(noExec['no-exec'][e])) {
                                 throw new Error('no exec test');
+                            }
+                        }
+                        for (let e = 0; e < noExec['not-supported'].length; e++) {
+                            if (auxOutputPathName.includes(noExec['not-supported'][e])) {
+                                throw new Error('not supported');
                             }
                         }
 
@@ -332,28 +344,22 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                                 }
                             }
                         }
-                        dir = path.join(__dirname, outputPath);
-                        if (!fs.existsSync(dir)) {
-                            fs.mkdirSync(dir);
-                        }
                         if (argv.ig) {
                             newOutputName += '-ignore';
-                        } else {
-                            for (let e = 0; e < noExec['not-supported'].length; e++) {
-                                const fileAux = `${dir}${newOutputName}`;
-                                if (fileAux.includes(noExec['not-supported'][e])) {
-                                    newOutputName += '-ignore';
-                                }
-                            }
                         }
                         console.log(`WRITE: ${dir}/${newOutputName}`);
                         await fs.writeFileSync(`${dir}/${newOutputName}`, JSON.stringify(circuitInput, null, 2));
                         countOK += 1;
                     } catch (e) {
+                        console.log(e);
+                        if (e.toString() === 'Error: not supported') {
+                            countNotSupport += 1;
+                        } else {
+                            countErrors += 1;
+                        }
                         infoErrors += `${e.toString()}\n`;
                         infoErrors += `${newOutputName}\n`;
                         infoErrors += '--------------------------------------------------\n';
-                        countErrors += 1;
                     }
                 }
             }
@@ -371,6 +377,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
             info += `tests: ${countTests}\n`;
             info += `inputs: ${countOK}\n`;
             info += `errors: ${countErrors}\n`;
+            info += `not-supported: ${countNotSupport}\n`;
             dir = path.join(__dirname, outputPath);
             if (!fs.existsSync(dir)) {
                 fs.mkdirSync(dir);

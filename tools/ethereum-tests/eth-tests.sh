@@ -42,7 +42,7 @@ do
             then
                 if [ -f "$entry2/info.txt" ]
                 then
-                    node run-inputs.js -f $entry2 -r ../../../zkevm-rom/build/rom.json --info $entry2/info-inputs.txt --output $dir/info-output.txt --max-old-space-size=4096
+                    node run-inputs.js -f $entry2 -r ../../../zkevm-rom/build/rom.json --info $entry2/info-inputs.txt --output $entry2/info-output.txt --max-old-space-size=4096
                 fi
             fi
         done
