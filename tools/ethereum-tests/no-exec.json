@@ -1,6 +1,7 @@
 {
     "no-exec": [
         "RECURSIVE",
+        "Recursive",
         "Spam",
         "1024OOG",
         "CallcodeLoseGasOOG",
@@ -8,15 +9,8 @@
         "LoopCallsDepthThenRevert",
         "expPower256Of256",
         "FirstByte",
-        "stPreCompiledContracts/blake2B",
         "stPreCompiledContracts/idPrecomps",
         "stPreCompiledContracts/precompsEIP2929",
-        "stPreCompiledContracts2/CALLBlake2f",
-        "stPreCompiledContracts2/CALLCODEBlake2f",
-        "stPreCompiledContracts2/CALLCODERipemd160",
-        "stPreCompiledContracts2/CALLCODESha256",
-        "stPreCompiledContracts2/CallRipemd160",
-        "stPreCompiledContracts2/CallSha256",
         "loopExp",
         "loopMul",
         "performanceTester",
@@ -32,9 +26,37 @@
         "stStaticFlagEnabled/DelegatecallToPrecompileFromCalledContract.",
         "stStaticFlagEnabled/DelegatecallToPrecompileFromContractInitialization",
         "stStaticFlagEnabled/DelegatecallToPrecompileFromTransaction",
-        "stStaticFlagEnabled/StaticcallForPrecompilesIssue683"
+        "stStaticFlagEnabled/StaticcallForPrecompilesIssue683",
+        "stCallCreateCallCodeTest/Call1024",
+        "stRandom/randomStatetest307",
+        "stRandom/randomStatetest309",
+        "stRandom2/randomStatetest571",
+        "stQuadraticComplexityTest/Call20KbytesContract50",
+        "stQuadraticComplexityTest/Call50000_identity",
+        "stExtCodeHash/extCodeCopyBounds",
+        "stQuadraticComplexityTest/Create1000Byzantium",
+        "stMemoryTest/bufferSrcOffset",
+        "stQuadraticComplexityTest/Create1000",
+        "stQuadraticComplexityTest/Return50000",
+        "stSolidityTest/CallInfiniteLoop",
+        "stShift/shiftCombinations",
+        "stShift/shiftSignedCombinations",
+        "stSpecialTest/block504980",
+        "stStackTests/stackOverflowM1PUSH",
+        "stStackTests/stackOverflowPUSH",
+        "OOGMAfter",
+        "OOGMBefore",
+        "stStackTests/stackOverflowPUSH",
+        "stTimeConsuming/sstore_combinations_initial00_2_114"
     ],
     "not-supported": [
-        "stSStoreTest/InitCollision"
+        "stSStoreTest/InitCollision",
+        "stPreCompiledContracts/blake2B",
+        "stPreCompiledContracts2/CALLBlake2f",
+        "stPreCompiledContracts2/CALLCODEBlake2f",
+        "stPreCompiledContracts2/CALLCODERipemd160",
+        "stPreCompiledContracts2/CALLCODESha256",
+        "stPreCompiledContracts2/CallRipemd160",
+        "stPreCompiledContracts2/CallSha256"
     ]
 }
