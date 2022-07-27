@@ -38,3 +38,10 @@ npx mocha gen-inputs.js --folder stChainId
 ## Inputs
 - If and input does not pass correctly, it ends with `-ignore`
 - Each folder has a file `errors`: this document contains which inputs HAVE NOT BEEN GENERATED correctly with the `gen-inputs` script
+
+## Scripts
+
+- `eth-tests.sh update`: generate & pass all tests, without `update` only pass all inputs
+- `check-tests-done.sh`: pass all inputs uploaded in this repo (which means they pass correctly)
+- `eth-tests-folder.sh stChainId`: generate and pass the tests for a folder
+- `eth-tests-get-info.sh`: to collect all the information from the tests
