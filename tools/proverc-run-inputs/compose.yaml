@@ -1,0 +1,13 @@
+version: "3.5"
+services:
+
+  zkevm-prover:
+    container_name: zkevm-prover
+    image: hermeznetwork/zkprover-local:full
+    ports:
+      - 50051:50051 # Prover
+      - 50052:50052 # Mock prover
+      - 50061:50061 # MT
+      - 50071:50071 # Executor
+    command: >
+      zkprover input_executor.json
