@@ -20,21 +20,27 @@ Maintained tests:
 > `Ignored` test does not fit in zkEVM implementation. Therefore, it could not be applied to zkEVM.
 > More coverage will be added while test are being tested
 
+### Overview
+| Total | Generation errors | Ignored | :heavy_check_mark: | :x:  | Coverage |
+|:-----:|:-----------------:|:-------:|:------------------:|:----:|:--------:|
+| 13434 |       2444        |   160   |        7138        | 3692 |   53%    |
+
+### Extended table
 |             Folder Name              |  Total  | :heavy_check_mark: | :x: | Ignored | Coverage |
 |:------------------------------------:|:-------:|:------------------:|:---:|:-------:|:--------:|
 |         stArgsZeroOneBalance         | Pending |                    |     |         |          |
 |             stAttackTest             | Pending |                    |     |         |          |
 |             stBadOpcode              |   320   |        129         | 191 |         |   40%    |
 |                stBugs                | Pending |                    |     |         |          |
-|             stCallCodes              |   87    |         53         | 16  |         |   61%    |
+|             stCallCodes              |   87    |         55         | 32  |         |   63%    |
 |       stCallCreateCallCodeTest       | Pending |                    |     |         |          |
-| stCallDelegateCodesCallCodeHomestead |   58    |         34         | 24  |         |   59%    |
+| stCallDelegateCodesCallCodeHomestead |   58    |         37         | 21  |         |   64%    |
 |     stCallDelegateCodesHomestead     |   58    |         37         | 21  |         |   64%    |
 |              stChainId               | Pending |                    |     |         |          |
 |            stCodeCopyTest            |    2    |         2          |  0  |         |   100%   |
 |           stCodeSizeLimit            | Pending |                    |     |         |          |
 |              stCreate2               | Pending |                    |     |         |          |
-|             stCreateTest             |   101   |         65         | 36  |         |   64%    |
+|             stCreateTest             |   101   |         73         | 28  |         |   72%    |
 |     stDelegatecallTestHomestead      | Pending |                    |     |         |          |
 |           stEIP150Specific           | Pending |                    |     |         |          |
 |     stEIP150singleCodeGasPrices      | Pending |                    |     |         |          |
@@ -49,7 +55,7 @@ Maintained tests:
 |              stLogTests              |   46    |         46         |  0  |         |   100%   |
 |      stMemExpandingEIP150Calls       | Pending |                    |     |         |          |
 |          stMemoryStressTest          | Pending |                    |     |         |          |
-|             stMemoryTest             | Pending |                    |     |         |          |
+|             stMemoryTest             |   578   |       211          | 367 |         |    37%   |
 |          stNonZeroCallsTest          |   24    |         24         |  0  |         |   100%   |
 |        stPreCompiledContracts        | Pending |                    |     |         |          |
 |       stPreCompiledContracts2        | Pending |                    |     |         |          |
@@ -61,7 +67,7 @@ Maintained tests:
 |           stReturnDataTest           | Pending |                    |     |         |          |
 |             stRevertTest             | Pending |                    |     |         |          |
 |             stSLoadTest              |    1    |         1          |  0  |         |   100%   |
-|             stSStoreTest             |   475   |        135         | 340 |         |   28%    |
+|             stSStoreTest             |   475   |        246         | 221 |   8     |   56%    |
 |            stSelfBalance             |    8    |         7          |  1  |         |   88%    |
 |               stShift                | Pending |                    |     |         |          |
 |            stSolidityTest            | Pending |                    |     |         |          |
@@ -73,7 +79,7 @@ Maintained tests:
 |           stTimeConsuming            | Pending |                    |     |         |          |
 |          stTransactionTest           | Pending |                    |     |         |          |
 |           stTransitionTest           |    6    |         6          |  0  |         |   100%   |
-|             stWalletTest             | Pending |                    |     |         |          |
+|             stWalletTest             |   46    |         46         |  0  |         |   100%   |
 |          stZeroCallsRevert           |   16    |         16         |  0  |         |   100%   |
 |           stZeroCallsTest            |   24    |         24         |  0  |         |   100%   |
 |           stZeroKnowledge            | Pending |                    |     |         |          |
