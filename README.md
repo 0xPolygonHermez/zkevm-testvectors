@@ -67,7 +67,7 @@ Maintained tests:
 |           stReturnDataTest           | Pending |                    |     |         |          |
 |             stRevertTest             | Pending |                    |     |         |          |
 |             stSLoadTest              |    1    |         1          |  0  |         |   100%   |
-|             stSStoreTest             |   475   |        246         | 221 |   8     |   56%    |
+|             stSStoreTest             |   475   |        246         | 221 |   8     |   53%    |
 |            stSelfBalance             |    8    |         7          |  1  |         |   88%    |
 |               stShift                | Pending |                    |     |         |          |
 |            stSolidityTest            | Pending |                    |     |         |          |
