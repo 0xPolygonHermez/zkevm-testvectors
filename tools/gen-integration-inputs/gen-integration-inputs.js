@@ -17,8 +17,11 @@ const {
     keyEthAddrBalance, keyEthAddrNonce, keyContractCode, keyContractLength, hashContractBytecode,
     keyContractStorage, h4toScalar, h4toString,
 } = require('@0xpolygonhermez/zkevm-commonjs').smtUtils;
-const { MemDB, getPoseidon, SMT } = require('@0xpolygonhermez/zkevm-commonjs');
+const {
+    MemDB, getPoseidon, SMT, Constants,
+} = require('@0xpolygonhermez/zkevm-commonjs');
 
+const { SMT_KEY_BALANCE, SMT_KEY_NONCE, SMT_KEY_SC_CODE, SMT_KEY_SC_LENGTH, SMT_KEY_SC_STORAGE } = Constants;
 // Dirs
 const calldataInputsDir = path.join(__dirname, '../../inputs-executor');
 const genTestsDir = path.join(__dirname, '../../state-transition/calldata');
@@ -52,6 +55,7 @@ async function generateFromCalldata() {
         for (const test of tests) {
             const testPath = `${calldataInputsDir}/${folder}/${test}`;
             const jsonTest = JSON.parse(fs.readFileSync(testPath));
+            formatStateTransition(jsonTest);
             // Find evm steps from test
             const steps = findFileinDir(fullTracerLogsDir, test.replace('.json', '__full_trace.json'));
             // Append steps
@@ -62,7 +66,22 @@ async function generateFromCalldata() {
             jsonTest.stateTransition = genTestFile;
             jsonTest.genesisRaw = await getGenesisRaw(genTestFile);
             // Write test
+            if (!fs.existsSync(outputDir)) {
+                fs.mkdirSync(outputDir);
+            }
             fs.writeFileSync(`${outputDir}/${test}`, JSON.stringify(jsonTest, null, 2));
+        }
+    }
+}
+
+/**
+ * Format the state transition json for integration tests
+ * @param {Object} json state transition test to format
+ */
+function formatStateTransition(json) {
+    for (const hash of Object.keys(json.contractsBytecode)) {
+        if (hash.length < 66) {
+            delete json.contractsBytecode[hash];
         }
     }
 }
@@ -74,7 +93,7 @@ async function generateFromCalldata() {
  * @returns {Object} json with the genesis in raw
  */
 async function getGenesisRaw(genTestFile) {
-    const genesisRaw = { keys: [], values: [], expectedRoots: [] };
+    const genesisRaw = [];
     const newVm = new VM({ common });
     const db = new MemDB(F);
     const newSmt = new SMT(db, poseidon, poseidon.F);
@@ -83,7 +102,6 @@ async function getGenesisRaw(genTestFile) {
         const {
             address, nonce, balance, bytecode, storage,
         } = genTestFile.genesis[j];
-
         // Add contract account to EVM
         const addressInstance = new Address(toBuffer(address));
         const evmAccData = {
@@ -95,11 +113,11 @@ async function getGenesisRaw(genTestFile) {
 
         const keyBalance = await keyEthAddrBalance(address);
         const smtB = await newSmt.set(SR, keyBalance, Scalar.e(balance));
-        insertRawDb(genesisRaw, keyBalance, smtB.newValue, smtB.newRoot);
+        genesisRaw.push(insertRawDb(address, Object.keys({ SMT_KEY_BALANCE })[0], null, keyBalance, smtB.newValue, smtB.newRoot));
 
         const keyNonce = await keyEthAddrNonce(address);
         const smtN = await newSmt.set(smtB.newRoot, keyNonce, Scalar.e(nonce));
-        insertRawDb(genesisRaw, keyNonce, smtN.newValue, smtN.newRoot);
+        genesisRaw.push(insertRawDb(address, Object.keys({ SMT_KEY_NONCE })[0], null, keyNonce, smtN.newValue, smtN.newRoot));
         SR = smtN.newRoot;
 
         // Add bytecode and storage to EVM and SMT
@@ -115,12 +133,12 @@ async function getGenesisRaw(genTestFile) {
 
             const keyCC = await keyContractCode(address);
             res = await newSmt.set(SR, keyCC, Scalar.fromString(hashByteCode, 16));
-            insertRawDb(genesisRaw, keyCC, res.newValue, res.newRoot);
+            genesisRaw.push(insertRawDb(address, Object.keys({ SMT_KEY_SC_CODE })[0], null, keyCC, res.newValue, res.newRoot));
 
             const keyCL = await keyContractLength(address);
             const bytecodeLength = parsedBytecode.length / 2;
             res = await newSmt.set(res.newRoot, keyCL, bytecodeLength);
-            insertRawDb(genesisRaw, keyCL, res.newValue, res.newRoot);
+            genesisRaw.push(insertRawDb(address, Object.keys({ SMT_KEY_SC_LENGTH })[0], null, keyCL, res.newValue, res.newRoot));
             SR = res.newRoot;
         }
 
@@ -147,7 +165,14 @@ async function getGenesisRaw(genTestFile) {
                 const value = storage[pos];
                 const keyStoragePos = await keyContractStorage(address, pos);
                 const auxRes = await newSmt.set(SR, keyStoragePos, Scalar.e(value));
-                insertRawDb(genesisRaw, keyStoragePos, auxRes.newValue, auxRes.newRoot);
+                genesisRaw.push(insertRawDb(
+                    address,
+                    Object.keys({ SMT_KEY_SC_STORAGE })[0],
+                    pos,
+                    keyStoragePos,
+                    auxRes.newValue,
+                    auxRes.newRoot,
+                ));
                 SR = auxRes.newRoot;
             }
         }
@@ -157,15 +182,23 @@ async function getGenesisRaw(genTestFile) {
 
 /**
  * Inserts into the raw genesis object a new formated entry
- * @param {Object} db the current state of the raw genesis object
+ * @param {String} address of the account
+ * @param {Number} type of smt insertion
+ * @param {String} storagePosition position of the inserted storage in hex string
  * @param {Array} key h4 of the key to insert in smt
  * @param {BN} value to insert in the smt
  * @param {h4} newRoot the new root after the insertion in the smt
  */
-function insertRawDb(db, key, value, newRoot) {
-    db.keys.push(h4toScalar(key).toString());
-    db.values.push(value.toString());
-    db.expectedRoots.push(h4toString(newRoot));
+function insertRawDb(address, type, storagePosition, key, value, newRoot) {
+    const step = {
+        address,
+        type,
+        storagePosition,
+        key: h4toScalar(key).toString(),
+        value: value.toString(),
+        root: h4toString(newRoot),
+    };
+    return step;
 }
 
 /**
