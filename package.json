@@ -29,11 +29,12 @@
     "author": "",
     "license": "pending",
     "dependencies": {
-        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#v0.0.35",
-        "@0xpolygonhermez/zkevm-contracts": "github:0xPolygonHermez/zkevm-contracts#v0.0.5",
+        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#v0.0.37",
+        "@0xpolygonhermez/zkevm-contracts": "github:0xPolygonHermez/zkevm-contracts#v0.0.6",
         "@ethereumjs/common": "^2.6.2",
         "@nomiclabs/hardhat-ethers": "^2.0.5",
         "@nomiclabs/hardhat-waffle": "^2.0.2",
+        "@polygon-hermez/vm": "5.7.18",
         "chai": "^4.3.6",
         "circomlibjs": "0.1.1",
         "ethereum-waffle": "^3.4.0",
@@ -44,8 +45,7 @@
         "hardhat": "^2.8.4",
         "lodash": "^4.17.21",
         "solc": "^0.8.11",
-        "yargs": "^16.2.0",
-        "@polygon-hermez/vm": "5.7.18"
+        "yargs": "^16.2.0"
     },
     "devDependencies": {
         "chai": "^4.3.4",
