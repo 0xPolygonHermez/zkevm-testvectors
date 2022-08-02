@@ -16,7 +16,7 @@ const {
     getPoseidon, smtUtils, Constants,
 } = require('@0xpolygonhermez/zkevm-commonjs');
 
-const { calculateSnarkInput, calculateBatchHashData } = contractUtils;
+const { calculateSnarkInput, calculateStarkInput, calculateBatchHashData } = contractUtils;
 const MerkleTreeBridge = require('@0xpolygonhermez/zkevm-commonjs').MTBridge;
 const {
     getLeafValue,
@@ -514,7 +514,7 @@ describe('Proof of efficiency test vectors', function () {
         const proofC = ['0', '0'];
 
         // calculate circuit input
-        const circuitInputSC = await proofOfEfficiencyContract.calculateCircuitInput(
+        const circuitInputSC = await proofOfEfficiencyContract.calculateStarkInput(
             currentStateRoot,
             currentLocalExitRoot,
             newStateRoot,
@@ -525,7 +525,7 @@ describe('Proof of efficiency test vectors', function () {
         );
 
         // Compute Js input
-        const circuitInputJS = calculateSnarkInput(
+        const circuitInputJS = calculateStarkInput(
             currentStateRoot,
             currentLocalExitRoot,
             newStateRoot,
@@ -536,19 +536,42 @@ describe('Proof of efficiency test vectors', function () {
         );
         const circuitInputSCHex = `0x${Scalar.e(circuitInputSC).toString(16).padStart(64, '0')}`;
         expect(circuitInputSCHex).to.be.equal(circuitInputJS);
-
-        // mod inputHash stark
-        const inputSnark = `0x${Scalar.mod(Scalar.fromString(circuitInput.inputHash, 16), Constants.FrSNARK).toString(16).padStart(64, '0')}`;
-        expect(circuitInputSCHex).to.be.equal(inputSnark);
+        expect(circuitInputSCHex).to.be.equal(circuitInput.inputHash);
 
         // Check the input parameters are correct
-        const circuitNextInputSC = await proofOfEfficiencyContract.getNextCircuitInput(
+        const circuitNextInputSC = await proofOfEfficiencyContract.getNextStarkInput(
             newLocalExitRoot,
             newStateRoot,
             numBatch,
         );
 
-        expect(circuitNextInputSC).to.be.equal(circuitInputSC);
+        expect(circuitNextInputSC).to.be.equal(circuitInputSCHex);
+        expect(circuitNextInputSC).to.be.equal(circuitInputJS);
+
+        // Check snark input
+        const inputSnarkSC = await proofOfEfficiencyContract.calculateSnarkInput(
+            currentStateRoot,
+            currentLocalExitRoot,
+            newStateRoot,
+            newLocalExitRoot,
+            circuitInput.batchHashData,
+            numBatch,
+            sequence.timestamp,
+            aggregator.address,
+        );
+
+        const inputSnarkJS = await calculateSnarkInput(
+            currentStateRoot,
+            currentLocalExitRoot,
+            newStateRoot,
+            newLocalExitRoot,
+            batchHashData,
+            numBatch,
+            sequence.timestamp,
+            aggregator.address,
+        );
+
+        expect(inputSnarkSC).to.be.equal(inputSnarkJS);
 
         // Forge the batch
         const initialAggregatorMatic = await maticTokenContract.balanceOf(
