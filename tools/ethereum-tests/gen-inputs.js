@@ -177,11 +177,9 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
             const keysTests = Object.keys(test).filter((op) => op.includes('_Berlin') === true);
             const txsLength = keysTests.length;
             if (txsLength === 0) {
-                countTests += 1;
-                infoErrors += 'no keys\n';
+                infoErrors += 'no Berlin keys\n';
                 infoErrors += `${outputName}\n`;
                 infoErrors += '--------------------------------------------------\n';
-                countErrors += 1;
             } else {
                 for (let y = 0; y < txsLength; y++) {
                     countTests += 1;
@@ -216,7 +214,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                             accountPkFrom = accountPkFrom.startsWith('0x') ? accountPkFrom : `0x${accountPkFrom}`;
                             accountPkFrom = toBuffer(accountPkFrom);
                         } else {
-                            const s = fs.readFileSync(`./tests/${currentTest._info.source}`, 'utf8');
+                            const s = fs.readFileSync(path.join(__dirname, `./tests/${currentTest._info.source}`), 'utf8');
                             let indNum = s.search('secretKey');
                             while (s.substring(indNum, indNum + 1) !== ' ') {
                                 indNum += 1;
