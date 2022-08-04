@@ -11,7 +11,6 @@ const grpc = require('@grpc/grpc-js');
 const path = require('path');
 const { ethers } = require('ethers');
 const { toHexStringRlp } = require('@0xpolygonhermez/zkevm-commonjs').processorUtils;
-const { getPoseidon } = require('@0xpolygonhermez/zkevm-commonjs');
 const { Scalar } = require('ffjavascript');
 
 const calldataInputsDir = path.join(__dirname, '../../inputs-executor');
@@ -46,13 +45,14 @@ const stateDbProto = grpc.loadPackageDefinition(dbPackageDefinition).statedb.v1;
 const { ExecutorService } = zkProverProto;
 const { StateDBService } = stateDbProto;
 const fs = require('fs');
+const codes = require('./opcodes');
 
 const client = new ExecutorService('54.170.178.97:50071', grpc.credentials.createInsecure());
 const dbClient = new StateDBService('54.170.178.97:50061', grpc.credentials.createInsecure());
-let poseidon;
-let F;
 let folders = [];
-
+const passedTests = [];
+const failedTests = [];
+const cancelledTests = [];
 /**
  * Test that runs all the inputs in inputs_executor folder to the a deployed prover.
  */
@@ -60,8 +60,6 @@ let folders = [];
 // localhost:50071
 describe('runInputs', async function () {
     try {
-        poseidon = await getPoseidon();
-        F = poseidon.F;
         folders = fs.readdirSync(calldataInputsDir);
         runFolderTest(0);
     } catch (e) {
@@ -75,6 +73,9 @@ describe('runInputs', async function () {
  */
 function runFolderTest(pos) {
     if (pos >= folders.length) {
+        console.log(`Total passed tests: ${passedTests.length}/${passedTests.length + failedTests.length}`);
+        console.log(`Failed Tests: ${failedTests.toString()}`);
+        console.log(`Cancelled Tests: ${cancelledTests.toString()}`);
         process.exit(0);
     }
     const folder = folders[pos];
@@ -97,6 +98,7 @@ async function runTests(tests, pos, folderPos) {
     try {
         if (pos >= tests.length) {
             runFolderTest(folderPos + 1);
+            return;
         }
         const test = tests[pos];
         const folder = folders[folderPos];
@@ -110,22 +112,79 @@ async function runTests(tests, pos, folderPos) {
     }
 }
 
+/**
+ * Sends input to proverC for execution
+ * @param {Object} input proverjs json input
+ * @param {Array} tests array of tests to run
+ * @param {Number} pos position of the current test in the array of tests
+ * @param {Number} folderPos position of the current test folder in the array of tests folders
+ */
 function processBatch(input, tests, pos, folderPos) {
+    if (!tests[pos].endsWith('.json')) {
+        runTests(tests, pos + 1, folderPos);
+        return;
+    }
     // format js input to c input
     const cInput = formatInput(input);
     client.ProcessBatch(cInput, (error, res) => {
-        if (error) throw error;
         try {
+            if (error) throw error;
             checkResponse(input, res, tests[pos]);
             console.log(`${pos}/${tests.length}`);
             runTests(tests, pos + 1, folderPos);
+            // const tx_hash = res.responses[0].tx_hash.toString('hex');
+            // const formatedSteps = formatSteps(res.responses[0].call_trace.steps);
+            return;
         } catch (e) {
+            cancelledTests.push(tests[pos]);
             console.log(e);
+            runTests(tests, pos + 1, folderPos);
+            return;
             process.exit(0);
         }
     });
 }
 
+/**
+ * Formats the returned array of steps from the proverC to a json compatible array
+ * @param {Array} steps array
+ * @returns {Array} array of formated steps
+ */
+function formatSteps(steps) {
+    const res = [];
+    for (const step of steps) {
+        res.push({
+            depth: step.depth,
+            error: step.error,
+            gas: step.gas,
+            gas_cost: step.gas_cost,
+            gas_refund: step.gas_refund,
+            memory: step.memory.toString('hex'),
+            op: codes[step.op].slice(2),
+            pc: step.pc,
+            return_data: step.return_data.toString('hex'),
+            stack: step.stack,
+            state_root: step.state_root.toString('hex'),
+            contract: {
+                address: step.contract.address,
+                caller: step.contract.caller,
+                data: step.contract.data.toString('hex'),
+                gas: step.contract.gas,
+                value: step.contract.value,
+            },
+        });
+    }
+    return res;
+}
+
+/**
+ * Checks if the contracts bytecode is stored in the prover db, in case not, inserts it
+ * @param {Object} input proverjs json input
+ * @param {Array} tests array of tests to run
+ * @param {Number} pos position of the current test in the array of tests
+ * @param {Number} folderPos position of the current test folder in the array of tests folders
+ * @param {Number} bcPos position of the bytecode in the contracts bytecode map
+ */
 function checkBytecode(input, tests, pos, folderPos, bcPos) {
     if (bcPos >= Object.keys(input.contractsBytecode).length) {
         processBatch(input, tests, pos, folderPos);
@@ -137,7 +196,7 @@ function checkBytecode(input, tests, pos, folderPos, bcPos) {
         checkBytecode(input, tests, pos, folderPos, bcPos + 1);
         return;
     }
-    const key = scalar2fea4(F, Scalar.e(hash));
+    const key = scalar2fea4(Scalar.e(hash));
     dbClient.GetProgram({ key }, (error, res) => {
         if (error) {
             console.log(error);
@@ -152,7 +211,12 @@ function checkBytecode(input, tests, pos, folderPos, bcPos) {
     });
 }
 
-function scalar2fea4(Fr, s) {
+/**
+ * Converts a Scalar to a 4 field element array but with the values as Strings, for proverC protocol compatibility
+ * @param {Scalar} s scalar to transform
+ * @returns {Fea} scalar transformed to fea
+ */
+function scalar2fea4(s) {
     const r = [];
 
     r.push(Scalar.band(s, Scalar.e('0xFFFFFFFFFFFFFFFF')));
@@ -168,11 +232,19 @@ function scalar2fea4(Fr, s) {
     };
 }
 
+/**
+ * Insert bytecode of the contrtact in the proverC database
+ * @param {Object} input proverjs json input
+ * @param {Array} tests array of tests to run
+ * @param {Number} pos position of the current test in the array of tests
+ * @param {Number} folderPos position of the current test folder in the array of tests folders
+ * @param {Number} bcPos position of the bytecode in the contracts bytecode map
+ */
 function setBytecode(input, tests, pos, folderPos, bcPos) {
     const hash = Object.keys(input.contractsBytecode)[bcPos];
     const bytecode = input.contractsBytecode[hash].slice(2);
-    const key = scalar2fea4(F, Scalar.e(hash));
-    dbClient.SetProgram({ key, data: Buffer.from(bytecode, 'hex'), peresistent: 1 }, (error, res) => {
+    const key = scalar2fea4(Scalar.e(hash));
+    dbClient.SetProgram({ key, data: Buffer.from(bytecode, 'hex'), persistent: 1 }, (error, res) => {
         if (error) {
             console.log(error);
             throw error;
@@ -190,15 +262,15 @@ function setBytecode(input, tests, pos, folderPos, bcPos) {
  */
 function checkResponse(input, res, test) {
     // Check new state root
-    console.log(test);
     if (input.newStateRoot !== `0x${res.new_state_root.toString('hex')}`) {
         console.log('\x1b[31m', `Root mismatch at test ${test}`);
         console.log(`${input.newStateRoot} /// 0x${res.new_state_root.toString('hex')}`);
+        failedTests.push(test);
     } else {
         console.log('\x1b[32m', `${test} passed`);
+        passedTests.push(test);
     }
-    //process.exit(0);
-    // expect(input.newStateRoot).to.equal(`0x${res.new_state_root.toString('hex')}`);
+    // process.exit(0);
 }
 
 /**
@@ -217,9 +289,9 @@ function formatInput(jsInput) {
         eth_timestamp: jsInput.timestamp,
         // update_merkle_tree: 1,
         // tx_hash_to_generate_execute_trace: 0,
-        tx_hash_to_generate_call_trace: Buffer.from('5318d04c587473e523da58df7f9bd7921ea3e7075332ac180e67844ce8cac33b', 'hex'),
+        // tx_hash_to_generate_call_trace: Buffer.from('dde0848d8b85493472c4aa1b8414b4289409ed88047353e96b275a96e49efde6', 'hex'),
         db: formatDb(jsInput.db),
-        contracts_bytecode: jsInput.contractsBytecode,
+        // contracts_bytecode: jsInput.contractsBytecode,
     };
 }
 

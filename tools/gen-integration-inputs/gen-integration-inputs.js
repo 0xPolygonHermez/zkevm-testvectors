@@ -21,18 +21,17 @@ const {
     MemDB, getPoseidon, SMT, Constants,
 } = require('@0xpolygonhermez/zkevm-commonjs');
 
-const { SMT_KEY_BALANCE, SMT_KEY_NONCE, SMT_KEY_SC_CODE, SMT_KEY_SC_LENGTH, SMT_KEY_SC_STORAGE } = Constants;
 // Dirs
 const calldataInputsDir = path.join(__dirname, '../../inputs-executor');
 const genTestsDir = path.join(__dirname, '../../state-transition/calldata');
 const ethInputsDir = path.join(__dirname, '../../tools/ethereum-tests/eth-inputs/GeneralStateTests');
 const ethStepsDir = path.join(__dirname, '../../tools/ethereum-tests/evm-stack-logs');
-const fullTracerLogsDir = path.join(__dirname, '../../../zkproverjs/src/sm/sm_main/logs-full-trace');
+const fullTracerLogsDir = path.join(__dirname, '../../../zkevm-proverjs/src/sm/sm_main/logs-full-trace');
 const outputDir = path.join(__dirname, '../../inputs-integration');
 let poseidon;
 let F;
 /**
- * Main execution function
+ * This script generates the necessary inputs for the node team to test different approaches. The data is obtanied from test-vectors inputs
  */
 async function genInputs() {
     poseidon = await getPoseidon();
@@ -113,11 +112,11 @@ async function getGenesisRaw(genTestFile) {
 
         const keyBalance = await keyEthAddrBalance(address);
         const smtB = await newSmt.set(SR, keyBalance, Scalar.e(balance));
-        genesisRaw.push(insertRawDb(address, Object.keys({ SMT_KEY_BALANCE })[0], null, keyBalance, smtB.newValue, smtB.newRoot));
+        genesisRaw.push(insertRawDb(address, Constants.SMT_KEY_BALANCE, null, keyBalance, smtB.newValue, smtB.newRoot));
 
         const keyNonce = await keyEthAddrNonce(address);
         const smtN = await newSmt.set(smtB.newRoot, keyNonce, Scalar.e(nonce));
-        genesisRaw.push(insertRawDb(address, Object.keys({ SMT_KEY_NONCE })[0], null, keyNonce, smtN.newValue, smtN.newRoot));
+        genesisRaw.push(insertRawDb(address, Constants.SMT_KEY_NONCE, null, keyNonce, smtN.newValue, smtN.newRoot));
         SR = smtN.newRoot;
 
         // Add bytecode and storage to EVM and SMT
@@ -133,12 +132,12 @@ async function getGenesisRaw(genTestFile) {
 
             const keyCC = await keyContractCode(address);
             res = await newSmt.set(SR, keyCC, Scalar.fromString(hashByteCode, 16));
-            genesisRaw.push(insertRawDb(address, Object.keys({ SMT_KEY_SC_CODE })[0], null, keyCC, res.newValue, res.newRoot));
+            genesisRaw.push(insertRawDb(address, Constants.SMT_KEY_SC_CODE, null, keyCC, res.newValue, res.newRoot, bytecode));
 
             const keyCL = await keyContractLength(address);
             const bytecodeLength = parsedBytecode.length / 2;
             res = await newSmt.set(res.newRoot, keyCL, bytecodeLength);
-            genesisRaw.push(insertRawDb(address, Object.keys({ SMT_KEY_SC_LENGTH })[0], null, keyCL, res.newValue, res.newRoot));
+            genesisRaw.push(insertRawDb(address, Constants.SMT_KEY_SC_LENGTH, null, keyCL, res.newValue, res.newRoot));
             SR = res.newRoot;
         }
 
@@ -167,7 +166,7 @@ async function getGenesisRaw(genTestFile) {
                 const auxRes = await newSmt.set(SR, keyStoragePos, Scalar.e(value));
                 genesisRaw.push(insertRawDb(
                     address,
-                    Object.keys({ SMT_KEY_SC_STORAGE })[0],
+                    Constants.SMT_KEY_SC_STORAGE,
                     pos,
                     keyStoragePos,
                     auxRes.newValue,
@@ -189,7 +188,7 @@ async function getGenesisRaw(genTestFile) {
  * @param {BN} value to insert in the smt
  * @param {h4} newRoot the new root after the insertion in the smt
  */
-function insertRawDb(address, type, storagePosition, key, value, newRoot) {
+function insertRawDb(address, type, storagePosition, key, value, newRoot, bytecode) {
     const step = {
         address,
         type,
@@ -197,6 +196,7 @@ function insertRawDb(address, type, storagePosition, key, value, newRoot) {
         key: h4toScalar(key).toString(),
         value: value.toString(),
         root: h4toString(newRoot),
+        bytecode,
     };
     return step;
 }
