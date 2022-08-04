@@ -16,6 +16,7 @@ describe('smt-keys', async function () {
     const pathKeysNonce = path.join(pathTestVectors, 'merkle-tree/smt-key-eth-nonce.json');
     const pathKeysContractCode = path.join(pathTestVectors, 'merkle-tree/smt-key-contract-code.json');
     const pathKeysContractStorage = path.join(pathTestVectors, 'merkle-tree/smt-key-contract-storage.json');
+    const pathKeysContractLength = path.join(pathTestVectors, 'merkle-tree/smt-key-contract-length.json');
     const pathHashBytecode = path.join(pathTestVectors, 'merkle-tree/smt-hash-bytecode.json');
 
     let update;
@@ -23,6 +24,7 @@ describe('smt-keys', async function () {
     let testVectorsKeysNonce;
     let testVectorsKeysContractStorage;
     let testVectorsKeysContractCode;
+    let testVectorsKeysContractLength;
     let testVectorsHashBytecode;
 
     before(async () => {
@@ -30,6 +32,7 @@ describe('smt-keys', async function () {
         testVectorsKeysNonce = JSON.parse(fs.readFileSync(pathKeysNonce));
         testVectorsKeysContractCode = JSON.parse(fs.readFileSync(pathKeysContractCode));
         testVectorsKeysContractStorage = JSON.parse(fs.readFileSync(pathKeysContractStorage));
+        testVectorsKeysContractLength = JSON.parse(fs.readFileSync(pathKeysContractLength));
         testVectorsHashBytecode = JSON.parse(fs.readFileSync(pathHashBytecode));
 
         update = argv.update === true;
@@ -116,6 +119,27 @@ describe('smt-keys', async function () {
 
         if (update) {
             fs.writeFileSync(pathKeysContractStorage, JSON.stringify(testVectorsKeysContractStorage, null, 2));
+        }
+    });
+
+    it('keyContractLength', async () => {
+        for (let i = 0; i < testVectorsKeysContractLength.length; i++) {
+            const {
+                leafType, ethAddr, expectedKey,
+            } = testVectorsKeysContractLength[i];
+
+            const res = await smtUtils.keyContractLength(ethAddr);
+
+            if (update) {
+                testVectorsKeysContractLength[i].expectedKey = (smtUtils.h4toScalar(res)).toString();
+            } else {
+                expect((smtUtils.h4toScalar(res)).toString()).to.be.equal(expectedKey);
+                expect(leafType).to.be.equal(Constants.SMT_KEY_SC_LENGTH);
+            }
+        }
+
+        if (update) {
+            fs.writeFileSync(pathKeysContractLength, JSON.stringify(testVectorsKeysContractLength, null, 2));
         }
     });
 
