@@ -1,12 +1,10 @@
-/* eslint-disable no-promise-executor-return */
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
-/* eslint-disable no-unreachable-loop */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-restricted-syntax */
-/* eslint-disable no-undef */
-/* eslint-disable no-continue */
 /* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable no-new */
+/* eslint-disable import/no-unresolved */
+
 const grpc = require('@grpc/grpc-js');
 const path = require('path');
 const { ethers } = require('ethers');
@@ -106,7 +104,6 @@ async function runTests(tests, pos, folderPos) {
         const jsInput = JSON.parse(fs.readFileSync(testPath));
         // Populate db with input bytecode
         checkBytecode(jsInput, tests, pos, folderPos, 0);
-        await new Promise((resolve) => setTimeout(resolve, 1000));
     } catch (e) {
         console.log(e);
     }
@@ -139,8 +136,6 @@ function processBatch(input, tests, pos, folderPos) {
             cancelledTests.push(tests[pos]);
             console.log(e);
             runTests(tests, pos + 1, folderPos);
-            return;
-            process.exit(0);
         }
     });
 }
