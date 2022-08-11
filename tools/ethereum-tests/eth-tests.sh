@@ -29,7 +29,7 @@ dir=./tests/BlockchainTests/GeneralStateTests
         then
             echo "Exist"
         else
-            npx mocha gen-inputs.js --group $group --folder $folder --output eth-inputs --max-old-space-size=4096
+            npx mocha gen-inputs.js --group $group --folder $folder --output eth-inputs
         fi
         gen_input_time_aux=$gen_input_time
         gen_input_time=$(date +%s)
@@ -52,7 +52,7 @@ do
             then
                 if [ -f "$entry2/info.txt" ]
                 then
-                    node run-inputs.js -f $entry2 -r ../../../zkevm-rom/build/rom.json --info $entry2/info-inputs.txt --output $entry2/info-output.txt --max-old-space-size=4096
+                    node run-inputs.js --max-old-space-size=4096 -f $entry2 -r ../../../zkevm-rom/build/rom.json --info $entry2/info-inputs.txt --output $entry2/info-output.txt
                     pass_folder_time_aux=$pass_folder_time
                     pass_folder_time=$(date +%s)
                     echo -e "pass folder $entry2: $((pass_folder_time - pass_folder_time_aux))" >> ../../../zkevm-testvectors/tools/ethereum-tests/times-eth.txt
