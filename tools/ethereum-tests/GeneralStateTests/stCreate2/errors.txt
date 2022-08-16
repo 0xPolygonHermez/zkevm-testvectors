@@ -1,0 +1,126 @@
+Error: not supported
+CREATE2_Bounds_0.json
+--------------------------------------------------
+AssertionError: expected '1004336277661868922213726307713226626…' to equal '1004336277661868922213726307713226626…'
+CREATE2_Bounds_1.json
+--------------------------------------------------
+Error: not supported
+CREATE2_Bounds2_0.json
+--------------------------------------------------
+AssertionError: expected '1004336277661868922213726307713226626…' to equal '1004336277661868922213726307713226626…'
+CREATE2_Bounds2_1.json
+--------------------------------------------------
+Error: not supported
+CREATE2_Bounds3_0.json
+--------------------------------------------------
+Error: not supported
+CREATE2_Bounds3_1.json
+--------------------------------------------------
+AssertionError: expected '1004336277661868922213726307713226626…' to equal '1004336277661868922213726307713226626…'
+CREATE2_Bounds3_2.json
+--------------------------------------------------
+Error: no exec test
+CREATE2_FirstByte_loop.json
+--------------------------------------------------
+no Berlin keys
+Create2OOGFromCallRefunds.json
+--------------------------------------------------
+RangeError: Invalid string length
+Create2OnDepth1023.json
+--------------------------------------------------
+RangeError: Invalid string length
+Create2OnDepth1024.json
+--------------------------------------------------
+Error: no exec test
+Create2Recursive_0.json
+--------------------------------------------------
+Error: no exec test
+Create2Recursive_1.json
+--------------------------------------------------
+no Berlin keys
+RevertDepthCreate2OOG.json
+--------------------------------------------------
+no Berlin keys
+RevertDepthCreateAddressCollision.json
+--------------------------------------------------
+Error: not supported
+RevertInCreateInInitCreate2.json
+--------------------------------------------------
+AssertionError: expected '429206220280' to equal '13317104120'
+create2SmartInitCode_0.json
+--------------------------------------------------
+AssertionError: expected '429205984650' to equal '13316868490'
+create2SmartInitCode_1.json
+--------------------------------------------------
+Error: not supported
+create2callPrecompiles_0.json
+--------------------------------------------------
+Error: not supported
+create2callPrecompiles_1.json
+--------------------------------------------------
+Error: not supported
+create2callPrecompiles_2.json
+--------------------------------------------------
+Error: not supported
+create2callPrecompiles_3.json
+--------------------------------------------------
+Error: not supported
+create2callPrecompiles_4.json
+--------------------------------------------------
+Error: not supported
+create2callPrecompiles_5.json
+--------------------------------------------------
+Error: not supported
+create2callPrecompiles_6.json
+--------------------------------------------------
+Error: not supported
+create2callPrecompiles_7.json
+--------------------------------------------------
+AssertionError: expected '999999999999031459' to equal '999999999996283609'
+create2collisionSelfdestructed_0.json
+--------------------------------------------------
+AssertionError: expected '999999999998808659' to equal '999999999996283579'
+create2collisionSelfdestructed_1.json
+--------------------------------------------------
+AssertionError: expected '999999999999018219' to equal '999999999996283559'
+create2collisionSelfdestructed_2.json
+--------------------------------------------------
+AssertionError: expected '999999999999022540' to equal '999999999996283570'
+create2collisionSelfdestructed2_0.json
+--------------------------------------------------
+AssertionError: expected '999999999998809219' to equal '999999999998000000'
+create2collisionSelfdestructedOOG_0.json
+--------------------------------------------------
+AssertionError: expected '999999999998586419' to equal '999999999998000000'
+create2collisionSelfdestructedOOG_1.json
+--------------------------------------------------
+AssertionError: expected '999999999998795979' to equal '999999999998000000'
+create2collisionSelfdestructedOOG_2.json
+--------------------------------------------------
+Error: data out-of-bounds (length=0, offset=32, code=BUFFER_OVERRUN, version=abi/5.6.4)
+create2collisionSelfdestructedRevert_0.json
+--------------------------------------------------
+Error: data out-of-bounds (length=0, offset=32, code=BUFFER_OVERRUN, version=abi/5.6.4)
+create2collisionSelfdestructedRevert_1.json
+--------------------------------------------------
+Error: data out-of-bounds (length=0, offset=32, code=BUFFER_OVERRUN, version=abi/5.6.4)
+create2collisionSelfdestructedRevert_2.json
+--------------------------------------------------
+Error: not supported
+create2collisionStorage_0.json
+--------------------------------------------------
+Error: not supported
+create2collisionStorage_1.json
+--------------------------------------------------
+Error: not supported
+create2collisionStorage_2.json
+--------------------------------------------------
+AssertionError: expected '429201413350' to equal '6710882650'
+returndatacopy_following_create_0.json
+--------------------------------------------------
+AssertionError: expected '429201413350' to equal '6710882650'
+returndatacopy_following_create_1.json
+--------------------------------------------------
+AssertionError: expected '429196729600' to equal '0'
+returndatacopy_following_successful_create.json
+--------------------------------------------------
