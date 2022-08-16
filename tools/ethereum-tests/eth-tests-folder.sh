@@ -14,7 +14,7 @@ dir=./tests/BlockchainTests/GeneralStateTests
 group="GeneralStateTests"
 folder=$1
 
-npx mocha gen-inputs.js --group $group --folder $folder --output eth-inputs
+npx mocha --max-old-space-size=4096 gen-inputs.js --group $group --folder $folder --output eth-inputs
 
 # pass tests
 cd ../../../zkevm-proverjs/tools/run-test

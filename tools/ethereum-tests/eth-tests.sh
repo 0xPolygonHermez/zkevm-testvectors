@@ -29,7 +29,7 @@ dir=./tests/BlockchainTests/GeneralStateTests
         then
             echo "Exist"
         else
-            npx mocha gen-inputs.js --group $group --folder $folder --output eth-inputs
+            npx mocha --max-old-space-size=4096 gen-inputs.js --group $group --folder $folder --output eth-inputs
         fi
         gen_input_time_aux=$gen_input_time
         gen_input_time=$(date +%s)
