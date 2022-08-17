@@ -25,7 +25,7 @@ const testAccountDeploy = {
 // example: npx mocha gen-test-vectors-evm.js --vectors txs-calldata
 
 describe('Generate test-vectors from generate-test-vectors', async function () {
-    this.timeout(20000);
+    this.timeout(100000);
     let outputName;
     let testVectorDataPath;
     let genTestVectorPath;
@@ -91,7 +91,7 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                 const accountAddress = Address.fromPrivateKey(accountPk);
                 const acctDataDeploy = {
                     nonce: 0,
-                    balance: new BN(10).pow(new BN(18)), // 1 eth
+                    balance: new BN(10).pow(new BN(18)), // 10 eth
                 };
                 const account = Account.fromAccountData(acctDataDeploy);
                 await vm.stateManager.putAccount(accountAddress, account);
@@ -144,14 +144,30 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                 const currentTx = txs[j];
                 let outputTx = {};
                 if (currentTx.to === 'contract') {
-                    const contract = contracts.filter((x) => x.contractName === currentTx.contractName)[0];
-                    let functionData = contract.interfaceContract.encodeFunctionData(currentTx.function, currentTx.params);
-                    if (currentTx.data) {
-                        functionData += currentTx.data.startsWith('0x') ? currentTx.data.slice(2) : currentTx.data;
+                    let contract;
+                    let functionData;
+                    let to;
+
+                    if (typeof currentTx.contractAddress !== 'undefined') {
+                        if (typeof currentTx.abiName === 'undefined') {
+                            throw new Error('Must define an abiName property if a call is made to a contract address');
+                        }
+                        const { abi } = require(`${artifactsPath}/${currentTx.abiName}.sol/${currentTx.abiName}.json`);
+                        const interfaceContract = new ethers.utils.Interface(abi);
+                        functionData = interfaceContract.encodeFunctionData(currentTx.function, currentTx.params);
+                        to = currentTx.contractAddress;
+                    } else {
+                        // eslint-disable-next-line prefer-destructuring
+                        contract = contracts.filter((x) => x.contractName === currentTx.contractName)[0];
+                        functionData = contract.interfaceContract.encodeFunctionData(currentTx.function, currentTx.params);
+                        if (currentTx.data) {
+                            functionData += currentTx.data.startsWith('0x') ? currentTx.data.slice(2) : currentTx.data;
+                        }
+                        to = contract.contractAddress.toString('hex');
                     }
                     outputTx = {
                         from: currentTx.from,
-                        to: contract.contractAddress.toString('hex'),
+                        to,
                         nonce: currentTx.nonce,
                         value: currentTx.value,
                         data: functionData,

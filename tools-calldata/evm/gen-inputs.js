@@ -25,7 +25,7 @@ const helpers = require('../helpers/helpers');
 // example: npx mocha gen-inputs.js --vectors txs-calldata --inputs input_ --update --output
 
 describe('Generate inputs executor from test-vectors', async function () {
-    this.timeout(20000);
+    this.timeout(100000);
     let poseidon;
     let F;
     let inputName;

@@ -21,7 +21,7 @@ async function deployContract(
     // The contract params should be abi-encoded and appended to the deployment bytecode.
     const txData = {
         value: 0,
-        gasLimit: 2000000, // We assume that 2M is enough,
+        gasLimit: 10000000, // We assume that 10M gas is enough for deploy
         gasPrice: 1,
         data: deploymentBytecode,
         nonce: await getAccountNonce(vm, senderPrivateKey),
