@@ -1,0 +1,76 @@
+[
+  {
+    "id": 0,
+    "description": "Deploy OpBitLogic contract (test)",
+    "arity": 4,
+    "chainIdSequencer": 1001,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1000000000000000000000000000000000000000",
+        "nonce": "1",
+        "balance": "0",
+        "bytecode": "0x4660015500"
+      }
+    ],
+    "expectedOldRoot": "0x9e88ad623662912afd2dba0c9c407409b4c6a7806de1234ff5000e950a5c2d63",
+    "txs": [
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1000000000000000000000000000000000000000",
+        "nonce": "0",
+        "value": "0",
+        "gasLimit": 30000000,
+        "gasPrice": "10",
+        "chainId": 1000
+      }
+    ],
+    "expectedNewRoot": "0x2c2cda45b71964f4ac0258df000e3afa478b3ad36ef88500895e23ff9d21f29a",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100000000000000431050",
+        "nonce": "0",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "bytecodeLength": 0
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "199999999999999568950",
+        "nonce": "1",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "bytecodeLength": 0
+      },
+      "0x1000000000000000000000000000000000000000": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {
+          "0x0000000000000000000000000000000000000000000000000000000000000001": "0x03e8"
+        },
+        "hashBytecode": "0xc365b38cb85dd0f4779ae540c14353866c21a24eeaba2babafe6bd1c3f505d0a",
+        "bytecodeLength": 5
+      }
+    },
+    "timestamp": 1944498031,
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0x1a281e07427da94405cae7e8c7f0d5d3857ef8b60d87110ce5110d5529c5b47f",
+    "inputHash": "0x84bdae473384e8742aac16569eb802b8019d4da16fe454898d6ab073afe61957",
+    "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchL2Data": "0xe3800a8401c9c38094100000000000000000000000000000000000000080808203e88080fb5f36a0c33e896d5005a171e3587685546a2cc2d8f839d6ca60e0892487662416efdaf0fb5f9cf814e9a722ff5ed0a16a94e0ef88bae4951c9d64c6fa47d2da1c"
+  }
+]

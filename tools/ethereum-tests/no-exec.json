@@ -1,82 +1,166 @@
 {
-    "no-exec": [
-        "RECURSIVE",
-        "Recursive",
-        "Spam",
-        "1024OOG",
-        "CallcodeLoseGasOOG",
-        "createInitFailStackSizeLargerThan1024",
-        "LoopCallsDepthThenRevert",
-        "expPower256Of256",
-        "FirstByte",
-        "stPreCompiledContracts/idPrecomps",
-        "stPreCompiledContracts/precompsEIP2929",
-        "loopExp",
-        "loopMul",
-        "performanceTester",
-        "stStaticCall/static_Call1024",
-        "stStaticCall/static_Call1MB1024",
-        "stStaticCall/static_Call50000",
-        "stStaticFlagEnabled/CallWithZeroValueToPrecompileFromCalledContract",
-        "stStaticFlagEnabled/CallWithZeroValueToPrecompileFromContractInitialization",
-        "stStaticFlagEnabled/CallWithZeroValueToPrecompileFromTransaction",
-        "stStaticFlagEnabled/CallcodeToPrecompileFromCalledContract",
-        "stStaticFlagEnabled/CallcodeToPrecompileFromContractInitialization",
-        "stStaticFlagEnabled/CallcodeToPrecompileFromTransaction",
-        "stStaticFlagEnabled/DelegatecallToPrecompileFromCalledContract.",
-        "stStaticFlagEnabled/DelegatecallToPrecompileFromContractInitialization",
-        "stStaticFlagEnabled/DelegatecallToPrecompileFromTransaction",
-        "stStaticFlagEnabled/StaticcallForPrecompilesIssue683",
-        "stCallCreateCallCodeTest/Call1024",
-        "stRandom/randomStatetest307",
-        "stRandom/randomStatetest309",
-        "stRandom2/randomStatetest571",
-        "stQuadraticComplexityTest/Call20KbytesContract50",
-        "stQuadraticComplexityTest/Call50000_identity",
-        "stExtCodeHash/extCodeCopyBounds",
-        "stQuadraticComplexityTest/Create1000Byzantium",
-        "stMemoryTest/bufferSrcOffset",
-        "stQuadraticComplexityTest/Create1000",
-        "stQuadraticComplexityTest/Return50000",
-        "stSolidityTest/CallInfiniteLoop",
-        "stShift/shiftCombinations",
-        "stShift/shiftSignedCombinations",
-        "stSpecialTest/block504980",
-        "stStackTests/stackOverflowM1PUSH",
-        "stStackTests/stackOverflowPUSH",
-        "OOGMAfter",
-        "OOGMBefore",
-        "stStackTests/stackOverflowPUSH",
-        "stTimeConsuming/sstore_combinations_initial00_2_114"
-    ],
-    "not-supported": [
-        "stSStoreTest/InitCollision",
-        "stPreCompiledContracts/blake2B",
-        "stPreCompiledContracts2/CALLBlake2f",
-        "stPreCompiledContracts2/CALLCODEBlake2f",
-        "stPreCompiledContracts2/CALLCODERipemd160",
-        "stPreCompiledContracts2/CALLCODESha256",
-        "stPreCompiledContracts2/CallRipemd160",
-        "stPreCompiledContracts2/CallSha256",
-        "ecmul_",
-        "ecpairing_",
-        "pairingTest_",
-        "pointAdd_",
-        "pointAddTrunc_",
-        "pointMulAdd_",
-        "pointMulAdd2_",
-        "pointMulAdd2_",
-        "ecadd_",
-        "create2callPrecompiles",
-        "CREATE2_Bounds_0.json",
-        "CREATE2_Bounds2_0.json",
-        "CREATE2_Bounds3_0.json",
-        "CREATE2_Bounds3_1.json",
-        "RevertInCreateInInitCreate2.json",
-        "create2collisionStorage",
-        "buffer_245.json",
-        "buffer_248.json",
-        "memCopySelf.json"
-
-    ]
+  "breaks-computation": [
+    "RECURSIVE",
+    "Recursive",
+    "Spam",
+    "1024OOG",
+    "CallcodeLoseGasOOG",
+    "createInitFailStackSizeLargerThan1024",
+    "LoopCallsDepthThenRevert",
+    "expPower256Of256",
+    "FirstByte",
+    "stPreCompiledContracts/idPrecomps",
+    "stPreCompiledContracts/precompsEIP2929",
+    "loopExp",
+    "loopMul",
+    "performanceTester",
+    "stStaticCall/static_Call1024",
+    "stStaticCall/static_Call1MB1024",
+    "stStaticCall/static_Call50000",
+    "stStaticFlagEnabled/CallWithZeroValueToPrecompileFromCalledContract",
+    "stStaticFlagEnabled/CallWithZeroValueToPrecompileFromContractInitialization",
+    "stStaticFlagEnabled/CallWithZeroValueToPrecompileFromTransaction",
+    "stStaticFlagEnabled/CallcodeToPrecompileFromCalledContract",
+    "stStaticFlagEnabled/CallcodeToPrecompileFromContractInitialization",
+    "stStaticFlagEnabled/CallcodeToPrecompileFromTransaction",
+    "stStaticFlagEnabled/DelegatecallToPrecompileFromCalledContract.",
+    "stStaticFlagEnabled/DelegatecallToPrecompileFromContractInitialization",
+    "stStaticFlagEnabled/DelegatecallToPrecompileFromTransaction",
+    "stStaticFlagEnabled/StaticcallForPrecompilesIssue683",
+    "stCallCreateCallCodeTest/Call1024",
+    "stRandom/randomStatetest307",
+    "stRandom/randomStatetest309",
+    "stRandom2/randomStatetest571",
+    "stQuadraticComplexityTest/Call20KbytesContract50",
+    "stQuadraticComplexityTest/Call50000_identity",
+    "stExtCodeHash/extCodeCopyBounds",
+    "stQuadraticComplexityTest/Create1000Byzantium",
+    "stMemoryTest/bufferSrcOffset",
+    "stQuadraticComplexityTest/Create1000",
+    "stQuadraticComplexityTest/Return50000",
+    "stSolidityTest/CallInfiniteLoop",
+    "stShift/shiftCombinations",
+    "stShift/shiftSignedCombinations",
+    "stSpecialTest/block504980",
+    "stStackTests/stackOverflowM1PUSH",
+    "stStackTests/stackOverflowPUSH",
+    "OOGMAfter",
+    "OOGMBefore",
+    "stStackTests/stackOverflowPUSH",
+    "stTimeConsuming/sstore_combinations_initial00_2_114"
+  ],
+  "not-supported": [
+    {
+      "name": "stSStoreTest/InitCollision",
+      "description": "Clear storage tree could not be done in zkEVM state-tree"
+    },
+    {
+      "name": "stPreCompiledContracts/blake2B",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/CALLBlake2f",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/CALLCODEBlake2f",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/CALLCODERipemd160",
+      "description": "Precompiled ripemd-160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/CALLCODESha256",
+      "description": "Precompiled sha2-256 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/CallRipemd160",
+      "description": "Precompiled ripemd-160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/CallSha256",
+      "description": "Precompiled sha2-256 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_",
+      "description": "Precompiled ecMul is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_",
+      "description": "Precompiled ecMul is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_",
+      "description": "Precompiled ecPairing is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/pairingTest_",
+      "description": "Precompiled ecPairing is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/pointAdd_",
+      "description": "Precompiled ecAdd is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/pointAddTrunc_",
+      "description": "Precompiled ecAdd is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/pointMulAdd_",
+      "description": "Precompiled ecMul & ecAdd is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/pointMulAdd2_",
+      "description": "Precompiled ecMul & ecAdd is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/pointMulAdd2_",
+      "description": "Precompiled ecMul & ecAdd is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_",
+      "description": "Precompiled ecAdd is not supported"
+    },
+    {
+      "name": "stCreate2/create2callPrecompiles",
+      "description": "Precompiled called are not supported"
+    },
+    {
+      "name": "stCreate2/CREATE2_Bounds_0",
+      "description": "Triggers an out of zk-counters error"
+    },
+    {
+      "name": "stCreate2/CREATE2_Bounds2_0",
+      "description": "Triggers an out of zk-counters error"
+    },
+    {
+      "name": "stCreate2/CREATE2_Bounds3_0",
+      "description": "Triggers an out of zk-counters error"
+    },
+    {
+      "name": "stCreate2/CREATE2_Bounds3_1",
+      "description": "Triggers an out of zk-counters error"
+    },
+    {
+      "name": "stCreate2/RevertInCreateInInitCreate2",
+      "description": "Triggers an out of zk-counters error"
+    },
+    {
+      "name": "stCreate2/create2collisionStorage",
+      "description": "Clear storage tree could not be done in zkEVM state-tree"
+    },
+    {
+      "name": "stChainId/chainId.json",
+      "description": "Opcode CHAINID (0x46) called and stored. ChainId does not match. Similar internal test has been done in: state-transition/calldata/chainId.json"
+    },
+    {
+      "name": "stMemoryTest/buffer_245",
+      "description": "Triggers an out of zk-counters error"
+    },
+    {
+      "name": "stMemoryTest/buffer_248",
+      "description": "Triggers an out of zk-counters error"
+    }
+  ]
 }
