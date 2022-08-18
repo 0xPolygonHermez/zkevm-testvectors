@@ -48,9 +48,15 @@
     "OOGMBefore",
     "stStackTests/stackOverflowPUSH",
     "stTimeConsuming/sstore_combinations_initial00_2_114",
-    "StaticcallToPrecompileFromContractInitialization",
     "static_CallRipemd160",
-    "static_CallSha256"
+    "static_CallSha256",
+    "static_CallEcrecover0_0input_2.json",
+    "static_CallEcrecover0_0input_3.json",
+    "static_CallEcrecover0_0input_5.json",
+    "static_CallEcrecover0_0input_6.json",
+    "static_CallEcrecover0_0input_7.json",
+    "static_CallEcrecover0_0input_8.json",
+    "StaticcallToPrecompile"
   ],
   "not-supported": [
     {
@@ -166,7 +172,7 @@
       "description": "Triggers an out of zk-counters error"
     },
     {
-    "name": "StaticcallToPrecompileFromContractInitialization",
+    "name": "StaticcallToPrecompile",
     "description": "Some Precompileds not supported"
     },
     {
@@ -176,6 +182,10 @@
     {
     "name": "static_CallSha256",
     "description": "Sha256 precompiled not supported"
+    },
+    {
+      "name": "static_CallEcrecover0_0input_X",
+      "description": "The X indicates which precompiled is called, therefore only supported 1 and 4"
     }
   ]
 }
