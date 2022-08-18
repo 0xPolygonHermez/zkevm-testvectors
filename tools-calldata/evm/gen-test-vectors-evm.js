@@ -71,7 +71,7 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
 
             for (let j = 0; j < genesis.accounts.length; j++) {
                 const {
-                    address, balance, nonce, pvtKey,
+                    address, balance, nonce, pvtKey, bytecode, storage,
                 } = genesis.accounts[j];
                 if (outputTestVector.expectedNewLeafs[address] === undefined) {
                     outputTestVector.expectedNewLeafs[address] = {};
@@ -81,6 +81,8 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                     nonce,
                     balance,
                     pvtKey,
+                    bytecode,
+                    storage,
                 });
             }
 

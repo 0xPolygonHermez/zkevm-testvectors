@@ -195,13 +195,16 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                         const auxOutputPathName = `${dir}/${newOutputName}`;
 
                         const noExec = require('./no-exec.json');
-                        for (let e = 0; e < noExec['no-exec'].length; e++) {
-                            if (auxOutputPathName.includes(noExec['no-exec'][e])) {
-                                throw new Error('no exec test');
+                        for (let e = 0; e < noExec['breaks-computation'].length; e++) {
+                            if (auxOutputPathName.includes(noExec['breaks-computation'][e])) {
+                                throw new Error('breaks computation test');
                             }
                         }
-                        for (let e = 0; e < noExec['not-supported'].length; e++) {
-                            if (auxOutputPathName.includes(noExec['not-supported'][e])) {
+                        const listNotSupported = [];
+                        noExec['not-supported'].forEach((elem) => listNotSupported.push(elem.name));
+
+                        for (let e = 0; e < listNotSupported.length; e++) {
+                            if (auxOutputPathName.includes(listNotSupported[e])) {
                                 throw new Error('not supported');
                             }
                         }

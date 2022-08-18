@@ -52,9 +52,8 @@ describe('Generate inputs executor from test-vectors', async function () {
             testVectorDataPath = `../../state-transition/e2e/${file}`;
             testVectors = [require(testVectorDataPath)];
             inputsPath = '../../inputs-executor/e2e/';
-            inputName = (`${file.replace('.json', '_')}`)
-        }
-        else {
+            inputName = (`${file.replace('.json', '_')}`);
+        } else {
             update = !!(argv.update);
             file = (argv.vectors) ? argv.vectors : 'txs-calldata.json';
             file = file.endsWith('.json') ? file : `${file}.json`;

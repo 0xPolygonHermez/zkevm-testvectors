@@ -45,3 +45,9 @@ npx mocha gen-inputs.js --folder stChainId
 - `check-tests-done.sh`: pass all inputs uploaded in this repo (which means they pass correctly)
 - `eth-tests-folder.sh stChainId`: generate and pass the tests for a folder
 - `eth-tests-get-info.sh`: to collect all the information from the tests
+
+## Further information
+### no-exec.json file
+This file contains test that are not going to be executed.
+- `breaks-computation`: breaks the execution computation due to hardware limitations. Further research must be done on those test to fix them and generate executor inputs properly. They count as errors.
+- `not-supported`: not suitable for the zkEVM. They will be added to supported test as long as more features are added to the zkEVM. they count as not-supported and they are not included in the total coverage.
