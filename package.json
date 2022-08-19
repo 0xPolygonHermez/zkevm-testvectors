@@ -29,7 +29,7 @@
     "author": "",
     "license": "pending",
     "dependencies": {
-        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#v0.0.37",
+        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#feature/debug-smt",
         "@0xpolygonhermez/zkevm-contracts": "github:0xPolygonHermez/zkevm-contracts#v0.0.6",
         "@ethereumjs/common": "^2.6.2",
         "@nomiclabs/hardhat-ethers": "^2.0.5",
