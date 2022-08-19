@@ -10,7 +10,6 @@ const Common = require('@ethereumjs/common').default;
 const { Hardfork } = require('@ethereumjs/common');
 const { toBuffer } = require('ethereumjs-util');
 const { ethers } = require('ethers');
-const hre = require('hardhat');
 const { Scalar } = require('ffjavascript');
 const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
 const { expect } = require('chai');
@@ -22,7 +21,7 @@ const path = require('path');
 const helpers = require('../../tools-calldata/helpers/helpers');
 
 // example: npx mocha gen-inputs.js --test xxxx --folder xxxx --ignore
-describe('Generate inputs executor from ethereum tests GeneralStateTests', async function () {
+describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', async function () {
     this.timeout(800000);
     let poseidon;
     let F;
@@ -173,7 +172,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
             // eslint-disable-next-line import/no-dynamic-require
             test = require(file);
 
-            await hre.run('compile');
             const keysTests = Object.keys(test).filter((op) => op.includes('_Berlin') === true);
             const txsLength = keysTests.length;
             if (txsLength === 0) {
@@ -187,6 +185,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                     try {
                         if (txsLength > 1) newOutputName = `${outputName.split('.json')[0]}_${y}.json`;
                         else newOutputName = outputName;
+
+                        console.log('Test name: ', newOutputName);
 
                         dir = path.join(__dirname, outputPath);
                         if (!fs.existsSync(dir)) {
@@ -305,6 +305,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                         await zkEVMDB.consolidate(batch);
 
                         const { postState } = currentTest;
+
                         if (postState) {
                             const addresses = Object.keys(postState);
                             for (let j = 0; j < addresses.length; j++) {
@@ -312,12 +313,20 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                                 if (address !== sequencerAddress) {
                                     const infoExpect = postState[address];
                                     const newLeaf = await zkEVMDB.getCurrentAccountState(address);
+
                                     if (infoExpect.balance) {
                                         expect(Scalar.e(newLeaf.balance).toString()).to.be.equal(Scalar.e(infoExpect.balance).toString());
                                     }
+
                                     if (infoExpect.nonce) {
                                         expect(Scalar.e(newLeaf.nonce).toString()).to.be.equal(Scalar.e(infoExpect.nonce).toString());
                                     }
+
+                                    if (infoExpect.code && infoExpect.code !== '0x') {
+                                        const bytecode = await zkEVMDB.getBytecode(address);
+                                        expect(`0x${bytecode}`).to.be.equal(infoExpect.code);
+                                    }
+
                                     if (infoExpect.storage && Object.keys(infoExpect.storage).length > 0) {
                                         const storage = await zkEVMDB.dumpStorage(address);
                                         for (let elem in infoExpect.storage) {
@@ -348,11 +357,12 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests', async
                         if (argv.ig) {
                             newOutputName += '-ignore';
                         }
-                        console.log(`WRITE: ${dir}/${newOutputName}`);
+                        console.log(`WRITE: ${dir}/${newOutputName}\n`);
                         await fs.writeFileSync(`${dir}/${newOutputName}`, JSON.stringify(circuitInput, null, 2));
                         countOK += 1;
                     } catch (e) {
                         console.log(e);
+                        console.log();
                         if (e.toString() === 'Error: not supported') {
                             countNotSupport += 1;
                         } else {
