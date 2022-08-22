@@ -172,19 +172,19 @@
       "description": "Triggers an out of zk-counters error"
     },
     {
-    "name": "StaticcallToPrecompile",
+    "name": "stStaticCall/StaticcallToPrecompile",
     "description": "Some Precompileds not supported"
     },
     {
-    "name": "Static_CallRipemd160",
+    "name": "stStaticCall/Static_CallRipemd160",
     "description": "Ripemd160 precompiled not supported"
     },
     {
-    "name": "static_CallSha256",
+    "name": "stStaticCall/static_CallSha256",
     "description": "Sha256 precompiled not supported"
     },
     {
-      "name": "static_CallEcrecover0_0input_X",
+      "name": "stStaticCall/static_CallEcrecover0_0input_X",
       "description": "The X indicates which precompiled is called, therefore only supported 1 and 4"
     }
   ]
