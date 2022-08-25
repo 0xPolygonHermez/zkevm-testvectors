@@ -106,7 +106,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
         evmDebug = !!(argv['evm-debug']);
         let files = [];
         if (file === 'all') {
-            const direc = fs.readdirSync(basePath);
+            const direc = path.join(__dirname, fs.readdirSync(basePath));
             for (let x = 0; x < direc.length; x++) {
                 const path1 = `${basePath}/${direc[x]}`;
                 const direc2 = fs.readdirSync(path1);
@@ -129,7 +129,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             }
             allTests = true;
         } else if (folder) {
-            const pathFolder = `${basePath}/${group}/${folder}`;
+            const pathFolder = path.join(__dirname, `${basePath}/${group}/${folder}`);
             const filesDirec = fs.readdirSync(pathFolder);
             for (let y = 0; y < filesDirec.length; y++) {
                 let stats = fs.statSync(`${pathFolder}/${filesDirec[y]}`);
@@ -161,7 +161,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                 }
             }
         } else {
-            files = [`${basePath}/${file}`];
+            files = [path.join(__dirname, `${basePath}/${file}`)];
         }
 
         for (let x = 0; x < files.length; x++) {
@@ -260,7 +260,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             zkcommonjs.smtUtils.stringToH4(oldLocalExitRoot),
                             genesis,
                         );
-
                         const batch = await zkEVMDB.buildBatch(
                             timestamp,
                             sequencerAddress,
@@ -269,8 +268,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         for (let tx = 0; tx < txsTest.length; tx++) {
                             const txTest = txsTest[tx];
-                            if (Scalar.e(txTest.gasLimit) > Scalar.e('0x1c9c380')) {
-                                txsTest[tx].gasLimit = '0x1c9c380';
+                            if (Scalar.e(txTest.gasLimit) > zkcommonjs.Constants.BATCH_GAS_LIMIT) {
+                                txsTest[tx].gasLimit = zkcommonjs.Constants.BATCH_GAS_LIMIT;
                             }
                             const commonCustom = Common.custom({ chainId: chainIdSequencer }, { hardfork: Hardfork.Berlin });
                             let txSigned = Transaction.fromTxData(txTest, { common: commonCustom }).sign(accountPkFrom);
