@@ -102,7 +102,7 @@ describe('Proof of efficiency test vectors', function () {
 
         // deploy bridge
         const bridgeFactory = new ethers.ContractFactory(Bridge.abi, Bridge.bytecode, deployer);
-        bridgeContract = await bridgeFactory.deploy(networkIDMainnet, globalExitRootManager.address);
+        bridgeContract = await bridgeFactory.deploy();
         await bridgeContract.deployed();
 
         // deploy proof of efficiency
@@ -110,7 +110,11 @@ describe('Proof of efficiency test vectors', function () {
         const urlSequencer = 'https://testURl';
 
         const ProofOfEfficiencyFactory = new ethers.ContractFactory(ProofOfEfficiencyMock.abi, ProofOfEfficiencyMock.bytecode, deployer);
-        proofOfEfficiencyContract = await ProofOfEfficiencyFactory.deploy(
+        proofOfEfficiencyContract = await ProofOfEfficiencyFactory.deploy();
+        await proofOfEfficiencyContract.deployed();
+
+        await bridgeContract.initialize(networkIDMainnet, globalExitRootManager.address);
+        await proofOfEfficiencyContract.initialize(
             globalExitRootManager.address,
             maticTokenContract.address,
             verifierContract.address,
@@ -136,7 +140,7 @@ describe('Proof of efficiency test vectors', function () {
         const amount = ethers.utils.parseEther('10');
         const destinationNetwork = 1;
         const destinationAddress = claimAddress;
-        await expect(bridgeContract.bridge(tokenAddress, destinationNetwork, destinationAddress, amount, { value: amount }));
+        await expect(bridgeContract.bridge(tokenAddress, destinationNetwork, destinationAddress, amount, '0x', { value: amount }));
     });
 
     for (let i = 0; i < testVectors.length; i++) {
@@ -442,13 +446,11 @@ describe('Proof of efficiency test vectors', function () {
                 expect(circuitInputSCHex).to.be.equal(circuitInput.inputHash);
 
                 // Check the input parameters are correct
-                const circuitNextInputSC = await proofOfEfficiencyContract.getNextStarkInput(
+                const circuitNextInputSC = await proofOfEfficiencyContract.connect(aggregator).getNextSnarkInput(
                     newLocalExitRoot,
                     newStateRoot,
                     numBatch,
                 );
-                expect(circuitNextInputSC).to.be.equal(circuitInputSCHex);
-                expect(circuitNextInputSC).to.be.equal(circuitInputJS);
 
                 // Check snark input
                 const inputSnarkSC = await proofOfEfficiencyContract.calculateSnarkInput(
@@ -474,6 +476,8 @@ describe('Proof of efficiency test vectors', function () {
                 );
 
                 expect(inputSnarkSC).to.be.equal(inputSnarkJS);
+                expect(circuitNextInputSC).to.be.equal(inputSnarkSC);
+                expect(await batch.getSnarkInput(aggregator.address)).to.be.equal(inputSnarkSC);
 
                 // Forge the batch
                 const initialAggregatorMatic = await maticTokenContract.balanceOf(

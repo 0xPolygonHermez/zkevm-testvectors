@@ -23,7 +23,7 @@ const {
 } = require('@0xpolygonhermez/zkevm-commonjs').mtBridgeUtils;
 
 const {
-    ERC20PermitMock, GlobalExitRootManagerMock, Bridge, ProofOfEfficiencyMock, VerifierRollupHelperMock,
+    ERC20PermitMock, GlobalExitRootManager, Bridge, ProofOfEfficiencyMock, VerifierRollupHelperMock,
 } = require('@0xpolygonhermez/zkevm-contracts');
 
 const contractsPolygonHermez = require('@0xpolygonhermez/zkevm-contracts');
@@ -85,22 +85,15 @@ describe('Proof of efficiency test vectors', function () {
             maticTokenInitialBalance,
         );
         await maticTokenContract.deployed();
-        const precalculatBridgeAddress = await ethers.utils.getContractAddress(
-            { from: deployer.address, nonce: (await ethers.provider.getTransactionCount(deployer.address)) + 1 },
-        );
-
-        const precalculatePoEAddress = await ethers.utils.getContractAddress(
-            { from: deployer.address, nonce: (await ethers.provider.getTransactionCount(deployer.address)) + 2 },
-        );
 
         // deploy global exit root manager
-        const globalExitRootManagerFactory = new ethers.ContractFactory(GlobalExitRootManagerMock.abi, GlobalExitRootManagerMock.bytecode, deployer);
-        globalExitRootManager = await globalExitRootManagerFactory.deploy(precalculatePoEAddress, precalculatBridgeAddress);
+        const globalExitRootManagerFactory = new ethers.ContractFactory(GlobalExitRootManager.abi, GlobalExitRootManager.bytecode, deployer);
+        globalExitRootManager = await globalExitRootManagerFactory.deploy();
         await globalExitRootManager.deployed();
 
         // deploy bridge
         const bridgeFactory = new ethers.ContractFactory(Bridge.abi, Bridge.bytecode, deployer);
-        bridgeContract = await bridgeFactory.deploy(networkIDMainnet, globalExitRootManager.address);
+        bridgeContract = await bridgeFactory.deploy();
         await bridgeContract.deployed();
 
         // deploy proof of efficiency
@@ -108,7 +101,12 @@ describe('Proof of efficiency test vectors', function () {
         const urlSequencer = 'https://testURl';
 
         const ProofOfEfficiencyFactory = new ethers.ContractFactory(ProofOfEfficiencyMock.abi, ProofOfEfficiencyMock.bytecode, deployer);
-        proofOfEfficiencyContract = await ProofOfEfficiencyFactory.deploy(
+        proofOfEfficiencyContract = await ProofOfEfficiencyFactory.deploy();
+        await proofOfEfficiencyContract.deployed();
+
+        await globalExitRootManager.initialize(proofOfEfficiencyContract.address, bridgeContract.address);
+        await bridgeContract.initialize(networkIDMainnet, globalExitRootManager.address);
+        await proofOfEfficiencyContract.initialize(
             globalExitRootManager.address,
             maticTokenContract.address,
             verifierContract.address,
@@ -117,11 +115,6 @@ describe('Proof of efficiency test vectors', function () {
             allowForcebatches,
             urlSequencer,
         );
-
-        await proofOfEfficiencyContract.deployed();
-
-        expect(bridgeContract.address).to.be.equal(precalculatBridgeAddress);
-        expect(proofOfEfficiencyContract.address).to.be.equal(precalculatePoEAddress);
     });
     it('End to end test', async () => {
         const {
@@ -155,6 +148,7 @@ describe('Proof of efficiency test vectors', function () {
         const amount = ethers.utils.parseEther('10');
         const destinationNetwork = networkIDRollup;
         const destinationAddress = claimAddress;
+        const emptyPermit = '0x';
 
         const metadata = '0x';// since is ether does not have metadata
         const metadataHash = ethers.utils.solidityKeccak256(['bytes'], [metadata]);
@@ -163,7 +157,7 @@ describe('Proof of efficiency test vectors', function () {
         const mainnetRoot = '0x573768af52d1354a7b83fb784ecbacecf8fead6ad49f25af8909a35b0a7bba05';
         let lastGlobalExitRootNum = 0;
 
-        await expect(bridgeContract.bridge(tokenAddress, destinationNetwork, destinationAddress, amount, { value: amount }))
+        await expect(bridgeContract.bridge(tokenAddress, destinationNetwork, destinationAddress, amount, emptyPermit, { value: amount }))
             .to.emit(bridgeContract, 'BridgeEvent')
             .withArgs(originNetwork, tokenAddress, destinationNetwork, destinationAddress, amount, metadata, depositCount)
             .to.emit(globalExitRootManager, 'UpdateGlobalExitRoot')
@@ -539,14 +533,11 @@ describe('Proof of efficiency test vectors', function () {
         expect(circuitInputSCHex).to.be.equal(circuitInput.inputHash);
 
         // Check the input parameters are correct
-        const circuitNextInputSC = await proofOfEfficiencyContract.getNextStarkInput(
+        const circuitNextInputSC = await proofOfEfficiencyContract.connect(aggregator).getNextSnarkInput(
             newLocalExitRoot,
             newStateRoot,
             numBatch,
         );
-
-        expect(circuitNextInputSC).to.be.equal(circuitInputSCHex);
-        expect(circuitNextInputSC).to.be.equal(circuitInputJS);
 
         // Check snark input
         const inputSnarkSC = await proofOfEfficiencyContract.calculateSnarkInput(
@@ -572,6 +563,8 @@ describe('Proof of efficiency test vectors', function () {
         );
 
         expect(inputSnarkSC).to.be.equal(inputSnarkJS);
+        expect(circuitNextInputSC).to.be.equal(inputSnarkSC);
+        expect(await batch.getSnarkInput(aggregator.address)).to.be.equal(inputSnarkSC);
 
         // Forge the batch
         const initialAggregatorMatic = await maticTokenContract.balanceOf(

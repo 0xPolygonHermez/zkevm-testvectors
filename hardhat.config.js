@@ -1,4 +1,6 @@
 require("@nomiclabs/hardhat-waffle");
+require("@openzeppelin/hardhat-upgrades");
+
 DEFAULT_MNEMONIC = "test test test test test test test test test test test junk";
 
 /**
