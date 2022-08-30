@@ -1170,6 +1170,12 @@
     {
       "name": "stStaticCall/static_CallEcrecover0_0input_X",
       "description": "The X indicates which precompiled is called, therefore only supported 1 and 4"
+    },{
+      "name": "stTransactionTest/SuicidesAndInternlCallSuicidesSuccess_1",
+      "description": "Selfdestruct error"
+    },{
+      "name":"stTransactionTest/PointAtInfinityECRecover",
+      "description": "TODO: deltaX == 0 => division by zero ==> how manage? (sm_main_exec.js --> eval_AddPointEc)"
     }
   ]
 }
