@@ -136,24 +136,8 @@
       "description": "Precompiled called are not supported"
     },
     {
-      "name": "stCreate2/CREATE2_Bounds_0",
-      "description": "Triggers an out of zk-counters error"
-    },
-    {
-      "name": "stCreate2/CREATE2_Bounds2_0",
-      "description": "Triggers an out of zk-counters error"
-    },
-    {
-      "name": "stCreate2/CREATE2_Bounds3_0",
-      "description": "Triggers an out of zk-counters error"
-    },
-    {
-      "name": "stCreate2/CREATE2_Bounds3_1",
-      "description": "Triggers an out of zk-counters error"
-    },
-    {
       "name": "stCreate2/RevertInCreateInInitCreate2",
-      "description": "Triggers an out of zk-counters error"
+      "description": "Clear storage tree could not be done in zkEVM state-tree"
     },
     {
       "name": "stCreate2/create2collisionStorage",
@@ -164,60 +148,52 @@
       "description": "Opcode CHAINID (0x46) called and stored. ChainId does not match. Similar internal test has been done in: state-transition/calldata/chainId.json"
     },
     {
-      "name": "stMemoryTest/buffer_245",
-      "description": "Triggers an out of zk-counters error"
-    },
-    {
-      "name": "stMemoryTest/buffer_248",
-      "description": "Triggers an out of zk-counters error"
-    },
-    {
       "name": "stMemoryTest/buffer_194",
-      "description": "Triggers an out of zk-counters error + batch gas limit > 30M"
+      "description": "Bbatch gas limit > 30M"
     },
     {
       "name": "stMemoryTest/buffer_197",
-      "description": "Triggers an out of zk-counters erro + batch gas limit > 30M"
+      "description": "Batch gas limit > 30M"
     },
     {
       "name": "stMemoryTest/buffer_266",
-      "description": "Triggers an out of zk-counters erro + batch gas limit > 30M"
+      "description": "Batch gas limit > 30M"
     },
     {
       "name": "stMemoryTest/buffer_277",
-      "description": "Triggers an out of zk-counters erro + batch gas limit > 30M"
+      "description": "Batch gas limit > 30M"
     },
     {
       "name": "stMemoryTest/buffer_290",
-      "description": "Triggers an out of zk-counters erro + batch gas limit > 30M"
+      "description": "Batch gas limit > 30M"
     },
     {
       "name": "stMemoryTest/buffer_294",
-      "description": "Triggers an out of zk-counters erro + batch gas limit > 30M"
+      "description": "Batch gas limit > 30M"
     },
     {
       "name": "stMemoryTest/buffer_307",
-      "description": "Triggers an out of zk-counters erro + batch gas limit > 30M"
+      "description": "Batch gas limit > 30M"
     },
     {
       "name": "stMemoryTest/buffer_310",
-      "description": "Triggers an out of zk-counters erro + batch gas limit > 30M"
+      "description": "Batch gas limit > 30M"
     },
     {
       "name": "stMemoryTest/buffer_323",
-      "description": "Triggers an out of zk-counters erro + batch gas limit > 30M"
+      "description": "Batch gas limit > 30M"
     },
     {
       "name": "stMemoryTest/buffer_327",
-      "description": "Triggers an out of zk-counters erro + batch gas limit > 30M"
+      "description": "Batch gas limit > 30M"
     },
     {
       "name": "stMemoryTest/buffer_78",
-      "description": "Triggers an out of zk-counters erro + batch gas limit > 30M"
+      "description": "Batch gas limit > 30M"
     },
     {
       "name": "stMemoryTest/buffer_81",
-      "description": "Triggers an out of zk-counters erro + batch gas limit > 30M"
+      "description": "Batch gas limit > 30M"
     },
     {
       "name": "stMemoryTest/sha3_dejavu",
