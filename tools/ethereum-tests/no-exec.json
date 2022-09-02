@@ -42,11 +42,8 @@
     "stShift/shiftCombinations",
     "stShift/shiftSignedCombinations",
     "stSpecialTest/block504980",
-    "stStackTests/stackOverflowM1PUSH",
-    "stStackTests/stackOverflowPUSH",
     "OOGMAfter",
     "OOGMBefore",
-    "stStackTests/stackOverflowPUSH",
     "stTimeConsuming/sstore_combinations_initial00_2_114",
     "static_CallRipemd160",
     "static_CallSha256",
@@ -1164,6 +1161,126 @@
     },{
       "name":"stTransactionTest/PointAtInfinityECRecover",
       "description": "TODO: deltaX == 0 => division by zero ==> how manage? (sm_main_exec.js --> eval_AddPointEc)"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_10",
+      "description": "OOC: lots of push21"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_12",
+      "description": "OOC: lots of push22"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_13",
+      "description": "OOC: lots of push23"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_14",
+      "description": "OOC: lots of push24"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_15",
+      "description": "OOC: lots of push25"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_16",
+      "description": "OOC: lots of push26"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_17",
+      "description": "OOC: lots of push27"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_18",
+      "description": "OOC: lots of push28"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_19",
+      "description": "OOC: lots of push29"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_20",
+      "description": "OOC: lots of push30"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_21",
+      "description": "OOC: lots of push31"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_23",
+      "description": "OOC: lots of push32"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_7",
+      "description": "OOC: lots of push18"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_8",
+      "description": "OOC: lots of push19"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_9",
+      "description": "OOC: lots of push20"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_10",
+      "description": "OOC: lots of push21"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_12",
+      "description": "OOC: lots of push22"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_13",
+      "description": "OOC: lots of push23"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_14",
+      "description": "OOC: lots of push24"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_15",
+      "description": "OOC: lots of push25"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_16",
+      "description": "OOC: lots of push26"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_17",
+      "description": "OOC: lots of push27"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_18",
+      "description": "OOC: lots of push28"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_19",
+      "description": "OOC: lots of push29"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_20",
+      "description": "OOC: lots of push30"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_21",
+      "description": "OOC: lots of push31"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_23",
+      "description": "OOC: lots of push32"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_7",
+      "description": "OOC: lots of push18"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_8",
+      "description": "OOC: lots of push19"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_9",
+      "description": "OOC: lots of push20"
     }
   ]
 }
