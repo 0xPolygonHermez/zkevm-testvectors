@@ -279,7 +279,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                 Scalar.e(txTest.nonce).toString(16),
                                 Scalar.e(txTest.gasPrice).toString(16),
                                 Scalar.e(txTest.gasLimit).toString(16),
-                                txTest.to ? Scalar.e(txTest.to).toString(16) : '',
+                                txTest.to ? txTest.to : '',
                                 Scalar.e(txTest.value).toString(16),
                                 txTest.data,
                                 ethers.utils.hexlify(chainId),
