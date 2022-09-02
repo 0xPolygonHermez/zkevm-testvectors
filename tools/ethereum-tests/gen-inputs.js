@@ -272,6 +272,9 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                 txsTest[tx].gasLimit = zkcommonjs.Constants.BATCH_GAS_LIMIT;
                             }
                             const commonCustom = Common.custom({ chainId: chainIdSequencer }, { hardfork: Hardfork.Berlin });
+                            if (txTest.r) delete txTest.r;
+                            if (txTest.s) delete txTest.s;
+                            if (txTest.v) delete txTest.v;
                             let txSigned = Transaction.fromTxData(txTest, { common: commonCustom }).sign(accountPkFrom);
                             const sign = !(Number(txSigned.v) & 1);
                             const chainId = (Number(txSigned.v) - 35) >> 1;

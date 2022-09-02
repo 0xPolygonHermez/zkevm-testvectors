@@ -1146,6 +1146,18 @@
     {
       "name": "stStaticCall/static_CallEcrecover0_0input_X",
       "description": "The X indicates which precompiled is called, therefore only supported 1 and 4"
+    },
+    {
+      "name": "stRefundTest/refund_CallToSuicideTwice_1",
+      "description": "Selfdestruct"
+    },
+    {
+      "name": "stRefundTest/refund_multimpleSuicide",
+      "description": "Selfdestruct"
+    },
+    {
+      "name": "stRefundTest/refundFF",
+      "description": "Selfdestruct"
     },{
       "name": "stTransactionTest/SuicidesAndInternlCallSuicidesSuccess_1",
       "description": "Selfdestruct error"
