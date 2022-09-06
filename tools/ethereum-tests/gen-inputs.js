@@ -187,7 +187,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         else newOutputName = outputName;
 
                         console.log('Test name: ', newOutputName);
-
                         dir = path.join(__dirname, outputPath);
                         if (!fs.existsSync(dir)) {
                             fs.mkdirSync(dir);
@@ -195,11 +194,16 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         const auxOutputPathName = `${dir}/${newOutputName}`;
 
                         const noExec = require('./no-exec.json');
-                        for (let e = 0; e < noExec['breaks-computation'].length; e++) {
-                            if (auxOutputPathName.includes(noExec['breaks-computation'][e])) {
+
+                        const listBreaksComputation = [];
+                        noExec['breaks-computation'].forEach((elem) => listBreaksComputation.push(elem.name));
+
+                        for (let e = 0; e < listBreaksComputation.length; e++) {
+                            if (auxOutputPathName.includes(listBreaksComputation[e])) {
                                 throw new Error('breaks computation test');
                             }
                         }
+
                         const listNotSupported = [];
                         noExec['not-supported'].forEach((elem) => listNotSupported.push(elem.name));
 

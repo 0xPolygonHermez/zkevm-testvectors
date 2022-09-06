@@ -1,59 +1,69 @@
 {
   "breaks-computation": [
-    "RECURSIVE",
-    "Recursive",
-    "Spam",
-    "1024OOG",
-    "CallcodeLoseGasOOG",
-    "createInitFailStackSizeLargerThan1024",
-    "LoopCallsDepthThenRevert",
-    "expPower256Of256",
-    "FirstByte",
-    "stPreCompiledContracts/idPrecomps",
-    "stPreCompiledContracts/precompsEIP2929",
-    "loopExp",
-    "loopMul",
-    "performanceTester",
-    "stStaticCall/static_Call1024",
-    "stStaticCall/static_Call1MB1024",
-    "stStaticCall/static_Call50000",
-    "stStaticFlagEnabled/CallWithZeroValueToPrecompileFromCalledContract",
-    "stStaticFlagEnabled/CallWithZeroValueToPrecompileFromContractInitialization",
-    "stStaticFlagEnabled/CallWithZeroValueToPrecompileFromTransaction",
-    "stStaticFlagEnabled/CallcodeToPrecompileFromCalledContract",
-    "stStaticFlagEnabled/CallcodeToPrecompileFromContractInitialization",
-    "stStaticFlagEnabled/CallcodeToPrecompileFromTransaction",
-    "stStaticFlagEnabled/DelegatecallToPrecompileFromCalledContract.",
-    "stStaticFlagEnabled/DelegatecallToPrecompileFromContractInitialization",
-    "stStaticFlagEnabled/DelegatecallToPrecompileFromTransaction",
-    "stStaticFlagEnabled/StaticcallForPrecompilesIssue683",
-    "stCallCreateCallCodeTest/Call1024",
-    "stRandom/randomStatetest307",
-    "stRandom/randomStatetest309",
-    "stRandom2/randomStatetest571",
-    "stQuadraticComplexityTest/Call20KbytesContract50",
-    "stQuadraticComplexityTest/Call50000_identity",
-    "stExtCodeHash/extCodeCopyBounds",
-    "stQuadraticComplexityTest/Create1000Byzantium",
-    "stMemoryTest/bufferSrcOffset",
-    "stQuadraticComplexityTest/Create1000",
-    "stQuadraticComplexityTest/Return50000",
-    "stSolidityTest/CallInfiniteLoop",
-    "stShift/shiftCombinations",
-    "stShift/shiftSignedCombinations",
-    "stSpecialTest/block504980",
-    "OOGMAfter",
-    "OOGMBefore",
-    "stTimeConsuming/sstore_combinations_initial00_2_114",
-    "static_CallRipemd160",
-    "static_CallSha256",
-    "static_CallEcrecover0_0input_2.json",
-    "static_CallEcrecover0_0input_3.json",
-    "static_CallEcrecover0_0input_5.json",
-    "static_CallEcrecover0_0input_6.json",
-    "static_CallEcrecover0_0input_7.json",
-    "static_CallEcrecover0_0input_8.json",
-    "StaticcallToPrecompile"
+    {
+      "name": "expPower256Of256",
+      "description": "Not handle in ROM. Takes forever in executor to compite large computation such as 256 ** (2**24)"
+    },
+    {
+      "name": "FirstByte",
+      "description": "Bug at merkle-patricia-level where rlp encoding/decoding is used. Address above 0x800...000 returns an not find node in the tree."
+    },
+    {
+      "name": "vmPerformance/performanceTester_1",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
+      "name": "vmPerformance/performanceTester_3",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
+      "name": "vmPerformance/performanceTester_4",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
+      "name": "stStaticCall/static_Call50000",
+      "description": "needs further research"
+    },
+    {
+      "name": "stRandom/randomStatetest307",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Call20KbytesContract50_1_1",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Call20KbytesContract50_2_1",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Call20KbytesContract50_3_0",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Call20KbytesContract50_3_1",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Call50000_identity",
+      "description": "needs further research"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Create1000Byzantium_1",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Create1000_1",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Return50000",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
+      "name": "stShift/shiftSignedCombinations",
+      "description": "Large exp --> eval_exp --> Maximum BigInt size exceeded"
+    }
   ],
   "not-supported": [
     {
@@ -1281,6 +1291,38 @@
     {
       "name": "stStackTests/stackOverflowPUSH_9",
       "description": "OOC: lots of push20"
+    },
+    {
+      "name": "stStaticFlagEnabled/CallWithZeroValueToPrecompileFromTransaction",
+      "description": "Precompiled contracts called are not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/CallcodeToPrecompileFromCalledContract",
+      "description": "Precompiled contracts called are not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/CallcodeToPrecompileFromContractInitialization",
+      "description": "Precompiled contracts called are not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/CallcodeToPrecompileFromTransaction",
+      "description": "Precompiled contracts called are not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/DelegatecallToPrecompileFromCalledContract",
+      "description": "Precompiled contracts called are not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/DelegatecallToPrecompileFromContractInitialization",
+      "description": "Precompiled contracts called are not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/DelegatecallToPrecompileFromTransaction",
+      "description": "Precompiled contracts called are not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/StaticcallForPrecompilesIssue683",
+      "description": "Precompiled contracts called are not supported"
     }
   ]
 }
