@@ -413,7 +413,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                 for (const step of txSteps) {
                     if (step) {
                         // Format memory
-                        let memory = step.memory.data.map((v) => v.toString(16)).join('').padStart(192, '0');
+                        let memory = step.memory.map((v) => v.toString(16)).join('').padStart(192, '0');
                         memory = memory.match(/.{1,32}/g); // split in 32 bytes slots
                         memory = memory.map((v) => `0x${v}`);
 
@@ -424,11 +424,11 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                 name: step.opcode.name,
                                 fee: step.opcode.fee,
                             },
-                            gasLeft: Number(`0x${step.gasLeft}`),
-                            gasRefund: Number(`0x${step.gasRefund}`),
+                            gasLeft: Number(step.gasLeft),
+                            gasRefund: Number(step.gasRefund),
                             memory,
                             stack: step.stack.map((v) => `0x${v.toString('hex')}`),
-                            codeAddress: step.codeAddress.buf.data.reduce(
+                            codeAddress: step.codeAddress.buf.reduce(
                                 (previousValue, currentValue) => previousValue + currentValue,
                                 '0x',
                             ),
