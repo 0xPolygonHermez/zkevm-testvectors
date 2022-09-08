@@ -312,6 +312,52 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         }
 
                         await batch.executeTxs();
+
+                        if (batch.evmSteps[0].length > 0) {
+                            const { updatedAccounts } = batch;
+                            if (updatedAccounts['0x0000000000000000000000000000000000000002']) {
+                                await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExec);
+                            } else if (updatedAccounts['0x0000000000000000000000000000000000000003']) {
+                                await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
+                            } else if (updatedAccounts['0x0000000000000000000000000000000000000006']) {
+                                await updateNoExec(dir, newOutputName, 'Precompiled ecAdd is not supported', noExec);
+                            } else if (updatedAccounts['0x0000000000000000000000000000000000000007']) {
+                                await updateNoExec(dir, newOutputName, 'Precompiled ecMul is not supported', noExec);
+                            } else if (updatedAccounts['0x0000000000000000000000000000000000000008']) {
+                                await updateNoExec(dir, newOutputName, 'Precompiled ecPairing is not supported', noExec);
+                            } else if (updatedAccounts['0x0000000000000000000000000000000000000009']) {
+                                await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExec);
+                            }
+                            const steps = batch.evmSteps[0];
+                            const selfDestructs = steps.filter((step) => step.opcode.name === 'SELFDESTRUCT');
+                            if (selfDestructs.length > 0) {
+                                await updateNoExec(dir, newOutputName, 'Selfdestruct', noExec);
+                            }
+                            const calls = steps.filter((step) => step.opcode.name === 'CALL'
+                                || step.opcode.name === 'CALLCODE'
+                                || step.opcode.name === 'DELEGATECALL'
+                                || step.opcode.name === 'STATICCALL');
+                            if (calls.length > 0) {
+                                for (let i = 0; i < calls.length; i++) {
+                                    const stepBefore = steps[steps.indexOf(calls[i]) - 1];
+                                    const addressCall = Scalar.e(stepBefore.stack[stepBefore.stack.length - 2]);
+                                    if (addressCall === Scalar.e(2)) {
+                                        await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExec);
+                                    } else if (addressCall === Scalar.e(3)) {
+                                        await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
+                                    } else if (addressCall === Scalar.e(6)) {
+                                        await updateNoExec(dir, newOutputName, 'Precompiled ecAdd is not supported', noExec);
+                                    } else if (addressCall === Scalar.e(7)) {
+                                        await updateNoExec(dir, newOutputName, 'Precompiled ecMul is not supported', noExec);
+                                    } else if (addressCall === Scalar.e(8)) {
+                                        await updateNoExec(dir, newOutputName, 'Precompiled ecPairing is not supported', noExec);
+                                    } else if (addressCall === Scalar.e(9)) {
+                                        await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExec);
+                                    }
+                                }
+                            }
+                        }
+
                         if (evmDebug) {
                             await generateEvmDebugFile(batch.evmSteps, newOutputName);
                         }
@@ -366,9 +412,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                     circuitInput.contractsBytecode[hashContract] = acc.bytecode;
                                 }
                             }
-                        }
-                        if (argv.ig) {
-                            newOutputName += '-ignore';
                         }
                         console.log(`WRITE: ${dir}/${newOutputName}\n`);
                         await fs.writeFileSync(`${dir}/${newOutputName}`, JSON.stringify(circuitInput, null, 2));
