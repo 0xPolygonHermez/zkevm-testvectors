@@ -6,7 +6,7 @@
     },
     {
       "name": "FirstByte",
-      "description": "Bug at merkle-patricia-level where rlp encoding/decoding is used. Address above 0x800...000 returns an not find node in the tree."
+      "description": "Bug at merkle-patricia-level where rlp encoding/decoding is used. Address above 0x800...000 returns a not find node in the tree."
     },
     {
       "name": "vmPerformance/performanceTester_1",
@@ -21,8 +21,8 @@
       "description": "not enough steps. Steps > 2**21"
     },
     {
-      "name": "stStaticCall/static_Call50000",
-      "description": "needs further research"
+      "name": "stStaticCall/static_Call50000bytesContract50_3_1",
+      "description": "not enough steps. Steps > 2**21"
     },
     {
       "name": "stRandom/randomStatetest307",
@@ -43,10 +43,6 @@
     {
       "name": "stQuadraticComplexityTest/Call20KbytesContract50_3_1",
       "description": "not enough steps. Steps > 2**21"
-    },
-    {
-      "name": "stQuadraticComplexityTest/Call50000_identity",
-      "description": "needs further research"
     },
     {
       "name": "stQuadraticComplexityTest/Create1000Byzantium_1",
@@ -1165,11 +1161,13 @@
     {
       "name": "stRefundTest/refundFF",
       "description": "Selfdestruct"
-    },{
+    },
+    {
       "name": "stTransactionTest/SuicidesAndInternlCallSuicidesSuccess_1",
       "description": "Selfdestruct error"
-    },{
-      "name":"stTransactionTest/PointAtInfinityECRecover",
+    },
+    {
+      "name": "stTransactionTest/PointAtInfinityECRecover",
       "description": "TODO: deltaX == 0 => division by zero ==> how manage? (sm_main_exec.js --> eval_AddPointEc)"
     },
     {
@@ -1323,6 +1321,10 @@
     {
       "name": "stStaticFlagEnabled/StaticcallForPrecompilesIssue683",
       "description": "Precompiled contracts called are not supported"
+    },
+    {
+      "name": "stStaticCall/static_Call50000_ecrec_0",
+      "description": "tx gas > 30M"
     }
   ]
 }
