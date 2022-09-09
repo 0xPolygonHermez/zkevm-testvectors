@@ -195,11 +195,16 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         const auxOutputPathName = `${dir}/${newOutputName}`;
 
                         const noExec = require('./no-exec.json');
-                        for (let e = 0; e < noExec['breaks-computation'].length; e++) {
-                            if (auxOutputPathName.includes(noExec['breaks-computation'][e])) {
+
+                        const listBreaksComputation = [];
+                        noExec['breaks-computation'].forEach((elem) => listBreaksComputation.push(elem.name));
+
+                        for (let e = 0; e < listBreaksComputation.length; e++) {
+                            if (auxOutputPathName.includes(listBreaksComputation[e])) {
                                 throw new Error('breaks computation test');
                             }
                         }
+
                         const listNotSupported = [];
                         noExec['not-supported'].forEach((elem) => listNotSupported.push(elem.name));
 
@@ -210,6 +215,12 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         }
 
                         const currentTest = test[keysTests[y]];
+
+                        // check gas used by the tx is less than 30M
+                        if (Scalar.gt(Scalar.e(currentTest.blocks[0].blockHeader.gasUsed), zkcommonjs.Constants.BATCH_GAS_LIMIT)) {
+                            await updateNoExec(dir, newOutputName, 'tx gas > 30M', noExec);
+                        }
+
                         let accountPkFrom;
                         if (currentTest._info.source.endsWith('.json')) {
                             const source = require(`./tests/${currentTest._info.source}`);
@@ -440,5 +451,13 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             }
         }
         fs.writeFileSync(path.join(dir, fileName), JSON.stringify(data, null, 2));
+    }
+
+    async function updateNoExec(dir, newOutputName, description, noExec) {
+        const auxDir = dir.split('/');
+        const nameTest = `${auxDir[auxDir.length - 1]}/${newOutputName.replace('.json', '')}`;
+        noExec['not-supported'].push({ name: nameTest, description });
+        await fs.writeFileSync('./no-exec.json', JSON.stringify(noExec, null, 2));
+        throw new Error('not supported');
     }
 });
