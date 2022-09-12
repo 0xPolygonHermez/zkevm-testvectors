@@ -10,7 +10,7 @@ do
     if [ -d $entry ]
     then
         count=$((count + 1))
-        node --max-old-space-size=4096 run-inputs.js -f $entry -r ../../../zkevm-rom/build/rom.json --output ../../../zkevm-testvectors/tools/ethereum-tests/info-output-$count.txt
+        node --max-old-space-size=8192 run-inputs.js -f $entry -r ../../../zkevm-rom/build/rom.json --output ../../../zkevm-testvectors/tools/ethereum-tests/info-output-$count.txt
     fi
 done
 pass_folder_time=$(date +%s)
@@ -21,7 +21,7 @@ do
     if [ -d $entry ]
     then
         count=$((count + 1))
-        node --max-old-space-size=4096 run-inputs.js -f $entry -r ../../../zkevm-rom/build/rom.json --output ../../../zkevm-testvectors/tools/ethereum-tests/info-output-$count.txt
+        node --max-old-space-size=8192 run-inputs.js -f $entry -r ../../../zkevm-rom/build/rom.json --output ../../../zkevm-testvectors/tools/ethereum-tests/info-output-$count.txt
     fi
 done
 cd ../../../zkevm-testvectors/tools/ethereum-tests
