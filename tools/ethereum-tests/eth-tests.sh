@@ -29,7 +29,7 @@ dir=./tests/BlockchainTests/GeneralStateTests
         then
             echo "Exist"
         else
-            npx mocha --max-old-space-size=4096 gen-inputs.js --group $group --folder $folder --output eth-inputs
+            npx mocha --max-old-space-size=8192 gen-inputs.js --group $group --folder $folder --output eth-inputs
         fi
         gen_input_time_aux=$gen_input_time
         gen_input_time=$(date +%s)
@@ -52,7 +52,7 @@ do
             then
                 if [ -f "$entry2/info.txt" ]
                 then
-                    node run-inputs.js --max-old-space-size=4096 -f $entry2 -r ../../../zkevm-rom/build/rom.json --info $entry2/info-inputs.txt --output $entry2/info-output.txt
+                    node run-inputs.js --max-old-space-size=8192 -f $entry2 -r ../../../zkevm-rom/build/rom.json --info $entry2/info-inputs.txt --output $entry2/info-output.txt
                     pass_folder_time_aux=$pass_folder_time
                     pass_folder_time=$(date +%s)
                     echo -e "pass folder $entry2: $((pass_folder_time - pass_folder_time_aux))" >> ../../../zkevm-testvectors/tools/ethereum-tests/times-eth.txt
@@ -65,5 +65,5 @@ cd ../../../zkevm-testvectors/tools/ethereum-tests
 pass_inputs_time=$(date +%s)
 echo -e "pass inputs time: $((pass_inputs_time - gen_inputs_time))" >> times-eth.txt
 end_date="$(date +%T) $(date +%d/%m/%y)"
-echo -e "start: $end_date" > times-eth.txt
+echo -e "end: $end_date" >> times-eth.txt
 ./eth-tests-get-info.sh

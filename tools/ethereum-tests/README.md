@@ -16,7 +16,6 @@ These two files contain all the necessary information for each test.
 - `test`: path test `${folder}/${test}`
 - `output`: path to write inputs, for example: `--output eth-inputs` (default: in this folder)
 - Flag to generate `evm-stack-logs`: `--evm-debug`
-- Flat to write output (executor input) with `-ignore`: `--ig` -->  test.json-ignore
 
 ## Usage
 

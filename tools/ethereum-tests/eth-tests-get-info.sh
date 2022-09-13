@@ -1,6 +1,15 @@
 # get info
 cd ../../../zkevm-testvectors/tools/ethereum-tests
 echo -e "Tests info: \n" > eth-inputs/final-info.txt
+commit_testvectors=$(git rev-parse HEAD)
+cd ../../../zkevm-proverjs
+commit_proverjs=$(git rev-parse HEAD)
+cd ../zkevm-rom
+commit_rom=$(git rev-parse HEAD)
+cd ../zkevm-testvectors/tools/ethereum-tests
+echo -e "Commit zkevm-testvectors: $commit_testvectors" >> eth-inputs/final-info.txt
+echo -e "Commit zkevm-rom: $commit_rom" >> eth-inputs/final-info.txt
+echo -e "Commit zkevm-proverjs: $commit_proverjs\n" >> eth-inputs/final-info.txt
 files=0
 tests=0
 inputs=0
@@ -65,5 +74,5 @@ let p4=(100*$not_sup+$tests/2)/$tests
 let aux_cov=$tests-$not_sup
 let p5=(100*$ok+$aux_cov/2)/$aux_cov
 
-echo -e "Files: $files \nTotal tests: $tests \nGeneration errors: $err_gen \nInputs: $inputs \nInputs ok: $ok \nExec errors: $err_exec \nNot supported: $not_sup \n----------------------------- \nTests: 100% \nTests ok: $p3% \nExec Error: $p2% \nGeneration Error: $p1% \nNot supported: $p4%  \nCoverage: $p5%" > eth-inputs/final.txt
+echo -e "Commit zkevm-testvectors: $commit_testvectors \nCommit zkevm-rom: $commit_rom \nCommit zkevm-proverjs: $commit_proverjs \nFiles: $files \nTotal tests: $tests \nGeneration errors: $err_gen \nInputs: $inputs \nInputs ok: $ok \nExec errors: $err_exec \nNot supported: $not_sup \n----------------------------- \nTests: 100% \nTests ok: $p3% \nExec Error: $p2% \nGeneration Error: $p1% \nNot supported: $p4%  \nCoverage: $p5%" > eth-inputs/final.txt
 cat eth-inputs/final.txt
