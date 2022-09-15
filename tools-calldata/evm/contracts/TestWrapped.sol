@@ -2,6 +2,16 @@
 
 pragma solidity 0.8.7;
 
+contract TokenWrapped {
+    address public bridgeAddress;
+    uint8 private _decimals;
+
+    modifier onlyBridge() {
+        require(msg.sender == bridgeAddress, "TokenWrapped:NOT_BRIDGE");
+        _;
+    }
+}
+
 library ClonesUpgradeable {
     /**
      * @dev Deploys and returns the address of a clone that mimics the behaviour of `implementation`.
@@ -74,6 +84,18 @@ library ClonesUpgradeable {
 
 contract TestWrapped {
 
+    // Addres of the token wrapped implementation
+    address public tokenImplementation;
+    address public test = 0x1234000000000000000000000000000000001234;
+    address public testtest;
+
+    /**
+     */
+    function initialize(
+    ) public {
+        tokenImplementation = address(new TokenWrapped());
+    }
+
     /**
      * @notice Returns the precalculated address of a wrapper using the token information
      * @param originNetwork Origin network
@@ -82,14 +104,14 @@ contract TestWrapped {
     function precalculatedWrapperAddress(
         uint32 originNetwork,
         address originTokenAddress
-    ) public view returns (address) {
+    ) public returns (address) {
         bytes32 salt = keccak256(
             abi.encodePacked(originNetwork, originTokenAddress)
         );
-        return
-            ClonesUpgradeable.predictDeterministicAddress(
+        testtest = ClonesUpgradeable.predictDeterministicAddress(
                 tokenImplementation,
                 salt
             );
+        return testtest;
     }
 }
