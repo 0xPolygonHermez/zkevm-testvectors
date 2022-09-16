@@ -196,6 +196,10 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         const noExec = require('./no-exec.json');
 
+                        if (file.includes('stEIP1559')) {
+                            await updateNoExec(dir, newOutputName, 'EIP1559 not supported', noExec);
+                        }
+
                         const listBreaksComputation = [];
                         noExec['breaks-computation'].forEach((elem) => listBreaksComputation.push(elem.name));
 
@@ -279,6 +283,9 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         for (let tx = 0; tx < txsTest.length; tx++) {
                             const txTest = txsTest[tx];
+                            if (txTest.type) {
+                                await updateNoExec(dir, newOutputName, 'tx.type not supported', noExec);
+                            }
                             if (Scalar.e(txTest.gasLimit) > zkcommonjs.Constants.BATCH_GAS_LIMIT) {
                                 txsTest[tx].gasLimit = zkcommonjs.Constants.BATCH_GAS_LIMIT;
                             }
