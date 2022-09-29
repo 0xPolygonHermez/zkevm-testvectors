@@ -12,7 +12,7 @@ const { toHexStringRlp } = require('@0xpolygonhermez/zkevm-commonjs').processorU
 const { Scalar } = require('ffjavascript');
 
 const calldataInputsDir = path.join(__dirname, '../../inputs-executor');
-
+const ethTestsDir = path.join(__dirname, '../../tools/ethereum-tests/GeneralStateTests');
 const EXECUTOR_PROTO_PATH = path.join(__dirname, '../../../zkevm-comms-protocol/proto/executor/v1/executor.proto');
 const DB_PROTO_PATH = path.join(__dirname, '../../../zkevm-comms-protocol/proto/statedb/v1/statedb.proto');
 
@@ -45,12 +45,13 @@ const { StateDBService } = stateDbProto;
 const fs = require('fs');
 const codes = require('./opcodes');
 
-const client = new ExecutorService('54.170.178.97:50071', grpc.credentials.createInsecure());
-const dbClient = new StateDBService('54.170.178.97:50061', grpc.credentials.createInsecure());
+const client = new ExecutorService('51.210.116.237:50071', grpc.credentials.createInsecure());
+const dbClient = new StateDBService('51.210.116.237:50061', grpc.credentials.createInsecure());
 let folders = [];
 const passedTests = [];
 const failedTests = [];
 const cancelledTests = [];
+const insertBytecode = false;
 /**
  * Test that runs all the inputs in inputs_executor folder to the a deployed prover.
  */
@@ -58,7 +59,8 @@ const cancelledTests = [];
 // localhost:50071
 describe('runInputs', async function () {
     try {
-        folders = fs.readdirSync(calldataInputsDir);
+        folders = fs.readdirSync(ethTestsDir).map((i) => `${ethTestsDir}/${i}`);
+        folders = folders.concat(fs.readdirSync(calldataInputsDir).map((i) => `${calldataInputsDir}/${i}`));
         runFolderTest(0);
     } catch (e) {
         console.log(e);
@@ -76,12 +78,10 @@ function runFolderTest(pos) {
         console.log(`Cancelled Tests: ${cancelledTests.toString()}`);
         process.exit(0);
     }
-    const folder = folders[pos];
-    const folderPath = `${calldataInputsDir}/${folder}`;
     // if (!fs.lstatSync(folderPath).isDirectory()) {
     //     continue;
     // }
-    const tests = fs.readdirSync(folderPath);
+    const tests = fs.readdirSync(folders[pos]).map((i) => `${folders[pos]}/${i}`);
     runTests(tests, 0, pos);
 }
 
@@ -98,10 +98,11 @@ async function runTests(tests, pos, folderPos) {
             runFolderTest(folderPos + 1);
             return;
         }
-        const test = tests[pos];
-        const folder = folders[folderPos];
-        const testPath = `${calldataInputsDir}/${folder}/${test}`;
-        const jsInput = JSON.parse(fs.readFileSync(testPath));
+        if (!tests[pos].endsWith('.json')) {
+            runTests(tests, pos + 1, folderPos);
+            return;
+        }
+        const jsInput = JSON.parse(fs.readFileSync(tests[pos]));
         // Populate db with input bytecode
         checkBytecode(jsInput, tests, pos, folderPos, 0);
     } catch (e) {
@@ -181,7 +182,7 @@ function formatSteps(steps) {
  * @param {Number} bcPos position of the bytecode in the contracts bytecode map
  */
 function checkBytecode(input, tests, pos, folderPos, bcPos) {
-    if (bcPos >= Object.keys(input.contractsBytecode).length) {
+    if (bcPos >= Object.keys(input.contractsBytecode).length || !insertBytecode) {
         processBatch(input, tests, pos, folderPos);
         return;
     }
@@ -286,7 +287,7 @@ function formatInput(jsInput) {
         // tx_hash_to_generate_execute_trace: 0,
         // tx_hash_to_generate_call_trace: Buffer.from('dde0848d8b85493472c4aa1b8414b4289409ed88047353e96b275a96e49efde6', 'hex'),
         db: formatDb(jsInput.db),
-        // contracts_bytecode: jsInput.contractsBytecode,
+        contracts_bytecode: jsInput.contractsBytecode,
     };
 }
 

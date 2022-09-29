@@ -12,6 +12,7 @@ const grpc = require('@grpc/grpc-js');
 const path = require('path');
 
 const calldataInputsDir = path.join(__dirname, '../../inputs-executor');
+const ethTestsDir = path.join(__dirname, '../../tools/ethereum-tests/GeneralStateTests');
 
 const EXECUTOR_PROTO_PATH = path.join(__dirname, '../../../zkevm-comms-protocol/proto/executor/v1/executor.proto');
 
@@ -34,7 +35,8 @@ const fs = require('fs');
 let totalTests = 0;
 let executedTests = 0;
 const failedTests = [];
-const client = new ExecutorService('54.170.178.97:50071', grpc.credentials.createInsecure());
+const client = new ExecutorService('51.210.116.237:50071', grpc.credentials.createInsecure());
+let folders = [];
 /**
  * Test that runs all the inputs in inputs_executor folder to the a deployed prover. It sends the tests concurrently
  */
@@ -42,13 +44,13 @@ const client = new ExecutorService('54.170.178.97:50071', grpc.credentials.creat
 // localhost:50071
 describe('runInputs', async function () {
     try {
-        const folders = fs.readdirSync(calldataInputsDir);
+        folders = fs.readdirSync(ethTestsDir).map((i) => `${ethTestsDir}/${i}`);
+        folders = folders.concat(fs.readdirSync(calldataInputsDir).map((i) => `${calldataInputsDir}/${i}`));
         for (const folder of folders) {
-            const folderPath = `${calldataInputsDir}/${folder}`;
-            if (!fs.lstatSync(folderPath).isDirectory()) {
+            if (!fs.lstatSync(folder).isDirectory()) {
                 continue;
             }
-            const tests = fs.readdirSync(folderPath);
+            const tests = fs.readdirSync(folder);
             totalTests += tests.length;
             runTests(tests, folder);
         }
@@ -65,9 +67,12 @@ describe('runInputs', async function () {
 async function runTests(tests, folder) {
     try {
         for (const test of tests) {
-            const testPath = `${calldataInputsDir}/${folder}/${test}`;
+            if (!test.endsWith('.json')) {
+                continue;
+            }
+            const testPath = `${folder}/${test}`;
             const jsInput = JSON.parse(fs.readFileSync(testPath));
-            processBatch(jsInput, test);
+            processBatch(jsInput, test, testPath);
         }
     } catch (e) {
         console.log(e);
@@ -79,7 +84,7 @@ async function runTests(tests, folder) {
  * @param {Object} input proverjs json input
  * @param {Array} test name of the test file
  */
-function processBatch(input, test) {
+function processBatch(input, test, testPath) {
     if (!test.endsWith('.json')) {
         executedTests += 1;
         return;
@@ -90,7 +95,7 @@ function processBatch(input, test) {
         try {
             if (error) throw error;
             executedTests += 1;
-            checkResponse(input, res, test);
+            checkResponse(input, res, testPath);
             if (executedTests >= totalTests) {
                 console.log(`Failed tests: ${failedTests.join(', ')}`);
             }
@@ -106,14 +111,14 @@ function processBatch(input, test) {
  * @param {Object} res the ouput object received
  * @param {String} test name of the test
  */
-function checkResponse(input, res, test) {
+function checkResponse(input, res, testPath) {
     // Check new state root
     if (input.newStateRoot !== `0x${res.new_state_root.toString('hex')}`) {
-        console.log('\x1b[31m', `Root mismatch at test ${test}`);
+        console.log('\x1b[31m', `Root mismatch at test ${testPath}`);
         console.log(`${input.newStateRoot} /// 0x${res.new_state_root.toString('hex')}`);
-        failedTests.push(test);
+        failedTests.push(testPath);
     } else {
-        console.log('\x1b[32m', `${test} passed`);
+        console.log('\x1b[32m', `${testPath} passed`);
     }
 }
 
