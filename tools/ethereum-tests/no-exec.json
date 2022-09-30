@@ -9,11 +9,43 @@
       "description": "Bug at merkle-patricia-level where rlp encoding/decoding is used. Address above 0x800...000 returns a not find node in the tree."
     },
     {
+      "name": "performanceTester_1",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
+      "name": "performanceTester_2",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
+      "name": "performanceTester_3",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
       "name": "performanceTester_4",
       "description": "not enough steps. Steps > 2**21"
     },
     {
+      "name": "stStaticCall/static_Call50000_1",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
       "name": "stStaticCall/static_Call50000bytesContract50_3_1",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
+      "name": "stStaticCall/static_Call50000bytesContract50_2_1",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
+      "name": "stStaticCall/static_LoopCallsThenRevert_0",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
+      "name": "stStaticCall/static_LoopCallsThenRevert_1",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
+      "name": "stStaticCall/static_Return50000_2",
       "description": "not enough steps. Steps > 2**21"
     },
     {
@@ -54,6 +86,22 @@
     },
     {
       "name": "stMemoryStressTest/mload32bitBound_return",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "stMemoryTest/stackLimitPush31_1024",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "stMemoryTest/stackLimitPush31_1025",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "stMemoryTest/stackLimitPush32_1024",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "stMemoryTest/stackLimitPush32_1025",
       "description": "Error: JavaScript heap out of memory"
     }
   ],
@@ -8828,6 +8876,18 @@
     },
     {
       "name": "stEIP2930/variedContext_9",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP1559/typeTwoBerlin",
+      "description": "EIP1559 not supported"
+    },
+    {
+      "name": "stRefundTest/refundMax",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stRefundTest/refundSSTORE",
       "description": "tx.type not supported"
     }
   ]
