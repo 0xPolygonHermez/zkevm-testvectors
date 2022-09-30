@@ -83,6 +83,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 oldLocalExitRoot,
                 globalExitRoot,
                 timestamp,
+                chainId,
             } = testVectors[i];
             console.log(`Executing test-vector id: ${id}`);
 
@@ -94,6 +95,9 @@ describe('Generate inputs executor from test-vectors', async function () {
                 [F.zero, F.zero, F.zero, F.zero],
                 zkcommonjs.smtUtils.stringToH4(oldLocalExitRoot),
                 genesis,
+                null,
+                null,
+                chainId,
             );
 
             // NEW VM
@@ -170,7 +174,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 }
                 // check tx chainId
                 const sign = !(Number(tx.v) & 1);
-                const chainId = (Number(tx.v) - 35) >> 1;
+                const txChainId = (Number(tx.v) - 35) >> 1;
                 // add tx to txList with customRawTx
                 const messageToHash = [
                     tx.nonce.toString(16),
@@ -179,7 +183,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                     to.toString(16),
                     tx.value.toString(16),
                     tx.data.toString('hex'),
-                    ethers.utils.hexlify(chainId),
+                    ethers.utils.hexlify(txChainId),
                     '0x',
                     '0x',
                 ];
