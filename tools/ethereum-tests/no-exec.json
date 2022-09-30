@@ -45,7 +45,7 @@
       "description": "not enough steps. Steps > 2**21"
     },
     {
-      "name": "stStaticCall/static_Return50000",
+      "name": "stStaticCall/static_Return50000_2",
       "description": "not enough steps. Steps > 2**21"
     },
     {
@@ -86,6 +86,22 @@
     },
     {
       "name": "stMemoryStressTest/mload32bitBound_return",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "stMemoryTest/stackLimitPush31_1024",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "stMemoryTest/stackLimitPush31_1025",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "stMemoryTest/stackLimitPush32_1024",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "stMemoryTest/stackLimitPush32_1025",
       "description": "Error: JavaScript heap out of memory"
     }
   ],
