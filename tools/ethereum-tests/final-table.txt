@@ -4,51 +4,51 @@
 |             stAttackTest             |         |      |         |   2   |         0          |  0  |    2    | 100% |
 |             stBadOpcode              | x       |      |         |  203  |        172         |  6  |   25    | 97%  |
 |                stBugs                |         |      |         |   9   |         7          |  0  |    2    | 100% |
-|             stCallCodes              | x       |      |         |  87   |         60         |  7  |   20    | 90%  |
-|       stCallCreateCallCodeTest       |         |      |         |  55   |         32         | 12  |   11    | 73%  |
-| stCallDelegateCodesCallCodeHomestead | x       |      |         |  58   |         34         |  7  |   17    | 83%  |
-|     stCallDelegateCodesHomestead     | x       |      |         |  58   |         35         |  6  |   17    | 85%  |
+|             stCallCodes              | x       |      |         |  87   |         67         |  0  |   20    | 100% |
+|       stCallCreateCallCodeTest       |         |      |         |  55   |         38         |  6  |   11    | 86%  |
+| stCallDelegateCodesCallCodeHomestead | x       |      |         |  58   |         41         |  0  |   17    | 100% |
+|     stCallDelegateCodesHomestead     | x       |      |         |  58   |         41         |  0  |   17    | 100% |
 |              stChainId               | x       | x    |         |   2   |         1          |  0  |    1    | 100% |
 |            stCodeCopyTest            | x       | x    |         |   2   |         2          |  0  |    0    | 100% |
 |           stCodeSizeLimit            | x       | x    |         |   5   |         5          |  0  |    0    | 100% |
 |              stCreate2               |         |      |         |  154  |        107         |  3  |   44    | 97%  |
 |             stCreateTest             | x       |      |    x    |  95   |         73         |  9  |   13    | 89%  |
-|     stDelegatecallTestHomestead      |         |      |         |  31   |         23         |  8  |    0    | 74%  |
+|     stDelegatecallTestHomestead      |         |      |         |  31   |         26         |  5  |    0    | 84%  |
 |           stEIP150Specific           |         |      |         |  13   |         11         |  0  |    2    | 100% |
-|     stEIP150singleCodeGasPrices      |         |      |         |  339  |        326         |  3  |   10    | 99%  |
-|              stEIP1559               |         |      |         |   1   |         0          |  1  |    0    |  0%  |
+|     stEIP150singleCodeGasPrices      |         |      |         |  339  |        328         |  1  |   10    | 100% |
+|              stEIP1559               |         |      |         |   1   |         0          |  0  |    1    | 100% |
 |           stEIP158Specific           | x       | x    |         |   7   |         4          |  0  |    3    | 100% |
-|              stEIP2930               |         |      |         |  138  |         29         | 77  |   32    | 27%  |
+|              stEIP2930               |         |      |         |  138  |         3          |  0  |   135   | 100% |
 |              stEIP3607               |         |      |         |   5   |         0          |  5  |    0    |  0%  |
-|              stExample               |         |      |         |  38   |         32         |  6  |    0    | 84%  |
-|            stExtCodeHash             | x       |      |         |  65   |         14         | 32  |   19    | 30%  |
+|              stExample               |         |      |         |  38   |         32         |  4  |    2    | 89%  |
+|            stExtCodeHash             | x       |      |         |  65   |         17         | 29  |   19    | 37%  |
 |         stHomesteadSpecific          |         |      |         |   5   |         4          |  1  |    0    | 80%  |
 |            stInitCodeTest            |         |      |         |  22   |         21         |  0  |    1    | 100% |
 |              stLogTests              | x       | x    |         |  46   |         46         |  0  |    0    | 100% |
-|      stMemExpandingEIP150Calls       |         |      |         |  10   |         8          |  2  |    0    | 80%  |
+|      stMemExpandingEIP150Calls       |         |      |         |  10   |         9          |  1  |    0    | 90%  |
 |          stMemoryStressTest          |         |      |         |  82   |         44         |  6  |   32    | 88%  |
-|             stMemoryTest             | x       |      |    x    |  578  |        221         |  2  |   355   | 99%  |
+|             stMemoryTest             | x       |      |    x    |  578  |        217         |  6  |   355   | 97%  |
 |          stNonZeroCallsTest          |         |      |         |  24   |         12         |  8  |    4    | 60%  |
-|        stPreCompiledContracts        | x       |      |    x    |  960  |        548         | 181 |   231   | 75%  |
-|       stPreCompiledContracts2        |         |      |         |  203  |         53         |  9  |   141   | 85%  |
-|      stQuadraticComplexityTest       |         |      |         |  32   |         10         | 11  |   11    | 48%  |
-|               stRandom               |         |      |         |  313  |        149         | 34  |   130   | 81%  |
-|              stRandom2               |         |      |         |  226  |        149         | 31  |   46    | 83%  |
+|        stPreCompiledContracts        | x       |      |    x    |  960  |        668         | 61  |   231   | 92%  |
+|       stPreCompiledContracts2        |         |      |         |  203  |         54         |  8  |   141   | 87%  |
+|      stQuadraticComplexityTest       |         |      |         |  32   |         11         | 10  |   11    | 52%  |
+|               stRandom               |         |      |         |  313  |        154         | 29  |   130   | 84%  |
+|              stRandom2               |         |      |         |  226  |        152         | 28  |   46    | 84%  |
 |          stRecursiveCreate           |         |      |         |   2   |         2          |  0  |    0    | 100% |
-|             stRefundTest             | x       | x    |         |  26   |         13         |  0  |   13    | 100% |
-|           stReturnDataTest           |         |      |         |  81   |         40         | 10  |   31    | 80%  |
-|             stRevertTest             |         |      |         |  271  |        135         |  4  |   132   | 97%  |
+|             stRefundTest             | x       | x    |         |  26   |         11         |  0  |   15    | 100% |
+|           stReturnDataTest           |         |      |         |  81   |         46         |  4  |   31    | 92%  |
+|             stRevertTest             |         |      |         |  271  |        136         |  3  |   132   | 98%  |
 |             stSLoadTest              | x       | x    |         |   1   |         1          |  0  |    0    | 100% |
 |             stSStoreTest             | x       | x    |         |  475  |        467         |  0  |    8    | 100% |
 |            stSelfBalance             |         | x    |    x    |   7   |         7          |  0  |    0    | 100% |
-|               stShift                |         |      |         |  42   |         32         |  9  |    1    | 78%  |
-|            stSolidityTest            |         |      |         |  23   |         17         |  1  |    5    | 94%  |
+|               stShift                |         |      |         |  42   |         40         |  1  |    1    | 98%  |
+|            stSolidityTest            |         |      |         |  23   |         18         |  0  |    5    | 100% |
 |            stSpecialTest             |         |      |         |  14   |         6          |  4  |    4    | 60%  |
-|             stStackTests             | x       |      |    x    |  375  |        192         | 10  |   173   | 95%  |
-|             stStaticCall             |         |      |         |  478  |        368         | 38  |   72    | 91%  |
+|             stStackTests             | x       |      |    x    |  375  |        202         |  0  |   173   | 100% |
+|             stStaticCall             |         |      |         |  478  |        387         | 19  |   72    | 95%  |
 |         stStaticFlagEnabled          |         |      |         |  34   |         24         |  0  |   10    | 100% |
-|        stSystemOperationsTest        |         |      |         |  69   |         48         |  7  |   14    | 87%  |
-|           stTimeConsuming            | x       | x    |         | 5190  |        4227        | 960 |    3    | 81%  |
+|        stSystemOperationsTest        |         |      |         |  69   |         49         |  6  |   14    | 89%  |
+|           stTimeConsuming            | x       | x    |         | 5190  |        5187        |  0  |    3    | 100% |
 |          stTransactionTest           | x       |      |         |  168  |        148         | 11  |    9    | 93%  |
 |           stTransitionTest           |         | x    |         |   6   |         6          |  0  |    0    | 100% |
 |             stWalletTest             |         | x    |         |  46   |         43         |  0  |    3    | 100% |
@@ -56,4 +56,4 @@
 |           stZeroCallsTest            |         | x    |         |  24   |         12         |  8  |    4    | 60%  |
 |           stZeroKnowledge2           |         |      |         |  519  |         0          |  0  |   519   | 100% |
 |           stZeroKnowledge            |         |      |         |  800  |         0          |  0  |   800   | 100% |
-|               VMTests                |         |      |         |  651  |        532         | 30  |   89    | 95%  |
+|               VMTests                |         |      |         |  651  |        534         | 28  |   89    | 95%  |
