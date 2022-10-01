@@ -15,6 +15,6 @@ do
     if [ -d $entry ]
     then
         folder=$(echo $entry | cut -d '/' -f 3)
-        npx --max-old-space-size=12000 mocha gen-inputs.js --folder $folder
+        npx --max-old-space-size=12000 mocha --timeout 0 gen-inputs.js --folder $folder
     fi
 done

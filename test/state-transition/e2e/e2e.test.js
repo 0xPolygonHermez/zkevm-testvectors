@@ -114,6 +114,8 @@ describe('Proof of efficiency test vectors', function () {
             testE2E.sequencerAddress,
             allowForcebatches,
             urlSequencer,
+            1000,
+            'matic',
         );
     });
     it('End to end test', async () => {
@@ -133,6 +135,7 @@ describe('Proof of efficiency test vectors', function () {
             timestamp,
             bridgeDeployed,
             sequencerPvtKey,
+            chainID,
         } = testE2E;
 
         /*
@@ -194,6 +197,7 @@ describe('Proof of efficiency test vectors', function () {
             genesis,
             null,
             null,
+            chainID,
         );
 
         // Check evm contract params
@@ -516,6 +520,7 @@ describe('Proof of efficiency test vectors', function () {
             circuitInput.batchHashData,
             numBatch,
             sequence.timestamp,
+            chainID,
         );
 
         // Compute Js input
@@ -527,6 +532,7 @@ describe('Proof of efficiency test vectors', function () {
             circuitInput.batchHashData,
             numBatch,
             sequence.timestamp,
+            chainID,
         );
         const circuitInputSCHex = `0x${Scalar.e(circuitInputSC).toString(16).padStart(64, '0')}`;
         expect(circuitInputSCHex).to.be.equal(circuitInputJS);
@@ -548,6 +554,7 @@ describe('Proof of efficiency test vectors', function () {
             circuitInput.batchHashData,
             numBatch,
             sequence.timestamp,
+            chainID,
             aggregator.address,
         );
 
@@ -559,6 +566,7 @@ describe('Proof of efficiency test vectors', function () {
             batchHashData,
             numBatch,
             sequence.timestamp,
+            chainID,
             aggregator.address,
         );
 

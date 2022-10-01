@@ -56,6 +56,7 @@ describe('Run state-transition tests', function () {
                     batchHashData,
                     inputHash,
                     timestamp,
+                    chainID,
                 } = testVectors[j];
 
                 const db = new MemDB(F);
@@ -155,6 +156,9 @@ describe('Run state-transition tests', function () {
                     [F.zero, F.zero, F.zero, F.zero],
                     smtUtils.stringToH4(oldLocalExitRoot),
                     genesis,
+                    null,
+                    null,
+                    chainID,
                 );
 
                 // check genesis root
@@ -183,6 +187,7 @@ describe('Run state-transition tests', function () {
 
                 if (update) {
                     testVectors[j].expectedNewRoot = smtUtils.h4toString(newRoot);
+                    testVectors[j].chainID = 1000;
                 } else {
                     expect(smtUtils.h4toString(newRoot)).to.be.equal(expectedNewRoot);
                 }

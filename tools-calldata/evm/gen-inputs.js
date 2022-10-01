@@ -83,9 +83,11 @@ describe('Generate inputs executor from test-vectors', async function () {
                 oldLocalExitRoot,
                 globalExitRoot,
                 timestamp,
-                chainId,
+                chainID,
             } = testVectors[i];
             console.log(`Executing test-vector id: ${id}`);
+
+            if (!chainID) chainID = 1000;
 
             // init SMT Db
             const db = new zkcommonjs.MemDB(F);
@@ -97,7 +99,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 genesis,
                 null,
                 null,
-                chainId,
+                chainID,
             );
 
             // NEW VM
@@ -291,7 +293,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 for (const step of txSteps) {
                     if (step) {
                         // Format memory
-                        let memory = step.memory.data.map((v) => v.toString(16)).join('').padStart(192, '0');
+                        let memory = step.memory.map((v) => v.toString(16)).join('').padStart(192, '0');
                         memory = memory.match(/.{1,32}/g); // split in 32 bytes slots
                         memory = memory.map((v) => `0x${v}`);
 
