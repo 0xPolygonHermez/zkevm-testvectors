@@ -1,6 +1,6 @@
 {
     "name": "@0xpolygonhermez/test-vectors",
-    "version": "0.0.4",
+    "version": "0.4.0.0",
     "description": "Maintained tests:",
     "main": "index.js",
     "scripts": {
@@ -29,8 +29,8 @@
     "author": "",
     "license": "pending",
     "dependencies": {
-        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#v0.0.42",
-        "@0xpolygonhermez/zkevm-contracts": "github:0xPolygonHermez/zkevm-contracts#v0.0.7",
+        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#v0.4.0.1",
+        "@0xpolygonhermez/zkevm-contracts": "github:0xPolygonHermez/zkevm-contracts#v0.4.0.0",
         "@ethereumjs/common": "^2.6.2",
         "@grpc/grpc-js": "^1.6.10",
         "@nomiclabs/hardhat-ethers": "^2.0.5",

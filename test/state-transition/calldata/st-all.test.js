@@ -52,7 +52,10 @@ describe('Run state-transition tests: calldata', async function () {
                     oldLocalExitRoot,
                     globalExitRoot,
                     timestamp,
+                    chainID,
                 } = testVectors[i];
+
+                if (!chainID) chainID = 1000;
 
                 // init SMT Db
                 const db = new zkcommonjs.MemDB(F);
@@ -62,6 +65,9 @@ describe('Run state-transition tests: calldata', async function () {
                     [F.zero, F.zero, F.zero, F.zero],
                     zkcommonjs.smtUtils.stringToH4(oldLocalExitRoot),
                     genesis,
+                    null,
+                    null,
+                    chainID,
                 );
 
                 expect(zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);

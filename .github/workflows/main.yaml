@@ -5,9 +5,13 @@ name: Check test-vectors
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - develop
   pull_request:
-    branches: [main]
+    branches:
+      - main
+      - develop
   repository_dispatch:
     types: [ok-to-test-command]
 

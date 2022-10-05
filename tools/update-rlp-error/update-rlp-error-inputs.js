@@ -22,6 +22,7 @@ async function main() {
         // overwrite all parameters to new ones expect "batchL2Data", "batchHashData" & "inputHash"
         inputRLP.oldStateRoot = generalInput.oldStateRoot;
         inputRLP.newStateRoot = generalInput.newStateRoot;
+        inputRLP.chainID = generalInput.chainID;
         inputRLP.chainId = generalInput.chainId;
         inputRLP.db = generalInput.db;
         inputRLP.sequencerAddr = generalInput.sequencerAddr;
@@ -46,6 +47,7 @@ async function main() {
             inputRLP.batchHashData,
             inputRLP.numBatch,
             inputRLP.timestamp,
+            inputRLP.chainID,
         );
         delete inputRLP.keys;
 

@@ -106,15 +106,15 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
         evmDebug = !!(argv['evm-debug']);
         let files = [];
         if (file === 'all') {
-            const direc = path.join(__dirname, fs.readdirSync(basePath));
+            const direc = fs.readdirSync(path.join(__dirname, basePath));
             for (let x = 0; x < direc.length; x++) {
                 const path1 = `${basePath}/${direc[x]}`;
-                const direc2 = fs.readdirSync(path1);
+                const direc2 = fs.readdirSync(path.join(__dirname, path1));
                 for (let x2 = 0; x2 < direc2.length; x2++) {
                     const path2 = `${path1}/${direc2[x2]}`;
-                    const filesDirec = fs.readdirSync(path2);
+                    const filesDirec = fs.readdirSync(path.join(__dirname, path2));
                     for (let y = 0; y < filesDirec.length; y++) {
-                        const path3 = `${path2}/${filesDirec[y]}`;
+                        const path3 = path.join(__dirname, `${path2}/${filesDirec[y]}`);
                         let stats = fs.statSync(path3);
                         if (stats.isFile()) {
                             files.push(path3);
@@ -196,6 +196,10 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         const noExec = require('./no-exec.json');
 
+                        if (file.includes('stEIP1559')) {
+                            await updateNoExec(dir, newOutputName, 'EIP1559 not supported', noExec);
+                        }
+
                         const listBreaksComputation = [];
                         noExec['breaks-computation'].forEach((elem) => listBreaksComputation.push(elem.name));
 
@@ -270,6 +274,9 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             [F.zero, F.zero, F.zero, F.zero],
                             zkcommonjs.smtUtils.stringToH4(oldLocalExitRoot),
                             genesis,
+                            null,
+                            null,
+                            chainIdSequencer,
                         );
                         const batch = await zkEVMDB.buildBatch(
                             timestamp,
@@ -279,6 +286,9 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         for (let tx = 0; tx < txsTest.length; tx++) {
                             const txTest = txsTest[tx];
+                            if (txTest.type) {
+                                await updateNoExec(dir, newOutputName, 'tx.type not supported', noExec);
+                            }
                             if (Scalar.e(txTest.gasLimit) > zkcommonjs.Constants.BATCH_GAS_LIMIT) {
                                 txsTest[tx].gasLimit = zkcommonjs.Constants.BATCH_GAS_LIMIT;
                             }

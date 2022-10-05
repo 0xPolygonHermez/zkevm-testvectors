@@ -6,7 +6,9 @@ cd ../../../zkevm-proverjs
 commit_proverjs=$(git rev-parse HEAD)
 cd ../zkevm-rom
 commit_rom=$(git rev-parse HEAD)
-cd ../zkevm-testvectors/tools/ethereum-tests
+cd ../zkevm-testvectors/tools/ethereum-tests/tests
+commit_eth_tests=$(git rev-parse HEAD)
+cd ../
 echo -e "Commit zkevm-testvectors: $commit_testvectors" >> eth-inputs/final-info.txt
 echo -e "Commit zkevm-rom: $commit_rom" >> eth-inputs/final-info.txt
 echo -e "Commit zkevm-proverjs: $commit_proverjs\n" >> eth-inputs/final-info.txt
@@ -35,7 +37,12 @@ do
             let err_exec_perc=(100*$err_exec2+$tests2/2)/$tests2
             let ok_perc=(100*$ok2+$tests2/2)/$tests2
             let aux=$tests2-$not_sup2
-            let cov_perc=(100*$ok2+$aux/2)/$aux
+            if [[ $aux == 0 ]]
+            then
+                let cov_perc=100
+            else
+                let cov_perc=(100*$ok2+$aux/2)/$aux
+            fi
             echo -e "Test $entry2" >> eth-inputs/final-info.txt
             echo -e "Files: $files2" >> eth-inputs/final-info.txt
             echo -e "Tests: $tests2" >> eth-inputs/final-info.txt
@@ -74,5 +81,5 @@ let p4=(100*$not_sup+$tests/2)/$tests
 let aux_cov=$tests-$not_sup
 let p5=(100*$ok+$aux_cov/2)/$aux_cov
 
-echo -e "Commit zkevm-testvectors: $commit_testvectors \nCommit zkevm-rom: $commit_rom \nCommit zkevm-proverjs: $commit_proverjs \nFiles: $files \nTotal tests: $tests \nGeneration errors: $err_gen \nInputs: $inputs \nInputs ok: $ok \nExec errors: $err_exec \nNot supported: $not_sup \n----------------------------- \nTests: 100% \nTests ok: $p3% \nExec Error: $p2% \nGeneration Error: $p1% \nNot supported: $p4%  \nCoverage: $p5%" > eth-inputs/final.txt
+echo -e "Commit ethereum/tests: $commit_eth_tests \nCommit zkevm-testvectors: $commit_testvectors \nCommit zkevm-rom: $commit_rom \nCommit zkevm-proverjs: $commit_proverjs \nFiles: $files \nTotal tests: $tests \nGeneration errors: $err_gen \nInputs: $inputs \nInputs ok: $ok \nExec errors: $err_exec \nNot supported: $not_sup \n----------------------------- \nTests: 100% \nTests ok: $p3% \nExec Error: $p2% \nGeneration Error: $p1% \nNot supported: $p4%  \nCoverage: $p5%" > eth-inputs/final.txt
 cat eth-inputs/final.txt

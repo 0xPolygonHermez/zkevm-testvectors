@@ -122,6 +122,8 @@ describe('Proof of efficiency test vectors', function () {
             testVectors[0].sequencerAddress,
             allowForcebatches,
             urlSequencer,
+            1000,
+            'matic',
         );
         await proofOfEfficiencyContract.deployed();
 
@@ -158,6 +160,7 @@ describe('Proof of efficiency test vectors', function () {
             batchHashData,
             inputHash,
             timestamp,
+            chainID,
         } = testVectors[i];
         // eslint-disable-next-line no-loop-func
         it(`Test vectors id: ${id}`, async () => {
@@ -260,6 +263,9 @@ describe('Proof of efficiency test vectors', function () {
                 [F.zero, F.zero, F.zero, F.zero],
                 smtUtils.stringToH4(oldLocalExitRoot),
                 genesis,
+                null,
+                null,
+                chainID,
             );
 
             // check genesis root
@@ -429,6 +435,7 @@ describe('Proof of efficiency test vectors', function () {
                     circuitInput.batchHashData,
                     numBatch,
                     sequence.timestamp,
+                    chainID,
                 );
 
                 // Compute Js input
@@ -440,6 +447,7 @@ describe('Proof of efficiency test vectors', function () {
                     circuitInput.batchHashData,
                     numBatch,
                     sequence.timestamp,
+                    chainID,
                 );
                 const circuitInputSCHex = `0x${Scalar.e(circuitInputSC).toString(16).padStart(64, '0')}`;
                 expect(circuitInputSCHex).to.be.equal(circuitInputJS);
@@ -461,6 +469,7 @@ describe('Proof of efficiency test vectors', function () {
                     circuitInput.batchHashData,
                     numBatch,
                     sequence.timestamp,
+                    chainID,
                     aggregator.address,
                 );
 
@@ -472,6 +481,7 @@ describe('Proof of efficiency test vectors', function () {
                     batchHashData,
                     numBatch,
                     sequence.timestamp,
+                    chainID,
                     aggregator.address,
                 );
 

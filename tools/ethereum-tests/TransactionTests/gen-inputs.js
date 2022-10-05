@@ -135,6 +135,9 @@ describe('Generate inputs executor from test-vectors', async function () {
                     [F.zero, F.zero, F.zero, F.zero],
                     zkcommonjs.smtUtils.stringToH4(oldLocalExitRoot),
                     genesis,
+                    null,
+                    null,
+                    chainIdSequencer,
                 );
 
                 // for (let i = 0; i < genesis.length; i++) {

@@ -9,11 +9,43 @@
       "description": "Bug at merkle-patricia-level where rlp encoding/decoding is used. Address above 0x800...000 returns a not find node in the tree."
     },
     {
+      "name": "performanceTester_1",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
+      "name": "performanceTester_2",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
+      "name": "performanceTester_3",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
       "name": "performanceTester_4",
       "description": "not enough steps. Steps > 2**21"
     },
     {
+      "name": "stStaticCall/static_Call50000_1",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
       "name": "stStaticCall/static_Call50000bytesContract50_3_1",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
+      "name": "stStaticCall/static_Call50000bytesContract50_2_1",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
+      "name": "stStaticCall/static_LoopCallsThenRevert_0",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
+      "name": "stStaticCall/static_LoopCallsThenRevert_1",
+      "description": "not enough steps. Steps > 2**21"
+    },
+    {
+      "name": "stStaticCall/static_Return50000_2",
       "description": "not enough steps. Steps > 2**21"
     },
     {
@@ -55,6 +87,14 @@
     {
       "name": "stMemoryStressTest/mload32bitBound_return",
       "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "stMemoryTest/stackLimitPush31",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "stMemoryTest/stackLimitPush32",
+      "description": "Error: JavaScript heap out of memory"
     }
   ],
   "not-supported": [
@@ -80,7 +120,7 @@
     },
     {
       "name": "stMemoryTest/buffer_194",
-      "description": "Bbatch gas limit > 30M"
+      "description": "Batch gas limit > 30M"
     },
     {
       "name": "stMemoryTest/buffer_197",
@@ -8677,6 +8717,178 @@
     {
       "name": "stZeroKnowledge2/ecmul_1-2_2_21000_96_3",
       "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stEIP1559/typeTwoBerlin",
+      "description": "EIP1559 not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_0",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_1",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_2",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_3",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_4",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_5",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_6",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_7",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_8",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_9",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/coinbaseT01_1",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/coinbaseT01_2",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/manualCreate_0",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/manualCreate_1",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/manualCreate_2",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_0",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_1",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_2",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_3",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_4",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_5",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_6",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_7",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_8",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/transactionCosts_1",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/transactionCosts_2",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/transactionCosts_3",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/transactionCosts_4",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/transactionCosts_5",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/transactionCosts_6",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/transactionCosts_7",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/transactionCosts_8",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/transactionCosts_9",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/variedContext_0",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/variedContext_7",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/variedContext_8",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/variedContext_9",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP1559/typeTwoBerlin",
+      "description": "EIP1559 not supported"
+    },
+    {
+      "name": "stExample/accessListExample_0",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stExample/accessListExample_1",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stRefundTest/refundMax",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stRefundTest/refundSSTORE",
+      "description": "tx.type not supported"
     }
   ]
 }
