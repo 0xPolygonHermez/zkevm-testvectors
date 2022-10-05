@@ -122,6 +122,8 @@ describe('Proof of efficiency test vectors', function () {
             testVectors[0].sequencerAddress,
             allowForcebatches,
             urlSequencer,
+            1000,
+            'matic',
         );
         await proofOfEfficiencyContract.deployed();
 
@@ -433,6 +435,7 @@ describe('Proof of efficiency test vectors', function () {
                     circuitInput.batchHashData,
                     numBatch,
                     sequence.timestamp,
+                    chainID,
                 );
 
                 // Compute Js input
@@ -444,6 +447,7 @@ describe('Proof of efficiency test vectors', function () {
                     circuitInput.batchHashData,
                     numBatch,
                     sequence.timestamp,
+                    chainID,
                 );
                 const circuitInputSCHex = `0x${Scalar.e(circuitInputSC).toString(16).padStart(64, '0')}`;
                 expect(circuitInputSCHex).to.be.equal(circuitInputJS);
@@ -465,6 +469,7 @@ describe('Proof of efficiency test vectors', function () {
                     circuitInput.batchHashData,
                     numBatch,
                     sequence.timestamp,
+                    chainID,
                     aggregator.address,
                 );
 
@@ -476,6 +481,7 @@ describe('Proof of efficiency test vectors', function () {
                     batchHashData,
                     numBatch,
                     sequence.timestamp,
+                    chainID,
                     aggregator.address,
                 );
 
