@@ -83,8 +83,11 @@ describe('Generate inputs executor from test-vectors', async function () {
                 oldLocalExitRoot,
                 globalExitRoot,
                 timestamp,
+                chainID,
             } = testVectors[i];
             console.log(`Executing test-vector id: ${id}`);
+
+            if (!chainID) chainID = 1000;
 
             // init SMT Db
             const db = new zkcommonjs.MemDB(F);
@@ -94,6 +97,9 @@ describe('Generate inputs executor from test-vectors', async function () {
                 [F.zero, F.zero, F.zero, F.zero],
                 zkcommonjs.smtUtils.stringToH4(oldLocalExitRoot),
                 genesis,
+                null,
+                null,
+                chainID,
             );
 
             // NEW VM
@@ -170,7 +176,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 }
                 // check tx chainId
                 const sign = !(Number(tx.v) & 1);
-                const chainId = (Number(tx.v) - 35) >> 1;
+                const txChainId = (Number(tx.v) - 35) >> 1;
                 // add tx to txList with customRawTx
                 const messageToHash = [
                     tx.nonce.toString(16),
@@ -179,7 +185,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                     to.toString(16),
                     tx.value.toString(16),
                     tx.data.toString('hex'),
-                    ethers.utils.hexlify(chainId),
+                    ethers.utils.hexlify(txChainId),
                     '0x',
                     '0x',
                 ];
@@ -287,7 +293,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 for (const step of txSteps) {
                     if (step) {
                         // Format memory
-                        let memory = step.memory.data.map((v) => v.toString(16)).join('').padStart(192, '0');
+                        let memory = step.memory.map((v) => v.toString(16)).join('').padStart(192, '0');
                         memory = memory.match(/.{1,32}/g); // split in 32 bytes slots
                         memory = memory.map((v) => `0x${v}`);
 
