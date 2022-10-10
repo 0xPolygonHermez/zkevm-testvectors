@@ -231,9 +231,9 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             accountPkFrom = source[(file.split('/')[file.split('/').length - 1]).split('.json')[0]].transaction.secretKey;
                             accountPkFrom = accountPkFrom.startsWith('0x') ? accountPkFrom : `0x${accountPkFrom}`;
                             accountPkFrom = toBuffer(accountPkFrom);
-                        } else {
+                        } else if (currentTest._info.source.endsWith('.yml')) {
                             const s = fs.readFileSync(path.join(__dirname, `./tests/${currentTest._info.source}`), 'utf8');
-                            let indNum = s.search('secretKey');
+                            let indNum = s.search('secretKey:');
                             while (s.substring(indNum, indNum + 1) !== ' ') {
                                 indNum += 1;
                             }
@@ -241,6 +241,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             if (s.substring(indNum, indNum + 1) === '"' || s.substring(indNum, indNum + 1) === '\'') { indNum += 1; }
                             if (s.substring(indNum, indNum + 2) === '0x') { indNum += 2; }
                             accountPkFrom = toBuffer(`0x${s.substring(indNum, indNum + 64)}`);
+                        } else {
+                            throw new Error('Error info source (json or yml)');
                         }
                         const oldLocalExitRoot = '0x0000000000000000000000000000000000000000000000000000000000000000';
                         const { timestamp } = currentTest.blocks[0].blockHeader;
@@ -283,7 +285,18 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             sequencerAddress,
                             zkcommonjs.smtUtils.stringToH4(globalExitRoot),
                         );
-
+                        if (txsTest.length === 0) {
+                            if (currentTest.blocks[0].transactionSequence.length > 0) {
+                                for (let tx = 0; tx < currentTest.blocks[0].transactionSequence.length; tx++) {
+                                    const { rawBytes } = currentTest.blocks[0].transactionSequence[tx];
+                                    const transaction = ethers.utils.parseTransaction(rawBytes);
+                                    transaction.gasPrice = transaction.gasPrice._hex;
+                                    transaction.gasLimit = transaction.gasLimit._hex;
+                                    transaction.value = transaction.value._hex;
+                                    txsTest.push(transaction);
+                                }
+                            }
+                        }
                         for (let tx = 0; tx < txsTest.length; tx++) {
                             const txTest = txsTest[tx];
                             if (txTest.type) {
@@ -296,6 +309,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             if (txTest.r) delete txTest.r;
                             if (txTest.s) delete txTest.s;
                             if (txTest.v) delete txTest.v;
+                            if (txTest.type === null) delete txTest.type;
                             let txSigned = Transaction.fromTxData(txTest, { common: commonCustom }).sign(accountPkFrom);
                             const sign = !(Number(txSigned.v) & 1);
                             const chainId = (Number(txSigned.v) - 35) >> 1;
@@ -323,7 +337,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         await batch.executeTxs();
 
-                        if (batch.evmSteps[0].length > 0) {
+                        if (batch.evmSteps[0] && batch.evmSteps[0].length > 0) {
                             const { updatedAccounts } = batch;
                             if (updatedAccounts['0x0000000000000000000000000000000000000002']) {
                                 await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExec);
