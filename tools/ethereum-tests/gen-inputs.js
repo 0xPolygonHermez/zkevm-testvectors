@@ -290,6 +290,9 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                 for (let tx = 0; tx < currentTest.blocks[0].transactionSequence.length; tx++) {
                                     const { rawBytes } = currentTest.blocks[0].transactionSequence[tx];
                                     const transaction = ethers.utils.parseTransaction(rawBytes);
+                                    if (transaction.type) {
+                                        await updateNoExec(dir, newOutputName, 'tx.type not supported', noExec);
+                                    }
                                     transaction.gasPrice = transaction.gasPrice._hex;
                                     transaction.gasLimit = transaction.gasLimit._hex;
                                     transaction.value = transaction.value._hex;
