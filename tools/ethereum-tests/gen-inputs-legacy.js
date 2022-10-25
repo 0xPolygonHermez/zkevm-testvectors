@@ -383,10 +383,12 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                     }
 
                                     if (infoExpect.storage && Object.keys(infoExpect.storage).length > 0) {
-                                        const storage = await zkEVMDB.dumpStorage(address);
-                                        for (let elem in infoExpect.storage) {
-                                            if (Scalar.e(infoExpect.storage[elem]) !== Scalar.e(0)) {
-                                                expect(Scalar.e(infoExpect.storage[elem])).to.be.equal(Scalar.e(storage[`0x${elem.slice(2).padStart(64, '0')}`]));
+                                        if (address !== ethers.constants.AddressZero) {
+                                            const storage = await zkEVMDB.dumpStorage(address);
+                                            for (let elem in infoExpect.storage) {
+                                                if (Scalar.e(infoExpect.storage[elem]) !== Scalar.e(0)) {
+                                                    expect(Scalar.e(infoExpect.storage[elem])).to.be.equal(Scalar.e(storage[`0x${elem.slice(2).padStart(64, '0')}`]));
+                                                }
                                             }
                                         }
                                     }

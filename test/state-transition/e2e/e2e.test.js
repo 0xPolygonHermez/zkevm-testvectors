@@ -456,6 +456,10 @@ describe('Proof of efficiency test vectors', function () {
             testE2E.batchHashData = circuitInput.batchHashData;
             testE2E.inputHash = circuitInput.inputHash;
             testE2E.newLocalExitRoot = circuitInput.newLocalExitRoot;
+            // Write executor input
+            const folderInputsExecutor = path.join(pathTestVectors, './inputs-executor/e2e');
+            const fileName = path.join(folderInputsExecutor, 'e2e_0.json');
+            await fs.writeFileSync(fileName, JSON.stringify(circuitInput, null, 2));
         }
 
         /*
