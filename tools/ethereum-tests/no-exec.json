@@ -4387,6 +4387,38 @@
       "description": "Selfdestruct"
     },
     {
+      "name": "stTransactionTest/InternlCallStoreClearsSucces.json",
+      "description": "Storage at key 0, address 0"
+    },
+    {
+      "name": "stTransactionTest/InternlCallStoreClearsOOG.json",
+      "description": "Storage at key 0, address 0"
+    },
+    {
+      "name": "stTransactionTest-legacy/InternlCallStoreClearsSucces.json",
+      "description": "Storage at key 0, address 0"
+    },
+    {
+      "name": "stTransactionTest-legacy/InternlCallStoreClearsOOG.json",
+      "description": "Storage at key 0, address 0"
+    },
+    {
+      "name": "stTransactionTest/StoreClearsAndInternlCallStoreClearsSuccess.json",
+      "description": "Storage at key 0, address 0"
+    },
+    {
+      "name": "stTransactionTest/StoreClearsAndInternlCallStoreClearsOOG.json",
+      "description": "Storage at key 0, address 0"
+    },
+    {
+      "name": "stTransactionTest-legacy/StoreClearsAndInternlCallStoreClearsSuccess.json",
+      "description": "Storage at key 0, address 0"
+    },
+    {
+      "name": "stTransactionTest-legacy/StoreClearsAndInternlCallStoreClearsOOG.json",
+      "description": "Storage at key 0, address 0"
+    },
+    {
       "name": "stWalletTest/walletKill",
       "description": "Selfdestruct"
     },
