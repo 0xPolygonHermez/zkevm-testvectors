@@ -8921,6 +8921,219 @@
     {
       "name": "stRefundTest/refundSSTORE",
       "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP1559/typeTwoBerlin",
+      "description": "EIP1559 not supported"
+    },
+    {
+      "name": "stEIP1559/typeTwoBerlin",
+      "description": "EIP1559 not supported"
+    },
+    {
+      "name": "stExample/eip1559",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stExample/basefeeExample",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_0",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_1",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_100",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_101",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_102",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_103",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_104",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_105",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_106",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_107",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_108",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_109",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_110",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_111",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_112",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_113",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_114",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_115",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_121",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_122",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_123",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_124",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_125",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_126",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_127",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_128",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_129",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_130",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_131",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_2",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_3",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_76",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_77",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_78",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_79",
+      "description": "modexp: invalid number length"
+    },{
+      "name": "stPreCompiledContracts/modexp_84",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_85",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_86",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_87",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_89",
+      "description": "modexp: invalid number length"
+    },  {
+      "name": "stPreCompiledContracts/modexp_90",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_91",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_92",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_93",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_94",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_95",
+      "description": "modexp: invalid number length"
+    },{
+      "name": "stPreCompiledContracts/modexp_96",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_97",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_98",
+      "description": "modexp: invalid number length"
+    },
+    {
+      "name": "stPreCompiledContracts/modexp_99",
+      "description": "modexp: invalid number length"
     }
   ]
 }
