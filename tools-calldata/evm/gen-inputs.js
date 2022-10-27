@@ -126,16 +126,19 @@ describe('Generate inputs executor from test-vectors', async function () {
 
             // TRANSACTIONS
             const txsList = [];
+            let commonCustom = Common.custom({ chainId: chainID }, { hardfork: Hardfork.Berlin });
+
             for (let j = 0; j < txs.length; j++) {
+                let isLegacy = false;
                 const currentTx = txs[j];
+                const isSigned = !!(currentTx.r && currentTx.v && currentTx.s);
                 const accountFrom = genesis.filter((x) => x.address.toLowerCase() === currentTx.from.toLowerCase())[0];
-                if (!accountFrom) {
+                if (!accountFrom && !isSigned) {
                     // Ignore transaction
                     console.log('*******Tx Invalid --> Error: Invalid from address (tx ignored)');
                     // eslint-disable-next-line no-continue
                     continue;
                 }
-                const accountPkFrom = toBuffer(accountFrom.pvtKey);
                 // prepare tx
                 const txData = {
                     to: currentTx.to,
@@ -144,12 +147,22 @@ describe('Generate inputs executor from test-vectors', async function () {
                     data: currentTx.data,
                     gasLimit: new BN(currentTx.gasLimit),
                     gasPrice: new BN(currentTx.gasPrice),
-                    chainId: new BN(currentTx.chainId),
                 };
-
-                const commonCustom = Common.custom({ chainId: txData.chainId }, { hardfork: Hardfork.Berlin });
-
-                let tx = Transaction.fromTxData(txData, { common: commonCustom }).sign(accountPkFrom);
+                if (typeof currentTx.chainId === 'undefined') {
+                    isLegacy = true;
+                    commonCustom = Common.custom({ chainId: chainID }, { hardfork: Hardfork.TangerineWhistle });
+                } else {
+                    txData.chainId = new BN(currentTx.chainId);
+                }
+                let tx;
+                if (isSigned) {
+                    txData.s = new BN(currentTx.s.slice(2), 'hex');
+                    txData.r = new BN(currentTx.r.slice(2), 'hex');
+                    txData.v = new BN(currentTx.v.slice(2), 'hex');
+                    tx = Transaction.fromTxData(txData, { common: commonCustom });
+                } else {
+                    tx = Transaction.fromTxData(txData, { common: commonCustom }).sign(toBuffer(accountFrom.pvtKey));
+                }
                 if (currentTx.overwrite) {
                     // eslint-disable-next-line no-restricted-syntax
                     for (const paramOverwrite of Object.keys(currentTx.overwrite)) {
@@ -177,7 +190,6 @@ describe('Generate inputs executor from test-vectors', async function () {
                 // check tx chainId
                 const sign = !(Number(tx.v) & 1);
                 const txChainId = (Number(tx.v) - 35) >> 1;
-                // add tx to txList with customRawTx
                 const messageToHash = [
                     tx.nonce.toString(16),
                     tx.gasPrice.toString(16),
@@ -185,10 +197,14 @@ describe('Generate inputs executor from test-vectors', async function () {
                     to.toString(16),
                     tx.value.toString(16),
                     tx.data.toString('hex'),
-                    ethers.utils.hexlify(txChainId),
-                    '0x',
-                    '0x',
                 ];
+                if (!isLegacy) {
+                    messageToHash.push(
+                        ethers.utils.hexlify(txChainId),
+                        '0x',
+                        '0x',
+                    );
+                }
                 const newMessageToHash = helpers.updateMessageToHash(messageToHash);
                 const signData = ethers.utils.RLP.encode(newMessageToHash);
                 const r = tx.r.toString(16).padStart(32 * 2, '0');
@@ -261,6 +277,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 testVectors[i].inputHash = circuitInput.inputHash;
                 testVectors[i].globalExitRoot = circuitInput.globalExitRoot;
                 testVectors[i].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
+                testVectors[i].chainID = chainID;
                 internalTestVectors[i].batchL2Data = batch.getBatchL2Data();
                 internalTestVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
                 internalTestVectors[i].expectedOldRoot = expectedOldRoot;
@@ -271,6 +288,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 internalTestVectors[i].globalExitRoot = circuitInput.globalExitRoot;
                 internalTestVectors[i].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                 internalTestVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
+                internalTestVectors[i].chainID = chainID;
             }
         }
         if (update) {
