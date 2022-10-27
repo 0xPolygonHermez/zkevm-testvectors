@@ -116,6 +116,7 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                     };
                     contracts.push(contract);
 
+                    console.log(contract.contractAddress.toString());
                     const sto = await vm.stateManager.dumpStorage(contract.contractAddress);
                     const storage = {};
                     // add contract storage
