@@ -22,6 +22,7 @@ describe('mt bridge claim vectors', async function () {
         const output = [];
         for (let i = 0; i < leafs.length; i++) {
             const {
+                leafType,
                 originNetwork,
                 tokenAddress,
                 amount,
@@ -32,6 +33,7 @@ describe('mt bridge claim vectors', async function () {
 
             const metadataHash = ethers.utils.solidityKeccak256(['bytes'], [metadata]);
             const currentLeafValue = getLeafValue(
+                leafType,
                 originNetwork,
                 tokenAddress,
                 destinationNetwork,

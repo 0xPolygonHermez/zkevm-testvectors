@@ -80,7 +80,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 expectedNewRoot,
                 sequencerAddress,
                 expectedNewLeafs,
-                oldLocalExitRoot,
+                oldAccInputHash,
                 globalExitRoot,
                 timestamp,
                 chainID,
@@ -88,14 +88,16 @@ describe('Generate inputs executor from test-vectors', async function () {
             console.log(`Executing test-vector id: ${id}`);
 
             if (!chainID) chainID = 1000;
-
+            if (typeof oldAccInputHash === 'undefined') {
+                oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
+            }
             // init SMT Db
             const db = new zkcommonjs.MemDB(F);
             const zkEVMDB = await zkcommonjs.ZkEVMDB.newZkEVM(
                 db,
                 poseidon,
                 [F.zero, F.zero, F.zero, F.zero],
-                zkcommonjs.smtUtils.stringToH4(oldLocalExitRoot),
+                zkcommonjs.smtUtils.stringToH4(oldAccInputHash),
                 genesis,
                 null,
                 null,
@@ -278,6 +280,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 testVectors[i].globalExitRoot = circuitInput.globalExitRoot;
                 testVectors[i].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                 testVectors[i].chainID = chainID;
+                testVectors[i].oldAccInputHash = oldAccInputHash;
                 internalTestVectors[i].batchL2Data = batch.getBatchL2Data();
                 internalTestVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
                 internalTestVectors[i].expectedOldRoot = expectedOldRoot;
@@ -289,6 +292,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 internalTestVectors[i].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                 internalTestVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
                 internalTestVectors[i].chainID = chainID;
+                internalTestVectors[i].oldAccInputHash = oldAccInputHash;
             }
         }
         if (update) {

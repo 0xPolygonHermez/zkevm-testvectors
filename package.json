@@ -19,7 +19,8 @@
         "update:e2e": "npx mocha ./test/state-transition/e2e/e2e.test.js --update",
         "update:error-rlp": "node tools/update-rlp-error/update-rlp-error-inputs.js",
         "test:contracts": "npx mocha ./test/state-transition/no-data/contracts.test.js",
-        "update:all": "npm run update:smt && npm run update:mt:bridge && npm run update:st:calldata && npm run update:st:no-data && npm run update:e2e && npm run update:error-rlp"
+        "update:all": "npm run update:smt && npm run update:mt:bridge && npm run update:st:calldata && npm run update:st:no-data && npm run update:e2e && npm run update:error-rlp",
+        "regen-tests": "sh regen-tests.sh"
     },
     "repository": {
         "type": "git",
@@ -33,8 +34,8 @@
     ],
     "license": "pending",
     "devDependencies": {
-        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#develop",
-        "@0xpolygonhermez/zkevm-contracts": "github:0xPolygonHermez/zkevm-contracts#v0.4.0.0",
+        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#recursive",
+        "@0xpolygonhermez/zkevm-contracts": "github:0xPolygonHermez/zkevm-contracts#feature/addAribitraryData",
         "@ethereumjs/common": "^2.6.2",
         "@grpc/grpc-js": "^1.6.10",
         "@nomiclabs/hardhat-ethers": "^2.0.5",

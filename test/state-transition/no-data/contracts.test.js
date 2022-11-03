@@ -155,7 +155,7 @@ describe('Proof of efficiency test vectors', function () {
             sequencerAddress,
             expectedNewLeafs,
             batchL2Data,
-            oldLocalExitRoot,
+            oldAccInputHash,
             globalExitRoot,
             batchHashData,
             inputHash,
@@ -261,7 +261,7 @@ describe('Proof of efficiency test vectors', function () {
                 db,
                 poseidon,
                 [F.zero, F.zero, F.zero, F.zero],
-                smtUtils.stringToH4(oldLocalExitRoot),
+                smtUtils.stringToH4(oldAccInputHash),
                 genesis,
                 null,
                 null,
@@ -359,9 +359,9 @@ describe('Proof of efficiency test vectors', function () {
              */
             if (!update) {
                 const currentStateRoot = `0x${Scalar.e(expectedOldRoot).toString(16).padStart(64, '0')}`;
-                const currentLocalExitRoot = `0x${Scalar.e(oldLocalExitRoot).toString(16).padStart(64, '0')}`;
+                const currentLocalExitRoot = `0x${Scalar.e(oldAccInputHash).toString(16).padStart(64, '0')}`;
                 const newStateRoot = `0x${Scalar.e(expectedNewRoot).toString(16).padStart(64, '0')}`;
-                const newLocalExitRoot = `0x${Scalar.e(oldLocalExitRoot).toString(16).padStart(64, '0')}`;
+                const newLocalExitRoot = `0x${Scalar.e(oldAccInputHash).toString(16).padStart(64, '0')}`;
                 const currentGlobalExitRoot = `0x${Scalar.e(globalExitRoot).toString(16).padStart(64, '0')}`;
 
                 const walletSequencer = walletMap[sequencerAddress].connect(ethers.provider);
