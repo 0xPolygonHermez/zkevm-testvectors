@@ -553,7 +553,7 @@ describe('Proof of efficiency test vectors', function () {
                 proofB,
                 proofC,
             ),
-        ).to.emit(proofOfEfficiencyContract, 'VerifyBatch')
+        ).to.emit(proofOfEfficiencyContract, 'VerifyBatches')
             .withArgs(numBatch, aggregator.address)
             .to.emit(globalExitRootManager, 'UpdateGlobalExitRoot')
             .withArgs(++lastGlobalExitRootNum, mainnetRoot, newLocalExitRoot);

@@ -148,7 +148,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x3b11e6bdaa6d6446134554125096062d03ca0aabed2622446f0735293cd90880",
+    "expectedNewRoot": "0xde2959ae2385857b71dac11b8583f73eab41aeb8784ef2dd4845adf77ef8e54b",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000043362000000000",
@@ -331,7 +331,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x79759b22804da54cb651ef18041d59df462a92ca7ae559e0b7674df78378439f",
+    "expectedNewRoot": "0xbe7e288ade1a6b3b7d11f854f2af9ba76e8153f20ab8ee17542585980c1c5cbe",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000043385000000000",
@@ -514,7 +514,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x9a154c9ace9beb8c3c5082850b132b965734ec8c72585658718f1fe59d58bda6",
+    "expectedNewRoot": "0x29838abd8b73f66c8cbd16b1911536f6f311c8dfdbb31f0d77063ebcc4069500",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000043363000000000",
@@ -697,7 +697,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x92a28439a9d5ae902785f897e6cb8c1661f3e190ab977f2ed0a7466da0aae52c",
+    "expectedNewRoot": "0x218050a6f4590d089c0701b8b60dde52a4fc92a40d69ca3079677bd9e6b324ea",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000023419000000000",
@@ -878,7 +878,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x2980eca9d67a677014bff0e19094d6dbf76469f2a3f7ec42e6a965458f98b2bf",
+    "expectedNewRoot": "0x9df16102581233b8aa22e0f4eb0701bb5f03cc7129613e7c7e680e39f676c965",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000043318000000000",
@@ -1061,7 +1061,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0xce4d9800405c3833c0c751304246e4ac57b37af5185991c579ebea31fedcf005",
+    "expectedNewRoot": "0x00c5f665560b8f01cf84de65985034cc0058bdb592af8c907d5fa186b57b8011",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000043341000000000",
@@ -1253,7 +1253,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x20047c6a0a545c579b958a6ba907fd09b5f6323a0166c6d4168607533e85f19a",
+    "expectedNewRoot": "0xdfe2223bc90a2c66bcd4082fd6ec7d00f9d3e4a6153f80a46ddf3f52d82cff28",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000064442000000000",
@@ -1436,7 +1436,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0xebab63797d6e69b6be09c86cc3c468b965493f921fe9c874fb913eb27beded78",
+    "expectedNewRoot": "0x659c620d8d8187f4fe3a18def391d64f69c8d80133b9d424f78a5e0fb223ca74",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000023917000000000",
@@ -1617,7 +1617,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x77715d493a20bbe4efe377c87c97745e33aa171f663de4a3eab985f073c7785f",
+    "expectedNewRoot": "0xa4777edb0502988c9a2c548b6f3e0a1aba8322816b707be38e1060b353107942",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000023929000000000",
@@ -1818,16 +1818,16 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x3cee2aa67a90a5f04247c287442d761105e691ddca2ec9b4a9a926041c10bd0d",
+    "expectedNewRoot": "0x4f68bbc6e5920ffb6f73684ebd0a466e9496ca2e3cb3a3a3f33c65784521114e",
     "expectedNewLeafs": {
       "0x0000000000000000000000000000000000000000": {
         "balance": "0",
         "nonce": "0",
         "storage": {
           "0x0000000000000000000000000000000000000000000000000000000000000000": "0x03",
-          "0x101e368776582e57ab3d116ffe2517c0a585cd5b23174b01e275c2d8329c3d83": "0x620310d75714317c6c26fa0c9fa4af72132e9a0ddfae49f94419b4e9c17472df",
-          "0xabbb5caa7dda850e60932de0934eb1f9d0f59695050f761dc64e443e5030a569": "0xcb7ff25c9ffc56db7bbb19df70d511cdf5ad1c70098d84f172bea59437e5c2d5",
-          "0xada5013122d395ba3c54772283fb069b10426056ef8ca54750cb9bb552a59e7d": "0x4efeaa24d063ee48e5472d388d427edfee5613a22b7ea14c9cbd8fa8990a4810"
+          "0x7dfe757ecd65cbd7922a9c0161e935dd7fdbcc0e999689c7d31633896b1fc60b": "0x2ec24e7ef311b03f2c272e1f9072d98391be20b2a954f536a46a6f93438817f9",
+          "0xcc69885fda6bcc1a4ace058b4a62bf5e179ea78fd58a1ccd71c22cc9b688792f": "0x4efeaa24d063ee48e5472d388d427edfee5613a22b7ea14c9cbd8fa8990a4810",
+          "0xd9d16d34ffb15ba3a3d852f0d403e2ce1d691fb54de27ac87cd2f993f3ec330f": "0x809c91b06bb31c7b4dbd615332b39687f9986108acaa4f6f7ced5123010289e8"
         },
         "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "bytecodeLength": 0

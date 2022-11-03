@@ -142,7 +142,7 @@ describe('Proof of efficiency test vectors', function () {
         const amount = ethers.utils.parseEther('10');
         const destinationNetwork = 1;
         const destinationAddress = claimAddress;
-        await expect(bridgeContract.bridge(tokenAddress, destinationNetwork, destinationAddress, amount, '0x', { value: amount }));
+        await expect(bridgeContract.bridgeAsset(tokenAddress, destinationNetwork, destinationAddress, amount, '0x', { value: amount }));
     });
 
     for (let i = 0; i < testVectors.length; i++) {
@@ -379,7 +379,6 @@ describe('Proof of efficiency test vectors', function () {
 
                 // set roots to the contract:
                 await proofOfEfficiencyContract.setStateRoot(currentStateRoot);
-                await proofOfEfficiencyContract.setExitRoot(currentLocalExitRoot);
                 await globalExitRootManager.setLastGlobalExitRoot(currentGlobalExitRoot);
 
                 // sequencer send the batch
@@ -400,7 +399,7 @@ describe('Proof of efficiency test vectors', function () {
                     transactions: l2txData,
                     globalExitRoot: currentGlobalExitRoot,
                     timestamp,
-                    forceBatchesTimestamp: [],
+                    minForcedTimestamp: 0,
                 };
                 await expect(proofOfEfficiencyContract.connect(walletSequencer).sequenceBatches([sequence]))
                     .to.emit(proofOfEfficiencyContract, 'SequenceBatches')
@@ -416,78 +415,37 @@ describe('Proof of efficiency test vectors', function () {
                 const proofC = ['0', '0'];
 
                 // check batch sent
-                const batchStruct = await proofOfEfficiencyContract.sequencedBatches(1);
+                const accInputHash = await proofOfEfficiencyContract.sequencedBatches(1);
 
-                expect(batchStruct.timestamp).to.be.equal(sequence.timestamp);
+                expect(accInputHash).to.be.equal(circuitInput.newAccInputHash);
                 const batchHashDataSC = calculateBatchHashData(
                     l2txData,
-                    currentGlobalExitRoot,
-                    sequencerAddress,
                 );
-                expect(batchStruct.batchHashData).to.be.equal(batchHashDataSC);
+                expect(batchHashData).to.be.equal(batchHashDataSC);
 
                 // calculate circuit input
-                const circuitInputSC = await proofOfEfficiencyContract.calculateStarkInput(
-                    currentStateRoot,
-                    currentLocalExitRoot,
-                    newStateRoot,
-                    newLocalExitRoot,
-                    circuitInput.batchHashData,
+                const nextSnarkInput = await proofOfEfficiencyContract.getNextSnarkInput(
+                    numBatch - 1,
                     numBatch,
-                    sequence.timestamp,
-                    chainID,
+                    newLocalExitRoot,
+                    newStateRoot,
                 );
 
                 // Compute Js input
-                const circuitInputJS = calculateStarkInput(
+                const circuitInputJS = await calculateSnarkInput(
                     currentStateRoot,
-                    currentLocalExitRoot,
                     newStateRoot,
                     newLocalExitRoot,
-                    circuitInput.batchHashData,
+                    oldAccInputHash,
+                    circuitInput.newAccInputHash,
+                    numBatch - 1,
                     numBatch,
-                    sequence.timestamp,
                     chainID,
+                    deployer.address,
                 );
-                const circuitInputSCHex = `0x${Scalar.e(circuitInputSC).toString(16).padStart(64, '0')}`;
-                expect(circuitInputSCHex).to.be.equal(circuitInputJS);
-                expect(circuitInputSCHex).to.be.equal(circuitInput.inputHash);
-
-                // Check the input parameters are correct
-                const circuitNextInputSC = await proofOfEfficiencyContract.connect(aggregator).getNextSnarkInput(
-                    newLocalExitRoot,
-                    newStateRoot,
-                    numBatch,
-                );
-
-                // Check snark input
-                const inputSnarkSC = await proofOfEfficiencyContract.calculateSnarkInput(
-                    currentStateRoot,
-                    currentLocalExitRoot,
-                    newStateRoot,
-                    newLocalExitRoot,
-                    circuitInput.batchHashData,
-                    numBatch,
-                    sequence.timestamp,
-                    chainID,
-                    aggregator.address,
-                );
-
-                const inputSnarkJS = await calculateSnarkInput(
-                    currentStateRoot,
-                    currentLocalExitRoot,
-                    newStateRoot,
-                    newLocalExitRoot,
-                    batchHashData,
-                    numBatch,
-                    sequence.timestamp,
-                    chainID,
-                    aggregator.address,
-                );
-
-                expect(inputSnarkSC).to.be.equal(inputSnarkJS);
-                expect(circuitNextInputSC).to.be.equal(inputSnarkSC);
-                expect(await batch.getSnarkInput(aggregator.address)).to.be.equal(inputSnarkSC);
+                const nextSnarkInputHex = `0x${Scalar.e(nextSnarkInput).toString(16).padStart(64, '0')}`;
+                const circuitInputJSHex = `0x${Scalar.e(circuitInputJS).toString(16).padStart(64, '0')}`;
+                expect(nextSnarkInputHex).to.be.equal(circuitInputJSHex);
 
                 // Forge the batch
                 const initialAggregatorMatic = await maticTokenContract.balanceOf(
@@ -495,15 +453,16 @@ describe('Proof of efficiency test vectors', function () {
                 );
 
                 await expect(
-                    proofOfEfficiencyContract.connect(aggregator).verifyBatch(
+                    proofOfEfficiencyContract.connect(aggregator).verifyBatches(
+                        numBatch - 1,
+                        numBatch,
                         newLocalExitRoot,
                         newStateRoot,
-                        numBatch,
                         proofA,
                         proofB,
                         proofC,
                     ),
-                ).to.emit(proofOfEfficiencyContract, 'VerifyBatch')
+                ).to.emit(proofOfEfficiencyContract, 'VerifyBatches')
                     .withArgs(numBatch, aggregatorAddress);
 
                 const finalAggregatorMatic = await maticTokenContract.balanceOf(
