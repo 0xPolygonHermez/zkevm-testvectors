@@ -160,7 +160,9 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
         for (let x = 0; x < files.length; x++) {
             file = files[x];
             file = file.endsWith('.json') ? file : `${file}.json`;
-
+            if (file.includes('PointAtInfinityECRecover')) {
+                console.log('A');
+            }
             outputName = `${file.split('/')[file.split('/').length - 1]}`;
             // eslint-disable-next-line import/no-dynamic-require
             test = require(file);
@@ -202,7 +204,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         noExec['not-supported'].forEach((elem) => listNotSupported.push(elem.name));
 
                         for (let e = 0; e < listNotSupported.length; e++) {
-                            if (auxOutputPathName.includes(listNotSupported[e])) {
+                            const notSupportedFile = listNotSupported[e].split('/')[1];
+                            if (auxOutputPathName.includes(notSupportedFile)) {
                                 throw new Error('not supported');
                             }
                         }
