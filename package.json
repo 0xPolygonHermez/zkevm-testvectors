@@ -34,8 +34,8 @@
     ],
     "license": "pending",
     "devDependencies": {
-        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#feature/update-system-address",
-        "@0xpolygonhermez/zkevm-contracts": "github:0xPolygonHermez/zkevm-contracts#feature/addAribitraryData",
+        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#develop",
+        "@0xpolygonhermez/zkevm-contracts": "github:0xPolygonHermez/zkevm-contracts#develop",
         "@polygon-hermez/common": "2.6.3",
         "@grpc/grpc-js": "^1.6.10",
         "@nomiclabs/hardhat-ethers": "^2.0.5",
