@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-loop-func */
 /* eslint-disable no-await-in-loop */
@@ -42,7 +43,7 @@ describe('Run state-transition tests', function () {
             const testVectors = JSON.parse(fs.readFileSync(pathTestVector));
 
             for (let j = 0; j < testVectors.length; j++) {
-                const {
+                let {
                     id,
                     genesis,
                     expectedOldRoot,
@@ -51,13 +52,17 @@ describe('Run state-transition tests', function () {
                     sequencerAddress,
                     expectedNewLeafs,
                     batchL2Data,
-                    oldLocalExitRoot,
+                    oldAccInputHash,
                     globalExitRoot,
                     batchHashData,
                     inputHash,
                     timestamp,
                     chainID,
                 } = testVectors[j];
+
+                if (typeof oldAccInputHash === 'undefined') {
+                    oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
+                }
 
                 const db = new MemDB(F);
 
@@ -154,7 +159,7 @@ describe('Run state-transition tests', function () {
                     db,
                     poseidon,
                     [F.zero, F.zero, F.zero, F.zero],
-                    smtUtils.stringToH4(oldLocalExitRoot),
+                    smtUtils.stringToH4(oldAccInputHash),
                     genesis,
                     null,
                     null,
@@ -237,6 +242,7 @@ describe('Run state-transition tests', function () {
                     testVectors[j].globalExitRoot = circuitInput.globalExitRoot;
                     testVectors[j].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                     testVectors[j].newLocalExitRoot = circuitInput.newLocalExitRoot;
+                    testVectors[j].oldAccInputHash = oldAccInputHash;
 
                     const fileName = path.join(folderInputsExecutor, `${path.parse(listTests[i]).name}_${id}.json`);
                     await fs.writeFileSync(fileName, JSON.stringify(circuitInput, null, 2));

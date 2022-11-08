@@ -189,10 +189,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         const noExec = require('./no-exec.json');
 
-                        if (file.includes('stEIP1559')) {
-                            await updateNoExec(dir, newOutputName, 'EIP1559 not supported', noExec);
-                        }
-
                         const listBreaksComputation = [];
                         noExec['breaks-computation'].forEach((elem) => listBreaksComputation.push(elem.name));
 
@@ -213,11 +209,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         const currentTest = test[keysTests[y]];
 
-                        // check gas used by the tx is less than 30M
-                        if (Scalar.gt(Scalar.e(currentTest.blocks[0].blockHeader.gasUsed), zkcommonjs.Constants.BATCH_GAS_LIMIT)) {
-                            await updateNoExec(dir, newOutputName, 'tx gas > 30M', noExec);
-                        }
-
                         let accountPkFrom;
                         if (currentTest._info.source.endsWith('.json')) {
                             const source = require(`./tests/${currentTest._info.source}`);
@@ -235,7 +226,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             if (s.substring(indNum, indNum + 2) === '0x') { indNum += 2; }
                             accountPkFrom = toBuffer(`0x${s.substring(indNum, indNum + 64)}`);
                         }
-                        const oldLocalExitRoot = '0x0000000000000000000000000000000000000000000000000000000000000000';
+                        const oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
                         const { timestamp } = currentTest.blocks[0].blockHeader;
                         const sequencerAddress = currentTest.blocks[0].blockHeader.coinbase;
                         const chainIdSequencer = 1000;
@@ -265,7 +256,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             db,
                             poseidon,
                             [F.zero, F.zero, F.zero, F.zero],
-                            zkcommonjs.smtUtils.stringToH4(oldLocalExitRoot),
+                            zkcommonjs.smtUtils.stringToH4(oldAccInputHash),
                             genesis,
                             null,
                             null,
@@ -279,9 +270,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         for (let tx = 0; tx < txsTest.length; tx++) {
                             const txTest = txsTest[tx];
-                            if (txTest.type) {
-                                await updateNoExec(dir, newOutputName, 'tx.type not supported', noExec);
-                            }
                             if (Scalar.e(txTest.gasLimit) > zkcommonjs.Constants.BATCH_GAS_LIMIT) {
                                 txsTest[tx].gasLimit = zkcommonjs.Constants.BATCH_GAS_LIMIT;
                             }
@@ -311,51 +299,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         }
 
                         await batch.executeTxs();
-
-                        if (batch.evmSteps[0].length > 0) {
-                            const { updatedAccounts } = batch;
-                            if (updatedAccounts['0x0000000000000000000000000000000000000002']) {
-                                await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExec);
-                            } else if (updatedAccounts['0x0000000000000000000000000000000000000003']) {
-                                await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
-                            } else if (updatedAccounts['0x0000000000000000000000000000000000000006']) {
-                                await updateNoExec(dir, newOutputName, 'Precompiled ecAdd is not supported', noExec);
-                            } else if (updatedAccounts['0x0000000000000000000000000000000000000007']) {
-                                await updateNoExec(dir, newOutputName, 'Precompiled ecMul is not supported', noExec);
-                            } else if (updatedAccounts['0x0000000000000000000000000000000000000008']) {
-                                await updateNoExec(dir, newOutputName, 'Precompiled ecPairing is not supported', noExec);
-                            } else if (updatedAccounts['0x0000000000000000000000000000000000000009']) {
-                                await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExec);
-                            }
-                            const steps = batch.evmSteps[0];
-                            const selfDestructs = steps.filter((step) => step.opcode.name === 'SELFDESTRUCT');
-                            if (selfDestructs.length > 0) {
-                                await updateNoExec(dir, newOutputName, 'Selfdestruct', noExec);
-                            }
-                            const calls = steps.filter((step) => step.opcode.name === 'CALL'
-                                || step.opcode.name === 'CALLCODE'
-                                || step.opcode.name === 'DELEGATECALL'
-                                || step.opcode.name === 'STATICCALL');
-                            if (calls.length > 0) {
-                                for (let i = 0; i < calls.length; i++) {
-                                    const stepBefore = steps[steps.indexOf(calls[i]) - 1];
-                                    const addressCall = Scalar.e(stepBefore.stack[stepBefore.stack.length - 2]);
-                                    if (addressCall === Scalar.e(2)) {
-                                        await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExec);
-                                    } else if (addressCall === Scalar.e(3)) {
-                                        await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
-                                    } else if (addressCall === Scalar.e(6)) {
-                                        await updateNoExec(dir, newOutputName, 'Precompiled ecAdd is not supported', noExec);
-                                    } else if (addressCall === Scalar.e(7)) {
-                                        await updateNoExec(dir, newOutputName, 'Precompiled ecMul is not supported', noExec);
-                                    } else if (addressCall === Scalar.e(8)) {
-                                        await updateNoExec(dir, newOutputName, 'Precompiled ecPairing is not supported', noExec);
-                                    } else if (addressCall === Scalar.e(9)) {
-                                        await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExec);
-                                    }
-                                }
-                            }
-                        }
 
                         await zkEVMDB.consolidate(batch);
 
@@ -450,13 +393,4 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             await fs.writeFileSync(`${dir}/info.txt`, info);
         }
     });
-
-    async function updateNoExec(dir, newOutputName, description, noExec) {
-        return
-        const auxDir = dir.split('/');
-        const nameTest = `${auxDir[auxDir.length - 1]}/${newOutputName.replace('.json', '')}`;
-        noExec['not-supported'].push({ name: nameTest, description });
-        await fs.writeFileSync('./no-exec.json', JSON.stringify(noExec, null, 2));
-        throw new Error('not supported');
-    }
 });

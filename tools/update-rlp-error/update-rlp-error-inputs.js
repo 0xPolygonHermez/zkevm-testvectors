@@ -20,16 +20,16 @@ async function main() {
         const inputRLP = JSON.parse(fs.readFileSync(pathTest));
 
         // overwrite all parameters to new ones expect "batchL2Data", "batchHashData" & "inputHash"
-        inputRLP.oldStateRoot = generalInput.oldStateRoot;
+        inputRLP.oldAccInputHash = generalInput.oldAccInputHash;
+        inputRLP.newAccInputHash = generalInput.newAccInputHash;
         inputRLP.newStateRoot = generalInput.newStateRoot;
         inputRLP.chainID = generalInput.chainID;
-        inputRLP.chainId = generalInput.chainId;
         inputRLP.db = generalInput.db;
         inputRLP.sequencerAddr = generalInput.sequencerAddr;
-        inputRLP.oldLocalExitRoot = generalInput.oldLocalExitRoot;
         inputRLP.newLocalExitRoot = generalInput.newLocalExitRoot;
         inputRLP.globalExitRoot = generalInput.globalExitRoot;
-        inputRLP.numBatch = generalInput.numBatch;
+        inputRLP.oldNumBatch = generalInput.oldNumBatch;
+        inputRLP.newNumBatch = generalInput.newNumBatch;
         inputRLP.timestamp = generalInput.timestamp;
         inputRLP.contractsBytecode = generalInput.contractsBytecode;
 
@@ -39,16 +39,14 @@ async function main() {
             inputRLP.sequencerAddr,
         );
 
-        inputRLP.inputHash = contractUtils.calculateStarkInput(
-            inputRLP.oldStateRoot,
-            inputRLP.oldLocalExitRoot,
-            inputRLP.newStateRoot,
-            inputRLP.newLocalExitRoot,
+        inputRLP.newAccInputHash = contractUtils.calculateAccInputHash(
+            inputRLP.oldAccInputHash,
             inputRLP.batchHashData,
-            inputRLP.numBatch,
+            inputRLP.globalExitRoot,
             inputRLP.timestamp,
-            inputRLP.chainID,
+            inputRLP.sequencerAddr,
         );
+
         delete inputRLP.keys;
 
         fs.writeFileSync(pathTest, JSON.stringify(inputRLP, null, 2));

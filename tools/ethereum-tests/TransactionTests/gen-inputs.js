@@ -70,7 +70,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 await hre.run('compile');
                 console.log(`test vector name: ${file}`);
 
-                const oldLocalExitRoot = '0x0000000000000000000000000000000000000000000000000000000000000000';
+                const oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
                 const timestamp = 1944498031;
                 const sequencerAddress = '0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D';
                 const chainIdSequencer = 1000;
@@ -133,7 +133,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                     db,
                     poseidon,
                     [F.zero, F.zero, F.zero, F.zero],
-                    zkcommonjs.smtUtils.stringToH4(oldLocalExitRoot),
+                    zkcommonjs.smtUtils.stringToH4(oldAccInputHash),
                     genesis,
                     null,
                     null,

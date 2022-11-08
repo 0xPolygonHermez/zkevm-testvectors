@@ -19,7 +19,9 @@ const { argv } = require('yargs');
 const fs = require('fs');
 const path = require('path');
 const helpers = require('../../tools-calldata/helpers/helpers');
-
+const {
+    Address
+} = require('ethereumjs-util');
 // example: npx mocha gen-inputs.js --test xxxx --folder xxxx --ignore
 describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', async function () {
     this.timeout(800000);
@@ -244,7 +246,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         } else {
                             throw new Error('Error info source (json or yml)');
                         }
-                        const oldLocalExitRoot = '0x0000000000000000000000000000000000000000000000000000000000000000';
+                        const oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
                         const { timestamp } = currentTest.blocks[0].blockHeader;
                         const sequencerAddress = currentTest.blocks[0].blockHeader.coinbase;
                         const chainIdSequencer = 1000;
@@ -274,12 +276,13 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             db,
                             poseidon,
                             [F.zero, F.zero, F.zero, F.zero],
-                            zkcommonjs.smtUtils.stringToH4(oldLocalExitRoot),
+                            zkcommonjs.smtUtils.stringToH4(oldAccInputHash),
                             genesis,
                             null,
                             null,
                             chainIdSequencer,
                         );
+
                         const batch = await zkEVMDB.buildBatch(
                             timestamp,
                             sequencerAddress,

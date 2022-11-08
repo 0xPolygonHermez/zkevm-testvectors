@@ -62,7 +62,7 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
 
             if (expectedNewLeafs) { outputTestVector.expectedNewLeafs = expectedNewLeafs; } else { outputTestVector.expectedNewLeafs = {}; }
 
-            console.log(`       executing test-vector id: ${id}`);
+            console.log(`executing test-vector id: ${id}`);
 
             const common = Common.custom({ chainId: defaultChainId }, { hardfork: Hardfork.Berlin });
             const vm = new VM({ common });
