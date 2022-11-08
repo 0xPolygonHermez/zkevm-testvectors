@@ -44,7 +44,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0xde2959ae2385857b71dac11b8583f73eab41aeb8784ef2dd4845adf77ef8e54b",
+    "expectedNewRoot": "0x5a988c1a2a1667241dd1173ad59811f359c396c3e0ec9f48eadf65f5290dc182",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000043362000000000",
@@ -123,7 +123,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0xbe7e288ade1a6b3b7d11f854f2af9ba76e8153f20ab8ee17542585980c1c5cbe",
+    "expectedNewRoot": "0x59899d4c61fee7dfc5cc0602d64a64d6cb14593944e4833075566a9321285436",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000043385000000000",
@@ -202,7 +202,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x29838abd8b73f66c8cbd16b1911536f6f311c8dfdbb31f0d77063ebcc4069500",
+    "expectedNewRoot": "0xe5a7c31d991059dd37b980237543d8577d9c247d957aad95ed6bb1c5e44521d9",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000043363000000000",
@@ -281,7 +281,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x218050a6f4590d089c0701b8b60dde52a4fc92a40d69ca3079677bd9e6b324ea",
+    "expectedNewRoot": "0x5f123299262092cda7ee2f35db766c342bd3693f46e7b9c81087eb1824189633",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000023419000000000",
@@ -358,7 +358,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x9df16102581233b8aa22e0f4eb0701bb5f03cc7129613e7c7e680e39f676c965",
+    "expectedNewRoot": "0x36c4f7097222f1ea1b0cbd09559ce63054b82c736b1228ecd8b5c0e0a77c5c57",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000043318000000000",
@@ -437,7 +437,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x00c5f665560b8f01cf84de65985034cc0058bdb592af8c907d5fa186b57b8011",
+    "expectedNewRoot": "0x35e78db2e5ddc4eec7d7cf7a0cbf7c783b5d259723233339cf9b473809a10a3d",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000043341000000000",
@@ -525,7 +525,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0xdfe2223bc90a2c66bcd4082fd6ec7d00f9d3e4a6153f80a46ddf3f52d82cff28",
+    "expectedNewRoot": "0xb6d8155f502b452781ed4894082c1bb96f74d385773960b579b0404e7d706ff6",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000064442000000000",
@@ -606,7 +606,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x659c620d8d8187f4fe3a18def391d64f69c8d80133b9d424f78a5e0fb223ca74",
+    "expectedNewRoot": "0x4a11deab359691effc25a57c84b946da80655a9ce135a3d7165c2e7d1f88167f",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000023917000000000",
@@ -685,7 +685,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0xa4777edb0502988c9a2c548b6f3e0a1aba8322816b707be38e1060b353107942",
+    "expectedNewRoot": "0xb0ded30ef0f6d8dcd3ea8d496357dbd2c51380267d9393b0ca31946361f4a886",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000023929000000000",
@@ -788,17 +788,12 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x4f68bbc6e5920ffb6f73684ebd0a466e9496ca2e3cb3a3a3f33c65784521114e",
+    "expectedNewRoot": "0xce575636e4de8d78809db0055dec1a678de04b8356f3631525b974f5095b082f",
     "expectedNewLeafs": {
       "0x0000000000000000000000000000000000000000": {
         "balance": "0",
         "nonce": "0",
-        "storage": {
-          "0x0000000000000000000000000000000000000000000000000000000000000000": "0x03",
-          "0x7dfe757ecd65cbd7922a9c0161e935dd7fdbcc0e999689c7d31633896b1fc60b": "0x2ec24e7ef311b03f2c272e1f9072d98391be20b2a954f536a46a6f93438817f9",
-          "0xcc69885fda6bcc1a4ace058b4a62bf5e179ea78fd58a1ccd71c22cc9b688792f": "0x4efeaa24d063ee48e5472d388d427edfee5613a22b7ea14c9cbd8fa8990a4810",
-          "0xd9d16d34ffb15ba3a3d852f0d403e2ce1d691fb54de27ac87cd2f993f3ec330f": "0x809c91b06bb31c7b4dbd615332b39687f9986108acaa4f6f7ced5123010289e8"
-        },
+        "storage": null,
         "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "bytecodeLength": 0
       },
