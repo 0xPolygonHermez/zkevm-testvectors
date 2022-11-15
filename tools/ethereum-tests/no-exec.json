@@ -8921,6 +8921,82 @@
     {
       "name": "stRefundTest/refundSSTORE",
       "description": "tx.type not supported"
+    },
+    {
+      "name": "stInitCodeTest/TransactionCreateSuicideInInitcode",
+      "description": "Selfdestruct"
+    },
+    {
+      "name": "stPreCompiledContracts/modexpTests_0",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/modexpTests_1",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/modexpTests_2",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/modexpTests_3",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/modexpTests_4",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/modexpTests_5",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/modexpTests_6",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/modexpTests_7",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/modexpTests_8",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/modexpTests_9",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_144",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_193",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_213",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_234",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_330",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_340",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_349",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stStaticCall/static_CallEcrecover0_0input_5",
+      "description": "Precompiled modexp is not supported"
     }
   ]
 }

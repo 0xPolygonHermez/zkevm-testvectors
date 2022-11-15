@@ -377,7 +377,7 @@ describe('Proof of efficiency test vectors', function () {
                 await maticTokenContract.transfer(sequencerAddress, ethers.utils.parseEther('100'));
 
                 // set roots to the contract:
-                await proofOfEfficiencyContract.setStateRoot(currentStateRoot);
+                await proofOfEfficiencyContract.setStateRoot(currentStateRoot, batch.oldNumBatch);
                 await globalExitRootManager.setLastGlobalExitRoot(currentGlobalExitRoot);
 
                 // sequencer send the batch
@@ -462,7 +462,7 @@ describe('Proof of efficiency test vectors', function () {
                         proofC,
                     ),
                 ).to.emit(proofOfEfficiencyContract, 'VerifyBatches')
-                    .withArgs(numBatch, aggregatorAddress);
+                    .withArgs(numBatch, newStateRoot, aggregatorAddress);
 
                 const finalAggregatorMatic = await maticTokenContract.balanceOf(
                     await aggregator.getAddress(),
