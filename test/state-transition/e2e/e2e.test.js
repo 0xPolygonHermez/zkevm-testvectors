@@ -415,19 +415,19 @@ describe('Proof of efficiency test vectors', function () {
         }
 
         // Check global exit root
-        const batchNumVm = await zkEVMDB.vm.stateManager.getContractStorage(
+        const timestampVm = await zkEVMDB.vm.stateManager.getContractStorage(
             addressInstanceGlobalExitRoot,
             globalExitRootPosBuffer,
         );
-        const batchNumSmt = (await stateUtils.getContractStorage(
+        const timestampSmt = (await stateUtils.getContractStorage(
             Constants.ADDRESS_GLOBAL_EXIT_ROOT_MANAGER_L2,
             zkEVMDB.smt,
             zkEVMDB.stateRoot,
             [globalExitRootPos],
         ))[Scalar.e(globalExitRootPos)];
 
-        expect(Scalar.fromString(batchNumVm.toString('hex'), 16)).to.equal(batchNumSmt);
-        expect(batchNumSmt).to.equal(Scalar.e(batch.newNumBatch));
+        expect(Scalar.fromString(timestampVm.toString('hex'), 16)).to.equal(timestampSmt);
+        expect(timestampSmt).to.equal(Scalar.e(batch.timestamp));
 
         // Check through a call in the EVM
         if (bridgeDeployed) {
@@ -438,7 +438,7 @@ describe('Proof of efficiency test vectors', function () {
                 caller: Address.zero(),
                 data: Buffer.from(encodedData.slice(2), 'hex'),
             });
-            expect(globalExitRootResult.execResult.returnValue.toString('hex')).to.be.equal(ethers.utils.hexZeroPad(batch.newNumBatch, 32).slice(2));
+            expect(globalExitRootResult.execResult.returnValue.toString('hex')).to.be.equal(ethers.utils.hexZeroPad(batch.timestamp, 32).slice(2));
         }
 
         // Check the circuit input

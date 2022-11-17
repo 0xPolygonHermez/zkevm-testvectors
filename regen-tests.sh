@@ -9,9 +9,12 @@ do
         folder=${entry##*/}
         if [[ "$folder" == *"-legacy"* ]]; then
             folder=${folder%"-legacy"}
-            npx mocha --max-old-space-size=8000 tools/ethereum-tests/gen-inputs-legacy.js --evm-debug --folder $folder --output GeneralStateTests
+            npx mocha --max-old-space-size=8000 tools/ethereum-tests/gen-inputs-legacy.js --folder $folder --output GeneralStateTests
         else
-            npx mocha --max-old-space-size=8000 tools/ethereum-tests/gen-inputs.js --evm-debug --folder $folder
+            npx mocha --max-old-space-size=8000 tools/ethereum-tests/gen-inputs.js --folder $folder
         fi
     fi
 done
+
+tools/ethereum-tests/GeneralStateTests/stTransactionTest-legacy
+tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stTransactionTest-legacy'
