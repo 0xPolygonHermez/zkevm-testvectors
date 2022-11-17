@@ -1,6 +1,6 @@
 {
     "name": "@0xpolygonhermez/test-vectors",
-    "version": "0.4.1.0",
+    "version": "0.5.0.0",
     "description": "zkEVM test vectors",
     "main": "index.js",
     "scripts": {
@@ -9,13 +9,13 @@
         "eslint:fix": "npx eslint test/** --fix",
         "test:smt": "npx mocha ./test/merkle-tree/**.js",
         "update:smt": "npx mocha ./test/merkle-tree/**.js --update",
-        "test:st:no-data": "npx mocha ./test/state-transition/no-data/st-all.test.js",
+        "test:st:no-data": "npx mocha ./test/state-transition/no-data/st-all.test.js && npx mocha ./test/state-transition/separate-batches/separate-batches.test.js",
         "test:st:calldata": "npx mocha ./test/state-transition/calldata/st-all.test.js",
         "test:mt:bridge": "npx mocha ./test/mt-bridge/**.test.js",
         "test:e2e": "npx mocha ./test/state-transition/e2e/e2e.test.js",
         "update:mt:bridge": "npx mocha ./test/mt-bridge/**.test.js --update",
         "update:st:calldata": "cd ./tools-calldata/evm && ./gen-all.sh",
-        "update:st:no-data": "npx mocha ./test/state-transition/no-data/st-all.test.js --update",
+        "update:st:no-data": "npx mocha ./test/state-transition/no-data/st-all.test.js --update && npx mocha ./test/state-transition/separate-batches/separate-batches.test.js --update",
         "update:e2e": "npx mocha ./test/state-transition/e2e/e2e.test.js --update",
         "update:error-rlp": "node tools/update-rlp-error/update-rlp-error-inputs.js",
         "test:contracts": "npx mocha ./test/state-transition/no-data/contracts.test.js",
@@ -34,7 +34,7 @@
     ],
     "license": "pending",
     "devDependencies": {
-        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#develop",
+        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#v0.5.0.0",
         "@0xpolygonhermez/zkevm-contracts": "github:0xPolygonHermez/zkevm-contracts#develop",
         "@grpc/grpc-js": "^1.6.10",
         "@nomiclabs/hardhat-ethers": "^2.0.5",
