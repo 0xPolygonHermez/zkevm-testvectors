@@ -1,0 +1,52 @@
+[
+    {
+        "id": 0,
+        "name": "Balance transfer",
+        "testPath": "../../state-transition/no-data/balances.json",
+        "setupTxs": [],
+        "iterateTxs": [0],
+        "testIndex": 5,
+        "initStep": 121,
+        "testStep": 1
+    },
+    {
+        "id": 1,
+        "name": "ERC20 transfer",
+        "testPath": "../../state-transition/calldata/erc20.json",
+        "setupTxs": [0,1],
+        "iterateTxs": [2],
+        "testIndex": 0,
+        "initStep": 56,
+        "testStep": 1
+    },
+    {
+        "id": 2,
+        "name": "ERC20 transferFrom",
+        "testPath": "../../state-transition/calldata/erc20.json",
+        "setupTxs": [0,1,3],
+        "iterateTxs": [5],
+        "testIndex": 0,
+        "initStep": 34,
+        "testStep": 1
+    },
+    {
+        "id": 3,
+        "name": "Uniswap ERC20 swaps",
+        "testPath": "../../state-transition/calldata/uniswapv2-benchmark.json",
+        "setupTxs": [0,1,2,3,4,5,6],
+        "iterateTxs": [7,8],
+        "testIndex": 0,
+        "initStep": 21,
+        "testStep": 1
+    },
+    {
+        "id": 4,
+        "name": "Uniswap ERC20 swaps",
+        "testPath": "../../state-transition/calldata/uniswapv2-router-benchmark.json",
+        "setupTxs": [0,1,2,3,4],
+        "iterateTxs": [5],
+        "testIndex": 0,
+        "initStep": 1,
+        "testStep": 1
+    }
+]
