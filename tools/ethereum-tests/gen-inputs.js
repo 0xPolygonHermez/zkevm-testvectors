@@ -374,6 +374,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                         await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExec);
                                     } else if (addressCall === Scalar.e(3)) {
                                         await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
+                                    } else if (addressCall === Scalar.e(5)) {
+                                        await updateNoExec(dir, newOutputName, 'Precompiled modexp is not supported', noExec);
                                     } else if (addressCall === Scalar.e(6)) {
                                         await updateNoExec(dir, newOutputName, 'Precompiled ecAdd is not supported', noExec);
                                     } else if (addressCall === Scalar.e(7)) {
