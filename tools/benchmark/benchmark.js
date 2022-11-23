@@ -13,13 +13,13 @@ const Common = require('@ethereumjs/common').default;
 const { Hardfork } = require('@ethereumjs/common');
 const { Transaction } = require('@ethereumjs/tx');
 const { ethers } = require('ethers');
-const { newCommitPolsArray } = require('pilcom');
+const { newCommitPolsArray, compile } = require('pilcom');
 const fs = require('fs');
 const helpers = require('../../tools-calldata/helpers/helpers');
 const smMain = require('../../../zkevm-proverjs/src/sm/sm_main/sm_main');
-const pil = require('../../../zkevm-proverjs/cache-main-pil.json');
 const rom = require('../../../zkevm-rom/build/rom.json');
 const configs = require('./benchmark_config.json');
+const pilCache = require('../../../zkevm-proverjs/cache-main-pil.json');
 
 let F;
 let poseidon;
@@ -28,7 +28,8 @@ let zkEVMDB;
 /** #########################################################
  *                            CONFIG
  * ######################################################### */
-const CONFIG_ID = 3; // Set config id here
+const CONFIG_ID = 0; // Set config id here
+const compilePil = false;
 const config = configs[CONFIG_ID];
 const {
     testPath, setupTxs, iterateTxs, testIndex, initStep, testStep,
@@ -51,6 +52,7 @@ async function main() {
         }
         // Create raw transactions
         const circuitInput = await createRawTxs(txCount, false);
+        const ci = JSON.stringify(circuitInput);
         console.log('batchL2DataLen: ', circuitInput.batchL2Data.slice(2).length / 2);
         // Execute transactions
         console.log(`Execute with ${txCount} transactions`);
@@ -109,6 +111,16 @@ async function initBuild() {
     // build poseidon
     poseidon = await zkcommonjs.getPoseidon();
     F = poseidon.F;
+    // compile PIL
+    let pil = pilCache;
+    if (compilePil) {
+        const pilConfig = {
+            namespaces: ['Main', 'Global'],
+            disableUnusedError: true,
+        };
+        const pilPath = path.join(__dirname, '../../../zkevm-proverjs/pil/main.pil');
+        pil = await compile(F, pilPath, null, pilConfig);
+    }
     // build pil
     return newCommitPolsArray(pil);
 }

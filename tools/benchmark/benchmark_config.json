@@ -31,7 +31,7 @@
     },
     {
         "id": 3,
-        "name": "Uniswap ERC20 swaps",
+        "name": "Uniswap swaps",
         "testPath": "../../state-transition/calldata/uniswapv2-benchmark.json",
         "setupTxs": [0,1,2,3,4,5,6],
         "iterateTxs": [7,8],
@@ -41,12 +41,22 @@
     },
     {
         "id": 4,
-        "name": "Uniswap ERC20 swaps",
+        "name": "Uniswap router swaps",
         "testPath": "../../state-transition/calldata/uniswapv2-router-benchmark.json",
         "setupTxs": [0,1,2,3,4],
         "iterateTxs": [5],
         "testIndex": 0,
-        "initStep": 1,
+        "initStep": 12,
+        "testStep": 1
+    },
+    {
+        "id": 5,
+        "name": "NFT mints",
+        "testPath": "../../state-transition/calldata/mynft.json",
+        "setupTxs": [],
+        "iterateTxs": [0],
+        "testIndex": 0,
+        "initStep": 36,
         "testStep": 1
     }
 ]
