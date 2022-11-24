@@ -47,7 +47,7 @@ describe('Proof of efficiency test vectors', function () {
 
     let deployer;
     let aggregator;
-
+    let securityCouncil;
     let verifierContract;
     let bridgeContract;
     let proofOfEfficiencyContract;
@@ -72,7 +72,7 @@ describe('Proof of efficiency test vectors', function () {
         F = poseidon.F;
 
         // load signers
-        [deployer, aggregator] = await ethers.getSigners();
+        [deployer, aggregator, securityCouncil] = await ethers.getSigners();
 
         // deploy mock verifier
         const VerifierRollupHelperFactory = new ethers.ContractFactory(VerifierRollupHelperMock.abi, VerifierRollupHelperMock.bytecode, deployer);
@@ -113,7 +113,7 @@ describe('Proof of efficiency test vectors', function () {
         proofOfEfficiencyContract = await ProofOfEfficiencyFactory.deploy();
         await proofOfEfficiencyContract.deployed();
 
-        await bridgeContract.initialize(networkIDMainnet, globalExitRootManager.address);
+        await bridgeContract.initialize(networkIDMainnet, globalExitRootManager.address, ethers.constants.AddressZero, 0);
         await proofOfEfficiencyContract.initialize(
             globalExitRootManager.address,
             maticTokenContract.address,
@@ -124,6 +124,8 @@ describe('Proof of efficiency test vectors', function () {
             urlSequencer,
             1000,
             'matic',
+            bridgeContract.address,
+            securityCouncil.address,
         );
         await proofOfEfficiencyContract.deployed();
 
@@ -378,7 +380,7 @@ describe('Proof of efficiency test vectors', function () {
 
                 // set roots to the contract:
                 await proofOfEfficiencyContract.setStateRoot(currentStateRoot, batch.oldNumBatch);
-                await globalExitRootManager.setLastGlobalExitRoot(currentGlobalExitRoot);
+                await globalExitRootManager.setGlobalExitRoot(currentGlobalExitRoot, batch.timestamp);
 
                 // sequencer send the batch
                 const lastBatchSequenced = await proofOfEfficiencyContract.lastBatchSequenced();

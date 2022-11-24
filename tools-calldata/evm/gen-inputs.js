@@ -221,7 +221,11 @@ describe('Generate inputs executor from test-vectors', async function () {
             await batch.executeTxs();
 
             if (evmDebug) {
-                await generateEvmDebugFile(batch.evmSteps, `${file.split('.')[0]}-${i}.json`);
+                try {
+                    await generateEvmDebugFile(batch.evmSteps, `${file.split('.')[0]}-${i}.json`);
+                } catch (e) {
+                    console.log(`Can't generate evm debug file: ${e}`);
+                }
             }
 
             await zkEVMDB.consolidate(batch);
