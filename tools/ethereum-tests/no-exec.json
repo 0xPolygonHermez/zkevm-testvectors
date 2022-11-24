@@ -1599,6 +1599,10 @@
       "description": "tx gas > 30M"
     },
     {
+      "name": "VMTests/sha3_10",
+      "description": "out of counter: cntKeccaks"
+    },
+    {
       "name": "VMTests/sha3_11",
       "description": "tx gas > 30M"
     },
