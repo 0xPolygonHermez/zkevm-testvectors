@@ -1295,6 +1295,14 @@
       "description": "tx gas > 30M"
     },
     {
+      "name": "VMTests/jump_16",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpi_5",
+      "description": "jump to push"
+    },
+    {
       "name": "VMTests/jumpToPush_19",
       "description": "tx gas > 30M"
     },
@@ -8936,6 +8944,10 @@
     },
     {
       "name": "stPreCompiledContracts/modexpTests",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/modexpRandomInput",
       "description": "Precompiled modexp is not supported"
     },
     {
