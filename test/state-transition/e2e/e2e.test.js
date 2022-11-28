@@ -46,6 +46,7 @@ describe('Proof of efficiency test vectors', function () {
 
     let deployer;
     let aggregator;
+    let securityCouncil;
 
     let verifierContract;
     let bridgeContract;
@@ -70,7 +71,7 @@ describe('Proof of efficiency test vectors', function () {
         F = poseidon.F;
 
         // load signers
-        [deployer, aggregator] = await ethers.getSigners();
+        [deployer, aggregator, securityCouncil] = await ethers.getSigners();
 
         // deploy mock verifier
         const VerifierRollupHelperFactory = new ethers.ContractFactory(VerifierRollupHelperMock.abi, VerifierRollupHelperMock.bytecode, deployer);
@@ -105,7 +106,7 @@ describe('Proof of efficiency test vectors', function () {
         await proofOfEfficiencyContract.deployed();
 
         await globalExitRootManager.initialize(proofOfEfficiencyContract.address, bridgeContract.address);
-        await bridgeContract.initialize(networkIDMainnet, globalExitRootManager.address);
+        await bridgeContract.initialize(networkIDMainnet, globalExitRootManager.address, ethers.constants.AddressZero, 0);
         await proofOfEfficiencyContract.initialize(
             globalExitRootManager.address,
             maticTokenContract.address,
@@ -116,6 +117,8 @@ describe('Proof of efficiency test vectors', function () {
             urlSequencer,
             1000,
             'matic',
+            bridgeContract.address,
+            securityCouncil.address,
         );
     });
     it('End to end test', async () => {
@@ -158,13 +161,12 @@ describe('Proof of efficiency test vectors', function () {
 
         const depositCount = 0;
         const mainnetRoot = '0x5ba002329b53c11a2f1dfe90b11e031771842056cf2125b43da8103c199dcd7f';
-        let lastGlobalExitRootNum = 0;
 
         await expect(bridgeContract.bridgeAsset(tokenAddress, destinationNetwork, destinationAddress, amount, emptyPermit, { value: amount }))
             .to.emit(bridgeContract, 'BridgeEvent')
             .withArgs(Constants.BRIDGE_LEAF_TYPE_ASSET, originNetwork, tokenAddress, destinationNetwork, destinationAddress, amount, metadata, depositCount)
             .to.emit(globalExitRootManager, 'UpdateGlobalExitRoot')
-            .withArgs(++lastGlobalExitRootNum, mainnetRoot, ethers.constants.HashZero);
+            .withArgs(mainnetRoot, ethers.constants.HashZero);
 
         /*
         * /////////////////////////////////////////////////
@@ -556,7 +558,7 @@ describe('Proof of efficiency test vectors', function () {
         ).to.emit(proofOfEfficiencyContract, 'VerifyBatches')
             .withArgs(numBatch, aggregator.address)
             .to.emit(globalExitRootManager, 'UpdateGlobalExitRoot')
-            .withArgs(++lastGlobalExitRootNum, mainnetRoot, newLocalExitRoot);
+            .withArgs(mainnetRoot, newLocalExitRoot);
 
         const finalAggregatorMatic = await maticTokenContract.balanceOf(
             await aggregator.address,
