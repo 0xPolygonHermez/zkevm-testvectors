@@ -8985,6 +8985,18 @@
     {
       "name": "stRevertTest/RevertInCreateInInit",
       "description": "Do not clean the storage when a contract is deployed in that address"
+    },
+    {
+      "name": "stRandom2/randomStatetest642",
+      "description": "Precompiled ecMul is not supported"
+    },
+    {
+      "name": "stRandom2/randomStatetest645_0",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRandom2/randomStatetest645_1",
+      "description": "Precompiled ripemd160 is not supported"
     }
   ]
 }

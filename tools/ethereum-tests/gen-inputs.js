@@ -305,6 +305,22 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             if (txTest.type) {
                                 await updateNoExec(dir, newOutputName, 'tx.type not supported', noExec);
                             }
+                            if (txTest.to === '0x0000000000000000000000000000000000000002') {
+                                await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExec);
+                            } else if (txTest.to === '0x0000000000000000000000000000000000000003') {
+                                await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
+                            } else if (txTest.to === '0x0000000000000000000000000000000000000005') {
+                                await updateNoExec(dir, newOutputName, 'Precompiled modexp is not supported', noExec);
+                            } else if (txTest.to === '0x0000000000000000000000000000000000000006') {
+                                await updateNoExec(dir, newOutputName, 'Precompiled ecAdd is not supported', noExec);
+                            } else if (txTest.to === '0x0000000000000000000000000000000000000007') {
+                                await updateNoExec(dir, newOutputName, 'Precompiled ecMul is not supported', noExec);
+                            } else if (txTest.to === '0x0000000000000000000000000000000000000008') {
+                                await updateNoExec(dir, newOutputName, 'Precompiled ecPairing is not supported', noExec);
+                            } else if (txTest.to === '0x0000000000000000000000000000000000000009') {
+                                await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExec);
+                            }
+
                             if (Scalar.e(txTest.gasLimit) > zkcommonjs.Constants.BATCH_GAS_LIMIT) {
                                 txsTest[tx].gasLimit = zkcommonjs.Constants.BATCH_GAS_LIMIT;
                             }
