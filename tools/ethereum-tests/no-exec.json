@@ -1,10 +1,6 @@
 {
   "breaks-computation": [
     {
-      "name": "expPower256Of256",
-      "description": "Not handle in ROM. Takes forever in executor to compite large computation such as 256 ** (2**24)"
-    },
-    {
       "name": "FirstByte",
       "description": "Bug at merkle-patricia-level where rlp encoding/decoding is used. Address above 0x800...000 returns a not find node in the tree."
     },
@@ -8985,6 +8981,10 @@
     {
       "name": "stStaticCall/static_Call50000_1",
       "description": "OOCS"
+    },
+    {
+      "name": "stStaticCall/static_Call50000bytesContract50_1_1",
+      "description": "OOCB"
     },
     {
       "name": "stStaticCall/static_Call50000bytesContradct50_3_1",
