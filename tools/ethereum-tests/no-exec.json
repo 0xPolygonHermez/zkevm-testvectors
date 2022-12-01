@@ -9033,6 +9033,154 @@
     {
       "name": "stQuadraticComplexityTest/Return50000_1",
       "description": "OOCS"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Return50000_2_0",
+      "description": "OOCS"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Return50000_2_1",
+      "description": "OOCS"
+    },
+    {
+      "name": "stEIP1559/typeTwoBerlin",
+      "description": "EIP1559 not supported"
+    },
+    {
+      "name": "VMTests/vmIOandFlowOperations/gas_0",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "VMTests/vmIOandFlowOperations/gas_1",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "VMTests/vmTests/blockInfo_1",
+      "description": "rom BATCH_DIFFICULTY != DIFFICULTY"
+    },
+    {
+      "name": "VMTests/vmTests/blockInfo_2",
+      "description": "rom TX_GAS_LIMIT != GASLIMIT"
+    },
+    {
+      "name": "stBadOpcode/invalidAddr_23",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stBadOpcode/invalidAddr_25",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stBadOpcode/invalidAddr_27",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stBadOpcode/invalidAddr_29",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stBadOpcode/invalidAddr_31",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/callToSuicideThenExtcodehash_3",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/createEmptyThenExtcodehash",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/dynamicAccountOverwriteEmpty",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashAccountWithoutCode",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashCALL",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashDELEGATECALL",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashInInitCode_0.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashInInitCode_1.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashPrecompiles_0",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashSTATICCALL",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashSelfInInit",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashNonExistingAccount",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashSelf",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashSubcallOOG_0",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashSubcallOOG_1",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashSubcallOOG_2",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_0",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_1",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_2",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_3",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_4",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_5",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_6",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_8",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_9",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
     }
   ]
 }
