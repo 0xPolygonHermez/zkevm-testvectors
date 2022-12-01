@@ -1,6 +1,6 @@
 {
     "name": "@0xpolygonhermez/test-vectors",
-    "version": "0.5.0.0",
+    "version": "0.5.1.0",
     "description": "zkEVM test vectors",
     "main": "index.js",
     "scripts": {
@@ -34,7 +34,7 @@
     ],
     "license": "pending",
     "devDependencies": {
-        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#v0.5.0.1",
+        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#feature/no-overwrite-timestamp",
         "@0xpolygonhermez/zkevm-contracts": "github:0xPolygonHermez/zkevm-contracts#develop",
         "pil-stark": "0.0.34",
         "pilcom": "0.0.18",
