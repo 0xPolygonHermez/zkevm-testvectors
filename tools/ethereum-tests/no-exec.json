@@ -1,100 +1,16 @@
 {
   "breaks-computation": [
     {
-      "name": "expPower256Of256",
-      "description": "Not handle in ROM. Takes forever in executor to compite large computation such as 256 ** (2**24)"
-    },
-    {
       "name": "FirstByte",
       "description": "Bug at merkle-patricia-level where rlp encoding/decoding is used. Address above 0x800...000 returns a not find node in the tree."
     },
     {
-      "name": "performanceTester_1",
-      "description": "not enough steps. Steps > 2**21"
-    },
-    {
-      "name": "performanceTester_2",
-      "description": "not enough steps. Steps > 2**21"
-    },
-    {
-      "name": "performanceTester_3",
-      "description": "not enough steps. Steps > 2**21"
-    },
-    {
       "name": "performanceTester_4",
-      "description": "not enough steps. Steps > 2**21"
-    },
-    {
-      "name": "stStaticCall/static_Call50000_1",
-      "description": "not enough steps. Steps > 2**21"
-    },
-    {
-      "name": "stStaticCall/static_Call50000bytesContract50_3_1",
-      "description": "not enough steps. Steps > 2**21"
-    },
-    {
-      "name": "stStaticCall/static_Call50000bytesContract50_2_1",
-      "description": "not enough steps. Steps > 2**21"
-    },
-    {
-      "name": "stStaticCall/static_LoopCallsThenRevert_0",
-      "description": "not enough steps. Steps > 2**21"
-    },
-    {
-      "name": "stStaticCall/static_LoopCallsThenRevert_1",
-      "description": "not enough steps. Steps > 2**21"
-    },
-    {
-      "name": "stStaticCall/static_Return50000_2",
-      "description": "not enough steps. Steps > 2**21"
-    },
-    {
-      "name": "stRandom/randomStatetest307",
-      "description": "not enough steps. Steps > 2**21"
-    },
-    {
-      "name": "stQuadraticComplexityTest/Call20KbytesContract50_1_1",
-      "description": "not enough steps. Steps > 2**21"
-    },
-    {
-      "name": "stQuadraticComplexityTest/Call20KbytesContract50_2_1",
-      "description": "not enough steps. Steps > 2**21"
-    },
-    {
-      "name": "stQuadraticComplexityTest/Call20KbytesContract50_3_0",
-      "description": "not enough steps. Steps > 2**21"
-    },
-    {
-      "name": "stQuadraticComplexityTest/Call20KbytesContract50_3_1",
-      "description": "not enough steps. Steps > 2**21"
-    },
-    {
-      "name": "stQuadraticComplexityTest/Create1000Byzantium_1",
-      "description": "not enough steps. Steps > 2**21"
-    },
-    {
-      "name": "stQuadraticComplexityTest/Create1000_1",
-      "description": "not enough steps. Steps > 2**21"
-    },
-    {
-      "name": "stQuadraticComplexityTest/Return50000",
-      "description": "not enough steps. Steps > 2**21"
+      "description": "Error: JavaScript heap out of memory"
     },
     {
       "name": "stShift/shiftSignedCombinations",
       "description": "Large exp --> eval_exp --> Maximum BigInt size exceeded"
-    },
-    {
-      "name": "stMemoryStressTest/mload32bitBound_return",
-      "description": "Error: JavaScript heap out of memory"
-    },
-    {
-      "name": "stMemoryTest/stackLimitPush31",
-      "description": "Error: JavaScript heap out of memory"
-    },
-    {
-      "name": "stMemoryTest/stackLimitPush32",
-      "description": "Error: JavaScript heap out of memory"
     }
   ],
   "not-supported": [
@@ -8996,7 +8912,127 @@
     },
     {
       "name": "stRandom2/randomStatetest645_1",
-      "description": "Precompiled ripemd160 is not supported"
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stEIP1559/typeTwoBerlin",
+      "description": "EIP1559 not supported"
+    },
+    {
+      "name": "stExample/basefeeExample",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stExample/eip1559",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_14",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_34",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_53",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_73",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_93",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_114",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_134",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/modexp_0_0_0_20500_0",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stReturnDataTest/modexp_modsize0_returndatasize_0",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stReturnDataTest/modexp_modsize0_returndatasize_1",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stReturnDataTest/modexp_modsize0_returndatasize_2",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stReturnDataTest/modexp_modsize0_returndatasize_3",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "performanceTester_1",
+      "description": "OOCB"
+    },
+    {
+      "name": "stStaticCall/static_Call50000_1",
+      "description": "OOCS"
+    },
+    {
+      "name": "stStaticCall/static_Call50000bytesContract50_1_1",
+      "description": "OOCB"
+    },
+    {
+      "name": "stStaticCall/static_Call50000bytesContradct50_3_1",
+      "description": "OOCS"
+    },
+    {
+      "name": "stStaticCall/static_Call50000bytesContract50_2_1",
+      "description": "OOCS"
+    },
+    {
+      "name": "stStaticCall/static_LoopCallsThenRevert_0",
+      "description": "OOCB"
+    },
+    {
+      "name": "stStaticCall/static_LoopCallsThenRevert_1",
+      "description": "OOCB"
+    },
+    {
+      "name": "stStaticCall/static_Return50000_2",
+      "description": "OOCS"
+    },
+    {
+      "name": "stRandom/randomStatetest307",
+      "description": "OOCB"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Call20KbytesContract50_1_1",
+      "description": "OOCB"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Call20KbytesContract50_2_1",
+      "description": "OOCS"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Create1000Byzantium_1",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Create1000_1",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Return50000_0",
+      "description": "OOCS"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Return50000_1",
+      "description": "OOCS"
     }
   ]
 }
