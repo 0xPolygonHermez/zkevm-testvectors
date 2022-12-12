@@ -8831,10 +8831,6 @@
       "description": "tx.type not supported"
     },
     {
-      "name": "stEIP1559/typeTwoBerlin",
-      "description": "EIP1559 not supported"
-    },
-    {
       "name": "stExample/accessListExample_0",
       "description": "tx.type not supported"
     },
@@ -8913,10 +8909,6 @@
     {
       "name": "stRandom2/randomStatetest645_1",
       "description": "Precompiled modexp is not supported"
-    },
-    {
-      "name": "stEIP1559/typeTwoBerlin",
-      "description": "EIP1559 not supported"
     },
     {
       "name": "stExample/basefeeExample",
@@ -9041,10 +9033,6 @@
     {
       "name": "stQuadraticComplexityTest/Return50000_2_1",
       "description": "OOCS"
-    },
-    {
-      "name": "stEIP1559/typeTwoBerlin",
-      "description": "EIP1559 not supported"
     },
     {
       "name": "VMTests/gas_0",
