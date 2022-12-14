@@ -25,4 +25,3 @@ dir=../../../zkevm-testvectors/tools/ethereum-tests/eth-inputs/$group/$folder
 node --max-old-space-size=12000 run-inputs.js -f $dir -r ../../../zkevm-rom/build/rom.json --info $dir/info-inputs.txt --output $dir/info-output.txt --ignore
 
 cd ../../../zkevm-testvectors/tools/ethereum-tests
-./eth-tests-get-info.sh

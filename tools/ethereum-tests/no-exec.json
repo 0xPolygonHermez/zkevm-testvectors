@@ -9317,6 +9317,38 @@
     {
       "name": "stStaticCall/static_Call1024PreCalls3_1",
       "description": "tx gas > 30M"
+    },
+    {
+      "name": "stRandom/randomStatetest150",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stRandom/randomStatetest154",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stRandom/randomStatetest178",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stRandom/randomStatetest306",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stRandom/randomStatetest308",
+      "description": "rom TIMESTAMP != TIMESTAMP"
+    },
+    {
+      "name": "stRandom2/randomStatetest467",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stRandom2/randomStatetest636",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stRandom2/randomStatetest639",
+      "description": "tx gas > 30M"
     }
   ]
 }
