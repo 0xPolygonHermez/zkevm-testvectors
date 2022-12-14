@@ -8831,10 +8831,6 @@
       "description": "tx.type not supported"
     },
     {
-      "name": "stEIP1559/typeTwoBerlin",
-      "description": "EIP1559 not supported"
-    },
-    {
       "name": "stExample/accessListExample_0",
       "description": "tx.type not supported"
     },
@@ -8915,10 +8911,6 @@
       "description": "Precompiled modexp is not supported"
     },
     {
-      "name": "stEIP1559/typeTwoBerlin",
-      "description": "EIP1559 not supported"
-    },
-    {
       "name": "stExample/basefeeExample",
       "description": "tx.type not supported"
     },
@@ -8987,7 +8979,7 @@
       "description": "OOCB"
     },
     {
-      "name": "stStaticCall/static_Call50000bytesContradct50_3_1",
+      "name": "stStaticCall/static_Call50000bytesContract50_3_1",
       "description": "OOCS"
     },
     {
@@ -9033,6 +9025,330 @@
     {
       "name": "stQuadraticComplexityTest/Return50000_1",
       "description": "OOCS"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Return50000_2_0",
+      "description": "OOCS"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Return50000_2_1",
+      "description": "OOCS"
+    },
+    {
+      "name": "VMTests/gas_0",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "VMTests/gas_1",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "VMTests/blockInfo_1",
+      "description": "rom BATCH_DIFFICULTY != DIFFICULTY"
+    },
+    {
+      "name": "VMTests/blockInfo_2",
+      "description": "rom TX_GAS_LIMIT != GASLIMIT"
+    },
+    {
+      "name": "stBadOpcode/invalidAddr_23",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stBadOpcode/invalidAddr_25",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stBadOpcode/invalidAddr_27",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stBadOpcode/invalidAddr_29",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stBadOpcode/invalidAddr_31",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/callToSuicideThenExtcodehash_3",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/createEmptyThenExtcodehash",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/dynamicAccountOverwriteEmpty",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashAccountWithoutCode",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashCALL",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashDELEGATECALL",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashInInitCode_0.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashInInitCode_1.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashPrecompiles_0",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashSTATICCALL",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashSelfInInit",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashNonExistingAccount",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashSelf",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashSubcallOOG_0",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashSubcallOOG_1",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashSubcallOOG_2",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_0",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_1",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_2",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_3",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_4",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_5",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_6",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_8",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_9",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stRandom/randomStatetest26",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom/randomStatetest153",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom2/randomStatetest417",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom2/randomStatetest466",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom2/randomStatetest554",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom2/randomStatetest577",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom2/randomStatetest627",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom2/randomStatetest632",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom2/randomStatetest308",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stRandom2/randomStatetest458",
+      "description": "rom NUMBER != eth NUMBER"
+    },
+    {
+      "name": "stEIP3540",
+      "description": "stEIP3540"
+    },
+    {
+      "name": "stCreate2/Create2OnDepth1023",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stCreate2/Create2OnDepth1024",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stRevertTest/LoopCallsDepthThenRevert2",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stRevertTest/LoopCallsDepthThenRevert3",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stCallCreateCallCodeTest/CallRecursiveBombPreCall",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stDelegatecallTestHomestead/CallRecursiveBombPreCall",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stSystemOperationsTest/CallRecursiveBomb0",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stSystemOperationsTest/CallRecursiveBomb0_OOG_atMaxCallDepth.",
+      "description": "tx gas > 30M (?)"
+    },
+    {
+      "name": "stSystemOperationsTest/CallRecursiveBombLog",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stSystemOperationsTest/CallRecursiveBombLog2",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stCallCreateCallCodeTest/Call1024BalanceTooLow",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stCallCreateCallCodeTest/Call1024PreCalls",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stCallCreateCallCodeTest/Callcode1024BalanceTooLow",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stDelegatecallTestHomestead/Call1024BalanceTooLow",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stDelegatecallTestHomestead/Call1024PreCalls",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stDelegatecallTestHomestead/Delegatecall1024",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stExtCodeHash/codeCopyZero",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashChangedAccount",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashNewAccount",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashMaxCodeSize",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stStaticCall/static_Call1024BalanceTooLow_1",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stStaticCall/static_Call1024BalanceTooLow2_1",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stStaticCall/static_Call1024PreCalls_1",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stStaticCall/static_Call1024PreCalls2_0",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stStaticCall/static_Call1024PreCalls2_1",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stStaticCall/static_Call1024PreCalls3_1",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stRandom/randomStatetest150",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stRandom/randomStatetest154",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stRandom/randomStatetest178",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stRandom/randomStatetest306",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stRandom/randomStatetest308",
+      "description": "rom TIMESTAMP != TIMESTAMP"
+    },
+    {
+      "name": "stRandom2/randomStatetest467",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stRandom2/randomStatetest636",
+      "description": "tx gas > 30M"
+    },
+    {
+      "name": "stRandom2/randomStatetest639",
+      "description": "tx gas > 30M"
     }
   ]
 }

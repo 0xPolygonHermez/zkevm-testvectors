@@ -1,4 +1,177 @@
-## Information
+# How to run ethereum tests?
+## Requirements
+- node `v14.17.0`
+- npm `7.13.0`
+> https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+
+## Repositories
+- `zkevm-testvectors`: https://github.com/0xPolygonHermez/zkevm-testvectors
+    - This repository aims to provide test vectors for polygon-hermez zkevm implementation
+- `zkevm-rom`: https://github.com/0xPolygonHermez/zkevm-rom
+    - This repository contains the zkasm source code of the polygon-hermez zkevm
+- `zkevm-proverjs`: https://github.com/0xPolygonHermez/zkevm-proverjs
+    - branch: specified in the package.json of `zkevm-rom`
+    - zkEVM proof generator reference written in Javascript
+
+## Steps
+Final structure:
+```
+zkevm
+  |--- zkevm-proverjs
+  |--- zkevm-rom
+  |--- zkevm-testvectors
+```
+### 1. Create folder: 
+```
+$ mkdir zkevm
+$ cd zkevm
+ ```
+ 
+### 2. Clone repositories & install:
+Clone `zkevm-testvectors` and install dependencies:
+- `zkevm-testvectors`:
+```
+# After -b option, the version of the repo can be chosen
+
+$ git clone -b v0.5.1.0 git@github.com:0xPolygonHermez/zkevm-testvectors.git
+$ cd zkevm-testvectors
+$ npm i
+$ cd ..
+```
+
+**Option 1:**
+
+```
+$ ./setup-all.sh
+```
+
+> The following option follow the steps of this script
+
+**Option 2:**
+
+Clone `zkevm-rom`, install dependencies and build:
+- `zkevm-rom`:
+```
+# After -b option, the version of the repo can be chosen
+
+$ git clone -b v0.5.2.0 git@github.com:0xPolygonHermez/zkevm-rom.git
+$ cd zkevm-rom
+$ npm i
+$ npm run build
+$ grep @0xpolygonhermez/zkevm-proverjs package.json | awk  -F \# '{print substr($2,0,40)}'
+
+# This command will show us the version of zkevm-proverjs
+> 1252c73125b24f28f38bbe7075895aa0a2a12eb9
+
+$ cd ..
+```
+Clone `zkevm-proverjs` and install dependencies:
+- `zkevm-proverjs`:
+```
+$ git clone git@github.com:0xPolygonHermez/zkevm-proverjs.git
+$ cd zkevm-proverjs
+$ git checkout 1252c73125b24f28f38bbe7075895aa0a2a12eb9
+$ npm i
+$ cd ..
+```
+
+Clone ethereum/tests:
+```
+$ cd zkevm-testvectors/tools/ethereum-tests
+$ ./setup.sh
+```
+
+### 3. Generate all inputs and pass tests:
+```
+# zkevm-testvectors/tools/ethereum-tests
+
+$ ./eth-tests.sh
+```
+> It is possible to add the `update` option to update the `tests` folder (`ethereum/tests`)
+> `./eth-tests.sh update`
+
+At the end of generating and passing all the tests, a summary of the information will be displayed:
+```
+Commit ethereum/tests: c896d1eabd9719c6bd80b979567573c7ec111429 
+Commit zkevm-testvectors: 8f9763ae110a226a79ec0a95c40cc2245067f92b 
+Commit zkevm-rom: 00f0421cb61e64da14f800030ddd663e7d9e665a 
+Commit zkevm-proverjs: a049538a517e73fecebdf94eafa435e545d2a688 
+Files: 2607 
+Total tests: 13282 
+Generation errors: 8 
+Inputs: 9665 
+Inputs ok: 9662 
+Exec errors: 3 
+Not supported: 3609 
+----------------------------- 
+Tests: 100% 
+Tests ok: 73% 
+Exec Error: 0% 
+Generation Error: 0% 
+Not supported: 27%  
+Coverage: 99.88%
+```
+
+> IMPORTANT: this information will only be correct if all the tests have been passed, it will be incomplete if only some folders have been generated
+
+To get the updated table:
+```
+$ node gen-table.js
+```
+> IMPORTANT: the table can only be generated if all the tests have been passed, it will not be generated correctly if only some folders have been passed
+
+### 4. Check information:
+Following the previous steps, some files will have been generated:
+- `zkevm-testvectors/tools/ethereum-tests/eth-inputs`:
+    - `final-info.txt`: All detailed information by folders
+    - `final.txt`: summary of all information
+    - `final-table.txt`: table resulting from passing all the tests
+    - `GeneralStateTests`: all generated inputs, organized in folders like in `ethereum/tests`
+        - for each folder:
+            - inputs (`.json`)
+            - `info.txt`: summary of all information
+            - `info-inputs.txt`: inputs generation summary
+            - `info-output.txt`: Information resulting from passing the tests
+
+## Quick-guide
+
+```
+$ mkdir zkevm
+$ cd zkevm
+$ git clone -b v0.5.1.0 git@github.com:0xPolygonHermez/zkevm-testvectors.git
+$ cd zkevm-testvectors
+$ npm i
+$ cd ..
+$ ./setup-all.sh
+$ ./eth-tests.sh
+$ node gen-table.js
+```
+
+### Extra
+
+#### Generate 1 folder inputs and pass tests
+
+This option is designed for, after generating and passing all the tests following the previous steps, to be able to update a folder without passing all the tests again.
+
+```
+# zkevm-testvectors/tools/ethereum-tests
+
+$ ./eth-tests-folder.sh stSLoadTest
+```
+> It is possible to add the `update` option to update the `tests` folder (`ethereum/tests`)
+> `./eth-tests-folder.sh stSLoadTest update`
+
+It is possible to generate and view the information summary again with:
+```
+$ ./eth-tests-get-info.sh
+```
+
+And update table with:
+```
+$ node gen-table.js
+```
+
+# Information
 
 Each folder corresponds to a folder inside `ethereum/tests` repository.
 
@@ -33,10 +206,6 @@ npx mocha gen-inputs.js --test stChainId/chainId.json
 ```
 npx mocha gen-inputs.js --folder stChainId
 ```
-
-## Inputs
-- If and input does not pass correctly, it ends with `-ignore`
-- Each folder has a file `errors`: this document contains which inputs HAVE NOT BEEN GENERATED correctly with the `gen-inputs` script
 
 ## Scripts
 

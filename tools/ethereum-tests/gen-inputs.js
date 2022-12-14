@@ -195,10 +195,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         const noExec = require('./no-exec.json');
 
-                        if (file.includes('stEIP1559')) {
-                            await updateNoExec(dir, newOutputName, 'EIP1559 not supported', noExec);
-                        }
-
                         const listBreaksComputation = [];
                         noExec['breaks-computation'].forEach((elem) => listBreaksComputation.push(elem.name));
 
@@ -217,6 +213,10 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             }
                         }
 
+                        if (file.includes('stEIP1559')) {
+                            await updateNoExec(dir, newOutputName, 'EIP1559 not supported', noExec);
+                        }
+
                         const currentTest = test[keysTests[y]];
 
                         // check gas used by the tx is less than 30M
@@ -226,12 +226,22 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         let accountPkFrom;
                         if (currentTest._info.source.endsWith('.json')) {
-                            const source = require(`./tests/${currentTest._info.source}`);
+                            let source;
+                            try {
+                                source = require(`./tests/${currentTest._info.source}`);
+                            } catch (e) {
+                                throw new Error('Error: ethereum/tests error');
+                            }
                             accountPkFrom = source[(file.split('/')[file.split('/').length - 1]).split('.json')[0]].transaction.secretKey;
                             accountPkFrom = accountPkFrom.startsWith('0x') ? accountPkFrom : `0x${accountPkFrom}`;
                             accountPkFrom = toBuffer(accountPkFrom);
                         } else if (currentTest._info.source.endsWith('.yml')) {
-                            const s = fs.readFileSync(path.join(__dirname, `./tests/${currentTest._info.source}`), 'utf8');
+                            let s;
+                            try {
+                                s = fs.readFileSync(path.join(__dirname, `./tests/${currentTest._info.source}`), 'utf8');
+                            } catch (e) {
+                                throw new Error('Error: ethereum/tests error');
+                            }
                             let indNum = s.search('secretKey:');
                             while (s.substring(indNum, indNum + 1) !== ' ') {
                                 indNum += 1;
@@ -419,7 +429,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                 if (address !== sequencerAddress) {
                                     const infoExpect = postState[address];
                                     const newLeaf = await zkEVMDB.getCurrentAccountState(address);
-
                                     if (infoExpect.balance) {
                                         expect(Scalar.e(newLeaf.balance).toString()).to.be.equal(Scalar.e(infoExpect.balance).toString());
                                     }

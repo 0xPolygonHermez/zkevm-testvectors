@@ -82,5 +82,5 @@ let aux_cov=$tests-$not_sup
 #let p5=(100*$ok+$aux_cov/2)/$aux_cov
 #let p5=$(echo "scale=2; (100*$ok+$aux_cov/2)/$aux_cov" | bc)
 
-echo -e "Commit ethereum/tests: $commit_eth_tests \nCommit zkevm-testvectors: $commit_testvectors \nCommit zkevm-rom: $commit_rom \nCommit zkevm-proverjs: $commit_proverjs \nFiles: $files \nTotal tests: $tests \nGeneration errors: $err_gen \nInputs: $inputs \nInputs ok: $ok \nExec errors: $err_exec \nNot supported: $not_sup \n----------------------------- \nTests: 100% \nTests ok: $p3% \nExec Error: $p2% \nGeneration Error: $p1% \nNot supported: $p4%  \nCoverage: $(echo "scale=2; (100*$ok+$aux_cov/2)/$aux_cov" | bc)%" > eth-inputs/final.txt
+echo -e "Commit ethereum/tests: $commit_eth_tests \nCommit zkevm-testvectors: $commit_testvectors \nCommit zkevm-rom: $commit_rom \nCommit zkevm-proverjs: $commit_proverjs \nFiles: $files \nTotal tests: $tests \nGeneration errors: $err_gen \nInputs: $inputs \nInputs ok: $ok \nExec errors: $err_exec \nNot supported: $not_sup \n----------------------------- \nTests: 100% \nTests ok: $p3% \nExec Error: $p2% \nGeneration Error: $p1% \nNot supported: $p4%  \nCoverage: $(echo "scale=2; 100*$ok/$aux_cov" | bc)%" > eth-inputs/final.txt
 cat eth-inputs/final.txt
