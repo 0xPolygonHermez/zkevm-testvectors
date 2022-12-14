@@ -38,7 +38,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
     let allTests = true;
     let countTests = 0;
     let countErrors = 0;
-    let countErrorsEth = 0;
     let countOK = 0;
     let countNotSupport = 0;
 
@@ -480,9 +479,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         console.log();
                         if (e.toString() === 'Error: not supported') {
                             countNotSupport += 1;
-                        } else if (e.toString() === 'Error: ethereum/tests error') {
-                            countErrorsEth += 1;
-                            countTests -= 1;
                         } else {
                             countErrors += 1;
                         }
@@ -507,7 +503,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             info += `inputs: ${countOK}\n`;
             info += `errors: ${countErrors}\n`;
             info += `not-supported: ${countNotSupport}\n`;
-            info += `ethereum errors: ${countErrorsEth}\n`;
             dir = path.join(__dirname, outputPath);
             if (!fs.existsSync(dir)) {
                 fs.mkdirSync(dir);
