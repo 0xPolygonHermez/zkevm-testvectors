@@ -9349,6 +9349,14 @@
     {
       "name": "stRandom2/randomStatetest639",
       "description": "tx gas > 30M"
+    },
+    {
+      "name": "stTransactionTest/HighGasPrice",
+      "description": "It is not possible to generate this test. Equivalent test: zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-custom-tx.json --> zkevm-testvectors/inputs-executor/calldata/custom-tx_1.json"
+    },
+    {
+      "name": "stTransactionTest/ValueOverflow",
+      "description": "It is not possible to generate this test. Equivalent test: zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-custom-tx.json --> zkevm-testvectors/inputs-executor/calldata/custom-tx_2.json"
     }
   ]
 }
