@@ -7,6 +7,7 @@
 /* eslint-disable import/no-dynamic-require */
 
 const path = require('path');
+const { argv } = require('yargs');
 const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
 const { Address, BN, toBuffer } = require('ethereumjs-util');
 const Common = require('@ethereumjs/common').default;
@@ -28,7 +29,7 @@ let zkEVMDB;
 /** #########################################################
  *                            CONFIG
  * ######################################################### */
-const CONFIG_ID = 0; // Set config id here
+const CONFIG_ID = argv.config_id ? Number(argv.config_id) : 0; // Set config id here
 const compilePil = false;
 const config = configs[CONFIG_ID];
 const {
@@ -40,9 +41,13 @@ const testObject = require(testFilePath)[testIndex];
 async function main() {
     let errFound = false;
     let txCount = initStep;
+    // Create inputs dir if not exists
+    if (!fs.existsSync(path.join(__dirname, './inputs'))) {
+        fs.mkdirSync(path.join(__dirname, './inputs'));
+    }
     // Build poseidon and PIL
     const cmPols = await initBuild();
-
+    console.log(`Starting config ${CONFIG_ID}`);
     while (!errFound) {
         // Build genesis
         await buildGenesis();
@@ -52,31 +57,67 @@ async function main() {
         }
         // Create raw transactions
         const circuitInput = await createRawTxs(txCount, false);
-        const ci = JSON.stringify(circuitInput);
-        console.log('batchL2DataLen: ', circuitInput.batchL2Data.slice(2).length / 2);
+        fs.writeFileSync(path.join(__dirname, `./inputs/${config.name}-${txCount}.json`), JSON.stringify(circuitInput, null, 2));
+        const dataLen = circuitInput.batchL2Data.slice(2).length / 2;
+        console.log('batchL2DataLen: ', dataLen);
         // Execute transactions
         console.log(`Execute with ${txCount} transactions`);
         await executeTx(circuitInput, cmPols);
         // Read tracer result
-        errFound = await readTracer(txCount);
-        if (!errFound) { txCount += testStep; }
+        errFound = await readTracer(txCount, dataLen);
+        if (!errFound) {
+            txCount += testStep;
+        }
     }
+    fs.writeFileSync(path.join(__dirname, './benchmark_config.json'), JSON.stringify(configs, null, 2));
     console.log(`Total correct txs ${txCount - testStep}`);
     console.log('FINISH');
 }
 
-async function readTracer() {
+async function readTracer(txCount, dataLen) {
     const result = JSON.parse(fs.readFileSync(path.join(__dirname, '../../../zkevm-proverjs/src/sm/sm_main/logs-full-trace/benchmark-trace__full_trace.json')));
+    printTracerResults(result);
     let errFound = false;
     result.responses.forEach(function (res) {
         if (res.error !== '') {
             errFound = true;
             console.log(`Found error: ${res.error}`);
+            config.benchmark.bottleneck = res.error;
         }
     });
+    if (!errFound && config.benchmark.txs < txCount) {
+        updateBenchmark(result, txCount, dataLen);
+    }
     return errFound;
 }
 
+function updateBenchmark(result, txCount, dataLen) {
+    config.benchmark = {
+        txs: txCount,
+        totalDataBytes: dataLen,
+        cntArith: result.counters.cnt_arith,
+        cntBinary: result.counters.cnt_binary,
+        cntMemAlign: result.counters.cnt_mem_align,
+        cntKeccak: result.counters.cnt_keccak_f,
+        cntPadding: result.counters.cnt_padding_pg,
+        cntPoseidon: result.counters.cnt_poseidon_g,
+        cntSeps: result.counters.cont_steps,
+        cumulativeGasUsed: result.cumulative_gas_used,
+    };
+}
+
+function printTracerResults(result) {
+    console.log(`
+    arith: ${result.counters.cnt_arith}
+    binary: ${result.counters.cnt_binary}
+    memAlign: ${result.counters.cnt_mem_align}
+    keccak: ${result.counters.cnt_keccak_f}
+    padding: ${result.counters.cnt_padding_pg}
+    poseidon: ${result.counters.cnt_poseidon_g}
+    steps: ${result.counters.cont_steps}
+    totalGas: ${result.cumulative_gas_used}
+    `);
+}
 async function executeTx(circuitInput, cmPols) {
     const pilConfig = {
         debug: true,
