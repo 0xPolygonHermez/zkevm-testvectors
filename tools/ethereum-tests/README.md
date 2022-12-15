@@ -21,12 +21,12 @@ zkevm
   |--- zkevm-rom
   |--- zkevm-testvectors
 ```
-### 1. Create folder: 
+### 1. Create folder:
 ```
 $ mkdir zkevm
 $ cd zkevm
  ```
- 
+
 ### 2. Clone repositories & install:
 Clone `zkevm-testvectors` and install dependencies:
 - `zkevm-testvectors`:
@@ -170,6 +170,13 @@ And update table with:
 ```
 $ node gen-table.js
 ```
+
+#### File `cache-main-pil.json`
+This file is created if it does not already exist. It is important to regenerate it in case there is a change of versions.
+Depending on the scenario used:
+- The above scripts are set up to be regenerated at the beginning of execution.
+- If the `run-inputs` file is used directly, the file can be updated with the `--pil` option.
+- If the `zkevm-proverjs/src/main_executor.js` file is used directly, the file will not be updated if you use the `--skip` option.
 
 # Information
 

@@ -120,7 +120,16 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         } else {
                             const filesDirec2 = fs.readdirSync(path3);
                             for (let q = 0; q < filesDirec2.length; q++) {
-                                files.push(`${path3}/${filesDirec2[q]}`);
+                                const path4 = path.join(__dirname, `${path3}/${filesDirec2[q]}`);
+                                stats = fs.statSync(path4);
+                                if (stats.isFile()) {
+                                    files.push(path4);
+                                } else {
+                                    const filesDirec3 = fs.readdirSync(path4);
+                                    for (let t = 0; t < filesDirec3.length; t++) {
+                                        files.push(`${path4}/${filesDirec3[t]}`);
+                                    }
+                                }
                             }
                         }
                     }
@@ -131,13 +140,23 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             const pathFolder = path.join(__dirname, `${basePath}/${group}/${folder}`);
             const filesDirec = fs.readdirSync(pathFolder);
             for (let y = 0; y < filesDirec.length; y++) {
-                let stats = fs.statSync(`${pathFolder}/${filesDirec[y]}`);
+                const path1 = `${pathFolder}/${filesDirec[y]}`;
+                let stats = fs.statSync(`${path1}`);
                 if (stats.isFile()) {
-                    files.push(`${pathFolder}/${filesDirec[y]}`);
+                    files.push(`${path1}`);
                 } else {
-                    const filesDirec2 = fs.readdirSync(`${pathFolder}/${filesDirec[y]}`);
+                    const filesDirec2 = fs.readdirSync(`${path1}`);
                     for (let q = 0; q < filesDirec2.length; q++) {
-                        files.push(`${pathFolder}/${filesDirec[y]}/${filesDirec2[q]}`);
+                        const path2 = `${path1}/${filesDirec2[q]}`;
+                        stats = fs.statSync(`${path2}`);
+                        if (stats.isFile()) {
+                            files.push(`${path2}`);
+                        } else {
+                            const filesDirec3 = fs.readdirSync(`${path2}`);
+                            for (let t = 0; t < filesDirec3.length; t++) {
+                                files.push(`${path2}/${filesDirec3[t]}`);
+                            }
+                        }
                     }
                 }
             }

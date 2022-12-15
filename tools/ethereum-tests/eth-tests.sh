@@ -39,7 +39,9 @@ dir=./tests/BlockchainTests/GeneralStateTests
 gen_inputs_time=$(date +%s)
 echo -e "gen inputs time: $((gen_inputs_time - clone_time))" >> times-eth.txt
 # pass tests
-cd ../../../zkevm-proverjs/tools/run-test
+cd ../../../zkevm-proverjs
+rm cache-main-pil.json
+cd tools/run-test
 dir=../../../zkevm-testvectors/tools/ethereum-tests/eth-inputs
 pass_folder_time=$gen_inputs_time
 for entry in "$dir"/*

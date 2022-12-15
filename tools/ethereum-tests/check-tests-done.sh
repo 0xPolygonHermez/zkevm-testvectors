@@ -2,7 +2,9 @@ start_date="$(date +%T) $(date +%d/%m/%y)"
 echo -e "start: $start_date" > times.txt
 start_time=$(date +%s)
 # pass tests
-cd ../../../zkevm-proverjs/tools/run-test
+cd ../../../zkevm-proverjs
+rm cache-main-pil.json
+cd tools/run-test
 dir=../../../zkevm-testvectors/inputs-executor
 count=0
 for entry in "$dir"/*
