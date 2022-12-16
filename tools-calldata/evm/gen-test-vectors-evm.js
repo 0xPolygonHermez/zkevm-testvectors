@@ -209,6 +209,22 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                         bytecode: deployedBytecode,
                     };
                     contracts.push(contract);
+                } else if (currentTx.to === 'deploy-custom') {
+                    outputTx = {
+                        from: currentTx.from,
+                        to: '0x',
+                        nonce: currentTx.nonce,
+                        value: currentTx.value,
+                        data: currentTx.data,
+                        gasLimit: currentTx.gasLimit,
+                        gasPrice: currentTx.gasPrice,
+                        chainId: currentTx.chainId,
+                        deployedBytecode: currentTx.deployedBytecode
+                    };
+                    const contractAddress = ethers.utils.getContractAddress(outputTx);
+                    if (outputTestVector.expectedNewLeafs[contractAddress.toString('hex')] === undefined) {
+                        outputTestVector.expectedNewLeafs[contractAddress.toString('hex')] = {};
+                    }
                 } else {
                     outputTx = currentTx;
                 }

@@ -9357,6 +9357,22 @@
     {
       "name": "stTransactionTest/ValueOverflow",
       "description": "It is not possible to generate this test. Equivalent test: zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-custom-tx.json --> zkevm-testvectors/inputs-executor/calldata/custom-tx_2.json"
+    },
+    {
+      "name": "stCreate2/CREATE2_EOF1",
+      "description": "Bytecode starts with 0xEF (we support EIP-3541 in Berlin hardfork). Equivalent tests: zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-op-create.json [id: from 4 to 7] & zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-test-deploy.json [id: from 8 to 9]"
+    },
+    {
+      "name": "stCreateTest/CREATE_EOF1",
+      "description": "Bytecode starts with 0xEF (we support EIP-3541 in Berlin hardfork). Equivalent tests: zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-op-create.json [id: from 4 to 7] & zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-test-deploy.json [id: from 8 to 9]"
+    },
+    {
+      "name": "stTransactionTest/CreateTransactionEOF1",
+      "description": "Bytecode starts with 0xEF (we support EIP-3541 in Berlin hardfork). Equivalent tests: zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-op-create.json [id: from 4 to 7] & zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-test-deploy.json [id: from 8 to 9]"
+    },
+    {
+      "name": "stTransactionTest/Opcodes_TransactionInit_35.json",
+      "description": "Bytecode starts with 0xEF (we support EIP-3541 in Berlin hardfork). Equivalent tests: zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-op-create.json [id: from 4 to 7] & zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-test-deploy.json [id: from 8 to 9]"
     }
   ]
 }
