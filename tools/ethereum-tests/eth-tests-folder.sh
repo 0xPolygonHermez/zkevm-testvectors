@@ -4,9 +4,15 @@ if [ -d "tests" ]
         then
         rm -rf tests
         git clone https://github.com/ethereum/tests.git
+        cd tests
+        git checkout 9e0a5e00981575de017013b635d54891f9e561ef
+        cd ../
     fi
 else
     git clone https://github.com/ethereum/tests.git
+    cd tests
+    git checkout 9e0a5e00981575de017013b635d54891f9e561ef
+    cd ../
 fi
 
 # gen tests
