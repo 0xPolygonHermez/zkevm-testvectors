@@ -173,6 +173,15 @@ contract OpArithSigned {
     }
   }
 
+  function opSAR5() public {
+    uint256 shiftedBits = 1;
+    uint256 auxNegative2 = 0x8000000000000000000000000000000000000000000000000000000000000001;
+    assembly {
+      let result := sar(shiftedBits, auxNegative2)
+      sstore(0x0, result)
+    }
+  }
+
   // opcode 0x0b: SIGNEXTEND
   function opSIGNEXTEND1() public {
     uint256 negativeByte = 0; // 0000 0000 1000 0000
