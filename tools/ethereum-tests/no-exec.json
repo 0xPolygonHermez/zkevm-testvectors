@@ -7,6 +7,58 @@
     {
       "name": "performanceTester_4",
       "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "stStaticCall/static_LoopCallsThenRevert_1",
+      "description": "When the test is generated it ends with: Killed"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Return50000_1",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Return50000_2_1",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "VMTests/vmPerformance/loopExp_1",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "VMTests/vmPerformance/loopExp_3",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "VMTests/vmPerformance/loopExp_4",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "VMTests/vmPerformance/loopExp_5",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "VMTests/vmPerformance/loopMul_0",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "VMTests/vmPerformance/loopMul_1",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "VMTests/vmPerformance/loopMul_2",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "stStaticCall/static_LoopCallsThenRevert_0",
+      "description": "Killed"
+    },
+    {
+      "name": "stStaticCall/static_Return50000_2",
+      "stepsN": "Killed"
+    },
+    {
+      "name": "stStaticCall/static_Call50000bytesContract50_1_1",
+      "description": "Error: JavaScript heap out of memory"
     }
   ],
   "not-supported": [
@@ -29,990 +81,6 @@
     {
       "name": "stChainId/chainId.json",
       "description": "Opcode CHAINID (0x46) called and stored. ChainId does not match. Similar internal test has been done in: state-transition/calldata/chainId.json"
-    },
-    {
-      "name": "stMemoryTest/buffer_194",
-      "description": "Batch gas limit > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_197",
-      "description": "Batch gas limit > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_266",
-      "description": "Batch gas limit > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_277",
-      "description": "Batch gas limit > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_290",
-      "description": "Batch gas limit > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_294",
-      "description": "Batch gas limit > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_307",
-      "description": "Batch gas limit > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_310",
-      "description": "Batch gas limit > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_323",
-      "description": "Batch gas limit > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_327",
-      "description": "Batch gas limit > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_78",
-      "description": "Batch gas limit > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_81",
-      "description": "Batch gas limit > 30M"
-    },
-    {
-      "name": "stMemoryTest/sha3_dejavu",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/calldatacopy_dejavu",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/codecopy_dejavu",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/extcodecopy_dejavu",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/log1_dejavu",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/log2_dejavu",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/log3_dejavu",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/log4_dejavu",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/mload_dejavu",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/mstore_dejavu",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/mstroe8_dejavu",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_1.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_2.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_3.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_4.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_5.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_6.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_7.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_8.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_11.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_12.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_15.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_16.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_17.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_18.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_19.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_20.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_21.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_22.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_23.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_24.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_25.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_28.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_31.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_32.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_33.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_34.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_35.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_36.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_37.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_38.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_39.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_40.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_41.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_44.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_45.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_48.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_49.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_50.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_51.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_52.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_53.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_54.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_55.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_56.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_57.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_58.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_61.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_64.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_65.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_66.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_67.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_68.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_69.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_70.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_71.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_72.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_73.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_74.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_82.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_83.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_84.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_85.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_86.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_87.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_89.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_90.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_91.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_94.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_97.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_98.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_99.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_100.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_101.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_102.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_103.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_104.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_105.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_106.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_107.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_112.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_115.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_116.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_117.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_118.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_119.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_120.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_121.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_123.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_124.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_125.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_128.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_131.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_132.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_133.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_134.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_135.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_136.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_137.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_138.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_139.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_140.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_141.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_144.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_145.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_148.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_149.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_150.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_151.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_152.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_153.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_154.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_155.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_156.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_157.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_158.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_161.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_164.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_165.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_166.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_167.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_168.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_169.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_170.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_171.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_172.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_173.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_174.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_177.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_178.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_181.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_182.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_183.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_184.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_185.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_186.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_187.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_188.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_189.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_190.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_191.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_198.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_199.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_200.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_201.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_202.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_203.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_204.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_205.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_206.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_207.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_210.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_211.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_214.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_215.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_216.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_217.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_218.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_219.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_220.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_221.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_222.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_223.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_224.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_225.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_228.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_231.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_232.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_233.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_234.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_235.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_236.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_237.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_238.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_239.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_240.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_241.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_278.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_279.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_280.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_282.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_283.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_284.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_285.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_286.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_287.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_295.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_296.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_297.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_298.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_299.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_300.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_301.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_302.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_303.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_304.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_305.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_308.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_311.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_312.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_313.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_315.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_316.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_317.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_318.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_319.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_320.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_325.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_328.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_329.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_330.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_331.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_332.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_333.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_334.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_335.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_336.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_337.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_338.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_339.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_342.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_345.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_346.json",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/buffer_347.json",
-      "description": "tx gas > 30M"
     },
     {
       "name": "stStaticCall/StaticcallToPrecompile",
@@ -1051,126 +119,6 @@
       "description": "TODO: deltaX == 0 => division by zero ==> how manage? (sm_main_exec.js --> eval_AddPointEc)"
     },
     {
-      "name": "stStackTests/stackOverflowM1PUSH_10",
-      "description": "OOC: lots of push21"
-    },
-    {
-      "name": "stStackTests/stackOverflowM1PUSH_12",
-      "description": "OOC: lots of push22"
-    },
-    {
-      "name": "stStackTests/stackOverflowM1PUSH_13",
-      "description": "OOC: lots of push23"
-    },
-    {
-      "name": "stStackTests/stackOverflowM1PUSH_14",
-      "description": "OOC: lots of push24"
-    },
-    {
-      "name": "stStackTests/stackOverflowM1PUSH_15",
-      "description": "OOC: lots of push25"
-    },
-    {
-      "name": "stStackTests/stackOverflowM1PUSH_16",
-      "description": "OOC: lots of push26"
-    },
-    {
-      "name": "stStackTests/stackOverflowM1PUSH_17",
-      "description": "OOC: lots of push27"
-    },
-    {
-      "name": "stStackTests/stackOverflowM1PUSH_18",
-      "description": "OOC: lots of push28"
-    },
-    {
-      "name": "stStackTests/stackOverflowM1PUSH_19",
-      "description": "OOC: lots of push29"
-    },
-    {
-      "name": "stStackTests/stackOverflowM1PUSH_20",
-      "description": "OOC: lots of push30"
-    },
-    {
-      "name": "stStackTests/stackOverflowM1PUSH_21",
-      "description": "OOC: lots of push31"
-    },
-    {
-      "name": "stStackTests/stackOverflowM1PUSH_23",
-      "description": "OOC: lots of push32"
-    },
-    {
-      "name": "stStackTests/stackOverflowM1PUSH_7",
-      "description": "OOC: lots of push18"
-    },
-    {
-      "name": "stStackTests/stackOverflowM1PUSH_8",
-      "description": "OOC: lots of push19"
-    },
-    {
-      "name": "stStackTests/stackOverflowM1PUSH_9",
-      "description": "OOC: lots of push20"
-    },
-    {
-      "name": "stStackTests/stackOverflowPUSH_10",
-      "description": "OOC: lots of push21"
-    },
-    {
-      "name": "stStackTests/stackOverflowPUSH_12",
-      "description": "OOC: lots of push22"
-    },
-    {
-      "name": "stStackTests/stackOverflowPUSH_13",
-      "description": "OOC: lots of push23"
-    },
-    {
-      "name": "stStackTests/stackOverflowPUSH_14",
-      "description": "OOC: lots of push24"
-    },
-    {
-      "name": "stStackTests/stackOverflowPUSH_15",
-      "description": "OOC: lots of push25"
-    },
-    {
-      "name": "stStackTests/stackOverflowPUSH_16",
-      "description": "OOC: lots of push26"
-    },
-    {
-      "name": "stStackTests/stackOverflowPUSH_17",
-      "description": "OOC: lots of push27"
-    },
-    {
-      "name": "stStackTests/stackOverflowPUSH_18",
-      "description": "OOC: lots of push28"
-    },
-    {
-      "name": "stStackTests/stackOverflowPUSH_19",
-      "description": "OOC: lots of push29"
-    },
-    {
-      "name": "stStackTests/stackOverflowPUSH_20",
-      "description": "OOC: lots of push30"
-    },
-    {
-      "name": "stStackTests/stackOverflowPUSH_21",
-      "description": "OOC: lots of push31"
-    },
-    {
-      "name": "stStackTests/stackOverflowPUSH_23",
-      "description": "OOC: lots of push32"
-    },
-    {
-      "name": "stStackTests/stackOverflowPUSH_7",
-      "description": "OOC: lots of push18"
-    },
-    {
-      "name": "stStackTests/stackOverflowPUSH_8",
-      "description": "OOC: lots of push19"
-    },
-    {
-      "name": "stStackTests/stackOverflowPUSH_9",
-      "description": "OOC: lots of push20"
-    },
-    {
       "name": "stStaticFlagEnabled/CallWithZeroValueToPrecompileFromTransaction",
       "description": "Precompiled contracts called are not supported"
     },
@@ -1203,10 +151,6 @@
       "description": "Precompiled contracts called are not supported"
     },
     {
-      "name": "stStaticCall/static_Call50000_ecrec_0",
-      "description": "tx gas > 30M"
-    },
-    {
       "name": "VMTests/jump_16",
       "description": "jump to push"
     },
@@ -1216,331 +160,203 @@
     },
     {
       "name": "VMTests/jumpToPush_19",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_20",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_21",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_23",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_24",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_25",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_26",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_27",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_28",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_29",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_30",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_31",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_32",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_34",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_35",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_36",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_37",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_38",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_39",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_40",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_41",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_42",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_43",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_45",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_46",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_48",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_49",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_50",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_51",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_52",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_53",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_54",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_56",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_57",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_58",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_59",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_60",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_61",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_62",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_63",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_64",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_65",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_67",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_68",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_69",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_70",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_71",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_72",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_73",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/jumpToPush_74",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/mload_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/mload_2",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/msize_5",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/pop_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/log0_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/log0_2",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/log1_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/log1_2",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/log2_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/log2_2",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/log3_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/log3_2",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/log4_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/log4_2",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/loopExp_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/loopExp_2",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/loopExp_3",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/loopExp_4",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/loopExp_5",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/loopMul_0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/loopMul_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/loopMul_2",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/random_0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/random_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/random_2",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/random_5",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/sha3_10",
-      "description": "out of counter: cntKeccaks"
-    },
-    {
-      "name": "VMTests/sha3_11",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/sha3_12",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/sha3_13",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/sha3_14",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/sha3_15",
-      "description": "tx gas > 30M"
+      "description": "jump to push"
     },
     {
       "name": "VMTests/suicide_0",
@@ -1763,18 +579,6 @@
       "description": "Selfdestruct"
     },
     {
-      "name": "stCallCreateCallCodeTest/createInitFailBadJumpDestination",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stCallCreateCallCodeTest/createInitFailStackSizeLargerThan1024",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stCallCreateCallCodeTest/createInitFailStackUnderflow",
-      "description": "tx gas > 30M"
-    },
-    {
       "name": "stCallCreateCallCodeTest/createInitFailUndefinedInstruction",
       "description": "Selfdestruct"
     },
@@ -1923,18 +727,6 @@
       "description": "Selfdestruct"
     },
     {
-      "name": "stCreate2/CREATE2_Bounds_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stCreate2/CREATE2_Bounds2_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stCreate2/CREATE2_Bounds3_2",
-      "description": "tx gas > 30M"
-    },
-    {
       "name": "stCreate2/CREATE2_ContractSuicideDuringInit_ThenStoreThenReturn",
       "description": "Selfdestruct"
     },
@@ -1971,14 +763,6 @@
       "description": "Selfdestruct"
     },
     {
-      "name": "stCreate2/Create2Recursive_0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stCreate2/Create2Recursive_1",
-      "description": "tx gas > 30M"
-    },
-    {
       "name": "stCreate2/create2InitCodes_5",
       "description": "Selfdestruct"
     },
@@ -1988,11 +772,7 @@
     },
     {
       "name": "stCreate2/create2SmartInitCode_0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stCreate2/create2SmartInitCode_1",
-      "description": "tx gas > 30M"
+      "description": "Selfdestruct"
     },
     {
       "name": "stCreate2/create2collisionSelfdestructed_0",
@@ -2039,48 +819,8 @@
       "description": "Selfdestruct"
     },
     {
-      "name": "stCreate2/returndatacopy_following_create_0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stCreate2/returndatacopy_following_create_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stCreate2/returndatacopy_following_successful_create",
-      "description": "tx gas > 30M"
-    },
-    {
       "name": "stCreateTest/CREATE_AcreateB_BSuicide_BStore",
       "description": "Selfdestruct"
-    },
-    {
-      "name": "stCreateTest/CREATE_ContractRETURNBigOffset_0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stCreateTest/CREATE_ContractRETURNBigOffset_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stCreateTest/CREATE_ContractRETURNBigOffset_2",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stCreateTest/CREATE_ContractRETURNBigOffset_3",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stCreateTest/CREATE_ContractSuicideDuringInit",
-      "description": "Selfdestruct"
-    },
-    {
-      "name": "stCreateTest/CreateCollisionResults_0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stCreateTest/CreateCollisionResults_1",
-      "description": "tx gas > 30M"
     },
     {
       "name": "stCreateTest/CreateResults_5",
@@ -2168,11 +908,11 @@
     },
     {
       "name": "stEIP2930/variedContext_5",
-      "description": "tx gas > 30M"
+      "description": "tx.type not supported"
     },
     {
       "name": "stEIP2930/variedContext_6",
-      "description": "tx gas > 30M"
+      "description": "tx.type not supported"
     },
     {
       "name": "stExtCodeHash/callToSuicideThenExtcodehash_0",
@@ -2227,256 +967,12 @@
       "description": "Selfdestruct"
     },
     {
-      "name": "stMemoryStressTest/CALLCODE_Bounds_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/CALLCODE_Bounds2_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/CALLCODE_Bounds3_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/CALLCODE_Bounds4_2",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/CALL_Bounds_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/CALL_Bounds2_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/CALL_Bounds2a_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/CALL_Bounds3_2",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/CREATE_Bounds_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/CREATE_Bounds2_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/CREATE_Bounds3_2",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/DELEGATECALL_Bounds_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/DELEGATECALL_Bounds2_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/DELEGATECALL_Bounds3_2",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/FillStack_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/JUMPI_Bounds_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/JUMP_Bounds_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/JUMP_Bounds2_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/MLOAD_Bounds_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/MLOAD_Bounds2_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/MLOAD_Bounds3_0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/MLOAD_Bounds3_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/MSTORE_Bounds_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/MSTORE_Bounds2_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/MSTORE_Bounds2a_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/mload32bitBound_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/mload32bitBound2_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/mload32bitBound_Msize_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/mload32bitBound_return_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/mload32bitBound_return2_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/static_CALL_Bounds_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/static_CALL_Bounds2_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/static_CALL_Bounds2a_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryStressTest/static_CALL_Bounds3_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_3",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_4",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_5",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_6",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_7",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_8",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_9",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_10",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_12",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_13",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_14",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_15",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_16",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_17",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_18",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_19",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_20",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_21",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_22",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_26",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_110",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_111",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_112",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_113",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_114",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_117",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stMemoryTest/bufferSrcOffset_118",
-      "description": "tx gas > 30M"
-    },
-    {
       "name": "stNonZeroCallsTest/NonZeroValue_SUICIDE",
       "description": "Selfdestruct"
     },
     {
       "name": "stPreCompiledContracts/blake2B_0",
-      "description": "tx gas > 30M"
+      "description": "Precompiled blake2f is not supported"
     },
     {
       "name": "stPreCompiledContracts/blake2B_1",
@@ -2528,39 +1024,39 @@
     },
     {
       "name": "stPreCompiledContracts/idPrecomps_199",
-      "description": "tx gas > 30M"
+      "description": "Precompiled modexp is not supported"
     },
     {
       "name": "stPreCompiledContracts/idPrecomps_210",
-      "description": "tx gas > 30M"
+      "description": "Precompiled ecAdd is not supported"
     },
     {
       "name": "stPreCompiledContracts/idPrecomps_221",
-      "description": "tx gas > 30M"
+      "description": "Precompiled ecMul is not supported"
     },
     {
       "name": "stPreCompiledContracts/idPrecomps_232",
-      "description": "tx gas > 30M"
+      "description": "Precompiled ecPairing is not supported"
     },
     {
       "name": "stPreCompiledContracts/idPrecomps_243",
-      "description": "tx gas > 30M"
+      "description": "Precompiled blake2f is not supported"
     },
     {
       "name": "stPreCompiledContracts/modexp_80",
-      "description": "tx gas > 30M"
+      "description": "Precompiled modexp is not supported"
     },
     {
       "name": "stPreCompiledContracts/modexp_88",
-      "description": "tx gas > 30M"
+      "description": "Precompiled modexp is not supported"
     },
     {
       "name": "stPreCompiledContracts/modexp_116",
-      "description": "tx gas > 30M"
+      "description": "Precompiled modexp is not supported"
     },
     {
       "name": "stPreCompiledContracts/modexp_120",
-      "description": "tx gas > 30M"
+      "description": "Precompiled modexp is not supported"
     },
     {
       "name": "stPreCompiledContracts/precompsEIP2929_10",
@@ -2856,7 +1352,7 @@
     },
     {
       "name": "stPreCompiledContracts2/CALLBlake2f_0",
-      "description": "tx gas > 30M"
+      "description": "Precompiled blake2f is not supported"
     },
     {
       "name": "stPreCompiledContracts2/CALLBlake2f_1",
@@ -2872,7 +1368,7 @@
     },
     {
       "name": "stPreCompiledContracts2/CALLBlake2f_4",
-      "description": "tx gas > 30M"
+      "description": "Precompiled blake2f is not supported"
     },
     {
       "name": "stPreCompiledContracts2/CALLBlake2f_5",
@@ -2888,7 +1384,7 @@
     },
     {
       "name": "stPreCompiledContracts2/CALLBlake2f_8",
-      "description": "tx gas > 30M"
+      "description": "Precompiled blake2f is not supported"
     },
     {
       "name": "stPreCompiledContracts2/CALLBlake2f_9",
@@ -2896,7 +1392,7 @@
     },
     {
       "name": "stPreCompiledContracts2/CALLCODEBlake2f_0",
-      "description": "tx gas > 30M"
+      "description": "Precompiled blake2f is not supported"
     },
     {
       "name": "stPreCompiledContracts2/CALLCODEBlake2f_1",
@@ -2912,7 +1408,7 @@
     },
     {
       "name": "stPreCompiledContracts2/CALLCODEBlake2f_4",
-      "description": "tx gas > 30M"
+      "description": "Precompiled blake2f is not supported"
     },
     {
       "name": "stPreCompiledContracts2/CALLCODEBlake2f_5",
@@ -2928,7 +1424,7 @@
     },
     {
       "name": "stPreCompiledContracts2/CALLCODEBlake2f_8",
-      "description": "tx gas > 30M"
+      "description": "Precompiled blake2f is not supported"
     },
     {
       "name": "stPreCompiledContracts2/CALLCODEBlake2f_9",
@@ -3091,32 +1587,12 @@
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stQuadraticComplexityTest/Call1MB1024Calldepth_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stQuadraticComplexityTest/Call50000_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stQuadraticComplexityTest/Call50000_ecrec_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stQuadraticComplexityTest/Call50000_identity_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stQuadraticComplexityTest/Call50000_identity2_1",
-      "description": "tx gas > 30M"
-    },
-    {
       "name": "stQuadraticComplexityTest/Call50000_rip160_0",
       "description": "Precompiled ripemd160 is not supported"
     },
     {
       "name": "stQuadraticComplexityTest/Call50000_rip160_1",
-      "description": "tx gas > 30M"
+      "description": "Precompiled ripemd160 is not supported"
     },
     {
       "name": "stQuadraticComplexityTest/Call50000_sha256_0",
@@ -3124,59 +1600,15 @@
     },
     {
       "name": "stQuadraticComplexityTest/Call50000_sha256_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stQuadraticComplexityTest/Callcode50000_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stQuadraticComplexityTest/QuadraticComplexitySolidity_CallDataCopy_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest10",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest125",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest13",
-      "description": "tx gas > 30M"
+      "description": "Precompiled sha256 is not supported"
     },
     {
       "name": "stRandom/randomStatetest14",
       "description": "Selfdestruct"
     },
     {
-      "name": "stRandom/randomStatetest159",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest16",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest173",
-      "description": "Selfdestruct"
-    },
-    {
-      "name": "stRandom/randomStatetest177",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest18",
-      "description": "tx gas > 30M"
-    },
-    {
       "name": "stRandom/randomStatetest198",
       "description": "Selfdestruct"
-    },
-    {
-      "name": "stRandom/randomStatetest20",
-      "description": "tx gas > 30M"
     },
     {
       "name": "stRandom/randomStatetest212",
@@ -3191,40 +1623,8 @@
       "description": "Selfdestruct"
     },
     {
-      "name": "stRandom/randomStatetest233",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest24",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest250",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest257",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest261",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest263",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest266",
-      "description": "tx gas > 30M"
-    },
-    {
       "name": "stRandom/randomStatetest273",
       "description": "Selfdestruct"
-    },
-    {
-      "name": "stRandom/randomStatetest274",
-      "description": "tx gas > 30M"
     },
     {
       "name": "stRandom/randomStatetest282",
@@ -3235,112 +1635,8 @@
       "description": "Selfdestruct"
     },
     {
-      "name": "stRandom/randomStatetest292",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest294",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest295",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest296",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest302",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest303",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest304",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest313",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest320",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest326",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest327",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest352",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest353",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest355",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest359",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest36",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest370",
-      "description": "tx gas > 30M"
-    },
-    {
       "name": "stRandom/randomStatetest376",
       "description": "Selfdestruct"
-    },
-    {
-      "name": "stRandom/randomStatetest48",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest50",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest51",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest54",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest55",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest7",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest84",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest97",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest393",
-      "description": "tx gas > 30M"
     },
     {
       "name": "stRandom2/randomStatetest401",
@@ -3351,164 +1647,20 @@
       "description": "Selfdestruct"
     },
     {
-      "name": "stRandom2/randomStatetest418",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest422",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest423",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest443",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest449",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest454",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest476",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest481",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest484",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest485",
-      "description": "tx gas > 30M"
-    },
-    {
       "name": "stRandom2/randomStatetest487",
       "description": "Selfdestruct"
-    },
-    {
-      "name": "stRandom2/randomStatetest494",
-      "description": "tx gas > 30M"
     },
     {
       "name": "stRandom2/randomStatetest495",
       "description": "Selfdestruct"
     },
     {
-      "name": "stRandom2/randomStatetest496",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest498",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest499",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest504",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest513",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest523",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest524",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest527",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest528",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest538",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest547",
-      "description": "tx gas > 30M"
-    },
-    {
       "name": "stRandom2/randomStatetest559",
       "description": "Selfdestruct"
     },
     {
-      "name": "stRandom2/randomStatetest562",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest563",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest566",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest569",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest573",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest575",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest576",
-      "description": "tx gas > 30M"
-    },
-    {
       "name": "stRandom2/randomStatetest581",
       "description": "Selfdestruct"
-    },
-    {
-      "name": "stRandom2/randomStatetest583",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest597",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest601",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest604",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest611",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest625",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest626",
-      "description": "tx gas > 30M"
     },
     {
       "name": "stRandom2/randomStatetest635",
@@ -3560,87 +1712,7 @@
     },
     {
       "name": "stReturnDataTest/modexp_modsize0_returndatasize_4",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stReturnDataTest/returndatacopy_after_failing_callcode",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stReturnDataTest/returndatacopy_after_failing_staticcall",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stReturnDataTest/returndatacopy_following_create",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stReturnDataTest/returndatacopy_following_failing_call",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stReturnDataTest/returndatacopy_following_successful_create",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stReturnDataTest/returndatacopy_following_too_big_transfer",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stReturnDataTest/returndatacopy_initial",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stReturnDataTest/returndatacopy_overrun",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stReturnDataTest/revertRetDataSize_3",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stReturnDataTest/revertRetDataSize_4",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stReturnDataTest/revertRetDataSize_5",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stReturnDataTest/revertRetDataSize_6",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stReturnDataTest/revertRetDataSize_9",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stReturnDataTest/revertRetDataSize_10",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stReturnDataTest/revertRetDataSize_12",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stReturnDataTest/revertRetDataSize_13",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stReturnDataTest/revertRetDataSize_16",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stReturnDataTest/revertRetDataSize_17",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stReturnDataTest/revertRetDataSize_18",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stReturnDataTest/revertRetDataSize_19",
-      "description": "tx gas > 30M"
+      "description": "Precompiled modexp is not supported"
     },
     {
       "name": "stRevertTest/NashatyrevSuicideRevert",
@@ -3803,66 +1875,6 @@
       "description": "Selfdestruct"
     },
     {
-      "name": "stRevertTest/costRevert_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRevertTest/costRevert_2",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRevertTest/costRevert_3",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRevertTest/costRevert_4",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRevertTest/costRevert_6",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRevertTest/costRevert_7",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRevertTest/costRevert_8",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRevertTest/costRevert_9",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRevertTest/stateRevert_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRevertTest/stateRevert_2",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRevertTest/stateRevert_3",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRevertTest/stateRevert_4",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRevertTest/stateRevert_5",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRevertTest/stateRevert_6",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stShift/shiftCombinations",
-      "description": "tx gas > 30M"
-    },
-    {
       "name": "stSolidityTest/SelfDestruct_0",
       "description": "Precompiled sha256 is not supported"
     },
@@ -3883,10 +1895,6 @@
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stSpecialTest/FailedCreateRevertsDeletion",
-      "description": "tx gas > 30M"
-    },
-    {
       "name": "stSpecialTest/block504980",
       "description": "Precompiled sha256 is not supported"
     },
@@ -3897,122 +1905,6 @@
     {
       "name": "stSpecialTest/selfdestructEIP2929",
       "description": "Precompiled ripemd160 is not supported"
-    },
-    {
-      "name": "stStackTests/underflowTest_0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_3",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_5",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_7",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_9",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_20",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_23",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_25",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_27",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_29",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_40",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_42",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_45",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_47",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_49",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_60",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_62",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_64",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_67",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_69",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_80",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_82",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_84",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_86",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_88",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStackTests/underflowTest_89",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_ABAcalls1_0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_ABAcalls2_0",
-      "description": "tx gas > 30M"
     },
     {
       "name": "stStaticCall/static_ABAcallsSuicide0_0",
@@ -4055,72 +1947,12 @@
       "description": "Selfdestruct"
     },
     {
-      "name": "stStaticCall/static_Call1024BalanceTooLow_0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_Call1024BalanceTooLow2_0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_Call1024PreCalls_0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_Call1024PreCalls3_0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_Call1MB1024Calldepth_0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_Call1MB1024Calldepth_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_Call50000_0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_Call50000_ecrec_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_Call50000_identity_0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_Call50000_identity_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_Call50000_identity2_0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_Call50000_identity2_1",
-      "description": "tx gas > 30M"
-    },
-    {
       "name": "stStaticCall/static_Call50000_rip160_0",
-      "description": "tx gas > 30M"
+      "description": "Precompiled ripemd160 is not supported"
     },
     {
       "name": "stStaticCall/static_Call50000_rip160_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_Call50000bytesContract50_1_0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_Call50000bytesContract50_2_0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_Call50000bytesContract50_3_0",
-      "description": "tx gas > 30M"
+      "description": "Precompiled ripemd160 is not supported"
     },
     {
       "name": "stStaticCall/static_CallEcrecover0_0input_2",
@@ -4143,14 +1975,6 @@
       "description": "Precompiled ecPairing is not supported"
     },
     {
-      "name": "stStaticCall/static_CallRecursiveBomb0_OOG_atMaxCallDepth",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_CallRecursiveBombLog",
-      "description": "tx gas > 30M"
-    },
-    {
       "name": "stStaticCall/static_CallRipemd160_1",
       "description": "Precompiled ripemd160 is not supported"
     },
@@ -4169,14 +1993,6 @@
     {
       "name": "stStaticCall/static_CallRipemd160_5",
       "description": "Precompiled ripemd160 is not supported"
-    },
-    {
-      "name": "stStaticCall/static_LoopCallsDepthThenRevert2",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_LoopCallsDepthThenRevert3",
-      "description": "tx gas > 30M"
     },
     {
       "name": "stStaticCall/static_callcodecall_10_SuicideEnd_0",
@@ -4276,15 +2092,15 @@
     },
     {
       "name": "stTimeConsuming/CALLBlake2f_MaxRounds",
-      "description": "tx gas > 30M"
+      "description": "Precompiled blake2f is not supported"
     },
     {
       "name": "stTimeConsuming/static_Call50000_sha256_0",
-      "description": "tx gas > 30M"
+      "description": "Precompiled sha256 is not supported"
     },
     {
       "name": "stTimeConsuming/static_Call50000_sha256_1",
-      "description": "tx gas > 30M"
+      "description": "Precompiled sha256 is not supported"
     },
     {
       "name": "stTransactionTest/Opcodes_TransactionInit_30",
@@ -8963,82 +6779,6 @@
       "description": "Precompiled modexp is not supported"
     },
     {
-      "name": "performanceTester_1",
-      "description": "OOCB"
-    },
-    {
-      "name": "stStaticCall/static_Call50000_1",
-      "description": "OOCS"
-    },
-    {
-      "name": "stStaticCall/static_Call50000bytesContract50_1_1",
-      "description": "OOCB"
-    },
-    {
-      "name": "stStaticCall/static_Call50000bytesContract50_3_1",
-      "description": "OOCS"
-    },
-    {
-      "name": "stStaticCall/static_Call50000bytesContract50_2_1",
-      "description": "OOCS"
-    },
-    {
-      "name": "stStaticCall/static_LoopCallsThenRevert_0",
-      "description": "OOCB"
-    },
-    {
-      "name": "stStaticCall/static_LoopCallsThenRevert_1",
-      "description": "OOCB"
-    },
-    {
-      "name": "stStaticCall/static_Return50000_2",
-      "description": "OOCS"
-    },
-    {
-      "name": "stRandom/randomStatetest307",
-      "description": "OOCB"
-    },
-    {
-      "name": "stQuadraticComplexityTest/Call20KbytesContract50_1_1",
-      "description": "OOCB"
-    },
-    {
-      "name": "stQuadraticComplexityTest/Call20KbytesContract50_2_1",
-      "description": "OOCS"
-    },
-    {
-      "name": "stQuadraticComplexityTest/Create1000Byzantium_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stQuadraticComplexityTest/Create1000_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stQuadraticComplexityTest/Return50000_0",
-      "description": "OOCS"
-    },
-    {
-      "name": "stQuadraticComplexityTest/Return50000_1",
-      "description": "OOCS"
-    },
-    {
-      "name": "stQuadraticComplexityTest/Return50000_2_0",
-      "description": "OOCS"
-    },
-    {
-      "name": "stQuadraticComplexityTest/Return50000_2_1",
-      "description": "OOCS"
-    },
-    {
-      "name": "VMTests/gas_0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "VMTests/gas_1",
-      "description": "tx gas > 30M"
-    },
-    {
       "name": "VMTests/blockInfo_1",
       "description": "rom BATCH_DIFFICULTY != DIFFICULTY"
     },
@@ -9199,80 +6939,12 @@
       "description": "rom block info != eth block info"
     },
     {
-      "name": "stRandom2/randomStatetest308",
-      "description": "tx gas > 30M"
-    },
-    {
       "name": "stRandom2/randomStatetest458",
       "description": "rom NUMBER != eth NUMBER"
     },
     {
       "name": "stEIP3540",
       "description": "stEIP3540"
-    },
-    {
-      "name": "stCreate2/Create2OnDepth1023",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stCreate2/Create2OnDepth1024",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRevertTest/LoopCallsDepthThenRevert2",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRevertTest/LoopCallsDepthThenRevert3",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stCallCreateCallCodeTest/CallRecursiveBombPreCall",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stDelegatecallTestHomestead/CallRecursiveBombPreCall",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stSystemOperationsTest/CallRecursiveBomb0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stSystemOperationsTest/CallRecursiveBomb0_OOG_atMaxCallDepth.",
-      "description": "tx gas > 30M (?)"
-    },
-    {
-      "name": "stSystemOperationsTest/CallRecursiveBombLog",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stSystemOperationsTest/CallRecursiveBombLog2",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stCallCreateCallCodeTest/Call1024BalanceTooLow",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stCallCreateCallCodeTest/Call1024PreCalls",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stCallCreateCallCodeTest/Callcode1024BalanceTooLow",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stDelegatecallTestHomestead/Call1024BalanceTooLow",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stDelegatecallTestHomestead/Call1024PreCalls",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stDelegatecallTestHomestead/Delegatecall1024",
-      "description": "tx gas > 30M"
     },
     {
       "name": "stExtCodeHash/codeCopyZero",
@@ -9291,60 +6963,8 @@
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stStaticCall/static_Call1024BalanceTooLow_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_Call1024BalanceTooLow2_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_Call1024PreCalls_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_Call1024PreCalls2_0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_Call1024PreCalls2_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_Call1024PreCalls3_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest150",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest154",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest178",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom/randomStatetest306",
-      "description": "tx gas > 30M"
-    },
-    {
       "name": "stRandom/randomStatetest308",
       "description": "rom TIMESTAMP != TIMESTAMP"
-    },
-    {
-      "name": "stRandom2/randomStatetest467",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest636",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stRandom2/randomStatetest639",
-      "description": "tx gas > 30M"
     },
     {
       "name": "stTransactionTest/HighGasPrice",
@@ -9371,40 +6991,16 @@
       "description": "Bytecode starts with 0xEF (we support EIP-3541 in Berlin hardfork). Equivalent tests: zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-op-create.json [id: from 4 to 7] & zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-test-deploy.json [id: from 8 to 9]"
     },
     {
-      "name": "stSystemOperationsTest/ABAcalls1",
-      "description": "tx gas > 30M"
+      "name": "stCreateTest/CREATE_ContractSuicideDuringInit",
+      "description": "Selfdestruct"
     },
     {
-      "name": "stSystemOperationsTest/ABAcalls2",
-      "description": "tx gas > 30M"
+      "name": "stRandom/randomStatetest173",
+      "description": "Selfdestruct"
     },
     {
-      "name": "stSpecialTest/JUMPDEST_Attack",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stSpecialTest/JUMPDEST_AttackwithJump",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_ABAcalls1_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_ABAcalls2_1",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_CallRecursiveBomb0",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_CallRecursiveBombPreCall",
-      "description": "tx gas > 30M"
-    },
-    {
-      "name": "stStaticCall/static_CallRecursiveBombPreCall2",
-      "description": "tx gas > 30M"
+      "name": "stRandom/randomStatetest201",
+      "description": "Selfdestruct"
     }
   ]
 }

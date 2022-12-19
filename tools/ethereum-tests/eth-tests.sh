@@ -27,6 +27,8 @@ dir=./tests/BlockchainTests/GeneralStateTests
 # do
     group="GeneralStateTests"
     gen_input_time=$clone_time
+    mkdir eth-inputs
+    mkdir eth-inputs/$group
     for entry2 in "$dir"/*
     do
         folder=$(echo $entry2 | cut -d '/' -f 5)
@@ -35,7 +37,8 @@ dir=./tests/BlockchainTests/GeneralStateTests
         then
             echo "Exist"
         else
-            npx mocha --max-old-space-size=12000 gen-inputs.js --group $group --folder $folder --output eth-inputs
+            echo $entry2
+            node --max-old-space-size=12000 run-inputs.js -f $entry2 -r ../../../zkevm-rom/build/rom.json --info $entry2/info-inputs.txt --output $entry2/info-output.txt --ignore > $entry2/all-info-2.txt
         fi
         gen_input_time_aux=$gen_input_time
         gen_input_time=$(date +%s)
@@ -60,7 +63,7 @@ do
             then
                 if [ -f "$entry2/info.txt" ]
                 then
-                    node --max-old-space-size=12000 run-inputs.js -f $entry2 -r ../../../zkevm-rom/build/rom.json --info $entry2/info-inputs.txt --output $entry2/info-output.txt --ignore
+                    node --max-old-space-size=12000 run-inputs.js -f $entry2 -r ../../../zkevm-rom/build/rom.json --info $entry2/info-inputs.txt --output $entry2/info-output.txt --ignore -n ../../../zkevm-testvectors/tools/ethereum-tests/no-exec.json
                     pass_folder_time_aux=$pass_folder_time
                     pass_folder_time=$(date +%s)
                     echo -e "pass folder $entry2: $((pass_folder_time - pass_folder_time_aux))" >> ../../../zkevm-testvectors/tools/ethereum-tests/times-eth.txt
@@ -69,7 +72,14 @@ do
         done
     fi
 done
-cd ../../../zkevm-testvectors/tools/ethereum-tests
+# pass 30M tests
+cd ../../../zkevm-testvectors/tools/ethereum-tests/test-tools
+node run-tests-30M.js -l ../eth-inputs/GeneralStateTests/tests-30M/tests30M-list.json -r ../../../../zkevm-rom -p ../../../../zkevm-proverjs
+
+# pass OOC tests
+node run-tests-OOC.js -l ../eth-inputs/GeneralStateTests/tests-OOC/testsOOC-list.json -p ../../../../zkevm-proverjs
+
+cd ../
 pass_inputs_time=$(date +%s)
 echo -e "pass inputs time: $((pass_inputs_time - gen_inputs_time))" >> times-eth.txt
 end_date="$(date +%T) $(date +%d/%m/%y)"

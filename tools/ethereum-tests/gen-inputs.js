@@ -34,12 +34,15 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
     let info = '';
     let infoErrors = '';
     let basePath = './tests/BlockchainTests';
+    let tests30M = [];
+    let dir30M;
     // let allTests;
     let allTests = true;
-    let countTests = 0;
-    let countErrors = 0;
-    let countOK = 0;
-    let countNotSupport = 0;
+    let counts = {};
+    counts.countTests = 0;
+    counts.countErrors = 0;
+    counts.countOK = 0;
+    counts.countNotSupport = 0;
 
     before(async () => {
         poseidon = await zkcommonjs.getPoseidon();
@@ -57,86 +60,38 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
         if (!fs.existsSync(dir)) {
             fs.mkdirSync(dir);
         }
-        if (argv.group) {
-            group = argv.group;
-            outputPath += `/${argv.group.trim()}`;
+
+        group = argv.group ? argv.group.trim() : 'GeneralStateTests';
+        if (argv.folder) {
+            outputPath += `/${group}`;
             dir = path.join(__dirname, outputPath);
             if (!fs.existsSync(dir)) {
                 fs.mkdirSync(dir);
             }
-            if (argv.folder) {
-                folder = argv.folder;
-                outputPath += `/${argv.folder.trim()}`;
-                dir = path.join(__dirname, outputPath);
+            folder = argv.folder;
+            outputPath += `/${argv.folder.trim()}/`;
+            dir = path.join(__dirname, outputPath);
+            if (!fs.existsSync(dir)) {
+                fs.mkdirSync(dir);
+            }
+        } else if (argv.test) {
+            const fileTest = `/${group}/${argv.test.trim()}`;
+            file = fileTest;
+            outputPath += `/${group}/${argv.test.trim().split('/')[0]}`;
+            let auxOutputPath = '';
+            for (let i = 0; i < outputPath.split('/').length; i++) {
+                auxOutputPath += `${outputPath.split('/')[i]}/`;
+                dir = path.join(__dirname, auxOutputPath);
                 if (!fs.existsSync(dir)) {
                     fs.mkdirSync(dir);
                 }
             }
         } else {
-            group = 'GeneralStateTests';
-            if (argv.folder) {
-                outputPath += `/${group}`;
-                dir = path.join(__dirname, outputPath);
-                if (!fs.existsSync(dir)) {
-                    fs.mkdirSync(dir);
-                }
-                folder = argv.folder;
-                outputPath += `/${argv.folder.trim()}`;
-                dir = path.join(__dirname, outputPath);
-                if (!fs.existsSync(dir)) {
-                    fs.mkdirSync(dir);
-                }
-            } else if (argv.test) {
-                const fileTest = `/${group}/${argv.test.trim()}`;
-                outputPath += fileTest.replace(`/${fileTest.split('/')[fileTest.split('/').length - 1]}`, '');
-                let auxOutputPath = '';
-                for (let i = 0; i < outputPath.split('/').length; i++) {
-                    auxOutputPath += `${outputPath.split('/')[i]}/`;
-                    dir = path.join(__dirname, auxOutputPath);
-                    if (!fs.existsSync(dir)) {
-                        fs.mkdirSync(dir);
-                    }
-                }
-                file = fileTest;
-            } else {
-                file = 'all';
-            }
+            throw new Error('folder or test flag is required');
         }
         evmDebug = !!(argv['evm-debug']);
         let files = [];
-        if (file === 'all') {
-            const direc = fs.readdirSync(path.join(__dirname, basePath));
-            for (let x = 0; x < direc.length; x++) {
-                const path1 = `${basePath}/${direc[x]}`;
-                const direc2 = fs.readdirSync(path.join(__dirname, path1));
-                for (let x2 = 0; x2 < direc2.length; x2++) {
-                    const path2 = `${path1}/${direc2[x2]}`;
-                    const filesDirec = fs.readdirSync(path.join(__dirname, path2));
-                    for (let y = 0; y < filesDirec.length; y++) {
-                        const path3 = path.join(__dirname, `${path2}/${filesDirec[y]}`);
-                        let stats = fs.statSync(path3);
-                        if (stats.isFile()) {
-                            files.push(path3);
-                        } else {
-                            const filesDirec2 = fs.readdirSync(path3);
-                            for (let q = 0; q < filesDirec2.length; q++) {
-                                const path4 = path.join(__dirname, `${path3}/${filesDirec2[q]}`);
-                                stats = fs.statSync(path4);
-                                if (stats.isFile()) {
-                                    files.push(path4);
-                                } else {
-                                    const filesDirec3 = fs.readdirSync(path4);
-                                    for (let t = 0; t < filesDirec3.length; t++) {
-                                        files.push(`${path4}/${filesDirec3[t]}`);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            allTests = true;
-        } else if (folder) {
+        if (folder) {
             const pathFolder = path.join(__dirname, `${basePath}/${group}/${folder}`);
             const filesDirec = fs.readdirSync(pathFolder);
             for (let y = 0; y < filesDirec.length; y++) {
@@ -156,24 +111,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             for (let t = 0; t < filesDirec3.length; t++) {
                                 files.push(`${path2}/${filesDirec3[t]}`);
                             }
-                        }
-                    }
-                }
-            }
-        } else if (!argv.test) {
-            const pathGroup = `${basePath}/${group}`;
-            const direc = fs.readdirSync(pathGroup);
-            for (let x = 0; x < direc.length; x++) {
-                const pathFolder = `${pathGroup}/${direc[x]}`;
-                const filesDirec = fs.readdirSync(pathFolder);
-                for (let y = 0; y < filesDirec.length; y++) {
-                    let stats = fs.statSync(`${pathFolder}/${filesDirec[y]}`);
-                    if (stats.isFile()) {
-                        files.push(`${pathFolder}/${filesDirec[y]}`);
-                    } else {
-                        const filesDirec2 = fs.readdirSync(`${pathFolder}/${filesDirec[y]}`);
-                        for (let q = 0; q < filesDirec2.length; q++) {
-                            files.push(`${pathFolder}/${filesDirec[y]}/${filesDirec2[q]}`);
                         }
                     }
                 }
@@ -198,27 +135,28 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                 infoErrors += '--------------------------------------------------\n';
             } else {
                 for (let y = 0; y < txsLength; y++) {
-                    countTests += 1;
+                    let options = {};
+                    let flag30M = false;
+                    counts.countTests += 1;
                     let newOutputName;
+                    let writeOutputName = dir;
+                    const noExec = require('./no-exec.json');
                     try {
                         if (txsLength > 1) newOutputName = `${outputName.split('.json')[0]}_${y}.json`;
                         else newOutputName = outputName;
+                        writeOutputName += newOutputName;
 
                         console.log('Test name: ', newOutputName);
 
-                        dir = path.join(__dirname, outputPath);
-                        if (!fs.existsSync(dir)) {
-                            fs.mkdirSync(dir);
-                        }
-                        const auxOutputPathName = `${dir}/${newOutputName}`;
-
-                        const noExec = require('./no-exec.json');
+                        const auxOutputPathName1 = writeOutputName;
+                        const auxOutputPathName2 = `${file.split('.json')[0]}_${y}`;
 
                         const listBreaksComputation = [];
                         noExec['breaks-computation'].forEach((elem) => listBreaksComputation.push(elem.name));
 
                         for (let e = 0; e < listBreaksComputation.length; e++) {
-                            if (auxOutputPathName.includes(listBreaksComputation[e])) {
+                            if (auxOutputPathName1.includes(listBreaksComputation[e])
+                            || auxOutputPathName2.includes(listBreaksComputation[e])) {
                                 throw new Error('breaks computation test');
                             }
                         }
@@ -227,7 +165,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         noExec['not-supported'].forEach((elem) => listNotSupported.push(elem.name));
 
                         for (let e = 0; e < listNotSupported.length; e++) {
-                            if (auxOutputPathName.includes(listNotSupported[e])) {
+                            if (auxOutputPathName1.includes(listNotSupported[e])
+                            || auxOutputPathName2.includes(listNotSupported[e])) {
                                 throw new Error('not supported');
                             }
                         }
@@ -239,8 +178,31 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         const currentTest = test[keysTests[y]];
 
                         // check gas used by the tx is less than 30M
-                        if (Scalar.gt(Scalar.e(currentTest.blocks[0].blockHeader.gasUsed), zkcommonjs.Constants.BATCH_GAS_LIMIT)) {
-                            await updateNoExec(dir, newOutputName, 'tx gas > 30M', noExec);
+                        if (Scalar.gt(Scalar.e(currentTest.blocks[0].blockHeader.gasUsed), zkcommonjs.Constants.BATCH_GAS_LIMIT)
+                        || file.includes('VMTests/vmIOandFlowOperations/gas')) {
+                            // if tx gas > maxInt --> ignored
+                            if (Scalar.gt(Scalar.e(currentTest.blocks[0].blockHeader.gasUsed), Scalar.e('0x7FFFFFFF'))
+                            || Scalar.gt(Scalar.e(currentTest.blocks[0].blockHeader.gasLimit), Scalar.e('0x7FFFFFFF'))) {
+                                await updateNoExec(dir, newOutputName, 'tx gas > max int', noExec);
+                            } else {
+                                options.newBatchGasLimit = Scalar.e(currentTest.blocks[0].blockHeader.gasLimit);
+                            }
+                            writeOutputName = writeOutputName.replace(writeOutputName.split('/')[writeOutputName.split('/').length - 2], 'tests-30M');
+                            tests30M.push({ writeOutputName, file });
+                            dir30M = writeOutputName.replace(writeOutputName.split('/')[writeOutputName.split('/').length - 1], '');
+                            if (!fs.existsSync(dir30M)) {
+                                fs.mkdirSync(dir30M);
+                            }
+                            flag30M = true;
+                        } else if (Scalar.gt(Scalar.e(currentTest.blocks[0].blockHeader.gasLimit), Scalar.e('0x7FFFFFFF'))) {
+                            options.newBatchGasLimit = Scalar.e('0x7FFFFFFF');
+                            writeOutputName = writeOutputName.replace(writeOutputName.split('/')[writeOutputName.split('/').length - 2], 'tests-30M');
+                            tests30M.push({ writeOutputName, file });
+                            dir30M = writeOutputName.replace(writeOutputName.split('/')[writeOutputName.split('/').length - 1], '');
+                            if (!fs.existsSync(dir30M)) {
+                                fs.mkdirSync(dir30M);
+                            }
+                            flag30M = true;
                         }
 
                         let accountPkFrom;
@@ -272,6 +234,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         } else {
                             throw new Error('Error info source (json or yml)');
                         }
+
                         const oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
                         const { timestamp } = currentTest.blocks[0].blockHeader;
                         const sequencerAddress = currentTest.blocks[0].blockHeader.coinbase;
@@ -313,7 +276,10 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             timestamp,
                             sequencerAddress,
                             zkcommonjs.smtUtils.stringToH4(globalExitRoot),
+                            undefined,
+                            options,
                         );
+
                         if (txsTest.length === 0) {
                             if (currentTest.blocks[0].transactionSequence.length > 0) {
                                 for (let tx = 0; tx < currentTest.blocks[0].transactionSequence.length; tx++) {
@@ -350,9 +316,12 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                 await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExec);
                             }
 
-                            if (Scalar.e(txTest.gasLimit) > zkcommonjs.Constants.BATCH_GAS_LIMIT) {
+                            if (Scalar.gt(Scalar.e(txTest.gasLimit), Scalar.e('0x7FFFFFFF'))) {
+                                txsTest[tx].gasLimit = '0x7FFFFFFF';
+                            } else if (Scalar.e(txTest.gasLimit) > zkcommonjs.Constants.BATCH_GAS_LIMIT && !options.newBatchGasLimit) {
                                 txsTest[tx].gasLimit = zkcommonjs.Constants.BATCH_GAS_LIMIT;
                             }
+
                             const commonCustom = Common.custom({ chainId: chainIdSequencer }, { hardfork: Hardfork.Berlin });
                             if (txTest.r) delete txTest.r;
                             if (txTest.s) delete txTest.s;
@@ -404,6 +373,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             }
                             const steps = batch.evmSteps[0];
                             const selfDestructs = steps.filter((step) => step.opcode.name === 'SELFDESTRUCT');
+                            console.log(dir);
+                            console.log(newOutputName);
                             if (selfDestructs.length > 0) {
                                 await updateNoExec(dir, newOutputName, 'Selfdestruct', noExec);
                             }
@@ -476,6 +447,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         }
 
                         const circuitInput = await batch.getStarkInput();
+                        circuitInput.gasLimit = options.newBatchGasLimit
+                            ? Scalar.e(options.newBatchGasLimit).toString() : zkcommonjs.Constants.BATCH_GAS_LIMIT.toString();
                         Object.keys(circuitInput.contractsBytecode).forEach((key) => {
                             if (!circuitInput.contractsBytecode[key].startsWith('0x')) {
                                 circuitInput.contractsBytecode[key] = `0x${circuitInput.contractsBytecode[key]}`;
@@ -490,20 +463,38 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                 }
                             }
                         }
-                        console.log(`WRITE: ${dir}/${newOutputName}\n`);
-                        await fs.writeFileSync(`${dir}/${newOutputName}`, JSON.stringify(circuitInput, null, 2));
-                        countOK += 1;
+                        console.log(`WRITE: ${writeOutputName}\n`);
+                        await fs.writeFileSync(`${writeOutputName}`, JSON.stringify(circuitInput, null, 2));
+                        if (!flag30M) counts.countOK += 1;
                     } catch (e) {
-                        console.log(e);
-                        console.log();
-                        if (e.toString() === 'Error: not supported') {
-                            countNotSupport += 1;
+                        if (options.newBatchGasLimit && Scalar.eq(options.newBatchGasLimit, Scalar.e('0x7FFFFFFF'))) {
+                            let auxDir = dir.endsWith('/') ? dir.substring(0, dir.length - 1) : dir;
+                            auxDir = auxDir.split('/');
+                            const nameTest = `${auxDir[auxDir.length - 1]}/${newOutputName.replace('.json', '')}`;
+                            noExec['not-supported'].push({ name: nameTest, description: 'tx gas > max int' });
+                            await fs.writeFileSync('./no-exec.json', JSON.stringify(noExec, null, 2));
+                            counts.countNotSupport += 1;
+                            infoErrors += 'Error: not supported\n';
+                            infoErrors += `${newOutputName}\n`;
+                            infoErrors += '--------------------------------------------------\n';
+                            console.log('Error: not supported\n');
                         } else {
-                            countErrors += 1;
+                            console.log(e);
+                            console.log();
+                            if (flag30M) {
+                                console.log(tests30M);
+                                tests30M = tests30M.filter((test30M) => test30M.writeOutputName !== writeOutputName);
+                                console.log(tests30M);
+                            }
+                            if (e.toString() === 'Error: not supported') {
+                                counts.countNotSupport += 1;
+                            } else {
+                                counts.countErrors += 1;
+                            }
+                            infoErrors += `${e.toString()}\n`;
+                            infoErrors += `${newOutputName}\n`;
+                            infoErrors += '--------------------------------------------------\n';
                         }
-                        infoErrors += `${e.toString()}\n`;
-                        infoErrors += `${newOutputName}\n`;
-                        infoErrors += '--------------------------------------------------\n';
                     }
                 }
             }
@@ -515,13 +506,25 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             }
             await fs.writeFileSync(`${dir}/errors.txt`, infoErrors);
         }
+        if (tests30M.length > 0) {
+            let list = [];
+            if (fs.existsSync(`${dir30M}/tests30M-list.json`)) {
+                list = require(`${dir30M}/tests30M-list.json`);
+            }
+            for (let i = 0; i < tests30M.length; i++) {
+                if (list.indexOf(tests30M[i]) === -1) { list.push(tests30M[i]); }
+            }
+            console.log(`WRITE list 30M: ${dir30M}/tests30M-list.json`);
+            await fs.writeFileSync(`${dir30M}/tests30M-list.json`, JSON.stringify(list, null, 2));
+            counts.countTests -= tests30M.length;
+        }
         if (allTests) {
             const lengthAllTests = files.length;
             info += `files: ${lengthAllTests}\n`;
-            info += `tests: ${countTests}\n`;
-            info += `inputs: ${countOK}\n`;
-            info += `errors: ${countErrors}\n`;
-            info += `not-supported: ${countNotSupport}\n`;
+            info += `tests: ${counts.countTests}\n`;
+            info += `inputs: ${counts.countOK}\n`;
+            info += `errors: ${counts.countErrors}\n`;
+            info += `not-supported: ${counts.countNotSupport}\n`;
             dir = path.join(__dirname, outputPath);
             if (!fs.existsSync(dir)) {
                 fs.mkdirSync(dir);
@@ -574,7 +577,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
     }
 
     async function updateNoExec(dir, newOutputName, description, noExec) {
-        const auxDir = dir.split('/');
+        let auxDir = dir.endsWith('/') ? dir.substring(0, dir.length - 1) : dir;
+        auxDir = auxDir.split('/');
         const nameTest = `${auxDir[auxDir.length - 1]}/${newOutputName.replace('.json', '')}`;
         noExec['not-supported'].push({ name: nameTest, description });
         await fs.writeFileSync('./no-exec.json', JSON.stringify(noExec, null, 2));
