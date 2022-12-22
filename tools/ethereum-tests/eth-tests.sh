@@ -8,9 +8,15 @@ if [ -d "tests" ]
         rm -rf tests
         rm -r eth-inputs
         git clone https://github.com/ethereum/tests.git
+        cd tests
+        git checkout 9e0a5e00981575de017013b635d54891f9e561ef
+        cd ../
     fi
 else
     git clone https://github.com/ethereum/tests.git
+    cd tests
+    git checkout 9e0a5e00981575de017013b635d54891f9e561ef
+    cd ../
 fi
 clone_time=$(date +%s)
 echo -e "git clone time: $((clone_time - start_time))" >> times-eth.txt
@@ -39,7 +45,9 @@ dir=./tests/BlockchainTests/GeneralStateTests
 gen_inputs_time=$(date +%s)
 echo -e "gen inputs time: $((gen_inputs_time - clone_time))" >> times-eth.txt
 # pass tests
-cd ../../../zkevm-proverjs/tools/run-test
+cd ../../../zkevm-proverjs
+rm cache-main-pil.json
+cd tools/run-test
 dir=../../../zkevm-testvectors/tools/ethereum-tests/eth-inputs
 pass_folder_time=$gen_inputs_time
 for entry in "$dir"/*
@@ -52,7 +60,7 @@ do
             then
                 if [ -f "$entry2/info.txt" ]
                 then
-                    node --max-old-space-size=12000 run-inputs.js -f $entry2 -r ../../../zkevm-rom/build/rom.json --info $entry2/info-inputs.txt --output $entry2/info-output.txt
+                    node --max-old-space-size=12000 run-inputs.js -f $entry2 -r ../../../zkevm-rom/build/rom.json --info $entry2/info-inputs.txt --output $entry2/info-output.txt --ignore
                     pass_folder_time_aux=$pass_folder_time
                     pass_folder_time=$(date +%s)
                     echo -e "pass folder $entry2: $((pass_folder_time - pass_folder_time_aux))" >> ../../../zkevm-testvectors/tools/ethereum-tests/times-eth.txt

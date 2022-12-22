@@ -62,10 +62,10 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
 
             if (expectedNewLeafs) { outputTestVector.expectedNewLeafs = expectedNewLeafs; } else { outputTestVector.expectedNewLeafs = {}; }
 
-            console.log(`       executing test-vector id: ${id}`);
+            console.log(`executing test-vector id: ${id}`);
 
             const common = Common.custom({ chainId: defaultChainId }, { hardfork: Hardfork.Berlin });
-            const vm = new VM({ common });
+            const vm = new VM({ common, allowUnlimitedContractSize: true });
 
             const auxGenesis = [];
 
@@ -116,6 +116,7 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                     };
                     contracts.push(contract);
 
+                    console.log(contract.contractAddress.toString());
                     const sto = await vm.stateManager.dumpStorage(contract.contractAddress);
                     const storage = {};
                     // add contract storage
@@ -208,6 +209,22 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                         bytecode: deployedBytecode,
                     };
                     contracts.push(contract);
+                } else if (currentTx.to === 'deploy-custom') {
+                    outputTx = {
+                        from: currentTx.from,
+                        to: '0x',
+                        nonce: currentTx.nonce,
+                        value: currentTx.value,
+                        data: currentTx.data,
+                        gasLimit: currentTx.gasLimit,
+                        gasPrice: currentTx.gasPrice,
+                        chainId: currentTx.chainId,
+                        deployedBytecode: currentTx.deployedBytecode
+                    };
+                    const contractAddress = ethers.utils.getContractAddress(outputTx);
+                    if (outputTestVector.expectedNewLeafs[contractAddress.toString('hex')] === undefined) {
+                        outputTestVector.expectedNewLeafs[contractAddress.toString('hex')] = {};
+                    }
                 } else {
                     outputTx = currentTx;
                 }

@@ -43,6 +43,14 @@ contract OpBitLogic {
         }
     }
 
+    // opcode 0x1a
+    function opByte2() public {
+        assembly {
+            let result := byte(0x100000001,0xa0a1a2a3a4a5a6a7a8a9b0b1b2b3b4b5b6b7b8b9c0c1c2c3c4c5c6c7c8c9d0d1) //offset 1 --> 0x23
+            sstore(0x0, result)
+        }
+    }
+
     // opcode 0x1b
     function opShl() public {
         assembly {

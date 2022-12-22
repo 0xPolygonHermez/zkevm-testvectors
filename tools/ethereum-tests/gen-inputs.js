@@ -19,7 +19,6 @@ const { argv } = require('yargs');
 const fs = require('fs');
 const path = require('path');
 const helpers = require('../../tools-calldata/helpers/helpers');
-
 // example: npx mocha gen-inputs.js --test xxxx --folder xxxx --ignore
 describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', async function () {
     this.timeout(800000);
@@ -121,7 +120,16 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         } else {
                             const filesDirec2 = fs.readdirSync(path3);
                             for (let q = 0; q < filesDirec2.length; q++) {
-                                files.push(`${path3}/${filesDirec2[q]}`);
+                                const path4 = path.join(__dirname, `${path3}/${filesDirec2[q]}`);
+                                stats = fs.statSync(path4);
+                                if (stats.isFile()) {
+                                    files.push(path4);
+                                } else {
+                                    const filesDirec3 = fs.readdirSync(path4);
+                                    for (let t = 0; t < filesDirec3.length; t++) {
+                                        files.push(`${path4}/${filesDirec3[t]}`);
+                                    }
+                                }
                             }
                         }
                     }
@@ -132,13 +140,23 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             const pathFolder = path.join(__dirname, `${basePath}/${group}/${folder}`);
             const filesDirec = fs.readdirSync(pathFolder);
             for (let y = 0; y < filesDirec.length; y++) {
-                let stats = fs.statSync(`${pathFolder}/${filesDirec[y]}`);
+                const path1 = `${pathFolder}/${filesDirec[y]}`;
+                let stats = fs.statSync(`${path1}`);
                 if (stats.isFile()) {
-                    files.push(`${pathFolder}/${filesDirec[y]}`);
+                    files.push(`${path1}`);
                 } else {
-                    const filesDirec2 = fs.readdirSync(`${pathFolder}/${filesDirec[y]}`);
+                    const filesDirec2 = fs.readdirSync(`${path1}`);
                     for (let q = 0; q < filesDirec2.length; q++) {
-                        files.push(`${pathFolder}/${filesDirec[y]}/${filesDirec2[q]}`);
+                        const path2 = `${path1}/${filesDirec2[q]}`;
+                        stats = fs.statSync(`${path2}`);
+                        if (stats.isFile()) {
+                            files.push(`${path2}`);
+                        } else {
+                            const filesDirec3 = fs.readdirSync(`${path2}`);
+                            for (let t = 0; t < filesDirec3.length; t++) {
+                                files.push(`${path2}/${filesDirec3[t]}`);
+                            }
+                        }
                     }
                 }
             }
@@ -196,10 +214,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         const noExec = require('./no-exec.json');
 
-                        if (file.includes('stEIP1559')) {
-                            await updateNoExec(dir, newOutputName, 'EIP1559 not supported', noExec);
-                        }
-
                         const listBreaksComputation = [];
                         noExec['breaks-computation'].forEach((elem) => listBreaksComputation.push(elem.name));
 
@@ -218,6 +232,10 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             }
                         }
 
+                        if (file.includes('stEIP1559')) {
+                            await updateNoExec(dir, newOutputName, 'EIP1559 not supported', noExec);
+                        }
+
                         const currentTest = test[keysTests[y]];
 
                         // check gas used by the tx is less than 30M
@@ -227,13 +245,23 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         let accountPkFrom;
                         if (currentTest._info.source.endsWith('.json')) {
-                            const source = require(`./tests/${currentTest._info.source}`);
+                            let source;
+                            try {
+                                source = require(`./tests/${currentTest._info.source}`);
+                            } catch (e) {
+                                throw new Error('Error: ethereum/tests error');
+                            }
                             accountPkFrom = source[(file.split('/')[file.split('/').length - 1]).split('.json')[0]].transaction.secretKey;
                             accountPkFrom = accountPkFrom.startsWith('0x') ? accountPkFrom : `0x${accountPkFrom}`;
                             accountPkFrom = toBuffer(accountPkFrom);
-                        } else {
-                            const s = fs.readFileSync(path.join(__dirname, `./tests/${currentTest._info.source}`), 'utf8');
-                            let indNum = s.search('secretKey');
+                        } else if (currentTest._info.source.endsWith('.yml')) {
+                            let s;
+                            try {
+                                s = fs.readFileSync(path.join(__dirname, `./tests/${currentTest._info.source}`), 'utf8');
+                            } catch (e) {
+                                throw new Error('Error: ethereum/tests error');
+                            }
+                            let indNum = s.search('secretKey:');
                             while (s.substring(indNum, indNum + 1) !== ' ') {
                                 indNum += 1;
                             }
@@ -241,8 +269,10 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             if (s.substring(indNum, indNum + 1) === '"' || s.substring(indNum, indNum + 1) === '\'') { indNum += 1; }
                             if (s.substring(indNum, indNum + 2) === '0x') { indNum += 2; }
                             accountPkFrom = toBuffer(`0x${s.substring(indNum, indNum + 64)}`);
+                        } else {
+                            throw new Error('Error info source (json or yml)');
                         }
-                        const oldLocalExitRoot = '0x0000000000000000000000000000000000000000000000000000000000000000';
+                        const oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
                         const { timestamp } = currentTest.blocks[0].blockHeader;
                         const sequencerAddress = currentTest.blocks[0].blockHeader.coinbase;
                         const chainIdSequencer = 1000;
@@ -272,23 +302,54 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             db,
                             poseidon,
                             [F.zero, F.zero, F.zero, F.zero],
-                            zkcommonjs.smtUtils.stringToH4(oldLocalExitRoot),
+                            zkcommonjs.smtUtils.stringToH4(oldAccInputHash),
                             genesis,
                             null,
                             null,
                             chainIdSequencer,
                         );
+
                         const batch = await zkEVMDB.buildBatch(
                             timestamp,
                             sequencerAddress,
                             zkcommonjs.smtUtils.stringToH4(globalExitRoot),
                         );
-
+                        if (txsTest.length === 0) {
+                            if (currentTest.blocks[0].transactionSequence.length > 0) {
+                                for (let tx = 0; tx < currentTest.blocks[0].transactionSequence.length; tx++) {
+                                    const { rawBytes } = currentTest.blocks[0].transactionSequence[tx];
+                                    const transaction = ethers.utils.parseTransaction(rawBytes);
+                                    if (transaction.type) {
+                                        await updateNoExec(dir, newOutputName, 'tx.type not supported', noExec);
+                                    }
+                                    transaction.gasPrice = transaction.gasPrice._hex;
+                                    transaction.gasLimit = transaction.gasLimit._hex;
+                                    transaction.value = transaction.value._hex;
+                                    txsTest.push(transaction);
+                                }
+                            }
+                        }
                         for (let tx = 0; tx < txsTest.length; tx++) {
                             const txTest = txsTest[tx];
                             if (txTest.type) {
                                 await updateNoExec(dir, newOutputName, 'tx.type not supported', noExec);
                             }
+                            if (txTest.to === '0x0000000000000000000000000000000000000002') {
+                                await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExec);
+                            } else if (txTest.to === '0x0000000000000000000000000000000000000003') {
+                                await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
+                            } else if (txTest.to === '0x0000000000000000000000000000000000000005') {
+                                await updateNoExec(dir, newOutputName, 'Precompiled modexp is not supported', noExec);
+                            } else if (txTest.to === '0x0000000000000000000000000000000000000006') {
+                                await updateNoExec(dir, newOutputName, 'Precompiled ecAdd is not supported', noExec);
+                            } else if (txTest.to === '0x0000000000000000000000000000000000000007') {
+                                await updateNoExec(dir, newOutputName, 'Precompiled ecMul is not supported', noExec);
+                            } else if (txTest.to === '0x0000000000000000000000000000000000000008') {
+                                await updateNoExec(dir, newOutputName, 'Precompiled ecPairing is not supported', noExec);
+                            } else if (txTest.to === '0x0000000000000000000000000000000000000009') {
+                                await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExec);
+                            }
+
                             if (Scalar.e(txTest.gasLimit) > zkcommonjs.Constants.BATCH_GAS_LIMIT) {
                                 txsTest[tx].gasLimit = zkcommonjs.Constants.BATCH_GAS_LIMIT;
                             }
@@ -296,6 +357,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             if (txTest.r) delete txTest.r;
                             if (txTest.s) delete txTest.s;
                             if (txTest.v) delete txTest.v;
+                            if (txTest.type === null) delete txTest.type;
                             let txSigned = Transaction.fromTxData(txTest, { common: commonCustom }).sign(accountPkFrom);
                             const sign = !(Number(txSigned.v) & 1);
                             const chainId = (Number(txSigned.v) - 35) >> 1;
@@ -323,12 +385,14 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         await batch.executeTxs();
 
-                        if (batch.evmSteps[0].length > 0) {
+                        if (batch.evmSteps[0] && batch.evmSteps[0].length > 0) {
                             const { updatedAccounts } = batch;
                             if (updatedAccounts['0x0000000000000000000000000000000000000002']) {
                                 await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExec);
                             } else if (updatedAccounts['0x0000000000000000000000000000000000000003']) {
                                 await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
+                            } else if (updatedAccounts['0x0000000000000000000000000000000000000005']) {
+                                await updateNoExec(dir, newOutputName, 'Precompiled modexp is not supported', noExec);
                             } else if (updatedAccounts['0x0000000000000000000000000000000000000006']) {
                                 await updateNoExec(dir, newOutputName, 'Precompiled ecAdd is not supported', noExec);
                             } else if (updatedAccounts['0x0000000000000000000000000000000000000007']) {
@@ -355,6 +419,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                         await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExec);
                                     } else if (addressCall === Scalar.e(3)) {
                                         await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
+                                    } else if (addressCall === Scalar.e(5)) {
+                                        await updateNoExec(dir, newOutputName, 'Precompiled modexp is not supported', noExec);
                                     } else if (addressCall === Scalar.e(6)) {
                                         await updateNoExec(dir, newOutputName, 'Precompiled ecAdd is not supported', noExec);
                                     } else if (addressCall === Scalar.e(7)) {
@@ -382,7 +448,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                 if (address !== sequencerAddress) {
                                     const infoExpect = postState[address];
                                     const newLeaf = await zkEVMDB.getCurrentAccountState(address);
-
                                     if (infoExpect.balance) {
                                         expect(Scalar.e(newLeaf.balance).toString()).to.be.equal(Scalar.e(infoExpect.balance).toString());
                                     }
@@ -397,10 +462,12 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                     }
 
                                     if (infoExpect.storage && Object.keys(infoExpect.storage).length > 0) {
-                                        const storage = await zkEVMDB.dumpStorage(address);
-                                        for (let elem in infoExpect.storage) {
-                                            if (Scalar.e(infoExpect.storage[elem]) !== Scalar.e(0)) {
-                                                expect(Scalar.e(infoExpect.storage[elem])).to.be.equal(Scalar.e(storage[`0x${elem.slice(2).padStart(64, '0')}`]));
+                                        if (address !== ethers.constants.AddressZero) {
+                                            const storage = await zkEVMDB.dumpStorage(address);
+                                            for (let elem in infoExpect.storage) {
+                                                if (Scalar.e(infoExpect.storage[elem]) !== Scalar.e(0)) {
+                                                    expect(Scalar.e(infoExpect.storage[elem])).to.be.equal(Scalar.e(storage[`0x${elem.slice(2).padStart(64, '0')}`]));
+                                                }
                                             }
                                         }
                                     }

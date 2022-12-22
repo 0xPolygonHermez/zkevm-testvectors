@@ -21,17 +21,15 @@ async function deployContract(
     // The contract params should be abi-encoded and appended to the deployment bytecode.
     const txData = {
         value: 0,
-        gasLimit: 10000000, // We assume that 10M gas is enough for deploy
+        gasLimit: 100000000000, // We assume that 10M gas is enough for deploy
         gasPrice: 1,
         data: deploymentBytecode,
         nonce: await getAccountNonce(vm, senderPrivateKey),
     };
-
     if (Object.keys(paramsDeploy).length > 0) {
         const params = defaultAbiCoder.encode(paramsDeploy.types, paramsDeploy.values);
         txData.data = deploymentBytecode + params.slice(2);
     }
-
     const tx = Transaction.fromTxData(txData).sign(senderPrivateKey);
 
     const deploymentResult = await vm.runTx({ tx });

@@ -17,6 +17,7 @@ describe('mt bridge leaf vectors', async function () {
     it('Should check test vectors', async () => {
         for (let i = 0; i < leafs.length; i++) {
             const {
+                leafType,
                 originNetwork,
                 tokenAddress,
                 amount,
@@ -26,6 +27,7 @@ describe('mt bridge leaf vectors', async function () {
             } = leafs[i];
             const metadataHash = ethers.utils.solidityKeccak256(['bytes'], [metadata]);
             const currentLeafValue = getLeafValue(
+                leafType,
                 originNetwork,
                 tokenAddress,
                 destinationNetwork,

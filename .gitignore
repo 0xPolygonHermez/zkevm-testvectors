@@ -12,7 +12,6 @@ evm-stack-logs
 ./tools/print-opcodes/input.data
 ./tools/print-opcodes/output.json
 
-*-ignore.json
 tools/ethereum-tests/tests
 tools/ethereum-tests/eth-inputs
 tools/ethereum-tests/zkproverjs
@@ -21,4 +20,11 @@ tools/ethereum-tests/info-output-*
 inputs-integration
 errors.txt
 info.txt
+info-inputs.txt
+info-output.txt
 tools/ethereum-tests/final-table.txt
+tools/ethereum-tests/.DS_Store
+
+tools-calldata/evm/.DS_Store
+tools/benchmark/inputs
+tools/benchmark/.DS_Store
