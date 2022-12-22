@@ -46,8 +46,8 @@ describe('Proof of efficiency test vectors', function () {
     let F;
 
     let deployer;
-    let aggregator;
-    let securityCouncil;
+    let trustedAggregator;
+    let admin;
     let verifierContract;
     let bridgeContract;
     let polygonZkEVMContract;
@@ -58,11 +58,10 @@ describe('Proof of efficiency test vectors', function () {
     const maticTokenSymbol = 'MATIC';
     const maticTokenInitialBalance = ethers.utils.parseEther('20000000');
     const networkIDMainnet = 0;
-    const networkIDRollup = 1;
     const networkName = 'zkevm';
     const pendingStateTimeoutDefault = 10;
     const trustedAggregatorTimeoutDefault = 10;
-    const chainID = 1000;
+    const initChainID = 1000;
 
     const genesisRootSC = '0x0000000000000000000000000000000000000000000000000000000000000000';
 
@@ -100,7 +99,6 @@ describe('Proof of efficiency test vectors', function () {
             { from: deployer.address, nonce: (await ethers.provider.getTransactionCount(deployer.address)) + 2 },
         );
 
-
         // deploy global exit root manager
         const globalExitRootManagerFactory = new ethers.ContractFactory(PolygonZkEVMGlobalExitRootMock.abi, PolygonZkEVMGlobalExitRootMock.bytecode, deployer);
         globalExitRootManager = await globalExitRootManagerFactory.deploy(precalculatezkEVMAddress, precalculatBridgeAddress);
@@ -127,7 +125,7 @@ describe('Proof of efficiency test vectors', function () {
             bridgeContract.address,
             {
                 admin: admin.address,
-                chainID: chainID,
+                chainID: initChainID,
                 trustedSequencer: testVectors[0].sequencerAddress,
                 pendingStateTimeout: pendingStateTimeoutDefault,
                 forceBatchAllowed: allowForcebatches,
@@ -424,7 +422,7 @@ describe('Proof of efficiency test vectors', function () {
                 const proofC = ['0', '0'];
 
                 // check batch sent
-                const accInputHash = (await polygonZkEVMContract.sequencedBatches(1)).accInputHash;
+                const { accInputHash } = await polygonZkEVMContract.sequencedBatches(1);
 
                 expect(accInputHash).to.be.equal(circuitInput.newAccInputHash);
                 const batchHashDataSC = calculateBatchHashData(

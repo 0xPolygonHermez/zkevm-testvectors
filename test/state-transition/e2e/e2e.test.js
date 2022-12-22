@@ -45,8 +45,8 @@ describe('Proof of efficiency test vectors', function () {
     let F;
 
     let deployer;
-    let aggregator;
-    let securityCouncil;
+    let trustedAggregator;
+    let admin;
 
     let verifierContract;
     let bridgeContract;
@@ -63,7 +63,7 @@ describe('Proof of efficiency test vectors', function () {
     const networkName = 'zkevm';
     const pendingStateTimeoutDefault = 10;
     const trustedAggregatorTimeoutDefault = 10;
-    const chainID = 1000;
+    const initChainID = 1000;
 
     before(async () => {
         update = argv.update === true;
@@ -75,7 +75,7 @@ describe('Proof of efficiency test vectors', function () {
         F = poseidon.F;
 
         // load signers
-        [deployer, trustedAggregator, trustedSequencer, admin, aggregator1] = await ethers.getSigners();
+        [deployer, trustedAggregator, admin] = await ethers.getSigners();
 
         // deploy mock verifier
         const VerifierRollupHelperFactory = new ethers.ContractFactory(VerifierRollupHelperMock.abi, VerifierRollupHelperMock.bytecode, deployer);
@@ -111,6 +111,7 @@ describe('Proof of efficiency test vectors', function () {
 
         await polygonZkEVMGlobalExitRootContract.initialize(polygonZkEVMContract.address, bridgeContract.address);
         await bridgeContract.initialize(networkIDMainnet, polygonZkEVMGlobalExitRootContract.address, polygonZkEVMContract.address);
+
         await polygonZkEVMContract.initialize(
             polygonZkEVMGlobalExitRootContract.address,
             maticTokenContract.address,
@@ -118,7 +119,7 @@ describe('Proof of efficiency test vectors', function () {
             bridgeContract.address,
             {
                 admin: admin.address,
-                chainID: chainID,
+                chainID: initChainID,
                 trustedSequencer: testE2E.sequencerAddress,
                 pendingStateTimeout: pendingStateTimeoutDefault,
                 forceBatchAllowed: allowForcebatches,
@@ -130,6 +131,7 @@ describe('Proof of efficiency test vectors', function () {
             networkName,
         );
     });
+
     it('End to end test', async () => {
         const {
             genesis,
@@ -508,7 +510,7 @@ describe('Proof of efficiency test vectors', function () {
             .withArgs(lastBatchSequenced + 1);
 
         // check batch sent
-        const accInputHash = (await polygonZkEVMContract.sequencedBatches(1)).accInputHash;
+        const { accInputHash } = await polygonZkEVMContract.sequencedBatches(1);
 
         expect(accInputHash).to.be.equal(circuitInput.newAccInputHash);
         const batchHashDataSC = calculateBatchHashData(
