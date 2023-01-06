@@ -115,8 +115,8 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                         bytecode: deployedBytecode,
                     };
                     contracts.push(contract);
+                    console.log(`${contractName} address: ${contract.contractAddress.toString()}`);
 
-                    console.log(contract.contractAddress.toString());
                     const sto = await vm.stateManager.dumpStorage(contract.contractAddress);
                     const storage = {};
                     // add contract storage
