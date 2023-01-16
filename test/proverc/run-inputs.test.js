@@ -12,6 +12,7 @@ const { toHexStringRlp } = require('@0xpolygonhermez/zkevm-commonjs').processorU
 const { Scalar } = require('ffjavascript');
 
 const calldataInputsDir = path.join(__dirname, '../../inputs-executor');
+// const calldataInputsDir = path.join(__dirname, '../../tools/ethereum-tests/GeneralStateTests');
 
 const EXECUTOR_PROTO_PATH = path.join(__dirname, '../../../zkevm-comms-protocol/proto/executor/v1/executor.proto');
 const DB_PROTO_PATH = path.join(__dirname, '../../../zkevm-comms-protocol/proto/statedb/v1/statedb.proto');
@@ -45,8 +46,8 @@ const { StateDBService } = stateDbProto;
 const fs = require('fs');
 const codes = require('./opcodes');
 
-const client = new ExecutorService('54.170.178.97:50071', grpc.credentials.createInsecure());
-const dbClient = new StateDBService('54.170.178.97:50061', grpc.credentials.createInsecure());
+const client = new ExecutorService('51.210.116.237:50071', grpc.credentials.createInsecure());
+const dbClient = new StateDBService('51.210.116.237:50061', grpc.credentials.createInsecure());
 let folders = [];
 const passedTests = [];
 const failedTests = [];
@@ -78,9 +79,10 @@ function runFolderTest(pos) {
     }
     const folder = folders[pos];
     const folderPath = `${calldataInputsDir}/${folder}`;
-    // if (!fs.lstatSync(folderPath).isDirectory()) {
-    //     continue;
-    // }
+    if (!fs.lstatSync(folderPath).isDirectory()) {
+        runFolderTest(pos + 1);
+        return;
+    }
     const tests = fs.readdirSync(folderPath);
     runTests(tests, 0, pos);
 }
@@ -122,6 +124,7 @@ function processBatch(input, tests, pos, folderPos) {
         return;
     }
     // format js input to c input
+    console.log(`Running ${tests[pos]}`);
     const cInput = formatInput(input);
     client.ProcessBatch(cInput, (error, res) => {
         try {
@@ -257,6 +260,8 @@ function setBytecode(input, tests, pos, folderPos, bcPos) {
  */
 function checkResponse(input, res, test) {
     // Check new state root
+    const naih = `0x${res.new_acc_input_hash.toString('hex')}`;
+    const nsr = `0x${res.new_state_root.toString('hex')}`;
     if (input.newStateRoot !== `0x${res.new_state_root.toString('hex')}`) {
         console.log('\x1b[31m', `Root mismatch at test ${test}`);
         console.log(`${input.newStateRoot} /// 0x${res.new_state_root.toString('hex')}`);
@@ -275,14 +280,15 @@ function checkResponse(input, res, test) {
  */
 function formatInput(jsInput) {
     return {
-        batch_num: jsInput.numBatch,
-        coinbase: jsInput.sequencerAddr,
-        batch_l2_data: Buffer.from(jsInput.batchL2Data.slice(2), 'hex'),
         old_state_root: Buffer.from(jsInput.oldStateRoot.slice(2), 'hex'),
+        old_acc_input_hash: Buffer.from(jsInput.oldAccInputHash.slice(2), 'hex'),
+        old_batch_num: jsInput.oldNumBatch,
+        chain_id: jsInput.chainID,
+        batch_l2_data: Buffer.from(jsInput.batchL2Data.slice(2), 'hex'),
         global_exit_root: Buffer.from(jsInput.globalExitRoot.slice(2), 'hex'),
-        old_local_exit_root: Buffer.from(jsInput.oldLocalExitRoot.slice(2), 'hex'),
         eth_timestamp: jsInput.timestamp,
-        // update_merkle_tree: 1,
+        coinbase: jsInput.sequencerAddr,
+        update_merkle_tree: 1,
         // tx_hash_to_generate_execute_trace: 0,
         // tx_hash_to_generate_call_trace: Buffer.from('dde0848d8b85493472c4aa1b8414b4289409ed88047353e96b275a96e49efde6', 'hex'),
         db: formatDb(jsInput.db),
