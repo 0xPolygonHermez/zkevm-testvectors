@@ -25,18 +25,20 @@ const pilCache = require('../../../zkevm-proverjs/cache-main-pil.json');
 let F;
 let poseidon;
 let zkEVMDB;
+let initialzkEVMDB;
 
 /** #########################################################
  *                            CONFIG
  * ######################################################### */
-const CONFIG_ID = argv.config_id ? Number(argv.config_id) : 0; // Set config id here
+const CONFIG_ID = typeof argv.config_id !== 'undefined' ? Number(argv.config_id) : 0; // Set config id here
 const compilePil = false;
 const config = configs[CONFIG_ID];
 const {
-    testPath, setupTxs, iterateTxs, testIndex, initStep, testStep,
+    testPath, setupTxs, iterateTxs, testIndex, initStep, testStep, additionalGenesisAccountsFactor,
 } = config;
 const testFilePath = path.join(__dirname, testPath);
 const testObject = require(testFilePath)[testIndex];
+let lastTestIsError = true;
 
 async function main() {
     let errFound = false;
@@ -67,6 +69,10 @@ async function main() {
         errFound = await readTracer(txCount, dataLen);
         if (!errFound) {
             txCount += testStep;
+            lastTestIsError = false;
+        } else if (lastTestIsError) {
+            errFound = false;
+            txCount -= testStep;
         }
     }
     fs.writeFileSync(path.join(__dirname, './benchmark_config.json'), JSON.stringify(configs, null, 2));
@@ -87,6 +93,7 @@ async function readTracer(txCount, dataLen) {
     });
     if (!errFound && config.benchmark.txs < txCount) {
         updateBenchmark(result, txCount, dataLen);
+        fs.writeFileSync(path.join(__dirname, './benchmark_config.json'), JSON.stringify(configs, null, 2));
     }
     return errFound;
 }
@@ -95,26 +102,27 @@ function updateBenchmark(result, txCount, dataLen) {
     config.benchmark = {
         txs: txCount,
         totalDataBytes: dataLen,
-        cntArith: result.counters.cnt_arith,
-        cntBinary: result.counters.cnt_binary,
-        cntMemAlign: result.counters.cnt_mem_align,
-        cntKeccak: result.counters.cnt_keccak_f,
-        cntPadding: result.counters.cnt_padding_pg,
-        cntPoseidon: result.counters.cnt_poseidon_g,
-        cntSeps: result.counters.cont_steps,
+        cntArith: result.cnt_arithmetics,
+        cntBinary: result.cnt_binaries,
+        cntMemAlign: result.cnt_mem_aligns,
+        cntKeccak: result.cnt_keccak_hashes,
+        cntPadding: result.cnt_poseidon_paddings,
+        cntPoseidon: result.cnt_poseidon_hashes,
+        cntSeps: result.cnt_steps,
         cumulativeGasUsed: result.cumulative_gas_used,
+        additionalGenesisAccountsFactor,
     };
 }
 
 function printTracerResults(result) {
     console.log(`
-    arith: ${result.counters.cnt_arith}
-    binary: ${result.counters.cnt_binary}
-    memAlign: ${result.counters.cnt_mem_align}
-    keccak: ${result.counters.cnt_keccak_f}
-    padding: ${result.counters.cnt_padding_pg}
-    poseidon: ${result.counters.cnt_poseidon_g}
-    steps: ${result.counters.cont_steps}
+    arith: ${result.cnt_arithmetics}
+    binary: ${result.cnt_binaries}
+    memAlign: ${result.cnt_mem_aligns}
+    keccak: ${result.cnt_keccak_hashes}
+    padding: ${result.cnt_poseidon_paddings}
+    poseidon: ${result.cnt_poseidon_hashes}
+    steps: ${result.cnt_steps}
     totalGas: ${result.cumulative_gas_used}
     `);
 }
@@ -132,10 +140,35 @@ async function executeTx(circuitInput, cmPols) {
 }
 
 async function buildGenesis() {
-    const {
-        genesis, oldAccInputHash, chainID, forkID,
-    } = testObject;
+    const { genesis, oldAccInputHash, chainID, forkID } = testObject;
+    if (initialzkEVMDB) {
+        zkEVMDB = Object.assign(Object.create(Object.getPrototypeOf(initialzkEVMDB)), initialzkEVMDB);
+        zkEVMDB = new zkcommonjs.ZkEVMDB(
+            Object.assign(Object.create(Object.getPrototypeOf(initialzkEVMDB.db)), initialzkEVMDB.db),
+            0,
+            initialzkEVMDB.stateRoot,
+            initialzkEVMDB.accInputHash,
+            initialzkEVMDB.localExitRoot,
+            poseidon,
+            initialzkEVMDB.vm.copy(),
+            Object.assign(Object.create(Object.getPrototypeOf(initialzkEVMDB.smt)), initialzkEVMDB.smt),
+            chainID,
+            forkID
+        );
+        return;
+    }
 
+    if (additionalGenesisAccountsFactor) {
+        const additionalAccounts = 2 ** additionalGenesisAccountsFactor;
+        console.log(`Adding 2**${additionalGenesisAccountsFactor} (${additionalAccounts}) additional txs at genesis`);
+        for (let i = 1; i <= additionalAccounts; i++) {
+            genesis.push({
+                address: `0x${String(i).padStart(40, '0')}`,
+                balance: '100000',
+                nonce: '22',
+            });
+        }
+    }
     // init SMT Db
     const db = new zkcommonjs.MemDB(F);
     zkEVMDB = await zkcommonjs.ZkEVMDB.newZkEVM(
@@ -148,6 +181,19 @@ async function buildGenesis() {
         null,
         chainID,
         forkID,
+    );
+    initialzkEVMDB = Object.assign(Object.create(Object.getPrototypeOf(zkEVMDB)), zkEVMDB);
+
+    initialzkEVMDB = new zkcommonjs.ZkEVMDB(
+        Object.assign(Object.create(Object.getPrototypeOf(zkEVMDB.db)), zkEVMDB.db),
+        0,
+        zkEVMDB.stateRoot,
+        zkEVMDB.accInputHash,
+        zkEVMDB.localExitRoot,
+        poseidon,
+        zkEVMDB.vm.copy(),
+        Object.assign(Object.create(Object.getPrototypeOf(zkEVMDB.smt)), zkEVMDB.smt),
+        chainID,
     );
 }
 
