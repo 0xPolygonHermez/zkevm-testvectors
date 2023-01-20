@@ -141,5 +141,55 @@
       "cumulativeGasUsed": "8681462",
       "bottleneck": "OOCS"
     }
+  },
+  {
+    "id": 5,
+    "name": "claimAsset",
+    "testPath": "../../state-transition/e2e/e2e.json",
+    "setupTxs": [],
+    "iterateTxs": [
+      0
+    ],
+    "testIndex": 0,
+    "initStep": 1,
+    "testStep": 1,
+    "benchmark": {
+      "txs": 1,
+      "totalDataBytes": 41936,
+      "cntArith": 140607,
+      "cntBinary": 441289,
+      "cntMemAlign": 176,
+      "cntKeccak": 1191,
+      "cntPadding": 3520,
+      "cntPoseidon": 77165,
+      "cntSeps": 8279879,
+      "cumulativeGasUsed": "5426834",
+      "bottleneck": "revert"
+    }
+  },
+  {
+    "id": 6,
+    "name": "bridgeAsset",
+    "testPath": "../../state-transition/e2e/e2e.json",
+    "setupTxs": [],
+    "iterateTxs": [
+      1
+    ],
+    "testIndex": 0,
+    "initStep": 1,
+    "testStep": 1,
+    "benchmark": {
+      "txs": 1,
+      "totalDataBytes": 41936,
+      "cntArith": 140607,
+      "cntBinary": 441289,
+      "cntMemAlign": 176,
+      "cntKeccak": 1191,
+      "cntPadding": 3520,
+      "cntPoseidon": 77165,
+      "cntSeps": 8279879,
+      "cumulativeGasUsed": "5426834",
+      "bottleneck": "intrinsic_invalid_balance"
+    }
   }
 ]
