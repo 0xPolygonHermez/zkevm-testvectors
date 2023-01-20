@@ -447,8 +447,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         }
 
                         const circuitInput = await batch.getStarkInput();
-                        circuitInput.gasLimit = options.newBatchGasLimit
-                            ? Scalar.e(options.newBatchGasLimit).toString() : zkcommonjs.Constants.BATCH_GAS_LIMIT.toString();
+                        if (options.newBatchGasLimit) { circuitInput.gasLimit = Scalar.e(options.newBatchGasLimit).toString(); }
                         Object.keys(circuitInput.contractsBytecode).forEach((key) => {
                             if (!circuitInput.contractsBytecode[key].startsWith('0x')) {
                                 circuitInput.contractsBytecode[key] = `0x${circuitInput.contractsBytecode[key]}`;
@@ -467,7 +466,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         await fs.writeFileSync(`${writeOutputName}`, JSON.stringify(circuitInput, null, 2));
                         if (!flag30M) counts.countOK += 1;
                     } catch (e) {
-                        if (options.newBatchGasLimit && Scalar.eq(options.newBatchGasLimit, Scalar.e('0x7FFFFFFF'))) {
+                        if (options.newBatchGasLimit && Scalar.eq(options.newBatchGasLimit, Scalar.e('0x7FFFFFFF')) && (e.toString() !== 'Error: not supported')) {
                             let auxDir = dir.endsWith('/') ? dir.substring(0, dir.length - 1) : dir;
                             auxDir = auxDir.split('/');
                             const nameTest = `${auxDir[auxDir.length - 1]}/${newOutputName.replace('.json', '')}`;

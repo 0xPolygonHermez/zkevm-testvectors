@@ -25,6 +25,10 @@
       "description": "Error: JavaScript heap out of memory"
     },
     {
+      "name": "VMTests/vmPerformance/loopExp_2",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
       "name": "VMTests/vmPerformance/loopExp_3",
       "description": "Error: JavaScript heap out of memory"
     },
@@ -58,17 +62,17 @@
     },
     {
       "name": "stStaticCall/static_Call50000bytesContract50_1_1",
-      "description": "Error: JavaScript heap out of memory"
+      "description": "Killed"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Call50000_identity2_1",
+      "description": "Killed"
     }
   ],
   "not-supported": [
     {
       "name": "stSStoreTest/InitCollision",
       "description": "Clear storage tree could not be done in zkEVM state-tree"
-    },
-    {
-      "name": "stCreate2/create2callPrecompiles",
-      "description": "Precompiled called are not supported"
     },
     {
       "name": "stCreate2/RevertInCreateInInitCreate2",
@@ -81,22 +85,6 @@
     {
       "name": "stChainId/chainId.json",
       "description": "Opcode CHAINID (0x46) called and stored. ChainId does not match. Similar internal test has been done in: state-transition/calldata/chainId.json"
-    },
-    {
-      "name": "stStaticCall/StaticcallToPrecompile",
-      "description": "Some Precompileds not supported"
-    },
-    {
-      "name": "stStaticCall/Static_CallRipemd160",
-      "description": "Ripemd160 precompiled not supported"
-    },
-    {
-      "name": "stStaticCall/static_CallSha256",
-      "description": "Sha256 precompiled not supported"
-    },
-    {
-      "name": "stStaticCall/static_CallEcrecover0_0input_X",
-      "description": "The X indicates which precompiled is called, therefore only supported 1 and 4"
     },
     {
       "name": "stRefundTest/refund_CallToSuicideTwice_1",
@@ -112,7 +100,7 @@
     },
     {
       "name": "stTransactionTest/SuicidesAndInternlCallSuicidesSuccess_1",
-      "description": "Selfdestruct error"
+      "description": "Selfdestruct"
     },
     {
       "name": "stTransactionTest/PointAtInfinityECRecover",
@@ -120,35 +108,23 @@
     },
     {
       "name": "stStaticFlagEnabled/CallWithZeroValueToPrecompileFromTransaction",
-      "description": "Precompiled contracts called are not supported"
+      "description": "Precompiled sha256 is not supported"
     },
     {
       "name": "stStaticFlagEnabled/CallcodeToPrecompileFromCalledContract",
-      "description": "Precompiled contracts called are not supported"
+      "description": "Precompiled sha256 is not supported"
     },
     {
       "name": "stStaticFlagEnabled/CallcodeToPrecompileFromContractInitialization",
-      "description": "Precompiled contracts called are not supported"
+      "description": "Precompiled sha256 is not supported"
     },
     {
       "name": "stStaticFlagEnabled/CallcodeToPrecompileFromTransaction",
-      "description": "Precompiled contracts called are not supported"
+      "description": "Precompiled sha256 is not supported"
     },
     {
       "name": "stStaticFlagEnabled/DelegatecallToPrecompileFromCalledContract",
-      "description": "Precompiled contracts called are not supported"
-    },
-    {
-      "name": "stStaticFlagEnabled/DelegatecallToPrecompileFromContractInitialization",
-      "description": "Precompiled contracts called are not supported"
-    },
-    {
-      "name": "stStaticFlagEnabled/DelegatecallToPrecompileFromTransaction",
-      "description": "Precompiled contracts called are not supported"
-    },
-    {
-      "name": "stStaticFlagEnabled/StaticcallForPrecompilesIssue683",
-      "description": "Precompiled contracts called are not supported"
+      "description": "Precompiled sha256 is not supported"
     },
     {
       "name": "VMTests/jump_16",
@@ -6943,10 +6919,6 @@
       "description": "rom NUMBER != eth NUMBER"
     },
     {
-      "name": "stEIP3540",
-      "description": "stEIP3540"
-    },
-    {
       "name": "stExtCodeHash/codeCopyZero",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
@@ -7001,6 +6973,838 @@
     {
       "name": "stRandom/randomStatetest201",
       "description": "Selfdestruct"
+    },
+    {
+      "name": "VMTests/msize_5",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stCallCreateCallCodeTest/createInitFailBadJumpDestination",
+      "description": "Selfdestruct"
+    },
+    {
+      "name": "stCallCreateCallCodeTest/createInitFailStackSizeLargerThan1024",
+      "description": "Selfdestruct"
+    },
+    {
+      "name": "stCallCreateCallCodeTest/createInitFailStackUnderflow",
+      "description": "Selfdestruct"
+    },
+    {
+      "name": "stCreate2/CREATE2_Bounds_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stCreate2/CREATE2_Bounds2_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stCreate2/CREATE2_Bounds3_2",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stCreate2/Create2Recursive_0",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stCreate2/Create2Recursive_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stCreate2/create2SmartInitCode_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stCreate2/returndatacopy_following_create_0",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stCreate2/returndatacopy_following_create_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stCreate2/returndatacopy_following_successful_create",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stCreateTest/CreateCollisionResults_0",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stCreateTest/CreateCollisionResults_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/CALLCODE_Bounds_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/CALLCODE_Bounds2_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/CALLCODE_Bounds3_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/CALLCODE_Bounds4_2",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/CALL_Bounds_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/CALL_Bounds2_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/CALL_Bounds2a_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/CALL_Bounds3_2",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/CREATE_Bounds_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/CREATE_Bounds2_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/CREATE_Bounds3_2",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/DELEGATECALL_Bounds_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/DELEGATECALL_Bounds2_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/DELEGATECALL_Bounds3_2",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/FillStack_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/JUMPI_Bounds_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/JUMP_Bounds_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/JUMP_Bounds2_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/MLOAD_Bounds_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/MLOAD_Bounds2_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/MLOAD_Bounds3_0",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/MLOAD_Bounds3_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/MSTORE_Bounds_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/MSTORE_Bounds2_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/MSTORE_Bounds2a_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/mload32bitBound_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/mload32bitBound2_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/mload32bitBound_Msize_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/mload32bitBound_return_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/mload32bitBound_return2_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/static_CALL_Bounds_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/static_CALL_Bounds2_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/static_CALL_Bounds2a_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryStressTest/static_CALL_Bounds3_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryTest/calldatacopy_dejavu",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryTest/codecopy_dejavu",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryTest/extcodecopy_dejavu",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryTest/log1_dejavu",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryTest/log2_dejavu",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryTest/log3_dejavu",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryTest/log4_dejavu",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryTest/mload_dejavu",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryTest/mstore_dejavu",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryTest/mstroe8_dejavu",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stMemoryTest/sha3_dejavu",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Call1MB1024Calldepth_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Call50000_ecrec_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Callcode50000_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Create1000_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Create1000Byzantium_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest10",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest125",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest13",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest159",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest16",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest177",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest18",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest20",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest233",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest24",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest250",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest257",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest274",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest292",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest294",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest295",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest296",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest302",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest303",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest304",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest313",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest320",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest326",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest327",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest352",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest353",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest355",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest359",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest36",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest370",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest48",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest50",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest51",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest54",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest55",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest7",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest84",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom/randomStatetest97",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest393",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest418",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest422",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest423",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest443",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest449",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest454",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest476",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest481",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest484",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest485",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest494",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest496",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest498",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest499",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest504",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest513",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest523",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest524",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest527",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest528",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest538",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest547",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest562",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest563",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest566",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest569",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest573",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest575",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest576",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest583",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest597",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest601",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest604",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest611",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest625",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRandom2/randomStatetest626",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stReturnDataTest/returndatacopy_after_failing_callcode",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stReturnDataTest/returndatacopy_after_failing_staticcall",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stReturnDataTest/returndatacopy_following_create",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stReturnDataTest/returndatacopy_following_failing_call",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stReturnDataTest/returndatacopy_following_successful_create",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stReturnDataTest/returndatacopy_following_too_big_transfer",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stReturnDataTest/returndatacopy_initial",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stReturnDataTest/returndatacopy_overrun",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stSpecialTest/FailedCreateRevertsDeletion",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_ABAcalls1_0",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_ABAcalls2_0",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_Call1024BalanceTooLow_0",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_Call1024BalanceTooLow2_0",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_Call1024PreCalls_0",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_Call1024PreCalls3_0",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_Call1MB1024Calldepth_0",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_Call1MB1024Calldepth_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_Call50000_0",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_Call50000_identity2_0",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_Call50000_identity2_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_Call50000bytesContract50_1_0",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_Call50000bytesContract50_2_0",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_Call50000bytesContract50_3_0",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_CallRecursiveBomb0_OOG_atMaxCallDepth",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_CallRecursiveBombLog",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_LoopCallsDepthThenRevert2",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_LoopCallsDepthThenRevert3",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stCallCreateCallCodeTest/Call1024BalanceTooLow",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stCallCreateCallCodeTest/Call1024PreCalls_0",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stCallCreateCallCodeTest/Call1024PreCalls_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stCallCreateCallCodeTest/CallRecursiveBombPreCall",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stCallCreateCallCodeTest/Callcode1024BalanceTooLow",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stCreate2/Create2OnDepth1023",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stCreate2/Create2OnDepth1024",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stDelegatecallTestHomestead/Call1024BalanceTooLow",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stDelegatecallTestHomestead/Call1024PreCalls_0",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stDelegatecallTestHomestead/Call1024PreCalls_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stDelegatecallTestHomestead/CallRecursiveBombPreCall",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stDelegatecallTestHomestead/Delegatecall1024",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRevertTest/LoopCallsDepthThenRevert2",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stRevertTest/LoopCallsDepthThenRevert3",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_Call1024BalanceTooLow_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_Call1024BalanceTooLow2_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_Call1024PreCalls_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_Call1024PreCalls2_0",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_Call1024PreCalls2_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_Call1024PreCalls3_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_CallRecursiveBombPreCall",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stSystemOperationsTest/CallRecursiveBomb0_OOG_atMaxCallDepth",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stCreate2/create2callPrecompiles_1",
+      "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stCreate2/create2callPrecompiles_2",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stCreate2/create2callPrecompiles_4",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stCreate2/create2callPrecompiles_5",
+      "description": "Precompiled ecAdd is not supported"
+    },
+    {
+      "name": "stCreate2/create2callPrecompiles_6",
+      "description": "Precompiled ecAdd is not supported"
+    },
+    {
+      "name": "stCreate2/create2callPrecompiles_7",
+      "description": "Precompiled ecAdd is not supported"
+    },
+    {
+      "name": "stStaticCall/StaticcallToPrecompileFromCalledContract",
+      "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stStaticCall/StaticcallToPrecompileFromTransaction",
+      "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stStaticCall/StaticcallToPrecompileFromContractInitialization",
+      "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stStaticCall/static_CallSha256_1_nonzeroValue",
+      "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stStaticCall/static_CallSha256_1",
+      "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stStaticCall/static_CallSha256_2",
+      "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stStaticCall/static_CallSha256_3_postfix0",
+      "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stStaticCall/static_CallSha256_3",
+      "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stStaticCall/static_CallSha256_4_gas99",
+      "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stStaticCall/static_CallSha256_4",
+      "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stStaticCall/static_CallSha256_5",
+      "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/DelegatecallToPrecompileFromContractInitialization",
+      "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/DelegatecallToPrecompileFromTransaction",
+      "description": "Precompiled sha256 is not supported"
     }
   ]
 }

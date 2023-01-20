@@ -77,7 +77,7 @@ cd ../../../zkevm-testvectors/tools/ethereum-tests/test-tools
 node run-tests-30M.js -l ../eth-inputs/GeneralStateTests/tests-30M/tests30M-list.json -r ../../../../zkevm-rom -p ../../../../zkevm-proverjs
 
 # pass OOC tests
-node run-tests-OOC.js -l ../eth-inputs/GeneralStateTests/tests-OOC/testsOOC-list.json -p ../../../../zkevm-proverjs
+node run-tests-OOC.js -l ../eth-inputs/GeneralStateTests/tests-OOC/testsOOC-list.json -p ../../../../zkevm-proverjs -r ../../../../zkevm-rom -s
 
 cd ../
 pass_inputs_time=$(date +%s)

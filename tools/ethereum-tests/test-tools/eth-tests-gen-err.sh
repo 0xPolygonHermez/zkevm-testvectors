@@ -1,7 +1,7 @@
-dir=./eth-inputs
+dir=../eth-inputs
 aux="false"
 count=0
-echo -e "# Generation errors \n" > eth-inputs/exec-err-gen.txt
+echo -e "# Generation errors \n" > ../eth-inputs/exec-err-gen.txt
 for entry in "$dir"/*
 do
     for entry2 in "$entry"/*
@@ -26,12 +26,12 @@ do
                         fi
                     elif [[ $aux == "false" ]]
                     then
-                        echo -e "$line" >> eth-inputs/exec-err-gen.txt
+                        echo -e "$line" >> ../eth-inputs/exec-err-gen.txt
                         if [[ $line == *".json"* ]]
                         then
                             count=$((count+1))
-                            echo -e "$count $entry2" >> eth-inputs/exec-err-gen.txt
-                            echo -e "--------------------------------------------------" >> eth-inputs/exec-err-gen.txt
+                            echo -e "$count $entry2" >> ../eth-inputs/exec-err-gen.txt
+                            echo -e "--------------------------------------------------" >> ../eth-inputs/exec-err-gen.txt
                         fi
                     fi
                 done < $entry3
