@@ -67,6 +67,14 @@
     {
       "name": "stQuadraticComplexityTest/Call50000_identity2_1",
       "description": "Killed"
+    },
+    {
+      "name": "stQuadraticComplexityTest/QuadraticComplexitySolidity_CallDataCopy",
+      "description": "Killed"
+    },
+    {
+      "name": "stRandom/randomStatetest307",
+      "description": "Killed"
     }
   ],
   "not-supported": [
@@ -7233,305 +7241,304 @@
     {
       "name": "stQuadraticComplexityTest/Create1000Byzantium_1",
       "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest10",
+    }    {
+      "name": "stRandom/randomStatetest10.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest125",
+      "name": "stRandom/randomStatetest125.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest13",
+      "name": "stRandom/randomStatetest13.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest159",
+      "name": "stRandom/randomStatetest159.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest16",
+      "name": "stRandom/randomStatetest16.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest177",
+      "name": "stRandom/randomStatetest177.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest18",
+      "name": "stRandom/randomStatetest18.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest20",
+      "name": "stRandom/randomStatetest20.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest233",
+      "name": "stRandom/randomStatetest233.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest24",
+      "name": "stRandom/randomStatetest24.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest250",
+      "name": "stRandom/randomStatetest250.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest257",
+      "name": "stRandom/randomStatetest257.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest274",
+      "name": "stRandom/randomStatetest274.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest292",
+      "name": "stRandom/randomStatetest292.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest294",
+      "name": "stRandom/randomStatetest294.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest295",
+      "name": "stRandom/randomStatetest295.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest296",
+      "name": "stRandom/randomStatetest296.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest302",
+      "name": "stRandom/randomStatetest302.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest303",
+      "name": "stRandom/randomStatetest303.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest304",
+      "name": "stRandom/randomStatetest304.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest313",
+      "name": "stRandom/randomStatetest313.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest320",
+      "name": "stRandom/randomStatetest320.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest326",
+      "name": "stRandom/randomStatetest326.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest327",
+      "name": "stRandom/randomStatetest327.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest352",
+      "name": "stRandom/randomStatetest352.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest353",
+      "name": "stRandom/randomStatetest353.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest355",
+      "name": "stRandom/randomStatetest355.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest359",
+      "name": "stRandom/randomStatetest359.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest36",
+      "name": "stRandom/randomStatetest36.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest370",
+      "name": "stRandom/randomStatetest370.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest48",
+      "name": "stRandom/randomStatetest48.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest50",
+      "name": "stRandom/randomStatetest50.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest51",
+      "name": "stRandom/randomStatetest51.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest54",
+      "name": "stRandom/randomStatetest54.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest55",
+      "name": "stRandom/randomStatetest55.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest7",
+      "name": "stRandom/randomStatetest7.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest84",
+      "name": "stRandom/randomStatetest84.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest97",
+      "name": "stRandom/randomStatetest97.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest393",
+      "name": "stRandom2/randomStatetest393.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest418",
+      "name": "stRandom2/randomStatetest418.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest422",
+      "name": "stRandom2/randomStatetest422.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest423",
+      "name": "stRandom2/randomStatetest423.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest443",
+      "name": "stRandom2/randomStatetest443.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest449",
+      "name": "stRandom2/randomStatetest449.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest454",
+      "name": "stRandom2/randomStatetest454.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest476",
+      "name": "stRandom2/randomStatetest476.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest481",
+      "name": "stRandom2/randomStatetest481.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest484",
+      "name": "stRandom2/randomStatetest484.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest485",
+      "name": "stRandom2/randomStatetest485.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest494",
+      "name": "stRandom2/randomStatetest494.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest496",
+      "name": "stRandom2/randomStatetest496.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest498",
+      "name": "stRandom2/randomStatetest498.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest499",
+      "name": "stRandom2/randomStatetest499.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest504",
+      "name": "stRandom2/randomStatetest504.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest513",
+      "name": "stRandom2/randomStatetest513.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest523",
+      "name": "stRandom2/randomStatetest523.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest524",
+      "name": "stRandom2/randomStatetest524.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest527",
+      "name": "stRandom2/randomStatetest527.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest528",
+      "name": "stRandom2/randomStatetest528.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest538",
+      "name": "stRandom2/randomStatetest538.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest547",
+      "name": "stRandom2/randomStatetest547.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest562",
+      "name": "stRandom2/randomStatetest562.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest563",
+      "name": "stRandom2/randomStatetest563.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest566",
+      "name": "stRandom2/randomStatetest566.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest569",
+      "name": "stRandom2/randomStatetest569.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest573",
+      "name": "stRandom2/randomStatetest573.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest575",
+      "name": "stRandom2/randomStatetest575.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest576",
+      "name": "stRandom2/randomStatetest576.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest583",
+      "name": "stRandom2/randomStatetest583.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest597",
+      "name": "stRandom2/randomStatetest597.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest601",
+      "name": "stRandom2/randomStatetest601.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest604",
+      "name": "stRandom2/randomStatetest604.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest611",
+      "name": "stRandom2/randomStatetest611.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest625",
+      "name": "stRandom2/randomStatetest625.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest626",
+      "name": "stRandom2/randomStatetest626.json",
       "description": "tx gas > max int"
     },
     {
