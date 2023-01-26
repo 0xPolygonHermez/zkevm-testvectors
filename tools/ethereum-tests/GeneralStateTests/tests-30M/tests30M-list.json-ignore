@@ -3972,15 +3972,7 @@
     "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call20KbytesContract50_1.json"
   },
   {
-    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/Call20KbytesContract50_1_1.json",
-    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call20KbytesContract50_1.json"
-  },
-  {
     "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/Call20KbytesContract50_2_0.json",
-    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call20KbytesContract50_2.json"
-  },
-  {
-    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/Call20KbytesContract50_2_1.json",
     "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call20KbytesContract50_2.json"
   },
   {
@@ -3990,6 +3982,10 @@
   {
     "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/Call20KbytesContract50_3_1.json",
     "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call20KbytesContract50_3.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/Call50000_ecrec_0.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call50000_ecrec.json"
   },
   {
     "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/Callcode50000_0.json",
@@ -4002,18 +3998,6 @@
   {
     "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/Create1000Byzantium_0.json",
     "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Create1000Byzantium.json"
-  },
-  {
-    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/QuadraticComplexitySolidity_CallDataCopy_1.json",
-    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/QuadraticComplexitySolidity_CallDataCopy.json"
-  },
-  {
-    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/Return50000_0.json",
-    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Return50000.json"
-  },
-  {
-    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/Return50000_2_0.json",
-    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Return50000_2.json"
   },
   {
     "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/randomStatetest0.json",
@@ -4374,10 +4358,6 @@
   {
     "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/randomStatetest306.json",
     "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stRandom/randomStatetest306.json"
-  },
-  {
-    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/randomStatetest307.json",
-    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stRandom/randomStatetest307.json"
   },
   {
     "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/randomStatetest309.json",
@@ -6922,6 +6902,138 @@
   {
     "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/underflowTest_163.json",
     "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStackTests/underflowTest.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_ABAcalls1_1.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_ABAcalls1.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_ABAcalls2_1.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_ABAcalls2.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_Call10_0.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_Call10.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_Call10_1.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_Call10.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_Call1024OOG_0.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_Call1024OOG.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_Call1024OOG_1.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_Call1024OOG.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_Call50000bytesContract50_3_1.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_Call50000bytesContract50_3.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_CallLoseGasOOG.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_CallLoseGasOOG.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_CallRecursiveBomb0.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_CallRecursiveBomb0.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_RETURN_Bounds.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_RETURN_Bounds.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_RETURN_BoundsOOG_0.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_RETURN_BoundsOOG.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_RETURN_BoundsOOG_1.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_RETURN_BoundsOOG.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_call_OOG_additionalGasCosts1.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_call_OOG_additionalGasCosts1.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_call_OOG_additionalGasCosts2.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_call_OOG_additionalGasCosts2.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_callcallcall_ABCB_RECURSIVE.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_callcallcall_ABCB_RECURSIVE.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_callcallcallcode_ABCB_RECURSIVE.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_callcallcallcode_ABCB_RECURSIVE.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_callcallcallcode_ABCB_RECURSIVE2.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_callcallcallcode_ABCB_RECURSIVE2.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_callcallcodecall_ABCB_RECURSIVE.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_callcallcodecall_ABCB_RECURSIVE.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_callcallcodecall_ABCB_RECURSIVE2.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_callcallcodecall_ABCB_RECURSIVE2.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_callcallcodecallcode_ABCB_RECURSIVE.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_callcallcodecallcode_ABCB_RECURSIVE.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_callcallcodecallcode_ABCB_RECURSIVE2.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_callcallcodecallcode_ABCB_RECURSIVE2.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_callcode_checkPC.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_callcode_checkPC.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_callcodecallcall_ABCB_RECURSIVE.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_callcodecallcall_ABCB_RECURSIVE.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_callcodecallcall_ABCB_RECURSIVE2_0.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_callcodecallcall_ABCB_RECURSIVE2.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_callcodecallcall_ABCB_RECURSIVE2_1.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_callcodecallcall_ABCB_RECURSIVE2.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_callcodecallcallcode_ABCB_RECURSIVE.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_callcodecallcallcode_ABCB_RECURSIVE.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_callcodecallcallcode_ABCB_RECURSIVE2_0.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_callcodecallcallcode_ABCB_RECURSIVE2.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_callcodecallcallcode_ABCB_RECURSIVE2_1.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_callcodecallcallcode_ABCB_RECURSIVE2.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_callcodecallcallcode_ABCB_RECURSIVE2_2.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_callcodecallcallcode_ABCB_RECURSIVE2.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_callcodecallcallcode_ABCB_RECURSIVE2_3.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_callcodecallcallcode_ABCB_RECURSIVE2.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_callcodecallcodecall_ABCB_RECURSIVE.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_callcodecallcodecall_ABCB_RECURSIVE.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_callcodecallcodecall_ABCB_RECURSIVE2_0.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_callcodecallcodecall_ABCB_RECURSIVE2.json"
+  },
+  {
+    "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_callcodecallcodecall_ABCB_RECURSIVE2_1.json",
+    "file": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stStaticCall/static_callcodecallcodecall_ABCB_RECURSIVE2.json"
   },
   {
     "writeOutputName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/ABAcalls1.json",

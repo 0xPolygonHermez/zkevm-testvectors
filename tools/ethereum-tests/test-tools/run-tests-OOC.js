@@ -25,6 +25,7 @@ async function main() {
     let infoOOC = '';
 
     for (let i = 0; i < listOOC.length; i++) {
+        // if (!listOOC[i].passed) {
         const { fileName } = listOOC[i];
         const testPath = pathOOC + fileName.split('/')[fileName.split('/').length - 1];
         const testPath2 = path.join('../../../zkevm-testvectors/tools/ethereum-tests/test-tools', testPath);
@@ -61,15 +62,24 @@ async function main() {
             infoOOC += `stdout: ${res}\n`;
         }
         // console.log('countMax: ', countMax);
-        if (countMax <= 2 && !res.includes('Assert Error: newStateRoot does not match')) {
+        if (countMax <= 2 && !res.includes('Assert Error: newStateRoot does not match') && !res.includes('Error: Program terminated with registers')) {
+            test.stepsN = stepsN;
+            await fs.writeFileSync(testPath, JSON.stringify(test, null, 2));
             countOK += 1;
             listOOC[i].stepsN = stepsN;
         } else {
+            await fs.rename(testPath, `${testPath}-ignore`, () => {});
             countErrors += 1;
             listOOC[i].stepsN = 0;
         }
         countMax = 0;
+        // listOOC[i].passed = true;
         await fs.writeFileSync(pathOOCList, JSON.stringify(listOOC, null, 2));
+        // } else if (listOOC[i].stepsN === 0) {
+        //     countErrors += 1;
+        // } else {
+        //     countOK += 1;
+        // }
         // console.log('countOK: ', countOK);
         // console.log('countErrors: ', countErrors);
     }

@@ -1,6 +1,8 @@
+# save time
 start_date="$(date +%T) $(date +%d/%m/%y)"
 echo -e "start: $start_date" > times-eth.txt
 start_time=$(date +%s)
+# clone ethereum/tests
 if [ -d "tests" ]
     then
     if [ "$1" == "update" ]
@@ -37,8 +39,8 @@ dir=./tests/BlockchainTests/GeneralStateTests
         then
             echo "Exist"
         else
-            echo $entry2
-            node --max-old-space-size=12000 run-inputs.js -f $entry2 -r ../../../zkevm-rom/build/rom.json --info $entry2/info-inputs.txt --output $entry2/info-output.txt --ignore > $entry2/all-info-2.txt
+            mkdir eth-inputs/$group/$folder
+            npx mocha --max-old-space-size=12000 gen-inputs.js --group $group --folder $folder --output eth-inputs > eth-inputs/$group/$folder/all-info.txt
         fi
         gen_input_time_aux=$gen_input_time
         gen_input_time=$(date +%s)
@@ -63,7 +65,7 @@ do
             then
                 if [ -f "$entry2/info.txt" ]
                 then
-                    node --max-old-space-size=12000 run-inputs.js -f $entry2 -r ../../../zkevm-rom/build/rom.json --info $entry2/info-inputs.txt --output $entry2/info-output.txt --ignore -n ../../../zkevm-testvectors/tools/ethereum-tests/no-exec.json
+                    node --max-old-space-size=12000 run-inputs.js -f $entry2 -r ../../../zkevm-rom/build/rom.json --info $entry2/info-inputs.txt --output $entry2/info-output.txt --ignore > $entry2/all-info-2.txt
                     pass_folder_time_aux=$pass_folder_time
                     pass_folder_time=$(date +%s)
                     echo -e "pass folder $entry2: $((pass_folder_time - pass_folder_time_aux))" >> ../../../zkevm-testvectors/tools/ethereum-tests/times-eth.txt

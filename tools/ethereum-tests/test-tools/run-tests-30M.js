@@ -9,13 +9,16 @@ const { argv } = require('yargs')
 async function main() {
     let path30M;
     let list30M;
+    let newList30M;
+    let path30MList;
     let info30M = '';
     let countErrors = 0;
     let countOK = 0;
 
     try {
-        const path30MList = argv.l.trim();
+        path30MList = argv.l.trim();
         list30M = require(path30MList);
+        newList30M = list30M;
         path30M = path30MList.replace(path30MList.split('/')[path30MList.split('/').length - 1], '');
     } catch (e) {
         throw new Error('Invalid list 30M');
@@ -42,6 +45,11 @@ async function main() {
                 countOK += 1;
             } else {
                 countErrors += 1;
+                if (res2.includes('OOC')) {
+                    newList30M = newList30M.filter((e) => e.writeOutputName !== writeOutputName);
+                } else {
+                    fs.rename(writeOutputName, `${writeOutputName}-ignore`, () => {});
+                }
             }
         } catch (e) {
             console.log('Error test: ', e.toString());
@@ -62,6 +70,7 @@ async function main() {
     await fs.writeFileSync(`${path30M}/info.txt`, info);
     await fs.writeFileSync(`${path30M}/info-30M.txt`, info30M);
     await fs.writeFileSync(`${path30M}/info-inputs.txt`, infoOK);
+    await fs.writeFileSync(path30MList, JSON.stringify(newList30M, null, 2));
 }
 
 main();
