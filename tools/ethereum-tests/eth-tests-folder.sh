@@ -20,10 +20,9 @@ dir=./tests/BlockchainTests/GeneralStateTests
 group="GeneralStateTests"
 folder=$1
 
-
 rm -rf eth-inputs/$group/$folder
 
-npx mocha --max-old-space-size=12000 gen-inputs.js --group $group --folder $folder --output eth-inputs
+npx mocha --max-old-space-size=12000 gen-inputs.js --group $group --folder $folder --output eth-inputs -n ../../../zkevm-testvectors/tools/ethereum-tests/no-exec.json
 
 # pass tests
 cd ../../../zkevm-proverjs

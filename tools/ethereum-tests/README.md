@@ -42,6 +42,7 @@ $ cd ..
 **Option 1:**
 
 ```
+$ cd zkevm-testvectors/tools/ethereum-tests
 $ ./setup-all.sh
 ```
 

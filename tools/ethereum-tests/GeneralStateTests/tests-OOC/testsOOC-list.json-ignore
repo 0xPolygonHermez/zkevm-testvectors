@@ -1,0 +1,87 @@
+[
+  {
+    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/VMTests/performanceTester_1.json",
+    "error": "Error: Assert Error: newStateRoot does not match\nErrors: OOCS",
+    "stepsN": 16777216
+  },
+  {
+    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/VMTests/sha3_10.json",
+    "error": "Error: Assert Error: newStateRoot does not match\nErrors: OOCK",
+    "stepsN": 0
+  },
+  {
+    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/Call20KbytesContract50_1_1.json",
+    "error": "Error: Assert Error: newStateRoot does not match\nErrors: OOCB",
+    "stepsN": 16777216
+  },
+  {
+    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/Call20KbytesContract50_2_1.json",
+    "error": "Error: Assert Error: newStateRoot does not match\nErrors: OOCS",
+    "stepsN": 16777216
+  },
+  {
+    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/Call50000_1.json",
+    "error": "Error: Assert Error: newStateRoot does not match\nErrors: OOCS",
+    "stepsN": 0
+  },
+  {
+    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/Call50000_identity_1.json",
+    "error": "Error: Assert Error: newStateRoot does not match\nErrors: OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOCS",
+    "stepsN": 0
+  },
+  {
+    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/Call50000_identity2_1.json",
+    "error": "Error: Assert Error: newStateRoot does not match\nErrors: OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOCS",
+    "stepsN": 0
+  },
+  {
+    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/QuadraticComplexitySolidity_CallDataCopy_1.json",
+    "error": "Error: Assert Error: newStateRoot does not match\nErrors: OOCS",
+    "stepsN": 0
+  },
+  {
+    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/Return50000_0.json",
+    "error": "Error: Assert Error: newStateRoot does not match\nErrors: OOCS",
+    "stepsN": 33554432
+  },
+  {
+    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/Return50000_2_0.json",
+    "error": "Error: Assert Error: newStateRoot does not match\nErrors: OOCS",
+    "stepsN": 33554432
+  },
+  {
+    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/randomStatetest307.json",
+    "error": "Error: Assert Error: newStateRoot does not match\nErrors: OOCS",
+    "stepsN": 0
+  },
+  {
+    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_Call50000_1.json",
+    "error": "Error: Assert Error: newStateRoot does not match\nErrors: OOCS",
+    "stepsN": 0
+  },
+  {
+    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_Call50000_ecrec_0.json",
+    "error": "Error: Assert Error: newStateRoot does not match\nErrors: OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOCS",
+    "stepsN": 0
+  },
+  {
+    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_Call50000_ecrec_1.json",
+    "error": "Error: Assert Error: newStateRoot does not match\nErrors: OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOCS",
+    "stepsN": 0
+  },
+  {
+    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_Call50000_identity_0.json",
+    "error": "Error: Assert Error: newStateRoot does not match\nErrors: OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOCS",
+    "stepsN": 0
+  },
+  {
+    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_Call50000_identity_1.json",
+    "error": "Error: Assert Error: newStateRoot does not match\nErrors: OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOCS",
+    "stepsN": 0
+  },
+  {
+    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/static_Call50000bytesContract50_2_1.json",
+    "error": "Error: Assert Error: newStateRoot does not match\nErrors: OOCS",
+    "stepsN": 0
+  }
+]
