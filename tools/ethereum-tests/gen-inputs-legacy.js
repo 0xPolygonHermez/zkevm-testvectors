@@ -66,7 +66,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             }
             if (argv.folder) {
                 folder = argv.folder;
-                outputPath += `/${argv.folder.trim()}-legacy`;
+                outputPath += `/${group}/type0Txs`;
                 dir = path.join(__dirname, outputPath);
                 if (!fs.existsSync(dir)) {
                     fs.mkdirSync(dir);
@@ -76,7 +76,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             group = 'GeneralStateTests';
             if (argv.folder) {
                 folder = argv.folder;
-                outputPath += `/${argv.folder.trim()}-legacy`;
+                outputPath += `/${group}/type0Txs`;
                 dir = path.join(__dirname, outputPath);
                 if (!fs.existsSync(dir)) {
                     fs.mkdirSync(dir);

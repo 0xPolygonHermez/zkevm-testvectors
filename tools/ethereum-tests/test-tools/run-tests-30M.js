@@ -43,12 +43,11 @@ async function main() {
             info30M += `stdout: ${res2}\n`;
             if (res2.includes('Assert outputs run succesfully')) {
                 countOK += 1;
+                newList30M[i].passed = true;
             } else {
                 countErrors += 1;
                 if (res2.includes('OOC')) {
-                    newList30M = newList30M.filter((e) => e.writeOutputName !== writeOutputName);
-                } else {
-                    fs.rename(writeOutputName, `${writeOutputName}-ignore`, () => {});
+                    newList30M[i].passed = false;
                 }
             }
         } catch (e) {
@@ -57,13 +56,13 @@ async function main() {
     }
     let info = '';
     info += 'files: 0\n';
-    info += `tests: ${list30M.length}\n`;
-    info += `inputs: ${list30M.length}\n`;
+    info += `tests: ${newList30M.length}\n`;
+    info += `inputs: ${newList30M.length}\n`;
     info += 'errors: 0\n';
     info += 'not-supported: 0\n';
 
     let infoOK = '';
-    infoOK += `inputs: ${list30M.length}\n`;
+    infoOK += `inputs: ${newList30M.length}\n`;
     infoOK += `ok: ${countOK}\n`;
     infoOK += `errors: ${countErrors}\n`;
 

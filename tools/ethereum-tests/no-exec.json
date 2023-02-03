@@ -58,10 +58,54 @@
     },
     {
       "name": "stStaticCall/static_Return50000_2",
-      "stepsN": "Killed"
+      "description": "Killed"
     },
     {
       "name": "stStaticCall/static_Call50000bytesContract50_1_1",
+      "description": "Killed"
+    },
+    {
+      "name": "stStaticCall/static_Call50000_1.json",
+      "description": "Killed"
+    },
+    {
+      "name": "stStaticCall/static_Call50000_ecrec_0.json",
+      "description": "Killed"
+    },
+    {
+      "name": "stStaticCall/static_Call50000_ecrec_1.json",
+      "description": "Killed"
+    },
+    {
+      "name": "stStaticCall/static_Call50000_identity_0.json",
+      "description": "Killed"
+    },
+    {
+      "name": "stStaticCall/static_Call50000_identity_1.json",
+      "description": "Killed"
+    },
+    {
+      "name": "stStaticCall/static_Call50000bytesContract50_2_1.json",
+      "description": "Killed"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Call50000_1",
+      "description": "Killed"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Call50000_identity_1",
+      "description": "Killed"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Call50000_identity2_1",
+      "description": "Killed"
+    },
+    {
+      "name": "stQuadraticComplexityTest/QuadraticComplexitySolidity_CallDataCopy_1",
+      "description": "Killed"
+    },
+    {
+      "name": "stRandom/randomStatetest307",
       "description": "Killed"
     }
   ],
@@ -12557,6 +12601,10 @@
     {
       "name": "stSystemOperationsTest/CallRecursiveBomb0_OOG_atMaxCallDepth",
       "description": "tx gas > max int"
+    },
+    {
+      "name": "VMTests/sha3_10",
+      "description": "not supported WIP test"
     }
   ]
 }

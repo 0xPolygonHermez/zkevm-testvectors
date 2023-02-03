@@ -17,6 +17,7 @@ if [ ! -z "$1" ]
 else
     version_rom="$(git describe --tags --abbrev=0)"
 fi
+echo "Version rom: $version_rom"
 git checkout $version_rom
 npm i
 npm run build

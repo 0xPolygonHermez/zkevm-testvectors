@@ -25,63 +25,66 @@ async function main() {
     let infoOOC = '';
 
     for (let i = 0; i < listOOC.length; i++) {
-        // if (!listOOC[i].passed) {
-        const { fileName } = listOOC[i];
-        const testPath = pathOOC + fileName.split('/')[fileName.split('/').length - 1];
-        const testPath2 = path.join('../../../zkevm-testvectors/tools/ethereum-tests/test-tools', testPath);
-        const test = require(testPath);
-        let romFile = 'rom.json';
-        if (test.gasLimit) {
-            if (argv.r) {
-                romFile = 'rom-gas-ooc.json';
-                const { gasLimit } = test;
-                // console.log(`cd ${argv.r.trim()} && mkdir -p build && npx zkasm main/main.zkasm -o build/${romFile} -D TX_GAS_LIMIT=${gasLimit}\n`);
-                infoOOC += `cd ${argv.r.trim()} && mkdir -p build && npx zkasm main/main.zkasm -o build/${romFile} -D TX_GAS_LIMIT=${gasLimit}\n`;
-                const res = await execSync(`cd ${argv.r.trim()} && mkdir -p build && npx zkasm main/main.zkasm -o build/${romFile} -D TX_GAS_LIMIT=${gasLimit}`);
-                // console.log(`stdout: ${res}\n`);
-            } else {
-                throw new Error('no rom path');
+        if (!listOOC[i].passed) {
+            const { fileName } = listOOC[i];
+            const testPath = pathOOC + fileName.split('/')[fileName.split('/').length - 1];
+            const testPath2 = path.join('../../../zkevm-testvectors/tools/ethereum-tests/test-tools', testPath);
+            const test = require(testPath);
+            let romFile = 'rom.json';
+            if (test.gasLimit) {
+                if (argv.r) {
+                    romFile = 'rom-gas-ooc.json';
+                    const { gasLimit } = test;
+                    console.log(`cd ${argv.r.trim()} && mkdir -p build && npx zkasm main/main.zkasm -o build/${romFile} -D TX_GAS_LIMIT=${gasLimit}\n`);
+                    infoOOC += `cd ${argv.r.trim()} && mkdir -p build && npx zkasm main/main.zkasm -o build/${romFile} -D TX_GAS_LIMIT=${gasLimit}\n`;
+                    const res = await execSync(`cd ${argv.r.trim()} && mkdir -p build && npx zkasm main/main.zkasm -o build/${romFile} -D TX_GAS_LIMIT=${gasLimit}`);
+                    console.log(`stdout: ${res}\n`);
+                } else {
+                    throw new Error('no rom path');
+                }
             }
-        }
-        let stepsN;
-        if (argv.steps) stepsN = listOOC[i].stepsN;
-        else stepsN = 8388608;
-        // console.log(`cd ${argv.p.trim()}/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ${testPath2} -r ../../../zkevm-rom/build/${romFile} -c -n ${stepsN}`);
-        infoOOC += `cd ${argv.p.trim()}/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ${testPath2} -r ../../../zkevm-rom/build/${romFile} -c -n ${stepsN}`;
-        let res = await execSync(`cd ${argv.p.trim()}/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ${testPath2} -r ../../../zkevm-rom/build/${romFile} -c -n ${stepsN}`);
-        // console.log(`stdout: ${res}\n`);
-        infoOOC += `stdout: ${res}\n`;
+            let stepsN;
+            if (argv.steps) stepsN = listOOC[i].stepsN;
+            else stepsN = 8388608;
+            try {
+                console.log(`cd ${argv.p.trim()}/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ${testPath2} -r ../../../zkevm-rom/build/${romFile} -c -n ${stepsN}`);
+                infoOOC += `cd ${argv.p.trim()}/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ${testPath2} -r ../../../zkevm-rom/build/${romFile} -c -n ${stepsN}`;
+                let res = await execSync(`cd ${argv.p.trim()}/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ${testPath2} -r ../../../zkevm-rom/build/${romFile} -c -n ${stepsN}`);
+                console.log(`stdout: ${res}\n`);
+                infoOOC += `stdout: ${res}\n`;
 
-        while ((res.includes('OOCS') || res.includes('Not enough steps')) && countMax < 2) {
-            countMax += 1;
-            stepsN *= 2;
-            infoOOC += `cd ${argv.p.trim()}/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ${testPath2} -r ../../../zkevm-rom/build/${romFile} -c -n ${stepsN}`;
-            // console.log(`cd ${argv.p.trim()}/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ${testPath2} -r ../../../zkevm-rom/build/${romFile} -c -n ${stepsN}`);
-            res = await execSync(`cd ${argv.p.trim()}/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ${testPath2} -r ../../../zkevm-rom/build/${romFile} -c -n ${stepsN}`);
-            // console.log(`stdout: ${res}\n`);
-            infoOOC += `stdout: ${res}\n`;
-        }
-        // console.log('countMax: ', countMax);
-        if (countMax <= 2 && !res.includes('Assert Error: newStateRoot does not match') && !res.includes('Error: Program terminated with registers')) {
-            test.stepsN = stepsN;
-            await fs.writeFileSync(testPath, JSON.stringify(test, null, 2));
-            countOK += 1;
-            listOOC[i].stepsN = stepsN;
-        } else {
-            await fs.rename(testPath, `${testPath}-ignore`, () => {});
+                while ((res.includes('OOCS') || res.includes('Not enough steps')) && countMax < 2) {
+                    countMax += 1;
+                    stepsN *= 2;
+                    infoOOC += `cd ${argv.p.trim()}/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ${testPath2} -r ../../../zkevm-rom/build/${romFile} -c -n ${stepsN}`;
+                    console.log(`cd ${argv.p.trim()}/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ${testPath2} -r ../../../zkevm-rom/build/${romFile} -c -n ${stepsN}`);
+                    res = await execSync(`cd ${argv.p.trim()}/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ${testPath2} -r ../../../zkevm-rom/build/${romFile} -c -n ${stepsN}`);
+                    console.log(`stdout: ${res}\n`);
+                    infoOOC += `stdout: ${res}\n`;
+                }
+                console.log('countMax: ', countMax);
+                if (countMax <= 2 && !res.includes('Assert Error: newStateRoot does not match') && !res.includes('Error: Program terminated with registers')) {
+                    countOK += 1;
+                    listOOC[i].stepsN = stepsN;
+                } else {
+                    countErrors += 1;
+                    listOOC[i].stepsN = 0;
+                }
+                countMax = 0;
+                listOOC[i].passed = true;
+            } catch (e) {
+                countErrors += 1;
+                listOOC[i].stepsN = 0;
+                listOOC[i].passed = false;
+            }
+            await fs.writeFileSync(pathOOCList, JSON.stringify(listOOC, null, 2));
+        } else if (listOOC[i].stepsN === 0) {
             countErrors += 1;
-            listOOC[i].stepsN = 0;
+        } else {
+            countOK += 1;
         }
-        countMax = 0;
-        // listOOC[i].passed = true;
-        await fs.writeFileSync(pathOOCList, JSON.stringify(listOOC, null, 2));
-        // } else if (listOOC[i].stepsN === 0) {
-        //     countErrors += 1;
-        // } else {
-        //     countOK += 1;
-        // }
-        // console.log('countOK: ', countOK);
-        // console.log('countErrors: ', countErrors);
+        console.log('countOK: ', countOK);
+        console.log('countErrors: ', countErrors);
     }
 
     let info = '';

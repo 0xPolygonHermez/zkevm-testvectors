@@ -178,6 +178,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         const currentTest = test[keysTests[y]];
 
                         // check gas used by the tx is less than 30M
+                        // to pass VMTests/vmIOandFlowOperations/gas test is necessary update gasLimit
                         if (Scalar.gt(Scalar.e(currentTest.blocks[0].blockHeader.gasUsed), zkcommonjs.Constants.BATCH_GAS_LIMIT)
                         || file.includes('VMTests/vmIOandFlowOperations/gas')) {
                             // if tx gas > maxInt --> ignored
@@ -375,8 +376,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             }
                             const steps = batch.evmSteps[0];
                             const selfDestructs = steps.filter((step) => step.opcode.name === 'SELFDESTRUCT');
-                            console.log(dir);
-                            console.log(newOutputName);
                             if (selfDestructs.length > 0) {
                                 await updateNoExec(dir, newOutputName, 'Selfdestruct', noExec);
                             }
@@ -464,8 +463,26 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                 }
                             }
                         }
+                        let listOOC = [];
+                        const dirOOC = (writeOutputName.replace(writeOutputName.split('/')[writeOutputName.split('/').length - 2], 'tests-OOC')).replace(writeOutputName.split('/')[writeOutputName.split('/').length - 1], '');
+                        if (fs.existsSync(`${dirOOC}/testsOOC-list.json`)) {
+                            listOOC = require(`${dirOOC}/testsOOC-list.json`);
+                        }
+
+                        if (listOOC.filter((elem) => elem.fileName === writeOutputName).length > 0) {
+                            const writeNameOOC = writeOutputName.replace(writeOutputName.split('/')[writeOutputName.split('/').length - 2], 'tests-OOC');
+                            const testOOC = require(writeNameOOC);
+
+                            if (testOOC.stepsN) { circuitInput.stepsN = testOOC.stepsN; }
+                            await fs.writeFileSync(writeNameOOC, JSON.stringify(circuitInput, null, 2));
+                            if (flag30M) {
+                                console.log('DELETE: ', writeOutputName);
+                                tests30M = tests30M.filter((e) => e.writeOutputName !== writeOutputName);
+                            }
+                        } else {
+                            await fs.writeFileSync(writeOutputName, JSON.stringify(circuitInput, null, 2));
+                        }
                         console.log(`WRITE: ${writeOutputName}\n`);
-                        await fs.writeFileSync(`${writeOutputName}`, JSON.stringify(circuitInput, null, 2));
                         if (!flag30M) counts.countOK += 1;
                     } catch (e) {
                         if (options.newBatchGasLimit && Scalar.eq(options.newBatchGasLimit, Scalar.e('0x7FFFFFFF')) && (e.toString() !== 'Error: not supported')) {
@@ -483,9 +500,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             console.log(e);
                             console.log();
                             if (flag30M) {
-                                console.log(tests30M);
                                 tests30M = tests30M.filter((test30M) => test30M.writeOutputName !== writeOutputName);
-                                console.log(tests30M);
                             }
                             if (e.toString() === 'Error: not supported') {
                                 counts.countNotSupport += 1;
