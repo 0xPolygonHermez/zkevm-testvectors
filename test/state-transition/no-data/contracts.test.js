@@ -169,6 +169,7 @@ describe('Proof of efficiency test vectors', function () {
             inputHash,
             timestamp,
             chainID,
+            forkID,
         } = testVectors[i];
         // eslint-disable-next-line no-loop-func
         it(`Test vectors id: ${id}`, async () => {
@@ -274,6 +275,7 @@ describe('Proof of efficiency test vectors', function () {
                 null,
                 null,
                 chainID,
+                forkID,
             );
 
             // check genesis root

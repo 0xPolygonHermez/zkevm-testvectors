@@ -38,6 +38,7 @@ describe('Header timestamp', function () {
     let F;
     let testVectors;
     const chainID = 1000;
+    const forkID = 1;
 
     before(async () => {
         poseidon = await getPoseidon();
@@ -70,6 +71,7 @@ describe('Header timestamp', function () {
                 null,
                 null,
                 chainID,
+                forkID,
             );
 
             // Check evm contract params

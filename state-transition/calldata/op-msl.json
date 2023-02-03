@@ -1,5 +1,5 @@
-[
-  {
+{
+  "0": {
     "id": 0,
     "description": "Mload & Mstore opcodes 1",
     "arity": 4,
@@ -309,7 +309,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "1": {
     "id": 1,
     "description": "Mload & Mstore opcodes 2",
     "arity": 4,
@@ -619,7 +619,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "2": {
     "id": 2,
     "description": "Mload & Mstore opcodes 3 (codecopy)",
     "arity": 4,
@@ -935,7 +935,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "3": {
     "id": 3,
     "description": "Mload & Mstore opcodes 4 (codecopy)",
     "arity": 4,
@@ -1251,7 +1251,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "4": {
     "id": 4,
     "description": "Mload & Mstore opcodes 5 (codecopy)",
     "arity": 4,
@@ -1567,7 +1567,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "5": {
     "id": 5,
     "description": "Mload & Mstore opcodes 6 (codecopy)",
     "arity": 4,
@@ -1884,7 +1884,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "6": {
     "id": 6,
     "description": "Mload & Mstore opcodes 7 (extcodecopy)",
     "arity": 4,
@@ -2310,7 +2310,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "7": {
     "id": 7,
     "description": "Mload & Mstore opcodes 8 (extcodecopy)",
     "arity": 4,
@@ -2736,7 +2736,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "8": {
     "id": 8,
     "description": "Mload & Mstore opcodes 9 (extcodecopy)",
     "arity": 4,
@@ -3162,7 +3162,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "9": {
     "id": 9,
     "description": "Mload & Mstore opcodes 10 (extcodecopy)",
     "arity": 4,
@@ -3589,7 +3589,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "10": {
     "id": 10,
     "description": "Mload & Mstore opcodes 11 (returndatacopy)",
     "arity": 4,
@@ -3898,7 +3898,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "11": {
     "id": 11,
     "description": "Mload & Mstore opcodes 12 (returndatacopy)",
     "arity": 4,
@@ -4209,7 +4209,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "12": {
     "id": 12,
     "description": "Mload & Mstore opcodes 13 (calldatacopy)",
     "arity": 4,
@@ -4518,7 +4518,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "13": {
     "id": 13,
     "description": "Mload & Mstore opcodes 14 (calldatacopy)",
     "arity": 4,
@@ -4828,7 +4828,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "14": {
     "id": 14,
     "description": "Mload & Mstore opcodes 15 (calldatacopy)",
     "arity": 4,
@@ -5138,7 +5138,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "15": {
     "id": 15,
     "description": "Mload & Mstore opcodes 16 (calldatacopy)",
     "arity": 4,
@@ -5448,7 +5448,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "16": {
     "id": 16,
     "description": "Mload & Mstore opcodes 17 (calldatacopy)",
     "arity": 4,
@@ -5758,7 +5758,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "17": {
     "id": 17,
     "description": "Mload & Mstore opcodes 18 (calldatacopy)",
     "arity": 4,
@@ -6067,7 +6067,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "18": {
     "id": 18,
     "description": "Mload & Mstore opcodes 19 (mstore8 simple)",
     "arity": 4,
@@ -6376,7 +6376,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "19": {
     "id": 19,
     "description": "Mload & Mstore opcodes 20 (mstore8 complex)",
     "arity": 4,
@@ -6685,7 +6685,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "20": {
     "id": 20,
     "description": "Mload & Mstore opcodes 21 (mstore8 complex)",
     "arity": 4,
@@ -6995,7 +6995,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "21": {
     "id": 21,
     "description": "Mload & Mstore opcodes 5 (calldatacopy)",
     "arity": 4,
@@ -7312,7 +7312,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "22": {
     "id": 22,
     "description": "Mload & Mstore opcodes 6 (calladatacopy)",
     "arity": 4,
@@ -7629,5 +7629,6 @@
     "batchL2Data": "0xf84c80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880a6ae23fe55111111111122222222223333333333444444444455555555556666666666777777778203e88080fdf5d2a0df12055eca65cfeec803ed0d8d37746e7eb11d71e7353706383bbf29301ba473b62e65f267c7da031a03cfa1d469407a553eb16fddc2fd11d98c6c671b",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  }
-]
+  },
+  "forkID": 1
+}

@@ -1,5 +1,5 @@
-[
-  {
+{
+  "0": {
     "id": 0,
     "description": "2 accounts. 1 valid transaction. 1 invalid transaction (lower nonce)",
     "arity": 4,
@@ -69,7 +69,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "1": {
     "id": 1,
     "description": "2 accounts. 1 valid transaction. 1 invalid transaction (bigger nonce)",
     "arity": 4,
@@ -139,7 +139,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "2": {
     "id": 2,
     "description": "2 accounts. 1 valid transaction. 1 invalid transaction (lower nonce). 1 invalid transaction (bigger nonce). 1 valid transaction",
     "arity": 4,
@@ -234,5 +234,6 @@
     "timestamp": 1944498031,
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  }
-]
+  },
+  "forkID": 1
+}

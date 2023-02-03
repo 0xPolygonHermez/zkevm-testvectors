@@ -1,5 +1,5 @@
-[
-  {
+{
+  "0": {
     "id": 0,
     "description": "2 accounts and 1 valid transaction (chainIdSequencer).",
     "arity": 4,
@@ -56,7 +56,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "1": {
     "id": 1,
     "description": "2 accounts and 2 valid transaction. (1 chainIdSequencer, 1 defaultChainId)",
     "arity": 4,
@@ -126,7 +126,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "2": {
     "id": 2,
     "description": "2 accounts. 1 valid transaction (chainIdSequencer). 1 invalid (invalid chainId).",
     "arity": 4,
@@ -196,7 +196,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "3": {
     "id": 3,
     "description": "2 accounts. 1 valid transaction (chainIdSequencer). 1 invalid (invalid chainId). 1 valid transaction (defaultChainId).",
     "arity": 4,
@@ -278,5 +278,6 @@
     "timestamp": 1944498031,
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  }
-]
+  },
+  "forkID": 1
+}

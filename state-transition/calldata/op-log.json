@@ -1,5 +1,5 @@
-[
-  {
+{
+  "0": {
     "id": 0,
     "description": "Txs to call all functions of OpLog contract (test)",
     "arity": 4,
@@ -185,7 +185,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "1": {
     "id": 1,
     "description": "Log function with revert",
     "arity": 4,
@@ -331,7 +331,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "2": {
     "id": 2,
     "description": "Log function call with revert",
     "arity": 4,
@@ -477,7 +477,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "3": {
     "id": 3,
     "description": "Log function call without revert",
     "arity": 4,
@@ -622,5 +622,6 @@
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880846f990b248203e8808098b70a1ff5114dfc52f1ddb62f19f9b09c7afcf3b2533f7968b937ec952bf2b026c3d4fa01209efe6848e43b0cabecd2ccc01eace08f980ebd5ad78518d435011b",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  }
-]
+  },
+  "forkID": 1
+}

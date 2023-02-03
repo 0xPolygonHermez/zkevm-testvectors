@@ -1,5 +1,5 @@
-[
-  {
+{
+  "0": {
     "id": 0,
     "description": "opSDiv positive opcode",
     "arity": 4,
@@ -253,7 +253,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "1": {
     "id": 1,
     "description": "opSDiv negative opcode",
     "arity": 4,
@@ -507,7 +507,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "2": {
     "id": 2,
     "description": "opSDiv negative opcode",
     "arity": 4,
@@ -761,7 +761,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "3": {
     "id": 3,
     "description": "opSDiv negative opcode",
     "arity": 4,
@@ -1014,5 +1014,6 @@
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880845c918a3e8203e8808016d96d85271025a5dfbcf61a5901ee6922451c4061d0e9043d043b081444208c18af274643f940cbf07d09677fcf25474fb6f7f7a98d4f73c83a55fcc836547d1c",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  }
-]
+  },
+  "forkID": 1
+}

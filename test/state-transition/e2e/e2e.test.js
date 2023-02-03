@@ -150,6 +150,7 @@ describe('Proof of efficiency test vectors', function () {
             bridgeDeployed,
             sequencerPvtKey,
             chainID,
+            forkID,
         } = testE2E;
 
         /*
@@ -211,6 +212,7 @@ describe('Proof of efficiency test vectors', function () {
             null,
             null,
             chainID,
+            forkID,
         );
 
         // Check evm contract params

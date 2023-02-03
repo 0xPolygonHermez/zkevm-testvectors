@@ -1,5 +1,5 @@
-[
-  {
+{
+  "0": {
     "id": 0,
     "description": "Call opcode staticcall fail",
     "arity": 4,
@@ -719,7 +719,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "1": {
     "id": 1,
     "description": "Call opcode call fail",
     "arity": 4,
@@ -1439,7 +1439,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "2": {
     "id": 2,
     "description": "Call opcode call fail params",
     "arity": 4,
@@ -2159,7 +2159,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "3": {
     "id": 3,
     "description": "Call opcode call fail & call correct",
     "arity": 4,
@@ -2889,7 +2889,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "4": {
     "id": 4,
     "description": "Call opcode call fail & call correct",
     "arity": 4,
@@ -3619,7 +3619,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "5": {
     "id": 5,
     "description": "Call opcode call fail & call correct",
     "arity": 4,
@@ -4349,7 +4349,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "6": {
     "id": 6,
     "description": "Call opcode call fail & call correct",
     "arity": 4,
@@ -5078,5 +5078,6 @@
     "batchL2Data": "0xf84a80843b9aca00830f42409485e844b762a271022b692cf99ce5c59ba0650ac880a4336657550000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae988203e880805a39710f3934088d683cdb570b4607f8663a8330031d05a7820beb3a07d42c2d5f5cca637fb9c98dad1bba0535dde54f4d192a7033586ecfadcf6c13478f4e061bf84a01843b9aca00830f42409485e844b762a271022b692cf99ce5c59ba0650ac880a47b4fdd7a0000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae988203e880808e022a6caad18e0e6c3be6a850892d3d793e202c90250c191616b65fca5d3e5a1c7f983c36fa96b332d4562f397f39d6af6e214295e9db7782b49b3a4178e9cd1c",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  }
-]
+  },
+  "forkID": 1
+}

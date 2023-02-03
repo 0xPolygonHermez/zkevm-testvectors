@@ -58,6 +58,7 @@ describe('Run state-transition tests', function () {
                     inputHash,
                     timestamp,
                     chainID,
+                    forkID,
                 } = testVectors[j];
 
                 if (typeof oldAccInputHash === 'undefined') {
@@ -164,6 +165,7 @@ describe('Run state-transition tests', function () {
                     null,
                     null,
                     chainID,
+                    forkID,
                 );
 
                 // check genesis root

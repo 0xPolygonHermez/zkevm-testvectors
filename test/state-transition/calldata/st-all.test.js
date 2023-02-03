@@ -53,6 +53,7 @@ describe('Run state-transition tests: calldata', async function () {
                     globalExitRoot,
                     timestamp,
                     chainID,
+                    forkID,
                 } = testVectors[i];
 
                 if (!chainID) chainID = 1000;
@@ -67,7 +68,7 @@ describe('Run state-transition tests: calldata', async function () {
                     genesis,
                     null,
                     null,
-                    chainID,
+                    forkID,
                 );
 
                 expect(zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
