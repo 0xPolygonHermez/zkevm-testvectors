@@ -1,5 +1,9 @@
 How to check benchmarking from a calldata test:
 
+0 -
+`````
+cp benchmark_config.json.example benchmark_config.json
+`````
 1 - Fill `benchmark_config.json`:
 
 `````
@@ -13,6 +17,8 @@ How to check benchmarking from a calldata test:
         "testIndex": 5, // Index of the test you want to run from the calldata test
         "initStep": 121, // Number of start iterations
         "testStep": 1 // Txs increment between iterations
+        "additionalGenesisAccountsFactor": 2 // power of two of number of prefilled accounts to add to genesis before benchmarking
+        "benchmar": {} // No need to touch, is the result of the benchmark
     }
 `````
 Explanation: the above config will run the 5th test of the calldata test in balances.json. Will start running batches with 121 txs and will increase 1 more tx for each iteration (until it gets an error)

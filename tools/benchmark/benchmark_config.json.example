@@ -10,7 +10,7 @@
     "testIndex": 5,
     "initStep": 530,
     "testStep": 1,
-    "additionalGenesisAccountsFactor": 10000,
+    "additionalGenesisAccountsFactor": 2,
     "benchmark": {
       "txs": 530,
       "totalDataBytes": 63912,
@@ -39,7 +39,7 @@
     "testIndex": 0,
     "initStep": 100,
     "testStep": 10,
-    "additionalGenesisAccountsFactor": 10000,
+    "additionalGenesisAccountsFactor": 2,
     "benchmark": {
       "txs": 100,
       "totalDataBytes": 25772,
@@ -69,7 +69,7 @@
     "testIndex": 0,
     "initStep": 100,
     "testStep": 1,
-    "additionalGenesisAccountsFactor": 10000,
+    "additionalGenesisAccountsFactor": 2,
     "benchmark": {
       "txs": 100,
       "totalDataBytes": 21836,
@@ -101,7 +101,7 @@
     "testIndex": 0,
     "initStep": 15,
     "testStep": 1,
-    "additionalGenesisAccountsFactor": 10000,
+    "additionalGenesisAccountsFactor": 2,
     "benchmark": {
       "txs": 15,
       "totalDataBytes": 6992,
@@ -127,7 +127,7 @@
     "testIndex": 0,
     "initStep": 100,
     "testStep": 1,
-    "additionalGenesisAccountsFactor": 10000,
+    "additionalGenesisAccountsFactor": 2,
     "benchmark": {
       "txs": 100,
       "totalDataBytes": 24514,

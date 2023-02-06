@@ -85,6 +85,7 @@ function processBatch(input, test) {
         return;
     }
     // format js input to c input
+    console.log(`Running ${test}`);
     const cInput = formatInput(input);
     client.ProcessBatch(cInput, (error, res) => {
         try {
@@ -124,18 +125,19 @@ function checkResponse(input, res, test) {
  */
 function formatInput(jsInput) {
     return {
-        batch_num: jsInput.numBatch,
-        coinbase: jsInput.sequencerAddr,
-        batch_l2_data: Buffer.from(jsInput.batchL2Data.slice(2), 'hex'),
         old_state_root: Buffer.from(jsInput.oldStateRoot.slice(2), 'hex'),
+        old_acc_input_hash: Buffer.from(jsInput.oldAccInputHash.slice(2), 'hex'),
+        old_batch_num: jsInput.oldNumBatch,
+        chain_id: jsInput.chainID,
+        batch_l2_data: Buffer.from(jsInput.batchL2Data.slice(2), 'hex'),
         global_exit_root: Buffer.from(jsInput.globalExitRoot.slice(2), 'hex'),
-        old_local_exit_root: Buffer.from(jsInput.oldLocalExitRoot.slice(2), 'hex'),
-        eth_timestamp: jsInput.timestamp,
-        update_merkle_tree: 1,
+        eth_timestamp: Number(jsInput.timestamp),
+        coinbase: jsInput.sequencerAddr,
+        // update_merkle_tree: 1,
         // tx_hash_to_generate_execute_trace: 0,
-        // tx_hash_to_generate_call_trace: Buffer.from('dde0848d8b85493472c4aa1b8414b4289409ed88047353e96b275a96e49efde6', 'hex'),
+        // tx_hash_to_generate_call_trace: Buffer.from('9d6a5f394fb23f7f11b6c7c30127095dcbe2101c3f74e39e44976c1c965ef24a', 'hex'),
         db: formatDb(jsInput.db),
-        contracts_bytecode: jsInput.contractsBytecode,
+        // contracts_bytecode: jsInput.contractsBytecode,
     };
 }
 

@@ -11,8 +11,8 @@ const { ethers } = require('ethers');
 const { toHexStringRlp } = require('@0xpolygonhermez/zkevm-commonjs').processorUtils;
 const { Scalar } = require('ffjavascript');
 
-const calldataInputsDir = path.join(__dirname, '../../inputs-executor');
-// const calldataInputsDir = path.join(__dirname, '../../tools/ethereum-tests/GeneralStateTests');
+// const calldataInputsDir = path.join(__dirname, '../../inputs-executor');
+const calldataInputsDir = path.join(__dirname, '../../tools/ethereum-tests/GeneralStateTests');
 
 const EXECUTOR_PROTO_PATH = path.join(__dirname, '../../../zkevm-comms-protocol/proto/executor/v1/executor.proto');
 const DB_PROTO_PATH = path.join(__dirname, '../../../zkevm-comms-protocol/proto/statedb/v1/statedb.proto');
@@ -46,8 +46,8 @@ const { StateDBService } = stateDbProto;
 const fs = require('fs');
 const codes = require('./opcodes');
 
-const client = new ExecutorService('51.210.116.237:50071', grpc.credentials.createInsecure());
-const dbClient = new StateDBService('51.210.116.237:50061', grpc.credentials.createInsecure());
+const client = new ExecutorService('51.210.116.237:50077', grpc.credentials.createInsecure());
+const dbClient = new StateDBService('51.210.116.237:50066', grpc.credentials.createInsecure());
 let folders = [];
 const passedTests = [];
 const failedTests = [];
@@ -131,9 +131,10 @@ function processBatch(input, tests, pos, folderPos) {
             if (error) throw error;
             checkResponse(input, res, tests[pos]);
             console.log(`${pos}/${tests.length}`);
-            runTests(tests, pos + 1, folderPos);
             // const tx_hash = res.responses[0].tx_hash.toString('hex');
             // const formatedSteps = formatSteps(res.responses[0].call_trace.steps);
+            // const old_state_root = res.responses[0].call_trace.context.old_state_root.toString('hex');
+            runTests(tests, pos + 1, folderPos);
             return;
         } catch (e) {
             cancelledTests.push(tests[pos]);
@@ -240,7 +241,7 @@ function scalar2fea4(s) {
  */
 function setBytecode(input, tests, pos, folderPos, bcPos) {
     const hash = Object.keys(input.contractsBytecode)[bcPos];
-    const bytecode = input.contractsBytecode[hash].slice(2);
+    const bytecode = input.contractsBytecode[hash].startsWith('0x') ? input.contractsBytecode[hash].slice(2) : input.contractsBytecode[hash];
     const key = scalar2fea4(Scalar.e(hash));
     dbClient.SetProgram({ key, data: Buffer.from(bytecode, 'hex'), persistent: 1 }, (error, res) => {
         if (error) {
@@ -286,11 +287,11 @@ function formatInput(jsInput) {
         chain_id: jsInput.chainID,
         batch_l2_data: Buffer.from(jsInput.batchL2Data.slice(2), 'hex'),
         global_exit_root: Buffer.from(jsInput.globalExitRoot.slice(2), 'hex'),
-        eth_timestamp: jsInput.timestamp,
+        eth_timestamp: Number(jsInput.timestamp),
         coinbase: jsInput.sequencerAddr,
-        update_merkle_tree: 1,
+        // update_merkle_tree: 1,
         // tx_hash_to_generate_execute_trace: 0,
-        // tx_hash_to_generate_call_trace: Buffer.from('dde0848d8b85493472c4aa1b8414b4289409ed88047353e96b275a96e49efde6', 'hex'),
+        // tx_hash_to_generate_call_trace: Buffer.from('9d6a5f394fb23f7f11b6c7c30127095dcbe2101c3f74e39e44976c1c965ef24a', 'hex'),
         db: formatDb(jsInput.db),
         // contracts_bytecode: jsInput.contractsBytecode,
     };

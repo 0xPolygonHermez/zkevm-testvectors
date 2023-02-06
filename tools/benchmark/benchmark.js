@@ -31,6 +31,7 @@ let initialzkEVMDB;
  *                            CONFIG
  * ######################################################### */
 const CONFIG_ID = typeof argv.config_id !== 'undefined' ? Number(argv.config_id) : 0; // Set config id here
+const genInputs = argv.inputs;
 const compilePil = false;
 const config = configs[CONFIG_ID];
 const {
@@ -59,7 +60,9 @@ async function main() {
         }
         // Create raw transactions
         const circuitInput = await createRawTxs(txCount, false);
-        fs.writeFileSync(path.join(__dirname, `./inputs/${config.name}-${txCount}.json`), JSON.stringify(circuitInput, null, 2));
+        if (genInputs) {
+            fs.writeFileSync(path.join(__dirname, `./inputs/${config.name}-${txCount}.json`), JSON.stringify(circuitInput, null, 2));
+        }
         const dataLen = circuitInput.batchL2Data.slice(2).length / 2;
         console.log('batchL2DataLen: ', dataLen);
         // Execute transactions
@@ -140,7 +143,9 @@ async function executeTx(circuitInput, cmPols) {
 }
 
 async function buildGenesis() {
-    const { genesis, oldAccInputHash, chainID, forkID } = testObject;
+    const {
+        genesis, oldAccInputHash, chainID, forkID,
+    } = testObject;
     if (initialzkEVMDB) {
         zkEVMDB = Object.assign(Object.create(Object.getPrototypeOf(initialzkEVMDB)), initialzkEVMDB);
         zkEVMDB = new zkcommonjs.ZkEVMDB(
@@ -153,7 +158,7 @@ async function buildGenesis() {
             initialzkEVMDB.vm.copy(),
             Object.assign(Object.create(Object.getPrototypeOf(initialzkEVMDB.smt)), initialzkEVMDB.smt),
             chainID,
-            forkID
+            forkID,
         );
         return;
     }
