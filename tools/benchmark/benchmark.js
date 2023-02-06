@@ -132,7 +132,9 @@ async function executeTx(circuitInput, cmPols) {
 }
 
 async function buildGenesis() {
-    const { genesis, oldAccInputHash, chainID } = testObject;
+    const {
+        genesis, oldAccInputHash, chainID, forkID,
+    } = testObject;
 
     // init SMT Db
     const db = new zkcommonjs.MemDB(F);
@@ -145,6 +147,7 @@ async function buildGenesis() {
         null,
         null,
         chainID,
+        forkID,
     );
 }
 

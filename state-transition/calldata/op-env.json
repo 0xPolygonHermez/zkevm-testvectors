@@ -1,5 +1,5 @@
-[
-  {
+{
+  "0": {
     "id": 0,
     "description": "Address opcode",
     "arity": 4,
@@ -220,7 +220,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "1": {
     "id": 1,
     "description": "Balance opcode",
     "arity": 4,
@@ -441,7 +441,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "2": {
     "id": 2,
     "description": "Origin opcode",
     "arity": 4,
@@ -662,7 +662,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "3": {
     "id": 3,
     "description": "Caller opcode",
     "arity": 4,
@@ -883,7 +883,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "4": {
     "id": 4,
     "description": "CallValue opcode",
     "arity": 4,
@@ -1104,7 +1104,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "5": {
     "id": 5,
     "description": "callDataLoad opcode",
     "arity": 4,
@@ -1325,7 +1325,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "6": {
     "id": 6,
     "description": "callDataSize opcode",
     "arity": 4,
@@ -1546,7 +1546,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "7": {
     "id": 7,
     "description": "callDataCopy opcode",
     "arity": 4,
@@ -1767,7 +1767,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "8": {
     "id": 8,
     "description": "codesize opcode",
     "arity": 4,
@@ -1988,7 +1988,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "9": {
     "id": 9,
     "description": "CodeCopy opcode",
     "arity": 4,
@@ -2209,7 +2209,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "10": {
     "id": 10,
     "description": "gasPrice opcode",
     "arity": 4,
@@ -2430,7 +2430,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "11": {
     "id": 11,
     "description": "extcodesize opcode",
     "arity": 4,
@@ -2768,7 +2768,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "12": {
     "id": 12,
     "description": "extCodeCopy opcode",
     "arity": 4,
@@ -3106,7 +3106,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "13": {
     "id": 13,
     "description": "returndatasize opcode",
     "arity": 4,
@@ -3327,7 +3327,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "14": {
     "id": 14,
     "description": "returndatacopy opcode",
     "arity": 4,
@@ -3548,7 +3548,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "15": {
     "id": 15,
     "description": "extcodehash opcode",
     "arity": 4,
@@ -3798,5 +3798,6 @@
     "batchL2Data": "0xf84a80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880a41bdbf00f0000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae988203e88080043f7842acbfb58ea79114ef17449a6a45ce309e48e607d35a27d447de1ee01376774a585e629d2beb14acb0def80a8f243b07d75baf53752d3ab4bc5dd7a4f21cf84a01843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880a41bdbf00f0000000000000000000000004d5cf5032b2a844602278b01199ed191a86c93ff8203e88080c38c693c19152f8a2b2e1fdf2740de256e48121d3d6dc88945e9d59dea56aea26e34fec88d5a329fcda474e2994ad01869e857ba85e12af7361a41837f07b3af1bf84a02843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880a41bdbf00f000000000000000000000000dbefb887662ca19cd485381f3386fe5f8537b9108203e880804d535e50250ae09bb0ddd9dff05d9780a6b64ffa0fe16cdf6b4b2cd3e1c10c2568d2748508ad6bd96d62a80f78abf0de7ee9111ba5e69616459c02ab972739fa1cf84a03843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880a41bdbf00f00000000000000000000000000000000000000000000000000000000000000088203e8808055bf52dc6e4f624dd6d123857faf3eb88229d4c491415e5f707780a5b56ae7554d4bd2052a3057b00ff030e7e6985beabae4d2e444f989236da1276d885f2bdf1b",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  }
-]
+  },
+  "forkID": 1
+}

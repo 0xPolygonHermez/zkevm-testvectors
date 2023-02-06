@@ -1,5 +1,5 @@
-[
-  {
+{
+  "0": {
     "id": 0,
     "description": "2 accounts and 1 valid transaction (to contract).",
     "arity": 4,
@@ -170,7 +170,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "1": {
     "id": 1,
     "description": "2 accounts and 1 valid transaction. (transfer)",
     "arity": 4,
@@ -229,7 +229,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "2": {
     "id": 2,
     "description": "2 accounts and 2 valid transaction. (to contract & transfer)",
     "arity": 4,
@@ -409,7 +409,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "3": {
     "id": 3,
     "description": "2 accounts and 1 invalid transaction (nonce).",
     "arity": 4,
@@ -468,7 +468,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "4": {
     "id": 4,
     "description": "2 accounts and 1 invalid transaction (balance).",
     "arity": 4,
@@ -527,7 +527,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "5": {
     "id": 5,
     "description": "2 accounts and 1 invalid transaction (chain Id).",
     "arity": 4,
@@ -586,7 +586,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "6": {
     "id": 6,
     "description": "2 accounts and 1 invalid transaction (to).",
     "arity": 4,
@@ -645,7 +645,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "7": {
     "id": 7,
     "description": "2 accounts and 1 invalid transaction (from).",
     "arity": 4,
@@ -704,7 +704,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "8": {
     "id": 8,
     "description": "2 accounts and 1 invalid transaction, enough balance for gas but not enough balance for value.",
     "arity": 4,
@@ -762,5 +762,6 @@
     "batchL2Data": "0xeb80822710822710944d5cf5032b2a844602278b01199ed191a86c93ff88016345785d8a0000808203e88080f003735f8f4214fb6a38b1f9c6531e5f333429ef3e4b7831276f4ec206b4836f2bb5869a7ef2b8b69aef7323208374ef399a79d16cafa28ac55682671bf71ffb1c",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  }
-]
+  },
+  "forkID": 1
+}

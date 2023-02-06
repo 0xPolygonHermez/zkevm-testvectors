@@ -1,5 +1,5 @@
-[
-  {
+{
+  "0": {
     "id": 0,
     "description": "precompiled ECRECOVER_0",
     "arity": 4,
@@ -119,7 +119,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "1": {
     "id": 1,
     "description": "precompiled ECRECOVER_1",
     "arity": 4,
@@ -237,7 +237,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "2": {
     "id": 2,
     "description": "precompiled ECRECOVER_2",
     "arity": 4,
@@ -355,7 +355,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "3": {
     "id": 3,
     "description": "precompiled ECRECOVER_3",
     "arity": 4,
@@ -473,7 +473,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "4": {
     "id": 4,
     "description": "precompiled ECRECOVER_4",
     "arity": 4,
@@ -593,7 +593,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "5": {
     "id": 5,
     "description": "precompiled ECRECOVER_5",
     "arity": 4,
@@ -710,5 +710,6 @@
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880846284bac18203e880806507cd3862f928c2d2b0c5c3c4bcb2b18df4d747859c082f9839301a0cd23e84605c63b6c88c1f9fda1f54f7e8e8f6c1fe5cec93ec04955b9d4bcc7f40df78201c",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  }
-]
+  },
+  "forkID": 1
+}

@@ -1,5 +1,5 @@
-[
-  {
+{
+  "0": {
     "id": 0,
     "description": "Deployment Test",
     "arity": 4,
@@ -70,7 +70,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "1": {
     "id": 1,
     "description": "Deployment Test2",
     "arity": 4,
@@ -138,7 +138,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "2": {
     "id": 2,
     "description": "Deployment Test3",
     "arity": 4,
@@ -206,7 +206,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "3": {
     "id": 3,
     "description": "Deployment Test4 (with one contract in genesis)",
     "arity": 4,
@@ -388,7 +388,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "4": {
     "id": 4,
     "description": "Deployment Test5 (with value)",
     "arity": 4,
@@ -466,7 +466,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "5": {
     "id": 5,
     "description": "Deployment Test7 (constructor)",
     "arity": 4,
@@ -534,7 +534,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "6": {
     "id": 6,
     "description": "Deployment Test8 (constructor with revert)",
     "arity": 4,
@@ -602,7 +602,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "7": {
     "id": 7,
     "description": "Deployment Test with logs at constructor",
     "arity": 4,
@@ -670,7 +670,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "8": {
     "id": 8,
     "description": "Deployment Test with bytecode starting with 0xEF",
     "arity": 4,
@@ -738,7 +738,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "9": {
     "id": 9,
     "description": "Deployment Test with bytecode starting with 0xFE",
     "arity": 4,
@@ -805,5 +805,6 @@
     "batchL2Data": "0xdc80843b9aca008398968080808a60fe60005360016000f38203e8808089992b3a3e8cf7ac21bb5b079e9fea3c2abdbce3891aa2e6625a5d98b60e4cff72e370e382da7b0056947023a42c68723386144f54a642d28d55d9f3728a0e0d1c",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  }
-]
+  },
+  "forkID": 1
+}

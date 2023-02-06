@@ -1,5 +1,5 @@
-[
-  {
+{
+  "0": {
     "id": 0,
     "description": "Function Lt (set 1) OpComp contract (test)",
     "arity": 4,
@@ -176,7 +176,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "1": {
     "id": 1,
     "description": "Function Lt (set 0) OpComp contract (test)",
     "arity": 4,
@@ -353,7 +353,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "2": {
     "id": 2,
     "description": "Function Gt (set 1) OpComp contract (test)",
     "arity": 4,
@@ -530,7 +530,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "3": {
     "id": 3,
     "description": "Function Gt (set 0) OpComp contract (test)",
     "arity": 4,
@@ -707,7 +707,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "4": {
     "id": 4,
     "description": "Function SLt (set 1) OpComp contract (test)",
     "arity": 4,
@@ -884,7 +884,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "5": {
     "id": 5,
     "description": "Function SLt (set 0) OpComp contract (test)",
     "arity": 4,
@@ -1061,7 +1061,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "6": {
     "id": 6,
     "description": "Function SGt (set 1) OpComp contract (test)",
     "arity": 4,
@@ -1238,7 +1238,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "7": {
     "id": 7,
     "description": "Function SGt (set 0) OpComp contract (test)",
     "arity": 4,
@@ -1415,7 +1415,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "8": {
     "id": 8,
     "description": "Function Eq (set 1) OpComp contract (test)",
     "arity": 4,
@@ -1592,7 +1592,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "9": {
     "id": 9,
     "description": "Function Eq (set 0) OpComp contract (test)",
     "arity": 4,
@@ -1769,7 +1769,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "10": {
     "id": 10,
     "description": "Function IsZero (set 1) OpComp contract (test)",
     "arity": 4,
@@ -1946,7 +1946,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "11": {
     "id": 11,
     "description": "Function isZero (set 0) OpComp contract (test)",
     "arity": 4,
@@ -2122,5 +2122,6 @@
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880849b4c3b818203e88080408b921d490ec5a536caa92f9d6d491bf75ea73ae832a72d634e3b7a8f7972e013ed3fc0271623bbb6a3fbe2e66693014e2080af2d926c543d40ebce0a0ec8211c",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  }
-]
+  },
+  "forkID": 1
+}

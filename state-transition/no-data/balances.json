@@ -1,5 +1,5 @@
-[
-  {
+{
+  "0": {
     "id": 0,
     "description": "2 accounts. 1 valid transaction. 1 invalid transaction (balance == value)",
     "arity": 4,
@@ -74,7 +74,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "1": {
     "id": 1,
     "description": "2 accounts. 1 valid transaction. 1 invalid transaction (tx with more value than balance)",
     "arity": 4,
@@ -143,7 +143,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "2": {
     "id": 2,
     "description": "2 accounts. 1 invalid transaction (value + gas == balance + 1, bigger value). 1 valid transaction (txvalue + gas == balance)",
     "arity": 4,
@@ -212,7 +212,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "3": {
     "id": 3,
     "description": "2 accounts. 1 valid transaction (txvalue == balance-1). 1 invalid transaction (tx with more value than balance)",
     "arity": 4,
@@ -281,7 +281,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "4": {
     "id": 3,
     "description": "2 accounts. 1 valid transaction (txvalue == balance-1). 1 invalid transaction (tx with more value than balance)",
     "arity": 4,
@@ -350,7 +350,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "5": {
     "id": 4,
     "description": "1 valid transaction",
     "arity": 4,
@@ -411,5 +411,6 @@
     "timestamp": 1944498031,
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  }
-]
+  },
+  "forkID": 1
+}

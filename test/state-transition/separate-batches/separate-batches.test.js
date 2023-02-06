@@ -59,6 +59,7 @@ describe('Check roots same txs in different batches', function () {
             null,
             null,
             generateData.chainID,
+            generateData.forkID,
         );
 
         // start batch
@@ -136,6 +137,7 @@ describe('Check roots same txs in different batches', function () {
             null,
             null,
             generateData.chainID,
+            generateData.forkID,
         );
 
         // build txs

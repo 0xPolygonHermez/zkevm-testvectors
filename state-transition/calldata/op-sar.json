@@ -1,5 +1,5 @@
-[
-  {
+{
+  "0": {
     "id": 0,
     "description": "opSar positive opcode",
     "arity": 4,
@@ -260,7 +260,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "1": {
     "id": 1,
     "description": "opSar negative opcode",
     "arity": 4,
@@ -521,7 +521,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "2": {
     "id": 2,
     "description": "opSar negative opcode",
     "arity": 4,
@@ -782,7 +782,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "3": {
     "id": 3,
     "description": "opSar negative opcode",
     "arity": 4,
@@ -1043,7 +1043,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "4": {
     "id": 4,
     "description": "opSar negative opcode",
     "arity": 4,
@@ -1303,5 +1303,6 @@
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae98808443f9c3928203e88080a483787c8264a7a183bc348307b33a9a77b2be7e0c69335c466f83b863024d11296a0e41d74489cab9e8905537c257adb73c268c4cfd3b7b9c8b65aaf2af84f31c",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  }
-]
+  },
+  "forkID": 1
+}

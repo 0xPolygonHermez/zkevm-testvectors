@@ -1,5 +1,5 @@
-[
-  {
+{
+  "0": {
     "id": 0,
     "description": "STOP opcode",
     "arity": 4,
@@ -157,7 +157,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "1": {
     "id": 1,
     "description": "ADD opcode",
     "arity": 4,
@@ -315,7 +315,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "2": {
     "id": 2,
     "description": "MUL opcode",
     "arity": 4,
@@ -473,7 +473,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "3": {
     "id": 3,
     "description": "SUB opcode",
     "arity": 4,
@@ -631,7 +631,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "4": {
     "id": 4,
     "description": "DIV opcode",
     "arity": 4,
@@ -789,7 +789,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "5": {
     "id": 5,
     "description": "ADD custom opcode",
     "arity": 4,
@@ -947,7 +947,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "6": {
     "id": 6,
     "description": "DIV custom opcode",
     "arity": 4,
@@ -1105,7 +1105,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "7": {
     "id": 7,
     "description": "SDIV",
     "arity": 4,
@@ -1262,5 +1262,6 @@
     "batchL2Data": "0xe68001830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084bfb371c28203e88080d538fc079bd4f58c915c15531902cf1f0f349da7689e67e3123c42df4230eafc24a7204da48e9a62d7ee483cf2c6747af877551efbbf6b72cfa5a862b91091bd1b",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  }
-]
+  },
+  "forkID": 1
+}

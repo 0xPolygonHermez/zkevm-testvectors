@@ -1,5 +1,5 @@
-[
-  {
+{
+  "0": {
     "id": 0,
     "description": "STOP opcode",
     "arity": 4,
@@ -156,7 +156,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "1": {
     "id": 1,
     "description": "ADD opcode",
     "arity": 4,
@@ -313,7 +313,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "2": {
     "id": 2,
     "description": "MUL opcode",
     "arity": 4,
@@ -470,7 +470,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "3": {
     "id": 3,
     "description": "SUB opcode",
     "arity": 4,
@@ -627,7 +627,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "4": {
     "id": 4,
     "description": "DIV opcode",
     "arity": 4,
@@ -784,7 +784,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "5": {
     "id": 5,
     "description": "ADD custom opcode",
     "arity": 4,
@@ -941,7 +941,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "6": {
     "id": 6,
     "description": "DIV custom opcode",
     "arity": 4,
@@ -1098,7 +1098,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "7": {
     "id": 7,
     "description": "SDIV",
     "arity": 4,
@@ -1254,5 +1254,6 @@
     "batchL2Data": "0xe18001830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084bfb371c26aeb80dd751705522202dfcd5866b3aaf5239be95a67c3d9673812a6be7154051fe96044833a994e02bfd6805330787ed7f2bcdb99eb1e4ffbd0b6219930fce81c",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  }
-]
+  },
+  "forkID": 1
+}

@@ -1,5 +1,5 @@
-[
-  {
+{
+  "0": {
     "id": 0,
     "description": "Txs to call all functions of OpInvalid contract (test)",
     "arity": 4,
@@ -109,7 +109,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "1": {
     "id": 1,
     "description": "Txs to call all functions of OpInvalid contract (test)",
     "arity": 4,
@@ -218,5 +218,6 @@
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084ed3292998203e88080c40eaaaad74840950f349ade241198d7cd37cf3f181202e46b099279a9326da260883f19d812c9750d2e1e08f0715c36db460507c6f71c16a423a8b7c20933bd1c",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  }
-]
+  },
+  "forkID": 1
+}

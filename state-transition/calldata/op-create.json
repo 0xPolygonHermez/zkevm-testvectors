@@ -1,5 +1,5 @@
-[
-  {
+{
+  "0": {
     "id": 0,
     "description": "create opcode",
     "arity": 4,
@@ -187,7 +187,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "1": {
     "id": 1,
     "description": "create2 opcode",
     "arity": 4,
@@ -375,7 +375,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "2": {
     "id": 2,
     "description": "create opcode with value",
     "arity": 4,
@@ -577,7 +577,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "3": {
     "id": 3,
     "description": "create2 opcode with value",
     "arity": 4,
@@ -779,7 +779,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "4": {
     "id": 4,
     "description": "create opcode starting bytecode with 0xEF",
     "arity": 4,
@@ -965,7 +965,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "5": {
     "id": 5,
     "description": "create opcode starting bytecode with 0xFE",
     "arity": 4,
@@ -1153,7 +1153,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "6": {
     "id": 6,
     "description": "create2 opcode starting bytecode with 0xEF",
     "arity": 4,
@@ -1339,7 +1339,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "7": {
     "id": 7,
     "description": "create2 opcode starting bytecode with 0xff",
     "arity": 4,
@@ -1526,5 +1526,6 @@
     "batchL2Data": "0xf8ab80843b9aca00830c3500941275fbb540c8efc58b812ba83b0d0b8b9917ae9880b884e3306a250000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000000000000000000000000000a60ff60005360016000f3000000000000000000000000000000000000000000008203e88080f6443d11f8bd9a2c8f0b4f2a2ecac338f67a0bb8e6957235f98c495f85b5489d530d651c559a6c60aee3211517dafe7c7ff5acd4aca25004298b8660831ed4011b",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  }
-]
+  },
+  "forkID": 1
+}

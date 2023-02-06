@@ -1,5 +1,5 @@
-[
-  {
+{
+  "0": {
     "id": 0,
     "description": "Call opcode (external)",
     "arity": 4,
@@ -727,7 +727,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "1": {
     "id": 1,
     "description": "Call opcode (external & 2 calls)",
     "arity": 4,
@@ -1448,7 +1448,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "2": {
     "id": 2,
     "description": "Call opcode (external & 2 calls & 2 returns)",
     "arity": 4,
@@ -2169,7 +2169,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "3": {
     "id": 3,
     "description": "Call opcode (external & 3 calls & 2 returns)",
     "arity": 4,
@@ -2891,7 +2891,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "4": {
     "id": 4,
     "description": "Call opcode update sstore",
     "arity": 4,
@@ -3612,7 +3612,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "5": {
     "id": 5,
     "description": "Call opcode update sstore values",
     "arity": 4,
@@ -4335,7 +4335,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "6": {
     "id": 6,
     "description": "Call opcode update sstore parameters",
     "arity": 4,
@@ -5055,7 +5055,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "7": {
     "id": 7,
     "description": "Callcode opcode update sstore parameters",
     "arity": 4,
@@ -5776,7 +5776,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "8": {
     "id": 8,
     "description": "Callcode opcode update sstore & values parameters",
     "arity": 4,
@@ -6498,7 +6498,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "9": {
     "id": 9,
     "description": "Callcode opcode update sstore & values parameters with value",
     "arity": 4,
@@ -7220,7 +7220,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "10": {
     "id": 10,
     "description": "Delegatecall opcode update sstore parameters",
     "arity": 4,
@@ -7943,7 +7943,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "11": {
     "id": 11,
     "description": "Call Callcode opcode update sstore parameters",
     "arity": 4,
@@ -8666,7 +8666,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "12": {
     "id": 12,
     "description": "Call Delegatecall opcode update sstore parameters",
     "arity": 4,
@@ -9389,7 +9389,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "13": {
     "id": 13,
     "description": "Call opcode complex example",
     "arity": 4,
@@ -10110,7 +10110,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "14": {
     "id": 14,
     "description": "Call opcode staticcall",
     "arity": 4,
@@ -10830,7 +10830,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "15": {
     "id": 15,
     "description": "Call opcode call stop",
     "arity": 4,
@@ -11551,7 +11551,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "16": {
     "id": 16,
     "description": "Call opcode 2 calls correct",
     "arity": 4,
@@ -12282,7 +12282,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "17": {
     "id": 17,
     "description": "Call opcode complex example gas = gas/2",
     "arity": 4,
@@ -13003,7 +13003,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "18": {
     "id": 18,
     "description": "Callcode opcode update sstore parameters gas = gas/2",
     "arity": 4,
@@ -13724,7 +13724,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "19": {
     "id": 19,
     "description": "Delegatecall opcode update sstore parameters gas = gas/2",
     "arity": 4,
@@ -14447,7 +14447,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "20": {
     "id": 20,
     "description": "Call opcode staticcall gas = gas/2",
     "arity": 4,
@@ -15167,7 +15167,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "21": {
     "id": 21,
     "description": "Call with balance to empty account",
     "arity": 4,
@@ -15887,7 +15887,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "22": {
     "id": 22,
     "description": "Delegatecall with self balance",
     "arity": 4,
@@ -16608,7 +16608,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "23": {
     "id": 23,
     "description": "Callcode opcode with message value",
     "arity": 4,
@@ -17328,7 +17328,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "24": {
     "id": 24,
     "description": "A -> Delegate -> B -> Call -> C",
     "arity": 4,
@@ -18101,7 +18101,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "25": {
     "id": 25,
     "description": "2 txs: 1 - CALL -> A -> CALL -> B  // 2 - CALL -> A -> Call -> B -> A -> CALL -> C",
     "arity": 4,
@@ -18876,5 +18876,6 @@
     "batchL2Data": "0xf84d80843b9aca00830f42409485e844b762a271022b692cf99ce5c59ba0650ac883038b83a48d213ffd0000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae988203e8808012965e35a63d2b2df9032124ec9e0488701f922f913e71af4684dd188eb392941769180fc7ecc14663100cdd3d5c2badced6896068267794dffa3a6e2c09af191cf86e01843b9aca00830f42409485e844b762a271022b692cf99ce5c59ba0650ac883033c9ab844972f63080000000000000000000000001275fbb540c8efc58b812ba83b0d0b8b9917ae9800000000000000000000000013db4b51c5174ee2366e878a367aa1d426970ade8203e880806baaade24ccaba9ea56b3b47b90ff4f615f976ddbbf76a15a3a9a9eb08653fef416e7c9493c543de11480ba45117c86f96624a36fe2064e0c9d12444ababcbb11c",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  }
-]
+  },
+  "forkID": 1
+}

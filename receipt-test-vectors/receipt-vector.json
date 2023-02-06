@@ -1,5 +1,5 @@
-[
-  {
+{
+  "0": {
     "id": 0,
     "description": "2 accounts and 1 valid transaction.",
     "arity": 4,
@@ -84,7 +84,7 @@
       "timestamp": 1944498031
     }
   },
-  {
+  "1": {
     "id": 1,
     "description": "5 accounts. 2 valid tx, 3 invalid tx (same amount as balance, invalid nonce, invalid chain id 3333)",
     "arity": 4,
@@ -268,7 +268,7 @@
       "timestamp": 1944498031
     }
   },
-  {
+  "2": {
     "id": 2,
     "description": "2 accounts and 1 invalid tx (tx with more value than balance). Old root equals new root.",
     "arity": 4,
@@ -335,7 +335,7 @@
       "timestamp": 1944498031
     }
   },
-  {
+  "3": {
     "id": 3,
     "description": "2 accounts and 2 invalid transactions. Tx with same amount than balance and tx with invalid chain id (different chain id than sequencer). Old root equals new root",
     "arity": 4,
@@ -415,7 +415,7 @@
       "timestamp": 1944498031
     }
   },
-  {
+  "4": {
     "id": 4,
     "description": "2 accounts and 1 invalid transaction. Wrong encode of the tx (invalid signature). Old root equals new root",
     "arity": 4,
@@ -485,7 +485,7 @@
       "timestamp": 1944498031
     }
   },
-  {
+  "5": {
     "id": 5,
     "description": "2 accounts and 3 valid transaction.",
     "arity": 4,
@@ -630,7 +630,7 @@
       "timestamp": 1944498031
     }
   },
-  {
+  "6": {
     "id": 6,
     "description": "2 accounts and 3 invalid tx (tx with more value than balance). Old root equals new root.",
     "arity": 4,
@@ -723,7 +723,7 @@
       "timestamp": 1944498031
     }
   },
-  {
+  "7": {
     "id": 7,
     "description": "2 accounts and 0 txs. Old root equals new root.",
     "arity": 4,
@@ -775,5 +775,6 @@
       "receiptRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
       "timestamp": 1944498031
     }
-  }
-]
+  },
+  "forkID": 1
+}

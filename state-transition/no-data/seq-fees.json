@@ -1,5 +1,5 @@
-[
-  {
+{
+  "0": {
     "id": 0,
     "description": "2 accounts and 1 valid transaction, from, to and sequencer are the same",
     "arity": 4,
@@ -55,7 +55,7 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  {
+  "1": {
     "id": 1,
     "description": "2 accounts and 2 valid transaction, sequencer is able to do the transaction because the fees are payed at the end of every tx",
     "arity": 4,
@@ -124,5 +124,6 @@
     "timestamp": 1944498031,
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  }
-]
+  },
+  "forkID": 1
+}
