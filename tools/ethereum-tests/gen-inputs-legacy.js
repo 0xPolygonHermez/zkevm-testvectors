@@ -19,6 +19,7 @@ const { argv } = require('yargs');
 const fs = require('fs');
 const path = require('path');
 const helpers = require('../../tools-calldata/helpers/helpers');
+const testvectorsGlobalConfig = require(path.join(__dirname, '../../testvectors.config.json'));
 
 // example: npx mocha gen-inputs.js --test xxxx --folder xxxx --ignore
 describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', async function () {
@@ -230,7 +231,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         const { timestamp } = currentTest.blocks[0].blockHeader;
                         const sequencerAddress = currentTest.blocks[0].blockHeader.coinbase;
                         const chainIdSequencer = 1000;
-                        const forkID = 1;
                         const globalExitRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
                         const txsTest = currentTest.blocks[0].transactions;
                         const { pre } = currentTest;
@@ -262,7 +262,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             null,
                             null,
                             chainIdSequencer,
-                            forkID,
+                            testvectorsGlobalConfig.forkID,
                         );
                         const batch = await zkEVMDB.buildBatch(
                             timestamp,
