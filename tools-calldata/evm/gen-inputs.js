@@ -274,6 +274,7 @@ describe('Generate inputs executor from test-vectors', async function () {
             // Save outuput in file
             if (outputFlag) {
                 const dir = path.join(__dirname, inputsPath);
+                console.log(`WRITE: ${dir}${inputName}${id}.json`);
                 await fs.writeFileSync(`${dir}${inputName}${id}.json`, JSON.stringify(circuitInput, null, 2));
             }
             if (update) {

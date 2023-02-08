@@ -1,5 +1,5 @@
-{
-  "0": {
+[
+  {
     "id": 0,
     "description": "2 accounts. 1 valid transaction. 1 invalid transaction (lower nonce)",
     "arity": 4,
@@ -67,9 +67,10 @@
     "batchHashData": "0x8a0f5f9be43c29110c9af40654c3c01a9bcd01c238accbf031095909bf40c6ac",
     "timestamp": 1944498031,
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "1": {
+  {
     "id": 1,
     "description": "2 accounts. 1 valid transaction. 1 invalid transaction (bigger nonce)",
     "arity": 4,
@@ -137,9 +138,10 @@
     "batchHashData": "0x032bd215773d26b49feb5fff9cfc499f8e5fcae139edc60237422b1e07dd3448",
     "timestamp": 1944498031,
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "2": {
+  {
     "id": 2,
     "description": "2 accounts. 1 valid transaction. 1 invalid transaction (lower nonce). 1 invalid transaction (bigger nonce). 1 valid transaction",
     "arity": 4,
@@ -233,7 +235,7 @@
     "batchHashData": "0x8287a120c857d98602e1694cda5623ff6e1495a57a6644a253c94398cef96193",
     "timestamp": 1944498031,
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  },
-  "forkID": 1
-}
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
+  }
+]

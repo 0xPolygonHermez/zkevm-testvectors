@@ -42,6 +42,7 @@ describe('Run state-transition tests: calldata', async function () {
             const testVectors = JSON.parse(fs.readFileSync(pathTestVector));
 
             for (let i = 0; i < testVectors.length; i++) {
+                console.log(`check test vectors: ${testVectors[i].id}`);
                 let {
                     genesis,
                     expectedOldRoot,
@@ -68,6 +69,7 @@ describe('Run state-transition tests: calldata', async function () {
                     genesis,
                     null,
                     null,
+                    chainID,
                     forkID,
                 );
 

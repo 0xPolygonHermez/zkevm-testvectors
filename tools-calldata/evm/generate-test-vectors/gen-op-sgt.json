@@ -29,7 +29,7 @@
         }
       ]
     },
-    "expectedOldRoot": "0x5d89c98294980af112998c86a2478386f8f299229c0cb61fb6d2eda91ddf2140",
+    "expectedOldRoot": "0x81b70732c751d1cd484a95b1dc1d5aca219f68c8d78f39edaf9016db0d5ade77",
     "txs": [
       {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -44,7 +44,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x2a358ded11d0ecce91efae8280d3bf9d9a4afc5fbd1be10721a1523f97cf76b0",
+    "expectedNewRoot": "0xd28c78083c593e883ea0473bd603cd4e29f47e42e92baf3f3017ff139c3e01f2",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000013171000000000",
@@ -66,8 +66,8 @@
         "storage": {
           "0x0000000000000000000000000000000000000000000000000000000000000000": "0x00"
         },
-        "hashBytecode": "0xbf966f4ce87917a5536474e95ec4b0b78252ed6ec140d2d497d153fca150eddb",
-        "bytecodeLength": 1810
+        "hashBytecode": "0x81288b9e9692da986b0cea16b83a396369c364b19408e1950fe5f93b803baafa",
+        "bytecodeLength": 1902
       }
     },
     "timestamp": 1944498031,
@@ -109,7 +109,7 @@
         }
       ]
     },
-    "expectedOldRoot": "0x5d89c98294980af112998c86a2478386f8f299229c0cb61fb6d2eda91ddf2140",
+    "expectedOldRoot": "0x81b70732c751d1cd484a95b1dc1d5aca219f68c8d78f39edaf9016db0d5ade77",
     "txs": [
       {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -124,7 +124,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x154323525c7feb278cb76e6abf0c4d1ad3a3aad639a86001097a4661ccccecb5",
+    "expectedNewRoot": "0x8215c293b917e3d7ec83d5ae94573ce5b29c1e38dde51831cba2ebc9cdf2b8d5",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000023497000000000",
@@ -146,8 +146,8 @@
         "storage": {
           "0x0000000000000000000000000000000000000000000000000000000000000000": "0x01"
         },
-        "hashBytecode": "0xbf966f4ce87917a5536474e95ec4b0b78252ed6ec140d2d497d153fca150eddb",
-        "bytecodeLength": 1810
+        "hashBytecode": "0x81288b9e9692da986b0cea16b83a396369c364b19408e1950fe5f93b803baafa",
+        "bytecodeLength": 1902
       }
     },
     "timestamp": 1944498031,
@@ -189,7 +189,7 @@
         }
       ]
     },
-    "expectedOldRoot": "0x5d89c98294980af112998c86a2478386f8f299229c0cb61fb6d2eda91ddf2140",
+    "expectedOldRoot": "0x81b70732c751d1cd484a95b1dc1d5aca219f68c8d78f39edaf9016db0d5ade77",
     "txs": [
       {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -204,17 +204,17 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0xdc1921e92cc7907c38caaa74029f56bee9d34e28773b106d806d6eb530f4ac9a",
+    "expectedNewRoot": "0x78b7b62fc95a609a6c3a7a55af16c1f39df8e7c2bf4cc7b6211668f84d5b845e",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
-        "balance": "100000013192000000000",
+        "balance": "100000013137000000000",
         "nonce": "0",
         "storage": null,
         "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "bytecodeLength": 0
       },
       "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
-        "balance": "199999986808000000000",
+        "balance": "199999986863000000000",
         "nonce": "1",
         "storage": null,
         "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -226,8 +226,8 @@
         "storage": {
           "0x0000000000000000000000000000000000000000000000000000000000000000": "0x00"
         },
-        "hashBytecode": "0xbf966f4ce87917a5536474e95ec4b0b78252ed6ec140d2d497d153fca150eddb",
-        "bytecodeLength": 1810
+        "hashBytecode": "0x81288b9e9692da986b0cea16b83a396369c364b19408e1950fe5f93b803baafa",
+        "bytecodeLength": 1902
       }
     },
     "timestamp": 1944498031,
@@ -269,7 +269,7 @@
         }
       ]
     },
-    "expectedOldRoot": "0x5d89c98294980af112998c86a2478386f8f299229c0cb61fb6d2eda91ddf2140",
+    "expectedOldRoot": "0x81b70732c751d1cd484a95b1dc1d5aca219f68c8d78f39edaf9016db0d5ade77",
     "txs": [
       {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -284,17 +284,17 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x4857161a76b83f1c4989b61518602a4f0d0a9c293a7f5090f4136f0d0e77f317",
+    "expectedNewRoot": "0x6e61127dc4e2c5ef442841ceec50c487cf659893442fe0209aa844817203a133",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
-        "balance": "100000023562000000000",
+        "balance": "100000023584000000000",
         "nonce": "0",
         "storage": null,
         "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "bytecodeLength": 0
       },
       "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
-        "balance": "199999976438000000000",
+        "balance": "199999976416000000000",
         "nonce": "1",
         "storage": null,
         "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -306,8 +306,8 @@
         "storage": {
           "0x0000000000000000000000000000000000000000000000000000000000000000": "0x01"
         },
-        "hashBytecode": "0xbf966f4ce87917a5536474e95ec4b0b78252ed6ec140d2d497d153fca150eddb",
-        "bytecodeLength": 1810
+        "hashBytecode": "0x81288b9e9692da986b0cea16b83a396369c364b19408e1950fe5f93b803baafa",
+        "bytecodeLength": 1902
       }
     },
     "timestamp": 1944498031,

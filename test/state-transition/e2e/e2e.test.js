@@ -14,13 +14,13 @@ const lodash = require('lodash');
 const {
     MemDB, stateUtils, contractUtils, ZkEVMDB, processorUtils,
     getPoseidon, smtUtils, Constants,
-} = require('@0xpolygonhermez/zkevm-commonjs');
+} = require('@0xpolygonhermez/zkevm-commonjs-old');
 
 const { calculateSnarkInput, calculateBatchHashData } = contractUtils;
-const MerkleTreeBridge = require('@0xpolygonhermez/zkevm-commonjs').MTBridge;
+const MerkleTreeBridge = require('@0xpolygonhermez/zkevm-commonjs-old').MTBridge;
 const {
     getLeafValue,
-} = require('@0xpolygonhermez/zkevm-commonjs').mtBridgeUtils;
+} = require('@0xpolygonhermez/zkevm-commonjs-old').mtBridgeUtils;
 
 const {
     ERC20PermitMock, PolygonZkEVMGlobalExitRoot, PolygonZkEVMBridge, PolygonZkEVMMock, VerifierRollupHelperMock,
