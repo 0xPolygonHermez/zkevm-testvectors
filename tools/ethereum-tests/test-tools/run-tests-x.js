@@ -189,7 +189,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                 null,
                                 null,
                                 chainIdSequencer,
-                                forkID,
+                                testvectorsGlobalConfig.forkID,
                             );
 
                             const batch = await zkEVMDB.buildBatch(
