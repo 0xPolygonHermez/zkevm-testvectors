@@ -46,9 +46,7 @@ describe('Proof of efficiency test vectors', function () {
 
     let deployer;
     let trustedAggregator;
-    let trustedSequencer;
     let admin;
-    let aggregator1;
 
     let verifierContract;
     let bridgeContract;
@@ -68,7 +66,6 @@ describe('Proof of efficiency test vectors', function () {
     const initChainID = 1000;
     const initForkID = 1;
     const version = '0.0.1';
-    const firstDeployment = true;
 
     before(async () => {
         update = argv.update === true;
@@ -80,7 +77,7 @@ describe('Proof of efficiency test vectors', function () {
         F = poseidon.F;
 
         // load signers
-        [deployer, trustedAggregator, trustedSequencer, admin, aggregator1] = await ethers.getSigners();
+        [deployer, trustedAggregator, admin] = await ethers.getSigners();
 
         // deploy mock verifier
         const VerifierRollupHelperFactory = new ethers.ContractFactory(VerifierRollupHelperMock.abi, VerifierRollupHelperMock.bytecode, deployer);

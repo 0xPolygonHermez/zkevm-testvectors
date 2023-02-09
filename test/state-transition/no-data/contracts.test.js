@@ -10,7 +10,7 @@ const { argv } = require('yargs');
 const {
     MemDB, stateUtils, contractUtils, ZkEVMDB, processorUtils,
     getPoseidon, smtUtils,
-} = require('@0xpolygonhermez/zkevm-commonjs-old');
+} = require('@0xpolygonhermez/zkevm-commonjs');
 
 const { rawTxToCustomRawTx } = processorUtils;
 
