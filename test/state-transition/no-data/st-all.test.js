@@ -191,7 +191,6 @@ describe('Run state-transition tests', function () {
                 await batch.executeTxs();
 
                 const newRoot = batch.currentStateRoot;
-
                 if (update) {
                     testVectors[j].expectedNewRoot = smtUtils.h4toString(newRoot);
                     testVectors[j].chainID = 1000;
@@ -256,11 +255,11 @@ describe('Run state-transition tests', function () {
                     expect(batchHashData).to.be.equal(circuitInput.batchHashData);
                     expect(inputHash).to.be.equal(circuitInput.inputHash);
                 }
-            });
 
-            if (update) {
-                fs.writeFileSync(pathTestVector, JSON.stringify(testVectors, null, 2));
-            }
+                if (update) {
+                    fs.writeFileSync(pathTestVector, JSON.stringify(testVectors, null, 2));
+                }
+            });
         }
     }
 });
