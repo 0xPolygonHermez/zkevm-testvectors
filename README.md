@@ -22,13 +22,13 @@ Maintained tests:
 
 ## Overview
 - Commit [ethereum/tests](https://github.com/ethereum/tests): 9e0a5e00981575de017013b635d54891f9e561ef
-- Commit [zkevm-testvectors](https://github.com/0xPolygonHermez/zkevm-testvectors): f26077a093eb1d5245f63758faedecac0cf6183c
-- Commit [zkevm-rom](https://github.com/0xPolygonHermez/zkevm-rom): 70d0d0c45c0eb8de08f61f5249d1c22a1988d7fc
-- Commit [zkevm-proverjs](https://github.com/0xPolygonHermez/zkevm-proverjs): d414bf2873bcc729facf76f3305c7bbe86e9b779
+- Commit [zkevm-testvectors](https://github.com/0xPolygonHermez/zkevm-testvectors): 0ac97cdf5b99068480d5143bdbcb92d1b15a0e49
+- Commit [zkevm-rom](https://github.com/0xPolygonHermez/zkevm-rom): b8a616f18cb12a722c6d79c4a42f05405177e38a
+- Commit [zkevm-proverjs](https://github.com/0xPolygonHermez/zkevm-proverjs): cccb9a4b50452361e4d5fa46e138aaeac48a4e07
 
 | Total | Generation errors | Ignored | :heavy_check_mark: | :x: | Coverage |
 |:-----:|:-----------------:|:-------:|:------------------:|:---:|:--------:|
-| 13294 |         29        |  2985   |        10280       |  13 |  99.59%  |
+| 13299 |         36        |  2986   |        10272       |  0  |  99.65%  |
 
 
 ## Extended table
@@ -36,7 +36,7 @@ Maintained tests:
 |             Folder Name              | Total | :heavy_check_mark: | :x: | Ignored |  Cov   |
 |:------------------------------------:|:-----:|:------------------:|:---:|:-------:|:------:|
 |         stArgsZeroOneBalance         |  96   |         94         |  0  |    2    | 100.00 |
-|             stAttackTest             |   2   |         0          |  0  |    2    |  100   |
+|             stAttackTest             |   2   |         0          |  0  |    2    | 100.00 |
 |             stBadOpcode              |  203  |        172         |  1  |   30    | 99.42  |
 |                stBugs                |   9   |         7          |  0  |    2    | 100.00 |
 |             stCallCodes              |  87   |         67         |  0  |   20    | 100.00 |
@@ -51,7 +51,7 @@ Maintained tests:
 |     stDelegatecallTestHomestead      |  31   |         25         |  0  |    6    | 100.00 |
 |           stEIP150Specific           |  25   |         23         |  0  |    2    | 100.00 |
 |     stEIP150singleCodeGasPrices      |  339  |        329         |  0  |   10    | 100.00 |
-|              stEIP1559               |   1   |         0          |  0  |    1    |  100   |
+|              stEIP1559               |   1   |         0          |  0  |    1    | 100.00 |
 |           stEIP158Specific           |   7   |         4          |  0  |    3    | 100.00 |
 |              stEIP2930               |  138  |         3          |  0  |   135   | 100.00 |
 |              stEIP3607               |   5   |         5          |  0  |    0    | 100.00 |
@@ -66,7 +66,7 @@ Maintained tests:
 |          stNonZeroCallsTest          |  24   |         20         |  0  |    4    | 100.00 |
 |        stPreCompiledContracts        |  960  |        425         |  0  |   535   | 100.00 |
 |       stPreCompiledContracts2        |  203  |         55         |  0  |   148   | 100.00 |
-|      stQuadraticComplexityTest       |  32   |         13         | 10  |    9    | 56.52  |
+|      stQuadraticComplexityTest       |  36   |         17         |  6  |    9    | 62.96  |
 |               stRandom               |  313  |        173         |  1  |   139   | 99.43  |
 |              stRandom2               |  226  |        170         |  0  |   56    | 100.00 |
 |          stRecursiveCreate           |   2   |         2          |  0  |    0    | 100.00 |
@@ -89,9 +89,9 @@ Maintained tests:
 |             stWalletTest             |  46   |         43         |  0  |    3    | 100.00 |
 |          stZeroCallsRevert           |  16   |         12         |  0  |    4    | 100.00 |
 |           stZeroCallsTest            |  24   |         20         |  0  |    4    | 100.00 |
-|           stZeroKnowledge2           |  519  |         0          |  0  |   519   |  100   |
-|           stZeroKnowledge            |  800  |         0          |  0  |   800   |  100   |
-|               VMTests                |  651  |        577         | 16  |   58    | 97.30  |
+|           stZeroKnowledge2           |  519  |         0          |  0  |   519   | 100.00 |
+|           stZeroKnowledge            |  800  |         0          |  0  |   800   | 100.00 |
+|               VMTests                |  652  |        578         | 14  |   59    | 97.47  |
 
 
 ## Note
