@@ -219,10 +219,18 @@ describe('Proof of efficiency test vectors', function () {
         const addressToContractInterface = {};
         for (const contract of genesis) {
             if (contract.contractName) {
-                // Add contract interface for future contract interaction
-                if (contractsPolygonHermez[contract.contractName]) {
+                // TransparentUpgradeableProxy
+                if (contract.contractName.includes('proxy')) {
+                    const finalContractName = contract.contractName.replace(' proxy', '');
+                    const contractInterface = new ethers.utils.Interface(contractsPolygonHermez[finalContractName].abi);
+                    addressToContractInterface[contract.address] = contractInterface;
+                } else if (contractsPolygonHermez[contract.contractName]) {
+                    // Add contract interface for future contract interaction
                     const contractInterface = new ethers.utils.Interface(contractsPolygonHermez[contract.contractName].abi);
                     addressToContractInterface[contract.address] = contractInterface;
+                } else if (contract.contractName.includes('implementation')) {
+                    // eslint-disable-next-line no-continue
+                    continue;
                 } else {
                     const contractInterface = new ethers.utils.Interface(contract.abi);
                     addressToContractInterface[contract.address] = contractInterface;
@@ -239,8 +247,8 @@ describe('Proof of efficiency test vectors', function () {
 
                 for (const [key, value] of Object.entries(contract.storage)) {
                     const contractStorage = await zkEVMDB.vm.stateManager.getContractStorage(contractAddres, toBuffer(key));
-                    expect(contractStorage.toString('hex')).to.equal(value.slice(2));
-                    expect(dumpDB[key]).to.be.equal(value);
+                    expect(Scalar.eq(Scalar.fromString(contractStorage.toString('hex'), 16), Scalar.fromString(value, 16))).to.be.equal(true);
+                    expect(Scalar.eq(Scalar.fromString(dumpDB[key], 16), Scalar.fromString(value, 16))).to.be.equal(true);
                 }
             }
         }
