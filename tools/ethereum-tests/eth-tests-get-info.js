@@ -70,14 +70,11 @@ async function main() {
                         }
                         objectFolders[folderTest].tests2 += 1;
                         objectFolders[folderTest].inputs2 += 1;
-                        tests += 1;
-                        inputs += 1;
                         if (passed) {
                             objectFolders[folderTest].ok2 += 1;
                             ok += 1;
-                        } else {
-                            objectFolders[folderTest].errExec2 += 1;
-                            errExec += 1;
+                            objectFolders[folderTest].errExec2 -= 1;
+                            errExec -= 1;
                         }
                     }
                 } else if (fs.existsSync(pathInfo) && fs.existsSync(pathInfoInputs30M)) {
@@ -127,7 +124,7 @@ async function main() {
             okPerc = (100 * (ok2 / tests2)).toFixed(2);
         }
         if (tests2 - notSup2 === 0) {
-            covPerc = 100;
+            covPerc = (100).toFixed(2);
         } else {
             covPerc = (100 * ok2 / (tests2 - notSup2)).toFixed(2);
         }
