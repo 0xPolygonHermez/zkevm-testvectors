@@ -468,21 +468,27 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         if (fs.existsSync(`${dirOOC}/testsOOC-list.json`)) {
                             listOOC = require(`${dirOOC}/testsOOC-list.json`);
                         }
-
-                        if (listOOC.filter((elem) => elem.fileName === writeOutputName).length > 0) {
+                        console.log(writeOutputName.split('/GeneralStateTests/')[1]);
+                        console.log('**********************************');
+                        if (listOOC.filter((elem) => elem.fileName.split('/GeneralStateTests/')[1] === writeOutputName.split('/GeneralStateTests/')[1]).length > 0) {
+                            console.log('-----------------------------------------------------------');
                             const writeNameOOC = writeOutputName.replace(writeOutputName.split('/')[writeOutputName.split('/').length - 2], 'tests-OOC');
+                            console.log(writeNameOOC);
                             const testOOC = require(writeNameOOC);
 
                             if (testOOC.stepsN) { circuitInput.stepsN = testOOC.stepsN; }
+                            console.log(`WRITE: ${writeNameOOC}\n`);
                             await fs.writeFileSync(writeNameOOC, JSON.stringify(circuitInput, null, 2));
                             if (flag30M) {
-                                console.log('DELETE: ', writeOutputName);
-                                tests30M = tests30M.filter((e) => e.writeOutputName !== writeOutputName);
+                                if (fs.existsSync(writeOutputName)) {
+                                    console.log('DELETE: ', writeOutputName);
+                                    fs.unlinkSync(writeOutputName);
+                                }
                             }
                         } else {
+                            console.log(`WRITE: ${writeOutputName}\n`);
                             await fs.writeFileSync(writeOutputName, JSON.stringify(circuitInput, null, 2));
                         }
-                        console.log(`WRITE: ${writeOutputName}\n`);
                         if (!flag30M) counts.countOK += 1;
                     } catch (e) {
                         if (options.newBatchGasLimit && Scalar.eq(options.newBatchGasLimit, Scalar.e('0x7FFFFFFF')) && (e.toString() !== 'Error: not supported')) {

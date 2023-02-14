@@ -202,7 +202,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         for (let e = 0; e < listNotSupported.length; e++) {
                             const notSupportedFile = listNotSupported[e].split('/');
-                            if (auxOutputPathName.includes(`${notSupportedFile[0]}-legacy/${notSupportedFile[1]}.json`)) {
+                            if (folder.includes(`${notSupportedFile[0]}`) && auxOutputPathName.includes(`${notSupportedFile[1]}.json`)) {
                                 throw new Error('not supported');
                             }
                         }

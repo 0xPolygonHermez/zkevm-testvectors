@@ -68,8 +68,6 @@ async function main() {
                                 folderTest = elem.file.split('/')[elem.file.split('/').length - 3];
                             }
                         }
-                        objectFolders[folderTest].tests2 += 1;
-                        objectFolders[folderTest].inputs2 += 1;
                         if (passed) {
                             objectFolders[folderTest].ok2 += 1;
                             ok += 1;

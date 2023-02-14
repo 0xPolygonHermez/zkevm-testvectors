@@ -5622,5 +5622,181 @@
   {
     "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/createNameRegistratorPerTxsBefore.json",
     "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stTransitionTest/createNameRegistratorPerTxsBefore.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Call1MB1024Calldepth_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call1MB1024Calldepth.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Call20KbytesContract50_1_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call20KbytesContract50_1.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Call20KbytesContract50_1_1.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call20KbytesContract50_1.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Call20KbytesContract50_2_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call20KbytesContract50_2.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Call20KbytesContract50_2_1.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call20KbytesContract50_2.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Call20KbytesContract50_3_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call20KbytesContract50_3.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Call20KbytesContract50_3_1.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call20KbytesContract50_3.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Call50000_ecrec_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call50000_ecrec.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Callcode50000_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Callcode50000.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Create1000_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Create1000.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Create1000Byzantium_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Create1000Byzantium.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Return50000_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Return50000.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Return50000_2_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Return50000_2.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Call1MB1024Calldepth_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call1MB1024Calldepth.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Call20KbytesContract50_1_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call20KbytesContract50_1.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Call20KbytesContract50_2_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call20KbytesContract50_2.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Call20KbytesContract50_3_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call20KbytesContract50_3.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Call20KbytesContract50_3_1.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call20KbytesContract50_3.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Call50000_ecrec_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call50000_ecrec.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Callcode50000_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Callcode50000.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Create1000_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Create1000.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Create1000Byzantium_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Create1000Byzantium.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Call1MB1024Calldepth_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call1MB1024Calldepth.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Call20KbytesContract50_1_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call20KbytesContract50_1.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Call20KbytesContract50_1_1.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call20KbytesContract50_1.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Call20KbytesContract50_2_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call20KbytesContract50_2.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Call20KbytesContract50_2_1.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call20KbytesContract50_2.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Call20KbytesContract50_3_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call20KbytesContract50_3.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Call20KbytesContract50_3_1.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call20KbytesContract50_3.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Call50000_ecrec_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Call50000_ecrec.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Callcode50000_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Callcode50000.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Create1000_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Create1000.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Create1000Byzantium_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Create1000Byzantium.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Return50000_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Return50000.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/Return50000_2_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stQuadraticComplexityTest/Return50000_2.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/random_0.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/VMTests/vmTests/random.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/random_1.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/VMTests/vmTests/random.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/random_2.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/VMTests/vmTests/random.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/random_5.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/VMTests/vmTests/random.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/sha3_11.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/VMTests/vmTests/sha3.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/sha3_12.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/VMTests/vmTests/sha3.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/sha3_13.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/VMTests/vmTests/sha3.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/sha3_14.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/VMTests/vmTests/sha3.json"
+  },
+  {
+    "writeOutputName": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/tests-30M/sha3_15.json",
+    "file": "/home/laia/git/iden3/hermeznetwork/zkvm/zkevm-testvectors/tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/VMTests/vmTests/sha3.json"
   }
 ]
