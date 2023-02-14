@@ -1,12 +1,13 @@
 {
   "oldStateRoot": "0x9b2cfaa812111bda20c8207a617dd097f1950d88144387abe7af29d1678de8e6",
-  "newStateRoot": "0x994f08a4b7fc7d85bafd2657bbc98191f9a9eca9bd313dbb83c4c3e07c9a57e4",
+  "newStateRoot": "0xffceecef605efd19fdfdacded53a5d7cacb6f5abae49c9555bcbd9e1c780cd2a",
   "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "newAccInputHash": "0x3b9df28aeafa33f648ddd00d05fd38c3335e8aff6ff20ee2ed4cf8afface7700",
   "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "oldNumBatch": 0,
   "newNumBatch": 1,
   "chainID": 1000,
+  "forkID": 1,
   "batchL2Data": "0xe2800a830249f094bbbf5374fce5edbc8e2a8697c15331677e6ebf0b0a808203e880804f1c0446ab1efd91ec2c2cdd2fe70d7a3677b3b418f37ff4d7fa1a289b0ea4381d43b177b7b335881d7802fa417de7d44fd362c418934e4694869c2843877ddc1c",
   "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
   "timestamp": "0x03e8",
@@ -302,6 +303,5 @@
       "0000000000000000"
     ]
   },
-  "gasLimit": "2147483647",
-  "forkID": 1
+  "gasLimit": "2147483647"
 }
