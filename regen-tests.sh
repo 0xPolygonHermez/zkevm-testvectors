@@ -9,4 +9,5 @@ npm run update:eth-tests
 
 ## Custom tests
 ## inputs-executor/calldata/custom-tx_X.json
-
+## ethereum-tests/GeneralStateTests/stEIP4758/sendallBasic.json
+## ethereum-tests/GeneralStateTests/stEIP4758/sendallToSelf.json
