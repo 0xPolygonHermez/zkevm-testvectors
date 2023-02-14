@@ -38,11 +38,11 @@ describe('Run state-transition tests', function () {
     });
 
     for (let i = 0; i < listTests.length; i++) {
-        it(`check test vectors: ${listTests[i]}`, async () => {
-            const pathTestVector = path.join(folderStateTransition, listTests[i]);
-            const testVectors = JSON.parse(fs.readFileSync(pathTestVector));
+        const pathTestVector = path.join(folderStateTransition, listTests[i]);
+        const testVectors = JSON.parse(fs.readFileSync(pathTestVector));
 
-            for (let j = 0; j < testVectors.length; j++) {
+        for (let j = 0; j < testVectors.length; j++) {
+            it(`check test vectors: ${listTests[i]}, id: ${testVectors[j].id}`, async () => {
                 let {
                     id,
                     genesis,
@@ -191,7 +191,6 @@ describe('Run state-transition tests', function () {
                 await batch.executeTxs();
 
                 const newRoot = batch.currentStateRoot;
-
                 if (update) {
                     testVectors[j].expectedNewRoot = smtUtils.h4toString(newRoot);
                     testVectors[j].chainID = 1000;
@@ -256,11 +255,11 @@ describe('Run state-transition tests', function () {
                     expect(batchHashData).to.be.equal(circuitInput.batchHashData);
                     expect(inputHash).to.be.equal(circuitInput.inputHash);
                 }
-            }
 
-            if (update) {
-                fs.writeFileSync(pathTestVector, JSON.stringify(testVectors, null, 2));
-            }
-        });
+                if (update) {
+                    fs.writeFileSync(pathTestVector, JSON.stringify(testVectors, null, 2));
+                }
+            });
+        }
     }
 });

@@ -1,5 +1,5 @@
-{
-  "0": {
+[
+  {
     "id": 0,
     "description": "2 accounts and 1 valid transaction.",
     "arity": 4,
@@ -37,7 +37,7 @@
         "reason": ""
       }
     ],
-    "expectedNewRoot": "0xea2eb6fb48966077643e7a7dbde44df32d65ca64476c4f9ecb1dc99ba4bc0d72",
+    "expectedNewRoot": "0x9f4544f3d6c4e46890a1570c052d2140bcbb7f841a0a7fefe3a7e15819fb40bc",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "99900000000000000000",
@@ -54,9 +54,10 @@
     "batchHashData": "0x80cc22bc1a205c21f2b8c87e6185e1215fb60e3d83c609fd3bf3cdc586a6244b",
     "timestamp": 1944498031,
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "1": {
+  {
     "id": 1,
     "description": "5 accounts. 2 valid tx, 3 invalid tx (same amount as balance, invalid nonce, invalid chain id 3333)",
     "arity": 4,
@@ -164,7 +165,7 @@
         "reason": "TX INVALID: Chain ID does not match"
       }
     ],
-    "expectedNewRoot": "0xe87e03b34db1bb7f0154f27cd035e73f210078272a5975c0082ce64aeaa304bd",
+    "expectedNewRoot": "0x67a9c931781a2b31df8c3ad43eff359a990adf6caf4b3f51c661f4850154a860",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "99900021000000000000",
@@ -193,9 +194,10 @@
     "batchHashData": "0xfa2c122bae492b45a63b6a5e6f2abbe3f1db9191c2c5e1db3e0a08a600fd8087",
     "timestamp": 1944498031,
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "2": {
+  {
     "id": 2,
     "description": "2 accounts and 1 invalid tx (tx with more value than balance). Old root equals new root.",
     "arity": 4,
@@ -233,7 +235,7 @@
         "reason": "TX INVALID: Not enough funds to pay total transaction cost"
       }
     ],
-    "expectedNewRoot": "0x0143c4ffec267aba2b44f9c5253c41042af8388b7ac2535c566e70937242a2db",
+    "expectedNewRoot": "0x5ce97f7b959b5dbb207ca525a18a7034a1244f23ec0bd393ec1b3e28786dd164",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000000000000000000",
@@ -250,9 +252,10 @@
     "batchHashData": "0x9e2a4414f78bef13670164fb0eac6d43e50b5f305c8c9e9495e8f204d880b88d",
     "timestamp": 1944498031,
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "3": {
+  {
     "id": 3,
     "description": "2 accounts and 2 invalid transactions. Tx with same amount than balance and tx with invalid chain id (different chain id than sequencer). Old root equals new root",
     "arity": 4,
@@ -303,7 +306,7 @@
         "reason": "TX INVALID: Not enough funds to pay total transaction cost"
       }
     ],
-    "expectedNewRoot": "0x0143c4ffec267aba2b44f9c5253c41042af8388b7ac2535c566e70937242a2db",
+    "expectedNewRoot": "0x5ce97f7b959b5dbb207ca525a18a7034a1244f23ec0bd393ec1b3e28786dd164",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000000000000000000",
@@ -320,9 +323,10 @@
     "batchHashData": "0x63a2f1c975b3481a834dc19e47d51bbebfa95d36a5cd5ef7e1cd8f77dba9f92f",
     "timestamp": 1944498031,
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "4": {
+  {
     "id": 4,
     "description": "2 accounts and 1 invalid transaction. Wrong encode of the tx (invalid signature). Old root equals new root",
     "arity": 4,
@@ -363,7 +367,7 @@
         "reason": "TX INVALID: Not enough funds to pay total transaction cost"
       }
     ],
-    "expectedNewRoot": "0x0143c4ffec267aba2b44f9c5253c41042af8388b7ac2535c566e70937242a2db",
+    "expectedNewRoot": "0x5ce97f7b959b5dbb207ca525a18a7034a1244f23ec0bd393ec1b3e28786dd164",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000000000000000000",
@@ -380,9 +384,10 @@
     "batchHashData": "0x8929264efe51dc5e411205bb11a1812a7ade3d7c4b75ba7eb6d7f2da03c866aa",
     "timestamp": 1944498031,
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "5": {
+  {
     "id": 5,
     "description": "2 accounts and 3 valid transaction.",
     "arity": 4,
@@ -446,7 +451,7 @@
         "reason": ""
       }
     ],
-    "expectedNewRoot": "0x0cac4d2754e0ea7e102a561d4bcc5113871ba34fa3ae2da482448df4b0b45090",
+    "expectedNewRoot": "0x55f2b666d22f9cf86ecac18c3cd21ea7e27aa3dee39989a2fadaccb2902a1672",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "99700000000000000000",
@@ -463,9 +468,10 @@
     "batchHashData": "0x7950e657e2c1c8053674a3a1be0869da065d926958b5886c4ea17edecd178cfe",
     "timestamp": 1944498031,
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "6": {
+  {
     "id": 6,
     "description": "2 accounts and 3 invalid tx (tx with more value than balance). Old root equals new root.",
     "arity": 4,
@@ -529,7 +535,7 @@
         "reason": "TX INVALID: Not enough funds to pay total transaction cost"
       }
     ],
-    "expectedNewRoot": "0x0143c4ffec267aba2b44f9c5253c41042af8388b7ac2535c566e70937242a2db",
+    "expectedNewRoot": "0x5ce97f7b959b5dbb207ca525a18a7034a1244f23ec0bd393ec1b3e28786dd164",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000000000000000000",
@@ -546,9 +552,10 @@
     "batchHashData": "0xfd7ea3fdf81e4463e85dc81b84082ec371d14e7b4b8177579f2171dc0704d400",
     "timestamp": 1944498031,
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "7": {
+  {
     "id": 7,
     "description": "2 accounts and 0 txs. Old root equals new root.",
     "arity": 4,
@@ -572,7 +579,7 @@
     ],
     "expectedOldRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
     "txs": [],
-    "expectedNewRoot": "0x0143c4ffec267aba2b44f9c5253c41042af8388b7ac2535c566e70937242a2db",
+    "expectedNewRoot": "0x5ce97f7b959b5dbb207ca525a18a7034a1244f23ec0bd393ec1b3e28786dd164",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000000000000000000",
@@ -589,7 +596,7 @@
     "batchHashData": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
     "timestamp": 1944498031,
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  },
-  "forkID": 1
-}
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
+  }
+]

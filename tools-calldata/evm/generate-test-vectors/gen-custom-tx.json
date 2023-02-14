@@ -7,7 +7,8 @@
     "defaultChainId": 1000,
     "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-    "genesis": [
+    "genesis": {
+      "accounts": [
       {
         "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
         "nonce": "0",
@@ -20,7 +21,8 @@
         "balance": "200000000000000000000",
         "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
       }
-    ],
+      ]
+    },
     "expectedOldRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
     "txs": [
       {
@@ -68,7 +70,8 @@
     "defaultChainId": 1000,
     "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-    "genesis": [
+    "genesis": {
+      "accounts": [
       {
         "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
         "nonce": "0",
@@ -81,7 +84,8 @@
         "balance": "200000000000000000000",
         "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
       }
-    ],
+      ]
+    },
     "expectedOldRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
     "txs": [
       {
@@ -129,7 +133,8 @@
     "defaultChainId": 1000,
     "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-    "genesis": [
+    "genesis": {
+      "accounts": [
       {
         "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
         "nonce": "0",
@@ -142,7 +147,8 @@
         "balance": "200000000000000000000",
         "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
       }
-    ],
+      ]
+    },
     "expectedOldRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
     "txs": [
       {

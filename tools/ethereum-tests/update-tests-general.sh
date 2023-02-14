@@ -1,3 +1,5 @@
+rm ./GeneralStateTests/tests-30M/tests30M-list.json-ignore
+mv ./GeneralStateTests/tests-OOC/testsOOC-list.json-ignore ./GeneralStateTests/tests-OOC/testsOOC-list.json
 if [ -d "tests" ]
     then
     if [ "$1" == "update" ]
@@ -24,3 +26,7 @@ do
         npx --max-old-space-size=12000 mocha --timeout 0 gen-inputs.js --folder $folder
     fi
 done
+mv ./GeneralStateTests/tests-30M/tests30M-list.json ./GeneralStateTests/tests-30M/tests30M-list.json-ignore
+mv ./GeneralStateTests/tests-OOC/testsOOC-list.json ./GeneralStateTests/tests-OOC/testsOOC-list.json-ignore
+npx --max-old-space-size=12000 mocha gen-inputs-legacy.js --folder stTransactionTest
+npx --max-old-space-size=12000 mocha gen-inputs-legacy.js --folder stMemoryTest

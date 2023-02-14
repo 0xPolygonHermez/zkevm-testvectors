@@ -1,5 +1,5 @@
-{
-  "0": {
+[
+  {
     "id": 0,
     "description": "2 accounts and 1 valid transaction (chainIdSequencer).",
     "arity": 4,
@@ -37,7 +37,7 @@
         "reason": ""
       }
     ],
-    "expectedNewRoot": "0xea2eb6fb48966077643e7a7dbde44df32d65ca64476c4f9ecb1dc99ba4bc0d72",
+    "expectedNewRoot": "0x9f4544f3d6c4e46890a1570c052d2140bcbb7f841a0a7fefe3a7e15819fb40bc",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "99900000000000000000",
@@ -54,9 +54,10 @@
     "batchHashData": "0x80cc22bc1a205c21f2b8c87e6185e1215fb60e3d83c609fd3bf3cdc586a6244b",
     "timestamp": 1944498031,
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "1": {
+  {
     "id": 1,
     "description": "2 accounts and 2 valid transaction. (1 chainIdSequencer, 1 defaultChainId)",
     "arity": 4,
@@ -107,7 +108,7 @@
         "reason": ""
       }
     ],
-    "expectedNewRoot": "0x2ce6b1a9bd853ce6ff97fbe35d484f429911aa8bd36fd32b7ba28266156e8f4d",
+    "expectedNewRoot": "0xaac54b1d250fc539022199f86e95125c7b636394e66be6ffa28896127db321b2",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "99800000000000000000",
@@ -124,9 +125,10 @@
     "batchHashData": "0x6a06a81343e2d5ff6f1e112ee6152bc541d431112ab0c691d9f692fcc1a72d88",
     "timestamp": 1944498031,
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "2": {
+  {
     "id": 2,
     "description": "2 accounts. 1 valid transaction (chainIdSequencer). 1 invalid (invalid chainId).",
     "arity": 4,
@@ -177,7 +179,7 @@
         "reason": "TX INVALID: Chain ID does not match"
       }
     ],
-    "expectedNewRoot": "0xea2eb6fb48966077643e7a7dbde44df32d65ca64476c4f9ecb1dc99ba4bc0d72",
+    "expectedNewRoot": "0x9f4544f3d6c4e46890a1570c052d2140bcbb7f841a0a7fefe3a7e15819fb40bc",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "99900000000000000000",
@@ -194,9 +196,10 @@
     "batchHashData": "0x2bef8ee379240f971a1adb4c5febd81049fb83904e44b9ce124bf43f6eb1acf5",
     "timestamp": 1944498031,
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "3": {
+  {
     "id": 3,
     "description": "2 accounts. 1 valid transaction (chainIdSequencer). 1 invalid (invalid chainId). 1 valid transaction (defaultChainId).",
     "arity": 4,
@@ -260,7 +263,7 @@
         "reason": ""
       }
     ],
-    "expectedNewRoot": "0x2ce6b1a9bd853ce6ff97fbe35d484f429911aa8bd36fd32b7ba28266156e8f4d",
+    "expectedNewRoot": "0xaac54b1d250fc539022199f86e95125c7b636394e66be6ffa28896127db321b2",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "99800000000000000000",
@@ -277,7 +280,7 @@
     "batchHashData": "0x3b1e1a6fc2ea410b503263960f9d251f0718c0e04b0298775d39c6816fbdfb50",
     "timestamp": 1944498031,
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  },
-  "forkID": 1
-}
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
+  }
+]

@@ -116,7 +116,6 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                     };
                     contracts.push(contract);
 
-                    console.log(contract.contractAddress.toString());
                     const sto = await vm.stateManager.dumpStorage(contract.contractAddress);
                     const storage = {};
                     // add contract storage
@@ -219,7 +218,7 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                         gasLimit: currentTx.gasLimit,
                         gasPrice: currentTx.gasPrice,
                         chainId: currentTx.chainId,
-                        deployedBytecode: currentTx.deployedBytecode
+                        deployedBytecode: currentTx.deployedBytecode,
                     };
                     const contractAddress = ethers.utils.getContractAddress(outputTx);
                     if (outputTestVector.expectedNewLeafs[contractAddress.toString('hex')] === undefined) {
@@ -236,7 +235,7 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
         }
         // Save outuput in file
         const dir = path.join(__dirname, testVectorDataPath);
-        console.log(dir);
+        console.log('WRITE: ', `${dir}${outputName}`);
         await fs.writeFileSync(`${dir}${outputName}`, JSON.stringify(output, null, 2));
     });
 });

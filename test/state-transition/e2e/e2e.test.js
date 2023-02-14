@@ -61,9 +61,11 @@ describe('Proof of efficiency test vectors', function () {
     const networkIDMainnet = 0;
     const networkIDRollup = 1;
     const networkName = 'zkevm';
-    const pendingStateTimeoutDefault = 10;
+    const pendingStateTimeoutDefault = 100;
     const trustedAggregatorTimeoutDefault = 10;
     const initChainID = 1000;
+    const initForkID = 1;
+    const version = '0.0.1';
 
     before(async () => {
         update = argv.update === true;
@@ -91,9 +93,15 @@ describe('Proof of efficiency test vectors', function () {
         );
         await maticTokenContract.deployed();
 
+        const nonceProxyBridge = Number((await ethers.provider.getTransactionCount(deployer.address))) + 1;
+        const nonceProxyZkevm = nonceProxyBridge + 1; // Always have to redeploy impl since the polygonZkEVMGlobalExitRoot address changes
+
+        const precalculateBridgeAddress = ethers.utils.getContractAddress({ from: deployer.address, nonce: nonceProxyBridge });
+        const precalculateZkevmAddress = ethers.utils.getContractAddress({ from: deployer.address, nonce: nonceProxyZkevm });
+
         // deploy global exit root manager
         const PolygonZkEVMGlobalExitRootFactory = new ethers.ContractFactory(PolygonZkEVMGlobalExitRoot.abi, PolygonZkEVMGlobalExitRoot.bytecode, deployer);
-        polygonZkEVMGlobalExitRootContract = await PolygonZkEVMGlobalExitRootFactory.deploy();
+        polygonZkEVMGlobalExitRootContract = await PolygonZkEVMGlobalExitRootFactory.deploy(precalculateZkevmAddress, precalculateBridgeAddress);
         await polygonZkEVMGlobalExitRootContract.deployed();
 
         // deploy bridge
@@ -102,33 +110,26 @@ describe('Proof of efficiency test vectors', function () {
         await bridgeContract.deployed();
 
         // deploy proof of efficiency
-        const allowForcebatches = true;
         const urlSequencer = 'https://testURl';
 
         const polygonzkEVMFactory = new ethers.ContractFactory(PolygonZkEVMMock.abi, PolygonZkEVMMock.bytecode, deployer);
-        polygonZkEVMContract = await polygonzkEVMFactory.deploy();
+        polygonZkEVMContract = await polygonzkEVMFactory.deploy(polygonZkEVMGlobalExitRootContract.address, maticTokenContract.address, verifierContract.address, bridgeContract.address, initChainID, initForkID);
         await polygonZkEVMContract.deployed();
 
-        await polygonZkEVMGlobalExitRootContract.initialize(polygonZkEVMContract.address, bridgeContract.address);
         await bridgeContract.initialize(networkIDMainnet, polygonZkEVMGlobalExitRootContract.address, polygonZkEVMContract.address);
 
         await polygonZkEVMContract.initialize(
-            polygonZkEVMGlobalExitRootContract.address,
-            maticTokenContract.address,
-            verifierContract.address,
-            bridgeContract.address,
             {
                 admin: admin.address,
-                chainID: initChainID,
                 trustedSequencer: testE2E.sequencerAddress,
                 pendingStateTimeout: pendingStateTimeoutDefault,
-                forceBatchAllowed: allowForcebatches,
                 trustedAggregator: trustedAggregator.address,
                 trustedAggregatorTimeout: trustedAggregatorTimeoutDefault,
             },
             testE2E.expectedOldRoot,
             urlSequencer,
             networkName,
+            version,
         );
     });
 
@@ -173,7 +174,6 @@ describe('Proof of efficiency test vectors', function () {
 
         const depositCount = 0;
         const mainnetRoot = '0x5ba002329b53c11a2f1dfe90b11e031771842056cf2125b43da8103c199dcd7f';
-
         await expect(bridgeContract.bridgeAsset(tokenAddress, destinationNetwork, destinationAddress, amount, emptyPermit, { value: amount }))
             .to.emit(bridgeContract, 'BridgeEvent')
             .withArgs(Constants.BRIDGE_LEAF_TYPE_ASSET, originNetwork, tokenAddress, destinationNetwork, destinationAddress, amount, metadata, depositCount)
@@ -219,10 +219,18 @@ describe('Proof of efficiency test vectors', function () {
         const addressToContractInterface = {};
         for (const contract of genesis) {
             if (contract.contractName) {
-                // Add contract interface for future contract interaction
-                if (contractsPolygonHermez[contract.contractName]) {
+                // TransparentUpgradeableProxy
+                if (contract.contractName.includes('proxy')) {
+                    const finalContractName = contract.contractName.replace(' proxy', '');
+                    const contractInterface = new ethers.utils.Interface(contractsPolygonHermez[finalContractName].abi);
+                    addressToContractInterface[contract.address] = contractInterface;
+                } else if (contractsPolygonHermez[contract.contractName]) {
+                    // Add contract interface for future contract interaction
                     const contractInterface = new ethers.utils.Interface(contractsPolygonHermez[contract.contractName].abi);
                     addressToContractInterface[contract.address] = contractInterface;
+                } else if (contract.contractName.includes('implementation')) {
+                    // eslint-disable-next-line no-continue
+                    continue;
                 } else {
                     const contractInterface = new ethers.utils.Interface(contract.abi);
                     addressToContractInterface[contract.address] = contractInterface;
@@ -239,8 +247,8 @@ describe('Proof of efficiency test vectors', function () {
 
                 for (const [key, value] of Object.entries(contract.storage)) {
                     const contractStorage = await zkEVMDB.vm.stateManager.getContractStorage(contractAddres, toBuffer(key));
-                    expect(contractStorage.toString('hex')).to.equal(value.slice(2));
-                    expect(dumpDB[key]).to.be.equal(value);
+                    expect(Scalar.eq(Scalar.fromString(contractStorage.toString('hex'), 16), Scalar.fromString(value, 16))).to.be.equal(true);
+                    expect(Scalar.eq(Scalar.fromString(dumpDB[key], 16), Scalar.fromString(value, 16))).to.be.equal(true);
                 }
             }
         }
@@ -293,7 +301,7 @@ describe('Proof of efficiency test vectors', function () {
             let customRawTx;
             const address = genesis.find((o) => o.address === txData.from);
             const wallet = new ethers.Wallet(address.pvtKey);
-            if (tx.chainId === 0) {
+            if (tx.chainId === 0 || tx.chainId === undefined) {
                 const signData = ethers.utils.RLP.encode([
                     processorUtils.toHexStringRlp(Scalar.e(tx.nonce)),
                     processorUtils.toHexStringRlp(tx.gasPrice),
@@ -301,9 +309,6 @@ describe('Proof of efficiency test vectors', function () {
                     processorUtils.toHexStringRlp(tx.to),
                     processorUtils.toHexStringRlp(tx.value),
                     processorUtils.toHexStringRlp(tx.data),
-                    processorUtils.toHexStringRlp(tx.chainId),
-                    '0x',
-                    '0x',
                 ]);
                 const digest = ethers.utils.keccak256(signData);
                 const signingKey = new ethers.utils.SigningKey(address.pvtKey);
@@ -332,7 +337,7 @@ describe('Proof of efficiency test vectors', function () {
             txProcessed.push(txData);
         }
 
-        const batch = await zkEVMDB.buildBatch(timestamp, sequencerAddress, smtUtils.stringToH4(globalExitRoot));
+        const batch = await zkEVMDB.buildBatch(timestamp, deployer.address, smtUtils.stringToH4(globalExitRoot));
         for (let j = 0; j < rawTxs.length; j++) {
             batch.addRawTx(rawTxs[j]);
         }
@@ -507,7 +512,7 @@ describe('Proof of efficiency test vectors', function () {
             timestamp,
             minForcedTimestamp: 0,
         };
-        await expect(polygonZkEVMContract.connect(walletSequencer).sequenceBatches([sequence]))
+        await expect(polygonZkEVMContract.connect(walletSequencer).sequenceBatches([sequence], deployer.address))
             .to.emit(polygonZkEVMContract, 'SequenceBatches')
             .withArgs(lastBatchSequenced + 1);
 
@@ -521,7 +526,7 @@ describe('Proof of efficiency test vectors', function () {
         expect(batchHashData).to.be.equal(batchHashDataSC);
 
         // Check inputs mathces de smart contract
-        const numBatch = (await polygonZkEVMContract.lastVerifiedBatch()) + 1;
+        const numBatch = Number((await polygonZkEVMContract.lastVerifiedBatch())) + 1;
         const proofA = ['0', '0'];
         const proofB = [
             ['0', '0'],
@@ -531,7 +536,7 @@ describe('Proof of efficiency test vectors', function () {
         const pendingStateNum = 0;
 
         // calculate circuit input
-        const nextSnarkInput = await polygonZkEVMContract.connect(trustedAggregator).getNextSnarkInput(
+        const nextSnarkInput = await polygonZkEVMContract.getNextSnarkInput(
             pendingStateNum,
             numBatch - 1,
             numBatch,
@@ -549,7 +554,8 @@ describe('Proof of efficiency test vectors', function () {
             numBatch - 1,
             numBatch,
             chainID,
-            trustedAggregator.address,
+            deployer.address,
+            forkID,
         );
         const nextSnarkInputHex = `0x${Scalar.e(nextSnarkInput).toString(16).padStart(64, '0')}`;
         const circuitInputJSHex = `0x${Scalar.e(circuitInputJS).toString(16).padStart(64, '0')}`;
@@ -561,7 +567,7 @@ describe('Proof of efficiency test vectors', function () {
         );
 
         await expect(
-            polygonZkEVMContract.connect(trustedAggregator).trustedVerifyBatches(
+            polygonZkEVMContract.connect(trustedAggregator).verifyBatchesTrustedAggregator(
                 pendingStateNum,
                 numBatch - 1,
                 numBatch,

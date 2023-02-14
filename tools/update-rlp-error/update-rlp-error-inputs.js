@@ -23,6 +23,7 @@ async function main() {
         inputRLP.oldAccInputHash = generalInput.oldAccInputHash;
         inputRLP.newAccInputHash = generalInput.newAccInputHash;
         inputRLP.newStateRoot = generalInput.newStateRoot;
+        inputRLP.oldStateRoot = generalInput.oldStateRoot;
         inputRLP.chainID = generalInput.chainID;
         inputRLP.db = generalInput.db;
         inputRLP.sequencerAddr = generalInput.sequencerAddr;

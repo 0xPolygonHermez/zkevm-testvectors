@@ -1,5 +1,5 @@
-{
-  "0": {
+[
+  {
     "id": 0,
     "description": "Function Lt (set 1) OpComp contract (test)",
     "arity": 4,
@@ -142,7 +142,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x21a0a43b602873e47e3cecb53b7c183e449c4548801d4b6db4c9b0262d8edcf0",
+    "expectedNewRoot": "0x3716c1681624af0479f47d951fcc78081a632ffb2baa97f1a91f02ac7f463569",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000026292000000000",
@@ -174,9 +174,10 @@
     "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880847f0637258203e8808025fe11f02a3e8aa7cca6b550ca51194230ca5eff4c5c0843f599668025ca8dbb10ebad36677dcaf593372fb86f9292b7602393a56b026972474f1da5e5f44e611b",
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "1": {
+  {
     "id": 1,
     "description": "Function Lt (set 0) OpComp contract (test)",
     "arity": 4,
@@ -319,7 +320,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x4105666ddc7917ab1a144143b842329da6ac351d2601c62c90ad537d0e9195a8",
+    "expectedNewRoot": "0x02485a16613074022174f1c5235216d5dc2ae0cc6e9c108d8676c64c6b1e3747",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000013146000000000",
@@ -351,9 +352,10 @@
     "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084be08a7068203e88080ba3ac72f29ae7616c11402ddff2c7befd6b808e29b55558fb7b5b239141dd46f3fab6273310faeb31438f3c9c06f363a0e45a79538da2cbe988a1ee1bf9fb06a1c",
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "2": {
+  {
     "id": 2,
     "description": "Function Gt (set 1) OpComp contract (test)",
     "arity": 4,
@@ -496,7 +498,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x21a0a43b602873e47e3cecb53b7c183e449c4548801d4b6db4c9b0262d8edcf0",
+    "expectedNewRoot": "0x3716c1681624af0479f47d951fcc78081a632ffb2baa97f1a91f02ac7f463569",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000026292000000000",
@@ -528,9 +530,10 @@
     "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880842e1209808203e88080ff6c9b0954cdde657861fae070cfbee1ac414a06e2a06714111927ecec516d34068fde1fe576c5173fb77402e8e8464c4f9ab5ca5223262988d5e3c20063e4621c",
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "3": {
+  {
     "id": 3,
     "description": "Function Gt (set 0) OpComp contract (test)",
     "arity": 4,
@@ -673,7 +676,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x83d6107b8a0b51712850fd3ccff96f94c9aa151ec68e39c8855536e4804bc704",
+    "expectedNewRoot": "0x78d39d313e7fc6560d3f92633cd7782403ee0f4c7cda068ddcce3d4222aac2e7",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000013113000000000",
@@ -705,9 +708,10 @@
     "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084084a32fc8203e880800f4d5babac39248a9a24f3df2e4d33d6ac4f188b02d7d20afb7c3d1e31dba4c109233d028b384c7b9bc209123f5ac994f38da4e4c2f307157f4ec779c1e1e47d1b",
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "4": {
+  {
     "id": 4,
     "description": "Function SLt (set 1) OpComp contract (test)",
     "arity": 4,
@@ -850,7 +854,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x19fee8d9e72dbd9ff6a3f8c48d5db0dcf22001e5225a3c94ce06d5ab3fc8e15e",
+    "expectedNewRoot": "0x4cfa5f33e51cc5c7ec7ba2487640ff5dc78f4f765df08ff949100b36164bbc7a",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000026248000000000",
@@ -882,9 +886,10 @@
     "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae98808461bf3aec8203e880804594d34d084015d9fab180dd03ec754102d6b962cbbb3e6e102b2ae2f7a244ce1d2f41b48139d9c7258161ae76dd9c4869a1fc606c151c93af1ed38c86ba841d1c",
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "5": {
+  {
     "id": 5,
     "description": "Function SLt (set 0) OpComp contract (test)",
     "arity": 4,
@@ -1027,7 +1032,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0xfdcf95e420ab68d7993e68f9cb4e4bb4ce85677da0525290d1efa79a52998bfe",
+    "expectedNewRoot": "0xb2a112756e431be09b43ffbf879955eb577c9f71e118942df40f5c47249a5c57",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000013135000000000",
@@ -1059,9 +1064,10 @@
     "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae98808476d79e1b8203e88080ef91066bfa5419d9aee9b2e15d0a411eea2d27c012d616ad463ed0e3d435c1e00f6eead245bb18a52f4acc72ad0c0d3b5afb84780d81751149bcddf1a6caee791c",
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "6": {
+  {
     "id": 6,
     "description": "Function SGt (set 1) OpComp contract (test)",
     "arity": 4,
@@ -1204,7 +1210,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x59020f3615c12fc188671a0f9286dba2e7c159bdb9204b944e586964c0d4ec20",
+    "expectedNewRoot": "0x276321621fba9aee21a9b39a8b4b0971d2441a43462028cc6791d7a4b328ece8",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000026269000000000",
@@ -1236,9 +1242,10 @@
     "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084a6a7b1868203e88080dbc02ec796cde2ad9a578c915ea7acf9288580cf691e45488a83725608748ead3d25e32d95f16030678d47496e201a58b065785d03c9a475bbacaf21d3d394f31b",
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "7": {
+  {
     "id": 7,
     "description": "Function SGt (set 0) OpComp contract (test)",
     "arity": 4,
@@ -1381,7 +1388,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0xff3d67db4f2cc533a4341e591e6d650608026d48f1d157ed065baed1b5e4ad85",
+    "expectedNewRoot": "0x192a3610444185a545b4f6eff30ef2128127ac597317ea52bd8213b50e08b635",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000013157000000000",
@@ -1413,9 +1420,10 @@
     "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880842fd743c18203e880805f42edbf933bf4d7eca0ad30d645d80d4d930f0fb62353a5fe8d7b55344fc2876b48d94d5754d53cc446a1148409acc12ee4de4932c6fa940096bc3949c494941b",
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "8": {
+  {
     "id": 8,
     "description": "Function Eq (set 1) OpComp contract (test)",
     "arity": 4,
@@ -1558,7 +1566,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x66dda3fb772abfe44f1def211c54811c3418c836ab872ede7e70d5bae09e73b4",
+    "expectedNewRoot": "0x0618701ad61e173978fd9ff3ac1cd9a961a1fe639c9f68d9d0bb635894d7904d",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000026313000000000",
@@ -1590,9 +1598,10 @@
     "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084d44f43a08203e88080a8ed141a21fdd37088f1639490d27e5e1961003b40a558064e23c6b37cb0d1d4600c62bbd93189f2d39a7ec52c74e94a437f636d32841a676565e919bf5831c81c",
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "9": {
+  {
     "id": 9,
     "description": "Function Eq (set 0) OpComp contract (test)",
     "arity": 4,
@@ -1735,7 +1744,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x1476dfa8a0d0bcc993a7e75245ec5be59d994164b352dbd1a590ad746f9ee484",
+    "expectedNewRoot": "0x5f267fe34fa18996d3371f681f4a1d8e549514a8d825e020aaa824c3ff947644",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000013168000000000",
@@ -1767,9 +1776,10 @@
     "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae98808442f83ab78203e88080edc81fb9a0e09d850ba5ac46ca964871cc11e54b3fb776030f2317f705573445739bc4fe827b90976bda47baa57bff5a291a597e83ad29ce419ae483729318a31c",
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "10": {
+  {
     "id": 10,
     "description": "Function IsZero (set 1) OpComp contract (test)",
     "arity": 4,
@@ -1912,7 +1922,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x321436964dc10823a308cab1e5f8e3771e3c6ab441864cce87acd400d1621c84",
+    "expectedNewRoot": "0x16746dc87b4586d6be632b4388341d287f344f2c8ea64b8d62e5b1375c297778",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000026267000000000",
@@ -1944,9 +1954,10 @@
     "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880842a654e298203e88080bb8dc8c662289e62cff3cfc8e0a3729b978af71bf7fc2f296487e26b5ab5a5530f277d35007baf7c09ae0e13b4269cbe4ee7532ba0fa13733749e719b2488ceb1b",
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "11": {
+  {
     "id": 11,
     "description": "Function isZero (set 0) OpComp contract (test)",
     "arity": 4,
@@ -2089,7 +2100,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x6d017680eb690a69a1311c1b4199111e3e53d109c85709cd23ea1a2837f863d5",
+    "expectedNewRoot": "0xfbca2690966a257a905d0db35cd3555aedfee10fc5394df02f2b64d73a3bce8b",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000013122000000000",
@@ -2121,7 +2132,7 @@
     "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880849b4c3b818203e88080408b921d490ec5a536caa92f9d6d491bf75ea73ae832a72d634e3b7a8f7972e013ed3fc0271623bbb6a3fbe2e66693014e2080af2d926c543d40ebce0a0ec8211c",
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  },
-  "forkID": 1
-}
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
+  }
+]

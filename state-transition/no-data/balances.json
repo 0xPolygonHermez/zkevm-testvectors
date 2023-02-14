@@ -1,5 +1,5 @@
-{
-  "0": {
+[
+  {
     "id": 0,
     "description": "2 accounts. 1 valid transaction. 1 invalid transaction (balance == value)",
     "arity": 4,
@@ -55,7 +55,7 @@
         "reason": "TX INVALID: Not enough funds to pay total transaction cost"
       }
     ],
-    "expectedNewRoot": "0x69155c43bec63a9276e460a8bf6ba9bb8a707743236f47da450a80a7fe793296",
+    "expectedNewRoot": "0x3545eba74f865e0a2cf490c0fee6804f7190793657d5d8124463a19ada7fb8f1",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "99900000000000000000",
@@ -72,9 +72,10 @@
     "batchHashData": "0x996b3da93b91a402b0c76e4aec2412d112520f03030e9205ad281aa7173bd369",
     "timestamp": 1944498031,
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "1": {
+  {
     "id": 1,
     "description": "2 accounts. 1 valid transaction. 1 invalid transaction (tx with more value than balance)",
     "arity": 4,
@@ -124,7 +125,7 @@
         "reason": "TX INVALID: Not enough funds to pay total transaction cost"
       }
     ],
-    "expectedNewRoot": "0xea2eb6fb48966077643e7a7dbde44df32d65ca64476c4f9ecb1dc99ba4bc0d72",
+    "expectedNewRoot": "0x9f4544f3d6c4e46890a1570c052d2140bcbb7f841a0a7fefe3a7e15819fb40bc",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "99900000000000000000",
@@ -141,9 +142,10 @@
     "batchHashData": "0x5d57c749bfb108a0f382a4222333abd9d07952bbb5bc438366ff35acd866e46d",
     "timestamp": 1944498031,
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "2": {
+  {
     "id": 2,
     "description": "2 accounts. 1 invalid transaction (value + gas == balance + 1, bigger value). 1 valid transaction (txvalue + gas == balance)",
     "arity": 4,
@@ -193,7 +195,7 @@
         "reason": ""
       }
     ],
-    "expectedNewRoot": "0xf6928b75556bc137feabcebadb1e11e47ccf0b64f61f9d018bd3c9d0241994dc",
+    "expectedNewRoot": "0x5e0f99a0a8d84debce91a2d199ad6a8ce0573b68847f43d5b572124ad3d8aeef",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "200000000000000000000",
@@ -210,9 +212,10 @@
     "batchHashData": "0xa2a56b61710799dd6a088ccd093030cba0a4a9d031534e8046a02f7bb9d52d6f",
     "timestamp": 1944498031,
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "3": {
+  {
     "id": 3,
     "description": "2 accounts. 1 valid transaction (txvalue == balance-1). 1 invalid transaction (tx with more value than balance)",
     "arity": 4,
@@ -262,7 +265,7 @@
         "reason": "TX INVALID: Not enough funds to pay total transaction cost"
       }
     ],
-    "expectedNewRoot": "0x2ae03fe77dc4aae662b4118bc70d94bc4e03ca6eaf3b5b93075b3462bacdb4da",
+    "expectedNewRoot": "0xd2de32cd7e2f7dd2792d06ec673f020f57efb4b85ecf3982b5ac921917e4e3da",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "199999999999999999999",
@@ -279,79 +282,81 @@
     "batchHashData": "0xb80f084b61d598e003854b4072c00ed4dc847bca23e7643ee2b02afba4ac1a39",
     "timestamp": 1944498031,
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
   },
-  "4": {
-    "id": 3,
-    "description": "2 accounts. 1 valid transaction (txvalue == balance-1). 1 invalid transaction (tx with more value than balance)",
-    "arity": 4,
-    "defaultChainId": 1000,
-    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
-    "genesis": [
-      {
-        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-        "nonce": "0",
-        "balance": "100000000000000000000",
-        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
-      },
-      {
-        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-        "nonce": "0",
-        "balance": "100000000000000000000",
-        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
-      }
-    ],
-    "expectedOldRoot": "0xa88244596a08b2d267f764ef93304d682aac646f8603eaaad50d68b303eb9fe2",
-    "txs": [
-      {
-        "id": 0,
-        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-        "to": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-        "nonce": 0,
-        "value": "99999978999999999999",
-        "gasLimit": 21000,
-        "gasPrice": "1000000000",
-        "chainId": 1000,
-        "rawTx": "0xf86e80843b9aca0082520894617b3a3528f9cdd6630fd3301b9c8911f7bf063d89056bc74b13f185afff808207f4a04fa932b8f1c5173c51364a8b5d4d947a61cdc92f787578155a2d23c40bf87fe3a04e50bf9e1a413be8ca4480da23941772c155c51cf28085a4281e742ccfea5bc1",
-        "customRawTx": "0xee80843b9aca0082520894617b3a3528f9cdd6630fd3301b9c8911f7bf063d89056bc74b13f185afff808203e880804fa932b8f1c5173c51364a8b5d4d947a61cdc92f787578155a2d23c40bf87fe34e50bf9e1a413be8ca4480da23941772c155c51cf28085a4281e742ccfea5bc11c",
-        "reason": ""
-      },
-      {
-        "id": 1,
-        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-        "to": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-        "nonce": 1,
-        "value": "100000000000000000",
-        "gasLimit": 21000,
-        "gasPrice": "1000000000",
-        "chainId": 1000,
-        "rawTx": "0xf86d01843b9aca0082520894617b3a3528f9cdd6630fd3301b9c8911f7bf063d88016345785d8a0000808207f4a0a9b6e3e54b249c6db581b9cafaa30979dd63729a4643285e4e52fa94f5edfe1ca00e8ec0a659997d071ac5da27904fa9f7b56a9e8c2fcf6237fc20444ebcb37911",
-        "customRawTx": "0xed01843b9aca0082520894617b3a3528f9cdd6630fd3301b9c8911f7bf063d88016345785d8a0000808203e88080a9b6e3e54b249c6db581b9cafaa30979dd63729a4643285e4e52fa94f5edfe1c0e8ec0a659997d071ac5da27904fa9f7b56a9e8c2fcf6237fc20444ebcb379111c",
-        "reason": "TX INVALID: Not enough funds to pay total transaction cost"
-      }
-    ],
-    "expectedNewRoot": "0x2ae03fe77dc4aae662b4118bc70d94bc4e03ca6eaf3b5b93075b3462bacdb4da",
-    "expectedNewLeafs": {
-      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
-        "balance": "199999999999999999999",
-        "nonce": "0"
-      },
-      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
-        "balance": "1",
-        "nonce": "1"
-      }
-    },
-    "batchL2Data": "0xee80843b9aca0082520894617b3a3528f9cdd6630fd3301b9c8911f7bf063d89056bc74b13f185afff808203e880804fa932b8f1c5173c51364a8b5d4d947a61cdc92f787578155a2d23c40bf87fe34e50bf9e1a413be8ca4480da23941772c155c51cf28085a4281e742ccfea5bc11ced01843b9aca0082520894617b3a3528f9cdd6630fd3301b9c8911f7bf063d88016345785d8a0000808203e88080a9b6e3e54b249c6db581b9cafaa30979dd63729a4643285e4e52fa94f5edfe1c0e8ec0a659997d071ac5da27904fa9f7b56a9e8c2fcf6237fc20444ebcb379111c",
-    "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "batchHashData": "0xb80f084b61d598e003854b4072c00ed4dc847bca23e7643ee2b02afba4ac1a39",
-    "timestamp": 1944498031,
-    "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  },
-  "5": {
+  {
     "id": 4,
+    "description": "2 accounts. 1 valid transaction (txvalue == balance-1). 1 invalid transaction (tx with more value than balance)",
+    "arity": 4,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      }
+    ],
+    "expectedOldRoot": "0xa88244596a08b2d267f764ef93304d682aac646f8603eaaad50d68b303eb9fe2",
+    "txs": [
+      {
+        "id": 0,
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": 0,
+        "value": "99999978999999999999",
+        "gasLimit": 21000,
+        "gasPrice": "1000000000",
+        "chainId": 1000,
+        "rawTx": "0xf86e80843b9aca0082520894617b3a3528f9cdd6630fd3301b9c8911f7bf063d89056bc74b13f185afff808207f4a04fa932b8f1c5173c51364a8b5d4d947a61cdc92f787578155a2d23c40bf87fe3a04e50bf9e1a413be8ca4480da23941772c155c51cf28085a4281e742ccfea5bc1",
+        "customRawTx": "0xee80843b9aca0082520894617b3a3528f9cdd6630fd3301b9c8911f7bf063d89056bc74b13f185afff808203e880804fa932b8f1c5173c51364a8b5d4d947a61cdc92f787578155a2d23c40bf87fe34e50bf9e1a413be8ca4480da23941772c155c51cf28085a4281e742ccfea5bc11c",
+        "reason": ""
+      },
+      {
+        "id": 1,
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": 1,
+        "value": "100000000000000000",
+        "gasLimit": 21000,
+        "gasPrice": "1000000000",
+        "chainId": 1000,
+        "rawTx": "0xf86d01843b9aca0082520894617b3a3528f9cdd6630fd3301b9c8911f7bf063d88016345785d8a0000808207f4a0a9b6e3e54b249c6db581b9cafaa30979dd63729a4643285e4e52fa94f5edfe1ca00e8ec0a659997d071ac5da27904fa9f7b56a9e8c2fcf6237fc20444ebcb37911",
+        "customRawTx": "0xed01843b9aca0082520894617b3a3528f9cdd6630fd3301b9c8911f7bf063d88016345785d8a0000808203e88080a9b6e3e54b249c6db581b9cafaa30979dd63729a4643285e4e52fa94f5edfe1c0e8ec0a659997d071ac5da27904fa9f7b56a9e8c2fcf6237fc20444ebcb379111c",
+        "reason": "TX INVALID: Not enough funds to pay total transaction cost"
+      }
+    ],
+    "expectedNewRoot": "0xd2de32cd7e2f7dd2792d06ec673f020f57efb4b85ecf3982b5ac921917e4e3da",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "199999999999999999999",
+        "nonce": "0"
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "1",
+        "nonce": "1"
+      }
+    },
+    "batchL2Data": "0xee80843b9aca0082520894617b3a3528f9cdd6630fd3301b9c8911f7bf063d89056bc74b13f185afff808203e880804fa932b8f1c5173c51364a8b5d4d947a61cdc92f787578155a2d23c40bf87fe34e50bf9e1a413be8ca4480da23941772c155c51cf28085a4281e742ccfea5bc11ced01843b9aca0082520894617b3a3528f9cdd6630fd3301b9c8911f7bf063d88016345785d8a0000808203e88080a9b6e3e54b249c6db581b9cafaa30979dd63729a4643285e4e52fa94f5edfe1c0e8ec0a659997d071ac5da27904fa9f7b56a9e8c2fcf6237fc20444ebcb379111c",
+    "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0xb80f084b61d598e003854b4072c00ed4dc847bca23e7643ee2b02afba4ac1a39",
+    "timestamp": 1944498031,
+    "chainID": 1000,
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
+  },
+  {
+    "id": 5,
     "description": "1 valid transaction",
     "arity": 4,
     "defaultChainId": 1000,
@@ -393,7 +398,7 @@
         "reason": ""
       }
     ],
-    "expectedNewRoot": "0x69155c43bec63a9276e460a8bf6ba9bb8a707743236f47da450a80a7fe793296",
+    "expectedNewRoot": "0x3545eba74f865e0a2cf490c0fee6804f7190793657d5d8124463a19ada7fb8f1",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "99900000000000000000",
@@ -410,7 +415,7 @@
     "batchHashData": "0x80cc22bc1a205c21f2b8c87e6185e1215fb60e3d83c609fd3bf3cdc586a6244b",
     "timestamp": 1944498031,
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-  },
-  "forkID": 1
-}
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 1
+  }
+]
