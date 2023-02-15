@@ -8,9 +8,9 @@
 #
 #     sh test-filler.sh [-f/--folder fill all tests from folder]
 
-test_folder_name=stCreateTest
+test_folder_name=$1
 absolute_tests_path=/Users/ignasi/Documents/Github/Polygon/zkevm-testvectors/tools/ethereum-tests/tests
-test_file_name=CreateAddressWarmAfterFail
+test_file_name=$2
 
 # Read args
 run_folder=false
@@ -23,14 +23,14 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 # Download filler script
-if [[ -f "dretesteth.sh" ]]; then
+if [ -f "dretesteth.sh" ]; then
     echo "Script exists."
 else
     wget https://raw.githubusercontent.com/ethereum/retesteth/master/dretesteth.sh
     chmod +x dretesteth.sh
 fi
 
-if [[ "$run_folder" = true ]]; then
+if [ "$run_folder" = true ]; then
     echo "Run full folder"
     # Run dretesteth from docker
     ./dretesteth.sh -t GeneralStateTests/$test_folder_name -- --testpath $absolute_tests_path --fillchain

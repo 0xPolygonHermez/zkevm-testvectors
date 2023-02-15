@@ -11571,18 +11571,6 @@
       "description": "Selfdestruct"
     },
     {
-      "name": "stCreate2/CREATE2_Bounds_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stCreate2/CREATE2_Bounds2_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stCreate2/CREATE2_Bounds3_2",
-      "description": "tx gas > max int"
-    },
-    {
       "name": "stCreate2/Create2Recursive_0",
       "description": "tx gas > max int"
     },
@@ -11615,86 +11603,6 @@
       "description": "tx gas > max int"
     },
     {
-      "name": "stMemoryStressTest/CALLCODE_Bounds_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/CALLCODE_Bounds2_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/CALLCODE_Bounds3_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/CALLCODE_Bounds4_2",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/CALL_Bounds_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/CALL_Bounds2_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/CALL_Bounds2a_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/CALL_Bounds3_2",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/CREATE_Bounds_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/CREATE_Bounds2_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/CREATE_Bounds3_2",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/DELEGATECALL_Bounds_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/DELEGATECALL_Bounds2_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/DELEGATECALL_Bounds3_2",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/FillStack_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/JUMPI_Bounds_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/JUMP_Bounds_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/JUMP_Bounds2_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/MLOAD_Bounds_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/MLOAD_Bounds2_1",
-      "description": "tx gas > max int"
-    },
-    {
       "name": "stMemoryStressTest/MLOAD_Bounds3_0",
       "description": "tx gas > max int"
     },
@@ -11703,51 +11611,7 @@
       "description": "tx gas > max int"
     },
     {
-      "name": "stMemoryStressTest/MSTORE_Bounds_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/MSTORE_Bounds2_1",
-      "description": "tx gas > max int"
-    },
-    {
       "name": "stMemoryStressTest/MSTORE_Bounds2a_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/mload32bitBound_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/mload32bitBound2_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/mload32bitBound_Msize_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/mload32bitBound_return_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/mload32bitBound_return2_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/static_CALL_Bounds_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/static_CALL_Bounds2_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/static_CALL_Bounds2a_1",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryStressTest/static_CALL_Bounds3_1",
       "description": "tx gas > max int"
     },
     {
@@ -11755,15 +11619,7 @@
       "description": "tx gas > max int"
     },
     {
-      "name": "stMemoryTest/calldatacopy_dejavu2_0",
-      "description": "tx gas > max int"
-    },
-    {
       "name": "stMemoryTest/codecopy_dejavu_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stMemoryTest/codecopy_dejavu2_0",
       "description": "tx gas > max int"
     },
     {
@@ -11823,463 +11679,7 @@
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom/randomStatetest10_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest100_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest101_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest102_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest103_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest104_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest105_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest106_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest107_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest108_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest125",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest13_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest130_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest131_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest133_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest134_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest135_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest137_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest138_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest139_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest159",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest16_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest161_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest162_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest163_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest164_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest166_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest167_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest169_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest177",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest18_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest180_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest183_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest184_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest185_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest187_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest188_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest189_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest20_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest200_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest201_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest202_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest204_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest205_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest206_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest207_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest208_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest209_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest233",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest24_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest242_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest243_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest244_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest245_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest246_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest247_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest248_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest249_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest250",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest257",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest274",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest292",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest294",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest295",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest296",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest302",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest303",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest304",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest313",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest320",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest326",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest327",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest352",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest353",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest355",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest359",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest36_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest360_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest361_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest362_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest363_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest364_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest365_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest366_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest367_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest368_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest369_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest370",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest48",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest50",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest51",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest54",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest55",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest7_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest72_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest73_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest74_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest75_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest77_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest78_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest84",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom/randomStatetest97",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest393",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest418",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest422",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest423",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest443",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest449",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest454",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest476",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest481",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest484",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest485",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest494",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest496",
+      "name": "stRandom/randomStatetest36.json",
       "description": "tx gas > max int"
     },
     {
@@ -12287,95 +11687,31 @@
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest499",
+      "name": "stRandom2/randomStatetest476",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest504",
+      "name": "stRandom/randomStatetest326",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest513",
+      "name": "stRandom/randomStatetest185",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest523",
+      "name": "stRandom/randomStatetest163",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest524",
+      "name": "stRandom/randomStatetest303",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest527",
+      "name": "stRandom/randomStatetest50",
       "description": "tx gas > max int"
     },
     {
-      "name": "stRandom2/randomStatetest528",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest538",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest547",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest562",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest563",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest566",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest569",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest573",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest575",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest576",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest583",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest597",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest601",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest604",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest611",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest625",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stRandom2/randomStatetest626",
+      "name": "stRandom/randomStatetest7_0",
       "description": "tx gas > max int"
     },
     {
@@ -12428,14 +11764,6 @@
     },
     {
       "name": "stSpecialTest/FailedCreateRevertsDeletion",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stStaticCall/static_ABAcalls1_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stStaticCall/static_ABAcalls2_0",
       "description": "tx gas > max int"
     },
     {
@@ -12555,10 +11883,6 @@
       "description": "tx gas > max int"
     },
     {
-      "name": "stDelegatecallTestHomestead/Delegatecall1024OOG_0",
-      "description": "tx gas > max int"
-    },
-    {
       "name": "stRevertTest/LoopCallsDepthThenRevert2",
       "description": "tx gas > max int"
     },
@@ -12596,10 +11920,6 @@
     },
     {
       "name": "stStaticCall/static_CallRecursiveBombPreCall2_0",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stSystemOperationsTest/CallRecursiveBomb0_OOG_atMaxCallDepth",
       "description": "tx gas > max int"
     },
     {
@@ -17403,268 +16723,272 @@
       "description": "tx gas > max int"
     },
     {
-      "name": "stPrecompiledContracts2/CALLBlake2f_0",
+      "name": "stPreCompiledContracts2/CALLBlake2f_0",
       "description": "tx gas > max int"
     },
     {
-      "name": "stPrecompiledContracts2/CALLBlake2f_1",
+      "name": "stPreCompiledContracts2/CALLBlake2f_1",
       "description": "Precompiled blake2f is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLBlake2f_2",
+      "name": "stPreCompiledContracts2/CALLBlake2f_2",
       "description": "Precompiled blake2f is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLBlake2f_3",
+      "name": "stPreCompiledContracts2/CALLBlake2f_3",
       "description": "Precompiled blake2f is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLBlake2f_4",
+      "name": "stPreCompiledContracts2/CALLBlake2f_4",
       "description": "tx gas > max int"
     },
     {
-      "name": "stPrecompiledContracts2/CALLBlake2f_5",
+      "name": "stPreCompiledContracts2/CALLBlake2f_5",
       "description": "Precompiled blake2f is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLBlake2f_6",
+      "name": "stPreCompiledContracts2/CALLBlake2f_6",
       "description": "Precompiled blake2f is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLBlake2f_7",
+      "name": "stPreCompiledContracts2/CALLBlake2f_7",
       "description": "Precompiled blake2f is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLBlake2f_8",
+      "name": "stPreCompiledContracts2/CALLBlake2f_8",
       "description": "tx gas > max int"
     },
     {
-      "name": "stPrecompiledContracts2/CALLBlake2f_9",
+      "name": "stPreCompiledContracts2/CALLBlake2f_9",
       "description": "Precompiled blake2f is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLCODEBlake2f_0",
+      "name": "stPreCompiledContracts2/CALLCODEBlake2f_0",
       "description": "tx gas > max int"
     },
     {
-      "name": "stPrecompiledContracts2/CALLCODEBlake2f_1",
+      "name": "stPreCompiledContracts2/CALLCODEBlake2f_1",
       "description": "Precompiled blake2f is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLCODEBlake2f_2",
+      "name": "stPreCompiledContracts2/CALLCODEBlake2f_2",
       "description": "Precompiled blake2f is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLCODEBlake2f_3",
+      "name": "stPreCompiledContracts2/CALLCODEBlake2f_3",
       "description": "Precompiled blake2f is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLCODEBlake2f_4",
+      "name": "stPreCompiledContracts2/CALLCODEBlake2f_4",
       "description": "tx gas > max int"
     },
     {
-      "name": "stPrecompiledContracts2/CALLCODEBlake2f_5",
+      "name": "stPreCompiledContracts2/CALLCODEBlake2f_5",
       "description": "Precompiled blake2f is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLCODEBlake2f_6",
+      "name": "stPreCompiledContracts2/CALLCODEBlake2f_6",
       "description": "Precompiled blake2f is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLCODEBlake2f_7",
+      "name": "stPreCompiledContracts2/CALLCODEBlake2f_7",
       "description": "Precompiled blake2f is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLCODEBlake2f_8",
+      "name": "stPreCompiledContracts2/CALLCODEBlake2f_8",
       "description": "tx gas > max int"
     },
     {
-      "name": "stPrecompiledContracts2/CALLCODEBlake2f_9",
+      "name": "stPreCompiledContracts2/CALLCODEBlake2f_9",
       "description": "Precompiled blake2f is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLCODERipemd160_0",
+      "name": "stPreCompiledContracts2/CALLCODERipemd160_0",
       "description": "Precompiled ripemd160 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLCODERipemd160_1",
+      "name": "stPreCompiledContracts2/CALLCODERipemd160_1",
       "description": "Precompiled ripemd160 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLCODERipemd160_2",
+      "name": "stPreCompiledContracts2/CALLCODERipemd160_2",
       "description": "Precompiled ripemd160 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLCODERipemd160_3",
+      "name": "stPreCompiledContracts2/CALLCODERipemd160_3",
       "description": "Precompiled ripemd160 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLCODERipemd160_4",
+      "name": "stPreCompiledContracts2/CALLCODERipemd160_4",
       "description": "Precompiled ripemd160 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLCODERipemd160_5",
+      "name": "stPreCompiledContracts2/CALLCODERipemd160_5",
       "description": "Precompiled ripemd160 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLCODESha256_0",
+      "name": "stPreCompiledContracts2/CALLCODESha256_0",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLCODESha256_1",
+      "name": "stPreCompiledContracts2/CALLCODESha256_1",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLCODESha256_2",
+      "name": "stPreCompiledContracts2/CALLCODESha256_2",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLCODESha256_3",
+      "name": "stPreCompiledContracts2/CALLCODESha256_3",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLCODESha256_4",
+      "name": "stPreCompiledContracts2/CALLCODESha256_4",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CALLCODESha256_5",
+      "name": "stPreCompiledContracts2/CALLCODESha256_5",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CallRipemd160_0",
+      "name": "stPreCompiledContracts2/CallRipemd160_0",
       "description": "Precompiled ripemd160 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CallRipemd160_1",
+      "name": "stPreCompiledContracts2/CallRipemd160_1",
       "description": "Precompiled ripemd160 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CallRipemd160_2",
+      "name": "stPreCompiledContracts2/CallRipemd160_2",
       "description": "Precompiled ripemd160 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CallRipemd160_3",
+      "name": "stPreCompiledContracts2/CallRipemd160_3",
       "description": "Precompiled ripemd160 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CallRipemd160_4",
+      "name": "stPreCompiledContracts2/CallRipemd160_4",
       "description": "Precompiled ripemd160 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CallRipemd160_5",
+      "name": "stPreCompiledContracts2/CallRipemd160_5",
       "description": "Precompiled ripemd160 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CallSha256_0",
+      "name": "stPreCompiledContracts2/CallSha256_0",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CallSha256_1",
+      "name": "stPreCompiledContracts2/CallSha256_1",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CallSha256_2",
+      "name": "stPreCompiledContracts2/CallSha256_2",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CallSha256_3",
+      "name": "stPreCompiledContracts2/CallSha256_3",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CallSha256_4",
+      "name": "stPreCompiledContracts2/CallSha256_4",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/CallSha256_5",
+      "name": "stPreCompiledContracts2/CallSha256_5",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/modexpRandomInput_0",
+      "name": "stPreCompiledContracts2/modexpRandomInput_0",
       "description": "Precompiled modexp is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/modexpRandomInput_1",
+      "name": "stPreCompiledContracts2/modexpRandomInput_1",
       "description": "Precompiled modexp is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/modexpRandomInput_2",
+      "name": "stPreCompiledContracts2/modexpRandomInput_2",
       "description": "Precompiled modexp is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/modexpRandomInput_3",
+      "name": "stPreCompiledContracts2/modexpRandomInput_3",
       "description": "Precompiled modexp is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/modexpRandomInput_4",
+      "name": "stPreCompiledContracts2/modexpRandomInput_4",
       "description": "Precompiled modexp is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/modexpRandomInput_5",
+      "name": "stPreCompiledContracts2/modexpRandomInput_5",
       "description": "Precompiled modexp is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/modexp_0_0_0_20500_0",
+      "name": "stPreCompiledContracts2/modexp_0_0_0_20500_0",
       "description": "Precompiled modexp is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/modexp_0_0_0_20500_1",
+      "name": "stPreCompiledContracts2/modexp_0_0_0_20500_1",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/modexp_0_0_0_20500_2",
+      "name": "stPreCompiledContracts2/modexp_0_0_0_20500_2",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/modexp_0_0_0_20500_3",
+      "name": "stPreCompiledContracts2/modexp_0_0_0_20500_3",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/modexp_0_0_0_22000_0",
+      "name": "stPreCompiledContracts2/modexp_0_0_0_22000_0",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/modexp_0_0_0_22000_1",
+      "name": "stPreCompiledContracts2/modexp_0_0_0_22000_1",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/modexp_0_0_0_22000_2",
+      "name": "stPreCompiledContracts2/modexp_0_0_0_22000_2",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/modexp_0_0_0_22000_3",
+      "name": "stPreCompiledContracts2/modexp_0_0_0_22000_3",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/modexp_0_0_0_25000_0",
+      "name": "stPreCompiledContracts2/modexp_0_0_0_25000_0",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/modexp_0_0_0_25000_1",
+      "name": "stPreCompiledContracts2/modexp_0_0_0_25000_1",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/modexp_0_0_0_25000_2",
+      "name": "stPreCompiledContracts2/modexp_0_0_0_25000_2",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/modexp_0_0_0_25000_3",
+      "name": "stPreCompiledContracts2/modexp_0_0_0_25000_3",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/modexp_0_0_0_35000_0",
+      "name": "stPreCompiledContracts2/modexp_0_0_0_35000_0",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/modexp_0_0_0_35000_1",
+      "name": "stPreCompiledContracts2/modexp_0_0_0_35000_1",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/modexp_0_0_0_35000_2",
+      "name": "stPreCompiledContracts2/modexp_0_0_0_35000_2",
       "description": "Precompiled sha256 is not supported"
     },
     {
-      "name": "stPrecompiledContracts2/modexp_0_0_0_35000_3",
+      "name": "stPreCompiledContracts2/modexp_0_0_0_35000_3",
       "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stSystemOperationsTest/CallRecursiveBomb0_OOG_atMaxCallDepth",
+      "description": "tx gas > max int"
     }
   ]
 }
