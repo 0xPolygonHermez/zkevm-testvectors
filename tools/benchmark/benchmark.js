@@ -144,8 +144,12 @@ async function executeTx(circuitInput, cmPols) {
 
 async function buildGenesis() {
     const {
-        genesis, oldAccInputHash, chainID, forkID,
+        genesis, oldAccInputHash, chainID,
     } = testObject;
+    let { forkID } = testObject;
+    if (!forkID) {
+        forkID = 1;
+    }
     if (initialzkEVMDB) {
         zkEVMDB = Object.assign(Object.create(Object.getPrototypeOf(initialzkEVMDB)), initialzkEVMDB);
         zkEVMDB = new zkcommonjs.ZkEVMDB(
