@@ -72,6 +72,8 @@ async function main() {
                 }
                 countMax = 0;
                 listOOC[i].passed = true;
+                test.stepsN = stepsN;
+                await fs.writeFileSync(testPath, JSON.stringify(test, null, 2));
             } catch (e) {
                 countErrors += 1;
                 listOOC[i].stepsN = 0;

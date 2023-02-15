@@ -19,6 +19,7 @@ const { argv } = require('yargs');
 const fs = require('fs');
 const path = require('path');
 const helpers = require('../../tools-calldata/helpers/helpers');
+
 const testvectorsGlobalConfig = require(path.join(__dirname, '../../testvectors.config.json'));
 
 // example: npx mocha gen-inputs.js --test xxxx --folder xxxx --ignore
@@ -469,12 +470,9 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         if (fs.existsSync(`${dirOOC}/testsOOC-list.json`)) {
                             listOOC = require(`${dirOOC}/testsOOC-list.json`);
                         }
-                        console.log(writeOutputName.split('/GeneralStateTests/')[1]);
-                        console.log('**********************************');
+
                         if (listOOC.filter((elem) => elem.fileName.split('/GeneralStateTests/')[1] === writeOutputName.split('/GeneralStateTests/')[1]).length > 0) {
-                            console.log('-----------------------------------------------------------');
                             const writeNameOOC = writeOutputName.replace(writeOutputName.split('/')[writeOutputName.split('/').length - 2], 'tests-OOC');
-                            console.log(writeNameOOC);
                             const testOOC = require(writeNameOOC);
 
                             if (testOOC.stepsN) { circuitInput.stepsN = testOOC.stepsN; }
