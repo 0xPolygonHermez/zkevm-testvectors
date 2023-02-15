@@ -29,6 +29,8 @@ const pathInput = path.join(__dirname, './input_gen.json');
 // input executor folder
 const { pathTestVectors } = require('../../helpers/helpers');
 
+const testvectorsGlobalConfig = require(path.join(__dirname, '../../../testvectors.config.json'));
+
 const pathInputExecutor = path.join(pathTestVectors, 'inputs-executor/no-data');
 
 describe('Header timestamp', function () {
@@ -38,7 +40,6 @@ describe('Header timestamp', function () {
     let F;
     let testVectors;
     const chainID = 1000;
-    const forkID = 1;
 
     before(async () => {
         poseidon = await getPoseidon();
@@ -71,7 +72,7 @@ describe('Header timestamp', function () {
                 null,
                 null,
                 chainID,
-                forkID,
+                testvectorsGlobalConfig.forkID,
             );
 
             // Check evm contract params

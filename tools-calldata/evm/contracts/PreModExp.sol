@@ -5,6 +5,7 @@ contract PreModExp {
     bytes32 hashResult;
     address retEcrecover;
     bytes dataResult;
+    uint256 dataRes;
 
     function modexp_0(bytes32 base, bytes32 exponent, bytes32 modulus) public {
         bytes memory result;
@@ -26,10 +27,11 @@ contract PreModExp {
             let success := call(gas(), 0x05, 0x0, memPtr, 0xc0, memPtr, 0x20)
             switch success
             case 0 {
-                revert(0x0, 0x0)
+                sstore(0x3, 2)
             } default {
                 result := mload(memPtr)
                 sstore(0x1,result)
+                sstore(0x3, 1)
             }
         }
     }
