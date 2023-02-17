@@ -6,13 +6,13 @@ if [ -d "tests" ]
         then
         rm -rf tests
         rm -r eth-inputs
-        git clone https://github.com/ethereum/tests.git
+        git clone https://github.com/0xPolygonHermez/ethereum-tests tests
         cd tests
         git checkout 9e0a5e00981575de017013b635d54891f9e561ef
         cd ../
     fi
 else
-    git clone https://github.com/ethereum/tests.git
+    git clone https://github.com/0xPolygonHermez/ethereum-tests tests
     cd tests
     git checkout 9e0a5e00981575de017013b635d54891f9e561ef
     cd ../

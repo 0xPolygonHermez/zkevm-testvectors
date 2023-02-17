@@ -3,15 +3,15 @@ if [ -d "tests" ]
     if [ "$2" == "update" ]
         then
         rm -rf tests
-        git clone https://github.com/ethereum/tests.git
-        cd tests
-        git checkout 9e0a5e00981575de017013b635d54891f9e561ef
+        git clone https://github.com/0xPolygonHermez/ethereum-tests.git
+        cd ethereum-tests
+        git checkout test-vectors
         cd ../
     fi
 else
-    git clone https://github.com/ethereum/tests.git
-    cd tests
-    git checkout 9e0a5e00981575de017013b635d54891f9e561ef
+    git clone https://github.com/0xPolygonHermez/ethereum-tests.git
+    cd ethereum-tests
+    git checkout test-vectors
     cd ../
 fi
 
