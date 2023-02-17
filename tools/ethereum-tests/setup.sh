@@ -4,6 +4,6 @@ if [ -d "tests" ]
 else
     git clone https://github.com/0xPolygonHermez/ethereum-tests tests
     cd tests
-    git checkout 9e0a5e00981575de017013b635d54891f9e561ef
+    git checkout test-vectors
     cd ../
 fi

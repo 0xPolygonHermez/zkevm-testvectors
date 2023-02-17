@@ -447,7 +447,12 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                 }
                             }
                         }
-
+                        const a = await zkEVMDB.getCurrentAccountState("0x2adc25665018aa1fe0e6bc666dac8fc2697ff9ba")
+                        const storage = await zkEVMDB.dumpStorage("0x2adc25665018aa1fe0e6bc666dac8fc2697ff9ba");
+                        const bytecode = await zkEVMDB.getBytecode("0x0000000000000000000000000000000000000100");
+                        const b = await zkEVMDB.getCurrentAccountState("0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b")
+                        const storage2 = await zkEVMDB.dumpStorage("0x000000000000000000000000000000005ca1ab1e");
+                        const bytecode2 = await zkEVMDB.getBytecode("0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b");
                         const circuitInput = await batch.getStarkInput();
                         if (options.newBatchGasLimit) { circuitInput.gasLimit = Scalar.e(options.newBatchGasLimit).toString(); }
                         Object.keys(circuitInput.contractsBytecode).forEach((key) => {

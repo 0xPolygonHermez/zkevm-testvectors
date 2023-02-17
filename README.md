@@ -16,12 +16,12 @@ Maintained tests:
 ```
 
 ## Ethereum test vectors coverage
-- Ethereum test targeted are located [here](https://github.com/ethereum/tests/tree/develop/BlockchainTests/GeneralStateTests)
+- Ethereum test targeted are located [here](https://github.com/0xPolygonHermez/ethereum-tests/tree/test-vectors)
 > `Ignored` test does not fit in zkEVM implementation. Therefore, it could not be applied to zkEVM.
 > More coverage will be added while test are being tested
 
 ## Overview
-- Commit [ethereum/tests](https://github.com/ethereum/tests): 9e0a5e00981575de017013b635d54891f9e561ef
+- Commit [ethereum-tests](https://github.com/0xPolygonHermez/ethereum-tests/tree/test-vectors): 71fce961e5ebd9c13d67213b3cd964798f1859e6
 - Commit [zkevm-testvectors](https://github.com/0xPolygonHermez/zkevm-testvectors): 0ac97cdf5b99068480d5143bdbcb92d1b15a0e49
 - Commit [zkevm-rom](https://github.com/0xPolygonHermez/zkevm-rom): b8a616f18cb12a722c6d79c4a42f05405177e38a
 - Commit [zkevm-proverjs](https://github.com/0xPolygonHermez/zkevm-proverjs): cccb9a4b50452361e4d5fa46e138aaeac48a4e07
