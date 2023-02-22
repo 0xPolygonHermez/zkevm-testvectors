@@ -11,7 +11,6 @@
 test_folder_name=$1
 absolute_tests_path=$(pwd)/tests
 test_file_name=$2
-
 # Read args
 run_folder=false
 while [[ $# -gt 0 ]]; do
