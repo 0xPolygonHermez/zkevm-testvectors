@@ -168,13 +168,14 @@ describe('Proof of efficiency test vectors', function () {
         const destinationNetwork = networkIDRollup;
         const destinationAddress = claimAddress;
         const emptyPermit = '0x';
+        const forceUpdateGER = true;
 
         const metadata = '0x';// since is ether does not have metadata
         const metadataHash = ethers.utils.solidityKeccak256(['bytes'], [metadata]);
 
         const depositCount = 0;
         const mainnetRoot = '0x5ba002329b53c11a2f1dfe90b11e031771842056cf2125b43da8103c199dcd7f';
-        await expect(bridgeContract.bridgeAsset(tokenAddress, destinationNetwork, destinationAddress, amount, emptyPermit, { value: amount }))
+        await expect(bridgeContract.bridgeAsset(destinationNetwork, destinationAddress, amount, tokenAddress, forceUpdateGER, emptyPermit, { value: amount }))
             .to.emit(bridgeContract, 'BridgeEvent')
             .withArgs(Constants.BRIDGE_LEAF_TYPE_ASSET, originNetwork, tokenAddress, destinationNetwork, destinationAddress, amount, metadata, depositCount)
             .to.emit(polygonZkEVMGlobalExitRootContract, 'UpdateGlobalExitRoot')
@@ -489,7 +490,6 @@ describe('Proof of efficiency test vectors', function () {
          * // Check against the smart contracts
          * /////////////////////////////////////////////////
          */
-
         const currentStateRoot = `0x${Scalar.e(expectedOldRoot).toString(16).padStart(64, '0')}`;
         const newStateRoot = `0x${Scalar.e(expectedNewRoot).toString(16).padStart(64, '0')}`;
         const currentGlobalExitRoot = `0x${Scalar.e(globalExitRoot).toString(16).padStart(64, '0')}`;
@@ -527,12 +527,7 @@ describe('Proof of efficiency test vectors', function () {
 
         // Check inputs mathces de smart contract
         const numBatch = Number((await polygonZkEVMContract.lastVerifiedBatch())) + 1;
-        const proofA = ['0', '0'];
-        const proofB = [
-            ['0', '0'],
-            ['0', '0'],
-        ];
-        const proofC = ['0', '0'];
+        const fflonkProof = '0x';
         const pendingStateNum = 0;
 
         // calculate circuit input
@@ -557,6 +552,7 @@ describe('Proof of efficiency test vectors', function () {
             deployer.address,
             forkID,
         );
+
         const nextSnarkInputHex = `0x${Scalar.e(nextSnarkInput).toString(16).padStart(64, '0')}`;
         const circuitInputJSHex = `0x${Scalar.e(circuitInputJS).toString(16).padStart(64, '0')}`;
         expect(nextSnarkInputHex).to.be.equal(circuitInputJSHex);
@@ -573,9 +569,7 @@ describe('Proof of efficiency test vectors', function () {
                 numBatch,
                 newLocalExitRoot,
                 newStateRoot,
-                proofA,
-                proofB,
-                proofC,
+                fflonkProof,
             ),
         ).to.emit(polygonZkEVMContract, 'VerifyBatches')
             .withArgs(numBatch, trustedAggregator.address)
@@ -620,6 +614,7 @@ describe('Proof of efficiency test vectors', function () {
 
         const index = 0;
         const proof = merkleTree.getProofTreeByIndex(index);
+
         await expect(bridgeContract.claimAsset(
             proof,
             index,
