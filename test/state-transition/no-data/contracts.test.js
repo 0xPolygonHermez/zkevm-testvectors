@@ -411,12 +411,7 @@ describe('Proof of efficiency test vectors', function () {
 
                 // Check inputs mathces de smart contract
                 const numBatch = Number((await polygonZkEVMContract.lastVerifiedBatch())) + 1;
-                const proofA = ['0', '0'];
-                const proofB = [
-                    ['0', '0'],
-                    ['0', '0'],
-                ];
-                const proofC = ['0', '0'];
+                const fflonkProof = '0x';
 
                 // check batch sent
                 const { accInputHash } = await polygonZkEVMContract.sequencedBatches(1);
@@ -465,9 +460,7 @@ describe('Proof of efficiency test vectors', function () {
                         numBatch,
                         newLocalExitRoot,
                         newStateRoot,
-                        proofA,
-                        proofB,
-                        proofC,
+                        fflonkProof,
                     ),
                 ).to.emit(polygonZkEVMContract, 'VerifyBatchesTrustedAggregator')
                     .withArgs(numBatch, newStateRoot, trustedAggregator.address);
