@@ -196,15 +196,15 @@
     },
     {
       "name": "stStaticCall/StaticcallToPrecompileFromCalledContract_0",
-      "description": "Some Precompileds not supported"
+      "description": "Precompiled contracts called are not supported"
     },
     {
       "name": "stStaticCall/StaticcallToPrecompileFromContractInitialization_0",
-      "description": "Some Precompileds not supported"
+      "description": "Precompiled contracts called are not supported"
     },
     {
       "name": "stStaticCall/StaticcallToPrecompileFromTransaction_0",
-      "description": "Some Precompileds not supported"
+      "description": "Precompiled contracts called are not supported"
     },
     {
       "name": "stStaticCall/static_CallSha256_1_0",
@@ -256,7 +256,7 @@
     },
     {
       "name": "stTransactionTest/SuicidesAndInternlCallSuicidesSuccess_1",
-      "description": "Selfdestruct error"
+      "description": "Selfdestruct"
     },
     {
       "name": "stTransactionTest/PointAtInfinityECRecover",

@@ -21,14 +21,14 @@ Maintained tests:
 > More coverage will be added while test are being tested
 
 ## Overview
-- Commit [ethereum-tests](https://github.com/0xPolygonHermez/ethereum-tests/tree/test-vectors): 71fce961e5ebd9c13d67213b3cd964798f1859e6
-- Commit [zkevm-testvectors](https://github.com/0xPolygonHermez/zkevm-testvectors): a6001e3ddfa3d110abe56814aff731d318f882c2
-- Commit [zkevm-rom](https://github.com/0xPolygonHermez/zkevm-rom): 0dbd9217feb050888a4a1702d79e5fa4d54e9c48
-- Commit [zkevm-proverjs](https://github.com/0xPolygonHermez/zkevm-proverjs): a15ed4b5f4dbaca87e32a2295d64bccf4f7d3d88
+- Commit [ethereum-tests](https://github.com/0xPolygonHermez/ethereum-tests/tree/test-vectors): 43c7dc2406b94254a159218f9380c43ade00e3de
+- Commit [zkevm-testvectors](https://github.com/0xPolygonHermez/zkevm-testvectors): ff76e4053c37f50f7e4ee057e44e5d1d04bfc6d4
+- Commit [zkevm-rom](https://github.com/0xPolygonHermez/zkevm-rom): 70012acf3040c713ed91f352a1fe154014ecb477
+- Commit [zkevm-proverjs](https://github.com/0xPolygonHermez/zkevm-proverjs): 313dcd8d2df49b02fb04e0d99743dc33cfa25faf
 
 | Total | Generation errors | Ignored | :heavy_check_mark: | :x: | Coverage |
 |:-----:|:-----------------:|:-------:|:------------------:|:---:|:--------:|
-| 17799 |         64        |  6931   |        10804       |  0  |  99.41%  |
+| 17799 |         64        |  3021   |        14714       |  0  |  99.57%  |
 
 
 ## Extended table
@@ -37,7 +37,7 @@ Maintained tests:
 |:------------------------------------:|:-----:|:------------------:|:---:|:-------:|:------:|
 |         stArgsZeroOneBalance         |  96   |         94         |  0  |    2    | 100.00 |
 |             stAttackTest             |   2   |         0          |  0  |    2    | 100.00 |
-|             stBadOpcode              | 4250  |        194         |  1  |  4055   | 99.49  |
+|             stBadOpcode              | 4250  |        4104        |  1  |   145   | 99.98  |
 |                stBugs                |   9   |         7          |  0  |    2    | 100.00 |
 |             stCallCodes              |  87   |         67         |  0  |   20    | 100.00 |
 |       stCallCreateCallCodeTest       |  55   |         39         |  0  |   16    | 100.00 |

@@ -1,132 +1,162 @@
 [
   {
     "description": "Clear storage tree could not be done in zkEVM state-tree",
-    "count": 3,
-    "percentage": "0.16%"
+    "count": 12,
+    "percentage": "0.38%"
+  },
+  {
+    "description": "Precompiled called are not supported",
+    "count": 8,
+    "percentage": "0.25%"
   },
   {
     "description": "Opcode CHAINID (0x46) called and stored. ChainId does not match. Similar internal test has been done in: state-transition/calldata/chainId.json",
     "count": 1,
-    "percentage": "0.05%"
+    "percentage": "0.03%"
+  },
+  {
+    "description": "Precompiled contracts called are not supported",
+    "count": 11,
+    "percentage": "0.35%"
+  },
+  {
+    "description": "Sha256 precompiled not supported",
+    "count": 9,
+    "percentage": "0.28%"
   },
   {
     "description": "Selfdestruct",
-    "count": 209,
-    "percentage": "10.81%"
+    "count": 296,
+    "percentage": "9.29%"
   },
   {
     "description": "TODO: deltaX == 0 => division by zero ==> how manage? (sm_main_exec.js --> eval_AddPointEc)",
     "count": 1,
-    "percentage": "0.05%"
-  },
-  {
-    "description": "Precompiled sha256 is not supported",
-    "count": 654,
-    "percentage": "33.82%"
+    "percentage": "0.03%"
   },
   {
     "description": "jump to push",
     "count": 52,
-    "percentage": "2.69%"
+    "percentage": "1.63%"
+  },
+  {
+    "description": "Precompiled sha256 is not supported",
+    "count": 751,
+    "percentage": "23.58%"
   },
   {
     "description": "tx.type not supported",
-    "count": 45,
-    "percentage": "2.33%"
+    "count": 111,
+    "percentage": "3.49%"
   },
   {
     "description": "Precompiled blake2f is not supported",
-    "count": 45,
-    "percentage": "2.33%"
+    "count": 163,
+    "percentage": "5.12%"
   },
   {
     "description": "Precompiled ripemd160 is not supported",
-    "count": 39,
-    "percentage": "2.02%"
+    "count": 79,
+    "percentage": "2.48%"
   },
   {
     "description": "Precompiled modexp is not supported",
-    "count": 31,
-    "percentage": "1.60%"
+    "count": 466,
+    "percentage": "14.63%"
   },
   {
     "description": "Precompiled ecAdd is not supported",
-    "count": 103,
-    "percentage": "5.33%"
+    "count": 348,
+    "percentage": "10.93%"
   },
   {
     "description": "Precompiled ecMul is not supported",
-    "count": 397,
-    "percentage": "20.53%"
+    "count": 417,
+    "percentage": "13.09%"
   },
   {
     "description": "Precompiled ecPairing is not supported",
-    "count": 106,
-    "percentage": "5.48%"
+    "count": 140,
+    "percentage": "4.40%"
   },
   {
     "description": "Storage at key 0, address 0",
-    "count": 8,
-    "percentage": "0.41%"
+    "count": 4,
+    "percentage": "0.13%"
   },
   {
     "description": "EIP1559 not supported",
-    "count": 1,
-    "percentage": "0.05%"
+    "count": 19,
+    "percentage": "0.60%"
   },
   {
     "description": "Do not clean the storage when a contract is deployed in that address",
     "count": 1,
-    "percentage": "0.05%"
+    "percentage": "0.03%"
   },
   {
     "description": "rom BATCH_DIFFICULTY != DIFFICULTY",
     "count": 1,
-    "percentage": "0.05%"
+    "percentage": "0.03%"
   },
   {
     "description": "rom TX_GAS_LIMIT != GASLIMIT",
     "count": 1,
-    "percentage": "0.05%"
+    "percentage": "0.03%"
   },
   {
     "description": "rom EXTCODEHASH != EXTCODEHASH",
-    "count": 34,
-    "percentage": "1.76%"
+    "count": 36,
+    "percentage": "1.13%"
   },
   {
     "description": "rom block info != eth block info",
-    "count": 8,
-    "percentage": "0.41%"
+    "count": 17,
+    "percentage": "0.53%"
   },
   {
     "description": "rom NUMBER != eth NUMBER",
     "count": 1,
-    "percentage": "0.05%"
+    "percentage": "0.03%"
+  },
+  {
+    "description": "stEIP3540",
+    "count": 12,
+    "percentage": "0.38%"
   },
   {
     "description": "rom TIMESTAMP != TIMESTAMP",
     "count": 1,
-    "percentage": "0.05%"
+    "percentage": "0.03%"
   },
   {
     "description": "It is not possible to generate this test. Equivalent test: zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-custom-tx.json --> zkevm-testvectors/inputs-executor/calldata/custom-tx_1.json",
     "count": 1,
-    "percentage": "0.05%"
+    "percentage": "0.03%"
   },
   {
     "description": "It is not possible to generate this test. Equivalent test: zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-custom-tx.json --> zkevm-testvectors/inputs-executor/calldata/custom-tx_2.json",
     "count": 1,
-    "percentage": "0.05%"
+    "percentage": "0.03%"
   },
   {
     "description": "Bytecode starts with 0xEF (we support EIP-3541 in Berlin hardfork). Equivalent tests: zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-op-create.json [id: from 4 to 7] & zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-test-deploy.json [id: from 8 to 9]",
-    "count": 4,
-    "percentage": "0.21%"
+    "count": 1,
+    "percentage": "0.03%"
   },
   {
     "description": "tx gas > max int",
-    "count": 186,
-    "percentage": "9.62%"
+    "count": 108,
+    "percentage": "3.39%"
+  },
+  {
+    "description": "not supported WIP test",
+    "count": 1,
+    "percentage": "0.03%"
+  },
+  {
+    "description": "Not enough gas to finish recursion",
+    "count": 115,
+    "percentage": "3.61%"
   }
 ]
