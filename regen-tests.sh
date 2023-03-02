@@ -1,20 +1,18 @@
-# Regen calldata tests
-npm run update:smt && npm run update:mt:bridge && npm run update:st:calldata && npm run update:st:no-data && npm run update:e2e && npm run update:error-rlp
+# Regen tests
+npm run update:smt
+npm run update:mt:bridge
+npm run update:st:calldata
+npm run update:st:no-data
+npm run update:e2e
+npm run update:error-rlp
+npm run update:calldata-custom
+npm run update:eth-tests
 
-# Regen ethereum tests
-dir=./tools/ethereum-tests/GeneralStateTests
-for entry in "$dir"/*
-do
-    if [ -d $entry ]; then
-        folder=${entry##*/}
-        if [[ "$folder" == *"-legacy"* ]]; then
-            folder=${folder%"-legacy"}
-            npx mocha --max-old-space-size=8000 tools/ethereum-tests/gen-inputs-legacy.js --folder $folder --output GeneralStateTests
-        else
-            npx mocha --max-old-space-size=8000 tools/ethereum-tests/gen-inputs.js --folder $folder
-        fi
-    fi
-done
+## Custom tests
+## inputs-executor/calldata/custom-tx_X.json
+## ethereum-tests/GeneralStateTests/stEIP4758/sendallBasic.json
+## ethereum-tests/GeneralStateTests/stEIP4758/sendallToSelf.json
 
-tools/ethereum-tests/GeneralStateTests/stTransactionTest-legacy
-tools/ethereum-tests/tests/BlockchainTests/GeneralStateTests/stTransactionTest-legacy'
+## Tests that may need to compute te newStateRoot
+### inputs-executor/rlp-error
+### inputs-executor/custom-generated

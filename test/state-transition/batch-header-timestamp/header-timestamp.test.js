@@ -29,6 +29,8 @@ const pathInput = path.join(__dirname, './input_gen.json');
 // input executor folder
 const { pathTestVectors } = require('../../helpers/helpers');
 
+const testvectorsGlobalConfig = require(path.join(__dirname, '../../../testvectors.config.json'));
+
 const pathInputExecutor = path.join(pathTestVectors, 'inputs-executor/no-data');
 
 describe('Header timestamp', function () {
@@ -70,6 +72,7 @@ describe('Header timestamp', function () {
                 null,
                 null,
                 chainID,
+                testvectorsGlobalConfig.forkID,
             );
 
             // Check evm contract params

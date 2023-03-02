@@ -84,6 +84,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 globalExitRoot,
                 timestamp,
                 chainID,
+                forkID,
             } = testVectors[i];
             console.log(`Executing test-vector id: ${id}`);
 
@@ -102,6 +103,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 null,
                 null,
                 chainID,
+                forkID,
             );
 
             // NEW VM
@@ -272,6 +274,7 @@ describe('Generate inputs executor from test-vectors', async function () {
             // Save outuput in file
             if (outputFlag) {
                 const dir = path.join(__dirname, inputsPath);
+                console.log(`WRITE: ${dir}${inputName}${id}.json`);
                 await fs.writeFileSync(`${dir}${inputName}${id}.json`, JSON.stringify(circuitInput, null, 2));
             }
             if (update) {

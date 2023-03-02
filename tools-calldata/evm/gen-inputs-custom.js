@@ -76,6 +76,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 globalExitRoot,
                 timestamp,
                 chainID,
+                forkID,
             } = testVectors[i];
             console.log(`Executing test-vector id: ${id}`);
 
@@ -94,6 +95,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 null,
                 null,
                 chainID,
+                forkID,
             );
 
             // NEW VM

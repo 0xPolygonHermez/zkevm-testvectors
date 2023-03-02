@@ -19,6 +19,7 @@ const { argv } = require('yargs');
 const fs = require('fs');
 const path = require('path');
 const helpers = require('../../tools-calldata/helpers/helpers');
+const testvectorsGlobalConfig = require(path.join(__dirname, '../../testvectors.config.json'));
 
 // example: npx mocha gen-inputs.js --test xxxx --folder xxxx --ignore
 describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', async function () {
@@ -66,7 +67,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             }
             if (argv.folder) {
                 folder = argv.folder;
-                outputPath += `/${argv.folder.trim()}-legacy`;
+                outputPath += `/${group}/type0Txs`;
                 dir = path.join(__dirname, outputPath);
                 if (!fs.existsSync(dir)) {
                     fs.mkdirSync(dir);
@@ -76,7 +77,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             group = 'GeneralStateTests';
             if (argv.folder) {
                 folder = argv.folder;
-                outputPath += `/${argv.folder.trim()}-legacy`;
+                outputPath += `/${group}/type0Txs`;
                 dir = path.join(__dirname, outputPath);
                 if (!fs.existsSync(dir)) {
                     fs.mkdirSync(dir);
@@ -202,7 +203,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         for (let e = 0; e < listNotSupported.length; e++) {
                             const notSupportedFile = listNotSupported[e].split('/');
-                            if (auxOutputPathName.includes(`${notSupportedFile[0]}-legacy/${notSupportedFile[1]}.json`)) {
+                            if (folder.includes(`${notSupportedFile[0]}`) && auxOutputPathName.includes(`${notSupportedFile[1]}.json`)) {
                                 throw new Error('not supported');
                             }
                         }
@@ -261,6 +262,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             null,
                             null,
                             chainIdSequencer,
+                            testvectorsGlobalConfig.forkID,
                         );
                         const batch = await zkEVMDB.buildBatch(
                             timestamp,

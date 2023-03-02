@@ -20,11 +20,20 @@ tools/ethereum-tests/info-output-*
 inputs-integration
 errors.txt
 info.txt
+info-30M.txt
 info-inputs.txt
 info-output.txt
 tools/ethereum-tests/final-table.txt
 tools/ethereum-tests/.DS_Store
+all-info.txt
+all-info-2.txt
 
 tools-calldata/evm/.DS_Store
 tools/benchmark/inputs
 tools/benchmark/.DS_Store
+
+tools/coverage/reports
+tools/benchmark/benchmark_config.json
+tools/.DS_Store
+
+.DS_Store

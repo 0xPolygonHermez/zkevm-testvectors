@@ -1,16 +1,18 @@
+rm ./GeneralStateTests/tests-30M/tests30M-list.json-ignore
+mv ./GeneralStateTests/tests-OOC/testsOOC-list.json-ignore ./GeneralStateTests/tests-OOC/testsOOC-list.json
 if [ -d "tests" ]
     then
     if [ "$1" == "update" ]
         then
         rm -rf tests
         rm -r eth-inputs
-        git clone https://github.com/ethereum/tests.git
+        git clone https://github.com/0xPolygonHermez/ethereum-tests tests
         cd tests
         git checkout 9e0a5e00981575de017013b635d54891f9e561ef
         cd ../
     fi
 else
-    git clone https://github.com/ethereum/tests.git
+    git clone https://github.com/0xPolygonHermez/ethereum-tests tests
     cd tests
     git checkout 9e0a5e00981575de017013b635d54891f9e561ef
     cd ../
@@ -24,3 +26,7 @@ do
         npx --max-old-space-size=12000 mocha --timeout 0 gen-inputs.js --folder $folder
     fi
 done
+mv ./GeneralStateTests/tests-30M/tests30M-list.json ./GeneralStateTests/tests-30M/tests30M-list.json-ignore
+mv ./GeneralStateTests/tests-OOC/testsOOC-list.json ./GeneralStateTests/tests-OOC/testsOOC-list.json-ignore
+npx --max-old-space-size=12000 mocha gen-inputs-legacy.js --folder stTransactionTest
+npx --max-old-space-size=12000 mocha gen-inputs-legacy.js --folder stMemoryTest

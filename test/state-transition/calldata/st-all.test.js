@@ -42,6 +42,7 @@ describe('Run state-transition tests: calldata', async function () {
             const testVectors = JSON.parse(fs.readFileSync(pathTestVector));
 
             for (let i = 0; i < testVectors.length; i++) {
+                console.log(`check test vectors: ${testVectors[i].id}`);
                 let {
                     genesis,
                     expectedOldRoot,
@@ -53,6 +54,7 @@ describe('Run state-transition tests: calldata', async function () {
                     globalExitRoot,
                     timestamp,
                     chainID,
+                    forkID,
                 } = testVectors[i];
 
                 if (!chainID) chainID = 1000;
@@ -68,6 +70,7 @@ describe('Run state-transition tests: calldata', async function () {
                     null,
                     null,
                     chainID,
+                    forkID,
                 );
 
                 expect(zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
