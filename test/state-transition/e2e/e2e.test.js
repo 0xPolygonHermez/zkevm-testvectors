@@ -37,6 +37,8 @@ async function setNextBlockTimestamp(timestamp) {
     return (ethers.provider.send('evm_setNextBlockTimestamp', [timestamp]));
 }
 
+const configTestvectors = require('../../../testvectors.config.json');
+
 describe('Proof of efficiency test vectors', function () {
     this.timeout(0);
 
@@ -64,7 +66,7 @@ describe('Proof of efficiency test vectors', function () {
     const pendingStateTimeoutDefault = 100;
     const trustedAggregatorTimeoutDefault = 10;
     const initChainID = 1000;
-    const initForkID = 1;
+    const initForkID = configTestvectors.forkID;
     const version = '0.0.1';
 
     before(async () => {
