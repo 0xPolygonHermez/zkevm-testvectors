@@ -11,7 +11,6 @@
 test_folder_name=$1
 absolute_tests_path=$(pwd)/tests
 test_file_name=$2
-
 # Read args
 run_folder=false
 while [[ $# -gt 0 ]]; do
@@ -37,10 +36,10 @@ if [ "$run_folder" = true ]; then
     # Run dretesteth from docker
     ./dretesteth.sh -t GeneralStateTests/$test_folder_name -- --testpath $absolute_tests_path --fillchain
     # Regen test as executor input
-    # npx mocha gen-inputs.js --evm-debug --folder $test_folder_name
+    npx mocha gen-inputs.js --evm-debug --folder $test_folder_name
 else
     # Run dretesteth from docker
     ./dretesteth.sh -t GeneralStateTests/$test_folder_name -- --testpath $absolute_tests_path --singletest $test_file_name --fillchain
     # Regen test as executor input
-    # npx mocha gen-inputs.js --evm-debug --test $test_folder_name/$test_file_name.json
+    npx mocha gen-inputs.js --evm-debug --test $test_folder_name/$test_file_name.json
 fi
