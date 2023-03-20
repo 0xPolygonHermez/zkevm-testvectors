@@ -28,7 +28,7 @@ Maintained tests:
 
 | Total | Generation errors | Ignored | :heavy_check_mark: | :x: | Coverage |
 |:-----:|:-----------------:|:-------:|:------------------:|:---:|:--------:|
-| 17799 |         64        |  6931   |        10804       |  0  |  99.41%  |
+| 17799 |         64        |  3021   |        14714       |  0  |  99.57%  |
 
 
 ## Extended table
@@ -37,7 +37,7 @@ Maintained tests:
 |:------------------------------------:|:-----:|:------------------:|:---:|:-------:|:------:|
 |         stArgsZeroOneBalance         |  96   |         94         |  0  |    2    | 100.00 |
 |             stAttackTest             |   2   |         0          |  0  |    2    | 100.00 |
-|             stBadOpcode              | 4250  |        194         |  1  |  4055   | 99.49  |
+|             stBadOpcode              | 4250  |        4104        |  1  |   145   | 99.98  |
 |                stBugs                |   9   |         7          |  0  |    2    | 100.00 |
 |             stCallCodes              |  87   |         67         |  0  |   20    | 100.00 |
 |       stCallCreateCallCodeTest       |  55   |         39         |  0  |   16    | 100.00 |
