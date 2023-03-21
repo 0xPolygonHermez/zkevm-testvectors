@@ -143,38 +143,6 @@
       "description": "Clear storage tree could not be done in zkEVM state-tree"
     },
     {
-      "name": "stCreate2/create2callPrecompiles_0",
-      "description": "Precompiled called are not supported"
-    },
-    {
-      "name": "stCreate2/create2callPrecompiles_1",
-      "description": "Precompiled called are not supported"
-    },
-    {
-      "name": "stCreate2/create2callPrecompiles_2",
-      "description": "Precompiled called are not supported"
-    },
-    {
-      "name": "stCreate2/create2callPrecompiles_3",
-      "description": "Precompiled called are not supported"
-    },
-    {
-      "name": "stCreate2/create2callPrecompiles_4",
-      "description": "Precompiled called are not supported"
-    },
-    {
-      "name": "stCreate2/create2callPrecompiles_5",
-      "description": "Precompiled called are not supported"
-    },
-    {
-      "name": "stCreate2/create2callPrecompiles_6",
-      "description": "Precompiled called are not supported"
-    },
-    {
-      "name": "stCreate2/create2callPrecompiles_7",
-      "description": "Precompiled called are not supported"
-    },
-    {
       "name": "stCreate2/RevertInCreateInInitCreate2",
       "description": "Clear storage tree could not be done in zkEVM state-tree"
     },
@@ -195,52 +163,40 @@
       "description": "Opcode CHAINID (0x46) called and stored. ChainId does not match. Similar internal test has been done in: state-transition/calldata/chainId.json"
     },
     {
-      "name": "stStaticCall/StaticcallToPrecompileFromCalledContract_0",
-      "description": "Some Precompileds not supported"
-    },
-    {
-      "name": "stStaticCall/StaticcallToPrecompileFromContractInitialization_0",
-      "description": "Some Precompileds not supported"
-    },
-    {
-      "name": "stStaticCall/StaticcallToPrecompileFromTransaction_0",
-      "description": "Some Precompileds not supported"
-    },
-    {
       "name": "stStaticCall/static_CallSha256_1_0",
-      "description": "Sha256 precompiled not supported"
+      "description": "Precompiled sha256 is not supported"
     },
     {
       "name": "stStaticCall/static_CallSha256_1_nonzeroValue_0",
-      "description": "Sha256 precompiled not supported"
+      "description": "Precompiled sha256 is not supported"
     },
     {
       "name": "stStaticCall/static_CallSha256_2_0",
-      "description": "Sha256 precompiled not supported"
+      "description": "Precompiled sha256 is not supported"
     },
     {
       "name": "stStaticCall/static_CallSha256_3_0",
-      "description": "Sha256 precompiled not supported"
+      "description": "Precompiled sha256 is not supported"
     },
     {
       "name": "stStaticCall/static_CallSha256_3_postfix0_0",
-      "description": "Sha256 precompiled not supported"
+      "description": "Precompiled sha256 is not supported"
     },
     {
       "name": "stStaticCall/static_CallSha256_3_prefix0_0",
-      "description": "Sha256 precompiled not supported"
+      "description": "Precompiled sha256 is not supported"
     },
     {
       "name": "stStaticCall/static_CallSha256_4_0",
-      "description": "Sha256 precompiled not supported"
+      "description": "Precompiled sha256 is not supported"
     },
     {
       "name": "stStaticCall/static_CallSha256_4_gas99_0",
-      "description": "Sha256 precompiled not supported"
+      "description": "Precompiled sha256 is not supported"
     },
     {
       "name": "stStaticCall/static_CallSha256_5_0",
-      "description": "Sha256 precompiled not supported"
+      "description": "Precompiled sha256 is not supported"
     },
     {
       "name": "stRefundTest/refund_CallToSuicideTwice_1",
@@ -256,43 +212,11 @@
     },
     {
       "name": "stTransactionTest/SuicidesAndInternlCallSuicidesSuccess_1",
-      "description": "Selfdestruct error"
+      "description": "Selfdestruct"
     },
     {
       "name": "stTransactionTest/PointAtInfinityECRecover",
       "description": "TODO: deltaX == 0 => division by zero ==> how manage? (sm_main_exec.js --> eval_AddPointEc)"
-    },
-    {
-      "name": "stStaticFlagEnabled/CallWithZeroValueToPrecompileFromTransaction",
-      "description": "Precompiled contracts called are not supported"
-    },
-    {
-      "name": "stStaticFlagEnabled/CallcodeToPrecompileFromCalledContract",
-      "description": "Precompiled contracts called are not supported"
-    },
-    {
-      "name": "stStaticFlagEnabled/CallcodeToPrecompileFromContractInitialization",
-      "description": "Precompiled contracts called are not supported"
-    },
-    {
-      "name": "stStaticFlagEnabled/CallcodeToPrecompileFromTransaction",
-      "description": "Precompiled contracts called are not supported"
-    },
-    {
-      "name": "stStaticFlagEnabled/DelegatecallToPrecompileFromCalledContract",
-      "description": "Precompiled contracts called are not supported"
-    },
-    {
-      "name": "stStaticFlagEnabled/DelegatecallToPrecompileFromContractInitialization",
-      "description": "Precompiled contracts called are not supported"
-    },
-    {
-      "name": "stStaticFlagEnabled/DelegatecallToPrecompileFromTransaction",
-      "description": "Precompiled contracts called are not supported"
-    },
-    {
-      "name": "stStaticFlagEnabled/StaticcallForPrecompilesIssue683",
-      "description": "Precompiled contracts called are not supported"
     },
     {
       "name": "VMTests/jump_16",
@@ -12849,6 +12773,126 @@
     {
       "name": "stBadOpcode/opcFEDiffPlaces_27",
       "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stRandom/randomStatetest138",
+      "description": "rom BATCH_DIFFICULTY != DIFFICULTY --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-block_3.json"
+    },
+    {
+      "name": "stRandom/randomStatetest367",
+      "description": "rom BATCH_DIFFICULTY != DIFFICULTY --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-block_3.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_0",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_1",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_2",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_5",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_6",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_7",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_8",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_9",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_10",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_11",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_12",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_13",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stCreate2/create2callPrecompiles_1",
+      "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stCreate2/create2callPrecompiles_2",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stCreate2/create2callPrecompiles_4",
+      "description": "Precompiled modexp is not supported"
+    },
+    {
+      "name": "stCreate2/create2callPrecompiles_5",
+      "description": "Precompiled ecAdd is not supported"
+    },
+    {
+      "name": "stCreate2/create2callPrecompiles_6",
+      "description": "Precompiled ecAdd is not supported"
+    },
+    {
+      "name": "stCreate2/create2callPrecompiles_7",
+      "description": "Precompiled ecAdd is not supported"
+    },
+    {
+      "name": "stStaticCall/StaticcallToPrecompileFromCalledContract",
+      "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stStaticCall/StaticcallToPrecompileFromContractInitialization",
+      "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stStaticCall/StaticcallToPrecompileFromTransaction",
+      "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/CallWithZeroValueToPrecompileFromTransaction",
+      "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/CallcodeToPrecompileFromCalledContract",
+      "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/CallcodeToPrecompileFromContractInitialization",
+      "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/CallcodeToPrecompileFromTransaction",
+      "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/DelegatecallToPrecompileFromCalledContract",
+      "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/DelegatecallToPrecompileFromContractInitialization",
+      "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/DelegatecallToPrecompileFromTransaction",
+      "description": "Precompiled sha256 is not supported"
     }
   ]
 }

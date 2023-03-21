@@ -21,10 +21,10 @@ Maintained tests:
 > More coverage will be added while test are being tested
 
 ## Overview
-- Commit [ethereum-tests](https://github.com/0xPolygonHermez/ethereum-tests/tree/test-vectors): 71fce961e5ebd9c13d67213b3cd964798f1859e6
-- Commit [zkevm-testvectors](https://github.com/0xPolygonHermez/zkevm-testvectors): a6001e3ddfa3d110abe56814aff731d318f882c2
-- Commit [zkevm-rom](https://github.com/0xPolygonHermez/zkevm-rom): 0dbd9217feb050888a4a1702d79e5fa4d54e9c48
-- Commit [zkevm-proverjs](https://github.com/0xPolygonHermez/zkevm-proverjs): a15ed4b5f4dbaca87e32a2295d64bccf4f7d3d88
+- Commit [ethereum-tests](https://github.com/0xPolygonHermez/ethereum-tests/tree/test-vectors): 43c7dc2406b94254a159218f9380c43ade00e3de
+- Commit [zkevm-testvectors](https://github.com/0xPolygonHermez/zkevm-testvectors): 6ee607e15870931cd2104e6b58c0c234205f9245
+- Commit [zkevm-rom](https://github.com/0xPolygonHermez/zkevm-rom): b24a7b49446ff90f908f8641dc486d4ce9c5a544
+- Commit [zkevm-proverjs](https://github.com/0xPolygonHermez/zkevm-proverjs): 316a592e0ec8f8251e86ccabab0c2edbf11b7ea2
 
 | Total | Generation errors | Ignored | :heavy_check_mark: | :x: | Coverage |
 |:-----:|:-----------------:|:-------:|:------------------:|:---:|:--------:|
