@@ -6,6 +6,12 @@
     "passed": true
   },
   {
+    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/stBadOpcode/measureGas_10.json",
+    "error": "Error: Assert Error: newStateRoot does not match\n   State root computed: 0x5b5b3cc748a98cfc2fcdd104c5360e40b8194a1e215122629802f247f3c5e31b\n   State root expected: 0x1611b5d11287c7e2d8e1f0449c098ef414fd130886fd97e805c4e059e0d42973\nErrors: invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOCK",
+    "stepsN": 8388608,
+    "passed": true
+  },
+  {
     "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/Call20KbytesContract50_1_1.json",
     "error": "Error: Assert Error: newStateRoot does not match\n   State root computed: 0xb799aae76a14be445d18c9bdd3c1692a7aa7c7188df1982f5a034066a7d80df8\n   State root expected: 0x8a23d198e2a95046877fb02e6881b4c9b98547d48e38c3da67d7bcdee47a9283\nErrors: OOCS",
     "stepsN": 16777216,

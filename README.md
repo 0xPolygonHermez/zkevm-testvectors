@@ -21,14 +21,14 @@ Maintained tests:
 > More coverage will be added while test are being tested
 
 ## Overview
-- Commit [ethereum-tests](https://github.com/0xPolygonHermez/ethereum-tests/tree/test-vectors): 43c7dc2406b94254a159218f9380c43ade00e3de
-- Commit [zkevm-testvectors](https://github.com/0xPolygonHermez/zkevm-testvectors): 6ee607e15870931cd2104e6b58c0c234205f9245
-- Commit [zkevm-rom](https://github.com/0xPolygonHermez/zkevm-rom): b24a7b49446ff90f908f8641dc486d4ce9c5a544
-- Commit [zkevm-proverjs](https://github.com/0xPolygonHermez/zkevm-proverjs): 316a592e0ec8f8251e86ccabab0c2edbf11b7ea2
+- Commit [ethereum-tests](https://github.com/0xPolygonHermez/ethereum-tests/tree/test-vectors): 82c67dbdceb2a221a01542f566337d93b47dc842
+- Commit [zkevm-testvectors](https://github.com/0xPolygonHermez/zkevm-testvectors): 12b04807c551d090167386bbaf4a224d81fc55c0
+- Commit [zkevm-rom](https://github.com/0xPolygonHermez/zkevm-rom): 54966121d35c8e6805a7706730fbe43c5cdabb1d
+- Commit [zkevm-proverjs](https://github.com/0xPolygonHermez/zkevm-proverjs): 95ca45eec5ae0a276c8f8feae7c89d8b06f2a385
 
 | Total | Generation errors | Ignored | :heavy_check_mark: | :x: | Coverage |
 |:-----:|:-----------------:|:-------:|:------------------:|:---:|:--------:|
-| 17799 |         64        |  3021   |        14714       |  0  |  99.57%  |
+| 17799 |         48        |  3034   |        14717       |  0  |  99.67%  |
 
 
 ## Extended table
@@ -46,8 +46,8 @@ Maintained tests:
 |              stChainId               |   2   |         1          |  0  |    1    | 100.00 |
 |            stCodeCopyTest            |   2   |         2          |  0  |    0    | 100.00 |
 |           stCodeSizeLimit            |   6   |         6          |  0  |    0    | 100.00 |
-|              stCreate2               |  174  |        127         |  1  |   46    | 99.22  |
-|             stCreateTest             |  173  |        137         | 15  |   21    | 90.13  |
+|              stCreate2               |  174  |        129         |  1  |   44    | 99.23  |
+|             stCreateTest             |  173  |        135         |  3  |   35    | 97.83  |
 |     stDelegatecallTestHomestead      |  31   |         26         |  0  |    5    | 100.00 |
 |           stEIP150Specific           |  25   |         23         |  0  |    2    | 100.00 |
 |     stEIP150singleCodeGasPrices      |  339  |        329         |  0  |   10    | 100.00 |
@@ -67,7 +67,7 @@ Maintained tests:
 |        stPreCompiledContracts        |  960  |        425         |  0  |   535   | 100.00 |
 |       stPreCompiledContracts2        |  248  |        100         |  0  |   148   | 100.00 |
 |      stQuadraticComplexityTest       |  32   |         17         |  6  |    9    | 73.91  |
-|               stRandom               |  313  |        262         |  6  |   45    | 97.76  |
+|               stRandom               |  313  |        262         |  4  |   47    | 98.50  |
 |              stRandom2               |  226  |        205         |  0  |   21    | 100.00 |
 |          stRecursiveCreate           |   2   |         2          |  0  |    0    | 100.00 |
 |             stRefundTest             |  26   |         11         |  0  |   15    | 100.00 |
@@ -80,8 +80,8 @@ Maintained tests:
 |            stSolidityTest            |  23   |         18         |  0  |    5    | 100.00 |
 |            stSpecialTest             |  22   |         10         |  2  |   10    | 83.33  |
 |             stStackTests             |  375  |        375         |  0  |    0    | 100.00 |
-|             stStaticCall             |  478  |        391         | 12  |   75    | 97.02  |
-|         stStaticFlagEnabled          |  34   |         24         |  0  |   10    | 100.00 |
+|             stStaticCall             |  478  |        393         | 10  |   75    | 97.52  |
+|         stStaticFlagEnabled          |  34   |         25         |  0  |    9    | 100.00 |
 |        stSystemOperationsTest        |  72   |         54         |  0  |   18    | 100.00 |
 |           stTimeConsuming            | 5190  |        5187        |  0  |    3    | 100.00 |
 |          stTransactionTest           |  164  |        148         |  0  |   16    | 100.00 |
