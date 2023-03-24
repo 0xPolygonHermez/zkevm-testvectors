@@ -390,7 +390,7 @@ describe('Proof of efficiency test vectors', function () {
                 // sequencer send the batch
                 const lastBatchSequenced = await polygonZkEVMContract.lastBatchSequenced();
                 const l2txData = batchL2Data;
-                const maticAmount = await polygonZkEVMContract.getCurrentBatchFee();
+                const maticAmount = await polygonZkEVMContract.batchFee();
 
                 await expect(
                     maticTokenContract.connect(walletSequencer).approve(polygonZkEVMContract.address, maticAmount),

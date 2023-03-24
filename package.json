@@ -1,6 +1,6 @@
 {
     "name": "@0xpolygonhermez/test-vectors",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "zkEVM test vectors",
     "main": "index.js",
     "scripts": {
@@ -37,7 +37,7 @@
     "license": "pending",
     "devDependencies": {
         "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#v1.0.0",
-        "@0xpolygonhermez/zkevm-contracts": "github:0xPolygonHermez/zkevm-contracts#v1.0.0-fork.3",
+        "@0xpolygonhermez/zkevm-contracts": "github:0xPolygonHermez/zkevm-contracts#v1.1.0-fork.4",
         "@grpc/grpc-js": "^1.6.10",
         "@nomiclabs/hardhat-ethers": "^2.0.5",
         "@nomiclabs/hardhat-waffle": "^2.0.2",
