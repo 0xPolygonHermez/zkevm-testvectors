@@ -1,0 +1,200 @@
+cd ../../../../zkevm-proverjs/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ../../../zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/performanceTester_1.json -r ../../../zkevm-rom/build/rom.json -c -n 8388608stdout: Init time: 158.314ms
+Not enough steps to finalize execution (${ctx.step},${ctx.stepsN-1})
+
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/performanceTester_1.json
+Start executor JS...
+Error
+Error: Program terminated with registers A, D, E, SR, PC, HASHPOS, RR, RCX, zkPC not set to zero
+
+Tests finished in 7.79 minutes
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/performanceTester_1.json
+Start executor JS...
+Error
+Error: Program terminated with registers A, D, E, SR, PC, HASHPOS, RR, RCX, zkPC not set to zero
+
+
+cd ../../../../zkevm-proverjs/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ../../../zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/performanceTester_1.json -r ../../../zkevm-rom/build/rom.json -c -n 16777216stdout: Init time: 125.434ms
+Assert outputs run succesfully
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/performanceTester_1.json
+Start executor JS...
+Finish executor JS ==> 615.4041946182251 s
+
+Tests finished in 10.26 minutes
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/performanceTester_1.json
+Start executor JS...
+Finish executor JS ==> 615.4041946182251 s
+
+
+cd ../../../../zkevm-proverjs/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ../../../zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/measureGas_10.json -r ../../../zkevm-rom/build/rom.json -c -n 8388608stdout: Init time: 170.286ms
+WARNING: JMPZ with negative value [w:4183 zkPC:2657 ecrecover/ecrecover.zkasm:144]
+Error triggered zkrom: OOG
+source: [w:77777 zkPC:4667 utils.zkasm:889]
+Error triggered zkrom: OOG
+source: [w:212470 zkPC:4667 utils.zkasm:889]
+Error triggered zkrom: OOG
+source: [w:214477 zkPC:4667 utils.zkasm:889]
+Error triggered zkrom: OOG
+source: [w:216484 zkPC:4667 utils.zkasm:889]
+Error triggered zkrom: OOG
+source: [w:351177 zkPC:4667 utils.zkasm:889]
+Error triggered zkrom: OOG
+source: [w:485870 zkPC:4667 utils.zkasm:889]
+Error triggered zkrom: OOG
+source: [w:552207 zkPC:4667 utils.zkasm:889]
+Assert outputs run succesfully
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/measureGas_10.json
+Start executor JS...
+Finish executor JS ==> 43.06932642173767 s
+
+Tests finished in 0.72 minutes
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/measureGas_10.json
+Start executor JS...
+Finish executor JS ==> 43.06932642173767 s
+
+
+cd ../../../../zkevm-rom && mkdir -p build && npx zkasm main/main.zkasm -o build/rom-gas-ooc.json -D TX_GAS_LIMIT=2147483647
+cd ../../../../zkevm-proverjs/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ../../../zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Call20KbytesContract50_1_1.json -r ../../../zkevm-rom/build/rom-gas-ooc.json -c -n 8388608stdout: Init time: 151.944ms
+Not enough steps to finalize execution (${ctx.step},${ctx.stepsN-1})
+
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Call20KbytesContract50_1_1.json
+Start executor JS...
+Error
+Error: Program terminated with registers A, D, E, SR, PC, HASHPOS, RR, RCX, zkPC not set to zero
+
+Tests finished in 8.49 minutes
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Call20KbytesContract50_1_1.json
+Start executor JS...
+Error
+Error: Program terminated with registers A, D, E, SR, PC, HASHPOS, RR, RCX, zkPC not set to zero
+
+
+cd ../../../../zkevm-proverjs/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ../../../zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Call20KbytesContract50_1_1.json -r ../../../zkevm-rom/build/rom-gas-ooc.json -c -n 16777216stdout: Init time: 150.089ms
+Assert outputs run succesfully
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Call20KbytesContract50_1_1.json
+Start executor JS...
+Finish executor JS ==> 971.0078769512177 s
+
+Tests finished in 16.18 minutes
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Call20KbytesContract50_1_1.json
+Start executor JS...
+Finish executor JS ==> 971.0078769512177 s
+
+
+cd ../../../../zkevm-rom && mkdir -p build && npx zkasm main/main.zkasm -o build/rom-gas-ooc.json -D TX_GAS_LIMIT=2147483647
+cd ../../../../zkevm-proverjs/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ../../../zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Call20KbytesContract50_2_1.json -r ../../../zkevm-rom/build/rom-gas-ooc.json -c -n 8388608stdout: Init time: 138.086ms
+Not enough steps to finalize execution (${ctx.step},${ctx.stepsN-1})
+
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Call20KbytesContract50_2_1.json
+Start executor JS...
+Error
+Error: Program terminated with registers A, D, E, SR, PC, HASHPOS, RR, RCX, zkPC not set to zero
+
+Tests finished in 6.16 minutes
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Call20KbytesContract50_2_1.json
+Start executor JS...
+Error
+Error: Program terminated with registers A, D, E, SR, PC, HASHPOS, RR, RCX, zkPC not set to zero
+
+
+cd ../../../../zkevm-proverjs/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ../../../zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Call20KbytesContract50_2_1.json -r ../../../zkevm-rom/build/rom-gas-ooc.json -c -n 16777216stdout: Init time: 166.16ms
+Assert outputs run succesfully
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Call20KbytesContract50_2_1.json
+Start executor JS...
+Finish executor JS ==> 588.9316024112701 s
+
+Tests finished in 9.82 minutes
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Call20KbytesContract50_2_1.json
+Start executor JS...
+Finish executor JS ==> 588.9316024112701 s
+
+
+cd ../../../../zkevm-rom && mkdir -p build && npx zkasm main/main.zkasm -o build/rom-gas-ooc.json -D TX_GAS_LIMIT=2147483647
+cd ../../../../zkevm-proverjs/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ../../../zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Return50000_0.json -r ../../../zkevm-rom/build/rom-gas-ooc.json -c -n 8388608stdout: Init time: 118.363ms
+Not enough steps to finalize execution (${ctx.step},${ctx.stepsN-1})
+
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Return50000_0.json
+Start executor JS...
+Error
+Error: Program terminated with registers A, D, E, SR, PC, HASHPOS, RR, RCX, zkPC not set to zero
+
+Tests finished in 7.81 minutes
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Return50000_0.json
+Start executor JS...
+Error
+Error: Program terminated with registers A, D, E, SR, PC, HASHPOS, RR, RCX, zkPC not set to zero
+
+
+cd ../../../../zkevm-proverjs/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ../../../zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Return50000_0.json -r ../../../zkevm-rom/build/rom-gas-ooc.json -c -n 16777216stdout: Init time: 160.559ms
+Not enough steps to finalize execution (${ctx.step},${ctx.stepsN-1})
+
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Return50000_0.json
+Start executor JS...
+Error
+Error: Program terminated with registers A, D, E, SR, PC, HASHPOS, RR, RCX, zkPC not set to zero
+
+Tests finished in 16.50 minutes
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Return50000_0.json
+Start executor JS...
+Error
+Error: Program terminated with registers A, D, E, SR, PC, HASHPOS, RR, RCX, zkPC not set to zero
+
+
+cd ../../../../zkevm-proverjs/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ../../../zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Return50000_0.json -r ../../../zkevm-rom/build/rom-gas-ooc.json -c -n 33554432stdout: Init time: 214.741ms
+Error triggered zkrom: OOG
+source: [w:20952489 zkPC:4667 utils.zkasm:889]
+Assert outputs run succesfully
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Return50000_0.json
+Start executor JS...
+Finish executor JS ==> 1278.0853843727111 s
+
+Tests finished in 21.30 minutes
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Return50000_0.json
+Start executor JS...
+Finish executor JS ==> 1278.0853843727111 s
+
+
+cd ../../../../zkevm-rom && mkdir -p build && npx zkasm main/main.zkasm -o build/rom-gas-ooc.json -D TX_GAS_LIMIT=2147483647
+cd ../../../../zkevm-proverjs/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ../../../zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Return50000_2_0.json -r ../../../zkevm-rom/build/rom-gas-ooc.json -c -n 8388608stdout: Init time: 164.757ms
+Not enough steps to finalize execution (${ctx.step},${ctx.stepsN-1})
+
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Return50000_2_0.json
+Start executor JS...
+Error
+Error: Program terminated with registers A, D, E, SR, PC, HASHPOS, RR, RCX, zkPC not set to zero
+
+Tests finished in 8.50 minutes
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Return50000_2_0.json
+Start executor JS...
+Error
+Error: Program terminated with registers A, D, E, SR, PC, HASHPOS, RR, RCX, zkPC not set to zero
+
+
+cd ../../../../zkevm-proverjs/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ../../../zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Return50000_2_0.json -r ../../../zkevm-rom/build/rom-gas-ooc.json -c -n 16777216stdout: Init time: 146.695ms
+Not enough steps to finalize execution (${ctx.step},${ctx.stepsN-1})
+
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Return50000_2_0.json
+Start executor JS...
+Error
+Error: Program terminated with registers A, D, E, SR, PC, HASHPOS, RR, RCX, zkPC not set to zero
+
+Tests finished in 16.75 minutes
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Return50000_2_0.json
+Start executor JS...
+Error
+Error: Program terminated with registers A, D, E, SR, PC, HASHPOS, RR, RCX, zkPC not set to zero
+
+
+cd ../../../../zkevm-proverjs/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ../../../zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Return50000_2_0.json -r ../../../zkevm-rom/build/rom-gas-ooc.json -c -n 33554432stdout: Init time: 147.538ms
+Error triggered zkrom: OOG
+source: [w:20240341 zkPC:4667 utils.zkasm:889]
+Assert outputs run succesfully
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Return50000_2_0.json
+Start executor JS...
+Finish executor JS ==> 1257.5054089832306 s
+
+Tests finished in 20.96 minutes
+Input: /root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-OOC/Return50000_2_0.json
+Start executor JS...
+Finish executor JS ==> 1257.5054089832306 s
+
+
