@@ -138,6 +138,7 @@ async function executeTx(circuitInput, cmPols) {
         },
         stepsN: 8388608,
         tracer: true,
+        assertOutputs: false,
     };
     await smMain.execute(cmPols.Main, circuitInput, rom, pilConfig);
 }
@@ -148,7 +149,7 @@ async function buildGenesis() {
     } = testObject;
     let { forkID } = testObject;
     if (!forkID) {
-        forkID = 1;
+        forkID = 4;
     }
     if (initialzkEVMDB) {
         zkEVMDB = Object.assign(Object.create(Object.getPrototypeOf(initialzkEVMDB)), initialzkEVMDB);
