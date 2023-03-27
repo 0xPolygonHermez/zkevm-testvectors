@@ -107,10 +107,3 @@ In order to test, the following private keys are being used. This keys are not m
 - private key: `0x0b929d50d7fda8155539e6befa96ff297e3e9ebce4d908f570310bdf774cb32b`
   - address: `0xabCcEd19d7f290B84608feC510bEe872CC8F5112`
 
-## License
-
-### Copyright
-Polygon `zkevm-testvectors` was developed by Polygon. While we plan to adopt an open source license, we haven’t selected one yet, so all rights are reserved for the time being. Please reach out to us if you have thoughts on licensing.
-
-### Disclaimer
-This code has not yet been audited, and should not be used in any production systems.
