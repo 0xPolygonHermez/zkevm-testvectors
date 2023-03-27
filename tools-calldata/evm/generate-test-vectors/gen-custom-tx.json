@@ -9,18 +9,18 @@
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
     "genesis": {
       "accounts": [
-      {
-        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-        "nonce": "0",
-        "balance": "100000000000000000000",
-        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
-      },
-      {
-        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-        "nonce": "0",
-        "balance": "200000000000000000000",
-        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
-      }
+        {
+          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+          "nonce": "0",
+          "balance": "100000000000000000000",
+          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+        },
+        {
+          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+          "nonce": "0",
+          "balance": "200000000000000000000",
+          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+        }
       ]
     },
     "expectedOldRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
@@ -60,7 +60,7 @@
     "batchL2Data": "0xe3800a8401c9c380944d5cf5032b2a844602278b01199ed191a86c93ff01808203e88080b091173dbf91b3b0c7d72ace33bb96fa0d4b43868fe4be91e5ae0b9de52c3dd6362efc031939fb5797c30577e66edd5ffbc34b30b4585a1a8632dd71c13f74201c",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "forkID": 1
+    "forkID": 4
   },
   {
     "id": 1,
@@ -72,18 +72,18 @@
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
     "genesis": {
       "accounts": [
-      {
-        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-        "nonce": "0",
-        "balance": "100000000000000000000",
-        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
-      },
-      {
-        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-        "nonce": "0",
-        "balance": "200000000000000000000",
-        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
-      }
+        {
+          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+          "nonce": "0",
+          "balance": "100000000000000000000",
+          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+        },
+        {
+          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+          "nonce": "0",
+          "balance": "200000000000000000000",
+          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+        }
       ]
     },
     "expectedOldRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
@@ -123,7 +123,7 @@
     "batchL2Data": "0xf840809f031eea408f8e1799cb883da2927b1336521d73c2c14accfebb70d5c5af006c825208944d5cf5032b2a844602278b01199ed191a86c93ff01808203e8808001c685e7f0b0e70ede2cd8be89f84c08a36d1f3318f7fdb9cdf9342036255b5120630c55eb54a132360c247f659c64e59a454fe218c6057d83ed9f1bd593289a1c",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "forkID": 1
+    "forkID": 4
   },
   {
     "id": 2,
@@ -135,18 +135,18 @@
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
     "genesis": {
       "accounts": [
-      {
-        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-        "nonce": "0",
-        "balance": "100000000000000000000",
-        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
-      },
-      {
-        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-        "nonce": "0",
-        "balance": "200000000000000000000",
-        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
-      }
+        {
+          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+          "nonce": "0",
+          "balance": "100000000000000000000",
+          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+        },
+        {
+          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+          "nonce": "0",
+          "balance": "200000000000000000000",
+          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+        }
       ]
     },
     "expectedOldRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
@@ -186,6 +186,6 @@
     "batchL2Data": "0xf8428064825208944d5cf5032b2a844602278b01199ed191a86c93ffa1010000000000000000000000000000000000000000000000000000000000000001808203e880801c2a264f499734587ca8ac48590d065aaf4185de0ba26f9065f1ce4f5fed678b6607c2dda468e480468714ef67624acc321030218a70cabffb5454430b3d1e7f1c",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "forkID": 1
+    "forkID": 4
   }
 ]
