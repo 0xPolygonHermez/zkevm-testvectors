@@ -3,8 +3,6 @@ This repository aims to provide test vectors for polygon-hermez zkevm implementa
 
 [![Check test-vectors](https://github.com/0xPolygonHermez/zkevm-testvectors/actions/workflows/main.yaml/badge.svg)](https://github.com/0xPolygonHermez/zkevm-testvectors/actions/workflows/main.yaml)
 
-> **WARNING**: All code here is in WIP
-
 Maintained tests:
 
 ```
