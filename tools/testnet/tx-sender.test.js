@@ -68,7 +68,8 @@ describe('Run internal testnet tests', async function () {
                                 s: tx.s,
                             };
                             const serializedTransaction = ethers.utils.serializeTransaction(stx, signature);
-                            const r = await (await provider.sendTransaction(serializedTransaction)).wait();
+                            const sentTx = await (await provider.sendTransaction(serializedTransaction)).wait();
+                            expect(sentTx.status).to.equal(1);
                             console.log(r);
                         } else {
                             delete tx.from;

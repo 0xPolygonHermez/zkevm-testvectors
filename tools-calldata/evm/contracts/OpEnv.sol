@@ -134,4 +134,13 @@ contract OpEnv {
             sstore(0x0, result)
         }
     }
+
+    // opcode calldatacopy overflow
+    function opCallDataCopyOverflow() public {
+        assembly {
+            calldatacopy(100000, 0, 0)
+            let result := mload(0)
+            sstore(0x0, result)
+        }
+    }
 }
