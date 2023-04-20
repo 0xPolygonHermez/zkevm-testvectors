@@ -1,4 +1,4 @@
-# Create custom tests to public or internal
+# Create custom tests to public or internal
 
 ````
 cd tools/testnet
@@ -13,5 +13,5 @@ ENDPOINT=""
 Check `txs.json` to see the tested transactions. More can be added if necessary
 To run:
 ````
-node tx-sender.test.js
+npx mocha tx-sender.test.js
 ````
