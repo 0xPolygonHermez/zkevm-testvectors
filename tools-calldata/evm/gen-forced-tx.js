@@ -7,6 +7,7 @@
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable import/no-extraneous-dependencies */
 const fs = require('fs');
+const { Scalar } = require('ffjavascript');
 
 const folderForcedTx = '../../state-transition/forced-tx';
 const listForcedTx = require(`${folderForcedTx}/list.json`);
@@ -98,8 +99,8 @@ describe('Generate inputs executor from test-vectors', async function () {
                 const genesis = json.genesis[j];
                 newObject.genesis.push({
                     address: genesis.address,
-                    nonce: genesis.nonce,
-                    balance: genesis.balance,
+                    nonce: genesis.nonce.toString().startsWith('0x') ? Scalar.e(genesis.nonce, 16).toString() : Scalar.e(genesis.nonce).toString(),
+                    balance: genesis.balance.toString().startsWith('0x') ? Scalar.e(genesis.balance, 16).toString() : Scalar.e(genesis.balance).toString(),
                     storage: genesis.storage,
                     pvtKey: genesis.pvtKey,
                     isSmartContract: !!genesis.bytecode,
@@ -111,11 +112,10 @@ describe('Generate inputs executor from test-vectors', async function () {
             for (let j = 0; j < newLeafsKeys.length; j++) {
                 const address = newLeafsKeys[j];
                 const expectedNewLeaf = json.expectedNewLeafs[address];
-                console.log(expectedNewLeaf.bytecodeLength);
                 newObject.expectedNewLeafs.push({
                     address,
-                    nonce: expectedNewLeaf.nonce,
-                    balance: expectedNewLeaf.balance,
+                    nonce: expectedNewLeaf.nonce.toString().startsWith('0x') ? Scalar.e(expectedNewLeaf.nonce, 16).toString() : Scalar.e(expectedNewLeaf.nonce).toString(),
+                    balance: expectedNewLeaf.balance.toString().startsWith('0x') ? Scalar.e(expectedNewLeaf.balance, 16).toString() : Scalar.e(expectedNewLeaf.balance).toString(),
                     storage: expectedNewLeaf.storage,
                     pvtKey: expectedNewLeaf.pvtKey,
                     isSmartContract: expectedNewLeaf.bytecodeLength !== 0 && expectedNewLeaf.bytecodeLength !== undefined,
@@ -141,8 +141,8 @@ describe('Generate inputs executor from test-vectors', async function () {
                     const aux = genesis[genesisKeys[j]];
                     newObject.genesis.push({
                         address: genesisKeys[j],
-                        nonce: aux.nonce,
-                        balance: aux.balance,
+                        nonce: aux.nonce.toString().startsWith('0x') ? Scalar.e(aux.nonce, 16).toString() : Scalar.e(aux.nonce).toString(),
+                        balance: aux.balance.toString().startsWith('0x') ? Scalar.e(aux.balance, 16).toString() : Scalar.e(aux.balance).toString(),
                         storage: aux.storage,
                         pvtKey: aux.pvtKey,
                         isSmartContract: !!aux.bytecode,
@@ -159,8 +159,8 @@ describe('Generate inputs executor from test-vectors', async function () {
                     const aux2 = newLeafs[newLeafsKeys[j]];
                     newObject.genesis.push({
                         address: newLeafsKeys[j],
-                        nonce: aux2.nonce,
-                        balance: aux2.balance,
+                        nonce: aux2.nonce.toString().startsWith('0x') ? Scalar.e(aux2.nonce, 16).toString() : Scalar.e(aux2.nonce).toString(),
+                        balance: aux2.balance.toString().startsWith('0x') ? Scalar.e(aux2.balance, 16).toString() : Scalar.e(aux2.balance).toString(),
                         storage: aux2.storage,
                         pvtKey: aux2.pvtKey,
                         isSmartContract: !!aux2.bytecode,
@@ -193,8 +193,8 @@ describe('Generate inputs executor from test-vectors', async function () {
                 const infoGenesis = pre[genKey];
                 newObject.genesis.push({
                     address: genKey,
-                    nonce: infoGenesis.nonce,
-                    balance: infoGenesis.balance,
+                    nonce: infoGenesis.nonce.toString().startsWith('0x') ? Scalar.e(infoGenesis.nonce, 16).toString() : Scalar.e(infoGenesis.nonce).toString(),
+                    balance: infoGenesis.balance.toString().startsWith('0x') ? Scalar.e(infoGenesis.balance, 16).toString() : Scalar.e(infoGenesis.balance).toString(),
                     storage: infoGenesis.storage,
                     isSmartContract: !!infoGenesis.code,
                     bytecode: infoGenesis.code,
@@ -207,8 +207,8 @@ describe('Generate inputs executor from test-vectors', async function () {
                 const expectedNewLeaf = postState[postKey];
                 newObject.expectedNewLeafs.push({
                     address: postKey,
-                    nonce: expectedNewLeaf.nonce,
-                    balance: expectedNewLeaf.balance,
+                    nonce: expectedNewLeaf.nonce.toString().startsWith('0x') ? Scalar.e(expectedNewLeaf.nonce, 16).toString() : Scalar.e(expectedNewLeaf.nonce).toString(),
+                    balance: expectedNewLeaf.balance.toString().startsWith('0x') ? Scalar.e(expectedNewLeaf.balance, 16).toString() : Scalar.e(expectedNewLeaf.balance).toString(),
                     storage: expectedNewLeaf.storage,
                     pvtKey: expectedNewLeaf.pvtKey,
                     isSmartContract: expectedNewLeaf.code !== '0x',
