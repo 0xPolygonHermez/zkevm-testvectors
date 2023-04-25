@@ -5,16 +5,16 @@
   "genesis": [
     {
       "address": "0x095e7baea6a6c7c4c2dfeb977efac326af552d87",
-      "nonce": "0x00",
-      "balance": "0x01312d00",
+      "nonce": "0",
+      "balance": "20000000",
       "storage": {},
       "isSmartContract": true,
       "bytecode": "0x7f1122334455667788991011121314151617181920212223242526272829303132608052602060806080600060006001620493e0f15060805160005500"
     },
     {
       "address": "0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b",
-      "nonce": "0x00",
-      "balance": "0x0de0b6b3a7640000",
+      "nonce": "0",
+      "balance": "1000000000000000000",
       "storage": {},
       "isSmartContract": true,
       "bytecode": "0x"
@@ -23,8 +23,8 @@
   "expectedNewLeafs": [
     {
       "address": "0x095e7baea6a6c7c4c2dfeb977efac326af552d87",
-      "nonce": "0x00",
-      "balance": "0x0132b3a0",
+      "nonce": "0",
+      "balance": "20100000",
       "storage": {
         "0x00": "0x1122334455667788991011121314151617181920212223242526272829303132"
       },
@@ -33,16 +33,16 @@
     },
     {
       "address": "0x2adc25665018aa1fe0e6bc666dac8fc2697ff9ba",
-      "nonce": "0x00",
-      "balance": "0x1bc16d674ecf0ee0",
+      "nonce": "0",
+      "balance": "2000000000000462560",
       "storage": {},
       "isSmartContract": false,
       "bytecode": "0x"
     },
     {
       "address": "0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b",
-      "nonce": "0x01",
-      "balance": "0x0de0b6b3a75b6a80",
+      "nonce": "1",
+      "balance": "999999999999437440",
       "storage": {},
       "isSmartContract": false,
       "bytecode": "0x"
