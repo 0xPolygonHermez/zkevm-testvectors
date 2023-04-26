@@ -130,8 +130,12 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             // eslint-disable-next-line import/no-dynamic-require
             test = require(file);
 
-            const keysTests = Object.keys(test).filter((op) => op.includes('_Berlin') === true);
-            const txsLength = keysTests.length;
+            let keysTests = Object.keys(test).filter((op) => op.includes('_Berlin') === true);
+            let txsLength = keysTests.length;
+            if (txsLength === 0) {
+                keysTests = Object.keys(test).filter((op) => op.includes('_Shanghai') === true);
+                txsLength = keysTests.length;
+            }
             if (txsLength === 0) {
                 infoErrors += 'no Berlin keys\n';
                 infoErrors += `${outputName}\n`;
