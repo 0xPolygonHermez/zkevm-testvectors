@@ -89,8 +89,8 @@ describe('Generate inputs executor from test-vectors', async function () {
         for (let i = 0; i < jsonList.length; i++) {
             const json = jsonList[i].test;
             const newObject = {
-                expectedOldStateRoot: json.oldStateRoot,
-                expectedNewStateRoot: json.newStateRoot,
+                expectedOldStateRoot: json.expectedOldRoot,
+                expectedNewStateRoot: json.expectedNewRoot,
                 batchL2Data: json.batchL2Data,
                 genesis: [],
                 expectedNewLeafs: [],
@@ -187,7 +187,6 @@ describe('Generate inputs executor from test-vectors', async function () {
             const jsonInfoEthTest = jsonInfoEthTests[key];
             const { pre } = jsonInfoEthTest;
             const genesisKeys = Object.keys(pre);
-
             for (let j = 0; j < genesisKeys.length; j++) {
                 const genKey = genesisKeys[j];
                 const infoGenesis = pre[genKey];
@@ -196,7 +195,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                     nonce: infoGenesis.nonce.toString().startsWith('0x') ? Scalar.e(infoGenesis.nonce, 16).toString() : Scalar.e(infoGenesis.nonce).toString(),
                     balance: infoGenesis.balance.toString().startsWith('0x') ? Scalar.e(infoGenesis.balance, 16).toString() : Scalar.e(infoGenesis.balance).toString(),
                     storage: infoGenesis.storage,
-                    isSmartContract: !!infoGenesis.code,
+                    isSmartContract: !!infoGenesis.code && infoGenesis.code !== '0x',
                     bytecode: infoGenesis.code,
                 });
             }
