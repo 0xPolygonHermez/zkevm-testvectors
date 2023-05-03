@@ -9,11 +9,11 @@
 const fs = require('fs');
 const { Scalar } = require('ffjavascript');
 
-const folderForcedTx = '../../state-transition/forced-tx';
-const listForcedTx = require(`${folderForcedTx}/list.json`);
+const folderForcedTx = '../../../state-transition/forced-tx';
+const folderForcedTxInputs = './inputs';
 const genesisList = require(`${folderForcedTx}/genesis-list.json`);
 const testEthList = require(`${folderForcedTx}/test-eth-list.json`);
-const testsEthPath = '../../tools/ethereum-tests/tests/';
+const testsEthPath = '../../../tools/ethereum-tests/tests/';
 /*
 {
     "expectedOldStateRoot",
@@ -51,29 +51,29 @@ const testsEthPath = '../../tools/ethereum-tests/tests/';
 */
 
 describe('Generate inputs executor from test-vectors', async function () {
-    const listTests = [];
     const jsonList = [];
     const jsonEthList = [];
     const jsonInputList = [];
 
     it('load test vectors', async () => {
-        for (let i = 0; i < listForcedTx.length; i++) {
-            const pathForcedTx = `../../${listForcedTx[i]}`;
-            let stats = fs.statSync(pathForcedTx);
-            if (stats.isDirectory()) {
-                fs.readdirSync(pathForcedTx).forEach((subFile) => {
-                    listTests.push(`${pathForcedTx}/${subFile}`);
-                });
-            } else {
-                listTests.push(pathForcedTx);
-            }
-        }
+        const listTests = fs.readdirSync('./').filter((x) => x.endsWith('.json'));
+        // for (let i = 0; i < listForcedTx.length; i++) {
+        // const pathForcedTx = `../../../${listForcedTx[i]}`;
+        // let stats = fs.statSync(pathForcedTx);
+        // if (stats.isDirectory()) {
+        // fs.readdirSync(pathForcedTx).forEach((subFile) => {
+        // listTests.push(`${pathForcedTx}/${subFile}`);
+        // });
+        // } else {
+        // listTests.push(pathForcedTx);
+        // }
+        // }
         for (let j = 0; j < listTests.length; j++) {
-            const jsonTest = require(listTests[j]);
+            const jsonTest = require(`./${listTests[j]}`);
             const name = listTests[j].split('/')[listTests[j].split('/').length - 1];
-            if (listTests[j].includes('ethereum-tests')) {
+            if (listTests[j].startsWith('eth-')) {
                 jsonEthList.push({ name, test: jsonTest });
-            } else if (listTests[j].includes('inputs-executor')) {
+            } else if (listTests[j].startsWith('in-')) {
                 jsonInputList.push({ name, test: jsonTest });
             } else {
                 const list = Object.keys(jsonTest);
@@ -87,6 +87,7 @@ describe('Generate inputs executor from test-vectors', async function () {
     });
     it('generate forced info', async () => {
         for (let i = 0; i < jsonList.length; i++) {
+            console.log(jsonList[i].name);
             const json = jsonList[i].test;
             const newObject = {
                 expectedOldStateRoot: json.expectedOldRoot,
@@ -123,7 +124,8 @@ describe('Generate inputs executor from test-vectors', async function () {
                     bytecodeLength: expectedNewLeaf.bytecodeLength,
                 });
             }
-            await fs.writeFileSync(`${folderForcedTx}/${jsonList[i].name}`, JSON.stringify(newObject, null, 2));
+            // await fs.writeFileSync(`${folderForcedTx}/${jsonList[i].name}`, JSON.stringify(newObject, null, 2));
+            await fs.writeFileSync(`${folderForcedTxInputs}/${jsonList[i].name}`, JSON.stringify(newObject, null, 2));
         }
         for (let i = 0; i < jsonInputList.length; i++) {
             const json = jsonInputList[i].test;
@@ -170,7 +172,8 @@ describe('Generate inputs executor from test-vectors', async function () {
                 }
             }
 
-            await fs.writeFileSync(`${folderForcedTx}/${jsonInputList[i].name}`, JSON.stringify(newObject, null, 2));
+            // await fs.writeFileSync(`${folderForcedTx}/${jsonInputList[i].name}`, JSON.stringify(newObject, null, 2));
+            await fs.writeFileSync(`${folderForcedTxInputs}/${jsonInputList[i].name}`, JSON.stringify(newObject, null, 2));
         }
         for (let i = 0; i < jsonEthList.length; i++) {
             const json = jsonEthList[i].test;
@@ -181,7 +184,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 genesis: [],
                 expectedNewLeafs: [],
             };
-            const infoEthTest = testEthList[jsonEthList[i].name];
+            const infoEthTest = testEthList[jsonEthList[i].name.substring(4)];
             const jsonInfoEthTests = require(testsEthPath + infoEthTest.path);
             const key = Object.keys(jsonInfoEthTests).filter((op) => op.includes('_Berlin') === true)[infoEthTest.index];
             const jsonInfoEthTest = jsonInfoEthTests[key];
@@ -214,7 +217,8 @@ describe('Generate inputs executor from test-vectors', async function () {
                     bytecode: expectedNewLeaf.code,
                 });
             }
-            await fs.writeFileSync(`${folderForcedTx}/${jsonEthList[i].name}`, JSON.stringify(newObject, null, 2));
+            // await fs.writeFileSync(`${folderForcedTx}/${jsonEthList[i].name}`, JSON.stringify(newObject, null, 2));
+            await fs.writeFileSync(`${folderForcedTxInputs}/${jsonEthList[i].name}`, JSON.stringify(newObject, null, 2));
         }
     });
 });
