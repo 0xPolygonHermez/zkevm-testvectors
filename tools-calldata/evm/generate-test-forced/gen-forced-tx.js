@@ -9,10 +9,10 @@
 const fs = require('fs');
 const { Scalar } = require('ffjavascript');
 
-const folderForcedTx = '../../../state-transition/forced-tx';
-const folderForcedTxInputs = './inputs';
-const genesisList = require(`${folderForcedTx}/genesis-list.json`);
-const testEthList = require(`${folderForcedTx}/test-eth-list.json`);
+const folderForcedTxInputs = './forced-tx';
+const genesisList = require('./genesis-list.json');
+const testEthList = require('./test-eth-list.json');
+
 const testsEthPath = '../../../tools/ethereum-tests/tests/';
 /*
 {
@@ -56,20 +56,9 @@ describe('Generate inputs executor from test-vectors', async function () {
     const jsonInputList = [];
 
     it('load test vectors', async () => {
-        const listTests = fs.readdirSync('./').filter((x) => x.endsWith('.json'));
-        // for (let i = 0; i < listForcedTx.length; i++) {
-        // const pathForcedTx = `../../../${listForcedTx[i]}`;
-        // let stats = fs.statSync(pathForcedTx);
-        // if (stats.isDirectory()) {
-        // fs.readdirSync(pathForcedTx).forEach((subFile) => {
-        // listTests.push(`${pathForcedTx}/${subFile}`);
-        // });
-        // } else {
-        // listTests.push(pathForcedTx);
-        // }
-        // }
+        const listTests = fs.readdirSync('./inputs').filter((x) => x.endsWith('.json'));
         for (let j = 0; j < listTests.length; j++) {
-            const jsonTest = require(`./${listTests[j]}`);
+            const jsonTest = require(`./inputs/${listTests[j]}`);
             const name = listTests[j].split('/')[listTests[j].split('/').length - 1];
             if (listTests[j].startsWith('eth-')) {
                 jsonEthList.push({ name, test: jsonTest });
@@ -87,7 +76,6 @@ describe('Generate inputs executor from test-vectors', async function () {
     });
     it('generate forced info', async () => {
         for (let i = 0; i < jsonList.length; i++) {
-            console.log(jsonList[i].name);
             const json = jsonList[i].test;
             const newObject = {
                 expectedOldStateRoot: json.expectedOldRoot,
