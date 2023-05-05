@@ -1,0 +1,94 @@
+[
+  {
+    "id": 0,
+    "description": "Genesis with erc-721 and mint NFT tx",
+    "arity": 4,
+    "chainIdSequencer": 1001,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": {
+      "accounts": [
+        {
+          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+          "balance": "100000000000000000000",
+          "nonce": "0"
+        },
+        {
+          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
+          "balance": "200000000000000000000",
+          "nonce": "0"
+        }
+      ],
+      "contracts": [
+        {
+          "contractName": "MyNFT",
+          "paramsDeploy": {
+            "types": [],
+            "values": []
+          }
+        }
+      ]
+    },
+    "expectedOldRoot": "0x3ad14bb39c4e9b6f2c1dd2901057e6ef8a3bbb23f6b5589d97f1fa949df5cebd",
+    "txs": [
+      {
+        "from": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "to": "contract",
+        "nonce": "0",
+        "value": "0",
+        "contractName": "MyNFT",
+        "function": "mintNFT",
+        "params": [
+          "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+          "uri"
+        ],
+        "gasLimit": 150000,
+        "gasPrice": "1000000000",
+        "chainId": 1001
+      }
+    ],
+    "expectedNewRoot": "0x642f6d69a2ba505d18ab23bc4bdb447b8d39378864a3cbd8ff10afb43ae2dbd2",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100000000000000000000",
+        "nonce": "1",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "bytecodeLength": 0
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "200000000000000000000",
+        "nonce": "0",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "bytecodeLength": 0
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {
+          "0x3e5fec24aa4dc4e5aee2e025e51e1392c72a2500577559fae9665c6d52bd6a31": "0x7572690000000000000000000000000000000000000000000000000000000006",
+          "0xd7c9590abf8c97a7db41f8f2fa12fae115b69950a8904317b51ca0576697a942": "0x01",
+          "0xe90b7bceb6e7df5418fb78d8ee546e97c83a08bbccc01a0644d599ccd2a7c2e0": "0x617b3a3528f9cdd6630fd3301b9c8911f7bf063d",
+          "0x0000000000000000000000000000000000000000000000000000000000000007": "0x617b3a3528f9cdd6630fd3301b9c8911f7bf063d",
+          "0x0000000000000000000000000000000000000000000000000000000000000008": "0x01",
+          "0x0000000000000000000000000000000000000000000000000000000000000000": "0x4d794e465400000000000000000000000000000000000000000000000000000a",
+          "0x0000000000000000000000000000000000000000000000000000000000000001": "0x4e46540000000000000000000000000000000000000000000000000000000006"
+        },
+        "hashBytecode": "0x0634513499d330b238121824f3923dec74b422f1e9a449e078576c351c1d98b6",
+        "bytecodeLength": 11280
+      }
+    },
+    "timestamp": 1944498031,
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0x0653a06d64893c13e2bd32ed0378ca9d96238c09bcab03de4f3f2ea63e73da14",
+    "globalExitRoot": "0xad3228b676f7d3cd4284a5443f17f1962b36e491b30a40b2405849e597ba5fb5",
+    "batchL2Data": "0xf8ab80843b9aca00830249f0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880b884eacabe14000000000000000000000000617b3a3528f9cdd6630fd3301b9c8911f7bf063d0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000375726900000000000000000000000000000000000000000000000000000000008203e88080f21404028c2510bf6200749dfba70b800bd7f9f9cfc62f2036d92917dd1b69af720bd8993f2ee32e9bb4d68142fc7a9b152e01694d25da9dc989388e4b90c67d1c",
+    "chainId": 1001,
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 4
+  }
+]
