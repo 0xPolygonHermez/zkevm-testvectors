@@ -77,9 +77,10 @@ describe('Generate inputs executor from test-vectors', async function () {
     it('generate forced info', async () => {
         for (let i = 0; i < jsonList.length; i++) {
             const json = jsonList[i].test;
+            if (jsonList[i].name === 'general_0.json') console.log(json);
             const newObject = {
-                expectedOldStateRoot: json.expectedOldRoot,
-                expectedNewStateRoot: json.expectedNewRoot,
+                expectedOldStateRoot: json.oldStateRoot,
+                expectedNewStateRoot: json.newStateRoot,
                 batchL2Data: json.batchL2Data,
                 genesis: [],
                 expectedNewLeafs: [],
