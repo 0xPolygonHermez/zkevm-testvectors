@@ -1,8 +1,8 @@
 {
   "oldStateRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
-  "newStateRoot": "0xcc651274e1060f11e5ed7235aad30a6cc5a96d6ccd71d71725eaa2bbb9fc08f8",
+  "newStateRoot": "0x19fb7e3c605a129acba19736cd3fe069020802260c91d84d9cf78f4fde7b5321",
   "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "newAccInputHash": "0x7eff0ff1e8f5d4aaa377fda04b45dabb38cbcceede9f254937fe4403ba0a6d64",
+  "newAccInputHash": "0x3f2b791a758f3fc6c26663ec1a1c4045128ad401cc000343af1f1d1b7cf7e7e9",
   "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "oldNumBatch": 1,
   "newNumBatch": 2,
@@ -10,7 +10,7 @@
   "forkID": 4,
   "batchL2Data": "0x",
   "globalExitRoot": "0xad3228b676f7d3cd4284a5443f17f1962b36e491b30a40b2405849e597ba5fb5",
-  "timestamp": 1944498031,
+  "timestamp": 1683638023,
   "sequencerAddr": "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266",
   "batchHashData": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
   "contractsBytecode": {},
@@ -118,6 +118,13 @@
     "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266": {
       "balance": "0",
       "nonce": "0"
+    },
+    "0xa40D5f56745a118D0906a34E69aeC8C0Db1cB8fA": {
+      "balance": "0",
+      "nonce": "0",
+      "storage": {
+        "0x97c92adf8a3a4d220916a89b87a4e05eb2114733ecdcebc33348042b58dc1c3d": "0x645a4707"
+      }
     }
   }
 }
