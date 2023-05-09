@@ -207,6 +207,8 @@ describe('Run state-transition tests', function () {
 
                     if (update) {
                         const newLeafState = { balance: newLeaf.balance.toString(), nonce: newLeaf.nonce.toString() };
+                        const storage = await zkEVMDB.dumpStorage(address);
+                        if (storage) { newLeafState.storage = storage; }
                         testVectors[j].expectedNewLeafs[address] = newLeafState;
                     } else {
                         expect(newLeaf.balance.toString()).to.equal(leaf.balance);
