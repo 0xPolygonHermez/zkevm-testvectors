@@ -57,7 +57,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
         const keys = Object.keys(files);
         for (let x = 0; x < keys.length; x++) {
             file = basePath + files[keys[x]].path;
-            console.log(file);
             // eslint-disable-next-line import/no-dynamic-require
             test = require(file);
             const keysTests = Object.keys(test).filter((op) => op.includes('_Berlin') === true);
