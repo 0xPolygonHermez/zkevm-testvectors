@@ -10,6 +10,7 @@ const fs = require('fs');
 const { Scalar } = require('ffjavascript');
 
 const folderForcedTxInputs = './forced-tx';
+const { smtUtils } = require('@0xpolygonhermez/zkevm-commonjs');
 const genesisList = require('./genesis-list.json');
 const testEthList = require('./test-eth-list.json');
 
@@ -188,6 +189,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                     storage: infoGenesis.storage,
                     isSmartContract: !!infoGenesis.code && infoGenesis.code !== '0x',
                     bytecode: infoGenesis.code,
+                    hashBytecode: infoGenesis.code === '0x' ? undefined : await smtUtils.hashContractBytecode(infoGenesis.code),
                 });
             }
             const { postState } = jsonInfoEthTest;
@@ -203,6 +205,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                     pvtKey: expectedNewLeaf.pvtKey,
                     isSmartContract: expectedNewLeaf.code !== '0x',
                     bytecode: expectedNewLeaf.code,
+                    hashBytecode: expectedNewLeaf.code === '0x' ? undefined : await smtUtils.hashContractBytecode(expectedNewLeaf.code),
                 });
             }
             // await fs.writeFileSync(`${folderForcedTx}/${jsonEthList[i].name}`, JSON.stringify(newObject, null, 2));
