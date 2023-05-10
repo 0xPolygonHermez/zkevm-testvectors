@@ -40,7 +40,7 @@ async function main() {
     // Folder path
     const folderPath = typeof (argv.folder) === 'string' ? argv.folder.trim() : undefined;
     const keys = ['forkID'];
-    const values = [4];
+    const values = [5];
 
     if (folderPath) {
         folders = [folderPath];
