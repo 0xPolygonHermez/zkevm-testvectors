@@ -19,6 +19,14 @@
       "storage": {},
       "isSmartContract": false,
       "bytecode": "0x"
+    },
+    {
+      "address": "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266",
+      "nonce": "0",
+      "balance": "2000000000000000000",
+      "storage": {},
+      "isSmartContract": false,
+      "bytecode": "0x"
     }
   ],
   "expectedNewLeafs": [
@@ -34,7 +42,7 @@
       "hashBytecode": "0x0a5eeb8d8d1251c076368ce61bee4ec42cfd6d4e1cb9ce1899a9ed6fa4d9ccfc"
     },
     {
-      "address": "0x2adc25665018aa1fe0e6bc666dac8fc2697ff9ba",
+      "address": "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266",
       "nonce": "0",
       "balance": "2000000000000462560",
       "storage": {},
