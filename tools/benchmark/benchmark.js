@@ -284,7 +284,10 @@ async function createRawTxs(txCount, isSetup) {
             const r = tx.r.toString(16).padStart(32 * 2, '0');
             const s = tx.s.toString(16).padStart(32 * 2, '0');
             const v = (sign + 27).toString(16).padStart(1 * 2, '0');
-            const calldata = signData.concat(r).concat(s).concat(v);
+            if (typeof currentTx.effectivePercentage === 'undefined') {
+                currentTx.effectivePercentage = '0xff';
+            }
+            const calldata = signData.concat(r).concat(s).concat(v).concat(currentTx.effectivePercentage.slice(2));
             batch.addRawTx(calldata);
         }
     }

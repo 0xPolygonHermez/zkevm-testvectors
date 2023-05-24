@@ -36,17 +36,19 @@
     ],
     "license": "pending",
     "devDependencies": {
-        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#v1.0.1-rc.3",
+        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#feature/effective-gas-price",
         "@0xpolygonhermez/zkevm-contracts": "github:0xPolygonHermez/zkevm-contracts#v1.1.0-fork.4",
         "@grpc/grpc-js": "^1.6.10",
         "@nomiclabs/hardhat-ethers": "^2.0.5",
         "@nomiclabs/hardhat-waffle": "^2.0.2",
+        "@openzeppelin/contracts": "^4.9.0",
         "@openzeppelin/hardhat-upgrades": "^1.20.0",
         "@polygon-hermez/common": "2.6.3",
-        "@polygon-hermez/vm": "5.7.27",
+        "@polygon-hermez/vm": "5.7.36",
         "chai": "^4.3.6",
         "circom_tester": "^0.0.9",
         "circomlibjs": "0.1.1",
+        "dotenv": "^16.0.3",
         "eslint": "^8.10.0",
         "eslint-config-airbnb-base": "^15.0.0",
         "eslint-plugin-mocha": "^9.0.0",
@@ -61,8 +63,7 @@
         "pil-stark": "0.0.34",
         "pilcom": "0.0.18",
         "solc": "^0.8.11",
-        "yargs": "^16.2.0",
-        "dotenv": "^16.0.3"
+        "yargs": "^16.2.0"
     },
     "bugs": {
         "url": "https://github.com/0xPolygonHermez/test-vectors/issues"
