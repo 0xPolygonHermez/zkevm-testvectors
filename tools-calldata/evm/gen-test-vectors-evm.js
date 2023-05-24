@@ -176,6 +176,7 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                         gasLimit: currentTx.gasLimit,
                         gasPrice: currentTx.gasPrice,
                         chainId: currentTx.chainId,
+                        effectivePercentage: currentTx.effectivePercentage,
                     };
                     if (currentTx.rawTx) { outputTx.rawTx = currentTx.rawTx; }
                     if (currentTx.customRawTx) { outputTx.customRawTx = currentTx.customRawTx; }
@@ -196,6 +197,7 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                         gasPrice: currentTx.gasPrice,
                         chainId: currentTx.chainId,
                         deployedBytecode,
+                        effectivePercentage: currentTx.effectivePercentage,
                     };
                     const contractAddress = ethers.utils.getContractAddress(outputTx);
                     if (outputTestVector.expectedNewLeafs[contractAddress.toString('hex')] === undefined) {
@@ -219,6 +221,7 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                         gasPrice: currentTx.gasPrice,
                         chainId: currentTx.chainId,
                         deployedBytecode: currentTx.deployedBytecode,
+                        effectivePercentage: currentTx.effectivePercentage,
                     };
                     const contractAddress = ethers.utils.getContractAddress(outputTx);
                     if (outputTestVector.expectedNewLeafs[contractAddress.toString('hex')] === undefined) {

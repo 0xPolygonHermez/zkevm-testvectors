@@ -152,7 +152,10 @@ describe('Generate inputs executor from test-vectors', async function () {
                 const r = signature.r.slice(2).padStart(64, '0'); // 32 bytes
                 const s = signature.s.slice(2).padStart(64, '0'); // 32 bytes
                 const v = (signature.v).toString(16).padStart(2, '0'); // 1 bytes
-                const calldata = signData.concat(r).concat(s).concat(v);
+                if (typeof currentTx.effectivePercentage === 'undefined') {
+                    currentTx.effectivePercentage = '0xff';
+                }
+                const calldata = signData.concat(r).concat(s).concat(v).concat(currentTx.effectivePercentage.slice(2));
                 batch.addRawTx(calldata);
             }
 
