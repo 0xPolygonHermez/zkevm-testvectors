@@ -1,38 +1,7 @@
 [
   {
-    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/VMTests/performanceTester_1.json",
-    "error": "Error: Assert Error: newStateRoot does not match\n   State root computed: 0xd5d2718b7aacbbf90f2e2999eeb52537cc6a7e3b8fbc802681f14c2cf28664f0\n   State root expected: 0x82b39f9548d6c038d934fe365499a64be02c11da9dbc52fa7c8670febe0a3bb8\nErrors: underflow,OOG,invalidJump,invalidJump,invalidJump,invalidJump,OOG,invalidJump,invalidJump,invalidJump,invalidJump,invalidJump,invalidJump,invalidJump,invalidJump,invalidJump,invalidJump,invalidJump,invalidJump,OOG,invalidJump,invalidJump,invalidJump,invalidJump,underflow,OOCS",
-    "stepsN": 16777216,
-    "passed": true
-  },
-  {
-    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/stBadOpcode/measureGas_10.json",
-    "error": "Error: Assert Error: newStateRoot does not match\n   State root computed: 0x5b5b3cc748a98cfc2fcdd104c5360e40b8194a1e215122629802f247f3c5e31b\n   State root expected: 0x1611b5d11287c7e2d8e1f0449c098ef414fd130886fd97e805c4e059e0d42973\nErrors: invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,invalidOpcode,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOG,OOCK",
-    "stepsN": 8388608,
-    "passed": true
-  },
-  {
-    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/Call20KbytesContract50_1_1.json",
-    "error": "Error: Assert Error: newStateRoot does not match\n   State root computed: 0xb799aae76a14be445d18c9bdd3c1692a7aa7c7188df1982f5a034066a7d80df8\n   State root expected: 0x8a23d198e2a95046877fb02e6881b4c9b98547d48e38c3da67d7bcdee47a9283\nErrors: OOCS",
-    "stepsN": 16777216,
-    "passed": true
-  },
-  {
-    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/Call20KbytesContract50_2_1.json",
-    "error": "Error: Assert Error: newStateRoot does not match\n   State root computed: 0xf66740e42b8201f0304562377ec1c076c2a89715aeea24d7746faa3a1f6bc0b8\n   State root expected: 0xa503ac1154b1d826e7d4d083b9f45f5390625a8ade6fba8b1630e682f2359fc6\nErrors: OOCS",
-    "stepsN": 16777216,
-    "passed": true
-  },
-  {
-    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/Return50000_0.json",
-    "error": "Error: Assert Error: newStateRoot does not match\n   State root computed: 0x9fa64b5dbb82bd96b6563eea3e844798d1e42546b937ec721b9b676545c9a6b9\n   State root expected: 0xf231513623469df40bfd613baf15b21b3af82c9cc4465cbff8bf0cf059809ebd\nErrors: OOCS",
-    "stepsN": 33554432,
-    "passed": true
-  },
-  {
-    "fileName": "/root/zkevm2/zkevm-testvectors/tools/ethereum-tests/eth-inputs/GeneralStateTests/tests-30M/Return50000_2_0.json",
-    "error": "Error: Assert Error: newStateRoot does not match\n   State root computed: 0x77a84445a107f94a452baf641e8e63da84d2aaa10693029f2b0c4fb7df7f6376\n   State root expected: 0x1b6486517ba5546c71de1c5d04705ffd64ca962d818aa5a4856faef900a59bb0\nErrors: OOCS",
-    "stepsN": 33554432,
-    "passed": true
+    "fileName": "/Users/ignasi/Documents/Github/Polygon/zkevm-testvectors/tools/ethereum-tests/GeneralStateTests/stBadOpcode/measureGas_10.json",
+    "error": "Error: Assert Error: newStateRoot does not match\n   State root computed: 0x5b5b3cc748a98cfc2fcdd104c5360e40b8194a1e215122629802f247f3c5e31b\n   State root expected: 0x1611b5d11287c7e2d8e1f0449c098ef414fd130886fd97e805c4e059e0d42973\nErrors: OOG,OOG,OOG,OOG,OOG,OOCK",
+    "stepsN": 8388608
   }
 ]
