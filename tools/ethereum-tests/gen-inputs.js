@@ -315,10 +315,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                 await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
                             } else if (txTest.to === '0x0000000000000000000000000000000000000005') {
                                 await updateNoExec(dir, newOutputName, 'Precompiled modexp is not supported', noExec);
-                            } else if (txTest.to === '0x0000000000000000000000000000000000000006') {
-                                await updateNoExec(dir, newOutputName, 'Precompiled ecAdd is not supported', noExec);
-                            } else if (txTest.to === '0x0000000000000000000000000000000000000007') {
-                                await updateNoExec(dir, newOutputName, 'Precompiled ecMul is not supported', noExec);
                             } else if (txTest.to === '0x0000000000000000000000000000000000000008') {
                                 await updateNoExec(dir, newOutputName, 'Precompiled ecPairing is not supported', noExec);
                             } else if (txTest.to === '0x0000000000000000000000000000000000000009') {
@@ -372,10 +368,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                 await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
                             } else if (updatedAccounts['0x0000000000000000000000000000000000000005']) {
                                 await updateNoExec(dir, newOutputName, 'Precompiled modexp is not supported', noExec);
-                            } else if (updatedAccounts['0x0000000000000000000000000000000000000006']) {
-                                await updateNoExec(dir, newOutputName, 'Precompiled ecAdd is not supported', noExec);
-                            } else if (updatedAccounts['0x0000000000000000000000000000000000000007']) {
-                                await updateNoExec(dir, newOutputName, 'Precompiled ecMul is not supported', noExec);
                             } else if (updatedAccounts['0x0000000000000000000000000000000000000008']) {
                                 await updateNoExec(dir, newOutputName, 'Precompiled ecPairing is not supported', noExec);
                             } else if (updatedAccounts['0x0000000000000000000000000000000000000009']) {
@@ -400,10 +392,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                         await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
                                     } else if (addressCall === Scalar.e(5)) {
                                         await updateNoExec(dir, newOutputName, 'Precompiled modexp is not supported', noExec);
-                                    } else if (addressCall === Scalar.e(6)) {
-                                        await updateNoExec(dir, newOutputName, 'Precompiled ecAdd is not supported', noExec);
-                                    } else if (addressCall === Scalar.e(7)) {
-                                        await updateNoExec(dir, newOutputName, 'Precompiled ecMul is not supported', noExec);
                                     } else if (addressCall === Scalar.e(8)) {
                                         await updateNoExec(dir, newOutputName, 'Precompiled ecPairing is not supported', noExec);
                                     } else if (addressCall === Scalar.e(9)) {
