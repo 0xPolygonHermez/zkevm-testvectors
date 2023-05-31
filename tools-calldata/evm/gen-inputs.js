@@ -214,7 +214,8 @@ describe('Generate inputs executor from test-vectors', async function () {
                 const r = tx.r.toString(16).padStart(32 * 2, '0');
                 const s = tx.s.toString(16).padStart(32 * 2, '0');
                 const v = (sign + 27).toString(16).padStart(1 * 2, '0');
-                const calldata = signData.concat(r).concat(s).concat(v);
+                const effectivePercentage = currentTx.effectivePercentage ? currentTx.effectivePercentage.slice(2) : 'ff';
+                const calldata = signData.concat(r).concat(s).concat(v).concat(effectivePercentage);
                 txsList.push(calldata);
                 batch.addRawTx(calldata);
             }

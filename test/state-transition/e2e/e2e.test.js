@@ -319,7 +319,10 @@ describe('Proof of efficiency test vectors', function () {
                 const r = signature.r.slice(2).padStart(64, '0'); // 32 bytes
                 const s = signature.s.slice(2).padStart(64, '0'); // 32 bytes
                 const v = (signature.v).toString(16).padStart(2, '0'); // 1 bytes
-                customRawTx = signData.concat(r).concat(s).concat(v);
+                if (typeof txData.effectivePercentage === 'undefined') {
+                    txData.effectivePercentage = '0xff';
+                }
+                customRawTx = signData.concat(r).concat(s).concat(v).concat(txData.effectivePercentage.slice(2));
             } else {
                 const rawTxEthers = await wallet.signTransaction(tx);
                 if (!update) {

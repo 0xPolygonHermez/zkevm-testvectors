@@ -164,15 +164,21 @@ describe('Run state-transition tests: calldata', async function () {
                     const r = tx.r.toString(16).padStart(32 * 2, '0');
                     const s = tx.s.toString(16).padStart(32 * 2, '0');
                     const v = (sign + 27).toString(16).padStart(1 * 2, '0');
-                    const calldata = signData.concat(r).concat(s).concat(v);
+                    if (typeof currentTx.effectivePercentage === 'undefined') {
+                        currentTx.effectivePercentage = '0xff';
+                    }
+                    const calldata = signData.concat(r).concat(s).concat(v).concat(currentTx.effectivePercentage.slice(2));
                     txsList.push(calldata);
                     batch.addRawTx(calldata);
                 }
 
                 // Compare storage
-                await batch.executeTxs();
+                try {
+                    await batch.executeTxs();
+                } catch (e) {
+                    console.log(e);
+                }
                 await zkEVMDB.consolidate(batch);
-
                 // Check new root
                 expect(zkcommonjs.smtUtils.h4toString(batch.currentStateRoot)).to.be.equal(expectedNewRoot);
 

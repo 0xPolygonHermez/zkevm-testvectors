@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-use-before-define */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
@@ -19,6 +20,7 @@ const { argv } = require('yargs');
 const fs = require('fs');
 const path = require('path');
 const helpers = require('../../../tools-calldata/helpers/helpers');
+
 const testvectorsGlobalConfig = require(path.join(__dirname, '../../../testvectors.config.json'));
 
 // example: npx mocha gen-inputs.js --test xxxx --folder xxxx --ignore
@@ -56,7 +58,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
         for (let x = 0; x < listOOC.length; x++) {
             file = `${basePath}/${listOOC[x].name}`;
-            file = file.endsWith(".json") ? file.replace(".json", "") : file;
+            file = file.endsWith('.json') ? file.replace('.json', '') : file;
 
             try {
                 test = require(`${file}.json`);
@@ -72,22 +74,22 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                 } catch (e2) {
                     try {
                         file = `${basePath}/${listOOC[x].name}`;
-                        if(file.includes("VMTests")) {
+                        if (file.includes('VMTests')) {
                             directory = `${basePath}/VMTests`;
                             const allFilesVMTests = getAllFiles(directory);
-                            file = allFilesVMTests.filter((f) => f.includes(listOOC[x].name.split("/")[1]))
-                            if(file.length > 0) {
+                            file = allFilesVMTests.filter((f) => f.includes(listOOC[x].name.split('/')[1]));
+                            if (file.length > 0) {
                                 file = file[0];
                                 test = require(`${file}`);
                             } else {
-                                file = listOOC[x].name.split("/")[1]
+                                file = listOOC[x].name.split('/')[1];
                                 numTest = file.split('_')[file.split('_').length - 1];
                                 file = file.split('_').slice(0, file.split('_').length - 1).join('_');
                                 file = allFilesVMTests.filter((x) => x.includes(file))[0];
                                 test = require(`${file}`);
                             }
                         }
-                    } catch (e3){
+                    } catch (e3) {
                         throw Error('no exist file');
                     }
                 }
@@ -119,11 +121,11 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         if (!fs.existsSync(`${dir}/${newOutputName}` || argv.update)) {
                             const currentTest = test[keysTests[y]];
                             // check gas used by the tx is less than 30M
-                            if(!nameError.includes("30M")) {
+                            if (!nameError.includes('30M')) {
                                 if (Scalar.gt(Scalar.e(currentTest.blocks[0].blockHeader.gasUsed), zkcommonjs.Constants.BATCH_GAS_LIMIT)) {
                                     await updateNoExec(listOOC[x].name, 'tx gas > 30M', noExec);
                                 }
-                            } 
+                            }
 
                             let accountPkFrom;
                             if (currentTest._info.source.endsWith('.json')) {
@@ -261,7 +263,10 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                 const rCalldata = txSigned.r.toString(16).padStart(32 * 2, '0');
                                 const sCalldata = txSigned.s.toString(16).padStart(32 * 2, '0');
                                 const vCalldata = (sign + 27).toString(16).padStart(1 * 2, '0');
-                                const calldata = signData.concat(rCalldata).concat(sCalldata).concat(vCalldata);
+                                if (typeof txTest.effectivePercentage === 'undefined') {
+                                    txTest.effectivePercentage = '0xff';
+                                }
+                                const calldata = signData.concat(rCalldata).concat(sCalldata).concat(vCalldata).concat(txTest.effectivePercentage.slice(2));
 
                                 batch.addRawTx(calldata);
                             }
@@ -379,7 +384,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         } else {
                             console.log(`File exist: ${dir}/${newOutputName}`);
                         }
-                        if(test30M.length > 0) {
+                        if (test30M.length > 0) {
                             const dir30M = path.join(__dirname, `${outputPath}/tests-30M`);
                             if (!fs.existsSync(dir30M)) {
                                 fs.mkdirSync(dir30M);
@@ -438,24 +443,24 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
     }
 
     async function updateNoExec(nameTest, description, noExec) {
-        const index = noExec['not-supported'].findIndex(test => test.name === nameTest);
+        const index = noExec['not-supported'].findIndex((test) => test.name === nameTest);
         noExec['not-supported'][index].description = description;
         await fs.writeFileSync('../no-exec.json', JSON.stringify(noExec, null, 2));
         throw new Error('not supported');
     }
 
     function getAllFiles(dirPath, arrayOfFiles) {
-        files = fs.readdirSync(dirPath)
+        files = fs.readdirSync(dirPath);
 
-        arrayOfFiles = arrayOfFiles || []
+        arrayOfFiles = arrayOfFiles || [];
 
-        files.forEach(function(file) {
-            if (fs.statSync(dirPath + "/" + file).isDirectory()) {
-                arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles)
+        files.forEach(function (file) {
+            if (fs.statSync(`${dirPath}/${file}`).isDirectory()) {
+                arrayOfFiles = getAllFiles(`${dirPath}/${file}`, arrayOfFiles);
             } else {
-                arrayOfFiles.push(path.join(__dirname, dirPath, "/", file))
+                arrayOfFiles.push(path.join(__dirname, dirPath, '/', file));
             }
-        })
-        return arrayOfFiles
+        });
+        return arrayOfFiles;
     }
 });
