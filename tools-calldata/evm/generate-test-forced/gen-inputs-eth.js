@@ -171,7 +171,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                 const rCalldata = txSigned.r.toString(16).padStart(32 * 2, '0');
                 const sCalldata = txSigned.s.toString(16).padStart(32 * 2, '0');
                 const vCalldata = (sign + 27).toString(16).padStart(1 * 2, '0');
-                const calldata = signData.concat(rCalldata).concat(sCalldata).concat(vCalldata);
+                const effectivePercentage = txTest.effectivePercentage ? txTest.effectivePercentage.slice(2) : 'ff';
+                const calldata = signData.concat(rCalldata).concat(sCalldata).concat(vCalldata).concat(effectivePercentage);
 
                 batch.addRawTx(calldata);
             }
