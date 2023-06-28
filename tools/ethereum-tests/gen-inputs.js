@@ -313,8 +313,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                 await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExec);
                             } else if (txTest.to === '0x0000000000000000000000000000000000000003') {
                                 await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
-                            } else if (txTest.to === '0x0000000000000000000000000000000000000005') {
-                                await updateNoExec(dir, newOutputName, 'Precompiled modexp is not supported', noExec);
                             } else if (txTest.to === '0x0000000000000000000000000000000000000009') {
                                 await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExec);
                             }
@@ -364,8 +362,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                 await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExec);
                             } else if (updatedAccounts['0x0000000000000000000000000000000000000003']) {
                                 await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
-                            } else if (updatedAccounts['0x0000000000000000000000000000000000000005']) {
-                                await updateNoExec(dir, newOutputName, 'Precompiled modexp is not supported', noExec);
                             } else if (updatedAccounts['0x0000000000000000000000000000000000000009']) {
                                 await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExec);
                             }
@@ -386,8 +382,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                         await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExec);
                                     } else if (addressCall === Scalar.e(3)) {
                                         await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
-                                    } else if (addressCall === Scalar.e(5)) {
-                                        await updateNoExec(dir, newOutputName, 'Precompiled modexp is not supported', noExec);
                                     } else if (addressCall === Scalar.e(9)) {
                                         await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExec);
                                     }
