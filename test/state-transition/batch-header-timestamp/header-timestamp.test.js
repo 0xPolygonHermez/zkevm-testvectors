@@ -22,6 +22,7 @@ const lodash = require('lodash');
 const {
     MemDB, ZkEVMDB, getPoseidon, processorUtils, smtUtils, Constants, stateUtils,
 } = require('@0xpolygonhermez/zkevm-commonjs');
+const helpers = require('../../../tools-calldata/helpers/helpers');
 
 // input file
 const pathInput = path.join(__dirname, './input_gen.json');
@@ -44,8 +45,9 @@ describe('Header timestamp', function () {
     before(async () => {
         poseidon = await getPoseidon();
         F = poseidon.F;
+        console.log(pathInput);
         testVectors = require(pathInput);
-
+        console.log(testVectors);
         update = argv.update === true;
     });
 
@@ -60,6 +62,8 @@ describe('Header timestamp', function () {
                 bridgeDeployed,
                 oldAccInputHash,
             } = testVectors[i];
+
+            console.log(batches);
 
             const db = new MemDB(F);
             // create a zkEVMDB to compile the sc
@@ -113,6 +117,11 @@ describe('Header timestamp', function () {
                     txs, expectedNewRoot, expectedNewLeafs, batchL2Data, globalExitRoot,
                     inputHash, timestamp, batchHashData, newLocalExitRoot,
                 } = batches[k];
+
+                let {
+                    historicGERRoot,
+                } = batches[k];
+
                 const rawTxs = [];
                 for (let j = 0; j < txs.length; j++) {
                     const txData = txs[j];
@@ -181,7 +190,22 @@ describe('Header timestamp', function () {
                     txProcessed.push(txData);
                 }
 
-                const batch = await zkEVMDB.buildBatch(timestamp, sequencerAddress, smtUtils.stringToH4(globalExitRoot));
+                if (globalExitRoot) {
+                    historicGERRoot = globalExitRoot;
+                }
+
+                const batch = await zkEVMDB.buildBatch(
+                    timestamp,
+                    sequencerAddress,
+                    smtUtils.stringToH4(historicGERRoot),
+                    0,
+                    Constants.DEFAULT_MAX_TX,
+                    {
+                        skipVerifyGER: true,
+                    },
+                );
+                helpers.addRawTxChangeL2Block(batch);
+
                 for (let j = 0; j < rawTxs.length; j++) {
                     batch.addRawTx(rawTxs[j]);
                 }
@@ -199,7 +223,8 @@ describe('Header timestamp', function () {
                 }
 
                 // Check errors on decode transactions
-                const decodedTx = await batch.getDecodedTxs();
+                const decodedTxInit = await batch.getDecodedTxs();
+                const decodedTx = decodedTxInit.filter((tx) => tx.tx.type !== 11);
 
                 if (!update) {
                     for (let j = 0; j < decodedTx.length; j++) {
@@ -264,7 +289,7 @@ describe('Header timestamp', function () {
                 // Check global and local exit roots
                 const addressInstanceGlobalExitRoot = new Address(toBuffer(Constants.ADDRESS_GLOBAL_EXIT_ROOT_MANAGER_L2));
                 const localExitRootPosBuffer = toBuffer(ethers.utils.hexZeroPad(Constants.LOCAL_EXIT_ROOT_STORAGE_POS, 32));
-                const globalExitRootPos = ethers.utils.solidityKeccak256(['uint256', 'uint256'], [globalExitRoot, Constants.GLOBAL_EXIT_ROOT_STORAGE_POS]);
+                const globalExitRootPos = ethers.utils.solidityKeccak256(['uint256', 'uint256'], [historicGERRoot, Constants.GLOBAL_EXIT_ROOT_STORAGE_POS]);
                 const globalExitRootPosBuffer = toBuffer(globalExitRootPos);
 
                 // Check local exit root
@@ -298,6 +323,7 @@ describe('Header timestamp', function () {
                 ))[Scalar.e(globalExitRootPos)];
 
                 expect(Scalar.fromString(timestampVm.toString('hex'), 16)).to.equal(timestampSmt);
+                expect(timestampSmt).to.equal(Scalar.e(batch.timestamp));
 
                 // Check through a call in the EVM
                 if (bridgeDeployed) {
@@ -313,6 +339,7 @@ describe('Header timestamp', function () {
 
                 // Check the circuit input
                 const circuitInput = await batch.getStarkInput();
+                console.log(circuitInput);
 
                 // Check the encode transaction match with the vector test
                 if (!update) {
@@ -326,6 +353,8 @@ describe('Header timestamp', function () {
                     testVectors[i].batches[k].batchHashData = circuitInput.batchHashData;
                     testVectors[i].batches[k].inputHash = circuitInput.inputHash;
                     testVectors[i].batches[k].newLocalExitRoot = circuitInput.newLocalExitRoot;
+                    console.log(pathInput);
+                    await fs.writeFileSync(pathInput, JSON.stringify(testVectors, null, 2));
                 }
 
                 if (update) {

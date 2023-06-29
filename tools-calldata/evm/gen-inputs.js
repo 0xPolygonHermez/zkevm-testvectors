@@ -16,6 +16,7 @@ const lodash = require('lodash');
 const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
 const { expect } = require('chai');
 const { Transaction } = require('@ethereumjs/tx');
+const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
 
 const { argv } = require('yargs');
 const fs = require('fs');
@@ -82,6 +83,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 expectedNewLeafs,
                 oldAccInputHash,
                 globalExitRoot,
+                historicGERRoot,
                 timestamp,
                 chainID,
                 forkID,
@@ -122,11 +124,21 @@ describe('Generate inputs executor from test-vectors', async function () {
             }
             expect(zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
 
+            if (globalExitRoot) {
+                historicGERRoot = globalExitRoot;
+            }
+
             const batch = await zkEVMDB.buildBatch(
                 timestamp,
                 sequencerAddress,
-                zkcommonjs.smtUtils.stringToH4(globalExitRoot),
+                zkcommonjs.smtUtils.stringToH4(historicGERRoot),
+                0,
+                Constants.DEFAULT_MAX_TX,
+                {
+                    skipVerifyGER: true,
+                },
             );
+            helpers.addRawTxChangeL2Block(batch);
 
             // TRANSACTIONS
             const txsList = [];

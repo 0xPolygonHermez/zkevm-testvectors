@@ -13,6 +13,7 @@
         "test:st:calldata": "npx mocha ./test/state-transition/calldata/st-all.test.js",
         "test:mt:bridge": "npx mocha ./test/mt-bridge/**.test.js",
         "test:e2e": "npx mocha ./test/state-transition/e2e/e2e.test.js",
+
         "update:mt:bridge": "npx mocha ./test/mt-bridge/**.test.js --update",
         "update:st:calldata": "cd ./tools-calldata/evm && ./gen-all.sh",
         "update:st:no-data": "npx mocha ./test/state-transition/no-data/st-all.test.js --update && npx mocha ./test/state-transition/separate-batches/separate-batches.test.js --update && npx mocha ./test/state-transition/batch-header-timestamp/header-timestamp.test.js --update",
@@ -20,6 +21,7 @@
         "update:error-rlp": "node tools/update-test/update-rlp-error-inputs.js",
         "update:calldata-custom": "node tools/update-test/update-calldata-custom.js",
         "update:eth-tests": "cd ./tools/ethereum-tests && ./update-tests-general.sh",
+
         "test:contracts": "npx mocha ./test/state-transition/no-data/contracts.test.js",
         "update:all": "npm run update:smt && npm run update:mt:bridge && npm run update:st:calldata && npm run update:st:no-data && npm run update:e2e && npm run update:error-rlp && npm run update:eth-tests",
         "regen-tests": "sh regen-tests.sh"
@@ -36,7 +38,7 @@
     ],
     "license": "pending",
     "devDependencies": {
-        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#feature/effective-gas-price",
+        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#feature/forkid-6",
         "@0xpolygonhermez/zkevm-contracts": "github:0xPolygonHermez/zkevm-contracts#v1.1.0-fork.4",
         "@grpc/grpc-js": "^1.6.10",
         "@nomiclabs/hardhat-ethers": "^2.0.5",
