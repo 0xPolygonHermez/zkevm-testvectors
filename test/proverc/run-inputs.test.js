@@ -135,7 +135,6 @@ function processBatch(input, tests, pos, folderPos) {
             // const formatedSteps = formatSteps(res.responses[0].call_trace.steps);
             // const old_state_root = res.responses[0].call_trace.context.old_state_root.toString('hex');
             runTests(tests, pos + 1, folderPos);
-            return;
         } catch (e) {
             cancelledTests.push(tests[pos]);
             console.log(e);
