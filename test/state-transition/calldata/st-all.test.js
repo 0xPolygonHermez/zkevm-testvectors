@@ -15,6 +15,7 @@ const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
 const { expect } = require('chai');
 const { Transaction } = require('@ethereumjs/tx');
 
+const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
 const fs = require('fs');
 const path = require('path');
 const helpers = require('../../../tools-calldata/helpers/helpers');
@@ -52,10 +53,13 @@ describe('Run state-transition tests: calldata', async function () {
                     expectedNewLeafs,
                     oldAccInputHash,
                     globalExitRoot,
+                    historicGERRoot,
                     timestamp,
                     chainID,
                     forkID,
                 } = testVectors[i];
+
+                console.log(testVectors[i]);
 
                 if (!chainID) chainID = 1000;
 
@@ -74,12 +78,24 @@ describe('Run state-transition tests: calldata', async function () {
                 );
 
                 expect(zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
+                console.log(globalExitRoot);
+                if (globalExitRoot) {
+                    historicGERRoot = globalExitRoot;
+                }
+
+                console.log(historicGERRoot);
 
                 const batch = await zkEVMDB.buildBatch(
                     timestamp,
                     sequencerAddress,
-                    zkcommonjs.smtUtils.stringToH4(globalExitRoot),
+                    zkcommonjs.smtUtils.stringToH4(historicGERRoot),
+                    0,
+                    Constants.DEFAULT_MAX_TX,
+                    {
+                        skipVerifyGER: true,
+                    },
                 );
+                helpers.addRawTxChangeL2Block(batch);
 
                 // TRANSACTIONS
                 const txsList = [];

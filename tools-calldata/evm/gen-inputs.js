@@ -297,7 +297,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 testVectors[i].expectedNewLeafs = expectedNewLeafs;
                 testVectors[i].batchHashData = circuitInput.batchHashData;
                 testVectors[i].inputHash = circuitInput.inputHash;
-                testVectors[i].globalExitRoot = circuitInput.globalExitRoot;
+                testVectors[i].historicGERRoot = circuitInput.historicGERRoot;
                 testVectors[i].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                 testVectors[i].chainID = chainID;
                 testVectors[i].oldAccInputHash = oldAccInputHash;
@@ -308,7 +308,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 internalTestVectors[i].expectedNewLeafs = expectedNewLeafs;
                 internalTestVectors[i].batchHashData = circuitInput.batchHashData;
                 internalTestVectors[i].inputHash = circuitInput.inputHash;
-                internalTestVectors[i].globalExitRoot = circuitInput.globalExitRoot;
+                internalTestVectors[i].historicGERRoot = circuitInput.historicGERRoot;
                 internalTestVectors[i].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                 internalTestVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
                 internalTestVectors[i].chainID = chainID;
@@ -316,6 +316,8 @@ describe('Generate inputs executor from test-vectors', async function () {
             }
         }
         if (update) {
+            console.log('*****************************************');
+            console.log(path.join(__dirname, testVectorDataPath));
             await fs.writeFileSync(path.join(__dirname, testVectorDataPath), JSON.stringify(testVectors, null, 2));
             await fs.writeFileSync(path.join(__dirname, internalTestVectorsPath), JSON.stringify(internalTestVectors, null, 2));
         }

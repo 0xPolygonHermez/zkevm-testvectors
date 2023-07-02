@@ -71,7 +71,7 @@ function addRawTxChangeL2Block(batch, tx = undefined) {
     } else {
         dataChangeL2Block = {
             type: 11,
-            deltaTimestamp: '1944498030',
+            deltaTimestamp: '1000',
             newGER: '0x3100000000000000000000000000000000000000000000000000000000000000',
             indexHistoricalGERTree: 0,
             reason: '',
