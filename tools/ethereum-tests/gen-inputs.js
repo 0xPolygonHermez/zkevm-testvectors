@@ -12,6 +12,7 @@ const { toBuffer } = require('ethereumjs-util');
 const { ethers } = require('ethers');
 const { Scalar } = require('ffjavascript');
 const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
+const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
 const { expect } = require('chai');
 const { Transaction } = require('@ethereumjs/tx');
 
@@ -247,7 +248,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         const { timestamp } = currentTest.blocks[0].blockHeader;
                         const sequencerAddress = currentTest.blocks[0].blockHeader.coinbase;
                         const chainIdSequencer = 1000;
-                        const globalExitRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
+                        const historicGERRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
                         const txsTest = currentTest.blocks[0].transactions;
                         const { pre } = currentTest;
 
@@ -281,13 +282,17 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             testvectorsGlobalConfig.forkID,
                         );
 
+                        options.skipVerifyGER = true;
+
                         const batch = await zkEVMDB.buildBatch(
                             timestamp,
                             sequencerAddress,
-                            zkcommonjs.smtUtils.stringToH4(globalExitRoot),
-                            undefined,
+                            zkcommonjs.smtUtils.stringToH4(historicGERRoot),
+                            0,
+                            Constants.DEFAULT_MAX_TX,
                             options,
                         );
+                        helpers.addRawTxChangeL2Block(batch);
 
                         if (txsTest.length === 0) {
                             if (currentTest.blocks[0].transactionSequence.length > 0) {
