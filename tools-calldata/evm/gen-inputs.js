@@ -316,8 +316,6 @@ describe('Generate inputs executor from test-vectors', async function () {
             }
         }
         if (update) {
-            console.log('*****************************************');
-            console.log(path.join(__dirname, testVectorDataPath));
             await fs.writeFileSync(path.join(__dirname, testVectorDataPath), JSON.stringify(testVectors, null, 2));
             await fs.writeFileSync(path.join(__dirname, internalTestVectorsPath), JSON.stringify(internalTestVectors, null, 2));
         }

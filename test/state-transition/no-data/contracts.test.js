@@ -13,6 +13,7 @@ const {
 } = require('@0xpolygonhermez/zkevm-commonjs');
 
 const { rawTxToCustomRawTx } = processorUtils;
+const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
 
 const { calculateSnarkInput, calculateBatchHashData } = contractUtils;
 
@@ -24,6 +25,7 @@ const { pathTestVectors } = require('../../helpers/helpers');
 
 const pathStateTransition = path.join(pathTestVectors, './state-transition/no-data/general.json');
 const testVectors = JSON.parse(fs.readFileSync(pathStateTransition));
+const helpers = require('../../../tools-calldata/helpers/helpers');
 
 async function takeSnapshop() {
     return (ethers.provider.send('evm_snapshot', []));
@@ -162,7 +164,7 @@ describe('Proof of efficiency test vectors', function () {
             expectedNewLeafs,
             batchL2Data,
             oldAccInputHash,
-            globalExitRoot,
+            historicGERRoot,
             batchHashData,
             inputHash,
             timestamp,
@@ -290,7 +292,21 @@ describe('Proof of efficiency test vectors', function () {
                 expect(smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
             }
 
-            const batch = await zkEVMDB.buildBatch(timestamp, sequencerAddress, smtUtils.stringToH4(globalExitRoot));
+            const historicGERRootContract = await globalExitRootManager.getRoot();
+
+            const batch = await zkEVMDB.buildBatch(
+                timestamp,
+                sequencerAddress,
+                smtUtils.stringToH4(historicGERRootContract),
+                0,
+                Constants.DEFAULT_MAX_TX,
+                {
+                    skipVerifyGER: true,
+                },
+            );
+
+            helpers.addRawTxChangeL2Block(batch);
+
             for (let j = 0; j < rawTxs.length; j++) {
                 batch.addRawTx(rawTxs[j]);
             }
@@ -323,7 +339,8 @@ describe('Proof of efficiency test vectors', function () {
             }
 
             // Check errors on decode transactions
-            const decodedTx = await batch.getDecodedTxs();
+            const decodedTxInit = await batch.getDecodedTxs();
+            const decodedTx = decodedTxInit.filter((tx) => tx.tx.type !== 11);
 
             for (let j = 0; j < decodedTx.length; j++) {
                 const currentTx = decodedTx[j];
@@ -369,7 +386,7 @@ describe('Proof of efficiency test vectors', function () {
                 const currentStateRoot = `0x${Scalar.e(expectedOldRoot).toString(16).padStart(64, '0')}`;
                 const newStateRoot = `0x${Scalar.e(expectedNewRoot).toString(16).padStart(64, '0')}`;
                 const newLocalExitRoot = `0x${Scalar.e(oldAccInputHash).toString(16).padStart(64, '0')}`;
-                const currentGlobalExitRoot = `0x${Scalar.e(globalExitRoot).toString(16).padStart(64, '0')}`;
+                const currentGlobalExitRoot = `0x${Scalar.e(historicGERRoot).toString(16).padStart(64, '0')}`;
 
                 const walletSequencer = walletMap[sequencerAddress].connect(ethers.provider);
 
@@ -379,13 +396,12 @@ describe('Proof of efficiency test vectors', function () {
                     to: sequencerAddress,
                     value: ethers.utils.parseEther('10.0'),
                 });
-
                 // fund sequencer address with Matic tokens and ether
                 await maticTokenContract.transfer(sequencerAddress, ethers.utils.parseEther('100'));
 
                 // set roots to the contract:
                 await polygonZkEVMContract.setStateRoot(currentStateRoot, batch.oldNumBatch);
-                await globalExitRootManager.setGlobalExitRoot(currentGlobalExitRoot, batch.timestamp);
+                await globalExitRootManager.setGlobalExitRoot(currentGlobalExitRoot, 1000);
 
                 // sequencer send the batch
                 const lastBatchSequenced = await polygonZkEVMContract.lastBatchSequenced();
@@ -403,10 +419,10 @@ describe('Proof of efficiency test vectors', function () {
 
                 const sequence = {
                     transactions: l2txData,
-                    globalExitRoot: currentGlobalExitRoot,
-                    timestamp,
+                    forcedHistoricGlobalExitRoot: currentGlobalExitRoot,
                     minForcedTimestamp: 0,
                 };
+
                 await expect(polygonZkEVMContract.connect(walletSequencer).sequenceBatches([sequence], sequencerAddress))
                     .to.emit(polygonZkEVMContract, 'SequenceBatches')
                     .withArgs(lastBatchSequenced + 1);

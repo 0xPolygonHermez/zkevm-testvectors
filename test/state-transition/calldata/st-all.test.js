@@ -78,12 +78,10 @@ describe('Run state-transition tests: calldata', async function () {
                 );
 
                 expect(zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
-                console.log(globalExitRoot);
+
                 if (globalExitRoot) {
                     historicGERRoot = globalExitRoot;
                 }
-
-                console.log(historicGERRoot);
 
                 const batch = await zkEVMDB.buildBatch(
                     timestamp,
