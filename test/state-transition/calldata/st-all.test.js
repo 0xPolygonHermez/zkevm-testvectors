@@ -59,8 +59,6 @@ describe('Run state-transition tests: calldata', async function () {
                     forkID,
                 } = testVectors[i];
 
-                console.log(testVectors[i]);
-
                 if (!chainID) chainID = 1000;
 
                 // init SMT Db

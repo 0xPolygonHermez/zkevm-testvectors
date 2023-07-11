@@ -45,9 +45,7 @@ describe('Header timestamp', function () {
     before(async () => {
         poseidon = await getPoseidon();
         F = poseidon.F;
-        console.log(pathInput);
         testVectors = require(pathInput);
-        console.log(testVectors);
         update = argv.update === true;
     });
 
@@ -59,11 +57,8 @@ describe('Header timestamp', function () {
                 expectedOldRoot,
                 batches,
                 sequencerAddress,
-                bridgeDeployed,
                 oldAccInputHash,
             } = testVectors[i];
-
-            console.log(batches);
 
             const db = new MemDB(F);
             // create a zkEVMDB to compile the sc
@@ -193,7 +188,7 @@ describe('Header timestamp', function () {
                 if (globalExitRoot) {
                     historicGERRoot = globalExitRoot;
                 }
-
+                console.log(`**${timestamp}`);
                 const batch = await zkEVMDB.buildBatch(
                     timestamp,
                     sequencerAddress,
@@ -204,7 +199,16 @@ describe('Header timestamp', function () {
                         skipVerifyGER: true,
                     },
                 );
-                helpers.addRawTxChangeL2Block(batch);
+
+                const tx = {
+                    type: 11,
+                    deltaTimestamp: timestamp,
+                    newGER: `0x310000000000000000000000000000000000000000000000000000${timestamp + k}`,
+                    indexHistoricalGERTree: k,
+                    reason: '',
+                };
+                console.log(tx);
+                helpers.addRawTxChangeL2Block(batch, tx);
 
                 for (let j = 0; j < rawTxs.length; j++) {
                     batch.addRawTx(rawTxs[j]);
@@ -224,7 +228,7 @@ describe('Header timestamp', function () {
 
                 // Check errors on decode transactions
                 const decodedTxInit = await batch.getDecodedTxs();
-                const decodedTx = decodedTxInit.filter((tx) => tx.tx.type !== 11);
+                const decodedTx = decodedTxInit.filter((txDecoded) => txDecoded.tx.type !== 11);
 
                 if (!update) {
                     for (let j = 0; j < decodedTx.length; j++) {
@@ -289,7 +293,8 @@ describe('Header timestamp', function () {
                 // Check global and local exit roots
                 const addressInstanceGlobalExitRoot = new Address(toBuffer(Constants.ADDRESS_GLOBAL_EXIT_ROOT_MANAGER_L2));
                 const localExitRootPosBuffer = toBuffer(ethers.utils.hexZeroPad(Constants.LOCAL_EXIT_ROOT_STORAGE_POS, 32));
-                const globalExitRootPos = ethers.utils.solidityKeccak256(['uint256', 'uint256'], [historicGERRoot, Constants.GLOBAL_EXIT_ROOT_STORAGE_POS]);
+                console.log(tx.newGER);
+                const globalExitRootPos = ethers.utils.solidityKeccak256(['uint256', 'uint256'], [tx.newGER, Constants.GLOBAL_EXIT_ROOT_STORAGE_POS]);
                 const globalExitRootPosBuffer = toBuffer(globalExitRootPos);
 
                 // Check local exit root
@@ -315,6 +320,7 @@ describe('Header timestamp', function () {
                     addressInstanceGlobalExitRoot,
                     globalExitRootPosBuffer,
                 );
+                console.log(globalExitRootPos);
                 const timestampSmt = (await stateUtils.getContractStorage(
                     Constants.ADDRESS_GLOBAL_EXIT_ROOT_MANAGER_L2,
                     zkEVMDB.smt,
@@ -323,23 +329,12 @@ describe('Header timestamp', function () {
                 ))[Scalar.e(globalExitRootPos)];
 
                 expect(Scalar.fromString(timestampVm.toString('hex'), 16)).to.equal(timestampSmt);
-                expect(timestampSmt).to.equal(Scalar.e(batch.timestamp));
-
-                // Check through a call in the EVM
-                if (bridgeDeployed) {
-                    const interfaceGlobal = new ethers.utils.Interface(['function globalExitRootMap(uint256)']);
-                    const encodedData = interfaceGlobal.encodeFunctionData('globalExitRootMap', [batch.newNumBatch]);
-                    const globalExitRootResult = await zkEVMDB.vm.runCall({
-                        to: addressInstanceGlobalExitRoot,
-                        caller: Address.zero(),
-                        data: Buffer.from(encodedData.slice(2), 'hex'),
-                    });
-                    expect(globalExitRootResult.execResult.returnValue.toString('hex')).to.be.equal(globalExitRoot.slice(2));
-                }
+                console.log(timestampSmt);
+                console.log(tx.deltaTimestamp);
+                expect(timestampSmt).to.equal(Scalar.e(tx.deltaTimestamp));
 
                 // Check the circuit input
                 const circuitInput = await batch.getStarkInput();
-                console.log(circuitInput);
 
                 // Check the encode transaction match with the vector test
                 if (!update) {
@@ -353,7 +348,6 @@ describe('Header timestamp', function () {
                     testVectors[i].batches[k].batchHashData = circuitInput.batchHashData;
                     testVectors[i].batches[k].inputHash = circuitInput.inputHash;
                     testVectors[i].batches[k].newLocalExitRoot = circuitInput.newLocalExitRoot;
-                    console.log(pathInput);
                     await fs.writeFileSync(pathInput, JSON.stringify(testVectors, null, 2));
                 }
 
