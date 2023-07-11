@@ -6,6 +6,9 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable import/no-extraneous-dependencies */
+
+const fs = require('fs');
+const path = require('path');
 const Common = require('@ethereumjs/common').default;
 const { Hardfork } = require('@ethereumjs/common');
 const { BN, toBuffer } = require('ethereumjs-util');
