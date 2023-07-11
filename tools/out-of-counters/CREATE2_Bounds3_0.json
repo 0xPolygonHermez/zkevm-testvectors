@@ -1,5 +1,22 @@
 {
   "oldStateRoot": "0xa4ed76946b361958b6b715c5c9c3fcfe569ecd9c21f1e95ca6f172a4208b1e2d",
+  "newStateRoot": "0x2991836595e35d30dff83ebf03109eb537a5709102d5d1055883ee85b5c3b538",
+  "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "newAccInputHash": "0xec00ec7f29a6bf8dc3c6ec051554c0cb27f5abb15c1f378041d4e762eacc620c",
+  "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "oldNumBatch": 0,
+  "newNumBatch": 1,
+  "chainID": 1000,
+  "forkID": 6,
+  "isForced": 0,
+  "batchL2Data": "0x0b00000000000003e8310000000000000000000000000000000000000000000000000000000000000000000000e2800a830249f094100000000000000000000000000000000000000080808203e88080926698ba522013a9e3aff09e8c47740aec990cbe28ddaacaa33e8a92b70f72d054edcdb5a15fee50fb1a1d20c1f0bd1fc97286aaa4df0618eaa33aa7acf8b9731bff",
+  "historicGERRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+  "timestampLimit": "0x03e8",
+  "sequencerAddr": "0x2adc25665018aa1fe0e6bc666dac8fc2697ff9ba",
+  "batchHashData": "0xa1b9f4ce725a9166038176ca0f45671607e4c64edad9dbb827f1dcb6e848aff1",
+  "contractsBytecode": {
+    "0x48fb2ce0da6341e8d5df98d9d34d8a9811414e652e9c36a55eb082d3e8ef71d6": "0x7f6001600155601080600c6000396000f3006000355415600957005b602035600060005260356020536055602153600067ffffffffffffffff60006001f55060006fffffffffffffffffffffffffffffffff60006001f55060007fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff60006001f55060006000630fffffff6001f5506000600063ffffffff6001f5506000600067ffffffffffffffff6001f550600060006fffffffffffffffffffffffffffffffff6001f550600060007fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff6001f5506000630fffffff630fffffff6001f550600063ffffffff63ffffffff6001f550600067ffffffffffffffff67ffffffffffffffff6001f55060006fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6001f55060007fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff6001f500"
+  },
   "db": {
     "0xa4ed76946b361958b6b715c5c9c3fcfe569ecd9c21f1e95ca6f172a4208b1e2d": [
       "30da3094b5df7097",
@@ -139,19 +156,5 @@
       "000000000000000f",
       "0000000000000000"
     ]
-  },
-  "sequencerAddr": "0x2adc25665018aa1fe0e6bc666dac8fc2697ff9ba",
-  "batchL2Data": "0xe2800a830249f094100000000000000000000000000000000000000080808203e88080926698ba522013a9e3aff09e8c47740aec990cbe28ddaacaa33e8a92b70f72d054edcdb5a15fee50fb1a1d20c1f0bd1fc97286aaa4df0618eaa33aa7acf8b9731b",
-  "newStateRoot": "0x50e20db71949a59f21c4c62f8d39c2c7b6818512f7c2394f8f9ab1dca6db426e",
-  "oldLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-  "batchHashData": "0x51e951e74c3a05f52755ab2b974762bb49bcbd894a74f62b42aba52fddf6bb69",
-  "inputHash": "0xbd3f9ed0c8a30f97ffe2235fc0c418ddc9f93a3f5903e7007889406620250bb9",
-  "numBatch": 1,
-  "timestamp": "0x03e8",
-  "contractsBytecode": {
-    "0x48fb2ce0da6341e8d5df98d9d34d8a9811414e652e9c36a55eb082d3e8ef71d6": "0x7f6001600155601080600c6000396000f3006000355415600957005b602035600060005260356020536055602153600067ffffffffffffffff60006001f55060006fffffffffffffffffffffffffffffffff60006001f55060007fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff60006001f55060006000630fffffff6001f5506000600063ffffffff6001f5506000600067ffffffffffffffff6001f550600060006fffffffffffffffffffffffffffffffff6001f550600060007fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff6001f5506000630fffffff630fffffff6001f550600063ffffffff63ffffffff6001f550600067ffffffffffffffff67ffffffffffffffff6001f55060006fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6001f55060007fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff6001f500"
-  },
-  "forkID": 5
+  }
 }

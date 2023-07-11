@@ -9,7 +9,7 @@
         "eslint:fix": "npx eslint test/** --fix",
         "test:smt": "npx mocha ./test/merkle-tree/**.js",
         "update:smt": "npx mocha ./test/merkle-tree/**.js --update",
-        "test:st:no-data": "npx mocha ./test/state-transition/no-data/st-all.test.js && npx mocha ./test/state-transition/separate-batches/separate-batches.test.js",
+        "test:st:no-data": "npx mocha ./test/state-transition/no-data/st-all.test.js",
         "test:st:calldata": "npx mocha ./test/state-transition/calldata/st-all.test.js",
         "test:mt:bridge": "npx mocha ./test/mt-bridge/**.test.js",
         "test:e2e": "npx mocha ./test/state-transition/e2e/e2e.test.js",

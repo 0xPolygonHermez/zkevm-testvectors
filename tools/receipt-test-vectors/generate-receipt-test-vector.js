@@ -5,10 +5,10 @@ const fs = require('fs');
 const path = require('path');
 const { Scalar } = require('ffjavascript');
 
-
 const { pathTestVectors } = require('../../test/helpers/helpers');
+
 const fullPathTestVectors = path.join(pathTestVectors, './receipt-test-vectors/receipt-vector.json');
-const testVectors = require(fullPathTestVectors);
+const generalInput = require('../../state-transition/no-data/general.json');
 
 function toHexString(num) {
     let numHex;
@@ -65,15 +65,15 @@ function calculateBlockHash(
 async function main() {
     // deploy proof of efficiency
 
-    for (let i = 0; i < testVectors.length; i++) {
+    for (let i = 0; i < generalInput.length; i++) {
         const {
             txs,
             expectedNewRoot,
             sequencerAddress,
-            timestamp
-        } = testVectors[i];
+            timestamp,
+        } = generalInput[i];
 
-        const currentTestVector = testVectors[i];
+        const currentTestVector = generalInput[i];
 
         // For matching the interface in go, some parameters has some predertermined byte length:
         const hashByteLen = 32;
@@ -138,7 +138,7 @@ async function main() {
             parentHash,
             txHashRoot,
             receiptRoot,
-            timestamp
+            timestamp,
         };
 
         const gasUsed = gasUsedForTx * (receiptArray.length);
@@ -164,7 +164,7 @@ async function main() {
             receiptArray[j].receipt.blockHash = blockHash;
         }
     }
-    await fs.writeFileSync(fullPathTestVectors, JSON.stringify(testVectors, null, 2));
+    await fs.writeFileSync(fullPathTestVectors, JSON.stringify(generalInput, null, 2));
 }
 
 main()
