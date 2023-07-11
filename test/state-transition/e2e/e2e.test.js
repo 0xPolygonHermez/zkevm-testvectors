@@ -1,9 +1,9 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable max-len, no-plusplus, guard-for-in */
 /* eslint-disable import/no-dynamic-require, global-require */
-const { Scalar } = require('ffjavascript');
 const fs = require('fs');
 const path = require('path');
+const { Scalar } = require('ffjavascript');
 const { ethers } = require('hardhat');
 const { expect } = require('chai');
 const { argv } = require('yargs');
@@ -555,7 +555,7 @@ describe('Proof of efficiency test vectors', function () {
 
         // Check inputs mathces de smart contract
         const numBatch = Number((await polygonZkEVMContract.lastVerifiedBatch())) + 1;
-        const fflonkProof = '0x';
+        const fflonkProof = new Array(24).fill(ethers.constants.HashZero);
         const pendingStateNum = 0;
 
         // calculate circuit input
