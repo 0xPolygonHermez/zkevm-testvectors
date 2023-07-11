@@ -1,6 +1,6 @@
-const { expect } = require('chai');
 const fs = require('fs');
 const path = require('path');
+const { expect } = require('chai');
 const { argv } = require('yargs');
 
 const {

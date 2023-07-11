@@ -6,6 +6,9 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable import/no-extraneous-dependencies */
+
+const fs = require('fs');
+const path = require('path');
 const Common = require('@ethereumjs/common').default;
 const { Hardfork } = require('@ethereumjs/common');
 const { BN, toBuffer } = require('ethereumjs-util');
@@ -15,8 +18,6 @@ const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
 const { expect } = require('chai');
 const { Transaction } = require('@ethereumjs/tx');
 
-const fs = require('fs');
-const path = require('path');
 const helpers = require('../../../tools-calldata/helpers/helpers');
 
 // load list test-vectors

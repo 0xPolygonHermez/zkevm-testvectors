@@ -8,8 +8,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/no-unresolved */
 
-const grpc = require('@grpc/grpc-js');
+const fs = require('fs');
 const path = require('path');
+const grpc = require('@grpc/grpc-js');
 
 const calldataInputsDir = path.join(__dirname, '../../inputs-executor');
 
@@ -29,7 +30,6 @@ const executorPackageDefinition = protoLoader.loadSync(
 );
 const zkProverProto = grpc.loadPackageDefinition(executorPackageDefinition).executor.v1;
 const { ExecutorService } = zkProverProto;
-const fs = require('fs');
 
 let totalTests = 0;
 let executedTests = 0;
