@@ -79,11 +79,11 @@ describe('Check roots same txs in different batches', function () {
             },
         );
 
-        helpers.addRawTxChangeL2Block(batch);
-
         // build txs
         for (let i = 0; i < generateData.tx.length; i++) {
             const genTx = generateData.tx[i];
+
+            helpers.addRawTxChangeL2Block(batch);
 
             const tx = {
                 to: genTx.to,
@@ -113,7 +113,7 @@ describe('Check roots same txs in different batches', function () {
         rootTxSameBatch = starkInput.newStateRoot;
 
         if (update) {
-            const pathOutput = path.join(pathInputExecutor, 'txs-same-batch.json-ignore');
+            const pathOutput = path.join(pathInputExecutor, 'txs-same-batch.json');
             await fs.writeFileSync(pathOutput, JSON.stringify(starkInput, null, 2));
         }
     });
@@ -167,6 +167,7 @@ describe('Check roots same txs in different batches', function () {
                     skipVerifyGER: true,
                 },
             );
+
             helpers.addRawTxChangeL2Block(batch);
 
             const genTx = generateData.tx[i];
@@ -193,7 +194,7 @@ describe('Check roots same txs in different batches', function () {
             // console.log(starkInput);
 
             if (update) {
-                const pathOutput = path.join(pathInputExecutor, `txs-different-batch_${i}.json-ignore`);
+                const pathOutput = path.join(pathInputExecutor, `txs-different-batch_${i}.json`);
                 await fs.writeFileSync(pathOutput, JSON.stringify(starkInput, null, 2));
             }
 
@@ -207,6 +208,6 @@ describe('Check roots same txs in different batches', function () {
     });
 
     it('Assert roots', async () => {
-        // expect(rootTxSameBatch).to.be.equal(rootTxDifferentBatch);
+        expect(rootTxSameBatch).to.be.equal(rootTxDifferentBatch);
     });
 });
