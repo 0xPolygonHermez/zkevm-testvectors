@@ -332,7 +332,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x36fd02088ede5c5a207caf78e57bd61f85930acd0b33b630beb8f848ce16668c",
+    "expectedNewRoot": "0x88bfd748eb91ee205671536c8f9163914efa08edc97c42d4da60946fb01075c6",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000043385000000000",
@@ -352,7 +352,7 @@
         "balance": "0",
         "nonce": "1",
         "storage": {
-          "0x0000000000000000000000000000000000000000000000000000000000000002": "0x73e6af6f"
+          "0x0000000000000000000000000000000000000000000000000000000000000002": "0x03e8"
         },
         "hashBytecode": "0x09d6672a3fdb1e462513b4a6d6efcd4013a17e719128eeb0f54cf84a74e890e2",
         "bytecodeLength": 961
