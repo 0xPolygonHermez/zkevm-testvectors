@@ -12,23 +12,23 @@ evm-stack-logs
 ./tools/print-opcodes/input.data
 ./tools/print-opcodes/output.json
 
-tools/ethereum-tests/tests
-tools/ethereum-tests/eth-inputs
-tools/ethereum-tests/zkproverjs
-tools/ethereum-tests/times*
-tools/ethereum-tests/info-output-*
+tools-inputs/tools-eth/tests
+tools-inputs/tools-eth/eth-inputs
+tools-inputs/tools-eth/zkproverjs
+tools-inputs/tools-eth/times*
+tools-inputs/tools-eth/info-output-*
 inputs-integration
 errors.txt
 info.txt
 info-30M.txt
 info-inputs.txt
 info-output.txt
-tools/ethereum-tests/final-table.txt
-tools/ethereum-tests/.DS_Store
+tools-inputs/tools-eth/final-table.txt
+tools-inputs/tools-eth/.DS_Store
 all-info.txt
 all-info-2.txt
 
-tools-calldata/evm/.DS_Store
+tools-inputs/tools-calldata/.DS_Store
 tools/benchmark/inputs
 tools/benchmark/.DS_Store
 
