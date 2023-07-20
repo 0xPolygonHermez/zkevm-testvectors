@@ -1,12 +1,12 @@
 # get info
-cd ../../../zkevm-testvectors/tools/ethereum-tests
+cd ../../../zkevm-testvectors/tools-inputs/tools-eth
 echo -e "Tests info: \n" > eth-inputs/final-info.txt
 commit_testvectors=$(git rev-parse HEAD)
 cd ../../../zkevm-proverjs
 commit_proverjs=$(git rev-parse HEAD)
 cd ../zkevm-rom
 commit_rom=$(git rev-parse HEAD)
-cd ../zkevm-testvectors/tools/ethereum-tests/tests
+cd ../zkevm-testvectors/tools-inputs/tools-eth/tests
 commit_eth_tests=$(git rev-parse HEAD)
 cd ../
 echo -e "Commit zkevm-testvectors: $commit_testvectors" >> eth-inputs/final-info.txt

@@ -5,6 +5,9 @@ const { Address } = require('ethereumjs-util');
 const { Scalar } = require('ffjavascript');
 const { utils } = require('@0xpolygonhermez/zkevm-commonjs');
 const { defaultAbiCoder } = require('@ethersproject/abi');
+const path = require('path');
+
+const pathTestVectors = path.join(__dirname, '../..');
 
 async function getAccountNonce(vm, accountPrivateKey) {
     const address = Address.fromPrivateKey(accountPrivateKey);
@@ -103,4 +106,5 @@ module.exports = {
     getAccountNonce,
     updateMessageToHash,
     addRawTxChangeL2Block,
+    pathTestVectors,
 };

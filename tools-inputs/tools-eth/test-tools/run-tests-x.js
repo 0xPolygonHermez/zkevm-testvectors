@@ -19,7 +19,7 @@ const { Transaction } = require('@ethereumjs/tx');
 const { argv } = require('yargs');
 const fs = require('fs');
 const path = require('path');
-const helpers = require('../../../tools-calldata/helpers/helpers');
+const helpers = require('../../helpers/helpers');
 
 const testvectorsGlobalConfig = require(path.join(__dirname, '../../../testvectors.config.json'));
 
@@ -75,7 +75,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                     try {
                         file = `${basePath}/${listOOC[x].name}`;
                         if (file.includes('VMTests')) {
-                            directory = `${basePath}/VMTests`;
+                            let directory = `${basePath}/VMTests`;
                             const allFilesVMTests = getAllFiles(directory);
                             file = allFilesVMTests.filter((f) => f.includes(listOOC[x].name.split('/')[1]));
                             if (file.length > 0) {

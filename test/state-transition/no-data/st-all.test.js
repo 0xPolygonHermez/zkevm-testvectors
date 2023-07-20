@@ -18,11 +18,10 @@ const { rawTxToCustomRawTx } = processorUtils;
 const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
 
 // load list test-vectors
-const { pathTestVectors } = require('../../helpers/helpers');
-const helpers = require('../../../tools-calldata/helpers/helpers');
+const helpers = require('../../../tools-inputs/helpers/helpers');
 
-const folderStateTransition = path.join(pathTestVectors, './state-transition/no-data');
-const folderInputsExecutor = path.join(pathTestVectors, './inputs-executor/no-data');
+const folderStateTransition = path.join(helpers.pathTestVectors, './tools-inputs/data/no-data');
+const folderInputsExecutor = path.join(helpers.pathTestVectors, './inputs-executor/no-data');
 let listTests = fs.readdirSync(folderStateTransition);
 listTests = listTests.filter((fileName) => path.extname(fileName) === '.json');
 

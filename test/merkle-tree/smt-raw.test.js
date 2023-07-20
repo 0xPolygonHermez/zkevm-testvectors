@@ -7,7 +7,7 @@ const { argv } = require('yargs');
 const {
     MemDB, SMT, getPoseidon, smtUtils,
 } = require('@0xpolygonhermez/zkevm-commonjs');
-const { pathTestVectors } = require('../helpers/helpers');
+const { pathTestVectors } = require('../../tools-inputs/helpers/helpers');
 
 describe('smt-raw', async function () {
     this.timeout(10000);

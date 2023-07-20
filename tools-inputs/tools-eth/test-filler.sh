@@ -34,12 +34,12 @@ fi
 if [ "$run_folder" = true ]; then
     echo "Run full folder"
     # Run dretesteth from docker
-    ./dretesteth.sh -t GeneralStateTests/$test_folder_name -- --testpath $absolute_tests_path --fillchain
+    ./dretesteth.sh -t ../../inputs-executor/ethereum-tests/GeneralStateTests/$test_folder_name -- --testpath $absolute_tests_path --fillchain
     # Regen test as executor input
-    npx mocha gen-inputs.js --evm-debug --folder $test_folder_name
+    npx mocha eth-gen-inputs.js --evm-debug --folder $test_folder_name
 else
     # Run dretesteth from docker
-    ./dretesteth.sh -t GeneralStateTests/$test_folder_name -- --testpath $absolute_tests_path --singletest $test_file_name --fillchain
+    ./dretesteth.sh -t ../../inputs-executor/ethereum-tests/GeneralStateTests/$test_folder_name -- --testpath $absolute_tests_path --singletest $test_file_name --fillchain
     # Regen test as executor input
-    npx mocha gen-inputs.js --evm-debug --test $test_folder_name/$test_file_name.json
+    npx mocha eth-gen-inputs.js --evm-debug --test $test_folder_name/$test_file_name.json
 fi

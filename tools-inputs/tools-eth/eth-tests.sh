@@ -40,7 +40,7 @@ dir=./tests/BlockchainTests/GeneralStateTests
             echo "Exist"
         else
             mkdir eth-inputs/$group/$folder
-            npx mocha --max-old-space-size=12000 gen-inputs.js --group $group --folder $folder --output eth-inputs > eth-inputs/$group/$folder/all-info.txt
+            npx mocha --max-old-space-size=12000 ../generators/eth-gen-inputs.js --group $group --folder $folder --output eth-inputs > eth-inputs/$group/$folder/all-info.txt
         fi
         gen_input_time_aux=$gen_input_time
         gen_input_time=$(date +%s)
@@ -53,7 +53,7 @@ echo -e "gen inputs time: $((gen_inputs_time - clone_time))" >> times-eth.txt
 cd ../../../zkevm-proverjs
 rm cache-main-pil.json
 cd tools/run-test
-dir=../../../zkevm-testvectors/tools/ethereum-tests/eth-inputs
+dir=../../../zkevm-testvectors/tools-inputs/tools-eth/eth-inputs
 pass_folder_time=$gen_inputs_time
 for entry in "$dir"/*
 do
@@ -68,14 +68,14 @@ do
                     node --max-old-space-size=12000 run-inputs.js -f $entry2 -r ../../../zkevm-rom/build/rom.json --info $entry2/info-inputs.txt --output $entry2/info-output.txt --ignore > $entry2/all-info-2.txt
                     pass_folder_time_aux=$pass_folder_time
                     pass_folder_time=$(date +%s)
-                    echo -e "pass folder $entry2: $((pass_folder_time - pass_folder_time_aux))" >> ../../../zkevm-testvectors/tools/ethereum-tests/times-eth.txt
+                    echo -e "pass folder $entry2: $((pass_folder_time - pass_folder_time_aux))" >> ../../../zkevm-testvectors/tools-inputs/tools-eth/times-eth.txt
                 fi
             fi
         done
     fi
 done
 # pass 30M tests
-cd ../../../zkevm-testvectors/tools/ethereum-tests/test-tools
+cd ../../../zkevm-testvectors/tools-inputs/tools-eth/test-tools
 node run-tests-30M.js -l ../eth-inputs/GeneralStateTests/tests-30M/tests30M-list.json -r ../../../../zkevm-rom -p ../../../../zkevm-proverjs > ../eth-inputs/GeneralStateTests/tests-30M/all-info.txt
 
 # pass OOC tests

@@ -21,7 +21,9 @@ const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
 const { argv } = require('yargs');
 const fs = require('fs');
 const path = require('path');
-const helpers = require('../helpers/helpers');
+const paths = require('./paths.json');
+
+const helpers = require(paths.helpers);
 
 // example: npx mocha gen-inputs.js --vectors txs-calldata --inputs input_ --update --output
 
@@ -48,23 +50,15 @@ describe('Generate inputs executor from test-vectors', async function () {
     it('load test vectors', async () => {
         evmDebug = !!(argv['evm-debug']);
         outputFlag = !!(argv.output);
-        if (argv.e2e) {
-            file = 'e2e.json';
-            testVectorDataPath = `../../state-transition/e2e/${file}`;
-            testVectors = [require(testVectorDataPath)];
-            inputsPath = '../../inputs-executor/e2e/';
-            inputName = (`${file.replace('.json', '_')}`);
-        } else {
-            update = !!(argv.update);
-            file = (argv.vectors) ? argv.vectors : 'txs-calldata.json';
-            file = file.endsWith('.json') ? file : `${file}.json`;
-            inputName = (argv.inputs) ? argv.inputs : (`${file.replace('.json', '_')}`);
-            testVectorDataPath = `../../state-transition/calldata/${file}`;
-            testVectors = require(testVectorDataPath);
-            internalTestVectorsPath = `./generate-test-vectors/gen-${file}`;
-            internalTestVectors = require(internalTestVectorsPath);
-            inputsPath = '../../inputs-executor/calldata/';
-        }
+        update = !!(argv.update);
+        file = (argv.vectors) ? argv.vectors : 'txs-calldata.json';
+        file = file.endsWith('.json') ? file : `${file}.json`;
+        inputName = (argv.inputs) ? argv.inputs : (`${file.replace('.json', '_')}`);
+        testVectorDataPath = `../data/calldata/${file}`;
+        testVectors = require(testVectorDataPath);
+        internalTestVectorsPath = `../tools-calldata/generate-test-vectors/gen-${file}`;
+        internalTestVectors = require(internalTestVectorsPath);
+        inputsPath = '../../inputs-executor/calldata/';
 
         await hre.run('compile');
         console.log(`   test vector name: ${file}`);
@@ -287,7 +281,7 @@ describe('Generate inputs executor from test-vectors', async function () {
             // Save outuput in file
             if (outputFlag) {
                 const dir = path.join(__dirname, inputsPath);
-                console.log(`WRITE: ${dir}${inputName}${id}.json`);
+                console.log(`WRITE OUTPUT: ${dir}${inputName}${id}.json`);
                 await fs.writeFileSync(`${dir}${inputName}${id}.json`, JSON.stringify(circuitInput, null, 2));
             }
             if (update) {
@@ -316,6 +310,8 @@ describe('Generate inputs executor from test-vectors', async function () {
             }
         }
         if (update) {
+            console.log(`WRITE UPDATE: ${testVectorDataPath}`);
+            console.log(`WRITE UPDATE: ${internalTestVectorsPath}`);
             await fs.writeFileSync(path.join(__dirname, testVectorDataPath), JSON.stringify(testVectors, null, 2));
             await fs.writeFileSync(path.join(__dirname, internalTestVectorsPath), JSON.stringify(internalTestVectors, null, 2));
         }

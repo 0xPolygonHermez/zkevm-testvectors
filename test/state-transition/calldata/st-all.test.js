@@ -18,12 +18,11 @@ const { Transaction } = require('@ethereumjs/tx');
 const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
 const fs = require('fs');
 const path = require('path');
-const helpers = require('../../../tools-calldata/helpers/helpers');
+const helpers = require('../../../tools-inputs/helpers/helpers');
 
 // load list test-vectors
-const { pathTestVectors } = require('../../helpers/helpers');
 
-const folderStateTransition = path.join(pathTestVectors, './state-transition/calldata');
+const folderStateTransition = path.join(__dirname, '../../../tools-inputs/data/calldata');
 let listTests = fs.readdirSync(folderStateTransition);
 listTests = listTests.filter((fileName) => path.extname(fileName) === '.json');
 

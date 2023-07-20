@@ -53,8 +53,8 @@ async function main() {
         );
 
         inputRLP.db = generalInput.db;
-
-        fs.writeFileSync(pathTest, JSON.stringify(inputRLP, null, 2));
+        console.log(`WRITE: ${pathTest}`);
+        await fs.writeFileSync(pathTest, JSON.stringify(inputRLP, null, 2));
     }
 }
 

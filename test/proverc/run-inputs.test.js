@@ -12,7 +12,7 @@ const { toHexStringRlp } = require('@0xpolygonhermez/zkevm-commonjs').processorU
 const { Scalar } = require('ffjavascript');
 
 // const calldataInputsDir = path.join(__dirname, '../../inputs-executor');
-const calldataInputsDir = path.join(__dirname, '../../tools/ethereum-tests/GeneralStateTests');
+const calldataInputsDir = path.join(__dirname, '../../inputs-executor/GeneralStateTests');
 
 const EXECUTOR_PROTO_PATH = path.join(__dirname, '../../../zkevm-comms-protocol/proto/executor/v1/executor.proto');
 const DB_PROTO_PATH = path.join(__dirname, '../../../zkevm-comms-protocol/proto/statedb/v1/statedb.proto');

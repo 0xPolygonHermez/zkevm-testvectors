@@ -27,18 +27,16 @@ const {
 } = require('@0xpolygonhermez/zkevm-contracts');
 
 const contractsPolygonHermez = require('@0xpolygonhermez/zkevm-contracts');
-const helpers = require('../../../tools-calldata/helpers/helpers');
+const helpers = require('../../../tools-inputs/helpers/helpers');
 
-const { pathTestVectors } = require('../../helpers/helpers');
-
-const pathStateTransition = path.join(pathTestVectors, './state-transition/e2e/e2e.json');
+const pathStateTransition = path.join(helpers.pathTestVectors, './tools-inputs/data/e2e/e2e.json');
 const testE2E = JSON.parse(fs.readFileSync(pathStateTransition));
 
 async function setNextBlockTimestamp(timestamp) {
     return (ethers.provider.send('evm_setNextBlockTimestamp', [timestamp]));
 }
 
-const configTestvectors = require('../../../testvectors.config.json');
+const configTestvectors = require('../../../tools-inputs/testvectors.config.json');
 
 describe('Proof of efficiency test vectors', function () {
     this.timeout(0);
@@ -509,7 +507,7 @@ describe('Proof of efficiency test vectors', function () {
             testE2E.oldAccInputHash = circuitInput.oldAccInputHash;
             testE2E.newLocalExitRoot = circuitInput.newLocalExitRoot;
             // Write executor input
-            const folderInputsExecutor = path.join(pathTestVectors, './inputs-executor/e2e');
+            const folderInputsExecutor = path.join(helpers.pathTestVectors, './inputs-executor/e2e');
             const fileName = path.join(folderInputsExecutor, 'e2e_0.json');
             await fs.writeFileSync(fileName, JSON.stringify(circuitInput, null, 2));
         }

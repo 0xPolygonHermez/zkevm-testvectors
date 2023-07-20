@@ -26,13 +26,13 @@ const hre = require('hardhat');
 const {
     MemDB, ZkEVMDB, getPoseidon, processorUtils, smtUtils, Constants, stateUtils,
 } = require('@0xpolygonhermez/zkevm-commonjs');
-const helpers = require('../../../tools-calldata/helpers/helpers');
+const helpers = require('../../../tools-inputs/helpers/helpers');
 
 const testAccountDeploy = {
     pvtKey: '0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e',
 };
 
-const artifactsPath = path.join(__dirname, '../../../tools-calldata/evm/artifacts/contracts');
+const artifactsPath = path.join(__dirname, '../../../tools-inputs/tools-calldata/artifacts/contracts');
 
 // input file
 const pathGenTestVector = path.join(__dirname, './gen_test-vector.json');
@@ -40,10 +40,8 @@ const pathGenTestVector = path.join(__dirname, './gen_test-vector.json');
 const pathGenInput = path.join(__dirname, './input_gen.json');
 
 // input executor folder
-const { pathTestVectors } = require('../../helpers/helpers');
-
-const testvectorsGlobalConfig = require(path.join(__dirname, '../../../testvectors.config.json'));
-const pathInputExecutor = path.join(pathTestVectors, 'inputs-executor/no-data');
+const testvectorsGlobalConfig = require(path.join(__dirname, '../../../tools-inputs/testvectors.config.json'));
+const pathInputExecutor = path.join(__dirname, '../../../inputs-executor/no-data');
 
 describe('Header timestamp', function () {
     this.timeout(50000);

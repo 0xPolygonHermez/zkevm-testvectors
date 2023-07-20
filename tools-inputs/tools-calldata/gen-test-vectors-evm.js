@@ -14,6 +14,7 @@ const hre = require('hardhat');
 const { argv } = require('yargs');
 const fs = require('fs');
 const path = require('path');
+
 const helpers = require('../helpers/helpers');
 
 const artifactsPath = path.join(__dirname, 'artifacts/contracts');
@@ -41,10 +42,10 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
             process.exit(0);
         }
         outputName = file.replace('gen-', '');
-        genTestVectorPath = `./generate-test-vectors/${file}`;
+        genTestVectorPath = path.join(__dirname, `./generate-test-vectors/${file}`);
         // eslint-disable-next-line import/no-dynamic-require
         testVectors = require(genTestVectorPath);
-        testVectorDataPath = '../../state-transition/calldata/';
+        testVectorDataPath = '../data/calldata/';
         await hre.run('compile');
         console.log(`   test vector name: ${file}`);
     });

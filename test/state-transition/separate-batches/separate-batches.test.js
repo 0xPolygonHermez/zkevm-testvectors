@@ -14,10 +14,9 @@ const {
 const pathInput = path.join(__dirname, './input_gen.json');
 
 // input executor folder
-const { pathTestVectors } = require('../../helpers/helpers');
-const helpers = require('../../../tools-calldata/helpers/helpers');
+const helpers = require('../../../tools-inputs/helpers/helpers');
 
-const pathInputExecutor = path.join(pathTestVectors, 'inputs-executor/no-data');
+const pathInputExecutor = path.join(helpers.pathTestVectors, 'inputs-executor/no-data');
 
 describe('Check roots same txs in different batches', function () {
     let update;

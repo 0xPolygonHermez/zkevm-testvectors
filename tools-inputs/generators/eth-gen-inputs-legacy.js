@@ -19,9 +19,11 @@ const { Transaction } = require('@ethereumjs/tx');
 const { argv } = require('yargs');
 const fs = require('fs');
 const path = require('path');
-const helpers = require('../../tools-calldata/helpers/helpers');
+const paths = require('./paths.json');
 
-const testvectorsGlobalConfig = require(path.join(__dirname, '../../testvectors.config.json'));
+const helpers = require(paths.helpers);
+
+const testvectorsGlobalConfig = require(path.join(__dirname, paths['testvectors-config']));
 
 // example: npx mocha gen-inputs.js --test xxxx --folder xxxx --ignore
 describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', async function () {
@@ -36,7 +38,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
     let group;
     let info = '';
     let infoErrors = '';
-    let basePath = './tests/BlockchainTests';
+    let basePath = `${paths['tests-ethereum']}/BlockchainTests`;
     // let allTests;
     let allTests = true;
     let countTests = 0;
@@ -53,7 +55,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
         if (argv.output) {
             outputPath = argv.output.trim();
         } else {
-            outputPath = '';
+            outputPath = paths['output-ethereum-inputs'];
         }
 
         let dir = path.join(__dirname, outputPath);
@@ -189,7 +191,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         }
                         const auxOutputPathName = `${dir}/${newOutputName}`;
 
-                        const noExec = require('./no-exec.json');
+                        const noExec = require(paths['no-exec']);
 
                         const listBreaksComputation = [];
                         noExec['breaks-computation'].forEach((elem) => listBreaksComputation.push(elem.name));
@@ -214,12 +216,12 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         let accountPkFrom;
                         if (currentTest._info.source.endsWith('.json')) {
-                            const source = require(`./tests/${currentTest._info.source}`);
+                            const source = require(`${paths['tests-ethereum']}/${currentTest._info.source}`);
                             accountPkFrom = source[(file.split('/')[file.split('/').length - 1]).split('.json')[0]].transaction.secretKey;
                             accountPkFrom = accountPkFrom.startsWith('0x') ? accountPkFrom : `0x${accountPkFrom}`;
                             accountPkFrom = toBuffer(accountPkFrom);
                         } else {
-                            const s = fs.readFileSync(path.join(__dirname, `./tests/${currentTest._info.source}`), 'utf8');
+                            const s = fs.readFileSync(path.join(__dirname, `${paths['tests-ethereum']}/${currentTest._info.source}`), 'utf8');
                             let indNum = s.search('secretKey');
                             while (s.substring(indNum, indNum + 1) !== ' ') {
                                 indNum += 1;

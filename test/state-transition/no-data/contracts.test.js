@@ -20,12 +20,10 @@ const { calculateSnarkInput, calculateBatchHashData } = contractUtils;
 const {
     ERC20PermitMock, PolygonZkEVMGlobalExitRootMock, PolygonZkEVMBridge, PolygonZkEVMMock, VerifierRollupHelperMock,
 } = require('@0xpolygonhermez/zkevm-contracts');
+const helpers = require('../../../tools-inputs/helpers/helpers');
 
-const { pathTestVectors } = require('../../helpers/helpers');
-
-const pathStateTransition = path.join(pathTestVectors, './state-transition/no-data/general.json');
+const pathStateTransition = path.join(helpers.pathTestVectors, './tools-inputs/data/no-data/general.json');
 const testVectors = JSON.parse(fs.readFileSync(pathStateTransition));
-const helpers = require('../../../tools-calldata/helpers/helpers');
 
 async function takeSnapshop() {
     return (ethers.provider.send('evm_snapshot', []));
@@ -40,7 +38,7 @@ async function setNextBlockTimestamp(timestamp) {
     return (ethers.provider.send('evm_setNextBlockTimestamp', [timestamp]));
 }
 
-const configTestvectors = require('../../../testvectors.config.json');
+const configTestvectors = require('../../../tools-inputs/testvectors.config.json');
 
 describe('Proof of efficiency test vectors', function () {
     this.timeout(20000);

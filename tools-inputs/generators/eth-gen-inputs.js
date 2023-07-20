@@ -19,9 +19,10 @@ const { Transaction } = require('@ethereumjs/tx');
 const { argv } = require('yargs');
 const fs = require('fs');
 const path = require('path');
-const helpers = require('../../tools-calldata/helpers/helpers');
+const paths = require('./paths.json');
 
-const testvectorsGlobalConfig = require(path.join(__dirname, '../../testvectors.config.json'));
+const helpers = require(paths.helpers);
+const testvectorsGlobalConfig = require(path.join(__dirname, paths['testvectors-config']));
 
 // example: npx mocha gen-inputs.js --test xxxx --folder xxxx --ignore
 describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', async function () {
@@ -37,7 +38,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
     let evmDebug;
     let info = '';
     let infoErrors = '';
-    let basePath = './tests/BlockchainTests';
+    let basePath = `${paths['tests-ethereum']}/BlockchainTests`;
     let tests30M = [];
     let dir30M;
     // let allTests;
@@ -57,7 +58,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
         if (argv.output) {
             outputPath = argv.output.trim();
         } else {
-            outputPath = '';
+            outputPath = paths['output-ethereum-inputs'];
         }
 
         let dir = path.join(__dirname, outputPath);
@@ -152,7 +153,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                     counts.countTests += 1;
                     let newOutputName;
                     let writeOutputName = dir;
-                    const noExec = require('./no-exec.json');
+                    const noExec = require(paths['no-exec']);
                     try {
                         if (txsLength > 1) newOutputName = `${outputName.split('.json')[0]}_${y}.json`;
                         else newOutputName = outputName;
@@ -222,7 +223,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         if (currentTest._info.source.endsWith('.json')) {
                             let source;
                             try {
-                                source = require(`./tests/${currentTest._info.source}`);
+                                source = require(`${paths['tests-ethereum']}/${currentTest._info.source}`);
                             } catch (e) {
                                 throw new Error('Error: ethereum/tests error');
                             }
@@ -232,7 +233,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         } else if (currentTest._info.source.endsWith('.yml')) {
                             let s;
                             try {
-                                s = fs.readFileSync(path.join(__dirname, `./tests/${currentTest._info.source}`), 'utf8');
+                                s = fs.readFileSync(path.join(__dirname, `${paths['tests-ethereum']}/${currentTest._info.source}`), 'utf8');
                             } catch (e) {
                                 throw new Error('Error: ethereum/tests error');
                             }
@@ -508,7 +509,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             auxDir = auxDir.split('/');
                             const nameTest = `${auxDir[auxDir.length - 1]}/${newOutputName.replace('.json', '')}`;
                             noExec['not-supported'].push({ name: nameTest, description: 'tx gas > max int' });
-                            await fs.writeFileSync('./no-exec.json', JSON.stringify(noExec, null, 2));
+                            await fs.writeFileSync(paths['no-exec'], JSON.stringify(noExec, null, 2));
                             counts.countNotSupport += 1;
                             infoErrors += 'Error: not supported\n';
                             infoErrors += `${newOutputName}\n`;
@@ -607,7 +608,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                 txId += 1;
             }
         }
-        fs.writeFileSync(path.join(dir, fileName), JSON.stringify(data, null, 2));
+        console.log(path.join(dir, fileName));
+        await fs.writeFileSync(path.join(dir, fileName), JSON.stringify(data, null, 2));
     }
 
     async function updateNoExec(dir, newOutputName, description, noExec) {
@@ -615,7 +617,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
         auxDir = auxDir.split('/');
         const nameTest = `${auxDir[auxDir.length - 1]}/${newOutputName.replace('.json', '')}`;
         noExec['not-supported'].push({ name: nameTest, description });
-        await fs.writeFileSync('./no-exec.json', JSON.stringify(noExec, null, 2));
+        await fs.writeFileSync(paths['no-exec'], JSON.stringify(noExec, null, 2));
         throw new Error('not supported');
     }
 });
