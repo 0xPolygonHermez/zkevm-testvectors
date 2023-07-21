@@ -1,17 +1,12 @@
 const fs = require('fs');
-const path = require('path');
-
 const { argv } = require('yargs')
     .alias('f', 'folder');
+const path = require('path');
 
 let folders = [
     '../../../inputs-executor',
-    '../../../state-transition',
-    '../GeneralStateTests',
-    '../../../test/state-transition',
-    '../../out-of-counters/',
-    '../../../tools-calldata/evm/generate-test-vectors',
-    '../../../receipt-test-vectors',
+    '../../../inputs-executor/ethereum-tests/GeneralStateTests',
+    '../../data',
 ];
 
 async function writeParams(keys, values, jsonPath) {

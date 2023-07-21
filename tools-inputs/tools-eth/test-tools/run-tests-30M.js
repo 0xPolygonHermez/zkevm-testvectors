@@ -35,7 +35,7 @@ async function main() {
             const res = await execSync(`cd ${argv.r.trim()} && mkdir -p build && npx zkasm main/main.zkasm -o build/rom-gas.json -D TX_GAS_LIMIT=${gasLimit}`);
             // console.log(`stdout: ${res}\n`);
             info30M += `stdout: ${res}\n`;
-            const testPath2 = path.join('../../../zkevm-testvectors/tools/ethereum-tests/test-tools', testPath);
+            const testPath2 = path.join('../../../zkevm-testvectors/tools-inputs/tools-eth/test-tools', testPath);
             // console.log(`cd ${argv.p.trim()}/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ${testPath2} -r ../../../zkevm-rom/build/rom-gas.json\n`);
             info30M += `cd ${argv.p.trim()}/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ${testPath2} -r ../../../zkevm-rom/build/rom-gas.json\n`;
             const res2 = await execSync(`cd ${argv.p.trim()}/tools/run-test && node --max-old-space-size=12000 run-inputs.js -i ${testPath2} -r ../../../zkevm-rom/build/rom-gas.json`);

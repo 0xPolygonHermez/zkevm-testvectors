@@ -7,21 +7,22 @@ cd ../../zkevm-proverjs
 # rm cache-main-pil.json
 cd tools/run-test
 dir=../../../zkevm-testvectors/inputs-executor
+dir2=../../../zkevm-testvectors/inputs-executor/ethereum-tests/GeneralStateTests
 count=0
 for entry in "$dir"/*
 do
     if [ -d $entry ]
     then
-        for entry2 in "$entry"/*
-        do
-            if [ -d $entry2 ]
-            then
-                count=$((count + 1))
-                node --max-old-space-size=8192 run-inputs.js -f $entry2 -r ../../../zkevm-rom/build/rom.json --output ../../../zkevm-testvectors/inputs-executor/info-output-$count.txt
-            fi
-        done
         count=$((count + 1))
         node --max-old-space-size=8192 run-inputs.js -f $entry -r ../../../zkevm-rom/build/rom.json --output ../../../zkevm-testvectors/inputs-executor/info-output-$count.txt
+    fi
+done
+for entry2 in "$dir2"/*
+do
+    if [ -d $entry2 ]
+    then
+        count=$((count + 1))
+        node --max-old-space-size=8192 run-inputs.js -f $entry2 -r ../../../zkevm-rom/build/rom.json --output ../../../zkevm-testvectors/inputs-executor/info-output-$count.txt
     fi
 done
 end_time="$(date +%T)"

@@ -23,7 +23,7 @@ do
     if [ -d $entry ]
     then
         folder=$(echo $entry | cut -d '/' -f 3)
-        npx --max-old-space-size=12000 mocha --timeout 0 eth-gen-inputs.js --folder $folder
+        npx --max-old-space-size=12000 mocha --timeout 0 ../generators/eth-gen-inputs.js --folder $folder
     fi
 done
 mv ./inputs-executor/ethereum-tests/GeneralStateTests/tests-30M/tests30M-list.json ./inputs-executor/ethereum-tests/GeneralStateTests/tests-30M/tests30M-list.json-ignore

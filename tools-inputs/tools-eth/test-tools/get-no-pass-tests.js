@@ -6,9 +6,6 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable import/no-extraneous-dependencies */
-const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
-
-const { argv } = require('yargs');
 const fs = require('fs');
 const path = require('path');
 const noExec = require('../no-exec.json');
