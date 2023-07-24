@@ -1,3 +1,4 @@
+/* eslint-disable no-continue */
 /* eslint-disable no-use-before-define */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
@@ -21,6 +22,7 @@ const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
 const { argv } = require('yargs');
 const fs = require('fs');
 const path = require('path');
+const { Scalar } = require('ffjavascript');
 const helpers = require('../helpers/helpers');
 
 // example: npx mocha gen-inputs.js --vectors txs-calldata --inputs input_ --update --output
@@ -87,9 +89,10 @@ describe('Generate inputs executor from test-vectors', async function () {
                 timestamp,
                 chainID,
                 forkID,
+                isForced,
             } = testVectors[i];
             console.log(`Executing test-vector id: ${id}`);
-
+            if (typeof isForced === 'undefined') isForced = 0;
             if (!chainID) chainID = 1000;
             if (typeof oldAccInputHash === 'undefined') {
                 oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
@@ -132,13 +135,12 @@ describe('Generate inputs executor from test-vectors', async function () {
                 timestamp,
                 sequencerAddress,
                 zkcommonjs.smtUtils.stringToH4(historicGERRoot),
-                0,
+                isForced,
                 Constants.DEFAULT_MAX_TX,
                 {
                     skipVerifyGER: true,
                 },
             );
-            helpers.addRawTxChangeL2Block(batch);
 
             // TRANSACTIONS
             const txsList = [];
@@ -147,6 +149,37 @@ describe('Generate inputs executor from test-vectors', async function () {
             for (let j = 0; j < txs.length; j++) {
                 let isLegacy = false;
                 const currentTx = txs[j];
+
+                // Check for TX_CHANGE_L2_BLOCK
+                if (currentTx.type === Constants.TX_CHANGE_L2_BLOCK) {
+                    let data = Scalar.e(0);
+
+                    let offsetBits = 0;
+
+                    data = Scalar.add(data, Scalar.shl(currentTx.indexHistoricalGERTree, offsetBits));
+                    offsetBits += 32;
+
+                    data = Scalar.add(data, Scalar.shl(currentTx.newGER, offsetBits));
+                    offsetBits += 256;
+
+                    data = Scalar.add(data, Scalar.shl(currentTx.deltaTimestamp, offsetBits));
+                    offsetBits += 64;
+
+                    data = Scalar.add(data, Scalar.shl(currentTx.type, offsetBits));
+                    offsetBits += 8;
+
+                    const customRawTx = zkcommonjs.utils.valueToHexStr(data).padStart(offsetBits / 4, '0');
+                    txsList.push(customRawTx);
+                    batch.addRawTx(`0x${customRawTx}`);
+                    // smtProofsObject[txData.indexHistoricalGERTree] = txData.smtProofs;
+                    continue;
+                } else if (j === 0 && !file.includes('change-l2-block')) {
+                    // If first tx is not TX_CHANGE_L2_BLOCK, add one
+                    const batchL2TxRaw = helpers.addRawTxChangeL2Block(batch);
+                    txsList.push(batchL2TxRaw);
+                    continue;
+                }
+
                 const isSigned = !!(currentTx.r && currentTx.v && currentTx.s);
                 const accountFrom = genesis.filter((x) => x.address.toLowerCase() === currentTx.from.toLowerCase())[0];
                 if (!accountFrom && !isSigned) {
@@ -155,6 +188,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                     // eslint-disable-next-line no-continue
                     continue;
                 }
+
                 // prepare tx
                 const txData = {
                     to: currentTx.to,
@@ -254,6 +288,8 @@ describe('Generate inputs executor from test-vectors', async function () {
 
             // Check balances and nonces
             // eslint-disable-next-line no-restricted-syntax
+            // Add address sytem at expecte new leafs
+            expectedNewLeafs[Constants.ADDRESS_SYSTEM] = {};
             for (const [address] of Object.entries(expectedNewLeafs)) {
                 const newLeaf = await zkEVMDB.getCurrentAccountState(address);
                 if (update) { expectedNewLeafs[address] = { balance: newLeaf.balance.toString(), nonce: newLeaf.nonce.toString() }; }

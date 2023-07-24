@@ -95,6 +95,7 @@ function addRawTxChangeL2Block(batch, tx = undefined) {
 
     const customRawTx = utils.valueToHexStr(data).padStart(offsetBits / 4, '0');
     batch.addRawTx(`0x${customRawTx}`);
+    return customRawTx;
 }
 
 module.exports = {
