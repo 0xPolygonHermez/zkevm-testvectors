@@ -114,6 +114,7 @@ describe('Generate inputs executor from test-vectors', async function () {
             // NEW VM
             // setup new VM
             output.contractsBytecode = {};
+            output.GERS = {};
             for (let j = 0; j < genesis.length; j++) {
                 const { bytecode } = genesis[j];
                 if (bytecode) {
@@ -130,7 +131,7 @@ describe('Generate inputs executor from test-vectors', async function () {
             if (globalExitRoot) {
                 historicGERRoot = globalExitRoot;
             }
-
+            const extraData = { GERS: {} };
             const batch = await zkEVMDB.buildBatch(
                 timestamp,
                 sequencerAddress,
@@ -140,6 +141,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 {
                     skipVerifyGER: true,
                 },
+                extraData,
             );
 
             // TRANSACTIONS
@@ -159,8 +161,9 @@ describe('Generate inputs executor from test-vectors', async function () {
                     data = Scalar.add(data, Scalar.shl(currentTx.indexHistoricalGERTree, offsetBits));
                     offsetBits += 32;
 
-                    data = Scalar.add(data, Scalar.shl(currentTx.newGER, offsetBits));
-                    offsetBits += 256;
+                    // Append newGER to GERS object
+                    output.GERS[j + 1] = currentTx.newGER;
+                    extraData.GERS[j + 1] = currentTx.newGER;
 
                     data = Scalar.add(data, Scalar.shl(currentTx.deltaTimestamp, offsetBits));
                     offsetBits += 64;
@@ -175,9 +178,8 @@ describe('Generate inputs executor from test-vectors', async function () {
                     continue;
                 } else if (j === 0 && !file.includes('change-l2-block')) {
                     // If first tx is not TX_CHANGE_L2_BLOCK, add one
-                    const batchL2TxRaw = helpers.addRawTxChangeL2Block(batch);
+                    const batchL2TxRaw = helpers.addRawTxChangeL2Block(batch, output, extraData);
                     txsList.push(batchL2TxRaw);
-                    continue;
                 }
 
                 const isSigned = !!(currentTx.r && currentTx.v && currentTx.s);

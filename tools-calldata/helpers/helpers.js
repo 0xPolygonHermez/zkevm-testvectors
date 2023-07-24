@@ -64,7 +64,7 @@ function updateMessageToHash(messageToHash) {
     return returnMessageToHash;
 }
 
-function addRawTxChangeL2Block(batch, tx = undefined) {
+function addRawTxChangeL2Block(batch, output, extraData, tx = undefined) {
     let dataChangeL2Block;
     if (tx) {
         dataChangeL2Block = tx;
@@ -84,8 +84,9 @@ function addRawTxChangeL2Block(batch, tx = undefined) {
     data = Scalar.add(data, Scalar.shl(dataChangeL2Block.indexHistoricalGERTree, offsetBits));
     offsetBits += 32;
 
-    data = Scalar.add(data, Scalar.shl(dataChangeL2Block.newGER, offsetBits));
-    offsetBits += 256;
+    // Append newGER to GERS object
+    output.GERS[1] = dataChangeL2Block.newGER;
+    extraData.GERS[1] = dataChangeL2Block.newGER;
 
     data = Scalar.add(data, Scalar.shl(dataChangeL2Block.deltaTimestamp, offsetBits));
     offsetBits += 64;
