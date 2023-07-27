@@ -199,7 +199,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             || Scalar.gt(Scalar.e(currentTest.blocks[0].blockHeader.gasLimit), Scalar.e('0x7FFFFFFF'))) {
                                 await updateNoExec(dir, newOutputName, 'tx gas > max int', noExec);
                             } else {
-                                options.newBatchGasLimit = Scalar.e(currentTest.blocks[0].blockHeader.gasLimit);
+                                options.newBlockGasLimit = Scalar.e(currentTest.blocks[0].blockHeader.gasLimit);
                             }
                             writeOutputName = writeOutputName.replace(writeOutputName.split('/')[writeOutputName.split('/').length - 2], 'tests-30M');
                             tests30M.push({ writeOutputName, file });
@@ -209,7 +209,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             }
                             flag30M = true;
                         } else if (Scalar.gt(Scalar.e(currentTest.blocks[0].blockHeader.gasLimit), Scalar.e('0x7FFFFFFF'))) {
-                            options.newBatchGasLimit = Scalar.e('0x7FFFFFFF');
+                            options.newBlockGasLimit = Scalar.e('0x7FFFFFFF');
                             writeOutputName = writeOutputName.replace(writeOutputName.split('/')[writeOutputName.split('/').length - 2], 'tests-30M');
                             tests30M.push({ writeOutputName, file });
                             dir30M = writeOutputName.replace(writeOutputName.split('/')[writeOutputName.split('/').length - 1], '');
@@ -337,7 +337,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                             if (Scalar.gt(Scalar.e(txTest.gasLimit), Scalar.e('0x7FFFFFFF'))) {
                                 txsTest[tx].gasLimit = '0x7FFFFFFF';
-                            } else if (Scalar.e(txTest.gasLimit) > zkcommonjs.Constants.BATCH_GAS_LIMIT && !options.newBatchGasLimit) {
+                            } else if (Scalar.e(txTest.gasLimit) > zkcommonjs.Constants.BATCH_GAS_LIMIT && !options.newBlockGasLimit) {
                                 txsTest[tx].gasLimit = zkcommonjs.Constants.BATCH_GAS_LIMIT;
                             }
 
@@ -464,7 +464,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             }
                         }
                         const circuitInput = await batch.getStarkInput();
-                        if (options.newBatchGasLimit) { circuitInput.gasLimit = Scalar.e(options.newBatchGasLimit).toString(); }
+                        if (options.newBlockGasLimit) { circuitInput.gasLimit = Scalar.e(options.newBlockGasLimit).toString(); }
                         Object.keys(circuitInput.contractsBytecode).forEach((key) => {
                             if (!circuitInput.contractsBytecode[key].startsWith('0x')) {
                                 circuitInput.contractsBytecode[key] = `0x${circuitInput.contractsBytecode[key]}`;
@@ -504,7 +504,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         }
                         if (!flag30M) counts.countOK += 1;
                     } catch (e) {
-                        if (options.newBatchGasLimit && Scalar.eq(options.newBatchGasLimit, Scalar.e('0x7FFFFFFF')) && (e.toString() !== 'Error: not supported')) {
+                        if (options.newBlockGasLimit && Scalar.eq(options.newBlockGasLimit, Scalar.e('0x7FFFFFFF')) && (e.toString() !== 'Error: not supported')) {
                             let auxDir = dir.endsWith('/') ? dir.substring(0, dir.length - 1) : dir;
                             auxDir = auxDir.split('/');
                             const nameTest = `${auxDir[auxDir.length - 1]}/${newOutputName.replace('.json', '')}`;
