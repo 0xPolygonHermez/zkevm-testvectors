@@ -122,7 +122,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             const currentTest = test[keysTests[y]];
                             // check gas used by the tx is less than 30M
                             if (!nameError.includes('30M')) {
-                                if (Scalar.gt(Scalar.e(currentTest.blocks[0].blockHeader.gasUsed), zkcommonjs.Constants.BATCH_GAS_LIMIT)) {
+                                if (Scalar.gt(Scalar.e(currentTest.blocks[0].blockHeader.gasUsed), zkcommonjs.Constants.TX_GAS_LIMIT)) {
                                     await updateNoExec(listOOC[x].name, 'tx gas > 30M', noExec);
                                 }
                             }
@@ -235,8 +235,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                     await updateNoExec(listOOC[x].name, 'Precompiled blake2f is not supported', noExec);
                                 }
 
-                                if (Scalar.e(txTest.gasLimit) > zkcommonjs.Constants.BATCH_GAS_LIMIT) {
-                                    txsTest[tx].gasLimit = zkcommonjs.Constants.BATCH_GAS_LIMIT;
+                                if (Scalar.e(txTest.gasLimit) > zkcommonjs.Constants.TX_GAS_LIMIT) {
+                                    txsTest[tx].gasLimit = zkcommonjs.Constants.TX_GAS_LIMIT;
                                 }
                                 const commonCustom = Common.custom({ chainId: chainIdSequencer }, { hardfork: Hardfork.Berlin });
                                 if (txTest.r) delete txTest.r;

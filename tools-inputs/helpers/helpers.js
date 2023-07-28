@@ -5,6 +5,9 @@ const { Address } = require('ethereumjs-util');
 const { Scalar } = require('ffjavascript');
 const { utils } = require('@0xpolygonhermez/zkevm-commonjs');
 const { defaultAbiCoder } = require('@ethersproject/abi');
+const path = require('path');
+
+const pathTestVectors = path.join(__dirname, '../..');
 
 async function getAccountNonce(vm, accountPrivateKey) {
     const address = Address.fromPrivateKey(accountPrivateKey);
@@ -73,7 +76,7 @@ function addRawTxChangeL2Block(batch, output, extraData, tx = undefined) {
             type: 11,
             deltaTimestamp: '1000',
             newGER: '0x3100000000000000000000000000000000000000000000000000000000000000',
-            indexHistoricalGERTree: 0,
+            indexHistoricalGERTree: 1,
             reason: '',
         };
     }
@@ -85,8 +88,8 @@ function addRawTxChangeL2Block(batch, output, extraData, tx = undefined) {
     offsetBits += 32;
 
     // Append newGER to GERS object
-    output.GERS[1] = dataChangeL2Block.newGER;
-    extraData.GERS[1] = dataChangeL2Block.newGER;
+    output.GERS[dataChangeL2Block.indexHistoricalGERTree] = dataChangeL2Block.newGER;
+    extraData.GERS[dataChangeL2Block.indexHistoricalGERTree] = dataChangeL2Block.newGER;
 
     data = Scalar.add(data, Scalar.shl(dataChangeL2Block.deltaTimestamp, offsetBits));
     offsetBits += 64;
@@ -105,4 +108,5 @@ module.exports = {
     getAccountNonce,
     updateMessageToHash,
     addRawTxChangeL2Block,
+    pathTestVectors,
 };

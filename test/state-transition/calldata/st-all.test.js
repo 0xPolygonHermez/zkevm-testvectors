@@ -1,3 +1,4 @@
+/* eslint-disable no-continue */
 /* eslint-disable no-loop-func */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
@@ -18,6 +19,7 @@ const { Transaction } = require('@ethereumjs/tx');
 const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
 const fs = require('fs');
 const path = require('path');
+const { Scalar } = require('ffjavascript');
 const helpers = require('../../../tools-inputs/helpers/helpers');
 
 // load list test-vectors
@@ -40,7 +42,7 @@ describe('Run state-transition tests: calldata', async function () {
         it(`check test vectors: ${listTests[m]}`, async () => {
             const pathTestVector = path.join(folderStateTransition, listTests[m]);
             const testVectors = JSON.parse(fs.readFileSync(pathTestVector));
-
+            const testName = listTests[m];
             for (let i = 0; i < testVectors.length; i++) {
                 console.log(`check test vectors: ${testVectors[i].id}`);
                 let {
@@ -56,8 +58,9 @@ describe('Run state-transition tests: calldata', async function () {
                     timestamp,
                     chainID,
                     forkID,
+                    isForced
                 } = testVectors[i];
-
+                if (typeof isForced === 'undefined') isForced = 0;
                 if (!chainID) chainID = 1000;
 
                 // init SMT Db
@@ -79,18 +82,18 @@ describe('Run state-transition tests: calldata', async function () {
                 if (globalExitRoot) {
                     historicGERRoot = globalExitRoot;
                 }
-
+                const extraData = { GERS: {} };
                 const batch = await zkEVMDB.buildBatch(
                     timestamp,
                     sequencerAddress,
                     zkcommonjs.smtUtils.stringToH4(historicGERRoot),
-                    0,
+                    isForced,
                     Constants.DEFAULT_MAX_TX,
                     {
                         skipVerifyGER: true,
                     },
+                    extraData,
                 );
-                helpers.addRawTxChangeL2Block(batch);
 
                 // TRANSACTIONS
                 const txsList = [];
@@ -99,6 +102,34 @@ describe('Run state-transition tests: calldata', async function () {
                 for (let j = 0; j < txs.length; j++) {
                     let isLegacy = false;
                     const currentTx = txs[j];
+                    // Check for TX_CHANGE_L2_BLOCK
+                    if (currentTx.type === Constants.TX_CHANGE_L2_BLOCK) {
+                        let data = Scalar.e(0);
+
+                        let offsetBits = 0;
+
+                        data = Scalar.add(data, Scalar.shl(currentTx.indexHistoricalGERTree, offsetBits));
+                        offsetBits += 32;
+
+                        // Append newGER to GERS object
+                        extraData.GERS[j + 1] = currentTx.newGER;
+
+                        data = Scalar.add(data, Scalar.shl(currentTx.deltaTimestamp, offsetBits));
+                        offsetBits += 64;
+
+                        data = Scalar.add(data, Scalar.shl(currentTx.type, offsetBits));
+                        offsetBits += 8;
+
+                        const customRawTx = zkcommonjs.utils.valueToHexStr(data).padStart(offsetBits / 4, '0');
+                        txsList.push(customRawTx);
+                        batch.addRawTx(`0x${customRawTx}`);
+                        // smtProofsObject[txData.indexHistoricalGERTree] = txData.smtProofs;
+                        continue;
+                    } else if (j === 0 && !testName.includes('change-l2-block')) {
+                    // If first tx is not TX_CHANGE_L2_BLOCK, add one
+                        const batchL2TxRaw = helpers.addRawTxChangeL2Block(batch, extraData, extraData);
+                        txsList.push(batchL2TxRaw);
+                    }
                     const isSigned = !!(currentTx.r && currentTx.v && currentTx.s);
                     const accountFrom = genesis.filter((x) => x.address.toLowerCase() === currentTx.from.toLowerCase())[0];
                     if (!accountFrom && !isSigned) {

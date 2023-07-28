@@ -344,7 +344,7 @@ describe('Proof of efficiency test vectors', function () {
         const historicGERRootContract = await polygonZkEVMGlobalExitRootContract.getRoot();
         const globalExitRootContract = await polygonZkEVMGlobalExitRootContract.getLastGlobalExitRoot();
         const deltaTimestamp = 1;
-
+        const extraData = { GERS: {} };
         const batch = await zkEVMDB.buildBatch(
             timestampLimit,
             sequencerAddress,
@@ -354,6 +354,7 @@ describe('Proof of efficiency test vectors', function () {
             {
                 skipVerifyGER: true,
             },
+            extraData,
         );
 
         const tx = {
@@ -363,7 +364,7 @@ describe('Proof of efficiency test vectors', function () {
             indexHistoricalGERTree: 1,
             reason: '',
         };
-        helpers.addRawTxChangeL2Block(batch, tx);
+        helpers.addRawTxChangeL2Block(batch, extraData, extraData, tx);
 
         for (let j = 0; j < rawTxs.length; j++) {
             batch.addRawTx(rawTxs[j]);
@@ -491,7 +492,7 @@ describe('Proof of efficiency test vectors', function () {
 
         // Check the circuit input
         const circuitInput = await batch.getStarkInput();
-
+        circuitInput.GERS = extraData.GERS;
         // Check the encode transaction match with the vector test
         if (!update) {
             expect(batchL2Data).to.be.equal(batch.getBatchL2Data());

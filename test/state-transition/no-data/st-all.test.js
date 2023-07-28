@@ -187,7 +187,7 @@ describe('Run state-transition tests', function () {
                 if (globalExitRoot) {
                     historicGERRoot = globalExitRoot;
                 }
-
+                const extraData = { GERS: {} };
                 const batch = await zkEVMDB.buildBatch(
                     timestamp,
                     sequencerAddress,
@@ -197,8 +197,9 @@ describe('Run state-transition tests', function () {
                     {
                         skipVerifyGER: true,
                     },
+                    extraData,
                 );
-                helpers.addRawTxChangeL2Block(batch);
+                helpers.addRawTxChangeL2Block(batch, extraData, extraData);
 
                 for (let k = 0; k < rawTxs.length; k++) {
                     batch.addRawTx(rawTxs[k]);
@@ -252,7 +253,7 @@ describe('Run state-transition tests', function () {
 
                 // Check the circuit input
                 const circuitInput = await batch.getStarkInput();
-
+                circuitInput.GERS = extraData.GERS;
                 if (update) {
                     testVectors[j].batchL2Data = batch.getBatchL2Data();
                     testVectors[j].batchHashData = circuitInput.batchHashData;

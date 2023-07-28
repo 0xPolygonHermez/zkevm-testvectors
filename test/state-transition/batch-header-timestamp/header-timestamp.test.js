@@ -325,7 +325,7 @@ describe('Header timestamp', function () {
                 rawTxs.push(customRawTx);
                 txProcessed.push(txData);
             }
-
+            const extraData = { GERS: {} };
             const batch = await zkEVMDB.buildBatch(
                 timestamp,
                 sequencerAddress,
@@ -335,17 +335,18 @@ describe('Header timestamp', function () {
                 {
                     skipVerifyGER: true,
                 },
+                extraData,
             );
 
             const tx = {
                 type: 11,
                 deltaTimestamp: 1,
                 newGER: '0x3100000000000000000000000000000000000000000000000000000000000000',
-                indexHistoricalGERTree: 0,
+                indexHistoricalGERTree: 1,
                 reason: '',
             };
 
-            helpers.addRawTxChangeL2Block(batch, tx);
+            helpers.addRawTxChangeL2Block(batch, extraData, extraData, tx);
 
             for (let j = 0; j < rawTxs.length; j++) {
                 batch.addRawTx(rawTxs[j]);
@@ -469,7 +470,7 @@ describe('Header timestamp', function () {
 
             // Check the circuit input
             const circuitInput = await batch.getStarkInput();
-
+            circuitInput.GERS = extraData.GERS;
             // Check the encode transaction match with the vector test
             if (!update) {
                 expect(batchL2Data).to.be.equal(batch.getBatchL2Data());

@@ -291,7 +291,7 @@ describe('Proof of efficiency test vectors', function () {
             }
 
             const historicGERRootContract = await globalExitRootManager.getRoot();
-
+            const extraData = { GERS: {} };
             const batch = await zkEVMDB.buildBatch(
                 timestamp,
                 sequencerAddress,
@@ -301,9 +301,10 @@ describe('Proof of efficiency test vectors', function () {
                 {
                     skipVerifyGER: true,
                 },
+                extraData,
             );
 
-            helpers.addRawTxChangeL2Block(batch);
+            helpers.addRawTxChangeL2Block(batch, extraData, extraData);
 
             for (let j = 0; j < rawTxs.length; j++) {
                 batch.addRawTx(rawTxs[j]);

@@ -192,7 +192,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         // check gas used by the tx is less than 30M
                         // to pass VMTests/vmIOandFlowOperations/gas test is necessary update gasLimit
-                        if (Scalar.gt(Scalar.e(currentTest.blocks[0].blockHeader.gasUsed), zkcommonjs.Constants.BATCH_GAS_LIMIT)
+                        if (Scalar.gt(Scalar.e(currentTest.blocks[0].blockHeader.gasUsed), zkcommonjs.Constants.TX_GAS_LIMIT)
                         || file.includes('VMTests/vmIOandFlowOperations/gas')) {
                             // if tx gas > maxInt --> ignored
                             if (Scalar.gt(Scalar.e(currentTest.blocks[0].blockHeader.gasUsed), Scalar.e('0x7FFFFFFF'))
@@ -288,7 +288,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         );
 
                         options.skipVerifyGER = true;
-
+                        const extraData = { GERS: {} };
                         const batch = await zkEVMDB.buildBatch(
                             timestamp,
                             sequencerAddress,
@@ -296,8 +296,9 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             0,
                             Constants.DEFAULT_MAX_TX,
                             options,
+                            extraData,
                         );
-                        helpers.addRawTxChangeL2Block(batch);
+                        helpers.addRawTxChangeL2Block(batch, extraData, extraData);
 
                         if (txsTest.length === 0) {
                             if (currentTest.blocks[0].transactionSequence.length > 0) {
@@ -337,8 +338,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                             if (Scalar.gt(Scalar.e(txTest.gasLimit), Scalar.e('0x7FFFFFFF'))) {
                                 txsTest[tx].gasLimit = '0x7FFFFFFF';
-                            } else if (Scalar.e(txTest.gasLimit) > zkcommonjs.Constants.BATCH_GAS_LIMIT && !options.newBlockGasLimit) {
-                                txsTest[tx].gasLimit = zkcommonjs.Constants.BATCH_GAS_LIMIT;
+                            } else if (Scalar.e(txTest.gasLimit) > zkcommonjs.Constants.TX_GAS_LIMIT && !options.newBlockGasLimit) {
+                                txsTest[tx].gasLimit = zkcommonjs.Constants.TX_GAS_LIMIT;
                             }
 
                             const commonCustom = Common.custom({ chainId: chainIdSequencer }, { hardfork: Hardfork.Berlin });
@@ -464,6 +465,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             }
                         }
                         const circuitInput = await batch.getStarkInput();
+                        circuitInput.GERS = extraData.GERS;
                         if (options.newBlockGasLimit) { circuitInput.gasLimit = Scalar.e(options.newBlockGasLimit).toString(); }
                         Object.keys(circuitInput.contractsBytecode).forEach((key) => {
                             if (!circuitInput.contractsBytecode[key].startsWith('0x')) {

@@ -268,7 +268,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             chainIdSequencer,
                             testvectorsGlobalConfig.forkID,
                         );
-
+                        const extraData = { GERS: {} };
                         const batch = await zkEVMDB.buildBatch(
                             timestamp,
                             sequencerAddress,
@@ -276,13 +276,14 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             0,
                             Constants.DEFAULT_MAX_TX,
                             { skipVerifyGER: true },
+                            extraData,
                         );
-                        helpers.addRawTxChangeL2Block(batch);
+                        helpers.addRawTxChangeL2Block(batch, extraData, extraData);
 
                         for (let tx = 0; tx < txsTest.length; tx++) {
                             const txTest = txsTest[tx];
-                            if (Scalar.e(txTest.gasLimit) > zkcommonjs.Constants.BATCH_GAS_LIMIT) {
-                                txsTest[tx].gasLimit = zkcommonjs.Constants.BATCH_GAS_LIMIT;
+                            if (Scalar.e(txTest.gasLimit) > zkcommonjs.Constants.TX_GAS_LIMIT) {
+                                txsTest[tx].gasLimit = zkcommonjs.Constants.TX_GAS_LIMIT;
                             }
                             const commonCustom = Common.custom({ chainId: chainIdSequencer }, { hardfork: Hardfork.TangerineWhistle });
                             if (txTest.r) delete txTest.r;
@@ -352,6 +353,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         }
 
                         const circuitInput = await batch.getStarkInput();
+                        circuitInput.GERS = extraData.GERS;
                         Object.keys(circuitInput.contractsBytecode).forEach((key) => {
                             if (!circuitInput.contractsBytecode[key].startsWith('0x')) {
                                 circuitInput.contractsBytecode[key] = `0x${circuitInput.contractsBytecode[key]}`;

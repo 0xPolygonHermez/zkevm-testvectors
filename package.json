@@ -15,7 +15,7 @@
         "test:e2e": "npx mocha ./test/state-transition/e2e/e2e.test.js",
         "update:mt:bridge": "npx mocha ./test/mt-bridge/**.test.js --update",
         "update:st:calldata": "cd ./tools-inputs/tools-calldata && ./gen-all.sh",
-        "update:st:no-data": "npx mocha ./tests/no-data/st-all.test.js --update && npx mocha ./test/state-transition/separate-batches/separate-batches.test.js --update && npx mocha ./test/state-transition/batch-header-timestamp/header-timestamp.test.js --update",
+        "update:st:no-data": "npx mocha ./test/state-transition/no-data/st-all.test.js --update && npx mocha ./test/state-transition/separate-batches/separate-batches.test.js --update && npx mocha ./test/state-transition/batch-header-timestamp/header-timestamp.test.js --update",
         "update:e2e": "npx mocha ./test/state-transition/e2e/e2e.test.js --update",
         "update:error-rlp": "node tools-inputs/updaters/update-rlp-error-inputs.js",
         "update:calldata-custom": "node tools-inputs/updaters/update-calldata-custom.js",

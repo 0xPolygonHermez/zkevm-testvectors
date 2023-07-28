@@ -17,12 +17,13 @@ else
     git checkout test-vectors
     cd ../
 fi
-dir=./inputs-executor/ethereum-tests/GeneralStateTests
-for entry in "$dir"/*
+dir=../../inputs-executor/ethereum-tests/GeneralStateTests
+for entry in $dir/*
 do
+    echo $entry
     if [ -d $entry ]
     then
-        folder=$(echo $entry | cut -d '/' -f 3)
+        folder=$(echo $entry | cut -d '/' -f 6)
         npx --max-old-space-size=12000 mocha --timeout 0 ../generators/eth-gen-inputs.js --folder $folder
     fi
 done
