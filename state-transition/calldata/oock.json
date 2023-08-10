@@ -1,0 +1,102 @@
+[
+  {
+    "id": 0,
+    "description": "OOCK",
+    "arity": 4,
+    "chainIdSequencer": 1001,
+    "defaultChainId": 1000,
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x608060405234801561001057600080fd5b506004361061002b5760003560e01c8063db9ba3b014610030575b600080fd5b61004a60048036038101906100459190610092565b610060565b60405161005791906100ce565b60405180910390f35b600060026000819055508160002090506008600081905550919050565b60008135905061008c81610102565b92915050565b6000602082840312156100a8576100a76100fd565b5b60006100b68482850161007d565b91505092915050565b6100c8816100e9565b82525050565b60006020820190506100e360008301846100bf565b92915050565b6000819050919050565b6000819050919050565b600080fd5b61010b816100f3565b811461011657600080fd5b5056fea2646970667358221220a83a50ff69cf983d7bc6d9fe31bf4c005bcddfefb670bd32f4d991b3bea2f90e64736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [
+              {
+                "internalType": "uint256",
+                "name": "bytesKeccak",
+                "type": "uint256"
+              }
+            ],
+            "name": "keccaks",
+            "outputs": [
+              {
+                "internalType": "bytes32",
+                "name": "test",
+                "type": "bytes32"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          }
+        ],
+        "storage": {
+          "0x0000000000000000000000000000000000000000000000000000000000000000": "0x05"
+        }
+      }
+    ],
+    "expectedOldRoot": "0x4cc41a62b71be732513464c391f76c17f984078bf8e151428b1d65cb5593e79e",
+    "txs": [
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "0",
+        "value": "0",
+        "data": "0xdb9ba3b000000000000000000000000000000000000000000000000000000000000f4240",
+        "gasLimit": 10000000,
+        "gasPrice": "1",
+        "chainId": 1000
+      }
+    ],
+    "expectedNewRoot": "0x447c4e1b5232f8ba86d316f215a61d729e15ec4d1936af34ac8abf75058d76dd",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100000000000002215552",
+        "nonce": "0",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "bytecodeLength": 0
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "199999999999997784448",
+        "nonce": "1",
+        "storage": null,
+        "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "bytecodeLength": 0
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {
+          "0x0000000000000000000000000000000000000000000000000000000000000000": "0x08"
+        },
+        "hashBytecode": "0xd2cfa9491f1bd7cf3e270c90fe2837089f87d01ed541e89e5158a1f6fdcaa1de",
+        "bytecodeLength": 335
+      }
+    },
+    "timestamp": 1944498031,
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0x4ccc3f24cb2d3c474c066c357395eeb4e8f161839b4bdd89e66e4c6092f78e33",
+    "globalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchL2Data": "0xf846800183989680941275fbb540c8efc58b812ba83b0d0b8b9917ae9880a4db9ba3b000000000000000000000000000000000000000000000000000000000000f42408203e8808013f43c75904694e0f728b547dcfc6dbc3655ca01cb72a8d42fa30070134c18147d759510806c7c18a7aaf56291f54a4ea46d6cd75502b8d027b4336af40035261bff",
+    "chainID": 1000,
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 5
+  }
+]
