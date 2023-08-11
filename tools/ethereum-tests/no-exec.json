@@ -12969,6 +12969,14 @@
     {
       "name": "stRandom2/randomStatetest618",
       "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stBadOpcode/badOpcode_43",
+      "description": "Opcode PUSHO (0x5f) is supported"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces",
+      "description": "Opcode PUSHO (0x5f) is supported"
     }
   ]
 }
