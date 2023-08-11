@@ -12933,6 +12933,14 @@
     {
       "name": "stBadOpcode/opc5FDiffPlaces_9",
       "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/badOpcode_43",
+      "description": "Opcode PUSHO (0x5f) is supported"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces",
+      "description": "Opcode PUSHO (0x5f) is supported"
     }
   ]
 }
