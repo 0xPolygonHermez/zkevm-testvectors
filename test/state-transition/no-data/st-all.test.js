@@ -3,12 +3,12 @@
 /* eslint-disable no-loop-func */
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-continue */
+const fs = require('fs');
+const path = require('path');
 const { Scalar } = require('ffjavascript');
 
 const ethers = require('ethers');
 const { expect } = require('chai');
-const fs = require('fs');
-const path = require('path');
 const { argv } = require('yargs');
 const {
     MemDB, stateUtils, ZkEVMDB, processorUtils, smtUtils, getPoseidon,
@@ -220,11 +220,18 @@ describe('Run state-transition tests', function () {
                 await zkEVMDB.consolidate(batch);
 
                 // Check balances and nonces
+                expectedNewLeafs[Constants.ADDRESS_SYSTEM] = {};
                 for (const [address, leaf] of Object.entries(expectedNewLeafs)) { // eslint-disable-line
                     const newLeaf = await zkEVMDB.getCurrentAccountState(address);
 
+                    const storage = await zkEVMDB.dumpStorage(address);
+                    const hashBytecode = await zkEVMDB.getHashBytecode(address);
+                    const bytecodeLength = await zkEVMDB.getLength(address);
                     if (update) {
                         const newLeafState = { balance: newLeaf.balance.toString(), nonce: newLeaf.nonce.toString() };
+                        newLeafState.storage = storage;
+                        newLeafState.hashBytecode = hashBytecode;
+                        newLeafState.bytecodeLength = bytecodeLength;
                         testVectors[j].expectedNewLeafs[address] = newLeafState;
                     } else {
                         expect(newLeaf.balance.toString()).to.equal(leaf.balance);

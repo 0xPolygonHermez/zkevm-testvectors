@@ -58,7 +58,7 @@ describe('Run state-transition tests: calldata', async function () {
                     timestamp,
                     chainID,
                     forkID,
-                    isForced
+                    isForced,
                 } = testVectors[i];
                 if (typeof isForced === 'undefined') isForced = 0;
                 if (!chainID) chainID = 1000;
