@@ -19,8 +19,6 @@ const { expect } = require('chai');
 const { Transaction } = require('@ethereumjs/tx');
 
 const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
-const fs = require('fs');
-const path = require('path');
 const helpers = require('../../../tools-calldata/helpers/helpers');
 
 // load list test-vectors
