@@ -7,7 +7,7 @@ const ethers = require('ethers');
 const { argv } = require('yargs');
 const { expect } = require('chai');
 const {
-    MemDB, ZkEVMDB, processorUtils, smtUtils, getPoseidon,
+    MemDB, ZkEVMDB, processorUtils, smtUtils, getPoseidon, Constants,
 } = require('@0xpolygonhermez/zkevm-commonjs');
 
 // input file
@@ -15,6 +15,7 @@ const pathInput = path.join(__dirname, './input_gen.json');
 
 // input executor folder
 const { pathTestVectors } = require('../../helpers/helpers');
+const helpers = require('../../../tools-calldata/helpers/helpers');
 
 const pathInputExecutor = path.join(pathTestVectors, 'inputs-executor/no-data');
 
@@ -62,16 +63,27 @@ describe('Check roots same txs in different batches', function () {
             generateData.forkID,
         );
 
+        if (generateData.globalExitRoot) {
+            generateData.historicGERRoot = generateData.globalExitRoot;
+        }
+
         // start batch
         const batch = await zkEVMDB.buildBatch(
             generateData.timestamp,
             generateData.sequencerAddr,
-            smtUtils.stringToH4(generateData.globalExitRoot),
+            smtUtils.stringToH4(generateData.historicGERRoot),
+            0,
+            Constants.DEFAULT_MAX_TX,
+            {
+                skipVerifyGER: true,
+            },
         );
 
         // build txs
         for (let i = 0; i < generateData.tx.length; i++) {
             const genTx = generateData.tx[i];
+
+            helpers.addRawTxChangeL2Block(batch);
 
             const tx = {
                 to: genTx.to,
@@ -148,8 +160,15 @@ describe('Check roots same txs in different batches', function () {
             batch = await zkEVMDB.buildBatch(
                 generateData.timestamp,
                 generateData.sequencerAddr,
-                smtUtils.stringToH4(generateData.globalExitRoot),
+                smtUtils.stringToH4(generateData.historicGERRoot),
+                0,
+                Constants.DEFAULT_MAX_TX,
+                {
+                    skipVerifyGER: true,
+                },
             );
+
+            helpers.addRawTxChangeL2Block(batch);
 
             const genTx = generateData.tx[i];
 
@@ -172,6 +191,7 @@ describe('Check roots same txs in different batches', function () {
             // build batch
             await batch.executeTxs();
             const starkInput = await batch.getStarkInput();
+            // console.log(starkInput);
 
             if (update) {
                 const pathOutput = path.join(pathInputExecutor, `txs-different-batch_${i}.json`);

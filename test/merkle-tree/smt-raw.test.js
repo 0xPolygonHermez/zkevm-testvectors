@@ -1,7 +1,7 @@
-const fs = require('fs');
-const path = require('path');
 const { Scalar } = require('ffjavascript');
 const { expect } = require('chai');
+const fs = require('fs');
+const path = require('path');
 const { argv } = require('yargs');
 
 const {

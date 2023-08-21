@@ -3,21 +3,23 @@
 /* eslint-disable no-loop-func */
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-continue */
-const fs = require('fs');
-const path = require('path');
 const { Scalar } = require('ffjavascript');
 
 const ethers = require('ethers');
 const { expect } = require('chai');
+const fs = require('fs');
+const path = require('path');
 const { argv } = require('yargs');
 const {
     MemDB, stateUtils, ZkEVMDB, processorUtils, smtUtils, getPoseidon,
 } = require('@0xpolygonhermez/zkevm-commonjs');
 
 const { rawTxToCustomRawTx } = processorUtils;
+const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
 
 // load list test-vectors
 const { pathTestVectors } = require('../../helpers/helpers');
+const helpers = require('../../../tools-calldata/helpers/helpers');
 
 const folderStateTransition = path.join(pathTestVectors, './state-transition/no-data');
 const folderInputsExecutor = path.join(pathTestVectors, './inputs-executor/no-data');
@@ -54,6 +56,7 @@ describe('Run state-transition tests', function () {
                     batchL2Data,
                     oldAccInputHash,
                     globalExitRoot,
+                    historicGERRoot,
                     batchHashData,
                     inputHash,
                     timestamp,
@@ -182,7 +185,22 @@ describe('Run state-transition tests', function () {
                     expect(smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
                 }
 
-                const batch = await zkEVMDB.buildBatch(timestamp, sequencerAddress, smtUtils.stringToH4(globalExitRoot));
+                if (globalExitRoot) {
+                    historicGERRoot = globalExitRoot;
+                }
+
+                const batch = await zkEVMDB.buildBatch(
+                    timestamp,
+                    sequencerAddress,
+                    smtUtils.stringToH4(historicGERRoot),
+                    0,
+                    Constants.DEFAULT_MAX_TX,
+                    {
+                        skipVerifyGER: true,
+                    },
+                );
+                helpers.addRawTxChangeL2Block(batch);
+
                 for (let k = 0; k < rawTxs.length; k++) {
                     batch.addRawTx(rawTxs[k]);
                 }
@@ -215,8 +233,8 @@ describe('Run state-transition tests', function () {
                 }
 
                 // Check errors on decode transactions
-                const decodedTx = await batch.getDecodedTxs();
-
+                const decodedTxInit = await batch.getDecodedTxs();
+                const decodedTx = decodedTxInit.filter((tx) => tx.tx.type !== 11);
                 for (let k = 0; k < decodedTx.length; k++) {
                     const currentTx = decodedTx[k];
                     const expectedTx = txProcessed[k];
@@ -240,7 +258,7 @@ describe('Run state-transition tests', function () {
                     testVectors[j].batchL2Data = batch.getBatchL2Data();
                     testVectors[j].batchHashData = circuitInput.batchHashData;
                     testVectors[j].inputHash = circuitInput.inputHash;
-                    testVectors[j].globalExitRoot = circuitInput.globalExitRoot;
+                    testVectors[j].historicGERRoot = circuitInput.historicGERRoot;
                     testVectors[j].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                     testVectors[j].newLocalExitRoot = circuitInput.newLocalExitRoot;
                     testVectors[j].oldAccInputHash = oldAccInputHash;

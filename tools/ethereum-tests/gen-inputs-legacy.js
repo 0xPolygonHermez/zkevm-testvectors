@@ -12,6 +12,7 @@ const { toBuffer } = require('ethereumjs-util');
 const { ethers } = require('ethers');
 const { Scalar } = require('ffjavascript');
 const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
+const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
 const { expect } = require('chai');
 const { Transaction } = require('@ethereumjs/tx');
 
@@ -19,6 +20,7 @@ const { argv } = require('yargs');
 const fs = require('fs');
 const path = require('path');
 const helpers = require('../../tools-calldata/helpers/helpers');
+
 const testvectorsGlobalConfig = require(path.join(__dirname, '../../testvectors.config.json'));
 
 // example: npx mocha gen-inputs.js --test xxxx --folder xxxx --ignore
@@ -231,7 +233,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         const { timestamp } = currentTest.blocks[0].blockHeader;
                         const sequencerAddress = currentTest.blocks[0].blockHeader.coinbase;
                         const chainIdSequencer = 1000;
-                        const globalExitRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
+                        const historicGERRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
                         const txsTest = currentTest.blocks[0].transactions;
                         const { pre } = currentTest;
 
@@ -264,11 +266,16 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             chainIdSequencer,
                             testvectorsGlobalConfig.forkID,
                         );
+
                         const batch = await zkEVMDB.buildBatch(
                             timestamp,
                             sequencerAddress,
-                            zkcommonjs.smtUtils.stringToH4(globalExitRoot),
+                            zkcommonjs.smtUtils.stringToH4(historicGERRoot),
+                            0,
+                            Constants.DEFAULT_MAX_TX,
+                            { skipVerifyGER: true },
                         );
+                        helpers.addRawTxChangeL2Block(batch);
 
                         for (let tx = 0; tx < txsTest.length; tx++) {
                             const txTest = txsTest[tx];

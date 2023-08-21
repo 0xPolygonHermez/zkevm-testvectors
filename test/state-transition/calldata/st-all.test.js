@@ -6,9 +6,6 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable import/no-extraneous-dependencies */
-
-const fs = require('fs');
-const path = require('path');
 const Common = require('@ethereumjs/common').default;
 const { Hardfork } = require('@ethereumjs/common');
 const { BN, toBuffer } = require('ethereumjs-util');
@@ -18,6 +15,9 @@ const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
 const { expect } = require('chai');
 const { Transaction } = require('@ethereumjs/tx');
 
+const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
+const fs = require('fs');
+const path = require('path');
 const helpers = require('../../../tools-calldata/helpers/helpers');
 
 // load list test-vectors
@@ -53,6 +53,7 @@ describe('Run state-transition tests: calldata', async function () {
                     expectedNewLeafs,
                     oldAccInputHash,
                     globalExitRoot,
+                    historicGERRoot,
                     timestamp,
                     chainID,
                     forkID,
@@ -76,11 +77,21 @@ describe('Run state-transition tests: calldata', async function () {
 
                 expect(zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
 
+                if (globalExitRoot) {
+                    historicGERRoot = globalExitRoot;
+                }
+
                 const batch = await zkEVMDB.buildBatch(
                     timestamp,
                     sequencerAddress,
-                    zkcommonjs.smtUtils.stringToH4(globalExitRoot),
+                    zkcommonjs.smtUtils.stringToH4(historicGERRoot),
+                    0,
+                    Constants.DEFAULT_MAX_TX,
+                    {
+                        skipVerifyGER: true,
+                    },
                 );
+                helpers.addRawTxChangeL2Block(batch);
 
                 // TRANSACTIONS
                 const txsList = [];

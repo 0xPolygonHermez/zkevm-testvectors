@@ -16,6 +16,7 @@ const lodash = require('lodash');
 const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
 const { expect } = require('chai');
 const { Transaction } = require('@ethereumjs/tx');
+const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
 
 const { argv } = require('yargs');
 const fs = require('fs');
@@ -82,6 +83,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 expectedNewLeafs,
                 oldAccInputHash,
                 globalExitRoot,
+                historicGERRoot,
                 timestamp,
                 chainID,
                 forkID,
@@ -122,11 +124,21 @@ describe('Generate inputs executor from test-vectors', async function () {
             }
             expect(zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
 
+            if (globalExitRoot) {
+                historicGERRoot = globalExitRoot;
+            }
+
             const batch = await zkEVMDB.buildBatch(
                 timestamp,
                 sequencerAddress,
-                zkcommonjs.smtUtils.stringToH4(globalExitRoot),
+                zkcommonjs.smtUtils.stringToH4(historicGERRoot),
+                0,
+                Constants.DEFAULT_MAX_TX,
+                {
+                    skipVerifyGER: true,
+                },
             );
+            helpers.addRawTxChangeL2Block(batch);
 
             // TRANSACTIONS
             const txsList = [];
@@ -285,7 +297,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 testVectors[i].expectedNewLeafs = expectedNewLeafs;
                 testVectors[i].batchHashData = circuitInput.batchHashData;
                 testVectors[i].inputHash = circuitInput.inputHash;
-                testVectors[i].globalExitRoot = circuitInput.globalExitRoot;
+                testVectors[i].historicGERRoot = circuitInput.historicGERRoot;
                 testVectors[i].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                 testVectors[i].chainID = chainID;
                 testVectors[i].oldAccInputHash = oldAccInputHash;
@@ -296,7 +308,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 internalTestVectors[i].expectedNewLeafs = expectedNewLeafs;
                 internalTestVectors[i].batchHashData = circuitInput.batchHashData;
                 internalTestVectors[i].inputHash = circuitInput.inputHash;
-                internalTestVectors[i].globalExitRoot = circuitInput.globalExitRoot;
+                internalTestVectors[i].historicGERRoot = circuitInput.historicGERRoot;
                 internalTestVectors[i].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                 internalTestVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
                 internalTestVectors[i].chainID = chainID;
