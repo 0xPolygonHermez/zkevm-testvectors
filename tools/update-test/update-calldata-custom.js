@@ -36,8 +36,9 @@ async function main() {
         inputRLP.forkID = generalInput.forkID;
 
         inputRLP.sequencerAddr = generalInput.sequencerAddr;
-        inputRLP.globalExitRoot = '0x0000000000000000000000000000000000000000000000000000000000000000';
-        inputRLP.timestamp = generalInput.timestamp;
+        inputRLP.historicGERRoot = '0x0000000000000000000000000000000000000000000000000000000000000000';
+        inputRLP.timestampLimit = generalInput.timestampLimit;
+        inputRLP.isForced = 0;
 
         inputRLP.batchHashData = contractUtils.calculateBatchHashData(
             inputRLP.batchL2Data,
@@ -46,9 +47,10 @@ async function main() {
         inputRLP.newAccInputHash = contractUtils.calculateAccInputHash(
             inputRLP.oldAccInputHash,
             inputRLP.batchHashData,
-            inputRLP.globalExitRoot,
-            inputRLP.timestamp,
+            inputRLP.historicGERRoot,
+            inputRLP.timestampLimit,
             inputRLP.sequencerAddr,
+            inputRLP.isForced,
         );
 
         inputRLP.db = generalInput.db;

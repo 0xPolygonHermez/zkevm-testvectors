@@ -3,6 +3,7 @@
 const { Transaction } = require('@ethereumjs/tx');
 const { Address } = require('ethereumjs-util');
 const { Scalar } = require('ffjavascript');
+const { utils } = require('@0xpolygonhermez/zkevm-commonjs');
 const { defaultAbiCoder } = require('@ethersproject/abi');
 
 async function getAccountNonce(vm, accountPrivateKey) {
@@ -63,9 +64,43 @@ function updateMessageToHash(messageToHash) {
     return returnMessageToHash;
 }
 
+function addRawTxChangeL2Block(batch, tx = undefined) {
+    let dataChangeL2Block;
+    if (tx) {
+        dataChangeL2Block = tx;
+    } else {
+        dataChangeL2Block = {
+            type: 11,
+            deltaTimestamp: '1000',
+            newGER: '0x3100000000000000000000000000000000000000000000000000000000000000',
+            indexHistoricalGERTree: 0,
+            reason: '',
+        };
+    }
+    let data = Scalar.e(0);
+
+    let offsetBits = 0;
+
+    data = Scalar.add(data, Scalar.shl(dataChangeL2Block.indexHistoricalGERTree, offsetBits));
+    offsetBits += 32;
+
+    data = Scalar.add(data, Scalar.shl(dataChangeL2Block.newGER, offsetBits));
+    offsetBits += 256;
+
+    data = Scalar.add(data, Scalar.shl(dataChangeL2Block.deltaTimestamp, offsetBits));
+    offsetBits += 64;
+
+    data = Scalar.add(data, Scalar.shl(dataChangeL2Block.type, offsetBits));
+    offsetBits += 8;
+
+    const customRawTx = utils.valueToHexStr(data).padStart(offsetBits / 4, '0');
+    batch.addRawTx(`0x${customRawTx}`);
+}
+
 module.exports = {
     deployContract,
     stringToHex32,
     getAccountNonce,
     updateMessageToHash,
+    addRawTxChangeL2Block,
 };
