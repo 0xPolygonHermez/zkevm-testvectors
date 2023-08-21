@@ -12,7 +12,6 @@ const VM = require('@polygon-hermez/vm').default;
 const { Scalar } = require('ffjavascript');
 const fs = require('fs');
 const path = require('path');
-const { Scalar } = require('ffjavascript');
 const { argv } = require('yargs');
 const Common = require('@ethereumjs/common').default;
 const { Hardfork } = require('@ethereumjs/common');
