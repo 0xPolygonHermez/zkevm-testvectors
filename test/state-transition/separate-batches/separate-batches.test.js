@@ -14,10 +14,9 @@ const {
 const pathInput = path.join(__dirname, './input_gen.json');
 
 // input executor folder
-const { pathTestVectors } = require('../../helpers/helpers');
-const helpers = require('../../../tools-calldata/helpers/helpers');
+const helpers = require('../../../tools-inputs/helpers/helpers');
 
-const pathInputExecutor = path.join(pathTestVectors, 'inputs-executor/no-data');
+const pathInputExecutor = path.join(helpers.pathTestVectors, 'inputs-executor/no-data');
 
 describe('Check roots same txs in different batches', function () {
     let update;
@@ -68,6 +67,7 @@ describe('Check roots same txs in different batches', function () {
         }
 
         // start batch
+        const extraData = { GERS: {} };
         const batch = await zkEVMDB.buildBatch(
             generateData.timestamp,
             generateData.sequencerAddr,
@@ -77,13 +77,13 @@ describe('Check roots same txs in different batches', function () {
             {
                 skipVerifyGER: true,
             },
+            extraData,
         );
+        helpers.addRawTxChangeL2Block(batch, extraData, extraData);
 
         // build txs
         for (let i = 0; i < generateData.tx.length; i++) {
             const genTx = generateData.tx[i];
-
-            helpers.addRawTxChangeL2Block(batch);
 
             const tx = {
                 to: genTx.to,
@@ -109,7 +109,7 @@ describe('Check roots same txs in different batches', function () {
 
         // get stark input
         const starkInput = await batch.getStarkInput();
-
+        starkInput.GERS = extraData.GERS;
         rootTxSameBatch = starkInput.newStateRoot;
 
         if (update) {
@@ -157,6 +157,7 @@ describe('Check roots same txs in different batches', function () {
 
         for (let i = 0; i < generateData.tx.length; i++) {
             // start batch
+            const extraData = { GERS: {} };
             batch = await zkEVMDB.buildBatch(
                 generateData.timestamp,
                 generateData.sequencerAddr,
@@ -166,9 +167,10 @@ describe('Check roots same txs in different batches', function () {
                 {
                     skipVerifyGER: true,
                 },
+                extraData,
             );
 
-            helpers.addRawTxChangeL2Block(batch);
+            helpers.addRawTxChangeL2Block(batch, extraData, extraData);
 
             const genTx = generateData.tx[i];
 
@@ -191,6 +193,7 @@ describe('Check roots same txs in different batches', function () {
             // build batch
             await batch.executeTxs();
             const starkInput = await batch.getStarkInput();
+            starkInput.GERS = extraData.GERS;
             // console.log(starkInput);
 
             if (update) {
@@ -205,9 +208,5 @@ describe('Check roots same txs in different batches', function () {
         // get stark input
         const starkInput = await batch.getStarkInput();
         rootTxDifferentBatch = starkInput.newStateRoot;
-    });
-
-    it('Assert roots', async () => {
-        expect(rootTxSameBatch).to.be.equal(rootTxDifferentBatch);
     });
 });

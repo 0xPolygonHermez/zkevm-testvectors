@@ -1,9 +1,9 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable max-len, no-plusplus, guard-for-in */
 /* eslint-disable import/no-dynamic-require, global-require */
+const { Scalar } = require('ffjavascript');
 const fs = require('fs');
 const path = require('path');
-const { Scalar } = require('ffjavascript');
 const { ethers } = require('hardhat');
 const { expect } = require('chai');
 const { argv } = require('yargs');
@@ -27,18 +27,16 @@ const {
 } = require('@0xpolygonhermez/zkevm-contracts');
 
 const contractsPolygonHermez = require('@0xpolygonhermez/zkevm-contracts');
-const helpers = require('../../../tools-calldata/helpers/helpers');
+const helpers = require('../../../tools-inputs/helpers/helpers');
 
-const { pathTestVectors } = require('../../helpers/helpers');
-
-const pathStateTransition = path.join(pathTestVectors, './state-transition/e2e/e2e.json');
+const pathStateTransition = path.join(helpers.pathTestVectors, './tools-inputs/data/e2e/e2e.json');
 const testE2E = JSON.parse(fs.readFileSync(pathStateTransition));
 
 async function setNextBlockTimestamp(timestamp) {
     return (ethers.provider.send('evm_setNextBlockTimestamp', [timestamp]));
 }
 
-const configTestvectors = require('../../../testvectors.config.json');
+const configTestvectors = require('../../../tools-inputs/testvectors.config.json');
 
 describe('Proof of efficiency test vectors', function () {
     this.timeout(0);
@@ -346,7 +344,7 @@ describe('Proof of efficiency test vectors', function () {
         const historicGERRootContract = await polygonZkEVMGlobalExitRootContract.getRoot();
         const globalExitRootContract = await polygonZkEVMGlobalExitRootContract.getLastGlobalExitRoot();
         const deltaTimestamp = 1;
-
+        const extraData = { GERS: {} };
         const batch = await zkEVMDB.buildBatch(
             timestampLimit,
             sequencerAddress,
@@ -356,6 +354,7 @@ describe('Proof of efficiency test vectors', function () {
             {
                 skipVerifyGER: true,
             },
+            extraData,
         );
 
         const tx = {
@@ -365,7 +364,7 @@ describe('Proof of efficiency test vectors', function () {
             indexHistoricalGERTree: 1,
             reason: '',
         };
-        helpers.addRawTxChangeL2Block(batch, tx);
+        helpers.addRawTxChangeL2Block(batch, extraData, extraData, tx);
 
         for (let j = 0; j < rawTxs.length; j++) {
             batch.addRawTx(rawTxs[j]);
@@ -493,7 +492,7 @@ describe('Proof of efficiency test vectors', function () {
 
         // Check the circuit input
         const circuitInput = await batch.getStarkInput();
-
+        circuitInput.GERS = extraData.GERS;
         // Check the encode transaction match with the vector test
         if (!update) {
             expect(batchL2Data).to.be.equal(batch.getBatchL2Data());
@@ -509,7 +508,7 @@ describe('Proof of efficiency test vectors', function () {
             testE2E.oldAccInputHash = circuitInput.oldAccInputHash;
             testE2E.newLocalExitRoot = circuitInput.newLocalExitRoot;
             // Write executor input
-            const folderInputsExecutor = path.join(pathTestVectors, './inputs-executor/e2e');
+            const folderInputsExecutor = path.join(helpers.pathTestVectors, './inputs-executor/e2e');
             const fileName = path.join(folderInputsExecutor, 'e2e_0.json');
             await fs.writeFileSync(fileName, JSON.stringify(circuitInput, null, 2));
         }
@@ -555,7 +554,7 @@ describe('Proof of efficiency test vectors', function () {
 
         // Check inputs mathces de smart contract
         const numBatch = Number((await polygonZkEVMContract.lastVerifiedBatch())) + 1;
-        const fflonkProof = new Array(24).fill(ethers.constants.HashZero);
+        const fflonkProof = '0x';
         const pendingStateNum = 0;
 
         // calculate circuit input

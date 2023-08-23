@@ -6,7 +6,7 @@ const { argv } = require('yargs');
 const {
     smtUtils, Constants,
 } = require('@0xpolygonhermez/zkevm-commonjs');
-const { pathTestVectors } = require('../helpers/helpers');
+const { pathTestVectors } = require('../../tools-inputs/helpers/helpers');
 
 // eslint-disable-next-line prefer-arrow-callback
 describe('smt-keys', async function () {

@@ -18,11 +18,10 @@ const { rawTxToCustomRawTx } = processorUtils;
 const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
 
 // load list test-vectors
-const { pathTestVectors } = require('../../helpers/helpers');
-const helpers = require('../../../tools-calldata/helpers/helpers');
+const helpers = require('../../../tools-inputs/helpers/helpers');
 
-const folderStateTransition = path.join(pathTestVectors, './state-transition/no-data');
-const folderInputsExecutor = path.join(pathTestVectors, './inputs-executor/no-data');
+const folderStateTransition = path.join(helpers.pathTestVectors, './tools-inputs/data/no-data');
+const folderInputsExecutor = path.join(helpers.pathTestVectors, './inputs-executor/no-data');
 let listTests = fs.readdirSync(folderStateTransition);
 listTests = listTests.filter((fileName) => path.extname(fileName) === '.json');
 
@@ -188,7 +187,7 @@ describe('Run state-transition tests', function () {
                 if (globalExitRoot) {
                     historicGERRoot = globalExitRoot;
                 }
-
+                const extraData = { GERS: {} };
                 const batch = await zkEVMDB.buildBatch(
                     timestamp,
                     sequencerAddress,
@@ -198,8 +197,9 @@ describe('Run state-transition tests', function () {
                     {
                         skipVerifyGER: true,
                     },
+                    extraData,
                 );
-                helpers.addRawTxChangeL2Block(batch);
+                helpers.addRawTxChangeL2Block(batch, extraData, extraData);
 
                 for (let k = 0; k < rawTxs.length; k++) {
                     batch.addRawTx(rawTxs[k]);
@@ -220,11 +220,18 @@ describe('Run state-transition tests', function () {
                 await zkEVMDB.consolidate(batch);
 
                 // Check balances and nonces
+                expectedNewLeafs[Constants.ADDRESS_SYSTEM] = {};
                 for (const [address, leaf] of Object.entries(expectedNewLeafs)) { // eslint-disable-line
                     const newLeaf = await zkEVMDB.getCurrentAccountState(address);
 
+                    const storage = await zkEVMDB.dumpStorage(address);
+                    const hashBytecode = await zkEVMDB.getHashBytecode(address);
+                    const bytecodeLength = await zkEVMDB.getLength(address);
                     if (update) {
                         const newLeafState = { balance: newLeaf.balance.toString(), nonce: newLeaf.nonce.toString() };
+                        newLeafState.storage = storage;
+                        newLeafState.hashBytecode = hashBytecode;
+                        newLeafState.bytecodeLength = bytecodeLength;
                         testVectors[j].expectedNewLeafs[address] = newLeafState;
                     } else {
                         expect(newLeaf.balance.toString()).to.equal(leaf.balance);
@@ -253,7 +260,7 @@ describe('Run state-transition tests', function () {
 
                 // Check the circuit input
                 const circuitInput = await batch.getStarkInput();
-
+                circuitInput.GERS = extraData.GERS;
                 if (update) {
                     testVectors[j].batchL2Data = batch.getBatchL2Data();
                     testVectors[j].batchHashData = circuitInput.batchHashData;
