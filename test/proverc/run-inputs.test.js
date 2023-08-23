@@ -5,15 +5,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/no-unresolved */
 
-const fs = require('fs');
-const path = require('path');
 const grpc = require('@grpc/grpc-js');
+const path = require('path');
 const { ethers } = require('ethers');
 const { toHexStringRlp } = require('@0xpolygonhermez/zkevm-commonjs').processorUtils;
 const { Scalar } = require('ffjavascript');
 
 // const calldataInputsDir = path.join(__dirname, '../../inputs-executor');
-const calldataInputsDir = path.join(__dirname, '../../tools/ethereum-tests/GeneralStateTests');
+const calldataInputsDir = path.join(__dirname, '../../inputs-executor/GeneralStateTests');
 
 const EXECUTOR_PROTO_PATH = path.join(__dirname, '../../../zkevm-comms-protocol/proto/executor/v1/executor.proto');
 const DB_PROTO_PATH = path.join(__dirname, '../../../zkevm-comms-protocol/proto/statedb/v1/statedb.proto');
@@ -44,6 +43,7 @@ const zkProverProto = grpc.loadPackageDefinition(executorPackageDefinition).exec
 const stateDbProto = grpc.loadPackageDefinition(dbPackageDefinition).statedb.v1;
 const { ExecutorService } = zkProverProto;
 const { StateDBService } = stateDbProto;
+const fs = require('fs');
 const codes = require('./opcodes');
 
 const client = new ExecutorService('51.210.116.237:50077', grpc.credentials.createInsecure());

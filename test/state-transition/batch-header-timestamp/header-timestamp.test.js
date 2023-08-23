@@ -11,7 +11,6 @@
 const VM = require('@polygon-hermez/vm').default;
 const { Scalar } = require('ffjavascript');
 const fs = require('fs');
-const path = require('path');
 const { argv } = require('yargs');
 const Common = require('@ethereumjs/common').default;
 const { Hardfork } = require('@ethereumjs/common');
@@ -20,19 +19,20 @@ const { expect } = require('chai');
 const {
     Address, toBuffer, Account, BN,
 } = require('ethereumjs-util');
+const path = require('path');
 const lodash = require('lodash');
 const hre = require('hardhat');
 
 const {
     MemDB, ZkEVMDB, getPoseidon, processorUtils, smtUtils, Constants, stateUtils,
 } = require('@0xpolygonhermez/zkevm-commonjs');
-const helpers = require('../../../tools-calldata/helpers/helpers');
+const helpers = require('../../../tools-inputs/helpers/helpers');
 
 const testAccountDeploy = {
     pvtKey: '0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e',
 };
 
-const artifactsPath = path.join(__dirname, '../../../tools-calldata/evm/artifacts/contracts');
+const artifactsPath = path.join(__dirname, '../../../tools-inputs/tools-calldata/artifacts/contracts');
 
 // input file
 const pathGenTestVector = path.join(__dirname, './gen_test-vector.json');
@@ -40,10 +40,8 @@ const pathGenTestVector = path.join(__dirname, './gen_test-vector.json');
 const pathGenInput = path.join(__dirname, './input_gen.json');
 
 // input executor folder
-const { pathTestVectors } = require('../../helpers/helpers');
-
-const testvectorsGlobalConfig = require(path.join(__dirname, '../../../testvectors.config.json'));
-const pathInputExecutor = path.join(pathTestVectors, 'inputs-executor/no-data');
+const testvectorsGlobalConfig = require(path.join(__dirname, '../../../tools-inputs/testvectors.config.json'));
+const pathInputExecutor = path.join(__dirname, '../../../inputs-executor/no-data');
 
 describe('Header timestamp', function () {
     this.timeout(50000);
@@ -327,7 +325,7 @@ describe('Header timestamp', function () {
                 rawTxs.push(customRawTx);
                 txProcessed.push(txData);
             }
-
+            const extraData = { GERS: {} };
             const batch = await zkEVMDB.buildBatch(
                 timestamp,
                 sequencerAddress,
@@ -337,17 +335,18 @@ describe('Header timestamp', function () {
                 {
                     skipVerifyGER: true,
                 },
+                extraData,
             );
 
             const tx = {
                 type: 11,
                 deltaTimestamp: 1,
                 newGER: '0x3100000000000000000000000000000000000000000000000000000000000000',
-                indexHistoricalGERTree: 0,
+                indexHistoricalGERTree: 1,
                 reason: '',
             };
 
-            helpers.addRawTxChangeL2Block(batch, tx);
+            helpers.addRawTxChangeL2Block(batch, extraData, extraData, tx);
 
             for (let j = 0; j < rawTxs.length; j++) {
                 batch.addRawTx(rawTxs[j]);
@@ -471,7 +470,7 @@ describe('Header timestamp', function () {
 
             // Check the circuit input
             const circuitInput = await batch.getStarkInput();
-
+            circuitInput.GERS = extraData.GERS;
             // Check the encode transaction match with the vector test
             if (!update) {
                 expect(batchL2Data).to.be.equal(batch.getBatchL2Data());

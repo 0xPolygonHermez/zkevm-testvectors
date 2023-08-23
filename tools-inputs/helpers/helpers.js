@@ -1,0 +1,112 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable no-console */
+const { Transaction } = require('@ethereumjs/tx');
+const { Address } = require('ethereumjs-util');
+const { Scalar } = require('ffjavascript');
+const { utils } = require('@0xpolygonhermez/zkevm-commonjs');
+const { defaultAbiCoder } = require('@ethersproject/abi');
+const path = require('path');
+
+const pathTestVectors = path.join(__dirname, '../..');
+
+async function getAccountNonce(vm, accountPrivateKey) {
+    const address = Address.fromPrivateKey(accountPrivateKey);
+    const account = await vm.stateManager.getAccount(address);
+    return account.nonce;
+}
+
+async function deployContract(
+    vm,
+    senderPrivateKey,
+    deploymentBytecode,
+    paramsDeploy,
+) {
+    // Contracts are deployed by sending their deployment bytecode to the address 0
+    // The contract params should be abi-encoded and appended to the deployment bytecode.
+    const txData = {
+        value: 0,
+        gasLimit: 100000000000, // We assume that 10M gas is enough for deploy
+        gasPrice: 1,
+        data: deploymentBytecode,
+        nonce: await getAccountNonce(vm, senderPrivateKey),
+    };
+    if (Object.keys(paramsDeploy).length > 0) {
+        const params = defaultAbiCoder.encode(paramsDeploy.types, paramsDeploy.values);
+        txData.data = deploymentBytecode + params.slice(2);
+    }
+    const tx = Transaction.fromTxData(txData).sign(senderPrivateKey);
+
+    const deploymentResult = await vm.runTx({ tx });
+
+    if (deploymentResult.execResult.exceptionError) {
+        throw deploymentResult.execResult.exceptionError;
+    }
+
+    return deploymentResult.createdAddress;
+}
+
+function stringToHex32(value, leftAppend = false) {
+    const aux = Scalar.e(value).toString(16).padStart(64, '0');
+    return leftAppend ? `0x${aux}` : aux;
+}
+
+function updateMessageToHash(messageToHash) {
+    const returnMessageToHash = [];
+    for (let k = 0; k < messageToHash.length; k++) {
+        const param = messageToHash[k];
+        let newParam = param;
+        if (param === '0') {
+            newParam = '0x';
+        } else if (param.length % 2 !== 0) {
+            newParam = newParam.startsWith('0x') ? `0x0${newParam.slice(2)}` : `0x0${newParam}`;
+        } else {
+            newParam = newParam.startsWith('0x') ? newParam : `0x${newParam}`;
+        }
+        returnMessageToHash.push(newParam);
+    }
+    return returnMessageToHash;
+}
+
+function addRawTxChangeL2Block(batch, output, extraData, tx = undefined) {
+    let dataChangeL2Block;
+    if (tx) {
+        dataChangeL2Block = tx;
+    } else {
+        dataChangeL2Block = {
+            type: 11,
+            deltaTimestamp: '1000',
+            newGER: '0x3100000000000000000000000000000000000000000000000000000000000000',
+            indexHistoricalGERTree: 1,
+            reason: '',
+        };
+    }
+    let data = Scalar.e(0);
+
+    let offsetBits = 0;
+
+    data = Scalar.add(data, Scalar.shl(dataChangeL2Block.indexHistoricalGERTree, offsetBits));
+    offsetBits += 32;
+
+    // Append newGER to GERS object
+    output.GERS[dataChangeL2Block.indexHistoricalGERTree] = dataChangeL2Block.newGER;
+    extraData.GERS[dataChangeL2Block.indexHistoricalGERTree] = dataChangeL2Block.newGER;
+
+    data = Scalar.add(data, Scalar.shl(dataChangeL2Block.deltaTimestamp, offsetBits));
+    offsetBits += 64;
+
+    data = Scalar.add(data, Scalar.shl(dataChangeL2Block.type, offsetBits));
+    offsetBits += 8;
+
+    const customRawTx = utils.valueToHexStr(data).padStart(offsetBits / 4, '0');
+    batch.addRawTx(`0x${customRawTx}`);
+    return customRawTx;
+}
+
+module.exports = {
+    deployContract,
+    stringToHex32,
+    getAccountNonce,
+    updateMessageToHash,
+    addRawTxChangeL2Block,
+    pathTestVectors,
+};
