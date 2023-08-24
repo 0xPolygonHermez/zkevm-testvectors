@@ -220,7 +220,7 @@ describe('Run state-transition tests', function () {
                 await zkEVMDB.consolidate(batch);
 
                 // Check balances and nonces
-                expectedNewLeafs[Constants.ADDRESS_SYSTEM] = {};
+                if (!expectedNewLeafs[Constants.ADDRESS_SYSTEM]) { expectedNewLeafs[Constants.ADDRESS_SYSTEM] = {}; }
                 for (const [address, leaf] of Object.entries(expectedNewLeafs)) { // eslint-disable-line
                     const newLeaf = await zkEVMDB.getCurrentAccountState(address);
 

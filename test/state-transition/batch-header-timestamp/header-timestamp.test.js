@@ -32,7 +32,7 @@ const testAccountDeploy = {
     pvtKey: '0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e',
 };
 
-const artifactsPath = path.join(__dirname, '../../../tools-inputs/tools-calldata/artifacts/contracts');
+const artifactsPath = path.join(__dirname, '../../../artifacts/tools-inputs/tools-calldata/contracts');
 
 // input file
 const pathGenTestVector = path.join(__dirname, './gen_test-vector.json');
@@ -149,7 +149,7 @@ describe('Header timestamp', function () {
             auxBatch = batches[j];
             const auxTxs = [];
             for (let j2 = 0; j2 < txs.length; j2++) {
-                const currentTx = txs[j];
+                const currentTx = txs[j2];
                 let outputTx = {};
                 if (currentTx.to === 'contract') {
                     let contract;
@@ -183,6 +183,7 @@ describe('Header timestamp', function () {
                         gasPrice: currentTx.gasPrice,
                         chainId: currentTx.chainId,
                         effectivePercentage: currentTx.effectivePercentage,
+                        reason: currentTx.reason,
                     };
                     if (currentTx.rawTx) { outputTx.rawTx = currentTx.rawTx; }
                     if (currentTx.customRawTx) { outputTx.customRawTx = currentTx.customRawTx; }
@@ -309,6 +310,7 @@ describe('Header timestamp', function () {
                         expect(rawTxEthers).to.equal(txData.rawTx);
                     } else {
                         txData.rawTx = rawTxEthers;
+                        updateTestVectors[0].batches[k].txs[j].rawTx = rawTxEthers;
                     }
                     customRawTx = processorUtils.rawTxToCustomRawTx(rawTxEthers);
                 }
@@ -317,6 +319,7 @@ describe('Header timestamp', function () {
                     expect(customRawTx).to.equal(txData.customRawTx);
                 } else {
                     txData.customRawTx = customRawTx;
+                    updateTestVectors[0].batches[k].txs[j].customRawTx = customRawTx;
                 }
 
                 if (txData.encodeInvalidData) {
@@ -368,9 +371,8 @@ describe('Header timestamp', function () {
             // Check errors on decode transactions
             const decodedTxInit = await batch.getDecodedTxs();
             const decodedTx = decodedTxInit.filter((txDecoded) => txDecoded.tx.type !== 11);
-
-            if (!update) {
-                for (let j = 0; j < decodedTx.length; j++) {
+            for (let j = 0; j < decodedTx.length; j++) {
+                if (!update) {
                     const currentTx = decodedTx[j];
                     const expectedTx = txProcessed[j];
                     try {
@@ -379,6 +381,9 @@ describe('Header timestamp', function () {
                         console.log({ currentTx }, { expectedTx }); // eslint-disable-line no-console
                         throw new Error(`Batch Id : ${id} TxId:${expectedTx.id} ${error}`);
                     }
+                } else {
+                    txs[j].reason = decodedTx[j].reason;
+                    updateTestVectors[0].batches[k].txs[j].reason = decodedTx[j].reason;
                 }
             }
             // Check balances and nonces
@@ -399,11 +404,12 @@ describe('Header timestamp', function () {
 
                 newLeafs[address].balance = account.balance.toString();
                 newLeafs[address].nonce = account.nonce.toString();
-
                 if (account.isContract() || address.toLowerCase() === Constants.ADDRESS_SYSTEM.toLowerCase()
                         || address.toLowerCase() === Constants.ADDRESS_GLOBAL_EXIT_ROOT_MANAGER_L2.toLowerCase()) {
                     const storage = await zkEVMDB.dumpStorage(address);
-                    newLeafs[address].storage = storage;
+                    if (storage !== null) {
+                        newLeafs[address].storage = storage;
+                    }
                 }
             }
             for (const leaf of genesis) {
@@ -413,6 +419,8 @@ describe('Header timestamp', function () {
                     const storage = await zkEVMDB.dumpStorage(address);
                     if (storage !== null) {
                         newLeafs[address].storage = storage;
+                    } else {
+                        delete newLeafs[address].storage;
                     }
                     delete newLeafs[address].address;
                     delete newLeafs[address].bytecode;
