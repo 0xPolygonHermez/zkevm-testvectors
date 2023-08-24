@@ -17,7 +17,6 @@ const pathInput = path.join(__dirname, './input_gen.json');
 const helpers = require('../../../tools-inputs/helpers/helpers');
 
 const pathInputExecutor = path.join(helpers.pathTestVectors, 'inputs-executor/no-data');
-
 describe('Check roots same txs in different batches', function () {
     let update;
 
@@ -79,11 +78,12 @@ describe('Check roots same txs in different batches', function () {
             },
             extraData,
         );
-        helpers.addRawTxChangeL2Block(batch, extraData, extraData);
 
         // build txs
         for (let i = 0; i < generateData.tx.length; i++) {
             const genTx = generateData.tx[i];
+
+            helpers.addRawTxChangeL2Block(batch, extraData, extraData);
 
             const tx = {
                 to: genTx.to,
@@ -208,5 +208,9 @@ describe('Check roots same txs in different batches', function () {
         // get stark input
         const starkInput = await batch.getStarkInput();
         rootTxDifferentBatch = starkInput.newStateRoot;
+    });
+
+    it('Assert roots', async () => {
+        expect(rootTxSameBatch).to.be.equal(rootTxDifferentBatch);
     });
 });
