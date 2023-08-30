@@ -83,7 +83,15 @@ describe('Check roots same txs in different batches', function () {
         for (let i = 0; i < generateData.tx.length; i++) {
             const genTx = generateData.tx[i];
 
-            helpers.addRawTxChangeL2Block(batch, extraData, extraData);
+            const dataChangeL2Block = {
+                type: 11,
+                deltaTimestamp: '1000',
+                newGER: '0x3100000000000000000000000000000000000000000000000000000000000000',
+                indexHistoricalGERTree: batch.rawTxs.length + 1,
+                reason: '',
+            };
+
+            helpers.addRawTxChangeL2Block(batch, extraData, extraData, dataChangeL2Block);
 
             const tx = {
                 to: genTx.to,
