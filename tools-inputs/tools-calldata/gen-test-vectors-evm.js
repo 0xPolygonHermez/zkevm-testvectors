@@ -17,7 +17,7 @@ const path = require('path');
 
 const helpers = require('../helpers/helpers');
 
-const artifactsPath = path.join(__dirname, 'artifacts/contracts');
+const artifactsPath = path.join(__dirname, '../../artifacts/tools-inputs/tools-calldata/contracts');
 
 const testAccountDeploy = {
     pvtKey: '0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e',
