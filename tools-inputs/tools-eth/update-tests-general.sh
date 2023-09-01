@@ -17,7 +17,7 @@ else
     git checkout test-vectors
     cd ../
 fi
-dir=../../inputs-executor/ethereum-tests/GeneralStateTests
+dir=./tests/BlockchainTests/GeneralStateTests
 for entry in $dir/*
 do
     echo $entry

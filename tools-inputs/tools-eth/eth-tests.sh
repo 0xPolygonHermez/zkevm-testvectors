@@ -53,7 +53,7 @@ echo -e "gen inputs time: $((gen_inputs_time - clone_time))" >> times-eth.txt
 cd ../../../zkevm-proverjs
 rm cache-main-pil.json
 cd tools/run-test
-dir=../../../zkevm-testvectors/tools-inputs/tools-eth/eth-inputs
+dir=../../../zkevm-testvectors/inputs-executor/ethereum-tests/GeneralStateTests
 pass_folder_time=$gen_inputs_time
 for entry in "$dir"/*
 do
@@ -76,10 +76,10 @@ do
 done
 # pass 30M tests
 cd ../../../zkevm-testvectors/tools-inputs/tools-eth/test-tools
-node run-tests-30M.js -l ../eth-inputs/GeneralStateTests/tests-30M/tests30M-list.json -r ../../../../zkevm-rom -p ../../../../zkevm-proverjs > ../eth-inputs/GeneralStateTests/tests-30M/all-info.txt
+node run-tests-30M.js -l ../../../inputs-executor/ethereum-tests/GeneralStateTests/tests-30M/tests30M-list.json -r ../../../../zkevm-rom -p ../../../../zkevm-proverjs > ./../../inputs-executor/ethereum-tests/GeneralStateTests/tests-30M/all-info.txt
 
 # pass OOC tests
-node run-tests-OOC.js -l ../eth-inputs/GeneralStateTests/tests-OOC/testsOOC-list.json -p ../../../../zkevm-proverjs -r ../../../../zkevm-rom > ../eth-inputs/GeneralStateTests/tests-OOC/all-info.txt
+node run-tests-OOC.js -l ../../../inputs-executor/ethereum-tests/GeneralStateTests/tests-OOC/testsOOC-list.json -p ../../../../zkevm-proverjs -r ../../../../zkevm-rom -s > ./../../inputs-executor/ethereum-tests/GeneralStateTests/tests-OOC/all-info.txt
 
 cd ../
 pass_inputs_time=$(date +%s)
