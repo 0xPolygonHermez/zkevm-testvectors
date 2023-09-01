@@ -1,11 +1,6 @@
 [
   {
-    "fileName": "/Users/ignasi/Documents/Github/Polygon/zkevm-testvectors/inputs-executor/ethereum-tests/GeneralStateTests/stBadOpcode/measureGas_10.json",
-    "error": "Error: Assert Error: newStateRoot does not match\n   State root computed: 0xf530e347ffd9f3eaa388a53ed7cc5e86bccef48c84ae5d754295c7981a13bb85\n   State root expected: 0x0e41359426cc42ca883eb2d36fd8d40c8739729c8bcb5b1075fef371ef22e8f0\nErrors: OOG,OOG,OOG,OOG,OOG,OOCK",
-    "stepsN": 8388608
-  },
-  {
-    "fileName": "/Users/ignasi/Documents/Github/Polygon/zkevm-testvectors/inputs-executor/ethereum-tests/GeneralStateTests/tests-OOC/measureGas_10.json",
+    "fileName": "/GeneralStateTests/stBadOpcode/measureGas_10.json",
     "error": "Error: Assert Error: newStateRoot does not match\n   State root computed: 0xf530e347ffd9f3eaa388a53ed7cc5e86bccef48c84ae5d754295c7981a13bb85\n   State root expected: 0x0e41359426cc42ca883eb2d36fd8d40c8739729c8bcb5b1075fef371ef22e8f0\nErrors: OOG,OOG,OOG,OOG,OOG,OOCK",
     "stepsN": 8388608
   }

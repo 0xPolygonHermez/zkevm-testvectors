@@ -462,12 +462,11 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         if (fs.existsSync(`${dirOOC}/testsOOC-list.json`)) {
                             listOOC = require(`${dirOOC}/testsOOC-list.json`);
                         }
-
-                        if (listOOC.filter((elem) => elem.fileName.split('/GeneralStateTests/')[1] === writeOutputName.split('/GeneralStateTests/')[1]).length > 0) {
+                        if (listOOC.filter((elem) => elem.fileName.split('/')[3] === writeOutputName.split('/GeneralStateTests/')[1].split('/')[1]).length > 0) {
                             const writeNameOOC = writeOutputName.replace(writeOutputName.split('/')[writeOutputName.split('/').length - 2], 'tests-OOC');
                             const testOOC = require(writeNameOOC);
 
-                            if (testOOC.stepsN) { circuitInput.stepsN = testOOC.stepsN; }
+                            if (testOOC.stepsN) { circuitInput.stepsN = testOOC.stepsN; } else { circuitInput.stepsN = 8388608; }
                             console.log(`WRITE: ${writeNameOOC}\n`);
                             await fs.writeFileSync(writeNameOOC, JSON.stringify(circuitInput, null, 2));
                             if (flag30M) {
