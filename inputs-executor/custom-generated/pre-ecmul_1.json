@@ -100,5 +100,14 @@
   "isForced": 0,
   "GERS": {
     "1": "0x3100000000000000000000000000000000000000000000000000000000000000"
+  },
+  "virtualCounters": {
+    "steps": 30000,
+    "arith": 500,
+    "binary": 1500,
+    "memAlign": 2,
+    "keccaks": 1000,
+    "padding": 1,
+    "poseidon": 500
   }
 }

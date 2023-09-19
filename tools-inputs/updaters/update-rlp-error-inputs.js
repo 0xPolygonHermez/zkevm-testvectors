@@ -52,6 +52,17 @@ async function main() {
             inputRLP.isForced,
         );
 
+        // Hardcoded virtual counters
+        inputRLP.virtualCounters = {
+            steps: 30000,
+            arith: 10,
+            binary: 50,
+            memAlign: 2,
+            keccaks: 1000,
+            padding: 1,
+            poseidon: 100,
+        };
+
         inputRLP.db = generalInput.db;
         console.log(`WRITE: ${pathTest}`);
         await fs.writeFileSync(pathTest, JSON.stringify(inputRLP, null, 2));

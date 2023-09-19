@@ -44,5 +44,14 @@
   "GERS": {
     "1": "0x3100000000000000000000000000000000000000000000000000000000000000"
   },
+  "virtualCounters": {
+    "steps": 20471,
+    "arith": 1325,
+    "binary": 2250,
+    "memAlign": 7,
+    "keccaks": 7,
+    "padding": 15,
+    "poseidon": 3904
+  },
   "gasLimit": "2147483647"
 }

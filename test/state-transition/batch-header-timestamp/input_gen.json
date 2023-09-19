@@ -263,7 +263,16 @@
         "historicGERRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
         "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "batchHashData": "0xc593abcdf8de5f8f26f9f876263e9660d0cd00663535132f8e5d12358f083d1a",
-        "timestamp": 1944498031
+        "timestamp": 1944498031,
+        "virtualCounters": {
+          "steps": 118049,
+          "arith": 8877,
+          "binary": 14636,
+          "memAlign": 2,
+          "keccaks": 30,
+          "padding": 189,
+          "poseidon": 19665
+        }
       },
       {
         "txs": [
@@ -494,7 +503,16 @@
         "historicGERRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
         "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "batchHashData": "0xdc208c0db6a4e0b1ed1c1424e83e7859c44c96d575d0c742fee8e8c16196294c",
-        "timestamp": 1944498031
+        "timestamp": 1944498031,
+        "virtualCounters": {
+          "steps": 115135,
+          "arith": 8870,
+          "binary": 14469,
+          "memAlign": 0,
+          "keccaks": 30,
+          "padding": 189,
+          "poseidon": 19275
+        }
       },
       {
         "txs": [],
@@ -641,7 +659,16 @@
         "historicGERRoot": "0x190bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
         "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "batchHashData": "0xd2425cc0c2f857c894589599bd948528bb48b59c54d5e57cb5487c71065547a1",
-        "timestamp": 1944498033
+        "timestamp": 1944498033,
+        "virtualCounters": {
+          "steps": 552,
+          "arith": 1,
+          "binary": 21,
+          "memAlign": 0,
+          "keccaks": 4,
+          "padding": 0,
+          "poseidon": 1054
+        }
       },
       {
         "txs": [],
@@ -789,7 +816,16 @@
         "historicGERRoot": "0x190bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
         "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "batchHashData": "0xd2425cc0c2f857c894589599bd948528bb48b59c54d5e57cb5487c71065547a1",
-        "timestamp": 1944498042
+        "timestamp": 1944498042,
+        "virtualCounters": {
+          "steps": 552,
+          "arith": 1,
+          "binary": 21,
+          "memAlign": 0,
+          "keccaks": 4,
+          "padding": 0,
+          "poseidon": 1054
+        }
       }
     ],
     "forkID": 6

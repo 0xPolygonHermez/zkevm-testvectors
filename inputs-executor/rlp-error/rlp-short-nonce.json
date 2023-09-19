@@ -93,5 +93,14 @@
   "batchHashData": "0x312ed915d289f7b4af0f411418072e750e679ff23d9957a0f067b92638fdd378",
   "historicGERRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "timestampLimit": "1944498031",
-  "isForced": 0
+  "isForced": 0,
+  "virtualCounters": {
+    "steps": 30000,
+    "arith": 10,
+    "binary": 50,
+    "memAlign": 2,
+    "keccaks": 1000,
+    "padding": 1,
+    "poseidon": 100
+  }
 }

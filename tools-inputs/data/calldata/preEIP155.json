@@ -167,7 +167,16 @@
     "historicGERRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "forkID": 6
+    "forkID": 6,
+    "virtualCounters": {
+      "steps": 18447,
+      "arith": 1267,
+      "binary": 2178,
+      "memAlign": 2,
+      "keccaks": 7,
+      "padding": 22,
+      "poseidon": 3652
+    }
   },
   {
     "id": 1,
@@ -337,7 +346,16 @@
     "historicGERRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "forkID": 6
+    "forkID": 6,
+    "virtualCounters": {
+      "steps": 19054,
+      "arith": 1267,
+      "binary": 2215,
+      "memAlign": 2,
+      "keccaks": 7,
+      "padding": 22,
+      "poseidon": 4042
+    }
   },
   {
     "id": 2,
@@ -507,7 +525,16 @@
     "historicGERRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "forkID": 6
+    "forkID": 6,
+    "virtualCounters": {
+      "steps": 19528,
+      "arith": 1268,
+      "binary": 2239,
+      "memAlign": 2,
+      "keccaks": 7,
+      "padding": 22,
+      "poseidon": 4042
+    }
   },
   {
     "id": 3,
@@ -677,7 +704,16 @@
     "historicGERRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "forkID": 6
+    "forkID": 6,
+    "virtualCounters": {
+      "steps": 19476,
+      "arith": 1267,
+      "binary": 2239,
+      "memAlign": 2,
+      "keccaks": 7,
+      "padding": 22,
+      "poseidon": 4042
+    }
   },
   {
     "id": 4,
@@ -847,7 +883,16 @@
     "historicGERRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "forkID": 6
+    "forkID": 6,
+    "virtualCounters": {
+      "steps": 18897,
+      "arith": 1268,
+      "binary": 2205,
+      "memAlign": 2,
+      "keccaks": 7,
+      "padding": 22,
+      "poseidon": 4042
+    }
   },
   {
     "id": 5,
@@ -1017,7 +1062,16 @@
     "historicGERRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "forkID": 6
+    "forkID": 6,
+    "virtualCounters": {
+      "steps": 33712,
+      "arith": 1403,
+      "binary": 2906,
+      "memAlign": 4,
+      "keccaks": 9,
+      "padding": 23,
+      "poseidon": 4043
+    }
   },
   {
     "id": 6,
@@ -1187,7 +1241,16 @@
     "historicGERRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "forkID": 6
+    "forkID": 6,
+    "virtualCounters": {
+      "steps": 33592,
+      "arith": 1404,
+      "binary": 2916,
+      "memAlign": 4,
+      "keccaks": 9,
+      "padding": 23,
+      "poseidon": 4043
+    }
   },
   {
     "id": 7,
@@ -1357,6 +1420,15 @@
     "historicGERRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "forkID": 6
+    "forkID": 6,
+    "virtualCounters": {
+      "steps": 19349,
+      "arith": 1268,
+      "binary": 2234,
+      "memAlign": 2,
+      "keccaks": 7,
+      "padding": 22,
+      "poseidon": 4042
+    }
   }
 ]

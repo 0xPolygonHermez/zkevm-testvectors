@@ -288,7 +288,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         );
 
                         options.skipVerifyGER = true;
-                        const extraData = { GERS: {} };
+                        const extraData = { GERS: {}, vcmConfig: { skipCounters: true } };
                         const batch = await zkEVMDB.buildBatch(
                             timestamp,
                             sequencerAddress,
@@ -373,7 +373,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             batch.addRawTx(calldata);
                         }
 
-                        await batch.executeTxs();
+                        const res = await batch.executeTxs();
 
                         if (batch.evmSteps[0] && batch.evmSteps[0].length > 0) {
                             const { updatedAccounts } = batch;
@@ -466,6 +466,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         }
                         const circuitInput = await batch.getStarkInput();
                         circuitInput.GERS = extraData.GERS;
+                        // Add counters to input
+                        circuitInput.virtualCounters = res.virtualCounters;
                         if (options.newBlockGasLimit) { circuitInput.gasLimit = Scalar.e(options.newBlockGasLimit).toString(); }
                         Object.keys(circuitInput.contractsBytecode).forEach((key) => {
                             if (!circuitInput.contractsBytecode[key].startsWith('0x')) {
@@ -578,7 +580,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
         }
         const data = {};
         let txId = 0;
-        for (const txSteps of evmTxSteps) {
+        for (const val of evmTxSteps) {
+            const txSteps = val.steps;
             if (txSteps) {
                 const stepObjs = [];
                 for (const step of txSteps) {

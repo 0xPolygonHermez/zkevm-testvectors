@@ -206,12 +206,13 @@ describe('Run state-transition tests', function () {
                 }
 
                 // execute the transactions added to the batch
-                await batch.executeTxs();
+                const res = await batch.executeTxs();
 
                 const newRoot = batch.currentStateRoot;
                 if (update) {
                     testVectors[j].expectedNewRoot = smtUtils.h4toString(newRoot);
                     testVectors[j].chainID = 1000;
+                    testVectors[j].virtualCounters = res.virtualCounters;
                 } else {
                     expect(smtUtils.h4toString(newRoot)).to.be.equal(expectedNewRoot);
                 }
@@ -261,6 +262,8 @@ describe('Run state-transition tests', function () {
                 // Check the circuit input
                 const circuitInput = await batch.getStarkInput();
                 circuitInput.GERS = extraData.GERS;
+                // Add counters to input
+                circuitInput.virtualCounters = res.virtualCounters;
                 if (update) {
                     testVectors[j].batchL2Data = batch.getBatchL2Data();
                     testVectors[j].batchHashData = circuitInput.batchHashData;

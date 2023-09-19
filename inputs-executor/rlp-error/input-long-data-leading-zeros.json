@@ -98,5 +98,14 @@
   },
   "historicGERRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "timestampLimit": "1944498031",
-  "isForced": 0
+  "isForced": 0,
+  "virtualCounters": {
+    "steps": 30000,
+    "arith": 10,
+    "binary": 50,
+    "memAlign": 2,
+    "keccaks": 1000,
+    "padding": 1,
+    "poseidon": 100
+  }
 }
