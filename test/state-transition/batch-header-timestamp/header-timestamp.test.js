@@ -7,8 +7,9 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable guard-for-in */
 
-const { Scalar } = require('ffjavascript');
 const fs = require('fs');
+const path = require('path');
+const { Scalar } = require('ffjavascript');
 const { argv } = require('yargs');
 
 const ethers = require('ethers');
@@ -16,7 +17,6 @@ const { expect } = require('chai');
 const {
     Address, toBuffer,
 } = require('ethereumjs-util');
-const path = require('path');
 const lodash = require('lodash');
 
 const {
@@ -154,7 +154,10 @@ describe('Header timestamp', function () {
                         const r = signature.r.slice(2).padStart(64, '0'); // 32 bytes
                         const s = signature.s.slice(2).padStart(64, '0'); // 32 bytes
                         const v = (signature.v).toString(16).padStart(2, '0'); // 1 bytes
-                        customRawTx = signData.concat(r).concat(s).concat(v);
+                        if (typeof txData.effectivePercentage === 'undefined') {
+                            txData.effectivePercentage = '0xff';
+                        }
+                        customRawTx = signData.concat(r).concat(s).concat(v).concat(txData.effectivePercentage.slice);
                     } else {
                         const rawTxEthers = await wallet.signTransaction(tx);
                         if (!update) {

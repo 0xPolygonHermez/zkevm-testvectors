@@ -12893,6 +12893,54 @@
     {
       "name": "stStaticFlagEnabled/DelegatecallToPrecompileFromTransaction",
       "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_0",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_2",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_3",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_4",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_5",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_6",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_7",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_8",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_9",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/badOpcode_43",
+      "description": "Opcode PUSHO (0x5f) is supported"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces",
+      "description": "Opcode PUSHO (0x5f) is supported"
     }
   ]
 }

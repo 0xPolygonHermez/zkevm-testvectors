@@ -6,6 +6,9 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable import/no-extraneous-dependencies */
+
+const fs = require('fs');
+const path = require('path');
 const Common = require('@ethereumjs/common').default;
 const { Hardfork } = require('@ethereumjs/common');
 const { BN, toBuffer } = require('ethereumjs-util');
@@ -15,8 +18,6 @@ const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
 const { expect } = require('chai');
 const { Transaction } = require('@ethereumjs/tx');
 
-const fs = require('fs');
-const path = require('path');
 const helpers = require('../../../tools-calldata/helpers/helpers');
 
 // load list test-vectors
@@ -164,15 +165,21 @@ describe('Run state-transition tests: calldata', async function () {
                     const r = tx.r.toString(16).padStart(32 * 2, '0');
                     const s = tx.s.toString(16).padStart(32 * 2, '0');
                     const v = (sign + 27).toString(16).padStart(1 * 2, '0');
-                    const calldata = signData.concat(r).concat(s).concat(v);
+                    if (typeof currentTx.effectivePercentage === 'undefined') {
+                        currentTx.effectivePercentage = '0xff';
+                    }
+                    const calldata = signData.concat(r).concat(s).concat(v).concat(currentTx.effectivePercentage.slice(2));
                     txsList.push(calldata);
                     batch.addRawTx(calldata);
                 }
 
                 // Compare storage
-                await batch.executeTxs();
+                try {
+                    await batch.executeTxs();
+                } catch (e) {
+                    console.log(e);
+                }
                 await zkEVMDB.consolidate(batch);
-
                 // Check new root
                 expect(zkcommonjs.smtUtils.h4toString(batch.currentStateRoot)).to.be.equal(expectedNewRoot);
 

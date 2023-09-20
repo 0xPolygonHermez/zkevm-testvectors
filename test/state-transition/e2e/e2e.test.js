@@ -1,9 +1,9 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable max-len, no-plusplus, guard-for-in */
 /* eslint-disable import/no-dynamic-require, global-require */
-const { Scalar } = require('ffjavascript');
 const fs = require('fs');
 const path = require('path');
+const { Scalar } = require('ffjavascript');
 const { ethers } = require('hardhat');
 const { expect } = require('chai');
 const { argv } = require('yargs');
@@ -319,7 +319,10 @@ describe('Proof of efficiency test vectors', function () {
                 const r = signature.r.slice(2).padStart(64, '0'); // 32 bytes
                 const s = signature.s.slice(2).padStart(64, '0'); // 32 bytes
                 const v = (signature.v).toString(16).padStart(2, '0'); // 1 bytes
-                customRawTx = signData.concat(r).concat(s).concat(v);
+                if (typeof txData.effectivePercentage === 'undefined') {
+                    txData.effectivePercentage = '0xff';
+                }
+                customRawTx = signData.concat(r).concat(s).concat(v).concat(txData.effectivePercentage.slice(2));
             } else {
                 const rawTxEthers = await wallet.signTransaction(tx);
                 if (!update) {
@@ -529,7 +532,7 @@ describe('Proof of efficiency test vectors', function () {
 
         // Check inputs mathces de smart contract
         const numBatch = Number((await polygonZkEVMContract.lastVerifiedBatch())) + 1;
-        const fflonkProof = '0x';
+        const fflonkProof = new Array(24).fill(ethers.constants.HashZero);
         const pendingStateNum = 0;
 
         // calculate circuit input

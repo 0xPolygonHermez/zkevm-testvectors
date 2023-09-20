@@ -3,12 +3,12 @@
 /* eslint-disable no-loop-func */
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-continue */
+const fs = require('fs');
+const path = require('path');
 const { Scalar } = require('ffjavascript');
 
 const ethers = require('ethers');
 const { expect } = require('chai');
-const fs = require('fs');
-const path = require('path');
 const { argv } = require('yargs');
 const {
     MemDB, stateUtils, ZkEVMDB, processorUtils, smtUtils, getPoseidon,
