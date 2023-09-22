@@ -11,7 +11,6 @@ const Common = require('@ethereumjs/common').default;
 const { Hardfork } = require('@ethereumjs/common');
 const { BN, toBuffer } = require('ethereumjs-util');
 const { ethers } = require('ethers');
-const hre = require('hardhat');
 const lodash = require('lodash');
 
 const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
@@ -62,7 +61,7 @@ describe('Generate inputs executor from test-vectors', async function () {
         internalTestVectors = require(internalTestVectorsPath);
         inputsPath = '../../inputs-executor/calldata/';
 
-        await hre.run('compile');
+        //await hre.run('compile');
         console.log(`   test vector name: ${file}`);
     });
 

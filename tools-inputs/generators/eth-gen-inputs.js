@@ -148,7 +148,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                 infoErrors += '--------------------------------------------------\n';
             } else {
                 for (let y = 0; y < txsLength; y++) {
-                    let options = {};
+                    let options = { vcmConfig: { skipCounters: true } };
                     let flag30M = false;
                     counts.countTests += 1;
                     let newOutputName;
@@ -288,7 +288,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         );
 
                         options.skipVerifyGER = true;
-                        const extraData = { GERS: {}, vcmConfig: { skipCounters: true } };
+                        const extraData = { GERS: {} };
                         const batch = await zkEVMDB.buildBatch(
                             timestamp,
                             sequencerAddress,
@@ -606,6 +606,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                 (previousValue, currentValue) => previousValue + currentValue,
                                 '0x',
                             ),
+                            vcounters: step.counters,
                         });
                     }
                 }
