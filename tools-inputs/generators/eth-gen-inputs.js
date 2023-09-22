@@ -606,6 +606,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                 (previousValue, currentValue) => previousValue + currentValue,
                                 '0x',
                             ),
+                            vcounters: step.counters,
                         });
                     }
                 }
