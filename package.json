@@ -22,7 +22,9 @@
         "update:eth-tests": "cd ./tools-inputs/tools-eth && ./update-tests-general.sh",
         "test:contracts": "npx mocha ./test/state-transition/no-data/contracts.test.js",
         "update:all": "npm run update:smt && npm run update:mt:bridge && npm run update:st:calldata && npm run update:st:no-data && npm run update:e2e && npm run update:error-rlp && npm run update:eth-tests",
-        "regen-tests": "sh regen-tests.sh"
+        "regen-tests": "sh regen-tests.sh",
+        "test:gen": "node tools-inputs/tools-eth/tests-parallel/gen-parallel-tests.js",
+        "test:start": "npx mocha --jobs 7 --timeout 0 --max-old-space-size=8192 --parallel tools-inputs/tools-eth/tests-parallel/parallel-tests/*.test.js"
     },
     "repository": {
         "type": "git",
