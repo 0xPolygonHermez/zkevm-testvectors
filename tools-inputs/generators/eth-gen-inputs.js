@@ -124,6 +124,10 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             files = [path.join(__dirname, `${basePath}/${file}`)];
         }
 
+        if (!fs.existsSync(paths['no-exec'])) {
+            await fs.copyFileSync(paths['no-exec-template'], paths['no-exec']);
+        }
+
         for (let x = 0; x < files.length; x++) {
             file = files[x];
             file = file.endsWith('.json') ? file : `${file}.json`;
@@ -593,7 +597,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
         let auxDir = dir.endsWith('/') ? dir.substring(0, dir.length - 1) : dir;
         auxDir = auxDir.split('/');
         const nameTest = `${auxDir[auxDir.length - 1]}/${newOutputName.replace('.json', '')}`;
-        noExec['not-supported'].push({ name: nameTest, description });
+        noExec['not-supported'].push({ name: nameTest.endsWith('.json') ? nameTest : `${nameTest}.json`, description });
         await fs.writeFileSync(paths['no-exec'], JSON.stringify(noExec, null, 2));
         throw new Error('not supported');
     }
