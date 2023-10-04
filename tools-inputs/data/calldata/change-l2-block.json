@@ -89,7 +89,7 @@
       "memAlign": 0,
       "keccaks": 4,
       "padding": 0,
-      "poseidon": 1054
+      "poseidon": 374
     }
   },
   {
@@ -190,7 +190,7 @@
       "memAlign": 0,
       "keccaks": 6,
       "padding": 0,
-      "poseidon": 1846
+      "poseidon": 666
     }
   },
   {
@@ -325,13 +325,13 @@
     "forkID": 6,
     "historicGERRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "virtualCounters": {
-      "steps": 61888,
-      "arith": 5005,
-      "binary": 8101,
+      "steps": 37888,
+      "arith": 4525,
+      "binary": 6917,
       "memAlign": 0,
       "keccaks": 21,
       "padding": 36,
-      "poseidon": 12186
+      "poseidon": 2766
     }
   },
   {
@@ -423,13 +423,13 @@
     "forkID": 6,
     "historicGERRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "virtualCounters": {
-      "steps": 14916,
-      "arith": 1244,
-      "binary": 1991,
+      "steps": 8916,
+      "arith": 1124,
+      "binary": 1692,
       "memAlign": 0,
       "keccaks": 6,
       "padding": 3,
-      "poseidon": 1057
+      "poseidon": 377
     }
   },
   {
@@ -530,13 +530,13 @@
     "forkID": 6,
     "historicGERRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "virtualCounters": {
-      "steps": 31080,
-      "arith": 2503,
-      "binary": 4053,
+      "steps": 19080,
+      "arith": 2263,
+      "binary": 3461,
       "memAlign": 0,
       "keccaks": 11,
       "padding": 18,
-      "poseidon": 6224
+      "poseidon": 1424
     }
   },
   {
@@ -633,13 +633,13 @@
     "forkID": 6,
     "historicGERRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "virtualCounters": {
-      "steps": 14916,
-      "arith": 1244,
-      "binary": 1991,
+      "steps": 8916,
+      "arith": 1124,
+      "binary": 1692,
       "memAlign": 0,
       "keccaks": 6,
       "padding": 3,
-      "poseidon": 1057
+      "poseidon": 377
     }
   }
 ]

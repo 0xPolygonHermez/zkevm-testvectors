@@ -101,13 +101,13 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 6,
     "virtualCounters": {
-      "steps": 20444,
-      "arith": 1273,
-      "binary": 2229,
+      "steps": 14444,
+      "arith": 1153,
+      "binary": 1956,
       "memAlign": 3,
       "keccaks": 7,
       "padding": 12,
-      "poseidon": 3642
+      "poseidon": 902
     }
   },
   {
@@ -886,13 +886,13 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 6,
     "virtualCounters": {
-      "steps": 38428,
-      "arith": 1365,
-      "binary": 3005,
+      "steps": 32428,
+      "arith": 1245,
+      "binary": 2812,
       "memAlign": 9,
       "keccaks": 9,
       "padding": 286,
-      "poseidon": 5720
+      "poseidon": 1520
     }
   },
   {
@@ -976,13 +976,13 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 6,
     "virtualCounters": {
-      "steps": 114989,
-      "arith": 2719,
-      "binary": 6439,
-      "memAlign": 23,
+      "steps": 103521,
+      "arith": 2514,
+      "binary": 5889,
+      "memAlign": 2,
       "keccaks": 17,
-      "padding": 46,
-      "poseidon": 3932
+      "padding": 20,
+      "poseidon": 946
     }
   },
   {
@@ -1762,13 +1762,13 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 6,
     "virtualCounters": {
-      "steps": 39180,
-      "arith": 1390,
-      "binary": 3054,
+      "steps": 33180,
+      "arith": 1270,
+      "binary": 2857,
       "memAlign": 13,
       "keccaks": 9,
       "padding": 183,
-      "poseidon": 5879
+      "poseidon": 1499
     }
   },
   {
@@ -1970,13 +1970,13 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 6,
     "virtualCounters": {
-      "steps": 79898,
-      "arith": 1977,
-      "binary": 4814,
+      "steps": 73898,
+      "arith": 1857,
+      "binary": 4600,
       "memAlign": 24,
       "keccaks": 13,
       "padding": 34,
-      "poseidon": 4304
+      "poseidon": 1014
     }
   }
 ]
