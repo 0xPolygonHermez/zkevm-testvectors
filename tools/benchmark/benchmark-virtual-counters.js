@@ -17,7 +17,7 @@ const { ethers } = require('ethers');
 const { newCommitPolsArray, compile } = require('pilcom');
 const fs = require('fs');
 const helpers = require('../../tools-inputs/helpers/helpers');
-const configs = require('./benchmark_config.json');
+const configs = require('./benchmark_config_virtuals.json');
 const pilCache = require('../../../zkevm-proverjs/cache-main-pil.json');
 
 let F;
@@ -72,7 +72,7 @@ async function main() {
         }
     }
     updateBenchmark(lastCorrectRes.virtualCounters, lastCorrectRes.txCount, lastCorrectRes.dataLen);
-    fs.writeFileSync(path.join(__dirname, './benchmark_config.json'), JSON.stringify(configs, null, 2));
+    fs.writeFileSync(path.join(__dirname, './benchmark_config_virtuals.json'), JSON.stringify(configs, null, 2));
     console.log(`Total correct txs ${lastCorrectRes.txCount}`);
     console.log('FINISH');
 }

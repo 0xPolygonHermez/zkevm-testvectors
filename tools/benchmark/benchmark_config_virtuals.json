@@ -1,0 +1,145 @@
+[
+  {
+    "id": 0,
+    "name": "Balance transfer",
+    "testPath": "../../tools-inputs/data/no-data/balances.json",
+    "setupTxs": [],
+    "iterateTxs": [
+      0
+    ],
+    "testIndex": 5,
+    "initStep": 350,
+    "testStep": 1,
+    "additionalGenesisAccountsFactor": 1,
+    "benchmark": {
+      "txs": 454,
+      "totalDataBytes": 51839,
+      "cntArith": 261901,
+      "cntBinary": 321733,
+      "cntMemAlign": 0,
+      "cntKeccak": 1747,
+      "cntPadding": 4086,
+      "cntPoseidon": 239844,
+      "cntSeps": 4705202,
+      "additionalGenesisAccountsFactor": 1
+    }
+  },
+  {
+    "id": 1,
+    "name": "ERC20 transfer",
+    "testPath": "../../tools-inputs/data/calldata/erc20.json",
+    "setupTxs": [
+      0,
+      1
+    ],
+    "iterateTxs": [
+      2
+    ],
+    "testIndex": 0,
+    "initStep": 132,
+    "testStep": 1,
+    "additionalGenesisAccountsFactor": 1,
+    "benchmark": {
+      "txs": 112,
+      "totalDataBytes": 19613,
+      "cntArith": 114577,
+      "cntBinary": 412741,
+      "cntMemAlign": 8624,
+      "cntKeccak": 1940,
+      "cntPadding": 17584,
+      "cntPoseidon": 149334,
+      "cntSeps": 8354520,
+      "additionalGenesisAccountsFactor": 1
+    }
+  },
+  {
+    "id": 2,
+    "name": "ERC20 transferFrom",
+    "testPath": "../../tools-inputs/data/calldata/erc20.json",
+    "setupTxs": [
+      0,
+      1,
+      3
+    ],
+    "iterateTxs": [
+      5
+    ],
+    "testIndex": 0,
+    "initStep": 132,
+    "testStep": 1,
+    "additionalGenesisAccountsFactor": 1,
+    "benchmark": {
+      "txs": 132,
+      "totalDataBytes": 27328,
+      "cntArith": 94385,
+      "cntBinary": 454671,
+      "cntMemAlign": 13860,
+      "cntKeccak": 1787,
+      "cntPadding": 18744,
+      "cntPoseidon": 132635,
+      "cntSeps": 7884517,
+      "cumulativeGasUsed": "5821464",
+      "additionalGenesisAccountsFactor": 17,
+      "bottleneck": "OOCS"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Uniswap swaps (router)",
+    "testPath": "../../tools-inputs/data/calldata/uniswapv2-router-benchmark.json",
+    "setupTxs": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "iterateTxs": [
+      5
+    ],
+    "testIndex": 0,
+    "initStep": 1,
+    "testStep": 1,
+    "additionalGenesisAccountsFactor": 0,
+    "benchmark": {
+      "txs": 0,
+      "totalDataBytes": 9936,
+      "cntArith": 39495,
+      "cntBinary": 384809,
+      "cntMemAlign": 9747,
+      "cntKeccak": 778,
+      "cntPadding": 42822,
+      "cntPoseidon": 92426,
+      "cntSeps": 7697357,
+      "cumulativeGasUsed": "2759643",
+      "additionalGenesisAccountsFactor": 0,
+      "bottleneck": "revert"
+    }
+  },
+  {
+    "id": 4,
+    "name": "NFT mints",
+    "testPath": "../../tools-inputs/data/calldata/mynft.json",
+    "setupTxs": [],
+    "iterateTxs": [
+      0
+    ],
+    "testIndex": 0,
+    "initStep": 128,
+    "testStep": 1,
+    "additionalGenesisAccountsFactor": 1,
+    "benchmark": {
+      "txs": 129,
+      "totalDataBytes": 30832,
+      "cntArith": 100473,
+      "cntBinary": 441737,
+      "cntMemAlign": 2967,
+      "cntKeccak": 1648,
+      "cntPadding": 26445,
+      "cntPoseidon": 168201,
+      "cntSeps": 7669014,
+      "cumulativeGasUsed": "11013777",
+      "additionalGenesisAccountsFactor": 17
+    }
+  }
+]

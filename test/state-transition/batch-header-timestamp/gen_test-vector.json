@@ -189,13 +189,13 @@
         "batchHashData": "0xc593abcdf8de5f8f26f9f876263e9660d0cd00663535132f8e5d12358f083d1a",
         "timestamp": 1944498031,
         "virtualCounters": {
-          "steps": 118745,
-          "arith": 8877,
-          "binary": 14636,
+          "steps": 79533,
+          "arith": 4118,
+          "binary": 5254,
           "memAlign": 2,
-          "keccaks": 30,
-          "padding": 189,
-          "poseidon": 19665
+          "keccaks": 24,
+          "padding": 45,
+          "poseidon": 1035
         }
       },
       {
@@ -459,13 +459,13 @@
         "batchHashData": "0xdc208c0db6a4e0b1ed1c1424e83e7859c44c96d575d0c742fee8e8c16196294c",
         "timestamp": 1944498031,
         "virtualCounters": {
-          "steps": 115135,
-          "arith": 8870,
-          "binary": 14469,
+          "steps": 74598,
+          "arith": 4103,
+          "binary": 4998,
           "memAlign": 0,
-          "keccaks": 30,
-          "padding": 189,
-          "poseidon": 19275
+          "keccaks": 23,
+          "padding": 21,
+          "poseidon": 395
         }
       },
       {
@@ -621,7 +621,7 @@
           "memAlign": 0,
           "keccaks": 4,
           "padding": 0,
-          "poseidon": 1054
+          "poseidon": 374
         }
       },
       {
@@ -778,7 +778,7 @@
           "memAlign": 0,
           "keccaks": 4,
           "padding": 0,
-          "poseidon": 1054
+          "poseidon": 374
         }
       }
     ],

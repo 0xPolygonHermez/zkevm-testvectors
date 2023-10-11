@@ -12969,6 +12969,42 @@
     {
       "name": "stRandom2/randomStatetest618",
       "description": "Precompiled sha256 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/idPrecomps_0",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stPreCompiledContracts2/CallEcrecover_Overflow_0",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stPreCompiledContracts2/CallEcrecover_Overflow_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stPreCompiledContracts2/CallEcrecover_Overflow_2",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stPreCompiledContracts2/CallEcrecover_Overflow_3",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stPreCompiledContracts2/CallEcrecover_Overflow_4",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stPreCompiledContracts2/CallEcrecover_Overflow_5",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stPreCompiledContracts2/CallEcrecover_Overflow_6",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stPreCompiledContracts2/CallEcrecover_Overflow_7",
+      "description": "tx gas > max int"
     }
   ]
 }
