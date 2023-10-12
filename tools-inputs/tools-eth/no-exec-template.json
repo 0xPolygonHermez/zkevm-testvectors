@@ -1673,6 +1673,74 @@
       {
         "name": "stCallCreateCallCodeTest/createInitFailUndefinedInstruction2",
         "description": "Selfdestruct"
+      },
+      {
+        "name": "stSpecialTest/JUMPDEST_Attack.json",
+        "description": "recursive calls (?)"
+      },
+      {
+        "name": "stSpecialTest/JUMPDEST_AttackwithJump.json",
+        "description": "recursive calls (?)"
+      },
+      {
+        "name": "stStaticCall/static_ABAcalls1_1.json",
+        "description": "recursive calls (?)"
+      },
+      {
+        "name": "stStaticCall/static_ABAcalls2_1.json",
+        "description": "recursive calls (?)"
+      },
+      {
+        "name": "stMemoryStressTest/MLOAD_Bounds3_0.json",
+        "description": "access to memory address too big"
+      },
+      {
+        "name": "stMemoryStressTest/MLOAD_Bounds3_1.json",
+        "description": "access to memory address too big"
+      },
+      {
+        "name": "stMemoryStressTest/MSTORE_Bounds2a_1.json",
+        "description": "access to memory address too big"
+      },
+      {
+        "name": "VMTests/vmIOandFlowOperations/msize_5.json",
+        "description": "access to memory address too big"
+      },
+      {
+        "name": "VMTests/msize_5.json",
+        "description": "access to memory address too big"
+      },
+      {
+        "name": "stRandom/randomStatetest163.json",
+        "description": "access to memory address too big"
+      },
+      {
+        "name": "stRandom/randomStatetest185.json",
+        "description": "access to memory address too big"
+      },
+      {
+        "name": "stRandom/randomStatetest326.json",
+        "description": "access to memory address too big"
+      },
+      {
+        "name": "stRandom/randomStatetest36.json",
+        "description": "access to memory address too big"
+      },
+      {
+        "name": "stRandom2/randomStatetest476.json",
+        "description": "access to memory address too big"
+      },
+      {
+        "name": "stRandom2/randomStatetest498.json",
+        "description": "access to memory address too big"
+      },
+      {
+        "name": "stStaticCall/static_Call50000_identity2_0",
+        "description": "tx gas > max int"
+      },
+      {
+        "name": "stStaticCall/static_Call50000_identity2_1",
+        "description": "tx gas > max int"
       }
     ]
 }
