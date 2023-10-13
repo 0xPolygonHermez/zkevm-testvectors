@@ -80,7 +80,7 @@ async function main() {
     }
 
     if (flagOutput) {
-        iRomCov.exportCoverage();
+        await iRomCov.exportCoverage();
     }
 
     if (flagVerbose) {
