@@ -838,5 +838,14 @@
       "0000000000000000",
       "0000000000000000"
     ]
+  },
+  "virtualCounters": {
+    "steps": 49000,
+    "arith": 1023,
+    "binary": 3975,
+    "memAlign": 39,
+    "keccaks": 12,
+    "padding": 32,
+    "poseidon": 1660
   }
 }

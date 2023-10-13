@@ -12941,6 +12941,102 @@
     {
       "name": "stBadOpcode/opc5FDiffPlaces",
       "description": "Opcode PUSHO (0x5f) is supported"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Call20KbytesContract50_1_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Call20KbytesContract50_2_1",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_12",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_13",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_14",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_15",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_16",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_17",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_18",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_19",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_20",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_21",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStackTests/stackOverflowM1PUSH_23",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_12",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_13",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_14",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_15",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_16",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_17",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_18",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_19",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_20",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_21",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStackTests/stackOverflowPUSH_23",
+      "description": "tx gas > max int"
     }
   ]
 }

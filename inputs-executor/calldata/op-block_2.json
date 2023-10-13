@@ -1,6 +1,6 @@
 {
   "oldStateRoot": "0x305f6aba22392c0c7c9d6ade7fb60d9b4550a26c724f77d827e7619c1bd3e5e1",
-  "newStateRoot": "0x0ce645c238737021c9085317d5d1fec84222ca7aa2ed9a7b093cc522f699edfd",
+  "newStateRoot": "0x47804a2ef29b286ec29a93efdcee8a4e95cd5c041d98ad6b735a723029684ee3",
   "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "newAccInputHash": "0xe827f9d63f0e80eaaa170556b3ad95c5a8d1719778af89765bffe157bd2f65cb",
   "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -238,5 +238,14 @@
       "0000000000000000",
       "0000000000000000"
     ]
+  },
+  "virtualCounters": {
+    "steps": 13424,
+    "arith": 586,
+    "binary": 908,
+    "memAlign": 2,
+    "keccaks": 9,
+    "padding": 25,
+    "poseidon": 749
   }
 }

@@ -4,6 +4,7 @@ const { Transaction } = require('@ethereumjs/tx');
 const { Address } = require('ethereumjs-util');
 const { Scalar } = require('ffjavascript');
 const { defaultAbiCoder } = require('@ethersproject/abi');
+const { VirtualCountersManager } = require('@0xpolygonhermez/zkevm-commonjs');
 
 async function getAccountNonce(vm, accountPrivateKey) {
     const address = Address.fromPrivateKey(accountPrivateKey);
@@ -32,7 +33,7 @@ async function deployContract(
     }
     const tx = Transaction.fromTxData(txData).sign(senderPrivateKey);
 
-    const deploymentResult = await vm.runTx({ tx });
+    const deploymentResult = await vm.runTx({ tx, vcm: new VirtualCountersManager() });
 
     if (deploymentResult.execResult.exceptionError) {
         throw deploymentResult.execResult.exceptionError;

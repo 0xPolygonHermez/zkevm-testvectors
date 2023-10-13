@@ -275,5 +275,14 @@
       "00000000bedcae60"
     ]
   },
+  "virtualCounters": {
+    "steps": 50956,
+    "arith": 1506,
+    "binary": 4356,
+    "memAlign": 1,
+    "keccaks": 13,
+    "padding": 12,
+    "poseidon": 736
+  },
   "gasLimit": "2147483647"
 }

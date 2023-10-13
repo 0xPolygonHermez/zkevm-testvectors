@@ -36,7 +36,7 @@
     ],
     "license": "pending",
     "devDependencies": {
-        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#v2.0.0-fork.5",
+        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#feature/forkid-5-vcounters",
         "@0xpolygonhermez/zkevm-contracts": "github:0xPolygonHermez/zkevm-contracts#v2.0.0-fork.5",
         "@grpc/grpc-js": "^1.6.10",
         "@nomiclabs/hardhat-ethers": "^2.0.5",
@@ -44,7 +44,7 @@
         "@openzeppelin/contracts": "^4.9.0",
         "@openzeppelin/hardhat-upgrades": "^1.20.0",
         "@polygon-hermez/common": "2.6.3",
-        "@polygon-hermez/vm": "5.7.36",
+        "@polygon-hermez/vm": "5.7.37",
         "chai": "^4.3.6",
         "circom_tester": "^0.0.9",
         "circomlibjs": "0.1.1",

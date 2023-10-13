@@ -132,6 +132,10 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
             let keysTests = Object.keys(test).filter((op) => op.includes('_Berlin') === true);
             let txsLength = keysTests.length;
+            if (file.includes('push0')) {
+                keysTests = Object.keys(test).filter((op) => op.includes('_Berlin+3855') === true);
+                txsLength = keysTests.length;
+            }
             if (txsLength === 0) {
                 keysTests = Object.keys(test).filter((op) => op.includes('_Shanghai') === true);
                 txsLength = keysTests.length;
@@ -142,7 +146,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                 infoErrors += '--------------------------------------------------\n';
             } else {
                 for (let y = 0; y < txsLength; y++) {
-                    let options = {};
+                    let options = { vcmConfig: { skipCounters: true } };
                     let flag30M = false;
                     counts.countTests += 1;
                     let newOutputName;
@@ -362,7 +366,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             batch.addRawTx(calldata);
                         }
 
-                        await batch.executeTxs();
+                        const res = await batch.executeTxs();
 
                         if (batch.evmSteps[0] && batch.evmSteps[0].length > 0) {
                             const { updatedAccounts } = batch;
@@ -414,7 +418,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         }
 
                         if (evmDebug) {
-                            await generateEvmDebugFile(batch.evmSteps, newOutputName);
+                            await generateEvmDebugFile(batch, newOutputName);
                         }
                         await zkEVMDB.consolidate(batch);
 
@@ -454,6 +458,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             }
                         }
                         const circuitInput = await batch.getStarkInput();
+                        circuitInput.virtualCounters = res.virtualCounters;
                         if (options.newBatchGasLimit) { circuitInput.gasLimit = Scalar.e(options.newBatchGasLimit).toString(); }
                         Object.keys(circuitInput.contractsBytecode).forEach((key) => {
                             if (!circuitInput.contractsBytecode[key].startsWith('0x')) {
@@ -558,18 +563,18 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
         }
     });
 
-    async function generateEvmDebugFile(evmTxSteps, fileName) {
+    async function generateEvmDebugFile(batch, fileName) {
         // Create dir if not exists
         const dir = path.join(__dirname, '/evm-stack-logs');
         if (!fs.existsSync(dir)) {
             fs.mkdirSync(dir);
         }
-        const data = {};
-        let txId = 0;
-        for (const txSteps of evmTxSteps) {
-            if (txSteps) {
+        const txs = [];
+        for (const txSteps of batch.evmSteps) {
+            const { steps } = txSteps;
+            if (steps) {
                 const stepObjs = [];
-                for (const step of txSteps) {
+                for (const step of steps) {
                     if (step) {
                         // Format memory
                         let memory = step.memory.map((v) => v.toString(16)).join('').padStart(192, '0');
@@ -594,11 +599,17 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         });
                     }
                 }
-                data[txId] = stepObjs;
-                txId += 1;
+                txs.push({
+                    steps: stepObjs,
+                    counters: txSteps.counters,
+                });
             }
         }
-        fs.writeFileSync(path.join(dir, fileName), JSON.stringify(data, null, 2));
+        const debugFile = {
+            txs,
+            counters: batch.vcm.getCurrentSpentCounters(),
+        };
+        fs.writeFileSync(path.join(dir, fileName), JSON.stringify(debugFile, null, 2));
     }
 
     async function updateNoExec(dir, newOutputName, description, noExec) {
