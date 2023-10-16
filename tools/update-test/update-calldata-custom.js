@@ -52,6 +52,15 @@ async function main() {
         );
 
         inputRLP.db = generalInput.db;
+        inputRLP.virtualCounters = {
+            steps: 100000,
+            arith: 4000,
+            binary: 10000,
+            memAlign: 0,
+            keccaks: 100,
+            padding: 100,
+            poseidon: 1000,
+        };
 
         fs.writeFileSync(pathTest, JSON.stringify(inputRLP, null, 2));
     }

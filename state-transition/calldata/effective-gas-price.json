@@ -159,9 +159,9 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 5,
     "virtualCounters": {
-      "steps": 13369,
+      "steps": 13395,
       "arith": 586,
-      "binary": 1680,
+      "binary": 1419,
       "memAlign": 2,
       "keccaks": 9,
       "padding": 21,
@@ -431,13 +431,13 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 5,
     "virtualCounters": {
-      "steps": 43650,
-      "arith": 2305,
-      "binary": 6212,
+      "steps": 44294,
+      "arith": 2307,
+      "binary": 5194,
       "memAlign": 4,
       "keccaks": 23,
       "padding": 72,
-      "poseidon": 1448
+      "poseidon": 1720
     }
   }
 ]

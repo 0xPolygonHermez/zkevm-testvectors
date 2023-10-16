@@ -188,7 +188,7 @@ describe('Run state-transition tests', function () {
                 }
 
                 // execute the transactions added to the batch
-                await batch.executeTxs();
+                const res = await batch.executeTxs();
 
                 const newRoot = batch.currentStateRoot;
                 if (update) {
@@ -235,7 +235,7 @@ describe('Run state-transition tests', function () {
 
                 // Check the circuit input
                 const circuitInput = await batch.getStarkInput();
-
+                circuitInput.virtualCounters = res.virtualCounters;
                 if (update) {
                     testVectors[j].batchL2Data = batch.getBatchL2Data();
                     testVectors[j].batchHashData = circuitInput.batchHashData;
@@ -244,7 +244,7 @@ describe('Run state-transition tests', function () {
                     testVectors[j].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                     testVectors[j].newLocalExitRoot = circuitInput.newLocalExitRoot;
                     testVectors[j].oldAccInputHash = oldAccInputHash;
-
+                    testVectors[j].virtualCounters = res.virtualCounters;
                     const fileName = path.join(folderInputsExecutor, `${path.parse(listTests[i]).name}_${id}.json`);
                     await fs.writeFileSync(fileName, JSON.stringify(circuitInput, null, 2));
                 } else {

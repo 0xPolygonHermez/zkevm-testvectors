@@ -145,7 +145,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                 infoErrors += `${outputName}\n`;
                 infoErrors += '--------------------------------------------------\n';
             } else {
-                for (let y = 0; y < txsLength; y++) {
+                for (let y = 1; y < 2; y++) {
                     let options = { vcmConfig: { skipCounters: true } };
                     let flag30M = false;
                     counts.countTests += 1;

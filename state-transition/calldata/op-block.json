@@ -183,9 +183,9 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 5,
     "virtualCounters": {
-      "steps": 13410,
+      "steps": 13446,
       "arith": 586,
-      "binary": 908,
+      "binary": 1420,
       "memAlign": 2,
       "keccaks": 9,
       "padding": 25,
@@ -376,9 +376,9 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 5,
     "virtualCounters": {
-      "steps": 13736,
+      "steps": 13772,
       "arith": 586,
-      "binary": 924,
+      "binary": 1436,
       "memAlign": 2,
       "keccaks": 9,
       "padding": 25,
@@ -534,17 +534,17 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x47804a2ef29b286ec29a93efdcee8a4e95cd5c041d98ad6b735a723029684ee3",
+    "expectedNewRoot": "0x0ce645c238737021c9085317d5d1fec84222ca7aa2ed9a7b093cc522f699edfd",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
-        "balance": "100000023463000000000",
+        "balance": "100000043363000000000",
         "nonce": "0",
         "storage": null,
         "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "bytecodeLength": 0
       },
       "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
-        "balance": "199999976537000000000",
+        "balance": "199999956637000000000",
         "nonce": "1",
         "storage": null,
         "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -553,7 +553,9 @@
       "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
         "balance": "0",
         "nonce": "1",
-        "storage": {},
+        "storage": {
+          "0x0000000000000000000000000000000000000000000000000000000000000002": "0x01"
+        },
         "hashBytecode": "0x09d6672a3fdb1e462513b4a6d6efcd4013a17e719128eeb0f54cf84a74e890e2",
         "bytecodeLength": 961
       }
@@ -567,9 +569,9 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 5,
     "virtualCounters": {
-      "steps": 13424,
+      "steps": 13460,
       "arith": 586,
-      "binary": 908,
+      "binary": 1420,
       "memAlign": 2,
       "keccaks": 9,
       "padding": 25,
@@ -758,9 +760,9 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 5,
     "virtualCounters": {
-      "steps": 12800,
+      "steps": 12836,
       "arith": 586,
-      "binary": 876,
+      "binary": 1388,
       "memAlign": 2,
       "keccaks": 9,
       "padding": 25,
@@ -951,9 +953,9 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 5,
     "virtualCounters": {
-      "steps": 12786,
+      "steps": 12822,
       "arith": 586,
-      "binary": 876,
+      "binary": 1388,
       "memAlign": 2,
       "keccaks": 9,
       "padding": 25,
@@ -1144,9 +1146,9 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 5,
     "virtualCounters": {
-      "steps": 13112,
+      "steps": 13148,
       "arith": 586,
-      "binary": 892,
+      "binary": 1404,
       "memAlign": 2,
       "keccaks": 9,
       "padding": 25,
@@ -1346,9 +1348,9 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 5,
     "virtualCounters": {
-      "steps": 24121,
+      "steps": 24157,
       "arith": 1164,
-      "binary": 1687,
+      "binary": 2711,
       "memAlign": 3,
       "keccaks": 15,
       "padding": 50,
@@ -1537,9 +1539,9 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 5,
     "virtualCounters": {
-      "steps": 23005,
+      "steps": 23329,
       "arith": 718,
-      "binary": 1497,
+      "binary": 2009,
       "memAlign": 3,
       "keccaks": 12,
       "padding": 25,
@@ -1728,9 +1730,9 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 5,
     "virtualCounters": {
-      "steps": 23005,
+      "steps": 23329,
       "arith": 718,
-      "binary": 1497,
+      "binary": 2009,
       "memAlign": 3,
       "keccaks": 12,
       "padding": 25,
@@ -1906,7 +1908,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0xc3332f2edbd7c0709f43ffefe68882867b2008c53ce6a2e3f1866bc13ffb067c",
+    "expectedNewRoot": "0x5f9deeecaebe27a3fb201ab1cad577267fa9dca39a4f61c02c7bcb7c5af6d64f",
     "expectedNewLeafs": {
       "0x0000000000000000000000000000000000000000": {
         "balance": "0",
@@ -1916,14 +1918,14 @@
         "bytecodeLength": 0
       },
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
-        "balance": "100000090743000000000",
+        "balance": "100000093543000000000",
         "nonce": "0",
         "storage": null,
         "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "bytecodeLength": 0
       },
       "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
-        "balance": "199999909257000000000",
+        "balance": "199999906457000000000",
         "nonce": "3",
         "storage": null,
         "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -1933,7 +1935,7 @@
         "balance": "0",
         "nonce": "1",
         "storage": {
-          "0x0000000000000000000000000000000000000000000000000000000000000002": "0x01"
+          "0x0000000000000000000000000000000000000000000000000000000000000002": "0x02"
         },
         "hashBytecode": "0x09d6672a3fdb1e462513b4a6d6efcd4013a17e719128eeb0f54cf84a74e890e2",
         "bytecodeLength": 961
@@ -1948,9 +1950,9 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 5,
     "virtualCounters": {
-      "steps": 49199,
+      "steps": 49595,
       "arith": 1888,
-      "binary": 3305,
+      "binary": 4841,
       "memAlign": 7,
       "keccaks": 23,
       "padding": 75,

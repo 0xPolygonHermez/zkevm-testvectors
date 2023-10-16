@@ -91,13 +91,13 @@ describe('Check roots same txs in different batches', function () {
         }
 
         // build batch
-        await batch.executeTxs();
+        const res = await batch.executeTxs();
         // consolidate state
         await zkEVMDB.consolidate(batch);
 
         // get stark input
         const starkInput = await batch.getStarkInput();
-
+        starkInput.virtualCounters = res.virtualCounters;
         rootTxSameBatch = starkInput.newStateRoot;
 
         if (update) {
@@ -170,9 +170,9 @@ describe('Check roots same txs in different batches', function () {
             batch.addRawTx(customRawTx);
 
             // build batch
-            await batch.executeTxs();
+            const res = await batch.executeTxs();
             const starkInput = await batch.getStarkInput();
-
+            starkInput.virtualCounters = res.virtualCounters;
             if (update) {
                 const pathOutput = path.join(pathInputExecutor, `txs-different-batch_${i}.json`);
                 await fs.writeFileSync(pathOutput, JSON.stringify(starkInput, null, 2));

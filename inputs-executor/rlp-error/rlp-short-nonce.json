@@ -91,5 +91,14 @@
     ]
   },
   "forkID": 5,
-  "batchHashData": "0x312ed915d289f7b4af0f411418072e750e679ff23d9957a0f067b92638fdd378"
+  "batchHashData": "0x312ed915d289f7b4af0f411418072e750e679ff23d9957a0f067b92638fdd378",
+  "virtualCounters": {
+    "steps": 8172503,
+    "arith": 200919,
+    "binary": 500000,
+    "memAlign": 200000,
+    "keccaks": 2200,
+    "padding": 140000,
+    "poseidon": 260000
+  }
 }
