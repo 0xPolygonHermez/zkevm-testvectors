@@ -12,6 +12,9 @@ let folders = [
     '../../out-of-counters/',
     '../../../tools-calldata/evm/generate-test-vectors',
     '../../../receipt-test-vectors',
+    '../../../tools-calldata/evm/generate-test-forced/gen-sources',
+    '../../../tools-calldata/evm/generate-test-forced/inputs',
+    '../../../tools-calldata/evm/generate-test-forced/sources',
 ];
 
 async function writeParams(keys, values, jsonPath) {
