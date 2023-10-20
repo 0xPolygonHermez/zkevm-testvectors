@@ -344,10 +344,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             if (txTest.type) {
                                 await updateNoExec(dir, newOutputName, 'tx.type not supported', noExecNew);
                             }
-                            if (txTest.to === '0x0000000000000000000000000000000000000002') {
-                                await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExecNew);
-                            } else if (txTest.to === '0x0000000000000000000000000000000000000003') {
-                                await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExecNew);
+                            if (txTest.to === '0x0000000000000000000000000000000000000003') {
+                                await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
                             } else if (txTest.to === '0x0000000000000000000000000000000000000009') {
                                 await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExecNew);
                             }
@@ -393,10 +391,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         if (batch.evmSteps[0] && batch.evmSteps[0].length > 0) {
                             const { updatedAccounts } = batch;
-                            if (updatedAccounts['0x0000000000000000000000000000000000000002']) {
-                                await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExecNew);
-                            } else if (updatedAccounts['0x0000000000000000000000000000000000000003']) {
-                                await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExecNew);
+                            if (updatedAccounts['0x0000000000000000000000000000000000000003']) {
+                                await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
                             } else if (updatedAccounts['0x0000000000000000000000000000000000000009']) {
                                 await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExecNew);
                             }
@@ -413,10 +409,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                 for (let i = 0; i < calls.length; i++) {
                                     const stepBefore = steps[steps.indexOf(calls[i]) - 1];
                                     const addressCall = Scalar.e(stepBefore.stack[stepBefore.stack.length - 2]);
-                                    if (addressCall === Scalar.e(2)) {
-                                        await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExecNew);
-                                    } else if (addressCall === Scalar.e(3)) {
-                                        await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExecNew);
+                                    if (addressCall === Scalar.e(3)) {
+                                        await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
                                     } else if (addressCall === Scalar.e(9)) {
                                         await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExecNew);
                                     }
