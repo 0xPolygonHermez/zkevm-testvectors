@@ -44,6 +44,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
     // let allTests;
     let allTests = true;
     let counts = {};
+    let noExecNew = [];
     counts.countTests = 0;
     counts.countErrors = 0;
     counts.countOK = 0;
@@ -128,6 +129,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             await fs.copyFileSync(paths['no-exec-template'], paths['no-exec']);
         }
 
+        const noExec = require(paths['no-exec']);
         for (let x = 0; x < files.length; x++) {
             file = files[x];
             file = file.endsWith('.json') ? file : `${file}.json`;
@@ -157,7 +159,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                     counts.countTests += 1;
                     let newOutputName;
                     let writeOutputName = dir;
-                    const noExec = require(paths['no-exec']);
                     try {
                         if (txsLength > 1) newOutputName = `${outputName.split('.json')[0]}_${y}.json`;
                         else newOutputName = outputName;
@@ -189,7 +190,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         }
 
                         if (file.includes('stEIP1559')) {
-                            await updateNoExec(dir, newOutputName, 'EIP1559 not supported', noExec);
+                            await updateNoExec(dir, newOutputName, 'EIP1559 not supported', noExecNew);
                         }
 
                         const currentTest = test[keysTests[y]];
@@ -201,7 +202,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             // if tx gas > maxInt --> ignored
                             if (Scalar.gt(Scalar.e(currentTest.blocks[0].blockHeader.gasUsed), Scalar.e('0x7FFFFFFF'))
                             || Scalar.gt(Scalar.e(currentTest.blocks[0].blockHeader.gasLimit), Scalar.e('0x7FFFFFFF'))) {
-                                await updateNoExec(dir, newOutputName, 'tx gas > max int', noExec);
+                                await updateNoExec(dir, newOutputName, 'tx gas > max int', noExecNew);
                             } else {
                                 options.newBlockGasLimit = Scalar.e(currentTest.blocks[0].blockHeader.gasLimit);
                             }
@@ -310,7 +311,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                     const { rawBytes } = currentTest.blocks[0].transactionSequence[tx];
                                     const transaction = ethers.utils.parseTransaction(rawBytes);
                                     if (transaction.type) {
-                                        await updateNoExec(dir, newOutputName, 'tx.type not supported', noExec);
+                                        await updateNoExec(dir, newOutputName, 'tx.type not supported', noExecNew);
                                     }
                                     transaction.gasPrice = transaction.gasPrice._hex;
                                     transaction.gasLimit = transaction.gasLimit._hex;
@@ -322,14 +323,14 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         for (let tx = 0; tx < txsTest.length; tx++) {
                             const txTest = txsTest[tx];
                             if (txTest.type) {
-                                await updateNoExec(dir, newOutputName, 'tx.type not supported', noExec);
+                                await updateNoExec(dir, newOutputName, 'tx.type not supported', noExecNew);
                             }
                             if (txTest.to === '0x0000000000000000000000000000000000000002') {
-                                await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExec);
+                                await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExecNew);
                             } else if (txTest.to === '0x0000000000000000000000000000000000000003') {
-                                await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
+                                await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExecNew);
                             } else if (txTest.to === '0x0000000000000000000000000000000000000009') {
-                                await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExec);
+                                await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExecNew);
                             }
 
                             if (Scalar.gt(Scalar.e(txTest.gasLimit), Scalar.e('0x7FFFFFFF'))) {
@@ -374,16 +375,16 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         if (batch.evmSteps[0] && batch.evmSteps[0].length > 0) {
                             const { updatedAccounts } = batch;
                             if (updatedAccounts['0x0000000000000000000000000000000000000002']) {
-                                await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExec);
+                                await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExecNew);
                             } else if (updatedAccounts['0x0000000000000000000000000000000000000003']) {
-                                await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
+                                await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExecNew);
                             } else if (updatedAccounts['0x0000000000000000000000000000000000000009']) {
-                                await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExec);
+                                await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExecNew);
                             }
                             const steps = batch.evmSteps[0];
                             const selfDestructs = steps.filter((step) => step.opcode.name === 'SELFDESTRUCT');
                             if (selfDestructs.length > 0) {
-                                await updateNoExec(dir, newOutputName, 'Selfdestruct', noExec);
+                                await updateNoExec(dir, newOutputName, 'Selfdestruct', noExecNew);
                             }
                             const calls = steps.filter((step) => step.opcode.name === 'CALL'
                                 || step.opcode.name === 'CALLCODE'
@@ -394,11 +395,11 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                     const stepBefore = steps[steps.indexOf(calls[i]) - 1];
                                     const addressCall = Scalar.e(stepBefore.stack[stepBefore.stack.length - 2]);
                                     if (addressCall === Scalar.e(2)) {
-                                        await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExec);
+                                        await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExecNew);
                                     } else if (addressCall === Scalar.e(3)) {
-                                        await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
+                                        await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExecNew);
                                     } else if (addressCall === Scalar.e(9)) {
-                                        await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExec);
+                                        await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExecNew);
                                     }
                                 }
                             }
@@ -489,7 +490,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             let auxDir = dir.endsWith('/') ? dir.substring(0, dir.length - 1) : dir;
                             auxDir = auxDir.split('/');
                             const nameTest = `${auxDir[auxDir.length - 1]}/${newOutputName.replace('.json', '')}`;
-                            noExec['not-supported'].push({ name: nameTest, description: 'tx gas > max int' });
+                            noExec['not-supported'].push({ name: nameTest.endsWith('.json') ? nameTest : `${nameTest}.json`, description: 'tx gas > max int' });
                             await fs.writeFileSync(paths['no-exec'], JSON.stringify(noExec, null, 2));
                             counts.countNotSupport += 1;
                             infoErrors += 'Error: not supported\n';
@@ -515,6 +516,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                 }
             }
         }
+        await updateNoExecFile(noExecNew);
         if (infoErrors !== '') {
             dir = path.join(__dirname, outputPath);
             if (!fs.existsSync(dir)) {
@@ -593,12 +595,18 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
         await fs.writeFileSync(path.join(dir, fileName), JSON.stringify(data, null, 2));
     }
 
-    async function updateNoExec(dir, newOutputName, description, noExec) {
+    async function updateNoExec(dir, newOutputName, description, noExecNew) {
         let auxDir = dir.endsWith('/') ? dir.substring(0, dir.length - 1) : dir;
         auxDir = auxDir.split('/');
         const nameTest = `${auxDir[auxDir.length - 1]}/${newOutputName.replace('.json', '')}`;
-        noExec['not-supported'].push({ name: nameTest.endsWith('.json') ? nameTest : `${nameTest}.json`, description });
-        await fs.writeFileSync(paths['no-exec'], JSON.stringify(noExec, null, 2));
+        noExecNew.push({ name: nameTest.endsWith('.json') ? nameTest : `${nameTest}.json`, description });
+        console.log({ name: nameTest.endsWith('.json') ? nameTest : `${nameTest}.json`, description });
         throw new Error('not supported');
+    }
+
+    async function updateNoExecFile(noExecNew) {
+        const newExecFile = require(paths['no-exec']);
+        newExecFile['not-supported'] = newExecFile['not-supported'].concat(noExecNew);
+        await fs.writeFileSync(paths['no-exec'], JSON.stringify(newExecFile, null, 2));
     }
 });
