@@ -25,16 +25,20 @@ echo -e "git clone time: $((clone_time - start_time))" >> times-eth.txt
 dir=./tests/BlockchainTests/GeneralStateTests
 group="GeneralStateTests"
 gen_input_time=$clone_time
+mkdir ../../inputs-executor/ethereum-tests/$group
 for entry2 in "$dir"/*
 do
     folder=$(echo $entry2 | cut -d '/' -f 5)
     echo $entry2
+    mkdir ../../inputs-executor/ethereum-tests/$group/$folder
     gen_input_time_aux=$(date +%s)
-    npx mocha --max-old-space-size=12000 ../generators/eth-gen-inputs.js --group $group --folder $folder > ../../inputs-executor/ethereum-tests/$group/$folder/all-info.txt # &
+    npx mocha --max-old-space-size=12000 ../generators/eth-gen-inputs.js --group $group --folder $folder > ../../inputs-executor/ethereum-tests/$group/$folder/all-info.txt &
     gen_input_time_aux_2=$(date +%s)
     echo -e "gen time individual: $((gen_input_time_aux_2 - gen_input_time_aux))" >> times-eth.txt
 done
- #wait
+wait
+npx --max-old-space-size=12000 mocha ../generators/eth-gen-inputs-legacy.js --folder stTransactionTest
+npx --max-old-space-size=12000 mocha ../generators/eth-gen-inputs-legacy.js --folder stMemoryTest
 gen_inputs_time=$(date +%s)
 echo -e "gen inputs time: $((gen_inputs_time - clone_time))" >> times-eth.txt
 start_time_gen_paralel=$(date +%s)

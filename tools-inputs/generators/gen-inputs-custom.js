@@ -10,13 +10,16 @@ const { BN } = require('ethereumjs-util');
 const { ethers } = require('ethers');
 const hre = require('hardhat');
 const lodash = require('lodash');
-
+const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
 const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
 const { expect } = require('chai');
 
 const { argv } = require('yargs');
 const fs = require('fs');
 const path = require('path');
+const paths = require('./paths.json');
+
+const helpers = require(paths.helpers);
 
 // example: npx mocha gen-inputs.js --vectors txs-calldata --inputs input_ --update --output
 
@@ -52,7 +55,7 @@ describe('Generate inputs executor from test-vectors', async function () {
             file = (argv.vectors) ? argv.vectors : 'txs-calldata.json';
             file = file.endsWith('.json') ? file : `${file}.json`;
             inputName = (argv.inputs) ? argv.inputs : (`${file.replace('.json', '_')}`);
-            testVectorDataPath = `./generate-test-vectors/gen-${file}`;
+            testVectorDataPath = `../tools-calldata/generate-test-vectors/gen-${file}`;
             testVectors = require(testVectorDataPath);
             inputsPath = '../../inputs-executor/calldata/';
         }
@@ -73,7 +76,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 sequencerAddress,
                 expectedNewLeafs,
                 oldAccInputHash,
-                globalExitRoot,
+                historicGERRoot,
                 timestamp,
                 chainID,
                 forkID,
@@ -113,12 +116,19 @@ describe('Generate inputs executor from test-vectors', async function () {
                 expectedOldRoot = zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot);
             }
             expect(zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
-
+            let options = {};
+            options.skipVerifyGER = true;
+            const extraData = { GERS: {} };
             const batch = await zkEVMDB.buildBatch(
                 timestamp,
                 sequencerAddress,
-                zkcommonjs.smtUtils.stringToH4(globalExitRoot),
+                zkcommonjs.smtUtils.stringToH4(historicGERRoot),
+                0,
+                Constants.DEFAULT_MAX_TX,
+                options,
+                extraData,
             );
+            helpers.addRawTxChangeL2Block(batch, extraData, extraData);
 
             // TRANSACTIONS
             for (let j = 0; j < txs.length; j++) {

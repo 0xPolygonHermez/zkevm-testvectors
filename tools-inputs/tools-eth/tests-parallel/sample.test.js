@@ -9,7 +9,6 @@ const fs = require('fs');
 const path = require('path');
 
 const { newCommitPolsArray } = require('pilcom');
-const { check } = require('yargs');
 const smMain = require('../../../../../zkevm-proverjs/src/sm/sm_main/sm_main');
 
 // let rom = require('../../../../../zkevm-rom/build/rom.json');
