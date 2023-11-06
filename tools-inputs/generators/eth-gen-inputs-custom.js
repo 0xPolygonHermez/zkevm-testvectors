@@ -594,8 +594,9 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             }
         }
         console.log(path.join(dir, fileName));
-        await fs.writeFileSync(path.join(dir, fileName), JSON.stringify(data[0].slice(0, data[0].length / 2), null, 2));
-        await fs.writeFileSync(path.join(dir, fileName.replace('.json', '-2.json')), JSON.stringify(data[0].slice(data[0].length / 2), null, 2));
+        await fs.writeFileSync(path.join(dir, fileName), JSON.stringify(data, null, 2));
+        // await fs.writeFileSync(path.join(dir, fileName), JSON.stringify(data[0].slice(0, data[0].length / 2), null, 2));
+        // await fs.writeFileSync(path.join(dir, fileName.replace('.json', '-2.json')), JSON.stringify(data[0].slice(data[0].length / 2), null, 2));
     }
 
     async function updateNoExec(dir, newOutputName, description, noExec) {
