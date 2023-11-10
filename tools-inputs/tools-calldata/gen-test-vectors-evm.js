@@ -2,6 +2,9 @@
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable global-require */
+const fs = require('fs');
+const path = require('path');
+
 const VM = require('@polygon-hermez/vm').default;
 const Common = require('@ethereumjs/common').default;
 const { Hardfork } = require('@ethereumjs/common');
@@ -12,9 +15,6 @@ const { ethers } = require('ethers');
 const hre = require('hardhat');
 
 const { argv } = require('yargs');
-const fs = require('fs');
-const path = require('path');
-
 const helpers = require('../helpers/helpers');
 
 const artifactsPath = path.join(__dirname, '../../artifacts/tools-inputs/tools-calldata/contracts');
@@ -57,15 +57,22 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                 id,
                 genesis,
                 txs,
-                defaultChainId,
+                defaultChainID, // TODO: remove after full upgrade
+                chainID,
                 expectedNewLeafs,
             } = testVectors[i];
+
+            // adapt input // TODO: remove after full upgrade
+            if (typeof chainID === 'undefined') {
+                outputTestVector.chainID = defaultChainID;
+                testVectors[i].chainID = defaultChainID;
+            }
 
             if (expectedNewLeafs) { outputTestVector.expectedNewLeafs = expectedNewLeafs; } else { outputTestVector.expectedNewLeafs = {}; }
 
             console.log(`executing test-vector id: ${id}`);
 
-            const common = Common.custom({ chainId: defaultChainId }, { hardfork: Hardfork.Berlin });
+            const common = Common.custom({ chainId: chainID }, { hardfork: Hardfork.Berlin });
             const vm = new VM({ common, allowUnlimitedContractSize: true });
 
             const auxGenesis = [];

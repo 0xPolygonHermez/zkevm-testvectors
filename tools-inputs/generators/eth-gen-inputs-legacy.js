@@ -234,8 +234,9 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         const oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
                         const { timestamp } = currentTest.blocks[0].blockHeader;
                         const sequencerAddress = currentTest.blocks[0].blockHeader.coinbase;
+                        const forcedBlockHashL1 = '0x0000000000000000000000000000000000000000000000000000000000000000';
                         const chainIdSequencer = 1000;
-                        const historicGERRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
+                        const l1InfoRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
                         const txsTest = currentTest.blocks[0].transactions;
                         const { pre } = currentTest;
 
@@ -268,18 +269,38 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             chainIdSequencer,
                             testvectorsGlobalConfig.forkID,
                         );
-                        const extraData = { GERS: {} };
+                        const extraData = { l1Info: {} };
+                        const options = {};
+                        options.skipVerifyL1InfoRoot = true;
                         const batch = await zkEVMDB.buildBatch(
                             timestamp,
                             sequencerAddress,
-                            zkcommonjs.smtUtils.stringToH4(historicGERRoot),
-                            0,
+                            zkcommonjs.smtUtils.stringToH4(l1InfoRoot),
+                            forcedBlockHashL1,
                             Constants.DEFAULT_MAX_TX,
-                            { skipVerifyGER: true },
+                            options,
                             extraData,
                         );
-                        helpers.addRawTxChangeL2Block(batch, extraData, extraData);
 
+                        // Ethereum test to add by default a changeL2Block trnsaction
+                        const txChangeL2Block = {
+                            type: 11,
+                            deltaTimestamp: timestamp,
+                            l1Info: {
+                                globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
+                                blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
+                                timestamp: '42',
+                            },
+                            indexL1InfoTree: 0,
+                        };
+
+                        const rawChangeL2BlockTx = zkcommonjs.processorUtils.serializeChangeL2Block(txChangeL2Block);
+                        // Append l1Info to l1Info object
+                        extraData.l1Info[txChangeL2Block.indexL1InfoTree] = txChangeL2Block.l1Info;
+                        const customRawTx = `0x${rawChangeL2BlockTx}`;
+                        batch.addRawTx(customRawTx);
+
+                        // Start parsing transactions ethereum test vectors
                         for (let tx = 0; tx < txsTest.length; tx++) {
                             const txTest = txsTest[tx];
                             if (Scalar.e(txTest.gasLimit) > zkcommonjs.Constants.TX_GAS_LIMIT) {
