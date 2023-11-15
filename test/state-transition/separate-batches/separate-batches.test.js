@@ -16,6 +16,7 @@ const pathInput = path.join(__dirname, './input_gen.json');
 // input executor folder
 const helpers = require('../../../tools-inputs/helpers/helpers');
 
+const testvectorsGlobalConfig = require(path.join(__dirname, '../../../tools-inputs/testvectors.config.json'));
 const pathInputExecutor = path.join(helpers.pathTestVectors, 'inputs-executor/no-data');
 describe('Check roots same txs in different batches', function () {
     let update;
@@ -58,23 +59,24 @@ describe('Check roots same txs in different batches', function () {
             null,
             null,
             generateData.chainID,
-            generateData.forkID,
+            testvectorsGlobalConfig.forkID,
         );
 
-        if (generateData.globalExitRoot) {
-            generateData.historicGERRoot = generateData.globalExitRoot;
+        if (typeof generateData.forcedBlockHashL1 === 'undefined') generateData.forcedBlockHashL1 = Constants.ZERO_BYTES32;
+        if (typeof generateData.l1InfoRoot === 'undefined') {
+            generateData.l1InfoRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
         }
 
         // start batch
-        const extraData = { GERS: {} };
+        const extraData = { l1Info: {} };
         const batch = await zkEVMDB.buildBatch(
             generateData.timestamp,
             generateData.sequencerAddr,
-            smtUtils.stringToH4(generateData.historicGERRoot),
-            0,
+            smtUtils.stringToH4(generateData.l1InfoRoot),
+            generateData.forcedBlockHashL1,
             Constants.DEFAULT_MAX_TX,
             {
-                skipVerifyGER: true,
+                skipVerifyL1InfoRoot: true,
             },
             extraData,
         );
@@ -86,9 +88,12 @@ describe('Check roots same txs in different batches', function () {
             const dataChangeL2Block = {
                 type: 11,
                 deltaTimestamp: '1000',
-                newGER: '0x3100000000000000000000000000000000000000000000000000000000000000',
-                indexHistoricalGERTree: batch.rawTxs.length + 1,
-                reason: '',
+                l1Info: {
+                    globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
+                    blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
+                    timestamp: '42',
+                },
+                indexL1InfoTree: batch.rawTxs.length + 1,
             };
 
             helpers.addRawTxChangeL2Block(batch, extraData, extraData, dataChangeL2Block);
@@ -157,7 +162,7 @@ describe('Check roots same txs in different batches', function () {
             null,
             null,
             generateData.chainID,
-            generateData.forkID,
+            testvectorsGlobalConfig.forkID,
         );
 
         // build txs
@@ -165,15 +170,15 @@ describe('Check roots same txs in different batches', function () {
 
         for (let i = 0; i < generateData.tx.length; i++) {
             // start batch
-            const extraData = { GERS: {} };
+            const extraData = { l1Info: {} };
             batch = await zkEVMDB.buildBatch(
                 generateData.timestamp,
                 generateData.sequencerAddr,
-                smtUtils.stringToH4(generateData.historicGERRoot),
-                0,
+                smtUtils.stringToH4(generateData.l1InfoRoot),
+                generateData.forcedBlockHashL1,
                 Constants.DEFAULT_MAX_TX,
                 {
-                    skipVerifyGER: true,
+                    skipVerifyL1InfoRoot: true,
                 },
                 extraData,
             );
@@ -201,7 +206,7 @@ describe('Check roots same txs in different batches', function () {
             // build batch
             await batch.executeTxs();
             const starkInput = await batch.getStarkInput();
-            starkInput.GERS = extraData.GERS;
+            starkInput.l1Info = extraData.l1Info;
             // console.log(starkInput);
 
             if (update) {

@@ -1,20 +1,23 @@
 {
   "oldStateRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
-  "newStateRoot": "0xb260803fdf5df147adfbd9b0525421c5e18b40150528d6078972b30f75dfd9bc",
+  "newStateRoot": "0xc8a7439e5c32d4c408c78a2a02b868ccce7f1a883f2ab24ebd00f04382e8a606",
   "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "newAccInputHash": "0xf7386dd83325a1ed14349c81492b8693f41f1909f564ffe4e3b5c5e25ad9b96a",
+  "newAccInputHash": "0xf36ff81e6c65b0846980eb9e4820516704bfae955b039c2b454035d6234f44b5",
   "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "oldNumBatch": 0,
   "newNumBatch": 1,
   "chainID": 1000,
-  "forkID": 6,
-  "isForced": 0,
-  "batchL2Data": "0x0b00000000000003e800000001",
-  "historicGERRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+  "forkID": 7,
+  "forcedBlockHashL1": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "batchL2Data": "0x0b73e6af6f00000000",
+  "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
   "timestampLimit": "1944498031",
   "sequencerAddr": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-  "batchHashData": "0xbe4037ebd37757cb1a416d92e1dd74f2eeb8691749e4024b07ae5ebede4703d0",
+  "batchHashData": "0x15d0b7957c3fbb6dd8bfa003861ada0a7aabb72442ee19da342e1de1a61c1394",
   "contractsBytecode": {},
+  "l1InfoTree": {
+    "skipVerifyL1InfoRoot": true
+  },
   "db": {
     "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d": [
       "0000000000000000",
@@ -93,7 +96,11 @@
       "0000000000000000"
     ]
   },
-  "GERS": {
-    "1": "0x3100000000000000000000000000000000000000000000000000000000000000"
+  "l1Info": {
+    "0": {
+      "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+      "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
+      "timestamp": "42"
+    }
   }
 }

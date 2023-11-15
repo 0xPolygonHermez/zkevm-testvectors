@@ -2,9 +2,6 @@
   {
     "id": 0,
     "description": "Txs to call all functions of OpInvalid contract (test)",
-    "arity": 4,
-    "chainIdSequencer": 1001,
-    "defaultChainId": 1000,
     "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
     "genesis": {
@@ -32,19 +29,26 @@
     "expectedOldRoot": "0x798b8dc04ba84f58383d998fd821757d3ab30261afc0106dc1ec76801b3aae9b",
     "txs": [
       {
+        "type": 11,
+        "deltaTimestamp": 1944498031,
+        "l1Info": {
+          "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
+          "timestamp": "42"
+        },
+        "indexL1InfoTree": 0
+      },
+      {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-        "to": "contract",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
         "nonce": "0",
         "value": "0",
-        "contractName": "OpCallRevert",
-        "function": "callRevertRevert",
-        "params": [],
+        "data": "0xe830d345",
         "gasLimit": 100000,
         "gasPrice": "1000000000",
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x168642bf8e3d4b0abd3b53e7f284b205278b2d3e87b83805d9c9b30fde719fee",
+    "expectedNewRoot": "0x036e05396bdd92bb5f95356ecf70681ce0796942fdae92cdf4a63fd8d388cb61",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000043815000000000",
@@ -72,29 +76,26 @@
         "nonce": "0",
         "storage": {
           "0x0000000000000000000000000000000000000000000000000000000000000000": "0x01",
-          "0x0000000000000000000000000000000000000000000000000000000000000002": "0x03e8",
+          "0x0000000000000000000000000000000000000000000000000000000000000002": "0x73e6af6f",
           "0xa6eef7e35abe7026729641147f7915573c7e97b47efa546f5f6e3230263bcb49": "0x798b8dc04ba84f58383d998fd821757d3ab30261afc0106dc1ec76801b3aae9b",
-          "0x0000000000000000000000000000000000000000000000000000000000000003": "0xb9a56da1cf1b16649c4a16237021f76345ad78275673555aecb4815057b6bb4e"
+          "0x0000000000000000000000000000000000000000000000000000000000000003": "0xdb69049ff63d4e6aeda7ccad04ab66483283b7fbb14a3b3df39c44e461dd7e53"
         },
         "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "bytecodeLength": 0
       }
     },
-    "timestamp": 1944498031,
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "batchHashData": "0x4a975997b2b14d000d9292798b2d622404edab03cc8aabc55e9d6d3a8a38066e",
-    "batchL2Data": "0x0b00000000000003e800000001ea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084e830d3458203e8808072369d1d58003a20290582f9c50462d27b917f06c421819850a58623e9986c602e563e001cf495b4ce1872088e9db6c6f3244dd1fa34dcce8aaeee2d0c369bc21cff",
-    "historicGERRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "batchHashData": "0xe3e2d49538214386bf9b310002fe6330eb822872c1996693a7b8440bfb2f9b05",
+    "batchL2Data": "0x0b73e6af6f00000000ea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084e830d3458203e8808072369d1d58003a20290582f9c50462d27b917f06c421819850a58623e9986c602e563e001cf495b4ce1872088e9db6c6f3244dd1fa34dcce8aaeee2d0c369bc21cff",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "forkID": 6
+    "forkID": 6,
+    "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "timestampLimit": "1944498031"
   },
   {
     "id": 1,
     "description": "Txs to call all functions of OpInvalid contract (test)",
-    "arity": 4,
-    "chainIdSequencer": 1001,
-    "defaultChainId": 1000,
     "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
     "genesis": {
@@ -122,19 +123,26 @@
     "expectedOldRoot": "0x798b8dc04ba84f58383d998fd821757d3ab30261afc0106dc1ec76801b3aae9b",
     "txs": [
       {
+        "type": 11,
+        "deltaTimestamp": 1944498031,
+        "l1Info": {
+          "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
+          "timestamp": "42"
+        },
+        "indexL1InfoTree": 0
+      },
+      {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
-        "to": "contract",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
         "nonce": "0",
         "value": "0",
-        "contractName": "OpCallRevert",
-        "function": "callRevert",
-        "params": [],
+        "data": "0xed329299",
         "gasLimit": 100000,
         "gasPrice": "1000000000",
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0xbb1c4f58dd174dc3403bd7275dca94b628c53e93b24342489d9bd656a92a7b6f",
+    "expectedNewRoot": "0x3e11c14e90e092482f9b65a74b57dd1f3589a50ca6d7bb173e989d88746d4cd7",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000043907000000000",
@@ -162,21 +170,21 @@
         "nonce": "0",
         "storage": {
           "0x0000000000000000000000000000000000000000000000000000000000000000": "0x01",
-          "0x0000000000000000000000000000000000000000000000000000000000000002": "0x03e8",
+          "0x0000000000000000000000000000000000000000000000000000000000000002": "0x73e6af6f",
           "0xa6eef7e35abe7026729641147f7915573c7e97b47efa546f5f6e3230263bcb49": "0x798b8dc04ba84f58383d998fd821757d3ab30261afc0106dc1ec76801b3aae9b",
-          "0x0000000000000000000000000000000000000000000000000000000000000003": "0xbd0e5cb61810917c79a370083b1fb22db4b15780d12e25f68c79138099fffd68"
+          "0x0000000000000000000000000000000000000000000000000000000000000003": "0x51b6f43748c139e065b0e4322083bb2038fc2889a72760d31a7084fff970cff0"
         },
         "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "bytecodeLength": 0
       }
     },
-    "timestamp": 1944498031,
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "batchHashData": "0x8d088f3adae89a0c60796e6fe5886fe48be9835f374ce77b54bc02c1ba4b031f",
-    "batchL2Data": "0x0b00000000000003e800000001ea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084ed3292998203e88080c40eaaaad74840950f349ade241198d7cd37cf3f181202e46b099279a9326da260883f19d812c9750d2e1e08f0715c36db460507c6f71c16a423a8b7c20933bd1cff",
-    "historicGERRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "batchHashData": "0xffb1ae5f9064a0e10c6032a08324fdd7149d5e689c368546dbdcaf4ab96ef307",
+    "batchL2Data": "0x0b73e6af6f00000000ea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084ed3292998203e88080c40eaaaad74840950f349ade241198d7cd37cf3f181202e46b099279a9326da260883f19d812c9750d2e1e08f0715c36db460507c6f71c16a423a8b7c20933bd1cff",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "forkID": 6
+    "forkID": 6,
+    "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "timestampLimit": "1944498031"
   }
 ]

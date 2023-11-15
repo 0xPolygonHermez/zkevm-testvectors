@@ -3,7 +3,7 @@
 const { Transaction } = require('@ethereumjs/tx');
 const { Address } = require('ethereumjs-util');
 const { Scalar } = require('ffjavascript');
-const { utils } = require('@0xpolygonhermez/zkevm-commonjs');
+const { processorUtils } = require('@0xpolygonhermez/zkevm-commonjs');
 const { defaultAbiCoder } = require('@ethersproject/abi');
 const path = require('path');
 
@@ -75,31 +75,20 @@ function addRawTxChangeL2Block(batch, output, extraData, tx = undefined) {
         dataChangeL2Block = {
             type: 11,
             deltaTimestamp: '1000',
-            newGER: '0x3100000000000000000000000000000000000000000000000000000000000000',
-            indexHistoricalGERTree: 1,
-            reason: '',
+            l1Info: {
+                globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
+                blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
+                timestamp: '42',
+            },
+            indexL1InfoTree: 1,
         };
     }
-    let data = Scalar.e(0);
-
-    let offsetBits = 0;
-
-    data = Scalar.add(data, Scalar.shl(dataChangeL2Block.indexHistoricalGERTree, offsetBits));
-    offsetBits += 32;
-
-    // Append newGER to GERS object
-    output.GERS[dataChangeL2Block.indexHistoricalGERTree] = dataChangeL2Block.newGER;
-    extraData.GERS[dataChangeL2Block.indexHistoricalGERTree] = dataChangeL2Block.newGER;
-
-    data = Scalar.add(data, Scalar.shl(dataChangeL2Block.deltaTimestamp, offsetBits));
-    offsetBits += 64;
-
-    data = Scalar.add(data, Scalar.shl(dataChangeL2Block.type, offsetBits));
-    offsetBits += 8;
-
-    const customRawTx = utils.valueToHexStr(data).padStart(offsetBits / 4, '0');
-    batch.addRawTx(`0x${customRawTx}`);
-    return customRawTx;
+    const rawChangeL2BlockTx = processorUtils.serializeChangeL2Block(dataChangeL2Block);
+    // Append l1Info to l1Info object
+    extraData.l1Info[dataChangeL2Block.indexL1InfoTree] = dataChangeL2Block.l1Info;
+    const customRawChangeL2Tx = `0x${rawChangeL2BlockTx}`;
+    batch.addRawTx(customRawChangeL2Tx);
+    return customRawChangeL2Tx;
 }
 
 module.exports = {
