@@ -18,7 +18,7 @@ const { Transaction } = require('@ethereumjs/tx');
 const { argv } = require('yargs');
 const fs = require('fs');
 const path = require('path');
-const helpers = require('../../helpers/helpers');
+const helpers = require('../helpers/helpers');
 
 const testvectorsGlobalConfig = require(path.join(__dirname, '../../../testvectors.config.json'));
 
