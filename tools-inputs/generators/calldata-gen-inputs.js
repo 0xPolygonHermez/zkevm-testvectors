@@ -79,7 +79,6 @@ describe('Generate inputs executor from test-vectors', async function () {
                 sequencerAddress,
                 expectedNewLeafs,
                 oldAccInputHash,
-                globalExitRoot,
                 l1InfoRoot,
                 timestamp,
                 timestampLimit,
@@ -154,13 +153,13 @@ describe('Generate inputs executor from test-vectors', async function () {
                     type: 11,
                     deltaTimestamp: timestampLimit,
                     l1Info: {
-                        globalExitRoot,
+                        globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
                         blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
                         timestamp: '42',
                     },
                     indexL1InfoTree: 0,
                 };
-
+                internalTestVectors[i].txs.unshift(txChangeL2Block);
                 txs.unshift(txChangeL2Block);
             }
 
@@ -335,6 +334,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 testVectors[i].oldAccInputHash = oldAccInputHash;
                 testVectors[i].txs = txs;
                 testVectors[i].expectedNewLeafs = expectedNewLeafs;
+                testVectors[i].forkID = testvectorsGlobalConfig.forkID;
                 internalTestVectors[i].batchL2Data = batch.getBatchL2Data();
                 internalTestVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
                 internalTestVectors[i].expectedOldRoot = expectedOldRoot;
@@ -347,8 +347,8 @@ describe('Generate inputs executor from test-vectors', async function () {
                 internalTestVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
                 internalTestVectors[i].chainID = chainID;
                 internalTestVectors[i].oldAccInputHash = oldAccInputHash;
-                internalTestVectors[i].txs = txs;
                 internalTestVectors[i].expectedNewLeafs = expectedNewLeafs;
+                internalTestVectors[i].forkID = testvectorsGlobalConfig.forkID;
 
                 // delete old unused values
                 delete testVectors[i].globalExitRoot;

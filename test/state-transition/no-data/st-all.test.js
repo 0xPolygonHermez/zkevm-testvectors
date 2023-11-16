@@ -298,6 +298,7 @@ describe('Run state-transition tests', function () {
                     testVectors[j].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                     testVectors[j].newLocalExitRoot = circuitInput.newLocalExitRoot;
                     testVectors[j].oldAccInputHash = oldAccInputHash;
+                    testVectors[j].forkID = testvectorsGlobalConfig.forkID;
 
                     // delete old unused values
                     delete testVectors[j].globalExitRoot;

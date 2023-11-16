@@ -24,7 +24,7 @@ const lodash = require('lodash');
 const hre = require('hardhat');
 
 const {
-    MemDB, ZkEVMDB, getPoseidon, processorUtils, smtUtils, Constants, stateUtils, l1InfoTreeUtils,
+    MemDB, ZkEVMDB, getPoseidon, processorUtils, smtUtils, Constants, stateUtils,
 } = require('@0xpolygonhermez/zkevm-commonjs');
 const helpers = require('../../../tools-inputs/helpers/helpers');
 
@@ -501,10 +501,12 @@ describe('Header timestamp', function () {
                 updateTestVectors[0].batches[k].batchHashData = circuitInput.batchHashData;
                 updateTestVectors[0].batches[k].inputHash = circuitInput.inputHash;
                 updateTestVectors[0].batches[k].newLocalExitRoot = circuitInput.newLocalExitRoot;
+                updateTestVectors[0].forkID = testvectorsGlobalConfig.forkID;
                 genInput.batches[k].batchL2Data = batch.getBatchL2Data();
                 genInput.batches[k].batchHashData = circuitInput.batchHashData;
                 genInput.batches[k].inputHash = circuitInput.inputHash;
                 genInput.batches[k].newLocalExitRoot = circuitInput.newLocalExitRoot;
+                genInput.forkID = testvectorsGlobalConfig.forkID;
                 console.log('WRITE: ', pathGenInput);
                 await fs.writeFileSync(pathGenInput, JSON.stringify([genInput], null, 2));
                 // Save outuput in file
