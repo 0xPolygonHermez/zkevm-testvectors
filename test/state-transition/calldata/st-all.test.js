@@ -19,7 +19,6 @@ const { Transaction } = require('@ethereumjs/tx');
 const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
 const fs = require('fs');
 const path = require('path');
-const { Scalar } = require('ffjavascript');
 const helpers = require('../../../tools-inputs/helpers/helpers');
 const testvectorsGlobalConfig = require('../../../tools-inputs/testvectors.config.json');
 // load list test-vectors
