@@ -20,7 +20,7 @@ const fs = require('fs');
 const path = require('path');
 const helpers = require('../helpers/helpers');
 
-const testvectorsGlobalConfig = require(path.join(__dirname, '../../../testvectors.config.json'));
+const testvectorsGlobalConfig = require(path.join(__dirname, '../testvectors.config.json'));
 
 // example: npx mocha gen-inputs.js --test xxxx --folder xxxx --ignore
 describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', async function () {
@@ -36,7 +36,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
     let evmDebug;
     let info = '';
     let infoErrors = '';
-    let basePath = '../../../tools/ethereum-tests/tests/';
+    let basePath = '../tools-eth/tests/';
     let tests30M = [];
     let dir30M;
     // let allTests;
@@ -95,7 +95,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             const { timestamp } = currentTest.blocks[0].blockHeader;
             const sequencerAddress = currentTest.blocks[0].blockHeader.coinbase;
             const chainIdSequencer = 1001;
-            const globalExitRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
+            const forcedBlockHashL1 = zkcommonjs.Constants.ZERO_BYTES32;
+            const l1InfoRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
             const txsTest = currentTest.blocks[0].transactions;
             const { pre } = currentTest;
 
@@ -128,13 +129,19 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                 chainIdSequencer,
                 testvectorsGlobalConfig.forkID,
             );
-            let options = {};
+
+            // start batch
+            const extraData = { l1Info: {} };
             const batch = await zkEVMDB.buildBatch(
                 timestamp,
                 sequencerAddress,
-                zkcommonjs.smtUtils.stringToH4(globalExitRoot),
-                undefined,
-                options,
+                zkcommonjs.smtUtils.stringToH4(l1InfoRoot),
+                forcedBlockHashL1,
+                zkcommonjs.Constants.DEFAULT_MAX_TX,
+                {
+                    skipVerifyL1InfoRoot: true,
+                },
+                extraData,
             );
 
             for (let tx = 0; tx < txsTest.length; tx++) {

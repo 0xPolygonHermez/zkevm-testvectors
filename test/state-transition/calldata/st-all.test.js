@@ -21,7 +21,7 @@ const fs = require('fs');
 const path = require('path');
 const { Scalar } = require('ffjavascript');
 const helpers = require('../../../tools-inputs/helpers/helpers');
-
+const testvectorsGlobalConfig = require('../../../tools-inputs/testvectors.config.json');
 // load list test-vectors
 
 const folderStateTransition = path.join(__dirname, '../../../tools-inputs/data/calldata');
@@ -53,15 +53,25 @@ describe('Run state-transition tests: calldata', async function () {
                     sequencerAddress,
                     expectedNewLeafs,
                     oldAccInputHash,
-                    globalExitRoot,
-                    historicGERRoot,
+                    l1InfoRoot,
                     timestamp,
+                    timestampLimit,
                     chainID,
-                    forkID,
-                    isForced,
+                    forcedBlockHashL1,
                 } = testVectors[i];
-                if (typeof isForced === 'undefined') isForced = 0;
+
+                // Adapts input
+                if (typeof forcedBlockHashL1 === 'undefined') forcedBlockHashL1 = Constants.ZERO_BYTES32;
                 if (!chainID) chainID = 1000;
+                if (typeof oldAccInputHash === 'undefined') {
+                    oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
+                }
+                if (typeof timestampLimit === 'undefined') {
+                    timestampLimit = timestamp;
+                }
+                if (typeof l1InfoRoot === 'undefined') {
+                    l1InfoRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
+                }
 
                 // init SMT Db
                 const db = new zkcommonjs.MemDB(F);
@@ -74,23 +84,20 @@ describe('Run state-transition tests: calldata', async function () {
                     null,
                     null,
                     chainID,
-                    forkID,
+                    testvectorsGlobalConfig.forkID,
                 );
 
                 expect(zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
 
-                if (globalExitRoot) {
-                    historicGERRoot = globalExitRoot;
-                }
-                const extraData = { GERS: {} };
+                const extraData = { l1Info: {} };
                 const batch = await zkEVMDB.buildBatch(
-                    timestamp,
+                    timestampLimit,
                     sequencerAddress,
-                    zkcommonjs.smtUtils.stringToH4(historicGERRoot),
-                    isForced,
+                    zkcommonjs.smtUtils.stringToH4(l1InfoRoot),
+                    forcedBlockHashL1,
                     Constants.DEFAULT_MAX_TX,
                     {
-                        skipVerifyGER: true,
+                        skipVerifyL1InfoRoot: true,
                     },
                     extraData,
                 );
@@ -99,31 +106,34 @@ describe('Run state-transition tests: calldata', async function () {
                 const txsList = [];
                 let commonCustom = Common.custom({ chainId: chainID }, { hardfork: Hardfork.Berlin });
 
+                // If first tx is not TX_CHANGE_L2_BLOCK, add one by default
+                if (txs[0].type !== Constants.TX_CHANGE_L2_BLOCK) {
+                    const txChangeL2Block = {
+                        type: 11,
+                        deltaTimestamp: timestampLimit,
+                        l1Info: {
+                            globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
+                            blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
+                            timestamp: '42',
+                        },
+                        indexL1InfoTree: 0,
+                    };
+                    txs.unshift(txChangeL2Block);
+                }
+
                 for (let j = 0; j < txs.length; j++) {
                     let isLegacy = false;
                     const currentTx = txs[j];
                     // Check for TX_CHANGE_L2_BLOCK
                     if (currentTx.type === Constants.TX_CHANGE_L2_BLOCK) {
-                        let data = Scalar.e(0);
+                        const rawChangeL2BlockTx = zkcommonjs.processorUtils.serializeChangeL2Block(currentTx);
 
-                        let offsetBits = 0;
+                        // Append l1Info to l1Info object
+                        extraData.l1Info[currentTx.indexL1InfoTree] = currentTx.l1Info;
 
-                        data = Scalar.add(data, Scalar.shl(currentTx.indexHistoricalGERTree, offsetBits));
-                        offsetBits += 32;
+                        const customRawTx = `0x${rawChangeL2BlockTx}`;
 
-                        // Append newGER to GERS object
-                        extraData.GERS[j + 1] = currentTx.newGER;
-
-                        data = Scalar.add(data, Scalar.shl(currentTx.deltaTimestamp, offsetBits));
-                        offsetBits += 64;
-
-                        data = Scalar.add(data, Scalar.shl(currentTx.type, offsetBits));
-                        offsetBits += 8;
-
-                        const customRawTx = zkcommonjs.utils.valueToHexStr(data).padStart(offsetBits / 4, '0');
-                        txsList.push(customRawTx);
-                        batch.addRawTx(`0x${customRawTx}`);
-                        // smtProofsObject[txData.indexHistoricalGERTree] = txData.smtProofs;
+                        batch.addRawTx(customRawTx);
                         continue;
                     } else if (j === 0 && !testName.includes('change-l2-block')) {
                     // If first tx is not TX_CHANGE_L2_BLOCK, add one

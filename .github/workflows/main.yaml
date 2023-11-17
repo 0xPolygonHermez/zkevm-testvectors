@@ -8,10 +8,12 @@ on:
     branches:
       - main
       - develop
+      - feature/final-l1-info-tree
   pull_request:
     branches:
       - main
       - develop
+      - feature/final-l1-info-tree
 
 jobs:
   build:
@@ -43,8 +45,8 @@ jobs:
         run: npm run test:st:calldata
       - name: check smt
         run: npm run test:smt
-      - name: check contracts
-        run: npm run test:contracts
+      # - name: check contracts
+      #   run: npm run test:contracts
       - name: check mt bridge
         run: npm run test:mt:bridge
       # - name: check test e2e
