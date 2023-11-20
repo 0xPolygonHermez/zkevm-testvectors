@@ -349,7 +349,7 @@ describe('Proof of efficiency test vectors', function () {
         }
 
         // execute the transactions added to the batch
-        await batch.executeTxs();
+        const res = await batch.executeTxs();
         // consolidate state
         await zkEVMDB.consolidate(batch);
 
@@ -469,7 +469,7 @@ describe('Proof of efficiency test vectors', function () {
 
         // Check the circuit input
         const circuitInput = await batch.getStarkInput();
-
+        circuitInput.virtualCounters = res.virtualCounters;
         // Check the encode transaction match with the vector test
         if (!update) {
             expect(batchL2Data).to.be.equal(batch.getBatchL2Data());
@@ -484,6 +484,7 @@ describe('Proof of efficiency test vectors', function () {
             testE2E.newAccInputHash = circuitInput.newAccInputHash;
             testE2E.oldAccInputHash = circuitInput.oldAccInputHash;
             testE2E.newLocalExitRoot = circuitInput.newLocalExitRoot;
+            testE2E.virtualCounters = res.virtualCounters;
             // Write executor input
             const folderInputsExecutor = path.join(pathTestVectors, './inputs-executor/e2e');
             const fileName = path.join(folderInputsExecutor, 'e2e_0.json');

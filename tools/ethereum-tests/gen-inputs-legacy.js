@@ -19,6 +19,7 @@ const { argv } = require('yargs');
 const fs = require('fs');
 const path = require('path');
 const helpers = require('../../tools-calldata/helpers/helpers');
+
 const testvectorsGlobalConfig = require(path.join(__dirname, '../../testvectors.config.json'));
 
 // example: npx mocha gen-inputs.js --test xxxx --folder xxxx --ignore
@@ -165,8 +166,16 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             // eslint-disable-next-line import/no-dynamic-require
             test = require(file);
 
-            const keysTests = Object.keys(test).filter((op) => op.includes('_Berlin') === true);
-            const txsLength = keysTests.length;
+            let keysTests = Object.keys(test).filter((op) => op.includes('_Berlin') === true);
+            let txsLength = keysTests.length;
+            if (file.includes('push0')) {
+                keysTests = Object.keys(test).filter((op) => op.includes('_Berlin+3855') === true);
+                txsLength = keysTests.length;
+            }
+            if (txsLength === 0) {
+                keysTests = Object.keys(test).filter((op) => op.includes('_Shanghai') === true);
+                txsLength = keysTests.length;
+            }
             if (txsLength === 0) {
                 infoErrors += 'no Berlin keys\n';
                 infoErrors += `${outputName}\n`;
@@ -264,10 +273,12 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             chainIdSequencer,
                             testvectorsGlobalConfig.forkID,
                         );
+                        const options = { vcmConfig: { skipCounters: true } };
                         const batch = await zkEVMDB.buildBatch(
                             timestamp,
                             sequencerAddress,
                             zkcommonjs.smtUtils.stringToH4(globalExitRoot),
+                            options,
                         );
 
                         for (let tx = 0; tx < txsTest.length; tx++) {
@@ -301,7 +312,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             batch.addRawTx(calldata);
                         }
 
-                        await batch.executeTxs();
+                        const res = await batch.executeTxs();
 
                         await zkEVMDB.consolidate(batch);
 
@@ -343,6 +354,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         }
 
                         const circuitInput = await batch.getStarkInput();
+                        circuitInput.virtualCounters = res.virtualCounters;
                         Object.keys(circuitInput.contractsBytecode).forEach((key) => {
                             if (!circuitInput.contractsBytecode[key].startsWith('0x')) {
                                 circuitInput.contractsBytecode[key] = `0x${circuitInput.contractsBytecode[key]}`;

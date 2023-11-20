@@ -49,6 +49,15 @@ async function main() {
             inputRLP.timestamp,
             inputRLP.sequencerAddr,
         );
+        inputRLP.virtualCounters = {
+            steps: 8172503,
+            arith: 200919,
+            binary: 500000,
+            memAlign: 200000,
+            keccaks: 2200,
+            padding: 140000,
+            poseidon: 260000,
+        };
 
         inputRLP.db = generalInput.db;
 
