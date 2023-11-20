@@ -625,5 +625,14 @@
       "0000000000000000"
     ]
   },
+  "virtualCounters": {
+    "steps": 56410,
+    "arith": 1188,
+    "binary": 4335,
+    "memAlign": 98,
+    "keccaks": 12,
+    "padding": 26,
+    "poseidon": 1448
+  },
   "gasLimit": "2147483647"
 }

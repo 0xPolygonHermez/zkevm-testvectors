@@ -351,7 +351,16 @@
     "batchL2Data": "0xf84d80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9883087a23a48eda2bf800000000000000000000000085e844b762a271022b692cf99ce5c59ba0650ac88203e880801fe542bcf3a03c6bf75a2663838ad54939e5a6ca47f30d932f5ffa09669eec013d028e65b0980bc3f17cfc785fa643363a6315d5de579963c1977efe54c4e42e1bff",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "forkID": 6
+    "forkID": 6,
+    "virtualCounters": {
+      "steps": 149603,
+      "arith": 909,
+      "binary": 10066,
+      "memAlign": 1975,
+      "keccaks": 11,
+      "padding": 125,
+      "poseidon": 1617
+    }
   },
   {
     "id": 1,
@@ -532,7 +541,16 @@
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084ed1cf0e28203e880807bb23bf0aa42771de2b7cba484b5aade57ec948da471e1925d48d9adb4676c010728b37fe3e72d134e53713407d3a4eb2c382a0d96a77144cb49ba28102ab3221cff",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "forkID": 6
+    "forkID": 6,
+    "virtualCounters": {
+      "steps": 43725,
+      "arith": 756,
+      "binary": 2986,
+      "memAlign": 35,
+      "keccaks": 9,
+      "padding": 97,
+      "poseidon": 1219
+    }
   },
   {
     "id": 2,
@@ -713,7 +731,16 @@
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084f52ab5be8203e88080a06cb165f1a8a65264d12770318ad3d92a5d435505ccd4710355c84f48279cf15b795528aaff4c10d9d25ee86f876d6d3fe20f73f60455fd225976ea4d87c0671cff",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "forkID": 6
+    "forkID": 6,
+    "virtualCounters": {
+      "steps": 20826,
+      "arith": 602,
+      "binary": 1757,
+      "memAlign": 5,
+      "keccaks": 9,
+      "padding": 51,
+      "poseidon": 675
+    }
   },
   {
     "id": 3,
@@ -894,6 +921,15 @@
     "batchL2Data": "0xea80843b9aca00830f4240941275fbb540c8efc58b812ba83b0d0b8b9917ae9880840cbcf3cc8203e88080af6e54b41c09d8e1a656c22c7501996c12f88b1935d7d6e202a1a764c9468d711d0909c68b97bc74c45c60e4d8e57a9648647ffe9f40f79bd66a08c91e28c67b1bff",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "forkID": 6
+    "forkID": 6,
+    "virtualCounters": {
+      "steps": 61707,
+      "arith": 833,
+      "binary": 3903,
+      "memAlign": 51,
+      "keccaks": 11,
+      "padding": 143,
+      "poseidon": 1863
+    }
   }
 ]

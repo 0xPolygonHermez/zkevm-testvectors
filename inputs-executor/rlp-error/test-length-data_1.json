@@ -92,5 +92,14 @@
   "newAccInputHash": "0xc5a632905ca611f07132d708b84f7c362e072e6d80dcf66b390f6063f2ba2a3f",
   "oldNumBatch": 0,
   "newNumBatch": 1,
-  "forkID": 6
+  "forkID": 6,
+  "virtualCounters": {
+    "steps": 8172503,
+    "arith": 200919,
+    "binary": 500000,
+    "memAlign": 200000,
+    "keccaks": 2200,
+    "padding": 140000,
+    "poseidon": 260000
+  }
 }

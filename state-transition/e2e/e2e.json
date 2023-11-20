@@ -318,5 +318,14 @@
   "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "timestamp": 1944498031,
   "expectedNewAccInputHash": "0xb0f3fcee945f06982ec3180aa322c3e3bf9cde363a5db0d28ab85f5e43ea1442",
-  "newAccInputHash": "0xf02595fcd64dbb13d3c7639fae173ddde670fa2139c305c00aa0c59ded0fa211"
+  "newAccInputHash": "0xf02595fcd64dbb13d3c7639fae173ddde670fa2139c305c00aa0c59ded0fa211",
+  "virtualCounters": {
+    "steps": 1059824,
+    "arith": 13053,
+    "binary": 63890,
+    "memAlign": 1269,
+    "keccaks": 348,
+    "padding": 1077,
+    "poseidon": 8791
+  }
 }

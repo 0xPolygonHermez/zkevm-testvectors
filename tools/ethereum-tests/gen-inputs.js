@@ -132,10 +132,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
             let keysTests = Object.keys(test).filter((op) => op.includes('_Berlin') === true);
             let txsLength = keysTests.length;
-            if (file.includes('push0')) {
-                keysTests = Object.keys(test).filter((op) => op.includes('_Berlin+3855') === true);
-                txsLength = keysTests.length;
-            }
             if (txsLength === 0) {
                 keysTests = Object.keys(test).filter((op) => op.includes('_Shanghai') === true);
                 txsLength = keysTests.length;
@@ -145,7 +141,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                 infoErrors += `${outputName}\n`;
                 infoErrors += '--------------------------------------------------\n';
             } else {
-                for (let y = 1; y < 2; y++) {
+                for (let y = 0; y < txsLength; y++) {
                     let options = { vcmConfig: { skipCounters: true } };
                     let flag30M = false;
                     counts.countTests += 1;

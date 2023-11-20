@@ -85,6 +85,15 @@
     "batchL2Data": "0xea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084ebbaae468203e88080897cfedbeff5802af1a58ce602a94f96edc8fa1208ffcf7e85d5714192ab83f1695d63d1b67f0bbb6101614a763a77861bbc9d714859f964323a7e428b64560c1bff",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "forkID": 6
+    "forkID": 6,
+    "virtualCounters": {
+      "steps": 11964,
+      "arith": 586,
+      "binary": 1336,
+      "memAlign": 2,
+      "keccaks": 9,
+      "padding": 10,
+      "poseidon": 634
+    }
   }
 ]
