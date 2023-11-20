@@ -359,7 +359,7 @@ describe('Header timestamp', function () {
                 },
                 indexL1InfoTree: 1,
             };
-
+            console.log(tx);
             helpers.addRawTxChangeL2Block(batch, extraData, extraData, tx);
 
             for (let j = 0; j < rawTxs.length; j++) {
@@ -488,7 +488,7 @@ describe('Header timestamp', function () {
 
             // Check the circuit input
             const circuitInput = await batch.getStarkInput();
-            circuitInput.GERS = extraData.GERS;
+            circuitInput.l1Info = extraData.l1Info;
             // Check the encode transaction match with the vector test
             if (!update) {
                 expect(batchL2Data).to.be.equal(batch.getBatchL2Data());
