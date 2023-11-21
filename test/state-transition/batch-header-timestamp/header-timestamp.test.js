@@ -255,9 +255,17 @@ describe('Header timestamp', function () {
         const txProcessed = [];
         for (let k = 0; k < batches.length; k++) {
             const {
-                txs, expectedNewRoot, expectedNewLeafs, batchL2Data, historicGERRoot,
+                txs, expectedNewRoot, expectedNewLeafs, batchL2Data,
                 inputHash, timestamp, batchHashData, newLocalExitRoot,
             } = batches[k];
+
+            let l1InfoRoot;
+            let forcedBlockHashL1;
+
+            if (typeof forcedBlockHashL1 === 'undefined') forcedBlockHashL1 = Constants.ZERO_BYTES32;
+            if (typeof l1InfoRoot === 'undefined') {
+                l1InfoRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
+            }
 
             const rawTxs = [];
             for (let j = 0; j < txs.length; j++) {
@@ -328,27 +336,30 @@ describe('Header timestamp', function () {
                 rawTxs.push(customRawTx);
                 txProcessed.push(txData);
             }
-            const extraData = { GERS: {} };
+            const extraData = { l1Info: {} };
             const batch = await zkEVMDB.buildBatch(
                 timestamp,
                 sequencerAddress,
-                smtUtils.stringToH4(historicGERRoot),
-                0,
+                smtUtils.stringToH4(l1InfoRoot),
+                forcedBlockHashL1,
                 Constants.DEFAULT_MAX_TX,
                 {
-                    skipVerifyGER: true,
+                    skipVerifyL1InfoRoot: true,
                 },
                 extraData,
             );
 
             const tx = {
                 type: 11,
-                deltaTimestamp: 1,
-                newGER: '0x3100000000000000000000000000000000000000000000000000000000000000',
-                indexHistoricalGERTree: 1,
-                reason: '',
+                deltaTimestamp: '1000',
+                l1Info: {
+                    globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
+                    blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
+                    timestamp: '42',
+                },
+                indexL1InfoTree: 1,
             };
-
+            console.log(tx);
             helpers.addRawTxChangeL2Block(batch, extraData, extraData, tx);
 
             for (let j = 0; j < rawTxs.length; j++) {
@@ -439,7 +450,7 @@ describe('Header timestamp', function () {
             // Check global and local exit roots
             const addressInstanceGlobalExitRoot = new Address(toBuffer(Constants.ADDRESS_GLOBAL_EXIT_ROOT_MANAGER_L2));
             const localExitRootPosBuffer = toBuffer(ethers.utils.hexZeroPad(Constants.LOCAL_EXIT_ROOT_STORAGE_POS, 32));
-            const globalExitRootPos = ethers.utils.solidityKeccak256(['uint256', 'uint256'], [tx.newGER, Constants.GLOBAL_EXIT_ROOT_STORAGE_POS]);
+            const globalExitRootPos = ethers.utils.solidityKeccak256(['uint256', 'uint256'], [tx.l1Info.globalExitRoot, Constants.GLOBAL_EXIT_ROOT_STORAGE_POS]);
             const globalExitRootPosBuffer = toBuffer(globalExitRootPos);
 
             // Check local exit root
@@ -461,24 +472,23 @@ describe('Header timestamp', function () {
             }
 
             // Check global exit root
-            const timestampVm = await zkEVMDB.vm.stateManager.getContractStorage(
+            const blockHashVm = await zkEVMDB.vm.stateManager.getContractStorage(
                 addressInstanceGlobalExitRoot,
                 globalExitRootPosBuffer,
             );
 
-            const timestampSmt = (await stateUtils.getContractStorage(
+            const blockHashSmt = (await stateUtils.getContractStorage(
                 Constants.ADDRESS_GLOBAL_EXIT_ROOT_MANAGER_L2,
                 zkEVMDB.smt,
                 zkEVMDB.stateRoot,
                 [globalExitRootPos],
             ))[Scalar.e(globalExitRootPos)];
-
-            expect(Scalar.fromString(timestampVm.toString('hex'), 16)).to.equal(timestampSmt);
-            expect(timestampSmt).to.equal(Scalar.e(tx.deltaTimestamp));
+            expect(Scalar.fromString(blockHashVm.toString('hex'), 16)).to.equal(blockHashSmt);
+            expect(blockHashSmt).to.equal(Scalar.e(tx.l1Info.blockHash));
 
             // Check the circuit input
             const circuitInput = await batch.getStarkInput();
-            circuitInput.GERS = extraData.GERS;
+            circuitInput.l1Info = extraData.l1Info;
             // Check the encode transaction match with the vector test
             if (!update) {
                 expect(batchL2Data).to.be.equal(batch.getBatchL2Data());
@@ -491,10 +501,12 @@ describe('Header timestamp', function () {
                 updateTestVectors[0].batches[k].batchHashData = circuitInput.batchHashData;
                 updateTestVectors[0].batches[k].inputHash = circuitInput.inputHash;
                 updateTestVectors[0].batches[k].newLocalExitRoot = circuitInput.newLocalExitRoot;
+                updateTestVectors[0].forkID = testvectorsGlobalConfig.forkID;
                 genInput.batches[k].batchL2Data = batch.getBatchL2Data();
                 genInput.batches[k].batchHashData = circuitInput.batchHashData;
                 genInput.batches[k].inputHash = circuitInput.inputHash;
                 genInput.batches[k].newLocalExitRoot = circuitInput.newLocalExitRoot;
+                genInput.forkID = testvectorsGlobalConfig.forkID;
                 console.log('WRITE: ', pathGenInput);
                 await fs.writeFileSync(pathGenInput, JSON.stringify([genInput], null, 2));
                 // Save outuput in file

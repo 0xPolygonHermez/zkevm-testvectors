@@ -125,11 +125,19 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             files = [path.join(__dirname, `${basePath}/${file}`)];
         }
 
-        if (!fs.existsSync(paths['no-exec'])) {
-            await fs.copyFileSync(paths['no-exec-template'], paths['no-exec']);
+        let pathNoExec;
+        if (argv.folder) {
+            pathNoExec = `${outputPath}no-exec-${argv.folder}.json`;
+        } else {
+            pathNoExec = `${outputPath}no-exec-${argv.test.trim().split('/')[0]}.json`;
         }
 
-        const noExec = require(paths['no-exec']);
+        if (!fs.existsSync(pathNoExec)) {
+            await fs.copyFileSync(paths['no-exec-template'], pathNoExec);
+        }
+
+        const noExec = require(pathNoExec);
+
         for (let x = 0; x < files.length; x++) {
             file = files[x];
             file = file.endsWith('.json') ? file : `${file}.json`;
@@ -344,10 +352,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             if (txTest.type) {
                                 await updateNoExec(dir, newOutputName, 'tx.type not supported', noExecNew);
                             }
-                            if (txTest.to === '0x0000000000000000000000000000000000000002') {
-                                await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExecNew);
-                            } else if (txTest.to === '0x0000000000000000000000000000000000000003') {
-                                await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExecNew);
+                            if (txTest.to === '0x0000000000000000000000000000000000000003') {
+                                await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
                             } else if (txTest.to === '0x0000000000000000000000000000000000000009') {
                                 await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExecNew);
                             }
@@ -393,16 +399,14 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         if (batch.evmSteps[0] && batch.evmSteps[0].length > 0) {
                             const { updatedAccounts } = batch;
-                            if (updatedAccounts['0x0000000000000000000000000000000000000002']) {
-                                await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExecNew);
-                            } else if (updatedAccounts['0x0000000000000000000000000000000000000003']) {
-                                await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExecNew);
+                            if (updatedAccounts['0x0000000000000000000000000000000000000003']) {
+                                await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
                             } else if (updatedAccounts['0x0000000000000000000000000000000000000009']) {
                                 await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExecNew);
                             }
                             const steps = batch.evmSteps[0];
                             const selfDestructs = steps.filter((step) => step.opcode.name === 'SELFDESTRUCT');
-                            if (selfDestructs.length > 0) {
+                            if (selfDestructs.length > 0 && !newOutputName.includes('sendall')) {
                                 await updateNoExec(dir, newOutputName, 'Selfdestruct', noExecNew);
                             }
                             const calls = steps.filter((step) => step.opcode.name === 'CALL'
@@ -413,10 +417,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                 for (let i = 0; i < calls.length; i++) {
                                     const stepBefore = steps[steps.indexOf(calls[i]) - 1];
                                     const addressCall = Scalar.e(stepBefore.stack[stepBefore.stack.length - 2]);
-                                    if (addressCall === Scalar.e(2)) {
-                                        await updateNoExec(dir, newOutputName, 'Precompiled sha256 is not supported', noExecNew);
-                                    } else if (addressCall === Scalar.e(3)) {
-                                        await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExecNew);
+                                    if (addressCall === Scalar.e(3)) {
+                                        await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExec);
                                     } else if (addressCall === Scalar.e(9)) {
                                         await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExecNew);
                                     }
@@ -465,7 +467,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             }
                         }
                         const circuitInput = await batch.getStarkInput();
-                        circuitInput.GERS = extraData.GERS;
+                        circuitInput.l1Info = extraData.l1Info;
                         if (options.newBlockGasLimit) { circuitInput.gasLimit = Scalar.e(options.newBlockGasLimit).toString(); }
                         Object.keys(circuitInput.contractsBytecode).forEach((key) => {
                             if (!circuitInput.contractsBytecode[key].startsWith('0x')) {
@@ -535,7 +537,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                 }
             }
         }
-        await updateNoExecFile(noExecNew);
+        await updateNoExecFile(noExecNew, pathNoExec);
         if (infoErrors !== '') {
             dir = path.join(__dirname, outputPath);
             if (!fs.existsSync(dir)) {
@@ -623,9 +625,9 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
         throw new Error('not supported');
     }
 
-    async function updateNoExecFile(noExecNew) {
-        const newExecFile = require(paths['no-exec']);
+    async function updateNoExecFile(noExecNew, pathNoExec) {
+        const newExecFile = require(pathNoExec);
         newExecFile['not-supported'] = newExecFile['not-supported'].concat(noExecNew);
-        await fs.writeFileSync(paths['no-exec'], JSON.stringify(newExecFile, null, 2));
+        await fs.writeFileSync(pathNoExec, JSON.stringify(newExecFile, null, 2));
     }
 });

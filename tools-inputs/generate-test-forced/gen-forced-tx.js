@@ -14,7 +14,7 @@ const { smtUtils } = require('@0xpolygonhermez/zkevm-commonjs');
 const genesisList = require('./genesis-list.json');
 const testEthList = require('./test-eth-list.json');
 
-const testsEthPath = '../../../tools/ethereum-tests/tests/';
+const testsEthPath = '../tools-eth/tests/';
 /*
 {
     "expectedOldStateRoot",
@@ -61,6 +61,7 @@ describe('Generate inputs executor from test-vectors', async function () {
         for (let j = 0; j < listTests.length; j++) {
             const jsonTest = require(`./inputs/${listTests[j]}`);
             const name = listTests[j].split('/')[listTests[j].split('/').length - 1];
+            console.log(name);
             if (listTests[j].startsWith('eth-')) {
                 jsonEthList.push({ name, test: jsonTest });
             } else if (listTests[j].startsWith('in-')) {
@@ -85,6 +86,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 genesis: [],
                 expectedNewLeafs: [],
             };
+            console.log(jsonList[i].name);
             for (let j = 0; j < json.genesis.length; j++) {
                 const genesis = json.genesis[j];
                 newObject.genesis.push({
