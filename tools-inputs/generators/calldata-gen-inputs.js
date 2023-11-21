@@ -7,6 +7,9 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable import/no-extraneous-dependencies */
+const fs = require('fs');
+const path = require('path');
+
 const Common = require('@ethereumjs/common').default;
 const { Hardfork } = require('@ethereumjs/common');
 const { BN, toBuffer } = require('ethereumjs-util');
@@ -20,13 +23,11 @@ const { Transaction } = require('@ethereumjs/tx');
 const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
 
 const { argv } = require('yargs');
-const fs = require('fs');
-const path = require('path');
-const { Scalar } = require('ffjavascript');
 const paths = require('./paths.json');
 
 const helpers = require(paths.helpers);
 
+const testvectorsGlobalConfig = require(paths['testvectors-config']);
 // example: npx mocha gen-inputs.js --vectors txs-calldata --inputs input_ --update --output
 
 describe('Generate inputs executor from test-vectors', async function () {
@@ -78,19 +79,27 @@ describe('Generate inputs executor from test-vectors', async function () {
                 sequencerAddress,
                 expectedNewLeafs,
                 oldAccInputHash,
-                globalExitRoot,
-                historicGERRoot,
+                l1InfoRoot,
                 timestamp,
+                timestampLimit,
                 chainID,
-                forkID,
-                isForced,
+                forcedBlockHashL1,
             } = testVectors[i];
             console.log(`Executing test-vector id: ${id}`);
-            if (typeof isForced === 'undefined') isForced = 0;
+
+            // Adapts input
+            if (typeof forcedBlockHashL1 === 'undefined') forcedBlockHashL1 = Constants.ZERO_BYTES32;
             if (!chainID) chainID = 1000;
             if (typeof oldAccInputHash === 'undefined') {
                 oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
             }
+            if (typeof timestampLimit === 'undefined') {
+                timestampLimit = timestamp;
+            }
+            if (typeof l1InfoRoot === 'undefined') {
+                l1InfoRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
+            }
+
             // init SMT Db
             const db = new zkcommonjs.MemDB(F);
             const zkEVMDB = await zkcommonjs.ZkEVMDB.newZkEVM(
@@ -102,13 +111,13 @@ describe('Generate inputs executor from test-vectors', async function () {
                 null,
                 null,
                 chainID,
-                forkID,
+                testvectorsGlobalConfig.forkID,
             );
 
             // NEW VM
             // setup new VM
             output.contractsBytecode = {};
-            output.GERS = {};
+
             for (let j = 0; j < genesis.length; j++) {
                 const { bytecode } = genesis[j];
                 if (bytecode) {
@@ -122,25 +131,37 @@ describe('Generate inputs executor from test-vectors', async function () {
             }
             expect(zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
 
-            if (globalExitRoot) {
-                historicGERRoot = globalExitRoot;
-            }
-            const extraData = { GERS: {} };
+            const extraData = { l1Info: {} };
             const batch = await zkEVMDB.buildBatch(
-                timestamp,
+                timestampLimit,
                 sequencerAddress,
-                zkcommonjs.smtUtils.stringToH4(historicGERRoot),
-                isForced,
+                zkcommonjs.smtUtils.stringToH4(l1InfoRoot),
+                forcedBlockHashL1,
                 Constants.DEFAULT_MAX_TX,
                 {
-                    skipVerifyGER: true,
+                    skipVerifyL1InfoRoot: true,
                 },
                 extraData,
             );
 
             // TRANSACTIONS
-            const txsList = [];
             let commonCustom = Common.custom({ chainId: chainID }, { hardfork: Hardfork.Berlin });
+
+            // If first tx is not TX_CHANGE_L2_BLOCK, add one by default
+            if (txs[0].type !== Constants.TX_CHANGE_L2_BLOCK) {
+                const txChangeL2Block = {
+                    type: 11,
+                    deltaTimestamp: timestampLimit,
+                    l1Info: {
+                        globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
+                        blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
+                        timestamp: '42',
+                    },
+                    indexL1InfoTree: 0,
+                };
+                internalTestVectors[i].txs.unshift(txChangeL2Block);
+                txs.unshift(txChangeL2Block);
+            }
 
             for (let j = 0; j < txs.length; j++) {
                 let isLegacy = false;
@@ -148,32 +169,15 @@ describe('Generate inputs executor from test-vectors', async function () {
 
                 // Check for TX_CHANGE_L2_BLOCK
                 if (currentTx.type === Constants.TX_CHANGE_L2_BLOCK) {
-                    let data = Scalar.e(0);
+                    const rawChangeL2BlockTx = zkcommonjs.processorUtils.serializeChangeL2Block(currentTx);
 
-                    let offsetBits = 0;
+                    // Append l1Info to l1Info object
+                    extraData.l1Info[currentTx.indexL1InfoTree] = currentTx.l1Info;
 
-                    data = Scalar.add(data, Scalar.shl(currentTx.indexHistoricalGERTree, offsetBits));
-                    offsetBits += 32;
+                    const customRawTx = `0x${rawChangeL2BlockTx}`;
 
-                    // Append newGER to GERS object
-                    output.GERS[j + 1] = currentTx.newGER;
-                    extraData.GERS[j + 1] = currentTx.newGER;
-
-                    data = Scalar.add(data, Scalar.shl(currentTx.deltaTimestamp, offsetBits));
-                    offsetBits += 64;
-
-                    data = Scalar.add(data, Scalar.shl(currentTx.type, offsetBits));
-                    offsetBits += 8;
-
-                    const customRawTx = zkcommonjs.utils.valueToHexStr(data).padStart(offsetBits / 4, '0');
-                    txsList.push(customRawTx);
-                    batch.addRawTx(`0x${customRawTx}`);
-                    // smtProofsObject[txData.indexHistoricalGERTree] = txData.smtProofs;
+                    batch.addRawTx(customRawTx);
                     continue;
-                } else if (j === 0 && !file.includes('change-l2-block')) {
-                    // If first tx is not TX_CHANGE_L2_BLOCK, add one
-                    const batchL2TxRaw = helpers.addRawTxChangeL2Block(batch, output, extraData);
-                    txsList.push(batchL2TxRaw);
                 }
 
                 const isSigned = !!(currentTx.r && currentTx.v && currentTx.s);
@@ -257,7 +261,6 @@ describe('Generate inputs executor from test-vectors', async function () {
                 const v = (sign + 27).toString(16).padStart(1 * 2, '0');
                 const effectivePercentage = currentTx.effectivePercentage ? currentTx.effectivePercentage.slice(2) : 'ff';
                 const calldata = signData.concat(r).concat(s).concat(v).concat(effectivePercentage);
-                txsList.push(calldata);
                 batch.addRawTx(calldata);
             }
 
@@ -283,7 +286,7 @@ describe('Generate inputs executor from test-vectors', async function () {
 
             // Check balances and nonces
             // eslint-disable-next-line no-restricted-syntax
-            // Add address sytem at expecte new leafs
+            // Add address sytem at expected new leafs
             expectedNewLeafs[Constants.ADDRESS_SYSTEM] = {};
             for (const [address] of Object.entries(expectedNewLeafs)) {
                 const newLeaf = await zkEVMDB.getCurrentAccountState(address);
@@ -298,23 +301,26 @@ describe('Generate inputs executor from test-vectors', async function () {
                 if (update) { expectedNewLeafs[address].storage = storage; }
                 expect(lodash.isEqual(storage, expectedNewLeafs[address].storage)).to.be.equal(true);
 
-                if (update) {
-                    expectedNewLeafs[address].hashBytecode = hashBytecode;
-                    if (!output.contractsBytecode[address.toLowerCase()]) {
-                        output.contractsBytecode[address.toLowerCase()] = hashBytecode;
+                if (bytecodeLength > 0) {
+                    if (update) {
+                        expectedNewLeafs[address].hashBytecode = hashBytecode;
+                        if (!output.contractsBytecode[address.toLowerCase()]) {
+                            output.contractsBytecode[address.toLowerCase()] = hashBytecode;
+                        }
                     }
-                }
-                expect(hashBytecode).to.equal(expectedNewLeafs[address].hashBytecode);
+                    expect(hashBytecode).to.equal(expectedNewLeafs[address].hashBytecode);
 
-                if (update) {
-                    expectedNewLeafs[address].bytecodeLength = bytecodeLength;
+                    if (update) {
+                        expectedNewLeafs[address].bytecodeLength = bytecodeLength;
+                    }
+                    expect(lodash.isEqual(bytecodeLength, expectedNewLeafs[address].bytecodeLength)).to.be.equal(true);
                 }
-                expect(lodash.isEqual(bytecodeLength, expectedNewLeafs[address].bytecodeLength)).to.be.equal(true);
             }
 
-            for (const x in output) {
-                circuitInput[x] = output[x];
+            if (Object.keys(output.contractsBytecode).length > 0) {
+                circuitInput.contractsBytecode = output.contractsBytecode;
             }
+
             // Save outuput in file
             if (outputFlag) {
                 const dir = path.join(__dirname, inputsPath);
@@ -325,25 +331,45 @@ describe('Generate inputs executor from test-vectors', async function () {
                 testVectors[i].batchL2Data = batch.getBatchL2Data();
                 testVectors[i].expectedOldRoot = expectedOldRoot;
                 testVectors[i].expectedNewRoot = expectedNewRoot;
-                testVectors[i].expectedNewLeafs = expectedNewLeafs;
                 testVectors[i].batchHashData = circuitInput.batchHashData;
                 testVectors[i].inputHash = circuitInput.inputHash;
-                testVectors[i].historicGERRoot = circuitInput.historicGERRoot;
+                testVectors[i].l1InfoRoot = circuitInput.l1InfoRoot;
+                testVectors[i].timestampLimit = circuitInput.timestampLimit;
                 testVectors[i].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                 testVectors[i].chainID = chainID;
                 testVectors[i].oldAccInputHash = oldAccInputHash;
+                testVectors[i].txs = txs;
+                testVectors[i].expectedNewLeafs = expectedNewLeafs;
+                testVectors[i].forkID = testvectorsGlobalConfig.forkID;
                 internalTestVectors[i].batchL2Data = batch.getBatchL2Data();
                 internalTestVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
                 internalTestVectors[i].expectedOldRoot = expectedOldRoot;
                 internalTestVectors[i].expectedNewRoot = expectedNewRoot;
-                internalTestVectors[i].expectedNewLeafs = expectedNewLeafs;
                 internalTestVectors[i].batchHashData = circuitInput.batchHashData;
                 internalTestVectors[i].inputHash = circuitInput.inputHash;
-                internalTestVectors[i].historicGERRoot = circuitInput.historicGERRoot;
+                internalTestVectors[i].l1InfoRoot = circuitInput.l1InfoRoot;
+                internalTestVectors[i].timestampLimit = circuitInput.timestampLimit;
                 internalTestVectors[i].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                 internalTestVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
                 internalTestVectors[i].chainID = chainID;
                 internalTestVectors[i].oldAccInputHash = oldAccInputHash;
+                internalTestVectors[i].expectedNewLeafs = expectedNewLeafs;
+                internalTestVectors[i].forkID = testvectorsGlobalConfig.forkID;
+
+                // delete old unused values
+                delete testVectors[i].globalExitRoot;
+                delete testVectors[i].timestamp;
+                delete testVectors[i].historicGERRoot;
+                delete testVectors[i].arity;
+                delete testVectors[i].chainIdSequencer;
+                delete testVectors[i].defaultChainId;
+
+                delete internalTestVectors[i].globalExitRoot;
+                delete internalTestVectors[i].timestamp;
+                delete internalTestVectors[i].historicGERRoot;
+                delete internalTestVectors[i].arity;
+                delete internalTestVectors[i].chainIdSequencer;
+                delete internalTestVectors[i].defaultChainId;
             }
         }
         if (update) {

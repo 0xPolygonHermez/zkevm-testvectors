@@ -1,3 +1,4 @@
+/* eslint-disable no-continue */
 /* eslint-disable no-use-before-define */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
@@ -6,6 +7,9 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable import/no-extraneous-dependencies */
+const fs = require('fs');
+const path = require('path');
+
 const Common = require('@ethereumjs/common').default;
 const { Hardfork } = require('@ethereumjs/common');
 const { BN, toBuffer } = require('ethereumjs-util');
@@ -16,11 +20,11 @@ const lodash = require('lodash');
 const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
 const { expect } = require('chai');
 const { Transaction } = require('@ethereumjs/tx');
+const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
 
 const { argv } = require('yargs');
-const fs = require('fs');
-const path = require('path');
-const helpers = require('../../helpers/helpers');
+const helpers = require('../helpers/helpers');
+const testvectorsGlobalConfig = require('../testvectors.config.json');
 
 // example: npx mocha gen-inputs.js --vectors txs-calldata --inputs input_ --update --output
 
@@ -44,6 +48,7 @@ describe('Generate inputs executor from test-vectors', async function () {
         listTestVectors = fs.readdirSync('./sources');
         listTestVectors = fs.readdirSync('./sources').filter((x) => !x.startsWith('eth-') && !x.startsWith('in-') && !x.startsWith('general'));
         await hre.run('compile');
+        console.log(`   test vector name: ${file}`);
     });
 
     it('Generate inputs', async () => {
@@ -61,17 +66,27 @@ describe('Generate inputs executor from test-vectors', async function () {
                     sequencerAddress,
                     expectedNewLeafs,
                     oldAccInputHash,
-                    globalExitRoot,
+                    l1InfoRoot,
                     timestamp,
+                    timestampLimit,
                     chainID,
-                    forkID,
+                    forcedBlockHashL1,
                 } = testVectors[i];
-
                 console.log(`Executing test-vector id: ${id}`);
-                if (!chainID) chainID = 1001;
+
+                // Adapts input
+                if (typeof forcedBlockHashL1 === 'undefined') forcedBlockHashL1 = Constants.ZERO_BYTES32;
+                if (!chainID) chainID = 1000;
                 if (typeof oldAccInputHash === 'undefined') {
                     oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
                 }
+                if (typeof timestampLimit === 'undefined') {
+                    timestampLimit = timestamp;
+                }
+                if (typeof l1InfoRoot === 'undefined') {
+                    l1InfoRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
+                }
+
                 // init SMT Db
                 const db = new zkcommonjs.MemDB(F);
                 const zkEVMDB = await zkcommonjs.ZkEVMDB.newZkEVM(
@@ -83,7 +98,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                     null,
                     null,
                     chainID,
-                    forkID,
+                    testvectorsGlobalConfig.forkID,
                 );
 
                 // NEW VM
@@ -102,19 +117,56 @@ describe('Generate inputs executor from test-vectors', async function () {
                 }
                 expect(zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
 
+                const extraData = { l1Info: {} };
                 const batch = await zkEVMDB.buildBatch(
-                    timestamp,
+                    timestampLimit,
                     sequencerAddress,
-                    zkcommonjs.smtUtils.stringToH4(globalExitRoot),
+                    zkcommonjs.smtUtils.stringToH4(l1InfoRoot),
+                    forcedBlockHashL1,
+                    Constants.DEFAULT_MAX_TX,
+                    {
+                        skipVerifyL1InfoRoot: true,
+                    },
+                    extraData,
                 );
 
                 // TRANSACTIONS
                 const txsList = [];
                 let commonCustom = Common.custom({ chainId: chainID }, { hardfork: Hardfork.Berlin });
 
+                // If first tx is not TX_CHANGE_L2_BLOCK, add one by default
+                if (txs[0].type !== Constants.TX_CHANGE_L2_BLOCK) {
+                    const txChangeL2Block = {
+                        type: 11,
+                        deltaTimestamp: timestampLimit,
+                        l1Info: {
+                            globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
+                            blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
+                            timestamp: '42',
+                        },
+                        indexL1InfoTree: 0,
+                    };
+                    internalTestVectors[i].txs.unshift(txChangeL2Block);
+                    txs.unshift(txChangeL2Block);
+                }
+
                 for (let j = 0; j < txs.length; j++) {
                     let isLegacy = false;
                     const currentTx = txs[j];
+
+                    // Check for TX_CHANGE_L2_BLOCK
+                    if (currentTx.type === Constants.TX_CHANGE_L2_BLOCK) {
+                        const rawChangeL2BlockTx = zkcommonjs.processorUtils.serializeChangeL2Block(currentTx);
+
+                        // Append l1Info to l1Info object
+                        extraData.l1Info[currentTx.indexL1InfoTree] = currentTx.l1Info;
+
+                        const customRawTx = `0x${rawChangeL2BlockTx}`;
+
+                        batch.addRawTx(customRawTx);
+                        continue;
+                    }
+
                     const isSigned = !!(currentTx.r && currentTx.v && currentTx.s);
                     const accountFrom = genesis.filter((x) => x.address.toLowerCase() === currentTx.from.toLowerCase())[0];
                     if (!accountFrom && !isSigned) {
@@ -222,6 +274,8 @@ describe('Generate inputs executor from test-vectors', async function () {
 
                 // Check balances and nonces
                 // eslint-disable-next-line no-restricted-syntax
+                // Add address sytem at expected new leafs
+                expectedNewLeafs[Constants.ADDRESS_SYSTEM] = {};
                 for (const [address] of Object.entries(expectedNewLeafs)) {
                     const newLeaf = await zkEVMDB.getCurrentAccountState(address);
                     if (update) { expectedNewLeafs[address] = { balance: newLeaf.balance.toString(), nonce: newLeaf.nonce.toString() }; }
@@ -261,13 +315,24 @@ describe('Generate inputs executor from test-vectors', async function () {
                     testVectors[i].batchL2Data = batch.getBatchL2Data();
                     testVectors[i].expectedOldRoot = expectedOldRoot;
                     testVectors[i].expectedNewRoot = expectedNewRoot;
-                    testVectors[i].expectedNewLeafs = expectedNewLeafs;
                     testVectors[i].batchHashData = circuitInput.batchHashData;
                     testVectors[i].inputHash = circuitInput.inputHash;
-                    testVectors[i].globalExitRoot = circuitInput.globalExitRoot;
+                    testVectors[i].l1InfoRoot = circuitInput.l1InfoRoot;
+                    testVectors[i].timestampLimit = circuitInput.timestampLimit;
                     testVectors[i].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                     testVectors[i].chainID = chainID;
                     testVectors[i].oldAccInputHash = oldAccInputHash;
+                    testVectors[i].txs = txs;
+                    testVectors[i].expectedNewLeafs = expectedNewLeafs;
+                    testVectors[i].forkID = testvectorsGlobalConfig.forkID;
+
+                    // delete old unused values
+                    delete testVectors[i].globalExitRoot;
+                    delete testVectors[i].timestamp;
+                    delete testVectors[i].historicGERRoot;
+                    delete testVectors[i].arity;
+                    delete testVectors[i].chainIdSequencer;
+                    delete testVectors[i].defaultChainId;
                 }
             }
             if (update) {

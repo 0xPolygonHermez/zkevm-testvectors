@@ -9,7 +9,7 @@ const fs = require('fs');
 const path = require('path');
 
 const { newCommitPolsArray } = require('pilcom');
-const smMain = require('../../../../../zkevm-proverjs/src/sm/sm_main/sm_main');
+const smMain = require('../../../../../zkevm-proverjs-internal/src/sm/sm_main/sm_main');
 
 // let rom = require('../../../../../zkevm-rom/build/rom.json');
 let rom = require('../../../../../zkevm-rom-internal/build/rom.json');
@@ -17,7 +17,7 @@ let rom = require('../../../../../zkevm-rom-internal/build/rom.json');
 let stepsN = 2 ** 23;
 let counters = false;
 
-const fileCachePil = path.join(__dirname, '../../../../../zkevm-proverjs/cache-main-pil.json');
+const fileCachePil = path.join(__dirname, '../../../../../zkevm-proverjs-internal/cache-main-pil.json');
 
 const checkerDir = path.join(__dirname, '../checker.txt');
 

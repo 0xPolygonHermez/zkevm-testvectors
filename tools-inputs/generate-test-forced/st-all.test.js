@@ -15,6 +15,8 @@ const {
 } = require('@0xpolygonhermez/zkevm-commonjs');
 
 const { rawTxToCustomRawTx } = processorUtils;
+const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
+const testvectorsGlobalConfig = require('../testvectors.config.json');
 
 // load list test-vectors
 
@@ -52,16 +54,29 @@ describe('Run state-transition tests', function () {
                     expectedNewLeafs,
                     batchL2Data,
                     oldAccInputHash,
-                    globalExitRoot,
+                    l1InfoRoot,
                     batchHashData,
                     inputHash,
                     timestamp,
+                    timestampLimit,
                     chainID,
-                    forkID,
+                    forcedBlockHashL1,
                 } = testVectors[j];
 
+                // Adapts input
+                if (typeof forcedBlockHashL1 === 'undefined') forcedBlockHashL1 = Constants.ZERO_BYTES32;
+                if (!chainID) chainID = 1000;
                 if (typeof oldAccInputHash === 'undefined') {
                     oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
+                }
+                if (typeof timestamp === 'undefined') {
+                    timestamp = 1944498031;
+                }
+                if (typeof timestampLimit === 'undefined') {
+                    timestampLimit = timestamp;
+                }
+                if (typeof l1InfoRoot === 'undefined') {
+                    l1InfoRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
                 }
 
                 const db = new MemDB(F);
@@ -165,7 +180,7 @@ describe('Run state-transition tests', function () {
                     null,
                     null,
                     chainID,
-                    forkID,
+                    testvectorsGlobalConfig.forkID,
                 );
 
                 // check genesis root
@@ -182,7 +197,37 @@ describe('Run state-transition tests', function () {
                     expect(smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
                 }
 
-                const batch = await zkEVMDB.buildBatch(timestamp, sequencerAddress, smtUtils.stringToH4(globalExitRoot));
+                const extraData = { l1Info: {} };
+                const batch = await zkEVMDB.buildBatch(
+                    timestampLimit,
+                    sequencerAddress,
+                    smtUtils.stringToH4(l1InfoRoot),
+                    forcedBlockHashL1,
+                    Constants.DEFAULT_MAX_TX,
+                    {
+                        skipVerifyL1InfoRoot: true,
+                    },
+                    extraData,
+                );
+
+                // Ethereum test to add by default a changeL2Block trnsaction
+                const txChangeL2Block = {
+                    type: 11,
+                    deltaTimestamp: timestamp,
+                    l1Info: {
+                        globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
+                        blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
+                        timestamp: '42',
+                    },
+                    indexL1InfoTree: 0,
+                };
+
+                const rawChangeL2BlockTx = processorUtils.serializeChangeL2Block(txChangeL2Block);
+                // Append l1Info to l1Info object
+                extraData.l1Info[txChangeL2Block.indexL1InfoTree] = txChangeL2Block.l1Info;
+                const customRawTx = `0x${rawChangeL2BlockTx}`;
+                batch.addRawTx(customRawTx);
+
                 for (let k = 0; k < rawTxs.length; k++) {
                     batch.addRawTx(rawTxs[k]);
                 }
@@ -202,13 +247,18 @@ describe('Run state-transition tests', function () {
                 await zkEVMDB.consolidate(batch);
 
                 // Check balances and nonces
+                if (!expectedNewLeafs[Constants.ADDRESS_SYSTEM]) { expectedNewLeafs[Constants.ADDRESS_SYSTEM] = {}; }
                 for (const [address, leaf] of Object.entries(expectedNewLeafs)) { // eslint-disable-line
                     const newLeaf = await zkEVMDB.getCurrentAccountState(address);
 
+                    const storage = await zkEVMDB.dumpStorage(address);
+                    const hashBytecode = await zkEVMDB.getHashBytecode(address);
+                    const bytecodeLength = await zkEVMDB.getLength(address);
                     if (update) {
                         const newLeafState = { balance: newLeaf.balance.toString(), nonce: newLeaf.nonce.toString() };
-                        const storage = await zkEVMDB.dumpStorage(address);
-                        if (storage) { newLeafState.storage = storage; }
+                        newLeafState.storage = storage;
+                        newLeafState.hashBytecode = hashBytecode;
+                        newLeafState.bytecodeLength = bytecodeLength;
                         testVectors[j].expectedNewLeafs[address] = newLeafState;
                     } else {
                         expect(newLeaf.balance.toString()).to.equal(leaf.balance);
@@ -217,8 +267,8 @@ describe('Run state-transition tests', function () {
                 }
 
                 // Check errors on decode transactions
-                const decodedTx = await batch.getDecodedTxs();
-
+                const decodedTxInit = await batch.getDecodedTxs();
+                const decodedTx = decodedTxInit.filter((tx) => tx.tx.type !== 11);
                 for (let k = 0; k < decodedTx.length; k++) {
                     const currentTx = decodedTx[k];
                     const expectedTx = txProcessed[k];
@@ -244,10 +294,20 @@ describe('Run state-transition tests', function () {
                     testVectors[j].batchL2Data = batch.getBatchL2Data();
                     testVectors[j].batchHashData = circuitInput.batchHashData;
                     testVectors[j].inputHash = circuitInput.inputHash;
-                    testVectors[j].globalExitRoot = circuitInput.globalExitRoot;
+                    testVectors[j].l1InfoRoot = circuitInput.l1InfoRoot;
+                    testVectors[j].timestampLimit = circuitInput.timestampLimit;
                     testVectors[j].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                     testVectors[j].newLocalExitRoot = circuitInput.newLocalExitRoot;
                     testVectors[j].oldAccInputHash = oldAccInputHash;
+                    testVectors[j].forkID = testvectorsGlobalConfig.forkID;
+
+                    // delete old unused values
+                    delete testVectors[j].globalExitRoot;
+                    delete testVectors[j].timestamp;
+                    delete testVectors[j].historicGERRoot;
+                    delete testVectors[j].arity;
+                    delete testVectors[j].chainIdSequencer;
+                    delete testVectors[j].defaultChainId;
 
                     const fileName = path.join(folderInputsExecutor, `${path.parse(listTests[i]).name}_${id}.json`);
                     await fs.writeFileSync(fileName, JSON.stringify(circuitInput, null, 2));

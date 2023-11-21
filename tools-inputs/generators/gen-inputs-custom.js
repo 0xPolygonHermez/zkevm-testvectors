@@ -6,6 +6,9 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable import/no-extraneous-dependencies */
+const fs = require('fs');
+const path = require('path');
+
 const { BN } = require('ethereumjs-util');
 const { ethers } = require('ethers');
 const hre = require('hardhat');
@@ -15,8 +18,6 @@ const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
 const { expect } = require('chai');
 
 const { argv } = require('yargs');
-const fs = require('fs');
-const path = require('path');
 const paths = require('./paths.json');
 
 const helpers = require(paths.helpers);
@@ -57,6 +58,7 @@ describe('Generate inputs executor from test-vectors', async function () {
             inputName = (argv.inputs) ? argv.inputs : (`${file.replace('.json', '_')}`);
             testVectorDataPath = `../tools-calldata/generate-test-vectors/gen-${file}`;
             testVectors = require(testVectorDataPath);
+            console.log(testVectorDataPath);
             inputsPath = '../../inputs-executor/calldata/';
         }
 

@@ -2,7 +2,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const { contractUtils } = require('@0xpolygonhermez/zkevm-commonjs');
+const { contractUtils, Constants } = require('@0xpolygonhermez/zkevm-commonjs');
+
+const testvectorsGlobalConfig = require('../testvectors.config.json');
 
 async function main() {
     // path rlp-error inputs
@@ -32,12 +34,12 @@ async function main() {
 
         inputRLP.newLocalExitRoot = generalInput.newLocalExitRoot;
         inputRLP.chainID = generalInput.chainID;
-        inputRLP.forkID = generalInput.forkID;
+        inputRLP.forkID = testvectorsGlobalConfig.forkID;
 
         inputRLP.sequencerAddr = generalInput.sequencerAddr;
-        inputRLP.historicGERRoot = '0x0000000000000000000000000000000000000000000000000000000000000000';
+        inputRLP.l1InfoRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
         inputRLP.timestampLimit = generalInput.timestampLimit;
-        inputRLP.isForced = 0;
+        inputRLP.forcedBlockHashL1 = Constants.ZERO_BYTES32;
 
         inputRLP.batchHashData = contractUtils.calculateBatchHashData(
             inputRLP.batchL2Data,
@@ -46,10 +48,10 @@ async function main() {
         inputRLP.newAccInputHash = contractUtils.calculateAccInputHash(
             inputRLP.oldAccInputHash,
             inputRLP.batchHashData,
-            inputRLP.historicGERRoot,
+            inputRLP.l1InfoRoot,
             inputRLP.timestampLimit,
             inputRLP.sequencerAddr,
-            inputRLP.isForced,
+            inputRLP.forcedBlockHashL1,
         );
 
         inputRLP.db = generalInput.db;

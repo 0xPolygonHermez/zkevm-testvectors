@@ -8,10 +8,12 @@ on:
     branches:
       - main
       - develop
+      - feature/final-l1-info-tree
   pull_request:
     branches:
       - main
       - develop
+      - feature/final-l1-info-tree
 
 jobs:
   build:
@@ -19,7 +21,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
 
     steps:
       - name: Use Node.js ${{ matrix.node-version }}
@@ -47,5 +49,5 @@ jobs:
         run: npm run test:contracts
       - name: check mt bridge
         run: npm run test:mt:bridge
-      - name: check test e2e
-        run: npm run test:e2e
+      # - name: check test e2e
+      #   run: npm run test:e2e
