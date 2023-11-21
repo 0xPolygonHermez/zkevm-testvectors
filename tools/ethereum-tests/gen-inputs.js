@@ -498,7 +498,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         if (options.newBatchGasLimit && Scalar.eq(options.newBatchGasLimit, Scalar.e('0x7FFFFFFF')) && (e.toString() !== 'Error: not supported')) {
                             let auxDir = dir.endsWith('/') ? dir.substring(0, dir.length - 1) : dir;
                             auxDir = auxDir.split('/');
-                            const nameTest = `${auxDir[auxDir.length - 1]}/${newOutputName.replace('.json', '')}`;
+                            const nameTest = `${auxDir[auxDir.length - 1]}/${newOutputName}`;
                             noExec['not-supported'].push({ name: nameTest, description: 'tx gas > max int' });
                             await fs.writeFileSync('./no-exec.json', JSON.stringify(noExec, null, 2));
                             counts.countNotSupport += 1;
@@ -611,7 +611,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
     async function updateNoExec(dir, newOutputName, description, noExec) {
         let auxDir = dir.endsWith('/') ? dir.substring(0, dir.length - 1) : dir;
         auxDir = auxDir.split('/');
-        const nameTest = `${auxDir[auxDir.length - 1]}/${newOutputName.replace('.json', '')}`;
+        const nameTest = `${auxDir[auxDir.length - 1]}/${newOutputName}`;
         noExec['not-supported'].push({ name: nameTest, description });
         await fs.writeFileSync('./no-exec.json', JSON.stringify(noExec, null, 2));
         throw new Error('not supported');

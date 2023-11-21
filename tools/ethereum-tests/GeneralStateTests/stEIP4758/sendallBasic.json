@@ -173,5 +173,14 @@
       "0000000000000000"
     ]
   },
-  "forkID": 6
+  "forkID": 6,
+  "virtualCounters": {
+    "steps": 78315,
+    "arith": 1305,
+    "binary": 5419,
+    "memAlign": 375,
+    "keccaks": 12,
+    "padding": 44,
+    "poseidon": 1828
+  }
 }
