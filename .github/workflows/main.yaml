@@ -8,12 +8,12 @@ on:
     branches:
       - main
       - develop
-      - feature/final-l1-info-tree
+      - feature/fork-etrog
   pull_request:
     branches:
       - main
       - develop
-      - feature/final-l1-info-tree
+      - feature/fork-etrog
 
 jobs:
   build:
