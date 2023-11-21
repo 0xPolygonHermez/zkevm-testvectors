@@ -301,18 +301,24 @@ describe('Generate inputs executor from test-vectors', async function () {
                 if (update) { expectedNewLeafs[address].storage = storage; }
                 expect(lodash.isEqual(storage, expectedNewLeafs[address].storage)).to.be.equal(true);
 
-                if (update) {
-                    expectedNewLeafs[address].hashBytecode = hashBytecode;
-                    if (!output.contractsBytecode[address.toLowerCase()]) {
-                        output.contractsBytecode[address.toLowerCase()] = hashBytecode;
+                if (bytecodeLength > 0) {
+                    if (update) {
+                        expectedNewLeafs[address].hashBytecode = hashBytecode;
+                        if (!output.contractsBytecode[address.toLowerCase()]) {
+                            output.contractsBytecode[address.toLowerCase()] = hashBytecode;
+                        }
                     }
-                }
-                expect(hashBytecode).to.equal(expectedNewLeafs[address].hashBytecode);
+                    expect(hashBytecode).to.equal(expectedNewLeafs[address].hashBytecode);
 
-                if (update) {
-                    expectedNewLeafs[address].bytecodeLength = bytecodeLength;
+                    if (update) {
+                        expectedNewLeafs[address].bytecodeLength = bytecodeLength;
+                    }
+                    expect(lodash.isEqual(bytecodeLength, expectedNewLeafs[address].bytecodeLength)).to.be.equal(true);
                 }
-                expect(lodash.isEqual(bytecodeLength, expectedNewLeafs[address].bytecodeLength)).to.be.equal(true);
+            }
+
+            if (Object.keys(output.contractsBytecode).length > 0) {
+                circuitInput.contractsBytecode = output.contractsBytecode;
             }
 
             // Save outuput in file

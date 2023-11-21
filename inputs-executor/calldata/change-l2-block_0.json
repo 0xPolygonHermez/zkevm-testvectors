@@ -14,7 +14,10 @@
   "timestampLimit": "1944498031",
   "sequencerAddr": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
   "batchHashData": "0x15d0b7957c3fbb6dd8bfa003861ada0a7aabb72442ee19da342e1de1a61c1394",
-  "contractsBytecode": {},
+  "contractsBytecode": {
+    "0xc365b38cb85dd0f4779ae540c14353866c21a24eeaba2babafe6bd1c3f505d0a": "0x4660015500",
+    "0x1000000000000000000000000000000000000000": "0xc365b38cb85dd0f4779ae540c14353866c21a24eeaba2babafe6bd1c3f505d0a"
+  },
   "l1InfoTree": {
     "skipVerifyL1InfoRoot": true
   },
