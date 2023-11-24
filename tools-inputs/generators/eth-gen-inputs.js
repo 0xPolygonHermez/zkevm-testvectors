@@ -175,7 +175,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         console.log('Test name: ', newOutputName);
 
                         const auxOutputPathName1 = writeOutputName;
-                        const auxOutputPathName2 = `${file.split('.json')[0]}_${y}`;
+                        const auxOutputPathName2 = `${file.split('.json')[0]}_${y}.json`;
 
                         const listBreaksComputation = [];
                         noExec['breaks-computation'].forEach((elem) => listBreaksComputation.push(elem.name));
@@ -199,6 +199,10 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         if (file.includes('stEIP1559')) {
                             await updateNoExec(dir, newOutputName, 'EIP1559 not supported', noExecNew);
+                        }
+
+                        if (file.includes('stEIP3540')) {
+                            await updateNoExec(dir, newOutputName, 'EIP3540 not supported', noExecNew);
                         }
 
                         const currentTest = test[keysTests[y]];
@@ -326,8 +330,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         };
 
                         const rawChangeL2BlockTx = zkcommonjs.processorUtils.serializeChangeL2Block(txChangeL2Block);
-                        // Append l1Info to l1Info object
-                        extraData.l1Info[txChangeL2Block.indexL1InfoTree] = txChangeL2Block.l1Info;
+
                         const customRawTx = `0x${rawChangeL2BlockTx}`;
                         batch.addRawTx(customRawTx);
 
@@ -467,7 +470,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             }
                         }
                         const circuitInput = await batch.getStarkInput();
-                        circuitInput.l1Info = extraData.l1Info;
                         if (options.newBlockGasLimit) { circuitInput.gasLimit = Scalar.e(options.newBlockGasLimit).toString(); }
                         Object.keys(circuitInput.contractsBytecode).forEach((key) => {
                             if (!circuitInput.contractsBytecode[key].startsWith('0x')) {
@@ -616,18 +618,18 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
         await fs.writeFileSync(path.join(dir, fileName), JSON.stringify(data, null, 2));
     }
 
-    async function updateNoExec(dir, newOutputName, description, noExecNew) {
+    async function updateNoExec(dir, newOutputName, description, newNoExec) {
         let auxDir = dir.endsWith('/') ? dir.substring(0, dir.length - 1) : dir;
         auxDir = auxDir.split('/');
         const nameTest = `${auxDir[auxDir.length - 1]}/${newOutputName.replace('.json', '')}`;
-        noExecNew.push({ name: nameTest.endsWith('.json') ? nameTest : `${nameTest}.json`, description });
+        newNoExec.push({ name: nameTest.endsWith('.json') ? nameTest : `${nameTest}.json`, description });
         console.log({ name: nameTest.endsWith('.json') ? nameTest : `${nameTest}.json`, description });
         throw new Error('not supported');
     }
 
-    async function updateNoExecFile(noExecNew, pathNoExec) {
+    async function updateNoExecFile(newNoExec, pathNoExec) {
         const newExecFile = require(pathNoExec);
-        newExecFile['not-supported'] = newExecFile['not-supported'].concat(noExecNew);
+        newExecFile['not-supported'] = newExecFile['not-supported'].concat(newNoExec);
         await fs.writeFileSync(pathNoExec, JSON.stringify(newExecFile, null, 2));
     }
 });

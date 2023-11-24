@@ -5,7 +5,7 @@
       "description": "Bug at merkle-patricia-level where rlp encoding/decoding is used. Address above 0x800...000 returns a not find node in the tree."
     },
     {
-      "name": "performanceTester_4",
+      "name": "performanceTester_4.json",
       "description": "Error: JavaScript heap out of memory"
     },
     {
@@ -21,47 +21,55 @@
       "description": "Error: JavaScript heap out of memory"
     },
     {
-      "name": "VMTests/vmPerformance/loopExp_1",
+      "name": "VMTests/vmPerformance/loopExp_1.json",
       "description": "Error: JavaScript heap out of memory"
     },
     {
-      "name": "VMTests/vmPerformance/loopExp_2",
+      "name": "VMTests/vmPerformance/loopExp_2.json",
       "description": "Error: JavaScript heap out of memory"
     },
     {
-      "name": "VMTests/vmPerformance/loopExp_3",
+      "name": "VMTests/vmPerformance/loopExp_3.json",
       "description": "Error: JavaScript heap out of memory"
     },
     {
-      "name": "VMTests/vmPerformance/loopExp_4",
+      "name": "VMTests/vmPerformance/loopExp_4.json",
       "description": "Error: JavaScript heap out of memory"
     },
     {
-      "name": "VMTests/vmPerformance/loopExp_5",
+      "name": "VMTests/vmPerformance/loopExp_5.json",
       "description": "Error: JavaScript heap out of memory"
     },
     {
-      "name": "VMTests/vmPerformance/loopMul_0",
+      "name": "VMTests/vmPerformance/loopExp_13.json",
       "description": "Error: JavaScript heap out of memory"
     },
     {
-      "name": "VMTests/vmPerformance/loopMul_1",
+      "name": "VMTests/vmPerformance/loopExp_14.json",
       "description": "Error: JavaScript heap out of memory"
     },
     {
-      "name": "VMTests/vmPerformance/loopMul_2",
+      "name": "VMTests/vmPerformance/loopMul_0.json",
       "description": "Error: JavaScript heap out of memory"
     },
     {
-      "name": "stStaticCall/static_LoopCallsThenRevert_0",
+      "name": "VMTests/vmPerformance/loopMul_1.json",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "VMTests/vmPerformance/loopMul_2.json",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "stStaticCall/static_LoopCallsThenRevert_0.json",
       "description": "Killed"
     },
     {
-      "name": "stStaticCall/static_Return50000_2",
+      "name": "stStaticCall/static_Return50000_2.json",
       "description": "Killed"
     },
     {
-      "name": "stStaticCall/static_Call50000bytesContract50_1_1",
+      "name": "stStaticCall/static_Call50000bytesContract50_1_1.json",
       "description": "Killed"
     },
     {
@@ -89,73 +97,73 @@
       "description": "Killed"
     },
     {
-      "name": "stQuadraticComplexityTest/Call50000_1",
+      "name": "stQuadraticComplexityTest/Call50000_1.json",
       "description": "Killed"
     },
     {
-      "name": "stQuadraticComplexityTest/Call50000_identity_1",
+      "name": "stQuadraticComplexityTest/Call50000_identity_1.json",
       "description": "Killed"
     },
     {
-      "name": "stQuadraticComplexityTest/Call50000_identity2_1",
+      "name": "stQuadraticComplexityTest/Call50000_identity2_1.json",
       "description": "Killed"
     },
     {
-      "name": "stQuadraticComplexityTest/QuadraticComplexitySolidity_CallDataCopy_1",
+      "name": "stQuadraticComplexityTest/QuadraticComplexitySolidity_CallDataCopy_1.json",
       "description": "Killed"
     },
     {
-      "name": "stRandom/randomStatetest307",
+      "name": "stRandom/randomStatetest307.json",
       "description": "Killed"
     }
   ],
   "not-supported": [
     {
-      "name": "stSStoreTest/InitCollision_0",
+      "name": "stSStoreTest/InitCollision_0.json",
       "description": "Clear storage tree could not be done in zkEVM state-tree"
     },
     {
-      "name": "stSStoreTest/InitCollision_1",
+      "name": "stSStoreTest/InitCollision_1.json",
       "description": "Clear storage tree could not be done in zkEVM state-tree"
     },
     {
-      "name": "stSStoreTest/InitCollision_2",
+      "name": "stSStoreTest/InitCollision_2.json",
       "description": "Clear storage tree could not be done in zkEVM state-tree"
     },
     {
-      "name": "stSStoreTest/InitCollision_3",
+      "name": "stSStoreTest/InitCollision_3.json",
       "description": "Clear storage tree could not be done in zkEVM state-tree"
     },
     {
-      "name": "stSStoreTest/InitCollisionNonZeroNonce_0",
+      "name": "stSStoreTest/InitCollisionNonZeroNonce_0.json",
       "description": "Clear storage tree could not be done in zkEVM state-tree"
     },
     {
-      "name": "stSStoreTest/InitCollisionNonZeroNonce_1",
+      "name": "stSStoreTest/InitCollisionNonZeroNonce_1.json",
       "description": "Clear storage tree could not be done in zkEVM state-tree"
     },
     {
-      "name": "stSStoreTest/InitCollisionNonZeroNonce_2",
+      "name": "stSStoreTest/InitCollisionNonZeroNonce_2.json",
       "description": "Clear storage tree could not be done in zkEVM state-tree"
     },
     {
-      "name": "stSStoreTest/InitCollisionNonZeroNonce_3",
+      "name": "stSStoreTest/InitCollisionNonZeroNonce_3.json",
       "description": "Clear storage tree could not be done in zkEVM state-tree"
     },
     {
-      "name": "stCreate2/RevertInCreateInInitCreate2",
+      "name": "stCreate2/RevertInCreateInInitCreate2.json",
       "description": "Clear storage tree could not be done in zkEVM state-tree"
     },
     {
-      "name": "stCreate2/create2collisionStorage_0",
+      "name": "stCreate2/create2collisionStorage_0.json",
       "description": "Clear storage tree could not be done in zkEVM state-tree"
     },
     {
-      "name": "stCreate2/create2collisionStorage_1",
+      "name": "stCreate2/create2collisionStorage_1.json",
       "description": "Clear storage tree could not be done in zkEVM state-tree"
     },
     {
-      "name": "stCreate2/create2collisionStorage_2",
+      "name": "stCreate2/create2collisionStorage_2.json",
       "description": "Clear storage tree could not be done in zkEVM state-tree"
     },
     {
@@ -163,711 +171,279 @@
       "description": "Opcode CHAINID (0x46) called and stored. ChainId does not match. Similar internal test has been done in: state-transition/calldata/chainId.json"
     },
     {
-      "name": "stTransactionTest/PointAtInfinityECRecover",
+      "name": "stTransactionTest/PointAtInfinityECRecover.json",
       "description": "TODO: deltaX == 0 => division by zero ==> how manage? (sm_main_exec.js --> eval_AddPointEc)"
     },
     {
-      "name": "VMTests/jump_16",
+      "name": "VMTests/jump_16.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpi_5",
+      "name": "VMTests/jumpi_5.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_19",
+      "name": "VMTests/jumpToPush_19.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_20",
+      "name": "VMTests/jumpToPush_20.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_21",
+      "name": "VMTests/jumpToPush_21.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_23",
+      "name": "VMTests/jumpToPush_23.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_24",
+      "name": "VMTests/jumpToPush_24.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_25",
+      "name": "VMTests/jumpToPush_25.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_26",
+      "name": "VMTests/jumpToPush_26.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_27",
+      "name": "VMTests/jumpToPush_27.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_28",
+      "name": "VMTests/jumpToPush_28.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_29",
+      "name": "VMTests/jumpToPush_29.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_30",
+      "name": "VMTests/jumpToPush_30.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_31",
+      "name": "VMTests/jumpToPush_31.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_32",
+      "name": "VMTests/jumpToPush_32.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_34",
+      "name": "VMTests/jumpToPush_34.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_35",
+      "name": "VMTests/jumpToPush_35.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_36",
+      "name": "VMTests/jumpToPush_36.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_37",
+      "name": "VMTests/jumpToPush_37.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_38",
+      "name": "VMTests/jumpToPush_38.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_39",
+      "name": "VMTests/jumpToPush_39.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_40",
+      "name": "VMTests/jumpToPush_40.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_41",
+      "name": "VMTests/jumpToPush_41.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_42",
+      "name": "VMTests/jumpToPush_42.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_43",
+      "name": "VMTests/jumpToPush_43.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_45",
+      "name": "VMTests/jumpToPush_45.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_46",
+      "name": "VMTests/jumpToPush_46.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_48",
+      "name": "VMTests/jumpToPush_48.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_49",
+      "name": "VMTests/jumpToPush_49.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_50",
+      "name": "VMTests/jumpToPush_50.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_51",
+      "name": "VMTests/jumpToPush_51.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_52",
+      "name": "VMTests/jumpToPush_52.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_53",
+      "name": "VMTests/jumpToPush_53.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_54",
+      "name": "VMTests/jumpToPush_54.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_56",
+      "name": "VMTests/jumpToPush_56.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_57",
+      "name": "VMTests/jumpToPush_57.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_58",
+      "name": "VMTests/jumpToPush_58.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_59",
+      "name": "VMTests/jumpToPush_59.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_60",
+      "name": "VMTests/jumpToPush_60.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_61",
+      "name": "VMTests/jumpToPush_61.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_62",
+      "name": "VMTests/jumpToPush_62.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_63",
+      "name": "VMTests/jumpToPush_63.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_64",
+      "name": "VMTests/jumpToPush_64.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_65",
+      "name": "VMTests/jumpToPush_65.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_67",
+      "name": "VMTests/jumpToPush_67.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_68",
+      "name": "VMTests/jumpToPush_68.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_69",
+      "name": "VMTests/jumpToPush_69.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_70",
+      "name": "VMTests/jumpToPush_70.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_71",
+      "name": "VMTests/jumpToPush_71.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_72",
+      "name": "VMTests/jumpToPush_72.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_73",
+      "name": "VMTests/jumpToPush_73.json",
       "description": "jump to push"
     },
     {
-      "name": "VMTests/jumpToPush_74",
+      "name": "VMTests/jumpToPush_74.json",
       "description": "jump to push"
     },
     {
-      "name": "stEIP1559/typeTwoBerlin",
-      "description": "EIP1559 not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_0",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_1.json",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_10",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_11",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_12",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_13",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_14",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_15",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_16",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_17",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_18",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_19",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_2.json",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_20",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_21",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_22",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_23",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_24",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_25",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_26",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_27",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_28",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_29",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_3.json",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_30",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_31",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_32",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_33",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_34",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_35",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_36",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_37",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_38",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_39",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_4.json",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_40",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_41",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_42",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_43",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_44",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_45",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_46",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_47",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_5",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_6",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_7",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_8",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/addressOpcodes_9",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/coinbaseT01_1",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/coinbaseT01_2",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/manualCreate_0",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/manualCreate_1",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/manualCreate_2",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_0",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_1.json",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_10",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_11",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_12",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_13",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_14",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_15",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_16",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_17",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_18",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_19",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_2.json",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_20",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_21",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_22",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_23",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_24",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_25",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_26",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_27",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_28",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_29",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_3.json",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_30",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_31",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_32",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_33",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_34",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_35",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_4",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_5",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_6",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_7",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/storageCosts_8",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/transactionCosts_1.json",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/transactionCosts_10",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/transactionCosts_11",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/transactionCosts_2",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/transactionCosts_3",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/transactionCosts_4",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/transactionCosts_5",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/transactionCosts_6",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/transactionCosts_7",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/transactionCosts_8",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/transactionCosts_9",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/variedContext_0",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/variedContext_7",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/variedContext_8",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stEIP2930/variedContext_9",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stExample/accessListExample_0",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stExample/accessListExample_1",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stRefundTest/refundMax",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stRefundTest/refundSSTORE",
-      "description": "tx.type not supported"
-    },
-    {
-      "name": "stRevertTest/RevertInCreateInInit",
+      "name": "stRevertTest/RevertInCreateInInit.json",
       "description": "Do not clean the storage when a contract is deployed in that address"
     },
     {
-      "name": "stRandom2/randomStatetest645_0",
+      "name": "stRandom2/randomStatetest645.json",
       "description": "Precompiled ripemd160 is not supported"
     },
     {
-      "name": "VMTests/blockInfo_1",
+      "name": "VMTests/blockInfo_1.json",
       "description": "rom BATCH_DIFFICULTY != DIFFICULTY"
     },
     {
-      "name": "VMTests/blockInfo_2",
+      "name": "VMTests/blockInfo_2.json",
       "description": "rom TX_GAS_LIMIT != GASLIMIT"
     },
     {
-      "name": "stBadOpcode/invalidAddr_23",
+      "name": "stBadOpcode/invalidAddr_23.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stBadOpcode/invalidAddr_25",
+      "name": "stBadOpcode/invalidAddr_25.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stBadOpcode/invalidAddr_27",
+      "name": "stBadOpcode/invalidAddr_27.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stBadOpcode/invalidAddr_29",
+      "name": "stBadOpcode/invalidAddr_29.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stBadOpcode/invalidAddr_31",
+      "name": "stBadOpcode/invalidAddr_31.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/callToSuicideThenExtcodehash_3",
+      "name": "stExtCodeHash/callToSuicideThenExtcodehash_3.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/createEmptyThenExtcodehash",
+      "name": "stExtCodeHash/createEmptyThenExtcodehash.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/dynamicAccountOverwriteEmpty",
+      "name": "stExtCodeHash/dynamicAccountOverwriteEmpty.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extCodeHashAccountWithoutCode",
+      "name": "stExtCodeHash/extCodeHashAccountWithoutCode.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extCodeHashCALL_0",
+      "name": "stExtCodeHash/extCodeHashCALL_0.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extCodeHashCALLCODE_0",
+      "name": "stExtCodeHash/extCodeHashCALLCODE_0.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extCodeHashDELEGATECALL",
+      "name": "stExtCodeHash/extCodeHashDELEGATECALL.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
@@ -879,223 +455,175 @@
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extCodeHashPrecompiles_0",
+      "name": "stExtCodeHash/extCodeHashPrecompiles_0.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extCodeHashSTATICCALL",
+      "name": "stExtCodeHash/extCodeHashSTATICCALL.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extCodeHashSelfInInit",
+      "name": "stExtCodeHash/extCodeHashSelfInInit.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extCodeHashNonExistingAccount",
+      "name": "stExtCodeHash/extCodeHashNonExistingAccount.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extCodeHashSelf_0",
+      "name": "stExtCodeHash/extCodeHashSelf_0.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extCodeHashSelfInInit_0",
+      "name": "stExtCodeHash/extCodeHashSelfInInit_0.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extCodeHashSubcallOOG_0",
+      "name": "stExtCodeHash/extCodeHashSubcallOOG_0.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extCodeHashSubcallOOG_1",
+      "name": "stExtCodeHash/extCodeHashSubcallOOG_1.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extCodeHashSubcallOOG_2",
+      "name": "stExtCodeHash/extCodeHashSubcallOOG_2.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extcodehashEmpty_0",
+      "name": "stExtCodeHash/extcodehashEmpty_0.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extcodehashEmpty_1",
+      "name": "stExtCodeHash/extcodehashEmpty_1.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extcodehashEmpty_2",
+      "name": "stExtCodeHash/extcodehashEmpty_2.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extcodehashEmpty_3",
+      "name": "stExtCodeHash/extcodehashEmpty_3.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extcodehashEmpty_4",
+      "name": "stExtCodeHash/extcodehashEmpty_4.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extcodehashEmpty_5",
+      "name": "stExtCodeHash/extcodehashEmpty_5.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extcodehashEmpty_6",
+      "name": "stExtCodeHash/extcodehashEmpty_6.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extcodehashEmpty_8",
+      "name": "stExtCodeHash/extcodehashEmpty_8.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extcodehashEmpty_9",
+      "name": "stExtCodeHash/extcodehashEmpty_9.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stRandom/randomStatetest26_0",
+      "name": "stRandom/randomStatetest26.json",
       "description": "rom block info != eth block info"
     },
     {
-      "name": "stRandom/randomStatetest260_0",
+      "name": "stRandom/randomStatetest260.json",
       "description": "rom block info != eth block info"
     },
     {
-      "name": "stRandom/randomStatetest261_0",
+      "name": "stRandom/randomStatetest261.json",
       "description": "rom block info != eth block info"
     },
     {
-      "name": "stRandom/randomStatetest263_0",
+      "name": "stRandom/randomStatetest263.json",
       "description": "rom block info != eth block info"
     },
     {
-      "name": "stRandom/randomStatetest264_0",
+      "name": "stRandom/randomStatetest264.json",
       "description": "rom block info != eth block info"
     },
     {
-      "name": "stRandom/randomStatetest265_0",
+      "name": "stRandom/randomStatetest265.json",
       "description": "rom block info != eth block info"
     },
     {
-      "name": "stRandom/randomStatetest266_0",
+      "name": "stRandom/randomStatetest266.json",
       "description": "rom block info != eth block info"
     },
     {
-      "name": "stRandom/randomStatetest267_0",
+      "name": "stRandom/randomStatetest267.json",
       "description": "rom block info != eth block info"
     },
     {
-      "name": "stRandom/randomStatetest268_0",
+      "name": "stRandom/randomStatetest268.json",
       "description": "rom block info != eth block info"
     },
     {
-      "name": "stRandom/randomStatetest269_0",
+      "name": "stRandom/randomStatetest269.json",
       "description": "rom block info != eth block info"
     },
     {
-      "name": "stRandom/randomStatetest153",
+      "name": "stRandom/randomStatetest153.json",
       "description": "rom block info != eth block info"
     },
     {
-      "name": "stRandom2/randomStatetest417",
+      "name": "stRandom2/randomStatetest417.json",
       "description": "rom block info != eth block info"
     },
     {
-      "name": "stRandom2/randomStatetest466",
+      "name": "stRandom2/randomStatetest466.json",
       "description": "rom block info != eth block info"
     },
     {
-      "name": "stRandom2/randomStatetest554",
+      "name": "stRandom2/randomStatetest554.json",
       "description": "rom block info != eth block info"
     },
     {
-      "name": "stRandom2/randomStatetest577",
+      "name": "stRandom2/randomStatetest577.json",
       "description": "rom block info != eth block info"
     },
     {
-      "name": "stRandom2/randomStatetest627",
+      "name": "stRandom2/randomStatetest627.json",
       "description": "rom block info != eth block info"
     },
     {
-      "name": "stRandom2/randomStatetest632",
+      "name": "stRandom2/randomStatetest632.json",
       "description": "rom block info != eth block info"
     },
     {
-      "name": "stRandom2/randomStatetest458",
+      "name": "stRandom2/randomStatetest458.json",
       "description": "rom NUMBER != eth NUMBER"
     },
     {
-      "name": "EIPTests/stEOF/stEIP3540/CREATE2_EOF1_0",
-      "description": "stEIP3540"
-    },
-    {
-      "name": "EIPTests/stEOF/stEIP3540/CREATE2_EOF1_1",
-      "description": "stEIP3540"
-    },
-    {
-      "name": "EIPTests/stEOF/stEIP3540/CREATE2_EOF1_2",
-      "description": "stEIP3540"
-    },
-    {
-      "name": "EIPTests/stEOF/stEIP3540/CREATE2_EOF1_3",
-      "description": "stEIP3540"
-    },
-    {
-      "name": "EIPTests/stEOF/stEIP3540/CREATE_EOF1_0",
-      "description": "stEIP3540"
-    },
-    {
-      "name": "EIPTests/stEOF/stEIP3540/CREATE_EOF1_1",
-      "description": "stEIP3540"
-    },
-    {
-      "name": "EIPTests/stEOF/stEIP3540/CREATE_EOF1_2",
-      "description": "stEIP3540"
-    },
-    {
-      "name": "EIPTests/stEOF/stEIP3540/CREATE_EOF1_3",
-      "description": "stEIP3540"
-    },
-    {
-      "name": "EIPTests/stEOF/stEIP3540/CreateTransactionEOF1_0",
-      "description": "stEIP3540"
-    },
-    {
-      "name": "EIPTests/stEOF/stEIP3540/CreateTransactionEOF1_1",
-      "description": "stEIP3540"
-    },
-    {
-      "name": "EIPTests/stEOF/stEIP3540/CreateTransactionEOF1_2",
-      "description": "stEIP3540"
-    },
-    {
-      "name": "EIPTests/stEOF/stEIP3540/CreateTransactionEOF1_3",
-      "description": "stEIP3540"
-    },
-    {
-      "name": "stExtCodeHash/codeCopyZero",
+      "name": "stExtCodeHash/codeCopyZero.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extCodeHashChangedAccount",
+      "name": "stExtCodeHash/extCodeHashChangedAccount.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extCodeHashNewAccount",
+      "name": "stExtCodeHash/extCodeHashNewAccount.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stExtCodeHash/extCodeHashMaxCodeSize",
+      "name": "stExtCodeHash/extCodeHashMaxCodeSize.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH"
     },
     {
-      "name": "stRandom/randomStatetest308",
+      "name": "stRandom/randomStatetest308.json",
       "description": "rom TIMESTAMP != TIMESTAMP"
     },
     {
-      "name": "stTransactionTest/HighGasPrice",
+      "name": "stTransactionTest/HighGasPrice.json",
       "description": "It is not possible to generate this test. Equivalent test: zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-custom-tx.json --> zkevm-testvectors/inputs-executor/calldata/custom-tx_1.json"
     },
     {
-      "name": "stTransactionTest/ValueOverflow",
+      "name": "stTransactionTest/ValueOverflow.json",
       "description": "It is not possible to generate this test. Equivalent test: zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-custom-tx.json --> zkevm-testvectors/inputs-executor/calldata/custom-tx_2.json"
     },
     {
@@ -1103,519 +631,519 @@
       "description": "Bytecode starts with 0xEF (we support EIP-3541 in Berlin hardfork). Equivalent tests: zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-op-create.json [id: from 4 to 7] & zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-test-deploy.json [id: from 8 to 9]"
     },
     {
-      "name": "stBadOpcode/invalidDiffPlaces_27",
+      "name": "stBadOpcode/invalidDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc0CDiffPlaces_27",
+      "name": "stBadOpcode/opc0CDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc0DDiffPlaces_27",
+      "name": "stBadOpcode/opc0DDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc0EDiffPlaces_27",
+      "name": "stBadOpcode/opc0EDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc0FDiffPlaces_27",
+      "name": "stBadOpcode/opc0FDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc1EDiffPlaces_27",
+      "name": "stBadOpcode/opc1EDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc1FDiffPlaces_27",
+      "name": "stBadOpcode/opc1FDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc21DiffPlaces_27",
+      "name": "stBadOpcode/opc21DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc22DiffPlaces_27",
+      "name": "stBadOpcode/opc22DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc23DiffPlaces_27",
+      "name": "stBadOpcode/opc23DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc24DiffPlaces_27",
+      "name": "stBadOpcode/opc24DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc25DiffPlaces_27",
+      "name": "stBadOpcode/opc25DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc26DiffPlaces_27",
+      "name": "stBadOpcode/opc26DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc27DiffPlaces_27",
+      "name": "stBadOpcode/opc27DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc28DiffPlaces_27",
+      "name": "stBadOpcode/opc28DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc29DiffPlaces_27",
+      "name": "stBadOpcode/opc29DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc2ADiffPlaces_27",
+      "name": "stBadOpcode/opc2ADiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc2BDiffPlaces_27",
+      "name": "stBadOpcode/opc2BDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc2CDiffPlaces_27",
+      "name": "stBadOpcode/opc2CDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc2DDiffPlaces_27",
+      "name": "stBadOpcode/opc2DDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc2EDiffPlaces_27",
+      "name": "stBadOpcode/opc2EDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc2FDiffPlaces_27",
+      "name": "stBadOpcode/opc2FDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc49DiffPlaces_27",
+      "name": "stBadOpcode/opc49DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc4ADiffPlaces_27",
+      "name": "stBadOpcode/opc4ADiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc4BDiffPlaces_27",
+      "name": "stBadOpcode/opc4BDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc4CDiffPlaces_27",
+      "name": "stBadOpcode/opc4CDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc4DDiffPlaces_27",
+      "name": "stBadOpcode/opc4DDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc4EDiffPlaces_27",
+      "name": "stBadOpcode/opc4EDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc4FDiffPlaces_27",
+      "name": "stBadOpcode/opc4FDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc5CDiffPlaces_27",
+      "name": "stBadOpcode/opc5CDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc5DDiffPlaces_27",
+      "name": "stBadOpcode/opc5DDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc5EDiffPlaces_27",
+      "name": "stBadOpcode/opc5EDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_27",
+      "name": "stBadOpcode/opc5FDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcA5DiffPlaces_27",
+      "name": "stBadOpcode/opcA5DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcA6DiffPlaces_27",
+      "name": "stBadOpcode/opcA6DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcA7DiffPlaces_27",
+      "name": "stBadOpcode/opcA7DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcA8DiffPlaces_27",
+      "name": "stBadOpcode/opcA8DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcA9DiffPlaces_27",
+      "name": "stBadOpcode/opcA9DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcAADiffPlaces_27",
+      "name": "stBadOpcode/opcAADiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcABDiffPlaces_27",
+      "name": "stBadOpcode/opcABDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcACDiffPlaces_27",
+      "name": "stBadOpcode/opcACDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcADDiffPlaces_27",
+      "name": "stBadOpcode/opcADDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcAEDiffPlaces_27",
+      "name": "stBadOpcode/opcAEDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcAFDiffPlaces_27",
+      "name": "stBadOpcode/opcAFDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcB0DiffPlaces_27",
+      "name": "stBadOpcode/opcB0DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcB1DiffPlaces_27",
+      "name": "stBadOpcode/opcB1DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcB2DiffPlaces_27",
+      "name": "stBadOpcode/opcB2DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcB3DiffPlaces_27",
+      "name": "stBadOpcode/opcB3DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcB4DiffPlaces_27",
+      "name": "stBadOpcode/opcB4DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcB5DiffPlaces_27",
+      "name": "stBadOpcode/opcB5DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcB6DiffPlaces_27",
+      "name": "stBadOpcode/opcB6DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcB7DiffPlaces_27",
+      "name": "stBadOpcode/opcB7DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcB8DiffPlaces_27",
+      "name": "stBadOpcode/opcB8DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcB9DiffPlaces_27",
+      "name": "stBadOpcode/opcB9DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcBADiffPlaces_27",
+      "name": "stBadOpcode/opcBADiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcBBDiffPlaces_27",
+      "name": "stBadOpcode/opcBBDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcBCDiffPlaces_27",
+      "name": "stBadOpcode/opcBCDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcBDDiffPlaces_27",
+      "name": "stBadOpcode/opcBDDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcBEDiffPlaces_27",
+      "name": "stBadOpcode/opcBEDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcBFDiffPlaces_27",
+      "name": "stBadOpcode/opcBFDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcC0DiffPlaces_27",
+      "name": "stBadOpcode/opcC0DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcC1DiffPlaces_27",
+      "name": "stBadOpcode/opcC1DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcC2DiffPlaces_27",
+      "name": "stBadOpcode/opcC2DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcC3DiffPlaces_27",
+      "name": "stBadOpcode/opcC3DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcC4DiffPlaces_27",
+      "name": "stBadOpcode/opcC4DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcC5DiffPlaces_27",
+      "name": "stBadOpcode/opcC5DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcC6DiffPlaces_27",
+      "name": "stBadOpcode/opcC6DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcC7DiffPlaces_27",
+      "name": "stBadOpcode/opcC7DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcC8DiffPlaces_27",
+      "name": "stBadOpcode/opcC8DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcC9DiffPlaces_27",
+      "name": "stBadOpcode/opcC9DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcCADiffPlaces_27",
+      "name": "stBadOpcode/opcCADiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcCBDiffPlaces_27",
+      "name": "stBadOpcode/opcCBDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcCCDiffPlaces_27",
+      "name": "stBadOpcode/opcCCDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcCDDiffPlaces_27",
+      "name": "stBadOpcode/opcCDDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcCEDiffPlaces_27",
+      "name": "stBadOpcode/opcCEDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcCFDiffPlaces_27",
+      "name": "stBadOpcode/opcCFDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcD0DiffPlaces_27",
+      "name": "stBadOpcode/opcD0DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcD1DiffPlaces_27",
+      "name": "stBadOpcode/opcD1DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcD2DiffPlaces_27",
+      "name": "stBadOpcode/opcD2DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcD3DiffPlaces_27",
+      "name": "stBadOpcode/opcD3DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcD4DiffPlaces_27",
+      "name": "stBadOpcode/opcD4DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcD5DiffPlaces_27",
+      "name": "stBadOpcode/opcD5DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcD6DiffPlaces_27",
+      "name": "stBadOpcode/opcD6DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcD7DiffPlaces_27",
+      "name": "stBadOpcode/opcD7DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcD8DiffPlaces_27",
+      "name": "stBadOpcode/opcD8DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcD9DiffPlaces_27",
+      "name": "stBadOpcode/opcD9DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcDADiffPlaces_27",
+      "name": "stBadOpcode/opcDADiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcDBDiffPlaces_27",
+      "name": "stBadOpcode/opcDBDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcDCDiffPlaces_27",
+      "name": "stBadOpcode/opcDCDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcDDDiffPlaces_27",
+      "name": "stBadOpcode/opcDDDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcDEDiffPlaces_27",
+      "name": "stBadOpcode/opcDEDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcDFDiffPlaces_27",
+      "name": "stBadOpcode/opcDFDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcE0DiffPlaces_27",
+      "name": "stBadOpcode/opcE0DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcE1DiffPlaces_27",
+      "name": "stBadOpcode/opcE1DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcE2DiffPlaces_27",
+      "name": "stBadOpcode/opcE2DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcE3DiffPlaces_27",
+      "name": "stBadOpcode/opcE3DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcE4DiffPlaces_27",
+      "name": "stBadOpcode/opcE4DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcE5DiffPlaces_27",
+      "name": "stBadOpcode/opcE5DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcE6DiffPlaces_27",
+      "name": "stBadOpcode/opcE6DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcE7DiffPlaces_27",
+      "name": "stBadOpcode/opcE7DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcE8DiffPlaces_27",
+      "name": "stBadOpcode/opcE8DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcE9DiffPlaces_27",
+      "name": "stBadOpcode/opcE9DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcEADiffPlaces_27",
+      "name": "stBadOpcode/opcEADiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcEBDiffPlaces_27",
+      "name": "stBadOpcode/opcEBDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcECDiffPlaces_27",
+      "name": "stBadOpcode/opcECDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcEDDiffPlaces_27",
+      "name": "stBadOpcode/opcEDDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcEEDiffPlaces_27",
+      "name": "stBadOpcode/opcEEDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcEFDiffPlaces_27",
+      "name": "stBadOpcode/opcEFDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcF6DiffPlaces_27",
+      "name": "stBadOpcode/opcF6DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcF7DiffPlaces_27",
+      "name": "stBadOpcode/opcF7DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcF8DiffPlaces_27",
+      "name": "stBadOpcode/opcF8DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcF9DiffPlaces_27",
+      "name": "stBadOpcode/opcF9DiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcFBDiffPlaces_27",
+      "name": "stBadOpcode/opcFBDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcFCDiffPlaces_27",
+      "name": "stBadOpcode/opcFCDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stBadOpcode/opcFEDiffPlaces_27",
+      "name": "stBadOpcode/opcFEDiffPlaces_27.json",
       "description": "Not enough gas to finish recursion"
     },
     {
-      "name": "stRandom/randomStatetest138",
+      "name": "stRandom/randomStatetest138.json",
       "description": "rom BATCH_DIFFICULTY != DIFFICULTY --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-block_3.json"
     },
     {
-      "name": "stRandom/randomStatetest367",
+      "name": "stRandom/randomStatetest367.json",
       "description": "rom BATCH_DIFFICULTY != DIFFICULTY --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-block_3.json"
     },
     {
-      "name": "stCreateTest/createLargeResult_0",
+      "name": "stCreateTest/createLargeResult_0.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
     },
     {
-      "name": "stCreateTest/createLargeResult_1",
+      "name": "stCreateTest/createLargeResult_1.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
     },
     {
-      "name": "stCreateTest/createLargeResult_2",
+      "name": "stCreateTest/createLargeResult_2.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
     },
     {
-      "name": "stCreateTest/createLargeResult_5",
+      "name": "stCreateTest/createLargeResult_5.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
     },
     {
-      "name": "stCreateTest/createLargeResult_6",
+      "name": "stCreateTest/createLargeResult_6.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
     },
     {
-      "name": "stCreateTest/createLargeResult_7",
+      "name": "stCreateTest/createLargeResult_7.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
     },
     {
-      "name": "stCreateTest/createLargeResult_8",
+      "name": "stCreateTest/createLargeResult_8.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
     },
     {
-      "name": "stCreateTest/createLargeResult_9",
+      "name": "stCreateTest/createLargeResult_9.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
     },
     {
-      "name": "stCreateTest/createLargeResult_10",
+      "name": "stCreateTest/createLargeResult_10.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
     },
     {
-      "name": "stCreateTest/createLargeResult_11",
+      "name": "stCreateTest/createLargeResult_11.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
     },
     {
-      "name": "stCreateTest/createLargeResult_12",
+      "name": "stCreateTest/createLargeResult_12.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
     },
     {
-      "name": "stCreateTest/createLargeResult_13",
+      "name": "stCreateTest/createLargeResult_13.json",
       "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
     },
     {
@@ -1629,10 +1157,6 @@
     {
       "name": "stCreateTest/CreateTransactionHighNonce_1.json",
       "description": "nonce overflow TODO: test"
-    },
-    {
-      "name": "VMTests/sha3_10",
-      "description": "not supported WIP test"
     },
     {
       "name": "stTransactionTest/InternlCallStoreClearsSucces.json",
@@ -1649,30 +1173,6 @@
     {
       "name": "stTransactionTest/StoreClearsAndInternlCallStoreClearsOOG.json",
       "description": "Storage at key 0, address 0"
-    },
-    {
-      "name": "stCallCreateCallCodeTest/createInitFailBadJumpDestination",
-      "description": "Selfdestruct"
-    },
-    {
-      "name": "stCallCreateCallCodeTest/createInitFailBadJumpDestination2",
-      "description": "Selfdestruct"
-    },
-    {
-      "name": "stCallCreateCallCodeTest/createInitFailStackSizeLargerThan1024",
-      "description": "Selfdestruct"
-    },
-    {
-      "name": "stCallCreateCallCodeTest/createInitFailStackUnderflow",
-      "description": "Selfdestruct"
-    },
-    {
-      "name": "stCallCreateCallCodeTest/createInitFailUndefinedInstruction",
-      "description": "Selfdestruct"
-    },
-    {
-      "name": "stCallCreateCallCodeTest/createInitFailUndefinedInstruction2",
-      "description": "Selfdestruct"
     },
     {
       "name": "stSpecialTest/JUMPDEST_Attack.json",
@@ -1735,12 +1235,52 @@
       "description": "access to memory address too big"
     },
     {
-      "name": "stStaticCall/static_Call50000_identity2_0",
-      "description": "tx gas > max int"
+      "name": "EIPTests/CREATE2_EOF1_0.json",
+      "description": "EIP3540 not supported"
     },
     {
-      "name": "stStaticCall/static_Call50000_identity2_1",
-      "description": "tx gas > max int"
+      "name": "EIPTests/CREATE2_EOF1_1.json",
+      "description": "EIP3540 not supported"
+    },
+    {
+      "name": "EIPTests/CREATE2_EOF1_2.json",
+      "description": "EIP3540 not supported"
+    },
+    {
+      "name": "EIPTests/CREATE2_EOF1_3.json",
+      "description": "EIP3540 not supported"
+    },
+    {
+      "name": "EIPTests/CREATE_EOF1_0.json",
+      "description": "EIP3540 not supported"
+    },
+    {
+      "name": "EIPTests/CREATE_EOF1_1.json",
+      "description": "EIP3540 not supported"
+    },
+    {
+      "name": "EIPTests/CREATE_EOF1_2.json",
+      "description": "EIP3540 not supported"
+    },
+    {
+      "name": "EIPTests/CREATE_EOF1_3.json",
+      "description": "EIP3540 not supported"
+    },
+    {
+      "name": "EIPTests/CreateTransactionEOF1_0.json",
+      "description": "EIP3540 not supported"
+    },
+    {
+      "name": "EIPTests/CreateTransactionEOF1_1.json",
+      "description": "EIP3540 not supported"
+    },
+    {
+      "name": "EIPTests/CreateTransactionEOF1_2.json",
+      "description": "EIP3540 not supported"
+    },
+    {
+      "name": "EIPTests/CreateTransactionEOF1_3.json",
+      "description": "EIP3540 not supported"
     },
     {
       "name": "VMTests/suicide_0.json",
@@ -2032,6 +1572,30 @@
     },
     {
       "name": "stCallCreateCallCodeTest/createFailBalanceTooLow_1.json",
+      "description": "Selfdestruct"
+    },
+    {
+      "name": "stCallCreateCallCodeTest/createInitFailBadJumpDestination.json",
+      "description": "Selfdestruct"
+    },
+    {
+      "name": "stCallCreateCallCodeTest/createInitFailBadJumpDestination2.json",
+      "description": "Selfdestruct"
+    },
+    {
+      "name": "stCallCreateCallCodeTest/createInitFailStackSizeLargerThan1024.json",
+      "description": "Selfdestruct"
+    },
+    {
+      "name": "stCallCreateCallCodeTest/createInitFailStackUnderflow.json",
+      "description": "Selfdestruct"
+    },
+    {
+      "name": "stCallCreateCallCodeTest/createInitFailUndefinedInstruction.json",
+      "description": "Selfdestruct"
+    },
+    {
+      "name": "stCallCreateCallCodeTest/createInitFailUndefinedInstruction2.json",
       "description": "Selfdestruct"
     },
     {
@@ -2643,6 +2207,10 @@
       "description": "EIP1559 not supported"
     },
     {
+      "name": "stEIP1559/typeTwoBerlin.json",
+      "description": "EIP1559 not supported"
+    },
+    {
       "name": "stEIP158Specific/CALL_OneVCallSuicide.json",
       "description": "Selfdestruct"
     },
@@ -2653,6 +2221,386 @@
     {
       "name": "stEIP158Specific/vitalikTransactionTest.json",
       "description": "Selfdestruct"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_0.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_1.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_2.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_3.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_4.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_5.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_6.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_7.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_8.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_9.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_10.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_11.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_12.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_13.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_14.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_15.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_16.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_17.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_18.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_19.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_20.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_21.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_22.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_23.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_24.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_25.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_26.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_27.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_28.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_29.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_30.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_31.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_32.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_33.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_34.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_35.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_36.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_37.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_38.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_39.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_40.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_41.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_42.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_43.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_44.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_45.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_46.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/addressOpcodes_47.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/coinbaseT01_1.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/coinbaseT01_2.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/manualCreate_0.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/manualCreate_1.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/manualCreate_2.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_0.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_1.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_2.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_3.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_4.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_5.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_6.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_7.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_8.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_11.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_16.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_17.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_18.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_19.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_20.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_21.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_22.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_23.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_24.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_25.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_26.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_27.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_28.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_29.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_30.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_31.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_32.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_33.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_34.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/storageCosts_35.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/transactionCosts_1.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/transactionCosts_2.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/transactionCosts_3.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/transactionCosts_4.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/transactionCosts_5.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/transactionCosts_6.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/transactionCosts_7.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/transactionCosts_8.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/transactionCosts_9.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/transactionCosts_10.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/transactionCosts_11.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/variedContext_0.json",
+      "description": "tx.type not supported"
     },
     {
       "name": "stEIP2930/variedContext_1.json",
@@ -2677,6 +2625,18 @@
     {
       "name": "stEIP2930/variedContext_6.json",
       "description": "tx gas > max int"
+    },
+    {
+      "name": "stEIP2930/variedContext_7.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/variedContext_8.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stEIP2930/variedContext_9.json",
+      "description": "tx.type not supported"
     },
     {
       "name": "stEIP2930/variedContext_10.json",
@@ -2780,6 +2740,14 @@
     },
     {
       "name": "stEIP2930/variedContext_35.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stExample/accessListExample_0.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stExample/accessListExample_1.json",
       "description": "tx.type not supported"
     },
     {
@@ -3651,6 +3619,10 @@
       "description": "Selfdestruct"
     },
     {
+      "name": "stRandom2/randomStatetest645_0.json",
+      "description": "tx gas > max int"
+    },
+    {
       "name": "stRandom2/randomStatetest645_1.json",
       "description": "tx gas > max int"
     },
@@ -3688,6 +3660,14 @@
     },
     {
       "name": "stRefundTest/refundFF.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stRefundTest/refundMax.json",
+      "description": "tx.type not supported"
+    },
+    {
+      "name": "stRefundTest/refundSSTORE.json",
       "description": "tx.type not supported"
     },
     {

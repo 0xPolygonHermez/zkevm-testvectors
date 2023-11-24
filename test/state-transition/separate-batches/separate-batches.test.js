@@ -122,7 +122,6 @@ describe('Check roots same txs in different batches', function () {
 
         // get stark input
         const starkInput = await batch.getStarkInput();
-        starkInput.l1Info = extraData.l1Info;
         rootTxSameBatch = starkInput.newStateRoot;
 
         if (update) {
@@ -131,6 +130,7 @@ describe('Check roots same txs in different batches', function () {
             generateData.newStateRoot = starkInput.newStateRoot;
             generateData.newAccInputHash = starkInput.newAccInputHash;
             generateData.forkID = testvectorsGlobalConfig.forkID;
+            generateData.l1InfoTree = starkInput.l1InfoTree;
             delete generateData.globalExitRoot;
             await fs.writeFileSync(pathInput, JSON.stringify(generateData, null, 2));
         }
@@ -211,7 +211,6 @@ describe('Check roots same txs in different batches', function () {
             // build batch
             await batch.executeTxs();
             const starkInput = await batch.getStarkInput();
-            starkInput.l1Info = extraData.l1Info;
             // console.log(starkInput);
 
             if (update) {

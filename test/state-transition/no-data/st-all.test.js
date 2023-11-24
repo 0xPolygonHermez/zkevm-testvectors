@@ -224,8 +224,6 @@ describe('Run state-transition tests', function () {
                 };
 
                 const rawChangeL2BlockTx = processorUtils.serializeChangeL2Block(txChangeL2Block);
-                // Append l1Info to l1Info object
-                extraData.l1Info[txChangeL2Block.indexL1InfoTree] = txChangeL2Block.l1Info;
                 const customRawTx = `0x${rawChangeL2BlockTx}`;
                 batch.addRawTx(customRawTx);
 
@@ -288,7 +286,6 @@ describe('Run state-transition tests', function () {
 
                 // Check the circuit input
                 const circuitInput = await batch.getStarkInput();
-                circuitInput.l1Info = extraData.l1Info;
                 if (update) {
                     testVectors[j].batchL2Data = batch.getBatchL2Data();
                     testVectors[j].batchHashData = circuitInput.batchHashData;
@@ -299,6 +296,7 @@ describe('Run state-transition tests', function () {
                     testVectors[j].newLocalExitRoot = circuitInput.newLocalExitRoot;
                     testVectors[j].oldAccInputHash = oldAccInputHash;
                     testVectors[j].forkID = testvectorsGlobalConfig.forkID;
+                    testVectors[j].l1InfoTree = circuitInput.l1InfoTree;
 
                     // delete old unused values
                     delete testVectors[j].globalExitRoot;
