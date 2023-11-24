@@ -1237,6 +1237,13 @@
       {
         "name": "stRandom2/randomStatetest498.json",
         "description": "access to memory address too big"
+      },
+      {
+      "name": "stStaticCall/static_Call50000_identity2_0.json",
+      "description": "tx gas > max int"
+      },
+      {
+      "name": "stStaticCall/static_Call50000_identity2_1.json",
+      "description": "tx gas > max int"
       }
-    ]
 }
