@@ -123,7 +123,7 @@ describe('Check roots same txs in different batches', function () {
         // get stark input
         const starkInput = await batch.getStarkInput();
         rootTxSameBatch = starkInput.newStateRoot;
-
+        starkInput.l1InfoTree = Object.assign(starkInput.l1InfoTree, extraData.l1Info);
         if (update) {
             const pathOutput = path.join(pathInputExecutor, 'txs-same-batch.json');
             await fs.writeFileSync(pathOutput, JSON.stringify(starkInput, null, 2));
@@ -211,6 +211,7 @@ describe('Check roots same txs in different batches', function () {
             // build batch
             await batch.executeTxs();
             const starkInput = await batch.getStarkInput();
+            starkInput.l1InfoTree = Object.assign(starkInput.l1InfoTree, extraData.l1Info);
             // console.log(starkInput);
 
             if (update) {

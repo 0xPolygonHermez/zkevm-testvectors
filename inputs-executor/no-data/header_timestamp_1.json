@@ -1,6 +1,6 @@
 {
-  "oldStateRoot": "0x8c8dfcd4258fbff424885c31cce5e0406ce1c9459dc3e968de867fed55d25252",
-  "newStateRoot": "0xe9d7eab87a2040633a3e0a7fd18ab8560785fd00c892034470d900c84f3f1826",
+  "oldStateRoot": "0x64d468bd52f6446b312648eaf5106cee92081236a780c40f1af4e0690921cb27",
+  "newStateRoot": "0x4d7298902085322274927351c7ee932bf5ae61d0a74fe5e78dfb47e244a11b82",
   "oldAccInputHash": "0x86035445dae3406289aa7f8008cbc87737f755a7785cb51edb873eb10a9bc06e",
   "newAccInputHash": "0xb7c7abde8ec69c0fa32f09eb10c8d14424c30b611414511079f85d1ed717ffba",
   "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -26,11 +26,11 @@
     "skipVerifyL1InfoRoot": true
   },
   "db": {
-    "0x8c8dfcd4258fbff424885c31cce5e0406ce1c9459dc3e968de867fed55d25252": [
-      "d1604c2428f88787",
-      "d85ce42c54d30af1",
-      "ab7bdd8d16c89be6",
-      "31d3206375808937",
+    "0x64d468bd52f6446b312648eaf5106cee92081236a780c40f1af4e0690921cb27": [
+      "ee9d53a60458232b",
+      "b0c374b9864d66fd",
+      "91875cc64c2f9380",
+      "73062129daae4032",
       "aacc475904521c09",
       "cf80e0fec11ec6da",
       "faff59b91cf9f918",
@@ -40,11 +40,11 @@
       "0000000000000000",
       "0000000000000000"
     ],
-    "0x31d3206375808937ab7bdd8d16c89be6d85ce42c54d30af1d1604c2428f88787": [
-      "4bb4b45d116ab692",
-      "5088e5e6c8c86aed",
-      "97c3f6fdba7e3018",
-      "d6e1dd7f1eaeda5c",
+    "0x73062129daae403291875cc64c2f9380b0c374b9864d66fdee9d53a60458232b": [
+      "4d839f4c31da1e0c",
+      "830f1474b98a3489",
+      "814127f345100121",
+      "c40f728f1a90769e",
       "b13b9fcd0bf31e96",
       "24c1c5a0291b69c5",
       "88000e68fdd2ed1a",
@@ -54,29 +54,29 @@
       "0000000000000000",
       "0000000000000000"
     ],
-    "0xd6e1dd7f1eaeda5c97c3f6fdba7e30185088e5e6c8c86aed4bb4b45d116ab692": [
+    "0xc40f728f1a90769e814127f345100121830f1474b98a34894d839f4c31da1e0c": [
       "40ec72fd7db6a1e5",
       "6bba532b78666608",
       "d16fececc9dbf194",
       "62dc6ae3ffcc2dbc",
-      "fcbf5fa896718b0f",
-      "ce8d06bf8aa32185",
-      "5c9dbb7e61dcbde0",
-      "e65eddbca8f4e5b7",
+      "5a15d951217ba9a1",
+      "f50375848dc74710",
+      "b45194f0f7a06ea0",
+      "cc7dee5ee879128f",
       "0000000000000001",
       "0000000000000000",
       "0000000000000000",
       "0000000000000000"
     ],
-    "0xe65eddbca8f4e5b75c9dbb7e61dcbde0ce8d06bf8aa32185fcbf5fa896718b0f": [
-      "00000000982f309f",
-      "0000000007370b93",
-      "000000006d0db4f5",
-      "00000000bac9573e",
-      "00000000fb533ac8",
-      "00000000495246c7",
-      "0000000025f876b1",
-      "0000000046ae9c67"
+    "0xcc7dee5ee879128fb45194f0f7a06ea0f50375848dc747105a15d951217ba9a1": [
+      "000000003b4b09b9",
+      "0000000077505c05",
+      "0000000003f0acf5",
+      "0000000055500291",
+      "0000000098d51c62",
+      "0000000083260be8",
+      "000000004bc3bf11",
+      "000000000490fdd5"
     ],
     "0x38b87d8a65d32c5888000e68fdd2ed1a24c1c5a0291b69c5b13b9fcd0bf31e96": [
       "9b0b5a4fd2bd6db1",
@@ -584,12 +584,5 @@
       "0000000000000000",
       "0000000000000000"
     ]
-  },
-  "l1Info": {
-    "1": {
-      "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-      "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
-      "timestamp": "42"
-    }
   }
 }

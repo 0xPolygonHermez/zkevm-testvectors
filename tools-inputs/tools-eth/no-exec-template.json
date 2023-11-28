@@ -1,1249 +1,1250 @@
 {
-    "breaks-computation": [
-      {
-        "name": "FirstByte",
-        "description": "Bug at merkle-patricia-level where rlp encoding/decoding is used. Address above 0x800...000 returns a not find node in the tree."
-      },
-      {
-        "name": "performanceTester_4.json",
-        "description": "Error: JavaScript heap out of memory"
-      },
-      {
-        "name": "stStaticCall/static_LoopCallsThenRevert_1",
-        "description": "When the test is generated it ends with: Killed"
-      },
-      {
-        "name": "stQuadraticComplexityTest/Return50000_1",
-        "description": "Error: JavaScript heap out of memory"
-      },
-      {
-        "name": "stQuadraticComplexityTest/Return50000_2_1",
-        "description": "Error: JavaScript heap out of memory"
-      },
-      {
-        "name": "VMTests/vmPerformance/loopExp_1.json",
-        "description": "Error: JavaScript heap out of memory"
-      },
-      {
-        "name": "VMTests/vmPerformance/loopExp_2.json",
-        "description": "Error: JavaScript heap out of memory"
-      },
-      {
-        "name": "VMTests/vmPerformance/loopExp_3.json",
-        "description": "Error: JavaScript heap out of memory"
-      },
-      {
-        "name": "VMTests/vmPerformance/loopExp_4.json",
-        "description": "Error: JavaScript heap out of memory"
-      },
-      {
-        "name": "VMTests/vmPerformance/loopExp_5.json",
-        "description": "Error: JavaScript heap out of memory"
-      },
-      {
-        "name": "VMTests/vmPerformance/loopExp_13.json",
-        "description": "Error: JavaScript heap out of memory"
-      },
-      {
-        "name": "VMTests/vmPerformance/loopExp_14.json",
-        "description": "Error: JavaScript heap out of memory"
-      },
-      {
-        "name": "VMTests/vmPerformance/loopMul_0.json",
-        "description": "Error: JavaScript heap out of memory"
-      },
-      {
-        "name": "VMTests/vmPerformance/loopMul_1.json",
-        "description": "Error: JavaScript heap out of memory"
-      },
-      {
-        "name": "VMTests/vmPerformance/loopMul_2.json",
-        "description": "Error: JavaScript heap out of memory"
-      },
-      {
-        "name": "stStaticCall/static_LoopCallsThenRevert_0.json",
-        "description": "Killed"
-      },
-      {
-        "name": "stStaticCall/static_Return50000_2.json",
-        "description": "Killed"
-      },
-      {
-        "name": "stStaticCall/static_Call50000bytesContract50_1_1.json",
-        "description": "Killed"
-      },
-      {
-        "name": "stStaticCall/static_Call50000_1.json",
-        "description": "Killed"
-      },
-      {
-        "name": "stStaticCall/static_Call50000_ecrec_0.json",
-        "description": "Killed"
-      },
-      {
-        "name": "stStaticCall/static_Call50000_ecrec_1.json",
-        "description": "Killed"
-      },
-      {
-        "name": "stStaticCall/static_Call50000_identity_0.json",
-        "description": "Killed"
-      },
-      {
-        "name": "stStaticCall/static_Call50000_identity_1.json",
-        "description": "Killed"
-      },
-      {
-        "name": "stStaticCall/static_Call50000bytesContract50_2_1.json",
-        "description": "Killed"
-      },
-      {
-        "name": "stQuadraticComplexityTest/Call50000_1.json",
-        "description": "Killed"
-      },
-      {
-        "name": "stQuadraticComplexityTest/Call50000_identity_1.json",
-        "description": "Killed"
-      },
-      {
-        "name": "stQuadraticComplexityTest/Call50000_identity2_1.json",
-        "description": "Killed"
-      },
-      {
-        "name": "stQuadraticComplexityTest/QuadraticComplexitySolidity_CallDataCopy_1.json",
-        "description": "Killed"
-      },
-      {
-        "name": "stRandom/randomStatetest307.json",
-        "description": "Killed"
-      }
-    ],
-    "not-supported": [
-      {
-        "name": "stSStoreTest/InitCollision_0.json",
-        "description": "Clear storage tree could not be done in zkEVM state-tree"
-      },
-      {
-        "name": "stSStoreTest/InitCollision_1.json",
-        "description": "Clear storage tree could not be done in zkEVM state-tree"
-      },
-      {
-        "name": "stSStoreTest/InitCollision_2.json",
-        "description": "Clear storage tree could not be done in zkEVM state-tree"
-      },
-      {
-        "name": "stSStoreTest/InitCollision_3.json",
-        "description": "Clear storage tree could not be done in zkEVM state-tree"
-      },
-      {
-        "name": "stSStoreTest/InitCollisionNonZeroNonce_0.json",
-        "description": "Clear storage tree could not be done in zkEVM state-tree"
-      },
-      {
-        "name": "stSStoreTest/InitCollisionNonZeroNonce_1.json",
-        "description": "Clear storage tree could not be done in zkEVM state-tree"
-      },
-      {
-        "name": "stSStoreTest/InitCollisionNonZeroNonce_2.json",
-        "description": "Clear storage tree could not be done in zkEVM state-tree"
-      },
-      {
-        "name": "stSStoreTest/InitCollisionNonZeroNonce_3.json",
-        "description": "Clear storage tree could not be done in zkEVM state-tree"
-      },
-      {
-        "name": "stCreate2/RevertInCreateInInitCreate2.json",
-        "description": "Clear storage tree could not be done in zkEVM state-tree"
-      },
-      {
-        "name": "stCreate2/create2collisionStorage_0.json",
-        "description": "Clear storage tree could not be done in zkEVM state-tree"
-      },
-      {
-        "name": "stCreate2/create2collisionStorage_1.json",
-        "description": "Clear storage tree could not be done in zkEVM state-tree"
-      },
-      {
-        "name": "stCreate2/create2collisionStorage_2.json",
-        "description": "Clear storage tree could not be done in zkEVM state-tree"
-      },
-      {
-        "name": "stChainId/chainId.json",
-        "description": "Opcode CHAINID (0x46) called and stored. ChainId does not match. Similar internal test has been done in: state-transition/calldata/chainId.json"
-      },
-      {
-        "name": "stTransactionTest/PointAtInfinityECRecover.json",
-        "description": "TODO: deltaX == 0 => division by zero ==> how manage? (sm_main_exec.js --> eval_AddPointEc)"
-      },
-      {
-        "name": "VMTests/jump_16.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpi_5.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_19.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_20.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_21.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_23.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_24.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_25.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_26.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_27.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_28.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_29.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_30.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_31.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_32.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_34.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_35.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_36.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_37.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_38.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_39.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_40.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_41.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_42.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_43.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_45.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_46.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_48.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_49.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_50.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_51.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_52.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_53.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_54.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_56.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_57.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_58.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_59.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_60.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_61.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_62.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_63.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_64.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_65.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_67.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_68.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_69.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_70.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_71.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_72.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_73.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "VMTests/jumpToPush_74.json",
-        "description": "jump to push"
-      },
-      {
-        "name": "stRevertTest/RevertInCreateInInit.json",
-        "description": "Do not clean the storage when a contract is deployed in that address"
-      },
-      {
-        "name": "stRandom2/randomStatetest645.json",
-        "description": "Precompiled ripemd160 is not supported"
-      },
-      {
-        "name": "VMTests/blockInfo_1.json",
-        "description": "rom BATCH_DIFFICULTY != DIFFICULTY"
-      },
-      {
-        "name": "VMTests/blockInfo_2.json",
-        "description": "rom TX_GAS_LIMIT != GASLIMIT"
-      },
-      {
-        "name": "stBadOpcode/invalidAddr_23.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stBadOpcode/invalidAddr_25.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stBadOpcode/invalidAddr_27.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stBadOpcode/invalidAddr_29.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stBadOpcode/invalidAddr_31.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/callToSuicideThenExtcodehash_3.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/createEmptyThenExtcodehash.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/dynamicAccountOverwriteEmpty.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extCodeHashAccountWithoutCode.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extCodeHashCALL_0.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extCodeHashCALLCODE_0.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extCodeHashDELEGATECALL.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extCodeHashInInitCode_0.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extCodeHashInInitCode_1.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extCodeHashPrecompiles_0.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extCodeHashSTATICCALL.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extCodeHashSelfInInit.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extCodeHashNonExistingAccount.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extCodeHashSelf_0.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extCodeHashSelfInInit_0.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extCodeHashSubcallOOG_0.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extCodeHashSubcallOOG_1.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extCodeHashSubcallOOG_2.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extcodehashEmpty_0.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extcodehashEmpty_1.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extcodehashEmpty_2.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extcodehashEmpty_3.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extcodehashEmpty_4.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extcodehashEmpty_5.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extcodehashEmpty_6.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extcodehashEmpty_8.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extcodehashEmpty_9.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stRandom/randomStatetest26.json",
-        "description": "rom block info != eth block info"
-      },
-      {
-        "name": "stRandom/randomStatetest260.json",
-        "description": "rom block info != eth block info"
-      },
-      {
-        "name": "stRandom/randomStatetest261.json",
-        "description": "rom block info != eth block info"
-      },
-      {
-        "name": "stRandom/randomStatetest263.json",
-        "description": "rom block info != eth block info"
-      },
-      {
-        "name": "stRandom/randomStatetest264.json",
-        "description": "rom block info != eth block info"
-      },
-      {
-        "name": "stRandom/randomStatetest265.json",
-        "description": "rom block info != eth block info"
-      },
-      {
-        "name": "stRandom/randomStatetest266.json",
-        "description": "rom block info != eth block info"
-      },
-      {
-        "name": "stRandom/randomStatetest267.json",
-        "description": "rom block info != eth block info"
-      },
-      {
-        "name": "stRandom/randomStatetest268.json",
-        "description": "rom block info != eth block info"
-      },
-      {
-        "name": "stRandom/randomStatetest269.json",
-        "description": "rom block info != eth block info"
-      },
-      {
-        "name": "stRandom/randomStatetest153.json",
-        "description": "rom block info != eth block info"
-      },
-      {
-        "name": "stRandom2/randomStatetest417.json",
-        "description": "rom block info != eth block info"
-      },
-      {
-        "name": "stRandom2/randomStatetest466.json",
-        "description": "rom block info != eth block info"
-      },
-      {
-        "name": "stRandom2/randomStatetest554.json",
-        "description": "rom block info != eth block info"
-      },
-      {
-        "name": "stRandom2/randomStatetest577.json",
-        "description": "rom block info != eth block info"
-      },
-      {
-        "name": "stRandom2/randomStatetest627.json",
-        "description": "rom block info != eth block info"
-      },
-      {
-        "name": "stRandom2/randomStatetest632.json",
-        "description": "rom block info != eth block info"
-      },
-      {
-        "name": "stRandom2/randomStatetest458.json",
-        "description": "rom NUMBER != eth NUMBER"
-      },
-      {
-        "name": "stExtCodeHash/codeCopyZero.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extCodeHashChangedAccount.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extCodeHashNewAccount.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stExtCodeHash/extCodeHashMaxCodeSize.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH"
-      },
-      {
-        "name": "stRandom/randomStatetest308.json",
-        "description": "rom TIMESTAMP != TIMESTAMP"
-      },
-      {
-        "name": "stTransactionTest/HighGasPrice.json",
-        "description": "It is not possible to generate this test. Equivalent test: zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-custom-tx.json --> zkevm-testvectors/inputs-executor/calldata/custom-tx_1.json"
-      },
-      {
-        "name": "stTransactionTest/ValueOverflow.json",
-        "description": "It is not possible to generate this test. Equivalent test: zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-custom-tx.json --> zkevm-testvectors/inputs-executor/calldata/custom-tx_2.json"
-      },
-      {
-        "name": "stTransactionTest/Opcodes_TransactionInit_35.json",
-        "description": "Bytecode starts with 0xEF (we support EIP-3541 in Berlin hardfork). Equivalent tests: zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-op-create.json [id: from 4 to 7] & zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-test-deploy.json [id: from 8 to 9]"
-      },
-      {
-        "name": "stBadOpcode/invalidDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc0CDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc0DDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc0EDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc0FDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc1EDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc1FDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc21DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc22DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc23DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc24DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc25DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc26DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc27DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc28DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc29DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc2ADiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc2BDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc2CDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc2DDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc2EDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc2FDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc49DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc4ADiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc4BDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc4CDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc4DDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc4EDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc4FDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc5CDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc5DDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc5EDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opc5FDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcA5DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcA6DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcA7DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcA8DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcA9DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcAADiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcABDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcACDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcADDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcAEDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcAFDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcB0DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcB1DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcB2DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcB3DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcB4DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcB5DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcB6DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcB7DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcB8DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcB9DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcBADiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcBBDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcBCDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcBDDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcBEDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcBFDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcC0DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcC1DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcC2DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcC3DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcC4DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcC5DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcC6DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcC7DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcC8DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcC9DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcCADiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcCBDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcCCDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcCDDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcCEDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcCFDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcD0DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcD1DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcD2DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcD3DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcD4DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcD5DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcD6DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcD7DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcD8DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcD9DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcDADiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcDBDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcDCDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcDDDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcDEDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcDFDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcE0DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcE1DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcE2DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcE3DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcE4DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcE5DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcE6DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcE7DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcE8DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcE9DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcEADiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcEBDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcECDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcEDDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcEEDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcEFDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcF6DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcF7DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcF8DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcF9DiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcFBDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcFCDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stBadOpcode/opcFEDiffPlaces_27.json",
-        "description": "Not enough gas to finish recursion"
-      },
-      {
-        "name": "stRandom/randomStatetest138.json",
-        "description": "rom BATCH_DIFFICULTY != DIFFICULTY --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-block_3.json"
-      },
-      {
-        "name": "stRandom/randomStatetest367.json",
-        "description": "rom BATCH_DIFFICULTY != DIFFICULTY --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-block_3.json"
-      },
-      {
-        "name": "stCreateTest/createLargeResult_0.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
-      },
-      {
-        "name": "stCreateTest/createLargeResult_1.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
-      },
-      {
-        "name": "stCreateTest/createLargeResult_2.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
-      },
-      {
-        "name": "stCreateTest/createLargeResult_5.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
-      },
-      {
-        "name": "stCreateTest/createLargeResult_6.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
-      },
-      {
-        "name": "stCreateTest/createLargeResult_7.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
-      },
-      {
-        "name": "stCreateTest/createLargeResult_8.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
-      },
-      {
-        "name": "stCreateTest/createLargeResult_9.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
-      },
-      {
-        "name": "stCreateTest/createLargeResult_10.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
-      },
-      {
-        "name": "stCreateTest/createLargeResult_11.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
-      },
-      {
-        "name": "stCreateTest/createLargeResult_12.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
-      },
-      {
-        "name": "stCreateTest/createLargeResult_13.json",
-        "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
-      },
-      {
-        "name": "stBadOpcode/badOpcodes_43.json",
-        "description": "0x5f is valid opcode"
-      },
-      {
-        "name": "stCreateTest/CreateTransactionHighNonce_0.json",
-        "description": "nonce overflow TODO: test"
-      },
-      {
-        "name": "stCreateTest/CreateTransactionHighNonce_1.json",
-        "description": "nonce overflow TODO: test"
-      },
-      {
-        "name": "VMTests/sha3_10",
-        "description": "not supported OOCK test"
-      },
-      {
-        "name": "stTransactionTest/InternlCallStoreClearsSucces.json",
-        "description": "Storage at key 0, address 0"
-      },
-      {
-        "name": "stTransactionTest/InternlCallStoreClearsOOG.json",
-        "description": "Storage at key 0, address 0"
-      },
-      {
-        "name": "stTransactionTest/StoreClearsAndInternlCallStoreClearsSuccess.json",
-        "description": "Storage at key 0, address 0"
-      },
-      {
-        "name": "stTransactionTest/StoreClearsAndInternlCallStoreClearsOOG.json",
-        "description": "Storage at key 0, address 0"
-      },
-      {
-        "name": "stSpecialTest/JUMPDEST_Attack.json",
-        "description": "recursive calls (?)"
-      },
-      {
-        "name": "stSpecialTest/JUMPDEST_AttackwithJump.json",
-        "description": "recursive calls (?)"
-      },
-      {
-        "name": "stStaticCall/static_ABAcalls1_1.json",
-        "description": "recursive calls (?)"
-      },
-      {
-        "name": "stStaticCall/static_ABAcalls2_1.json",
-        "description": "recursive calls (?)"
-      },
-      {
-        "name": "stMemoryStressTest/MLOAD_Bounds3_0.json",
-        "description": "access to memory address too big"
-      },
-      {
-        "name": "stMemoryStressTest/MLOAD_Bounds3_1.json",
-        "description": "access to memory address too big"
-      },
-      {
-        "name": "stMemoryStressTest/MSTORE_Bounds2a_1.json",
-        "description": "access to memory address too big"
-      },
-      {
-        "name": "VMTests/vmIOandFlowOperations/msize_5.json",
-        "description": "access to memory address too big"
-      },
-      {
-        "name": "VMTests/msize_5.json",
-        "description": "access to memory address too big"
-      },
-      {
-        "name": "stRandom/randomStatetest163.json",
-        "description": "access to memory address too big"
-      },
-      {
-        "name": "stRandom/randomStatetest185.json",
-        "description": "access to memory address too big"
-      },
-      {
-        "name": "stRandom/randomStatetest326.json",
-        "description": "access to memory address too big"
-      },
-      {
-        "name": "stRandom/randomStatetest36.json",
-        "description": "access to memory address too big"
-      },
-      {
-        "name": "stRandom2/randomStatetest476.json",
-        "description": "access to memory address too big"
-      },
-      {
-        "name": "stRandom2/randomStatetest498.json",
-        "description": "access to memory address too big"
-      },
-      {
+  "breaks-computation": [
+    {
+      "name": "FirstByte",
+      "description": "Bug at merkle-patricia-level where rlp encoding/decoding is used. Address above 0x800...000 returns a not find node in the tree."
+    },
+    {
+      "name": "performanceTester_4.json",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "stStaticCall/static_LoopCallsThenRevert_1",
+      "description": "When the test is generated it ends with: Killed"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Return50000_1",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Return50000_2_1",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "VMTests/vmPerformance/loopExp_1.json",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "VMTests/vmPerformance/loopExp_2.json",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "VMTests/vmPerformance/loopExp_3.json",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "VMTests/vmPerformance/loopExp_4.json",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "VMTests/vmPerformance/loopExp_5.json",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "VMTests/vmPerformance/loopExp_13.json",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "VMTests/vmPerformance/loopExp_14.json",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "VMTests/vmPerformance/loopMul_0.json",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "VMTests/vmPerformance/loopMul_1.json",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "VMTests/vmPerformance/loopMul_2.json",
+      "description": "Error: JavaScript heap out of memory"
+    },
+    {
+      "name": "stStaticCall/static_LoopCallsThenRevert_0.json",
+      "description": "Killed"
+    },
+    {
+      "name": "stStaticCall/static_Return50000_2.json",
+      "description": "Killed"
+    },
+    {
+      "name": "stStaticCall/static_Call50000bytesContract50_1_1.json",
+      "description": "Killed"
+    },
+    {
+      "name": "stStaticCall/static_Call50000_1.json",
+      "description": "Killed"
+    },
+    {
+      "name": "stStaticCall/static_Call50000_ecrec_0.json",
+      "description": "Killed"
+    },
+    {
+      "name": "stStaticCall/static_Call50000_ecrec_1.json",
+      "description": "Killed"
+    },
+    {
+      "name": "stStaticCall/static_Call50000_identity_0.json",
+      "description": "Killed"
+    },
+    {
+      "name": "stStaticCall/static_Call50000_identity_1.json",
+      "description": "Killed"
+    },
+    {
+      "name": "stStaticCall/static_Call50000bytesContract50_2_1.json",
+      "description": "Killed"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Call50000_1.json",
+      "description": "Killed"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Call50000_identity_1.json",
+      "description": "Killed"
+    },
+    {
+      "name": "stQuadraticComplexityTest/Call50000_identity2_1.json",
+      "description": "Killed"
+    },
+    {
+      "name": "stQuadraticComplexityTest/QuadraticComplexitySolidity_CallDataCopy_1.json",
+      "description": "Killed"
+    },
+    {
+      "name": "stRandom/randomStatetest307.json",
+      "description": "Killed"
+    }
+  ],
+  "not-supported": [
+    {
+      "name": "stSStoreTest/InitCollision_0.json",
+      "description": "Clear storage tree could not be done in zkEVM state-tree"
+    },
+    {
+      "name": "stSStoreTest/InitCollision_1.json",
+      "description": "Clear storage tree could not be done in zkEVM state-tree"
+    },
+    {
+      "name": "stSStoreTest/InitCollision_2.json",
+      "description": "Clear storage tree could not be done in zkEVM state-tree"
+    },
+    {
+      "name": "stSStoreTest/InitCollision_3.json",
+      "description": "Clear storage tree could not be done in zkEVM state-tree"
+    },
+    {
+      "name": "stSStoreTest/InitCollisionNonZeroNonce_0.json",
+      "description": "Clear storage tree could not be done in zkEVM state-tree"
+    },
+    {
+      "name": "stSStoreTest/InitCollisionNonZeroNonce_1.json",
+      "description": "Clear storage tree could not be done in zkEVM state-tree"
+    },
+    {
+      "name": "stSStoreTest/InitCollisionNonZeroNonce_2.json",
+      "description": "Clear storage tree could not be done in zkEVM state-tree"
+    },
+    {
+      "name": "stSStoreTest/InitCollisionNonZeroNonce_3.json",
+      "description": "Clear storage tree could not be done in zkEVM state-tree"
+    },
+    {
+      "name": "stCreate2/RevertInCreateInInitCreate2.json",
+      "description": "Clear storage tree could not be done in zkEVM state-tree"
+    },
+    {
+      "name": "stCreate2/create2collisionStorage_0.json",
+      "description": "Clear storage tree could not be done in zkEVM state-tree"
+    },
+    {
+      "name": "stCreate2/create2collisionStorage_1.json",
+      "description": "Clear storage tree could not be done in zkEVM state-tree"
+    },
+    {
+      "name": "stCreate2/create2collisionStorage_2.json",
+      "description": "Clear storage tree could not be done in zkEVM state-tree"
+    },
+    {
+      "name": "stChainId/chainId.json",
+      "description": "Opcode CHAINID (0x46) called and stored. ChainId does not match. Similar internal test has been done in: state-transition/calldata/chainId.json"
+    },
+    {
+      "name": "stTransactionTest/PointAtInfinityECRecover.json",
+      "description": "TODO: deltaX == 0 => division by zero ==> how manage? (sm_main_exec.js --> eval_AddPointEc)"
+    },
+    {
+      "name": "VMTests/jump_16.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpi_5.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_19.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_20.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_21.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_23.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_24.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_25.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_26.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_27.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_28.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_29.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_30.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_31.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_32.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_34.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_35.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_36.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_37.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_38.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_39.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_40.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_41.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_42.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_43.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_45.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_46.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_48.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_49.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_50.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_51.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_52.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_53.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_54.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_56.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_57.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_58.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_59.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_60.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_61.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_62.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_63.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_64.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_65.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_67.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_68.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_69.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_70.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_71.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_72.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_73.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "VMTests/jumpToPush_74.json",
+      "description": "jump to push"
+    },
+    {
+      "name": "stRevertTest/RevertInCreateInInit.json",
+      "description": "Do not clean the storage when a contract is deployed in that address"
+    },
+    {
+      "name": "stRandom2/randomStatetest645.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "VMTests/blockInfo_1.json",
+      "description": "rom BATCH_DIFFICULTY != DIFFICULTY"
+    },
+    {
+      "name": "VMTests/blockInfo_2.json",
+      "description": "rom TX_GAS_LIMIT != GASLIMIT"
+    },
+    {
+      "name": "stBadOpcode/invalidAddr_23.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stBadOpcode/invalidAddr_25.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stBadOpcode/invalidAddr_27.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stBadOpcode/invalidAddr_29.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stBadOpcode/invalidAddr_31.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/callToSuicideThenExtcodehash_3.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/createEmptyThenExtcodehash.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/dynamicAccountOverwriteEmpty.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashAccountWithoutCode.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashCALL_0.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashCALLCODE_0.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashDELEGATECALL.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashInInitCode_0.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashInInitCode_1.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashPrecompiles_0.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashSTATICCALL.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashSelfInInit.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashNonExistingAccount.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashSelf_0.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashSelfInInit_0.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashSubcallOOG_0.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashSubcallOOG_1.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashSubcallOOG_2.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_0.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_1.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_2.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_3.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_4.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_5.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_6.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_8.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extcodehashEmpty_9.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stRandom/randomStatetest26.json",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom/randomStatetest260.json",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom/randomStatetest261.json",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom/randomStatetest263.json",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom/randomStatetest264.json",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom/randomStatetest265.json",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom/randomStatetest266.json",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom/randomStatetest267.json",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom/randomStatetest268.json",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom/randomStatetest269.json",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom/randomStatetest153.json",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom2/randomStatetest417.json",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom2/randomStatetest466.json",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom2/randomStatetest554.json",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom2/randomStatetest577.json",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom2/randomStatetest627.json",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom2/randomStatetest632.json",
+      "description": "rom block info != eth block info"
+    },
+    {
+      "name": "stRandom2/randomStatetest458.json",
+      "description": "rom NUMBER != eth NUMBER"
+    },
+    {
+      "name": "stExtCodeHash/codeCopyZero.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashChangedAccount.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashNewAccount.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashMaxCodeSize.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stRandom/randomStatetest308.json",
+      "description": "rom TIMESTAMP != TIMESTAMP"
+    },
+    {
+      "name": "stTransactionTest/HighGasPrice.json",
+      "description": "It is not possible to generate this test. Equivalent test: zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-custom-tx.json --> zkevm-testvectors/inputs-executor/calldata/custom-tx_1.json"
+    },
+    {
+      "name": "stTransactionTest/ValueOverflow.json",
+      "description": "It is not possible to generate this test. Equivalent test: zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-custom-tx.json --> zkevm-testvectors/inputs-executor/calldata/custom-tx_2.json"
+    },
+    {
+      "name": "stTransactionTest/Opcodes_TransactionInit_35.json",
+      "description": "Bytecode starts with 0xEF (we support EIP-3541 in Berlin hardfork). Equivalent tests: zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-op-create.json [id: from 4 to 7] & zkevm-testvectors/tools-calldata/evm/generate-test-vectors/gen-test-deploy.json [id: from 8 to 9]"
+    },
+    {
+      "name": "stBadOpcode/invalidDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc0CDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc0DDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc0EDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc0FDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc1EDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc1FDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc21DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc22DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc23DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc24DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc25DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc26DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc27DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc28DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc29DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc2ADiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc2BDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc2CDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc2DDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc2EDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc2FDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc49DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc4ADiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc4BDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc4CDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc4DDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc4EDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc4FDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc5CDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc5DDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc5EDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcA5DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcA6DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcA7DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcA8DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcA9DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcAADiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcABDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcACDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcADDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcAEDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcAFDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcB0DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcB1DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcB2DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcB3DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcB4DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcB5DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcB6DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcB7DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcB8DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcB9DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcBADiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcBBDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcBCDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcBDDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcBEDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcBFDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcC0DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcC1DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcC2DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcC3DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcC4DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcC5DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcC6DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcC7DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcC8DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcC9DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcCADiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcCBDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcCCDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcCDDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcCEDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcCFDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcD0DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcD1DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcD2DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcD3DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcD4DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcD5DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcD6DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcD7DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcD8DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcD9DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcDADiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcDBDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcDCDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcDDDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcDEDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcDFDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcE0DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcE1DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcE2DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcE3DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcE4DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcE5DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcE6DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcE7DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcE8DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcE9DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcEADiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcEBDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcECDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcEDDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcEEDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcEFDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcF6DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcF7DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcF8DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcF9DiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcFBDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcFCDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stBadOpcode/opcFEDiffPlaces_27.json",
+      "description": "Not enough gas to finish recursion"
+    },
+    {
+      "name": "stRandom/randomStatetest138.json",
+      "description": "rom BATCH_DIFFICULTY != DIFFICULTY --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-block_3.json"
+    },
+    {
+      "name": "stRandom/randomStatetest367.json",
+      "description": "rom BATCH_DIFFICULTY != DIFFICULTY --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-block_3.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_0.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_1.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_2.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_5.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_6.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_7.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_8.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_9.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_10.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_11.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_12.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stCreateTest/createLargeResult_13.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH --> custom test has been done in zkevm-testvectors/inputs-executor/calldata/op-env_15.json"
+    },
+    {
+      "name": "stBadOpcode/badOpcodes_43.json",
+      "description": "0x5f is valid opcode"
+    },
+    {
+      "name": "stCreateTest/CreateTransactionHighNonce_0.json",
+      "description": "nonce overflow TODO: test"
+    },
+    {
+      "name": "stCreateTest/CreateTransactionHighNonce_1.json",
+      "description": "nonce overflow TODO: test"
+    },
+    {
+      "name": "VMTests/sha3_10",
+      "description": "not supported OOCK test"
+    },
+    {
+      "name": "stTransactionTest/InternlCallStoreClearsSucces.json",
+      "description": "Storage at key 0, address 0"
+    },
+    {
+      "name": "stTransactionTest/InternlCallStoreClearsOOG.json",
+      "description": "Storage at key 0, address 0"
+    },
+    {
+      "name": "stTransactionTest/StoreClearsAndInternlCallStoreClearsSuccess.json",
+      "description": "Storage at key 0, address 0"
+    },
+    {
+      "name": "stTransactionTest/StoreClearsAndInternlCallStoreClearsOOG.json",
+      "description": "Storage at key 0, address 0"
+    },
+    {
+      "name": "stSpecialTest/JUMPDEST_Attack.json",
+      "description": "recursive calls (?)"
+    },
+    {
+      "name": "stSpecialTest/JUMPDEST_AttackwithJump.json",
+      "description": "recursive calls (?)"
+    },
+    {
+      "name": "stStaticCall/static_ABAcalls1_1.json",
+      "description": "recursive calls (?)"
+    },
+    {
+      "name": "stStaticCall/static_ABAcalls2_1.json",
+      "description": "recursive calls (?)"
+    },
+    {
+      "name": "stMemoryStressTest/MLOAD_Bounds3_0.json",
+      "description": "access to memory address too big"
+    },
+    {
+      "name": "stMemoryStressTest/MLOAD_Bounds3_1.json",
+      "description": "access to memory address too big"
+    },
+    {
+      "name": "stMemoryStressTest/MSTORE_Bounds2a_1.json",
+      "description": "access to memory address too big"
+    },
+    {
+      "name": "VMTests/vmIOandFlowOperations/msize_5.json",
+      "description": "access to memory address too big"
+    },
+    {
+      "name": "VMTests/msize_5.json",
+      "description": "access to memory address too big"
+    },
+    {
+      "name": "stRandom/randomStatetest163.json",
+      "description": "access to memory address too big"
+    },
+    {
+      "name": "stRandom/randomStatetest185.json",
+      "description": "access to memory address too big"
+    },
+    {
+      "name": "stRandom/randomStatetest326.json",
+      "description": "access to memory address too big"
+    },
+    {
+      "name": "stRandom/randomStatetest36.json",
+      "description": "access to memory address too big"
+    },
+    {
+      "name": "stRandom2/randomStatetest476.json",
+      "description": "access to memory address too big"
+    },
+    {
+      "name": "stRandom2/randomStatetest498.json",
+      "description": "access to memory address too big"
+    },
+    {
       "name": "stStaticCall/static_Call50000_identity2_0.json",
       "description": "tx gas > max int"
-      },
-      {
+    },
+    {
       "name": "stStaticCall/static_Call50000_identity2_1.json",
       "description": "tx gas > max int"
-      }
+    }
+  ]
 }
