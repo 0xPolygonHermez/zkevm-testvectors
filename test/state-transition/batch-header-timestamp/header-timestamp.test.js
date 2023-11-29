@@ -488,7 +488,6 @@ describe('Header timestamp', function () {
 
             // Check the circuit input
             const circuitInput = await batch.getStarkInput();
-            circuitInput.l1Info = extraData.l1Info;
             // Check the encode transaction match with the vector test
             if (!update) {
                 expect(batchL2Data).to.be.equal(batch.getBatchL2Data());
@@ -505,6 +504,7 @@ describe('Header timestamp', function () {
                 genInput.batches[k].batchL2Data = batch.getBatchL2Data();
                 genInput.batches[k].batchHashData = circuitInput.batchHashData;
                 genInput.batches[k].inputHash = circuitInput.inputHash;
+                genInput.batches[k].l1InfoTree = circuitInput.l1InfoTree;
                 genInput.batches[k].newLocalExitRoot = circuitInput.newLocalExitRoot;
                 genInput.forkID = testvectorsGlobalConfig.forkID;
                 console.log('WRITE: ', pathGenInput);

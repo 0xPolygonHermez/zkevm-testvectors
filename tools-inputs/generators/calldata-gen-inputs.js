@@ -170,10 +170,6 @@ describe('Generate inputs executor from test-vectors', async function () {
                 // Check for TX_CHANGE_L2_BLOCK
                 if (currentTx.type === Constants.TX_CHANGE_L2_BLOCK) {
                     const rawChangeL2BlockTx = zkcommonjs.processorUtils.serializeChangeL2Block(currentTx);
-
-                    // Append l1Info to l1Info object
-                    extraData.l1Info[currentTx.indexL1InfoTree] = currentTx.l1Info;
-
                     const customRawTx = `0x${rawChangeL2BlockTx}`;
 
                     batch.addRawTx(customRawTx);

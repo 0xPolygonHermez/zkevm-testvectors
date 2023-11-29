@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const { contractUtils, Constants } = require('@0xpolygonhermez/zkevm-commonjs');
+const { contractUtils, Constants, processorUtils } = require('@0xpolygonhermez/zkevm-commonjs');
 
 const testvectorsGlobalConfig = require('../testvectors.config.json');
 
@@ -18,9 +18,27 @@ async function main() {
     let listTests = fs.readdirSync(pathRlpError);
     listTests = listTests.filter((fileName) => path.extname(fileName) === '.json');
 
+    // Ethereum test to add by default a changeL2Block trnsaction
+    const txChangeL2Block = {
+        type: 11,
+        deltaTimestamp: '100000',
+        l1Info: {
+            globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
+            blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
+            timestamp: '42',
+        },
+        indexL1InfoTree: 0,
+    };
+
+    const rawChangeL2BlockTx = processorUtils.serializeChangeL2Block(txChangeL2Block);
+
     for (let i = 0; i < listTests.length; i++) {
         const pathTest = path.join(pathRlpError, listTests[i]);
         const inputRLP = JSON.parse(fs.readFileSync(pathTest));
+
+        if (!inputRLP.batchL2Data.startsWith(`0x${rawChangeL2BlockTx}`)) {
+            inputRLP.batchL2Data = `0x${rawChangeL2BlockTx}${inputRLP.batchL2Data.slice(2)}`;
+        }
 
         // overwrite all parameters to new ones expect "batchL2Data", "batchHashData" & "inputHash"
         inputRLP.oldStateRoot = generalInput.oldStateRoot;
@@ -55,6 +73,19 @@ async function main() {
         );
 
         inputRLP.db = generalInput.db;
+
+        inputRLP.l1InfoTree = {
+
+        };
+
+        // delete old unused values
+        delete inputRLP.globalExitRoot;
+        delete inputRLP.timestamp;
+        delete inputRLP.historicGERRoot;
+        delete inputRLP.arity;
+        delete inputRLP.chainIdSequencer;
+        delete inputRLP.defaultChainId;
+
         console.log(`WRITE: ${pathTest}`);
         await fs.writeFileSync(pathTest, JSON.stringify(inputRLP, null, 2));
     }

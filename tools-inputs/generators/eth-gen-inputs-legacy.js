@@ -295,8 +295,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         };
 
                         const rawChangeL2BlockTx = zkcommonjs.processorUtils.serializeChangeL2Block(txChangeL2Block);
-                        // Append l1Info to l1Info object
-                        extraData.l1Info[txChangeL2Block.indexL1InfoTree] = txChangeL2Block.l1Info;
                         const customRawTx = `0x${rawChangeL2BlockTx}`;
                         batch.addRawTx(customRawTx);
 
@@ -374,7 +372,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         }
 
                         const circuitInput = await batch.getStarkInput();
-                        circuitInput.l1Info = extraData.l1Info;
                         Object.keys(circuitInput.contractsBytecode).forEach((key) => {
                             if (!circuitInput.contractsBytecode[key].startsWith('0x')) {
                                 circuitInput.contractsBytecode[key] = `0x${circuitInput.contractsBytecode[key]}`;
