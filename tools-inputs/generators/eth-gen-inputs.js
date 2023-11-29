@@ -127,13 +127,13 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
         let pathNoExec;
         if (argv.folder) {
-            pathNoExec = `${outputPath}no-exec-${argv.folder}.json`;
+            pathNoExec = path.join(__dirname, `${outputPath}/no-exec-${argv.folder}.json`);
         } else {
-            pathNoExec = `${outputPath}no-exec-${argv.test.trim().split('/')[0]}.json`;
+            pathNoExec = path.join(__dirname, `${outputPath}/no-exec-${argv.test.trim().split('/')[0]}.json`);
         }
 
         if (!fs.existsSync(pathNoExec)) {
-            await fs.copyFileSync(paths['no-exec-template'], pathNoExec);
+            await fs.copyFileSync(path.join(__dirname, paths['no-exec-template']), pathNoExec);
         }
 
         const noExec = require(pathNoExec);
