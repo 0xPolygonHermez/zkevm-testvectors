@@ -16,6 +16,7 @@ const { BN, toBuffer } = require('ethereumjs-util');
 const { ethers } = require('ethers');
 const hre = require('hardhat');
 const lodash = require('lodash');
+const { Scalar } = require('ffjavascript');
 
 const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
 const { expect } = require('chai');
@@ -84,6 +85,8 @@ describe('Generate inputs executor from test-vectors', async function () {
                 timestampLimit,
                 chainID,
                 forcedBlockHashL1,
+                autoChangeL2Block,
+                skipVerifyL1InfoRoot,
             } = testVectors[i];
             console.log(`Executing test-vector id: ${id}`);
 
@@ -133,13 +136,13 @@ describe('Generate inputs executor from test-vectors', async function () {
 
             const extraData = { l1Info: {} };
             const batch = await zkEVMDB.buildBatch(
-                timestampLimit,
+                Scalar.e(timestampLimit),
                 sequencerAddress,
                 zkcommonjs.smtUtils.stringToH4(l1InfoRoot),
                 forcedBlockHashL1,
                 Constants.DEFAULT_MAX_TX,
                 {
-                    skipVerifyL1InfoRoot: true,
+                    skipVerifyL1InfoRoot: (typeof skipVerifyL1InfoRoot === 'undefined' || skipVerifyL1InfoRoot !== false),
                 },
                 extraData,
             );
@@ -148,7 +151,9 @@ describe('Generate inputs executor from test-vectors', async function () {
             let commonCustom = Common.custom({ chainId: chainID }, { hardfork: Hardfork.Berlin });
 
             // If first tx is not TX_CHANGE_L2_BLOCK, add one by default
-            if (txs[0].type !== Constants.TX_CHANGE_L2_BLOCK) {
+            const addChangeL2Block = typeof autoChangeL2Block === 'undefined' || autoChangeL2Block !== false;
+
+            if (addChangeL2Block && txs[0].type !== Constants.TX_CHANGE_L2_BLOCK) {
                 const txChangeL2Block = {
                     type: 11,
                     deltaTimestamp: timestampLimit,
@@ -171,6 +176,9 @@ describe('Generate inputs executor from test-vectors', async function () {
                 if (currentTx.type === Constants.TX_CHANGE_L2_BLOCK) {
                     const rawChangeL2BlockTx = zkcommonjs.processorUtils.serializeChangeL2Block(currentTx);
                     const customRawTx = `0x${rawChangeL2BlockTx}`;
+
+                    // Append l1Info to l1Info object
+                    extraData.l1Info[currentTx.indexL1InfoTree] = currentTx.l1Info;
 
                     batch.addRawTx(customRawTx);
                     continue;
