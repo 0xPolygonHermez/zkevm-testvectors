@@ -11,6 +11,7 @@ const Common = require('@ethereumjs/common').default;
 const { Hardfork } = require('@ethereumjs/common');
 const { BN, toBuffer } = require('ethereumjs-util');
 const { ethers } = require('ethers');
+const { Scalar } = require('ffjavascript');
 
 const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
 const { expect } = require('chai');
@@ -43,6 +44,8 @@ describe('Run state-transition tests: calldata', async function () {
             const testVectors = JSON.parse(fs.readFileSync(pathTestVector));
             const testName = listTests[m];
             for (let i = 0; i < testVectors.length; i++) {
+                if (!pathTestVector.includes('change-l2-block')) continue;
+                console.log(`check test vectors: ${pathTestVector}`);
                 console.log(`check test vectors: ${testVectors[i].id}`);
                 let {
                     genesis,
@@ -57,6 +60,8 @@ describe('Run state-transition tests: calldata', async function () {
                     timestampLimit,
                     chainID,
                     forcedBlockHashL1,
+                    skipVerifyL1InfoRoot,
+                    autoChangeL2Block,
                 } = testVectors[i];
 
                 // Adapts input
@@ -90,13 +95,13 @@ describe('Run state-transition tests: calldata', async function () {
 
                 const extraData = { l1Info: {} };
                 const batch = await zkEVMDB.buildBatch(
-                    timestampLimit,
+                    Scalar.e(timestampLimit),
                     sequencerAddress,
                     zkcommonjs.smtUtils.stringToH4(l1InfoRoot),
                     forcedBlockHashL1,
                     Constants.DEFAULT_MAX_TX,
                     {
-                        skipVerifyL1InfoRoot: true,
+                        skipVerifyL1InfoRoot: (typeof skipVerifyL1InfoRoot === 'undefined' || skipVerifyL1InfoRoot !== false),
                     },
                     extraData,
                 );
@@ -106,7 +111,10 @@ describe('Run state-transition tests: calldata', async function () {
                 let commonCustom = Common.custom({ chainId: chainID }, { hardfork: Hardfork.Berlin });
 
                 // If first tx is not TX_CHANGE_L2_BLOCK, add one by default
-                if (txs[0].type !== Constants.TX_CHANGE_L2_BLOCK) {
+                const addChangeL2Block = typeof autoChangeL2Block === 'undefined' || autoChangeL2Block !== false;
+
+                // If first tx is not TX_CHANGE_L2_BLOCK, add one by default
+                if (addChangeL2Block && txs[0].type !== Constants.TX_CHANGE_L2_BLOCK) {
                     const txChangeL2Block = {
                         type: 11,
                         deltaTimestamp: timestampLimit,
@@ -127,6 +135,9 @@ describe('Run state-transition tests: calldata', async function () {
                     if (currentTx.type === Constants.TX_CHANGE_L2_BLOCK) {
                         const rawChangeL2BlockTx = zkcommonjs.processorUtils.serializeChangeL2Block(currentTx);
                         const customRawTx = `0x${rawChangeL2BlockTx}`;
+
+                        // Append l1Info to l1Info object
+                        extraData.l1Info[currentTx.indexL1InfoTree] = currentTx.l1Info;
 
                         batch.addRawTx(customRawTx);
                         continue;
