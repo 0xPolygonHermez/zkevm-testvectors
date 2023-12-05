@@ -9,24 +9,28 @@ contract OpLog {
             log0(0, 32)
         }
     }
+
     // opcode 0xa1
     function opLog1() public payable {
         assembly {
             log1(0, 32, 0)
         }
     }
+
     // opcode 0xa2
     function opLog2() public payable {
         assembly {
             log2(0, 32, 0, 0)
         }
     }
+
     // opcode 0xa3
     function opLog3() public payable {
         assembly {
             log3(0, 32, 0, 0, 0)
         }
     }
+
     // opcode 0xa4
     function opLog4() public payable {
         assembly {
@@ -34,18 +38,28 @@ contract OpLog {
         }
     }
 
+    function opLog4CustomDataSize(uint256 _dataSize) public payable {
+        if(_dataSize == 0) {
+            _dataSize = 15120000; // 270000 * 56
+        }
+        assembly {
+            log4(0, _dataSize, 0, 0, 0, 0)
+        }
+    }
+
     function opLogCallWithoutRevert() public payable {
         assembly {
             log1(0, 32, 1)
         }
-        (bool success, bytes memory data) = address(this).call(abi.encodeWithSignature("opLogCallWithoutRevert2()")
+        (bool success, bytes memory data) = address(this).call(
+            abi.encodeWithSignature("opLogCallWithoutRevert2()")
         );
-         assembly {
+        assembly {
             log2(0, 32, 1, 2)
         }
     }
 
-   function opLogCallWithoutRevert2() public payable {
+    function opLogCallWithoutRevert2() public payable {
         assembly {
             log3(0, 32, 4, 5, 6)
         }
@@ -55,9 +69,10 @@ contract OpLog {
         assembly {
             log1(0, 32, 1)
         }
-        (bool success, bytes memory data) = address(this).call(abi.encodeWithSignature("opLogCallWithRevert2()")
+        (bool success, bytes memory data) = address(this).call(
+            abi.encodeWithSignature("opLogCallWithRevert2()")
         );
-         assembly {
+        assembly {
             log2(0, 32, 1, 2)
         }
     }
