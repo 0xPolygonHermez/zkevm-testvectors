@@ -87,6 +87,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 forcedBlockHashL1,
                 autoChangeL2Block,
                 skipVerifyL1InfoRoot,
+                invalidBatch,
             } = testVectors[i];
             console.log(`Executing test-vector id: ${id}`);
 
@@ -325,6 +326,13 @@ describe('Generate inputs executor from test-vectors', async function () {
                 circuitInput.contractsBytecode = output.contractsBytecode;
             }
 
+            if (invalidBatch) {
+                expectedNewRoot = expectedOldRoot;
+                circuitInput.newStateRoot = expectedOldRoot;
+                testVectors[i].invalidBatch = invalidBatch;
+                internalTestVectors[i].invalidBatch = invalidBatch;
+            }
+
             // Save outuput in file
             if (outputFlag) {
                 const dir = path.join(__dirname, inputsPath);
@@ -375,6 +383,10 @@ describe('Generate inputs executor from test-vectors', async function () {
                 delete internalTestVectors[i].chainIdSequencer;
                 delete internalTestVectors[i].defaultChainId;
             }
+            if (invalidBatch && argv.verify) {
+                const dir = path.join(__dirname, inputsPath);
+                await verifyInvalidBatch(`${dir}${inputName}${id}.json`, expectedNewRoot);
+            }
         }
         if (update) {
             console.log(`WRITE UPDATE: ${testVectorDataPath}`);
@@ -420,5 +432,56 @@ describe('Generate inputs executor from test-vectors', async function () {
             }
         }
         fs.writeFileSync(path.join(dir, fileName), JSON.stringify(data, null, 2));
+    }
+
+    async function verifyInvalidBatch(inputPath, expectedNewRoot) {
+        const pathProverJs = '../../../zkevm-proverjs-internal';
+        const pathRom = '../../../zkevm-rom-internal';
+        const { newCommitPolsArray, compile } = require('pilcom');
+        const smMain = require(path.join(pathProverJs, '/src/sm/sm_main/sm_main'));
+        const fileCachePil = path.join(pathProverJs, '/cache-main-pil.json');
+        const rom = JSON.parse(fs.readFileSync(path.join(pathRom, 'build/rom.json'), 'utf8'));
+        const buildPoseidon = require('@0xpolygonhermez/zkevm-commonjs').getPoseidon;
+        const poseidon2 = await buildPoseidon();
+        const Fr = poseidon2.F;
+        let pil;
+        if (fs.existsSync(fileCachePil) && !argv.pil) {
+            pil = JSON.parse(await fs.promises.readFile(fileCachePil, 'utf8'));
+        } else {
+            const pilConfig = {
+                defines: { N: 4096 },
+                namespaces: ['Main', 'Global'],
+                disableUnusedError: true,
+            };
+            const pilPath = path.join(pathProverJs, 'pil/main.pil');
+            pil = await compile(Fr, pilPath, null, pilConfig);
+            await fs.promises.writeFile(fileCachePil, `${JSON.stringify(pil, null, 1)}\n`, 'utf8');
+        }
+        const cmPols = newCommitPolsArray(pil);
+        // config object --> execute proverjs
+        const config = {
+            debug: true,
+            debugInfo: { inputName: inputPath },
+            stepsN: 8388608,
+            tracer: false,
+            counters: false,
+            stats: false,
+            assertOutputs: true,
+        };
+        const input = JSON.parse(await fs.promises.readFile(inputPath, 'utf8'));
+        try {
+            const res = await smMain.execute(cmPols.Main, input, rom, config);
+            let found = false;
+            for (let i = 0; i < res.errors.length; i++) {
+                if (res.errors[i].includes('OOC')) {
+                    found = true;
+                    break;
+                }
+            }
+            expect(found).to.be.equal(true);
+            expect(res.output.newStateRoot).to.be.equal(expectedNewRoot);
+        } catch (e) {
+            expect(true).to.be.equal(false);
+        }
     }
 });
