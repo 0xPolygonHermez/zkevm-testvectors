@@ -32,7 +32,7 @@ const testvectorsGlobalConfig = require(paths['testvectors-config']);
 // example: npx mocha gen-inputs.js --vectors txs-calldata --inputs input_ --update --output
 
 describe('Generate inputs executor from test-vectors', async function () {
-    this.timeout(100000);
+    this.timeout(1000000);
     let poseidon;
     let F;
     let inputName;
@@ -88,6 +88,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 autoChangeL2Block,
                 skipVerifyL1InfoRoot,
                 invalidBatch,
+                additionalGenesisAccountsFactor,
             } = testVectors[i];
             console.log(`Executing test-vector id: ${id}`);
 
@@ -104,7 +105,20 @@ describe('Generate inputs executor from test-vectors', async function () {
                 l1InfoRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
             }
 
-            // init SMT Db
+            // Add additionalGenesisAccountsFactor
+            if (additionalGenesisAccountsFactor) {
+                const additionalAccounts = 2 ** additionalGenesisAccountsFactor;
+                console.log(`Adding 2**${additionalGenesisAccountsFactor} (${additionalAccounts}) additional txs at genesis`);
+                for (let j = 1; j <= additionalAccounts; j++) {
+                    genesis.push({
+                        address: `0x${String(j).padStart(40, '0')}`,
+                        balance: '100000',
+                        nonce: '22',
+                    });
+                }
+            }
+
+            // init SMT DB
             const db = new zkcommonjs.MemDB(F);
             const zkEVMDB = await zkcommonjs.ZkEVMDB.newZkEVM(
                 db,
@@ -291,7 +305,7 @@ describe('Generate inputs executor from test-vectors', async function () {
 
             // Check balances and nonces
             // eslint-disable-next-line no-restricted-syntax
-            // Add address sytem at expected new leafs
+            // Add address system at expected new leafs
             expectedNewLeafs[Constants.ADDRESS_SYSTEM] = {};
             for (const [address] of Object.entries(expectedNewLeafs)) {
                 const newLeaf = await zkEVMDB.getCurrentAccountState(address);
@@ -333,7 +347,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 internalTestVectors[i].invalidBatch = invalidBatch;
             }
 
-            // Save outuput in file
+            // Save output in file
             if (outputFlag) {
                 const dir = path.join(__dirname, inputsPath);
                 console.log(`WRITE OUTPUT: ${dir}${inputName}${id}.json`);
