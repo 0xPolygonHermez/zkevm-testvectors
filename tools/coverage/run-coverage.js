@@ -15,13 +15,11 @@ const { argv } = require('yargs')
     })
     .option('i', {
         alias: 'input',
-        demandOption: true,
         describe: 'Stats file path to be analyzed',
         type: 'string'
     })
     .option('f', {
         alias: 'folder',
-        demandOption: true,
         describe: 'Stats folder path to be analyzed',
         type: 'string'
     })
