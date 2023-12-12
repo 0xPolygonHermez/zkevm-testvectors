@@ -6,21 +6,13 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable import/no-extraneous-dependencies */
-const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
-
-const { argv } = require('yargs');
 const fs = require('fs');
 const path = require('path');
 // example: npx mocha gen-inputs.js --test xxxx --folder xxxx --ignore
 describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', async function () {
     this.timeout(800000);
-    let poseidon;
-    let outputName;
-    let outputPath;
     let test;
     let file;
-    let folder;
-    let group;
     let basePath = '../tests/BlockchainTests/GeneralStateTests';
     // let allTests;
     let counts = {};
@@ -38,7 +30,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             const filesDirec0 = fs.readdirSync(`${path0}`);
             for (let x = 0; x < filesDirec0.length; x++) {
                 const path1 = `${path0}/${filesDirec0[x]}`;
-                stats = fs.statSync(`${path1}`);
+                let stats = fs.statSync(`${path1}`);
                 if (stats.isFile()) {
                     files.push(`${path1}`);
                 } else {

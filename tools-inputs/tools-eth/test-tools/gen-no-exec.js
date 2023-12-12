@@ -1,6 +1,7 @@
 const fs = require('fs');
 
 const inputsPath = '../../../inputs-executor/ethereum-tests/GeneralStateTests/';
+const noExecAllPath = '../../../tools-inputs/tools-eth/no-exec.json';
 
 async function main() {
     const foldersInputs = fs.readdirSync(inputsPath);
@@ -35,7 +36,7 @@ async function main() {
                 }
             }
         }
-        await fs.writeFileSync(`${inputsPath}/no-exec-all.json`, JSON.stringify(noExec, null, 2));
+        await fs.writeFileSync(noExecAllPath, JSON.stringify(noExec, null, 2));
     }
 }
 

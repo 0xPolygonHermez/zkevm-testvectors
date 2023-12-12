@@ -1,5 +1,3 @@
-rm ./inputs-executor/ethereum-tests/GeneralStateTests/tests-30M/tests30M-list.json-ignore
-mv ./inputs-executor/ethereum-tests/GeneralStateTests/tests-OOC/testsOOC-list.json-ignore ./inputs-executor/ethereum-tests/GeneralStateTests/tests-OOC/testsOOC-list.json
 if [ -d "tests" ]
     then
     if [ "$1" == "update" ]
@@ -28,7 +26,5 @@ do
     fi
 done
 wait
-mv ./inputs-executor/ethereum-tests/GeneralStateTests/tests-30M/tests30M-list.json ./inputs-executor/ethereum-tests/GeneralStateTests/tests-30M/tests30M-list.json-ignore
-mv ./inputs-executor/ethereum-tests/GeneralStateTests/tests-OOC/testsOOC-list.json ./inputs-executor/ethereum-tests/GeneralStateTests/tests-OOC/testsOOC-list.json-ignore
 npx --max-old-space-size=12000 mocha ../generators/eth-gen-inputs-legacy.js --folder stTransactionTest
 npx --max-old-space-size=12000 mocha ../generators/eth-gen-inputs-legacy.js --folder stMemoryTest

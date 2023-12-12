@@ -48,7 +48,7 @@ from `inputs-executor/ethereum-tests/GeneralStateTests/*/no-exec-*.json`
 
 1. Delete `zkevm-testvectors-internal/inputs-executor/ethereum-tests/GeneralStateTests` folder
 2. Delete `zkevm-testvectors-internal/tools-inputs/tools-eth/tests-parallel/parallel-tests` folder
-3. Run `zkevm-testvectors-internal/tools-inputs/tools-eth/eth-tests.sh`
+3. Run `zkevm-testvectors-internal/tools-inputs/tools-eth/eth-tests-gen-parallel.sh`
     - Regenerate `zkevm-testvectors-internal/inputs-executor/ethereum-tests/GeneralStateTests`
     - Generate `zkevm-testvectors-internal/tools-inputs/tools-eth/tests-parallel/parallel-tests`
     - Run tests from `zkevm-testvectors-internal/tools-inputs/tools-eth/tests-parallel/parallel-tests`
