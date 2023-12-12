@@ -1159,6 +1159,10 @@
       "description": "nonce overflow TODO: test"
     },
     {
+      "name": "VMTests/sha3_10",
+      "description": "not supported OOCK test"
+    },
+    {
       "name": "stTransactionTest/InternlCallStoreClearsSucces.json",
       "description": "Storage at key 0, address 0"
     },
@@ -3523,6 +3527,138 @@
       "description": "Precompiled blake2f is not supported"
     },
     {
+      "name": "stPreCompiledContracts2/CALLCODERipemd160_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/CALLCODERipemd160_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/CALLCODERipemd160_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/CALLCODERipemd160_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/CALLCODERipemd160_3_postfixed0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/CALLCODERipemd160_3_prefixed0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/CALLCODERipemd160_4.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/CALLCODERipemd160_4_gas719.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/CALLCODERipemd160_5.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/CallRipemd160_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/CallRipemd160_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/CallRipemd160_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/CallRipemd160_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/CallRipemd160_3_postfixed0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/CallRipemd160_3_prefixed0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/CallRipemd160_4.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/CallRipemd160_4_gas719.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/CallRipemd160_5.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/modexp_0_0_0_20500_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/modexp_0_0_0_20500_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/modexp_0_0_0_20500_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/modexp_0_0_0_22000_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/modexp_0_0_0_22000_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/modexp_0_0_0_22000_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/modexp_0_0_0_22000_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/modexp_0_0_0_25000_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/modexp_0_0_0_25000_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/modexp_0_0_0_25000_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/modexp_0_0_0_25000_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/modexp_0_0_0_35000_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/modexp_0_0_0_35000_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/modexp_0_0_0_35000_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts2/modexp_0_0_0_35000_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
       "name": "stQuadraticComplexityTest/Call50000_rip160_0.json",
       "description": "tx gas > max int"
     },
@@ -3839,6 +3975,326 @@
       "description": "Selfdestruct"
     },
     {
+      "name": "stRevertTest/RevertPrecompiledTouch_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouch_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouch_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouch_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_4.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_5.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_7.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_8.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_10.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_11.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_13.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_14.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_16.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_17.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_19.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_20.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_22.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_23.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_25.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_26.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_28.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_29.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_31.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_32.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_34.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_35.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_37.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_38.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_40.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_41.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_43.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_44.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_46.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_47.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_49.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_50.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_52.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_53.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_55.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_56.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_58.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_59.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_61.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_62.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_64.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_65.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_67.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_68.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_70.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_71.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_73.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_74.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_76.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_77.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_79.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_80.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_82.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_83.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_85.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_86.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_88.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_89.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_91.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_92.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_94.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouchExactOOG_95.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouch_nonce_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouch_nonce_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouch_nonce_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouch_nonce_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouch_noncestorage_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouch_noncestorage_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouch_noncestorage_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouch_noncestorage_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouch_storage_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouch_storage_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouch_storage_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stRevertTest/RevertPrecompiledTouch_storage_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
       "name": "stSelfBalance/diffPlaces_27.json",
       "description": "tx gas > max int"
     },
@@ -3853,6 +4309,18 @@
     {
       "name": "stSolidityTest/TestContractSuicide.json",
       "description": "Selfdestruct"
+    },
+    {
+      "name": "stSolidityTest/SelfDestruct_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stSolidityTest/SelfDestruct_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stSolidityTest/SelfDestruct_2.json",
+      "description": "Precompiled ripemd160 is not supported"
     },
     {
       "name": "stSpecialTest/selfdestructEIP2929.json",
@@ -3887,6 +4355,22 @@
       "description": "Selfdestruct"
     },
     {
+      "name": "stSpecialTest/block504980.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stSpecialTest/failed_tx_xcf416c53.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stStaticCall/static_Call50000_identity2_0.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_Call50000_identity2_1.json",
+      "description": "tx gas > max int"
+    },
+    {
       "name": "stStaticCall/static_Call1024BalanceTooLow_1.json",
       "description": "tx gas > max int"
     },
@@ -3917,6 +4401,18 @@
     {
       "name": "stStaticCall/static_CallRecursiveBombPreCall2.json",
       "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/StaticcallToPrecompileFromCalledContract.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stStaticCall/StaticcallToPrecompileFromContractInitialization.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stStaticCall/StaticcallToPrecompileFromTransaction.json",
+      "description": "Precompiled ripemd160 is not supported"
     },
     {
       "name": "stStaticCall/static_ABAcallsSuicide0_0.json",
@@ -4007,6 +4503,10 @@
       "description": "tx gas > max int"
     },
     {
+      "name": "stStaticCall/static_CallEcrecover0_0input_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
       "name": "stStaticCall/static_CallRecursiveBomb0_OOG_atMaxCallDepth.json",
       "description": "tx gas > max int"
     },
@@ -4017,6 +4517,38 @@
     {
       "name": "stStaticCall/static_CallRecursiveBombLog2.json",
       "description": "tx gas > max int"
+    },
+    {
+      "name": "stStaticCall/static_CallRipemd160_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stStaticCall/static_CallRipemd160_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stStaticCall/static_CallRipemd160_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stStaticCall/static_CallRipemd160_3_postfixed0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stStaticCall/static_CallRipemd160_3_prefixed0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stStaticCall/static_CallRipemd160_4.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stStaticCall/static_CallRipemd160_4_gas719.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stStaticCall/static_CallRipemd160_5.json",
+      "description": "Precompiled ripemd160 is not supported"
     },
     {
       "name": "stStaticCall/static_LoopCallsDepthThenRevert2.json",
@@ -4073,6 +4605,42 @@
     {
       "name": "stStaticCall/static_refund_CallToSuicideTwice_1.json",
       "description": "Selfdestruct"
+    },
+    {
+      "name": "stStaticFlagEnabled/CallWithZeroValueToPrecompileFromCalledContract.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/CallWithZeroValueToPrecompileFromContractInitialization.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/CallWithZeroValueToPrecompileFromTransaction.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/CallcodeToPrecompileFromCalledContract.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/CallcodeToPrecompileFromContractInitialization.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/CallcodeToPrecompileFromTransaction.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/DelegatecallToPrecompileFromCalledContract.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/DelegatecallToPrecompileFromContractInitialization.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stStaticFlagEnabled/DelegatecallToPrecompileFromTransaction.json",
+      "description": "Precompiled ripemd160 is not supported"
     },
     {
       "name": "stSystemOperationsTest/CallRecursiveBomb0_OOG_atMaxCallDepth.json",
@@ -4229,6 +4797,2122 @@
     {
       "name": "stZeroCallsTest/ZeroValue_SUICIDE_ToOneStorageKey.json",
       "description": "Selfdestruct"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_2_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_2_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_2_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_2_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_2_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_2_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_2_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_2_28000_96_4.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_340282366920938463463374607431768211456_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_340282366920938463463374607431768211456_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_340282366920938463463374607431768211456_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_340282366920938463463374607431768211456_21000_80_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_340282366920938463463374607431768211456_21000_80_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_340282366920938463463374607431768211456_21000_80_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_340282366920938463463374607431768211456_21000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_340282366920938463463374607431768211456_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_340282366920938463463374607431768211456_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_340282366920938463463374607431768211456_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_340282366920938463463374607431768211456_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_340282366920938463463374607431768211456_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_340282366920938463463374607431768211456_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_340282366920938463463374607431768211456_28000_80_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_340282366920938463463374607431768211456_28000_80_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_340282366920938463463374607431768211456_28000_80_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_340282366920938463463374607431768211456_28000_80_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_340282366920938463463374607431768211456_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_340282366920938463463374607431768211456_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_340282366920938463463374607431768211456_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5616_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5616_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5616_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5616_21000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5616_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5616_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5616_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5616_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5616_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5616_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5617_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5617_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5617_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5617_21000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5617_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5617_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5617_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5617_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5617_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5617_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5617_28000_96_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5617_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5617_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_5617_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_616_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_616_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_616_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_616_28000_96_4.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9935_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9935_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9935_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9935_21000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9935_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9935_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9935_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9935_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9935_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9935_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9935_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9935_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9935_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9_21000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_1-2_9_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_21000_64_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_21000_64_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_21000_64_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_21000_80_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_21000_80_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_21000_80_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_21000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_28000_64_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_28000_64_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_28000_64_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_28000_64_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_28000_80_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_28000_80_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_28000_80_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_28000_80_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_28000_96_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_0_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1456_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1456_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1456_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1456_21000_80_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1456_21000_80_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1456_21000_80_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1456_21000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1456_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1456_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1456_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1456_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1456_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1456_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1456_28000_80_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1456_28000_80_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1456_28000_80_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1456_28000_80_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1456_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1456_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1456_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1_21000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_1_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_2_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_2_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_2_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_2_21000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_2_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_2_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_2_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_2_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_2_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_2_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_2_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_2_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_2_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5616_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5616_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5616_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5616_21000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5616_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5616_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5616_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5616_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5616_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5616_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5616_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5616_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5616_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5617_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5617_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5617_21000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5617_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5617_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5617_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5617_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5617_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5617_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5617_28000_96_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5617_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5617_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_5617_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9935_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9935_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9935_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9935_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9935_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9935_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9935_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9935_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9935_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9935_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9935_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9_21000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecmul_7827-6598_9_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_empty_data_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_empty_data_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_empty_data_insufficient_gas_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_one_point_fail_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_one_point_with_g1_zero_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_one_point_with_g2_zero_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_one_point_with_g2_zero_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_one_point_with_g2_zero_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_three_point_fail_1_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_three_point_match_1_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_three_point_match_1_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_two_point_fail_1_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_two_point_fail_2_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_two_point_match_1_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_two_point_match_2_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_two_point_match_2_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_two_point_match_3_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_two_point_match_3_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_two_point_match_4_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_two_point_match_4_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_two_point_match_5_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_two_point_oog_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_two_point_oog_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_two_points_with_one_g2_zero_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge/ecpairing_two_points_with_one_g2_zero_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_21000_0_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_21000_0_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_21000_0_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_21000_192_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_21000_192_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_21000_192_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_21000_64_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_21000_64_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_21000_64_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_21000_80_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_21000_80_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_21000_80_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_25000_0_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_25000_0_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_25000_0_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_25000_0_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_25000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_25000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_25000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_25000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_25000_192_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_25000_192_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_25000_192_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_25000_192_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_25000_64_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_25000_64_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_25000_64_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_25000_64_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_25000_80_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_25000_80_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_25000_80_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_0-0_25000_80_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_1-2_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_1-2_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_1-2_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_1-2_21000_192_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_1-2_21000_192_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_1-2_21000_192_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_1-2_25000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_1-2_25000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_1-2_25000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_1-2_25000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_1-2_25000_192_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_1-2_25000_192_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_1-2_25000_192_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_0-0_1-2_25000_192_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_0-0_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_0-0_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_0-0_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_0-0_21000_192_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_0-0_21000_192_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_0-0_21000_192_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_0-0_21000_64_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_0-0_21000_64_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_0-0_21000_64_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_0-0_25000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_0-0_25000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_0-0_25000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_0-0_25000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_0-0_25000_192_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_0-0_25000_192_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_0-0_25000_192_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_0-0_25000_192_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_0-0_25000_64_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_0-0_25000_64_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_0-0_25000_64_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_0-0_25000_64_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_1-2_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_1-2_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_1-2_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_1-2_21000_192_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_1-2_21000_192_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_1-2_21000_192_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_1-2_25000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_1-2_25000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_1-2_25000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_1-2_25000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_1-2_25000_192_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_1-2_25000_192_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_1-2_25000_192_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1-2_1-2_25000_192_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1145-3932_1145-4651_21000_192_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1145-3932_1145-4651_21000_192_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1145-3932_1145-4651_21000_192_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1145-3932_1145-4651_25000_192_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1145-3932_1145-4651_25000_192_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1145-3932_1145-4651_25000_192_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1145-3932_1145-4651_25000_192_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1145-3932_2969-1336_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1145-3932_2969-1336_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1145-3932_2969-1336_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1145-3932_2969-1336_25000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1145-3932_2969-1336_25000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1145-3932_2969-1336_25000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecadd_1145-3932_2969-1336_25000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_21000_0_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_21000_0_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_21000_0_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_21000_40_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_21000_40_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_21000_40_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_21000_64_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_21000_64_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_21000_64_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_21000_80_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_21000_80_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_21000_80_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_21000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_28000_0_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_28000_0_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_28000_0_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_28000_0_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_28000_40_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_28000_40_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_28000_40_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_28000_40_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_28000_64_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_28000_64_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_28000_64_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_28000_64_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_28000_80_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_28000_80_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_28000_80_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_28000_80_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_0_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_1_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_1_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_1_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_1_21000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_1_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_1_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_1_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_1_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_1_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_1_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_1_28000_96_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_1_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_1_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_1_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_2_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_2_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_2_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_2_21000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_2_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_2_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_2_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_2_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_2_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_2_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_2_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_2_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_2_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_340282366920938463463374607431768211456_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_340282366920938463463374607431768211456_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_340282366920938463463374607431768211456_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_340282366920938463463374607431768211456_21000_80_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_340282366920938463463374607431768211456_21000_80_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_340282366920938463463374607431768211456_21000_80_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_340282366920938463463374607431768211456_21000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_340282366920938463463374607431768211456_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_340282366920938463463374607431768211456_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_340282366920938463463374607431768211456_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_340282366920938463463374607431768211456_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_340282366920938463463374607431768211456_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_340282366920938463463374607431768211456_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_340282366920938463463374607431768211456_28000_80_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_340282366920938463463374607431768211456_28000_80_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_340282366920938463463374607431768211456_28000_80_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_340282366920938463463374607431768211456_28000_80_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_340282366920938463463374607431768211456_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_340282366920938463463374607431768211456_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_340282366920938463463374607431768211456_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5616_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5616_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5616_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5616_21000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5616_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5616_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5616_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5616_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5616_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5616_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5616_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5616_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5616_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5617_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5617_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5617_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5617_21000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5617_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5617_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5617_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5617_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5617_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5617_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5617_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5617_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_5617_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9935_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9935_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9935_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9935_21000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9935_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9935_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9935_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9935_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9935_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9935_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9935_28000_96_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9935_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9935_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9935_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9_21000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_0-0_9_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_21000_64_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_21000_64_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_21000_64_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_21000_80_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_21000_80_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_21000_80_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_21000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_28000_64_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_28000_64_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_28000_64_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_28000_64_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_28000_80_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_28000_80_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_28000_80_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_28000_80_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_28000_96_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_0_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_1_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_1_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_1_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_1_21000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_1_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_1_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_1_28000_128_0.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_1_28000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_1_28000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_1_28000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_1_28000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_1_28000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_1_28000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_2_21000_128_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_2_21000_128_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_2_21000_128_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_2_21000_96_1.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_2_21000_96_2.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stZeroKnowledge2/ecmul_1-2_2_21000_96_3.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stAttackTest/ContractCreationSpam.json",
+      "description": "Selfdestruct"
+    },
+    {
+      "name": "stAttackTest/CrashingTransaction.json",
+      "description": "Selfdestruct"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashCreatedAndDeletedAccountStaticCall.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashDynamicArgument_1.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashDynamicArgument_2.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashDynamicArgument_3.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stAttackTest/ContractCreationSpam.json",
+      "description": "Selfdestruct"
+    },
+    {
+      "name": "stAttackTest/CrashingTransaction.json",
+      "description": "Selfdestruct"
+    },
+    {
+      "name": "stRandom/randomStatetest100.json",
+      "description": "rom NUMBER != eth NUMBER"
+    },
+    {
+      "name": "stRandom/randomStatetest139.json",
+      "description": "rom NUMBER != eth NUMBER"
+    },
+    {
+      "name": "stRandom/randomStatetest246.json",
+      "description": "rom NUMBER != eth NUMBER"
+    },
+    {
+      "name": "stRandom2/randomStatetest458.json",
+      "description": "rom NUMBER != eth NUMBER"
     }
   ]
 }

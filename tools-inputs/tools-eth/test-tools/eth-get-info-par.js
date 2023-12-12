@@ -12,7 +12,6 @@ const { argv } = require('yargs');
 const fs = require('fs');
 const path = require('path');
 
-const tablePathTemplate = '../final-table.template.txt';
 const tablePath = 'final-table.txt';
 
 // example: npx mocha gen-inputs.js --test xxxx --folder xxxx --ignore
@@ -26,6 +25,12 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
     let file;
     let group;
     let info = {};
+    info.Total = {
+        countTests: 0,
+        countErrors: 0,
+        countOK: 0,
+        countNotSupport: 0,
+    };
     let infoErrors = '';
     let basePath = '../tests/BlockchainTests';
     let tests30M = [];
@@ -114,6 +119,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             } else {
                 for (let y = 0; y < txsLength; y++) {
                     const key = Object.keys(info).filter((x) => file.includes(`${x}/`));
+                    info.Total.countTests++;
                     info[key].countTests++;
                     let newOutputName;
                     let writeOutputName = dir + file.split('GeneralStateTests/')[1].split(outputName)[0].split('/')[0];
@@ -159,19 +165,23 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             writeOutputName = writeOutputName.replace(writeOutputName.split('/')[writeOutputName.split('/').length - 2], 'tests-30M');
                         }
                         if (fs.existsSync(writeOutputName)) {
+                            info.Total.countOK++;
                             info[key].countOK++;
                         } else {
                             throw new Error('test does not exist');
                         }
                     } catch (e) {
                         if (e.toString() === 'Error: not supported') {
+                            info.Total.countNotSupport++;
                             info[key].countNotSupport++;
                             info[key].notSup.push(writeOutputName);
                         }
                         if (e.toString() === 'Error: breaks computation test') {
+                            info.Total.countErrors++;
                             info[key].countErrors++;
                         }
                         if (e.toString() === 'Error: test does not exist') {
+                            info.Total.countErrors++;
                             info[key].countErrors++;
                             info[key].errors.push(writeOutputName);
                         }
@@ -179,40 +189,38 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                 }
             }
         }
-        let tableText;
-        try {
-            tableText = fs.readFileSync(tablePathTemplate, 'utf-8');
-        } catch (e) {
-            throw new Error("'final-table.txt' file does not exist");
-        }
-        const tableRows = tableText.split('\n');
-        let newTable = `${tableRows[0]}\n${tableRows[1]}`;
-        for (let i = 2; i < tableRows.length; i++) {
-            const tableCel = tableRows[i].split('|');
-            const name = tableCel[1].trim();
-            newTable += `\n${tableCel[0]}|${tableCel[1]}`;
-            const total = tableCel[2].trim();
-            const totalNum = info[name].countTests;
-            newTable += `|${tableCel[2].replace(total, totalNum)}`;
-            const ok = tableCel[3].trim();
-            const okNum = info[name].countOK;
-            newTable += `|${tableCel[3].replace(ok, okNum)}`;
-            const errors = tableCel[4].trim();
-            const genErrors = info[name].countErrors;
-            const errNum = Number(genErrors);
-            newTable += `|${tableCel[4].replace(errors, errNum)}`;
-            const ignored = tableCel[5].trim();
-            const ignoredNum = info[name].countNotSupport;
-            newTable += `|${tableCel[5].replace(ignored, ignoredNum)}`;
-            const cov = tableCel[6].trim();
-            let covNum;
-            if (totalNum - ignoredNum === 0) {
-                covNum = (100).toFixed(2);
-            } else {
-                covNum = (100 * okNum / (totalNum - ignoredNum)).toFixed(2);
+        let newTable = '|             Folder Name              | Total | :heavy_check_mark: | :x: | Ignored | Cov  | \n |:------------------------------------:|:-----:|:------------------:|:---:|:-------:|:----:|';
+        const foldersTest = Object.keys(info);
+        let totalCovNum = 0;
+        for (let i = 0; i < foldersTest.length; i++) {
+            if (foldersTest[i] !== 'Total') {
+                const totalNum = info[foldersTest[i]].countTests;
+                const okNum = info[foldersTest[i]].countOK;
+                const ignoredNum = info[foldersTest[i]].countNotSupport;
+                let covNum;
+                if (totalNum - ignoredNum === 0) {
+                    covNum = (100).toFixed(2);
+                } else {
+                    covNum = (100 * okNum / (totalNum - ignoredNum)).toFixed(2);
+                }
+                newTable += '\n|';
+                newTable += ` ${foldersTest[i]} |`;
+                newTable += ` ${totalNum} |`;
+                newTable += ` ${okNum} |`;
+                newTable += ` ${info[foldersTest[i]].countErrors} |`;
+                newTable += ` ${ignoredNum} |`;
+                newTable += ` ${covNum} |`;
+                totalCovNum += Number(covNum);
             }
-            newTable += `|${tableCel[6].replace(cov, covNum)}|`;
         }
+        newTable += '\n|';
+        newTable += ' TOTAL |';
+        newTable += ` ${info.Total.countTests} |`;
+        newTable += ` ${info.Total.countOK} |`;
+        newTable += ` ${info.Total.countErrors} |`;
+        newTable += ` ${info.Total.countNotSupport} |`;
+        const totalCov = totalCovNum / (foldersTest.length - 1);
+        newTable += ` ${totalCov.toFixed(2)} |`;
         await fs.writeFileSync(tablePath, newTable);
         await fs.writeFileSync(`${tablePath}`.replace('.txt', '-2.txt'), JSON.stringify(info, null, 1));
     });

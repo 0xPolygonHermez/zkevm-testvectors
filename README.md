@@ -26,7 +26,7 @@ Maintained tests:
 
 | Total | Generation errors | Ignored | :heavy_check_mark: | :x: | Coverage |
 |:-----:|:-----------------:|:-------:|:------------------:|:---:|:--------:|
-| 17773	|         31        |	  1681	|        16061       |  0  |   99.45  |
+| 17796	|         31        |	  1693	|        16072       |  0  |   99.47  |
 
 
 ## Extended table
