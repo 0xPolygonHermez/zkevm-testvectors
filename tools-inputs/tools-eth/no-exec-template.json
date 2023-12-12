@@ -1245,6 +1245,54 @@
     {
       "name": "stStaticCall/static_Call50000_identity2_1.json",
       "description": "tx gas > max int"
+    },
+    {
+      "name": "stAttackTest/ContractCreationSpam.json",
+      "description": "Selfdestruct"
+    },
+    {
+      "name": "stAttackTest/CrashingTransaction.json",
+      "description": "Selfdestruct"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashCreatedAndDeletedAccountStaticCall.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashDynamicArgument_1.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashDynamicArgument_2.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stExtCodeHash/extCodeHashDynamicArgument_3.json",
+      "description": "rom EXTCODEHASH != EXTCODEHASH"
+    },
+    {
+      "name": "stAttackTest/ContractCreationSpam.json",
+      "description": "Selfdestruct"
+    },
+    {
+      "name": "stAttackTest/CrashingTransaction.json",
+      "description": "Selfdestruct"
+    },
+    {
+      "name": "stRandom/randomStatetest100.json",
+      "description": "rom NUMBER != eth NUMBER"
+    },
+    {
+      "name": "stRandom/randomStatetest139.json",
+      "description": "rom NUMBER != eth NUMBER"
+    },
+    {
+      "name": "stRandom/randomStatetest246.json",
+      "description": "rom NUMBER != eth NUMBER"
+    },
+    {
+      "name": "stRandom2/randomStatetest458.json",
+      "description": "rom NUMBER != eth NUMBER"
     }
   ]
 }

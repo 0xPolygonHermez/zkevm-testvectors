@@ -14,7 +14,6 @@ const path = require('path');
 
 const tablePathTemplate = '../final-table.template.txt';
 const tablePath = 'final-table.txt';
-const listOOC = require('../../../inputs-executor/ethereum-tests/GeneralStateTests/tests-OOC/testsOOC-list.json');
 
 // example: npx mocha gen-inputs.js --test xxxx --folder xxxx --ignore
 describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', async function () {
@@ -128,7 +127,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         // console.log('Test name: ', newOutputName);
 
                         const auxOutputPathName1 = writeOutputName;
-                        const auxOutputPathName2 = `${file.split('.json')[0]}_${y}`;
+                        const auxOutputPathName2 = `${file.split('.json')[0]}_${y}.json`;
 
                         const listBreaksComputation = [];
                         noExec['breaks-computation'].forEach((elem) => listBreaksComputation.push(elem.name));
@@ -160,8 +159,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             writeOutputName = writeOutputName.replace(writeOutputName.split('/')[writeOutputName.split('/').length - 2], 'tests-30M');
                         }
                         if (fs.existsSync(writeOutputName)) {
-                            info[key].countOK++;
-                        } else if (listOOC.filter((x) => x.fileName.includes(newOutputName)).length > 0) {
                             info[key].countOK++;
                         } else {
                             throw new Error('test does not exist');
@@ -217,6 +214,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             newTable += `|${tableCel[6].replace(cov, covNum)}|`;
         }
         await fs.writeFileSync(tablePath, newTable);
-        await fs.writeFileSync(`${tablePath}-2`, JSON.stringify(info, null, 1));
+        await fs.writeFileSync(`${tablePath}`.replace('.txt', '-2.txt'), JSON.stringify(info, null, 1));
     });
 });
