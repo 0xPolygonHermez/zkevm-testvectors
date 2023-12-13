@@ -1,3 +1,4 @@
+/* eslint-disable no-continue */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable max-len */
 const { Scalar } = require('ffjavascript');
@@ -169,6 +170,7 @@ describe('Proof of efficiency test vectors', function () {
             batchHashData,
             inputHash,
             chainID,
+            autoChangeL2Block,
         } = testVectors[i];
 
         let {
@@ -204,14 +206,46 @@ describe('Proof of efficiency test vectors', function () {
                 nonceArray.push(Scalar.e(nonce));
             }
 
+            // If first tx is not TX_CHANGE_L2_BLOCK, add one by default
+            const addChangeL2Block = typeof autoChangeL2Block === 'undefined' || autoChangeL2Block !== false;
+
+            if (addChangeL2Block && txs[0].type !== Constants.TX_CHANGE_L2_BLOCK) {
+                const txChangeL2Block = {
+                    type: 11,
+                    deltaTimestamp: timestampLimit,
+                    l1Info: {
+                        globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
+                        blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
+                        timestamp: '42',
+                    },
+                    indexL1InfoTree: 0,
+                };
+                txs.unshift(txChangeL2Block);
+            }
+
             /*
              * build, sign transaction and generate rawTxs
              * rawTxs would be the calldata inserted in the contract
              */
+            const extraData = { l1Info: {} };
             const txProcessed = [];
             const rawTxs = [];
             for (let j = 0; j < txs.length; j++) {
                 const txData = txs[j];
+
+                // Check for TX_CHANGE_L2_BLOCK
+                if (txData.type === Constants.TX_CHANGE_L2_BLOCK) {
+                    const rawChangeL2BlockTx = processorUtils.serializeChangeL2Block(txData);
+                    const customRawTx = `0x${rawChangeL2BlockTx}`;
+
+                    // Append l1Info to l1Info object
+                    extraData.l1Info[txData.indexL1InfoTree] = txData.l1Info;
+
+                    rawTxs.push(customRawTx);
+                    txProcessed.push(txData);
+                    continue;
+                }
+
                 const tx = {
                     to: txData.to,
                     nonce: txData.nonce,
@@ -300,7 +334,6 @@ describe('Proof of efficiency test vectors', function () {
             }
 
             const lastGlobalExitRoot = await globalExitRootManager.getRoot();
-            const extraData = { l1Info: {} };
             const batch = await zkEVMDB.buildBatch(
                 timestampLimit,
                 sequencerAddress,
@@ -312,18 +345,6 @@ describe('Proof of efficiency test vectors', function () {
                 },
                 extraData,
             );
-
-            const dataChangeL2Block = {
-                type: 11,
-                deltaTimestamp: timestampLimit,
-                l1Info: {
-                    globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
-                    blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
-                    timestamp: '42',
-                },
-                indexL1InfoTree: 0,
-            };
-            helpers.addRawTxChangeL2Block(batch, extraData, extraData, dataChangeL2Block);
 
             for (let j = 0; j < rawTxs.length; j++) {
                 batch.addRawTx(rawTxs[j]);
