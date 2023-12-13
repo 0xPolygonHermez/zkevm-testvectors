@@ -63,6 +63,7 @@ describe('Run state-transition tests', function () {
                     timestampLimit,
                     chainID,
                     forcedBlockHashL1,
+                    autoChangeL2Block,
                 } = testVectors[j];
 
                 // Adapts input
@@ -103,14 +104,46 @@ describe('Run state-transition tests', function () {
                     nonceArray.push(Scalar.e(nonce));
                 }
 
+                // If first tx is not TX_CHANGE_L2_BLOCK, add one by default
+                const addChangeL2Block = typeof autoChangeL2Block === 'undefined' || autoChangeL2Block !== false;
+
+                if (addChangeL2Block && txs[0].type !== Constants.TX_CHANGE_L2_BLOCK) {
+                    const txChangeL2Block = {
+                        type: 11,
+                        deltaTimestamp: timestamp,
+                        l1Info: {
+                            globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
+                            blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
+                            timestamp: '42',
+                        },
+                        indexL1InfoTree: 0,
+                    };
+                    txs.unshift(txChangeL2Block);
+                }
+
                 /*
                 * build, sign transaction and generate rawTxs
                 * rawTxs would be the calldata inserted in the contract
                 */
+                const extraData = { l1Info: {} };
                 const txProcessed = [];
                 const rawTxs = [];
                 for (let k = 0; k < txs.length; k++) {
                     const txData = txs[k];
+
+                    // Check for TX_CHANGE_L2_BLOCK
+                    if (txData.type === Constants.TX_CHANGE_L2_BLOCK) {
+                        const rawChangeL2BlockTx = processorUtils.serializeChangeL2Block(txData);
+                        const customRawTx = `0x${rawChangeL2BlockTx}`;
+
+                        // Append l1Info to l1Info object
+                        extraData.l1Info[txData.indexL1InfoTree] = txData.l1Info;
+
+                        rawTxs.push(customRawTx);
+                        txProcessed.push(txData);
+                        continue;
+                    }
+
                     const tx = {
                         to: txData.to,
                         nonce: txData.nonce,
@@ -198,7 +231,6 @@ describe('Run state-transition tests', function () {
                     expect(smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
                 }
 
-                const extraData = { l1Info: {} };
                 const batch = await zkEVMDB.buildBatch(
                     timestampLimit,
                     sequencerAddress,
@@ -210,22 +242,6 @@ describe('Run state-transition tests', function () {
                     },
                     extraData,
                 );
-
-                // Ethereum test to add by default a changeL2Block trnsaction
-                const txChangeL2Block = {
-                    type: 11,
-                    deltaTimestamp: timestamp,
-                    l1Info: {
-                        globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
-                        blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
-                        timestamp: '42',
-                    },
-                    indexL1InfoTree: 0,
-                };
-
-                const rawChangeL2BlockTx = processorUtils.serializeChangeL2Block(txChangeL2Block);
-                const customRawTx = `0x${rawChangeL2BlockTx}`;
-                batch.addRawTx(customRawTx);
 
                 for (let k = 0; k < rawTxs.length; k++) {
                     batch.addRawTx(rawTxs[k]);

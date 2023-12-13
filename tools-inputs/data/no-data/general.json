@@ -21,6 +21,17 @@
     "expectedOldRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
     "txs": [
       {
+        "type": 11,
+        "deltaTimestamp": 1944498031,
+        "l1Info": {
+          "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+          "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
+          "timestamp": "42"
+        },
+        "indexL1InfoTree": 0,
+        "reason": ""
+      },
+      {
         "id": 0,
         "from": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
         "to": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -115,6 +126,17 @@
     "expectedOldRoot": "0x76b362a9afd679ea13a456ab103786492c65946be653589c1fd627841d0c6fdd",
     "txs": [
       {
+        "type": 11,
+        "deltaTimestamp": 1944498031,
+        "l1Info": {
+          "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+          "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
+          "timestamp": "42"
+        },
+        "indexL1InfoTree": 0,
+        "reason": ""
+      },
+      {
         "id": 0,
         "from": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
         "to": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -125,7 +147,7 @@
         "chainId": 1000,
         "rawTx": "0xf86e80843b9aca00830186a0944d5cf5032b2a844602278b01199ed191a86c93ff88016345785d8a0000808207f3a01cee7e01dc62f69a12c3510c6d64de04ee6346d84b6a017f3e786c7d87f963e7a05d8cc91fa983cd6d9cf55fff80d73bd26cd333b0f098acc1e58edb1fd484ad73",
         "customRawTx": "0xee80843b9aca00830186a0944d5cf5032b2a844602278b01199ed191a86c93ff88016345785d8a0000808203e880801cee7e01dc62f69a12c3510c6d64de04ee6346d84b6a017f3e786c7d87f963e75d8cc91fa983cd6d9cf55fff80d73bd26cd333b0f098acc1e58edb1fd484ad731bff",
-        "reason": ""
+        "reason": "TX INVALID: Not enough funds to pay total transaction cost"
       },
       {
         "id": 1,
@@ -138,7 +160,7 @@
         "chainId": 1000,
         "rawTx": "0xf86f80843b9aca00830186a094187bd40226a7073b49163b1f6c2b73d8f2aa8478893635c9adc5dea00000808207f3a06199f98970ea3e0e9a59e32184ea11ae9158b9b93d70906e11f60eb6ce009602a03c1bbbb437e58ea5f7bebd344d61cccd161c6b8accff11b50ea44300d3ab58bd",
         "customRawTx": "0xef80843b9aca00830186a094187bd40226a7073b49163b1f6c2b73d8f2aa8478893635c9adc5dea00000808203e880806199f98970ea3e0e9a59e32184ea11ae9158b9b93d70906e11f60eb6ce0096023c1bbbb437e58ea5f7bebd344d61cccd161c6b8accff11b50ea44300d3ab58bd1bff",
-        "reason": "TX INVALID: Not enough funds to pay total transaction cost"
+        "reason": ""
       },
       {
         "id": 2,
@@ -151,7 +173,7 @@
         "chainId": 1000,
         "rawTx": "0xf86e80843b9aca00830186a094187bd40226a7073b49163b1f6c2b73d8f2aa8478880de0b6b3a7640000808207f4a074ecb6abb3d84c322a4905c60199b8f422b79b940e8a853d580869268009ae31a023fb6caa5b3afc410b79d9b68bf851df1fd46fd6923cc481b3e273aeb92ce67d",
         "customRawTx": "0xee80843b9aca00830186a094187bd40226a7073b49163b1f6c2b73d8f2aa8478880de0b6b3a7640000808203e8808074ecb6abb3d84c322a4905c60199b8f422b79b940e8a853d580869268009ae3123fb6caa5b3afc410b79d9b68bf851df1fd46fd6923cc481b3e273aeb92ce67d1cff",
-        "reason": ""
+        "reason": "TX INVALID: Invalid nonce"
       },
       {
         "id": 3,
@@ -164,7 +186,7 @@
         "chainId": 1000,
         "rawTx": "0xf86e80843b9aca00830186a094abcced19d7f290b84608fec510bee872cc8f5112880de0b6b3a7640000808207f4a0432b1bc18d96dea596edfe17b249a68e42117f738ecfaea4e9f92aa77935fb4da05b9a983a5ba73c27cbaa4de62b1d8ab8b908a941926387927dcd2319d8b4dfb2",
         "customRawTx": "0xee80843b9aca00830186a094abcced19d7f290b84608fec510bee872cc8f5112880de0b6b3a7640000808203e88080432b1bc18d96dea596edfe17b249a68e42117f738ecfaea4e9f92aa77935fb4d5b9a983a5ba73c27cbaa4de62b1d8ab8b908a941926387927dcd2319d8b4dfb21cff",
-        "reason": "TX INVALID: Invalid nonce"
+        "reason": "TX INVALID: Chain ID does not match"
       },
       {
         "id": 4,
@@ -264,6 +286,17 @@
     "expectedOldRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
     "txs": [
       {
+        "type": 11,
+        "deltaTimestamp": 1944498031,
+        "l1Info": {
+          "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+          "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
+          "timestamp": "42"
+        },
+        "indexL1InfoTree": 0,
+        "reason": "TX INVALID: Not enough funds to pay total transaction cost"
+      },
+      {
         "id": 0,
         "from": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
         "to": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -340,6 +373,17 @@
     "expectedOldRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
     "txs": [
       {
+        "type": 11,
+        "deltaTimestamp": 1944498031,
+        "l1Info": {
+          "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+          "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
+          "timestamp": "42"
+        },
+        "indexL1InfoTree": 0,
+        "reason": "TX INVALID: Chain ID does not match"
+      },
+      {
         "id": 0,
         "from": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
         "to": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -350,7 +394,7 @@
         "chainId": 401,
         "rawTx": "0xf86e80843b9aca00830186a0944d5cf5032b2a844602278b01199ed191a86c93ff88016345785d8a000080820346a06e209c61ca92c2b980d6197e7ac9ccc3f547bf13be6455dfe682aa5dda9655efa016819a7edcc3fefec81ca97c7a6f3d10ec774440e409adbba693ce8b698d41f1",
         "customRawTx": "0xee80843b9aca00830186a0944d5cf5032b2a844602278b01199ed191a86c93ff88016345785d8a00008082019180806e209c61ca92c2b980d6197e7ac9ccc3f547bf13be6455dfe682aa5dda9655ef16819a7edcc3fefec81ca97c7a6f3d10ec774440e409adbba693ce8b698d41f11cff",
-        "reason": "TX INVALID: Chain ID does not match"
+        "reason": "TX INVALID: Not enough funds to pay total transaction cost"
       },
       {
         "id": 3,
@@ -428,6 +472,17 @@
     ],
     "expectedOldRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
     "txs": [
+      {
+        "type": 11,
+        "deltaTimestamp": 1944498031,
+        "l1Info": {
+          "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+          "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
+          "timestamp": "42"
+        },
+        "indexL1InfoTree": 0,
+        "reason": "TX INVALID: Not enough funds to pay total transaction cost"
+      },
       {
         "id": 0,
         "from": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
@@ -507,6 +562,17 @@
     ],
     "expectedOldRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
     "txs": [
+      {
+        "type": 11,
+        "deltaTimestamp": 1944498031,
+        "l1Info": {
+          "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+          "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
+          "timestamp": "42"
+        },
+        "indexL1InfoTree": 0,
+        "reason": ""
+      },
       {
         "id": 0,
         "from": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
@@ -610,6 +676,17 @@
     "expectedOldRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
     "txs": [
       {
+        "type": 11,
+        "deltaTimestamp": 1944498031,
+        "l1Info": {
+          "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+          "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
+          "timestamp": "42"
+        },
+        "indexL1InfoTree": 0,
+        "reason": "TX INVALID: Not enough funds to pay total transaction cost"
+      },
+      {
         "id": 0,
         "from": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
         "to": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -695,6 +772,7 @@
     "description": "2 accounts and 0 txs. Old root equals new root.",
     "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "autoChangeL2Block": false,
     "genesis": [
       {
         "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
@@ -711,7 +789,7 @@
     ],
     "expectedOldRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
     "txs": [],
-    "expectedNewRoot": "0xc8a7439e5c32d4c408c78a2a02b868ccce7f1a883f2ab24ebd00f04382e8a606",
+    "expectedNewRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000000000000000000",
@@ -730,19 +808,14 @@
       "0x000000000000000000000000000000005ca1ab1e": {
         "balance": "0",
         "nonce": "0",
-        "storage": {
-          "0x0000000000000000000000000000000000000000000000000000000000000000": "0x01",
-          "0x0000000000000000000000000000000000000000000000000000000000000002": "0x73e6af6f",
-          "0xa6eef7e35abe7026729641147f7915573c7e97b47efa546f5f6e3230263bcb49": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
-          "0x0000000000000000000000000000000000000000000000000000000000000003": "0x445c76b4a370754cd2fbb52da85e9c5265e9a10244ebf751f0de27a252efe4a0"
-        },
+        "storage": {},
         "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "bytecodeLength": 0
       }
     },
-    "batchL2Data": "0x0b73e6af6f00000000",
+    "batchL2Data": "0x",
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "batchHashData": "0x15d0b7957c3fbb6dd8bfa003861ada0a7aabb72442ee19da342e1de1a61c1394",
+    "batchHashData": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 7,
