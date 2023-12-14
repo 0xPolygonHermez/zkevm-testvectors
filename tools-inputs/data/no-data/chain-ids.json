@@ -21,6 +21,17 @@
     "expectedOldRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
     "txs": [
       {
+        "type": 11,
+        "deltaTimestamp": 1944498031,
+        "l1Info": {
+          "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+          "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
+          "timestamp": "42"
+        },
+        "indexL1InfoTree": 0,
+        "reason": ""
+      },
+      {
         "id": 0,
         "from": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
         "to": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -96,6 +107,17 @@
     ],
     "expectedOldRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
     "txs": [
+      {
+        "type": 11,
+        "deltaTimestamp": 1944498031,
+        "l1Info": {
+          "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+          "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
+          "timestamp": "42"
+        },
+        "indexL1InfoTree": 0,
+        "reason": ""
+      },
       {
         "id": 0,
         "from": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
@@ -186,6 +208,17 @@
     "expectedOldRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
     "txs": [
       {
+        "type": 11,
+        "deltaTimestamp": 1944498031,
+        "l1Info": {
+          "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+          "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
+          "timestamp": "42"
+        },
+        "indexL1InfoTree": 0,
+        "reason": ""
+      },
+      {
         "id": 0,
         "from": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
         "to": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -196,7 +229,7 @@
         "chainId": 1000,
         "rawTx": "0xf86e80843b9aca00830186a0944d5cf5032b2a844602278b01199ed191a86c93ff88016345785d8a0000808207f3a01cee7e01dc62f69a12c3510c6d64de04ee6346d84b6a017f3e786c7d87f963e7a05d8cc91fa983cd6d9cf55fff80d73bd26cd333b0f098acc1e58edb1fd484ad73",
         "customRawTx": "0xee80843b9aca00830186a0944d5cf5032b2a844602278b01199ed191a86c93ff88016345785d8a0000808203e880801cee7e01dc62f69a12c3510c6d64de04ee6346d84b6a017f3e786c7d87f963e75d8cc91fa983cd6d9cf55fff80d73bd26cd333b0f098acc1e58edb1fd484ad731bff",
-        "reason": ""
+        "reason": "TX INVALID: Chain ID does not match"
       },
       {
         "id": 1,
@@ -275,6 +308,17 @@
     "expectedOldRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
     "txs": [
       {
+        "type": 11,
+        "deltaTimestamp": 1944498031,
+        "l1Info": {
+          "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+          "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
+          "timestamp": "42"
+        },
+        "indexL1InfoTree": 0,
+        "reason": ""
+      },
+      {
         "id": 0,
         "from": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
         "to": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -285,7 +329,7 @@
         "chainId": 1000,
         "rawTx": "0xf86e80843b9aca00830186a0944d5cf5032b2a844602278b01199ed191a86c93ff88016345785d8a0000808207f3a01cee7e01dc62f69a12c3510c6d64de04ee6346d84b6a017f3e786c7d87f963e7a05d8cc91fa983cd6d9cf55fff80d73bd26cd333b0f098acc1e58edb1fd484ad73",
         "customRawTx": "0xee80843b9aca00830186a0944d5cf5032b2a844602278b01199ed191a86c93ff88016345785d8a0000808203e880801cee7e01dc62f69a12c3510c6d64de04ee6346d84b6a017f3e786c7d87f963e75d8cc91fa983cd6d9cf55fff80d73bd26cd333b0f098acc1e58edb1fd484ad731bff",
-        "reason": ""
+        "reason": "TX INVALID: Chain ID does not match"
       },
       {
         "id": 1,
@@ -298,7 +342,7 @@
         "chainId": 4,
         "rawTx": "0xf86c01843b9aca00830186a0944d5cf5032b2a844602278b01199ed191a86c93ff88016345785d8a0000802ca0ac20136cfb02cecc8996d76f1f3c268ddcd926e805bf0ec23ff8fe1dee31e48aa05c4cd07d11427350f2f312f0d0b6bd020196b656a6bc24fb70d26aed2e2b27d6",
         "customRawTx": "0xec01843b9aca00830186a0944d5cf5032b2a844602278b01199ed191a86c93ff88016345785d8a000080048080ac20136cfb02cecc8996d76f1f3c268ddcd926e805bf0ec23ff8fe1dee31e48a5c4cd07d11427350f2f312f0d0b6bd020196b656a6bc24fb70d26aed2e2b27d61cff",
-        "reason": "TX INVALID: Chain ID does not match"
+        "reason": ""
       },
       {
         "id": 2,
