@@ -114,7 +114,7 @@ describe('Run state-transition tests: calldata', async function () {
                 const addChangeL2Block = typeof autoChangeL2Block === 'undefined' || autoChangeL2Block !== false;
 
                 // If first tx is not TX_CHANGE_L2_BLOCK, add one by default
-                if (addChangeL2Block && txs[0].type !== Constants.TX_CHANGE_L2_BLOCK) {
+                if (addChangeL2Block && txs.length > 0 && txs[0].type !== Constants.TX_CHANGE_L2_BLOCK) {
                     const txChangeL2Block = {
                         type: 11,
                         deltaTimestamp: timestampLimit,
