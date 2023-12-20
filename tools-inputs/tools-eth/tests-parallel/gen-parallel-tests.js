@@ -42,12 +42,12 @@ async function main() {
         fs.readdirSync(inputsPath).forEach((file) => {
             const filePath = path.join(inputsPath, file);
             // Remove json lists that are generated with gen inputs script and are not inputs
-            if (file.endsWith('.json') && !file.includes('testsOOC-list.json') && !file.includes('tests30M-list.json')) {
+            if (file.endsWith('.json') && !file.includes('no-exec')) {
                 inputs.push(filePath);
-            } else if (fs.statSync(filePath).isDirectory() && !filePath.includes('tests-OOC')) {
+            } else if (fs.statSync(filePath).isDirectory()) {
                 fs.readdirSync(filePath).forEach((subFile) => {
                     const subFilePath = path.join(filePath, subFile);
-                    if (subFile.endsWith('.json') && !subFile.includes('testsOOC-list.json') && !subFile.includes('tests30M-list.json')) {
+                    if (subFile.endsWith('.json') && !subFile.includes('no-exec')) {
                         inputs.push(subFilePath);
                     }
                 });

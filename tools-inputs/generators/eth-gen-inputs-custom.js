@@ -544,14 +544,14 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
         }
         if (tests30M.length > 0) {
             let list = [];
-            if (fs.existsSync(`${dir30M}/tests30M-list.json`)) {
-                list = require(`${dir30M}/tests30M-list.json`);
+            if (fs.existsSync('../tools-eth/tests30M-list.json')) {
+                list = require('../tools-eth/tests30M-list.json');
             }
             for (let i = 0; i < tests30M.length; i++) {
                 if (list.indexOf(tests30M[i]) === -1) { list.push(tests30M[i]); }
             }
-            console.log(`WRITE list 30M: ${dir30M}/tests30M-list.json`);
-            await fs.writeFileSync(`${dir30M}/tests30M-list.json`, JSON.stringify(list, null, 2));
+            console.log('WRITE list 30M: ../tools-eth/tests30M-list.json');
+            await fs.writeFileSync('../tools-eth/tests30M-list.json', JSON.stringify(list, null, 2));
             counts.countTests -= tests30M.length;
         }
         if (allTests) {
