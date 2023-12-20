@@ -135,7 +135,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 let commonCustom = Common.custom({ chainId: chainID }, { hardfork: Hardfork.Berlin });
 
                 // If first tx is not TX_CHANGE_L2_BLOCK, add one by default
-                if (txs[0].type !== Constants.TX_CHANGE_L2_BLOCK) {
+                if (txs.length > 0 && txs[0].type !== Constants.TX_CHANGE_L2_BLOCK) {
                     const txChangeL2Block = {
                         type: 11,
                         deltaTimestamp: timestampLimit,
