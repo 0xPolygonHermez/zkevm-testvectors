@@ -52,6 +52,40 @@ contract PreEc {
         res1 = res[1];
     }
 
+    function ecAdd_ReturnCheck() public {
+        bytes memory result;
+        assembly {
+            // free memory pointer
+            let memPtr := mload(0x40)
+
+            // length of base, exponent, modulus
+            mstore(memPtr, 0x0000000000000000000000000000000000000000000000000000000000000001)
+            mstore(add(memPtr, 0x20), 0x0000000000000000000000000000000000000000000000000000000000000002)
+            mstore(add(memPtr, 0x40), 0x0000000000000000000000000000000000000000000000000000000000000001)
+            mstore(add(memPtr, 0x60), 0x0000000000000000000000000000000000000000000000000000000000000002)
+            mstore(add(memPtr, 0x80), 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff)
+            mstore(add(memPtr, 0xa0), 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff)
+
+            let success := call(gas(), 0x06, 0x0, memPtr, 0x80, add(memPtr,0x60), 0x60)
+            switch success
+            case 0 {
+                sstore(0x3, 2)
+            } default {
+                result := mload(add(memPtr,0x60))
+                sstore(0x1, result)
+                result := mload(add(memPtr,0x80))
+                sstore(0x2, result)
+                result := mload(add(memPtr,0xa0))
+                sstore(0x3, result)
+                returndatacopy(200,0,64)
+                result := mload(200)
+                sstore(0x4, result)
+                result := mload(add(200,0x20))
+                sstore(0x5, result)
+            }
+        }
+    }
+
     function Fmul(bytes32 x, bytes32 y, bytes32 scalar) public returns (bytes32[2] memory) {
         bytes32[2] memory output;
 
@@ -96,6 +130,35 @@ contract PreEc {
         res1 = res[1];
     }
 
+    function ecMul_ReturnCheck() public {
+        bytes memory result;
+        assembly {
+            // free memory pointer
+            let memPtr := mload(0x40)
+
+            // length of base, exponent, modulus
+            mstore(memPtr, 0x0000000000000000000000000000000000000000000000000000000000000001)
+            mstore(add(memPtr, 0x20), 0x0000000000000000000000000000000000000000000000000000000000000002)
+            mstore(add(memPtr, 0x40), 0x0000000000000000000000000000000000000000000000000000000000000002)
+
+            let success := call(gas(), 0x07, 0x0, memPtr, 0x60, memPtr, 0x40)
+            switch success
+            case 0 {
+                sstore(0x3, 2)
+            } default {
+                result := mload(memPtr)
+                sstore(0x1, result)
+                result := mload(add(memPtr,0x20))
+                sstore(0x2, result)
+                returndatacopy(200,0,64)
+                result := mload(200)
+                sstore(0x3, result)
+                result := mload(add(200,0x20))
+                sstore(0x4, result)
+            }
+        }
+    }
+
     function Fpairing(bytes32 x1, bytes32 y1, bytes32 x2, bytes32 y2, bytes32 x3, bytes32 y3) public  {
         bytes memory args = abi.encodePacked(x1, y1, x2, y2, x3, y3);
 
@@ -136,5 +199,33 @@ contract PreEc {
         bytes32 y3 = hex"12c85ea5db8c6deb4aab71808dcb408fe3d1e7690c43d37b4ce6cc0166fa7daa";
 
         Fpairing_fail(x1, y1, x2, y2, x3, y3);
+    }
+
+    function ecPairing_ReturnCheck() public {
+        bytes memory result;
+        assembly {
+            // free memory pointer
+            let memPtr := mload(0x40)
+
+            // length of base, exponent, modulus
+            mstore(memPtr, 0x0000000000000000000000000000000000000000000000000000000000000000)
+            mstore(add(memPtr, 0x20), 0x0000000000000000000000000000000000000000000000000000000000000000)
+            mstore(add(memPtr, 0x40), 0x198e9393920d483a7260bfb731fb5d25f1aa493335a9e71297e485b7aef312c2)
+            mstore(add(memPtr, 0x60), 0x1800deef121f1e76426a00665e5c4479674322d4f75edadd46debd5cd992f6ed)
+            mstore(add(memPtr, 0x80), 0x090689d0585ff075ec9e99ad690c3395bc4b313370b38ef355acdadcd122975b)
+            mstore(add(memPtr, 0xa0), 0x12c85ea5db8c6deb4aab71808dcb408fe3d1e7690c43d37b4ce6cc0166fa7daa)
+
+            let success := call(gas(), 0x08, 0x0, memPtr, 0xc0, memPtr, 0x20)
+            switch success
+            case 0 {
+                sstore(0x3, 2)
+            } default {
+                result := mload(memPtr)
+                sstore(0x1, result)
+                returndatacopy(200,0,32)
+                result := mload(200)
+                sstore(0x2, result)
+            }
+        }
     }
 }
