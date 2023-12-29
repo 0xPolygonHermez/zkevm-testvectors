@@ -267,7 +267,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         }
 
                         const oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
-                        const { timestamp } = currentTest.blocks[0].blockHeader;
+                        const timestamp = Scalar.e(currentTest.blocks[0].blockHeader.timestamp, 16).toString();
                         const sequencerAddress = currentTest.blocks[0].blockHeader.coinbase;
                         const forcedBlockHashL1 = '0x0000000000000000000000000000000000000000000000000000000000000000';
                         const chainIdSequencer = 1000;
@@ -509,6 +509,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         }
                         if (!flag30M) counts.countOK += 1;
                     } catch (e) {
+                        console.log(e);
                         if (options.newBlockGasLimit && Scalar.eq(options.newBlockGasLimit, Scalar.e('0x7FFFFFFF')) && (e.toString() !== 'Error: not supported')) {
                             let auxDir = dir.endsWith('/') ? dir.substring(0, dir.length - 1) : dir;
                             auxDir = auxDir.split('/');
