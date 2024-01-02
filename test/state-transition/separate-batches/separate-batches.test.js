@@ -116,7 +116,7 @@ describe('Check roots same txs in different batches', function () {
         }
 
         // build batch
-        await batch.executeTxs();
+        const res = await batch.executeTxs();
         // consolidate state
         await zkEVMDB.consolidate(batch);
 
@@ -124,6 +124,7 @@ describe('Check roots same txs in different batches', function () {
         const starkInput = await batch.getStarkInput();
         rootTxSameBatch = starkInput.newStateRoot;
         starkInput.l1InfoTree = Object.assign(starkInput.l1InfoTree, extraData.l1Info);
+        starkInput.virtualCounters = res.virtualCounters;
         if (update) {
             const pathOutput = path.join(pathInputExecutor, 'txs-same-batch.json');
             await fs.writeFileSync(pathOutput, JSON.stringify(starkInput, null, 2));
@@ -131,6 +132,7 @@ describe('Check roots same txs in different batches', function () {
             generateData.newAccInputHash = starkInput.newAccInputHash;
             generateData.forkID = testvectorsGlobalConfig.forkID;
             generateData.l1InfoTree = starkInput.l1InfoTree;
+            generateData.virtualCounters = starkInput.virtualCounters;
             delete generateData.globalExitRoot;
             await fs.writeFileSync(pathInput, JSON.stringify(generateData, null, 2));
         }
@@ -209,9 +211,10 @@ describe('Check roots same txs in different batches', function () {
             batch.addRawTx(customRawTx);
 
             // build batch
-            await batch.executeTxs();
+            const res = await batch.executeTxs();
             const starkInput = await batch.getStarkInput();
             starkInput.l1InfoTree = Object.assign(starkInput.l1InfoTree, extraData.l1Info);
+            starkInput.virtualCounters = res.virtualCounters;
             // console.log(starkInput);
 
             if (update) {

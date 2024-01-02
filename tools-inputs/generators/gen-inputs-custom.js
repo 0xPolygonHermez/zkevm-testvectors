@@ -172,7 +172,7 @@ describe('Generate inputs executor from test-vectors', async function () {
             }
 
             // Compare storage
-            await batch.executeTxs();
+            const res = await batch.executeTxs();
 
             if (evmDebug) {
                 try {
@@ -184,6 +184,7 @@ describe('Generate inputs executor from test-vectors', async function () {
 
             await zkEVMDB.consolidate(batch);
             const circuitInput = await batch.getStarkInput();
+            circuitInput.virtualCounters = res.virtualCounters;
 
             if (update) {
                 expectedNewRoot = zkcommonjs.smtUtils.h4toString(batch.currentStateRoot);

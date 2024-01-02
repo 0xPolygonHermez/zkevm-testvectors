@@ -5,6 +5,7 @@ const { Address } = require('ethereumjs-util');
 const { Scalar } = require('ffjavascript');
 const { processorUtils } = require('@0xpolygonhermez/zkevm-commonjs');
 const { defaultAbiCoder } = require('@ethersproject/abi');
+const { VirtualCountersManager } = require('@0xpolygonhermez/zkevm-commonjs');
 const path = require('path');
 
 const pathTestVectors = path.join(__dirname, '../..');
@@ -36,7 +37,7 @@ async function deployContract(
     }
     const tx = Transaction.fromTxData(txData).sign(senderPrivateKey);
 
-    const deploymentResult = await vm.runTx({ tx });
+    const deploymentResult = await vm.runTx({ tx, vcm: new VirtualCountersManager() });
 
     if (deploymentResult.execResult.exceptionError) {
         throw deploymentResult.execResult.exceptionError;

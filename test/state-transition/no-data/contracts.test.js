@@ -351,7 +351,7 @@ describe('Proof of efficiency test vectors', function () {
             }
 
             // execute the transactions added to the batch
-            await batch.executeTxs();
+            const res = await batch.executeTxs();
 
             const newRoot = batch.currentStateRoot;
 
@@ -399,6 +399,7 @@ describe('Proof of efficiency test vectors', function () {
 
             // Check the circuit input
             const circuitInput = await batch.getStarkInput();
+            circuitInput.virtualCounters = res.virtualCounters;
 
             if (update) {
                 testVectors[i].batchL2Data = batch.getBatchL2Data();
@@ -406,6 +407,7 @@ describe('Proof of efficiency test vectors', function () {
                 testVectors[i].inputHash = circuitInput.inputHash;
                 testVectors[i].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                 testVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
+                testVectors[i].virtualCounters = circuitInput.virtualCounters;
             } else {
                 // Check the encode transaction match with the vector test
                 expect(batchL2Data).to.be.equal(batch.getBatchL2Data());

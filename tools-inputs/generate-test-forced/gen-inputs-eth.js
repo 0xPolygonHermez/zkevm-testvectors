@@ -184,7 +184,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                 batch.addRawTx(calldata);
             }
 
-            await batch.executeTxs();
+            const res = await batch.executeTxs();
             await zkEVMDB.consolidate(batch);
 
             const { postState } = currentTest;
@@ -223,6 +223,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                 }
             }
             const circuitInput = await batch.getStarkInput();
+            circuitInput.virtualCounters = res.virtualCounters;
+
             Object.keys(circuitInput.contractsBytecode).forEach((key) => {
                 if (!circuitInput.contractsBytecode[key].startsWith('0x')) {
                     circuitInput.contractsBytecode[key] = `0x${circuitInput.contractsBytecode[key]}`;

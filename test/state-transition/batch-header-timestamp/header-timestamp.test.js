@@ -366,7 +366,7 @@ describe('Header timestamp', function () {
             }
 
             // execute the transactions added to the batch
-            await batch.executeTxs();
+            const res = await batch.executeTxs();
             // consolidate state
             await zkEVMDB.consolidate(batch);
 
@@ -488,6 +488,8 @@ describe('Header timestamp', function () {
             // Check the circuit input
             const circuitInput = await batch.getStarkInput();
             circuitInput.l1InfoTree = Object.assign(circuitInput.l1InfoTree, extraData.l1Info);
+            circuitInput.virtualCounters = res.virtualCounters;
+
             // Check the encode transaction match with the vector test
             if (!update) {
                 expect(batchL2Data).to.be.equal(batch.getBatchL2Data());
