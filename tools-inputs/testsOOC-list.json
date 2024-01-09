@@ -14,5 +14,9 @@
     {
         "fileName": "ethereum-tests/GeneralStateTests/VMTests/performanceTester_1",
         "stepsN": 16777216
+    },
+    {
+        "fileName": "ethereum-tests/GeneralStateTests/stBadOpcode/measureGas_10",
+        "stepsN": 8388608
     }
 ]

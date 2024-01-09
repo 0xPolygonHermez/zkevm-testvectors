@@ -488,7 +488,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         let listOOC = require('../testsOOC-list.json');
                         if (listOOC.filter((elem) => writeOutputName.includes(elem.fileName)).length > 0) {
                             const elem = listOOC.filter((testOOC) => writeOutputName.includes(testOOC.fileName))[0];
-                            console.log(elem);
                             if (elem.stepsN) { circuitInput.stepsN = elem.stepsN; }
                         }
                         console.log(`WRITE: ${writeOutputName}\n`);
