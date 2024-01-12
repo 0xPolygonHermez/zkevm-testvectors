@@ -283,7 +283,8 @@ describe('Generate inputs executor from test-vectors', async function () {
                 circuitInput.genesis = genesis;
                 circuitInput.expectedNewLeafs = expectedNewLeafs;
                 // Save outuput in file
-                console.log(`WRITE: ./inputs/${listTestVectors[q].replace('.json', '')}_${id}.json`);
+                console.log(`WRITE: ../../inputs-executor/special-inputs-ignored/forcedtx-inputs/${listTestVectors[q].replace('.json', '')}_${id}.json`);
+                // await fs.writeFileSync(`../../inputs-executor/special-inputs-ignored/forcedtx-inputs/${listTestVectors[q].replace('.json', '')}_${id}.json`, JSON.stringify(circuitInput, null, 2));
                 await fs.writeFileSync(`./inputs/${listTestVectors[q].replace('.json', '')}_${id}.json`, JSON.stringify(circuitInput, null, 2));
                 if (update) {
                     testVectors[i].batchL2Data = batch.getBatchL2Data();
