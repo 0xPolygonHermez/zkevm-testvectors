@@ -21,8 +21,7 @@ const testvectorsGlobalConfig = require('../testvectors.config.json');
 // load list test-vectors
 
 const folderStateTransition = './sources';
-// const folderInputsExecutor = '../../inputs-executor/special-inputs-ignored/forcedtx-inputs/';
-const folderInputsExecutor = './inputs';
+const folderInputsExecutor = '../../inputs-executor/special-inputs-ignored/forcedtx-inputs-ignore/';
 
 let listTests = fs.readdirSync(folderStateTransition).filter((x) => x.startsWith('general'));
 listTests = listTests.filter((fileName) => path.extname(fileName) === '.json');
