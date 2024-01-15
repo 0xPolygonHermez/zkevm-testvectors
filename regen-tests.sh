@@ -6,6 +6,8 @@ npm run update:st:no-data
 npm run update:e2e
 npm run update:error-rlp
 npm run update:calldata-custom
+npm run update:forcedtx
+npm run update:stateoverride
 npm run update:eth-tests
 
 ## Custom tests

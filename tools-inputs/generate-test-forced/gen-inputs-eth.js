@@ -237,8 +237,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                     }
                 }
             }
-            console.log(`WRITE: ./inputs/${keys[x]}`);
-            await fs.writeFileSync(`./inputs/eth-${keys[x]}`, JSON.stringify(circuitInput, null, 2));
+            console.log(`WRITE: ../../inputs-executor/special-inputs-ignored/forcedtx-inputs-ignore/${keys[x]}`);
+            await fs.writeFileSync(`../../inputs-executor/special-inputs-ignored/forcedtx-inputs-ignore/eth-${keys[x]}`, JSON.stringify(circuitInput, null, 2));
         }
     });
 });

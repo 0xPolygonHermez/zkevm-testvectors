@@ -21,7 +21,7 @@ const testvectorsGlobalConfig = require('../testvectors.config.json');
 // load list test-vectors
 
 const folderStateTransition = './sources';
-const folderInputsExecutor = './inputs';
+const folderInputsExecutor = '../../inputs-executor/special-inputs-ignored/forcedtx-inputs-ignore/';
 
 let listTests = fs.readdirSync(folderStateTransition).filter((x) => x.startsWith('general'));
 listTests = listTests.filter((fileName) => path.extname(fileName) === '.json');
@@ -111,6 +111,7 @@ describe('Run state-transition tests', function () {
                 const rawTxs = [];
                 for (let k = 0; k < txs.length; k++) {
                     const txData = txs[k];
+                    if (txData.type === 11) { continue; }
                     const tx = {
                         to: txData.to,
                         nonce: txData.nonce,
@@ -257,7 +258,8 @@ describe('Run state-transition tests', function () {
                     const expectedTx = txProcessed[k];
                     try {
                         if (update) {
-                            testVectors[j].txs[k].reason = currentTx.reason;
+                            // first txs changeL2Block (k + 1)
+                            testVectors[j].txs[k + 1].reason = currentTx.reason;
                         } else {
                             expect(currentTx.reason).to.be.equal(expectedTx.reason);
                         }
