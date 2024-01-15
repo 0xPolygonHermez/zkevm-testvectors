@@ -267,7 +267,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         }
 
                         const oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
-                        const { timestamp } = currentTest.blocks[0].blockHeader;
+                        const timestamp = Scalar.e(currentTest.blocks[0].blockHeader.timestamp, 16).toString();
                         const sequencerAddress = currentTest.blocks[0].blockHeader.coinbase;
                         const forcedBlockHashL1 = '0x0000000000000000000000000000000000000000000000000000000000000000';
                         const chainIdSequencer = 1000;
@@ -485,30 +485,16 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                 }
                             }
                         }
-                        let listOOC = [];
-                        const dirOOC = (writeOutputName.replace(writeOutputName.split('/')[writeOutputName.split('/').length - 2], 'tests-OOC')).replace(writeOutputName.split('/')[writeOutputName.split('/').length - 1], '');
-                        if (fs.existsSync(`${dirOOC}/testsOOC-list.json`)) {
-                            listOOC = require(`${dirOOC}/testsOOC-list.json`);
+                        let listOOC = require('../testsOOC-list.json');
+                        if (listOOC.filter((elem) => writeOutputName.includes(elem.fileName)).length > 0) {
+                            const elem = listOOC.filter((testOOC) => writeOutputName.includes(testOOC.fileName))[0];
+                            if (elem.stepsN) { circuitInput.stepsN = elem.stepsN; }
                         }
-                        if (listOOC.filter((elem) => elem.fileName.split('/')[3] === writeOutputName.split('/GeneralStateTests/')[1].split('/')[1]).length > 0) {
-                            const writeNameOOC = writeOutputName.replace(writeOutputName.split('/')[writeOutputName.split('/').length - 2], 'tests-OOC');
-                            const testOOC = require(writeNameOOC);
-
-                            if (testOOC.stepsN) { circuitInput.stepsN = testOOC.stepsN; } else { circuitInput.stepsN = 8388608; }
-                            console.log(`WRITE: ${writeNameOOC}\n`);
-                            await fs.writeFileSync(writeNameOOC, JSON.stringify(circuitInput, null, 2));
-                            if (flag30M) {
-                                if (fs.existsSync(writeOutputName)) {
-                                    console.log('DELETE: ', writeOutputName);
-                                    fs.unlinkSync(writeOutputName);
-                                }
-                            }
-                        } else {
-                            console.log(`WRITE: ${writeOutputName}\n`);
-                            await fs.writeFileSync(writeOutputName, JSON.stringify(circuitInput, null, 2));
-                        }
+                        console.log(`WRITE: ${writeOutputName}\n`);
+                        await fs.writeFileSync(writeOutputName, JSON.stringify(circuitInput, null, 2));
                         if (!flag30M) counts.countOK += 1;
                     } catch (e) {
+                        console.log(e);
                         if (options.newBlockGasLimit && Scalar.eq(options.newBlockGasLimit, Scalar.e('0x7FFFFFFF')) && (e.toString() !== 'Error: not supported')) {
                             let auxDir = dir.endsWith('/') ? dir.substring(0, dir.length - 1) : dir;
                             auxDir = auxDir.split('/');

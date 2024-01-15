@@ -232,7 +232,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             accountPkFrom = toBuffer(`0x${s.substring(indNum, indNum + 64)}`);
                         }
                         const oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
-                        const { timestamp } = currentTest.blocks[0].blockHeader;
+                        const timestamp = Scalar.e(currentTest.blocks[0].blockHeader.timestamp, 16).toString();
                         const sequencerAddress = currentTest.blocks[0].blockHeader.coinbase;
                         const forcedBlockHashL1 = '0x0000000000000000000000000000000000000000000000000000000000000000';
                         const chainIdSequencer = 1000;
