@@ -221,6 +221,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                     commonCustom = Common.custom({ chainId: chainID }, { hardfork: Hardfork.TangerineWhistle });
                 } else {
                     txData.chainId = new BN(currentTx.chainId);
+                    commonCustom = Common.custom({ chainId: Number(txData.chainId) }, { hardfork: Hardfork.Berlin });
                 }
                 let tx;
                 if (isSigned) {
@@ -257,7 +258,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 }
                 // check tx chainId
                 const sign = !(Number(tx.v) & 1);
-                const txChainId = (Number(tx.v) - 35) >> 1;
+                const txChainId = txData.chainId;
                 const messageToHash = [
                     tx.nonce.toString(16),
                     tx.gasPrice.toString(16),
@@ -268,7 +269,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 ];
                 if (!isLegacy) {
                     messageToHash.push(
-                        ethers.utils.hexlify(txChainId),
+                        txChainId.toString(16),
                         '0x',
                         '0x',
                     );
