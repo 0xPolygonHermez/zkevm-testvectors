@@ -93,9 +93,9 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
             const oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
             const { timestamp } = currentTest.blocks[0].blockHeader;
-            const sequencerAddress = currentTest.blocks[0].blockHeader.coinbase;
+            const sequencerAddress = '0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266';
             const chainIdSequencer = 1001;
-            const forcedBlockHashL1 = zkcommonjs.Constants.ZERO_BYTES32;
+            const forcedBlockHashL1 = '0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3';
             const l1InfoRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
             const txsTest = currentTest.blocks[0].transactions;
             const { pre } = currentTest;
@@ -133,7 +133,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             // start batch
             const extraData = { l1Info: {} };
             const batch = await zkEVMDB.buildBatch(
-                timestamp,
+                Scalar.e(timestamp),
                 sequencerAddress,
                 zkcommonjs.smtUtils.stringToH4(l1InfoRoot),
                 forcedBlockHashL1,
@@ -193,7 +193,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                 const addresses = Object.keys(postState);
                 for (let j = 0; j < addresses.length; j++) {
                     let address = addresses[j];
-                    if (address !== sequencerAddress) {
+                    if (address !== currentTest.blocks[0].blockHeader.coinbase) {
                         const infoExpect = postState[address];
                         const newLeaf = await zkEVMDB.getCurrentAccountState(address);
                         if (infoExpect.balance) {
@@ -237,8 +237,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                     }
                 }
             }
-            console.log(`WRITE: ./inputs/${keys[x]}`);
-            await fs.writeFileSync(`./inputs/eth-${keys[x]}`, JSON.stringify(circuitInput, null, 2));
+            console.log(`WRITE: ../../inputs-executor/special-inputs-ignored/forcedtx-inputs-ignore/${keys[x]}`);
+            await fs.writeFileSync(`../../inputs-executor/special-inputs-ignored/forcedtx-inputs-ignore/eth-${keys[x]}`, JSON.stringify(circuitInput, null, 2));
         }
     });
 });

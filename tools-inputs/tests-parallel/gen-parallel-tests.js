@@ -9,12 +9,12 @@ const { compile } = require('pilcom');
 const buildPoseidon = require('@0xpolygonhermez/zkevm-commonjs').getPoseidon;
 
 const folderPaths = [
-    '../../../inputs-executor',
-    '../../../inputs-executor/ethereum-tests/GeneralStateTests',
+    '../../inputs-executor',
+    '../../inputs-executor/ethereum-tests/GeneralStateTests',
 ];
 
-const fileCachePil = path.join(__dirname, '../../../../zkevm-proverjs/cache-main-pil.json');
-const pathMainPil = path.join(__dirname, '../../../../zkevm-proverjs/pil/main.pil');
+const fileCachePil = path.join(__dirname, '../../../zkevm-proverjs/cache-main-pil.json');
+const pathMainPil = path.join(__dirname, '../../../zkevm-proverjs/pil/main.pil');
 const inputs = [];
 const testsFolder = path.join(__dirname, 'parallel-tests');
 const sampleDir = path.join(__dirname, 'sample.test.js');
@@ -44,7 +44,7 @@ async function main() {
             // Remove json lists that are generated with gen inputs script and are not inputs
             if (file.endsWith('.json') && !file.includes('no-exec')) {
                 inputs.push(filePath);
-            } else if (fs.statSync(filePath).isDirectory()) {
+            } else if (fs.statSync(filePath).isDirectory() && !filePath.endsWith('-ignore')) {
                 fs.readdirSync(filePath).forEach((subFile) => {
                     const subFilePath = path.join(filePath, subFile);
                     if (subFile.endsWith('.json') && !subFile.includes('no-exec')) {

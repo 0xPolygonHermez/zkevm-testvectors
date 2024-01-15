@@ -21,7 +21,8 @@ const testvectorsGlobalConfig = require('../testvectors.config.json');
 // load list test-vectors
 
 const folderStateTransition = './sources';
-const folderInputsExecutor = './inputs';
+const folderInputsExecutor = '../../inputs-executor/special-inputs-ignored/forcedtx-inputs-ignore/';
+
 let listTests = fs.readdirSync(folderStateTransition).filter((x) => x.startsWith('general'));
 listTests = listTests.filter((fileName) => path.extname(fileName) === '.json');
 
@@ -64,7 +65,7 @@ describe('Run state-transition tests', function () {
                 } = testVectors[j];
 
                 // Adapts input
-                if (typeof forcedBlockHashL1 === 'undefined') forcedBlockHashL1 = Constants.ZERO_BYTES32;
+                if (typeof forcedBlockHashL1 === 'undefined') forcedBlockHashL1 = '0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3';
                 if (!chainID) chainID = 1000;
                 if (typeof oldAccInputHash === 'undefined') {
                     oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
@@ -110,6 +111,7 @@ describe('Run state-transition tests', function () {
                 const rawTxs = [];
                 for (let k = 0; k < txs.length; k++) {
                     const txData = txs[k];
+                    if (txData.type === 11) { continue; }
                     const tx = {
                         to: txData.to,
                         nonce: txData.nonce,
@@ -199,7 +201,7 @@ describe('Run state-transition tests', function () {
 
                 const extraData = { l1Info: {} };
                 const batch = await zkEVMDB.buildBatch(
-                    timestampLimit,
+                    Scalar.e(timestampLimit),
                     sequencerAddress,
                     smtUtils.stringToH4(l1InfoRoot),
                     forcedBlockHashL1,
@@ -209,24 +211,6 @@ describe('Run state-transition tests', function () {
                     },
                     extraData,
                 );
-
-                // Ethereum test to add by default a changeL2Block trnsaction
-                const txChangeL2Block = {
-                    type: 11,
-                    deltaTimestamp: timestamp,
-                    l1Info: {
-                        globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
-                        blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
-                        timestamp: '42',
-                    },
-                    indexL1InfoTree: 0,
-                };
-
-                const rawChangeL2BlockTx = processorUtils.serializeChangeL2Block(txChangeL2Block);
-                // Append l1Info to l1Info object
-                extraData.l1Info[txChangeL2Block.indexL1InfoTree] = txChangeL2Block.l1Info;
-                const customRawTx = `0x${rawChangeL2BlockTx}`;
-                batch.addRawTx(customRawTx);
 
                 for (let k = 0; k < rawTxs.length; k++) {
                     batch.addRawTx(rawTxs[k]);
@@ -274,7 +258,8 @@ describe('Run state-transition tests', function () {
                     const expectedTx = txProcessed[k];
                     try {
                         if (update) {
-                            testVectors[j].txs[k].reason = currentTx.reason;
+                            // first txs changeL2Block (k + 1)
+                            testVectors[j].txs[k + 1].reason = currentTx.reason;
                         } else {
                             expect(currentTx.reason).to.be.equal(expectedTx.reason);
                         }

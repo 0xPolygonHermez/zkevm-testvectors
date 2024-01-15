@@ -16,6 +16,7 @@ const { BN, toBuffer } = require('ethereumjs-util');
 const { ethers } = require('ethers');
 const hre = require('hardhat');
 const lodash = require('lodash');
+const { Scalar } = require('ffjavascript');
 
 const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
 const { expect } = require('chai');
@@ -75,7 +76,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 console.log(`Executing test-vector id: ${id}`);
 
                 // Adapts input
-                if (typeof forcedBlockHashL1 === 'undefined') forcedBlockHashL1 = Constants.ZERO_BYTES32;
+                if (typeof forcedBlockHashL1 === 'undefined') { forcedBlockHashL1 = '0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3'; }
                 if (!chainID) chainID = 1000;
                 if (typeof oldAccInputHash === 'undefined') {
                     oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
@@ -119,7 +120,7 @@ describe('Generate inputs executor from test-vectors', async function () {
 
                 const extraData = { l1Info: {} };
                 const batch = await zkEVMDB.buildBatch(
-                    timestampLimit,
+                    Scalar.e(timestampLimit),
                     sequencerAddress,
                     zkcommonjs.smtUtils.stringToH4(l1InfoRoot),
                     forcedBlockHashL1,
@@ -134,39 +135,12 @@ describe('Generate inputs executor from test-vectors', async function () {
                 const txsList = [];
                 let commonCustom = Common.custom({ chainId: chainID }, { hardfork: Hardfork.Berlin });
 
-                // If first tx is not TX_CHANGE_L2_BLOCK, add one by default
-                if (txs.length > 0 && txs[0].type !== Constants.TX_CHANGE_L2_BLOCK) {
-                    const txChangeL2Block = {
-                        type: 11,
-                        deltaTimestamp: timestampLimit,
-                        l1Info: {
-                            globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
-                            blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
-                            timestamp: '42',
-                        },
-                        indexL1InfoTree: 0,
-                    };
-                    internalTestVectors[i].txs.unshift(txChangeL2Block);
-                    txs.unshift(txChangeL2Block);
-                }
-
                 for (let j = 0; j < txs.length; j++) {
                     let isLegacy = false;
                     const currentTx = txs[j];
-
-                    // Check for TX_CHANGE_L2_BLOCK
-                    if (currentTx.type === Constants.TX_CHANGE_L2_BLOCK) {
-                        const rawChangeL2BlockTx = zkcommonjs.processorUtils.serializeChangeL2Block(currentTx);
-
-                        // Append l1Info to l1Info object
-                        extraData.l1Info[currentTx.indexL1InfoTree] = currentTx.l1Info;
-
-                        const customRawTx = `0x${rawChangeL2BlockTx}`;
-
-                        batch.addRawTx(customRawTx);
+                    if (currentTx.type === 11) {
                         continue;
                     }
-
                     const isSigned = !!(currentTx.r && currentTx.v && currentTx.s);
                     const accountFrom = genesis.filter((x) => x.address.toLowerCase() === currentTx.from.toLowerCase())[0];
                     if (!accountFrom && !isSigned) {
@@ -309,8 +283,8 @@ describe('Generate inputs executor from test-vectors', async function () {
                 circuitInput.genesis = genesis;
                 circuitInput.expectedNewLeafs = expectedNewLeafs;
                 // Save outuput in file
-                console.log(`WRITE: ./inputs/${listTestVectors[q].replace('.json', '')}_${id}.json`);
-                await fs.writeFileSync(`./inputs/${listTestVectors[q].replace('.json', '')}_${id}.json`, JSON.stringify(circuitInput, null, 2));
+                console.log(`WRITE: ../../inputs-executor/special-inputs-ignored/forcedtx-inputs-ignore/${listTestVectors[q].replace('.json', '')}_${id}.json`);
+                await fs.writeFileSync(`../../inputs-executor/special-inputs-ignored/forcedtx-inputs-ignore/${listTestVectors[q].replace('.json', '')}_${id}.json`, JSON.stringify(circuitInput, null, 2));
                 if (update) {
                     testVectors[i].batchL2Data = batch.getBatchL2Data();
                     testVectors[i].expectedOldRoot = expectedOldRoot;
