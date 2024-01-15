@@ -259,7 +259,7 @@ contract UniswapV2Router02 is IUniswapV2Router02 {
     ) internal virtual returns (uint amountA, uint amountB) {
         // create the pair if it doesn't exist yet
         address aux;
-        if (IUniswapV2Factory(factory).getPair(tokenA, tokenB) == address(0)) {        
+        if (IUniswapV2Factory(factory).getPair(tokenA, tokenB) == address(0)) {
             aux = IUniswapV2Factory(factory).createPair(tokenA, tokenB);
         }
         (uint reserveA, uint reserveB) = UniswapV2Library.getReserves(factory, tokenA, tokenB);
@@ -699,7 +699,7 @@ library UniswapV2Library {
                 hex'ff',
                 factory,
                 keccak256(abi.encodePacked(token0, token1)),
-                hex'5237638dbf5e283e15633830d5fab6ac0b03773d4ea3221dc0313bc5a93a037a' // init code hash                
+                hex'2886cd5323bae3bfaac725ea1b9be83bb7df8c546472ce819a2ec8cd4c0bdb46' // init code hash                
             ))));
     }
 
