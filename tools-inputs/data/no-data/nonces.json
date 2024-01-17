@@ -97,6 +97,15 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 20279,
+      "arith": 1145,
+      "binary": 2930,
+      "memAlign": 0,
+      "keccaks": 10,
+      "padding": 12,
+      "poseidon": 902
     }
   },
   {
@@ -197,6 +206,15 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 20279,
+      "arith": 1145,
+      "binary": 2930,
+      "memAlign": 0,
+      "keccaks": 10,
+      "padding": 12,
+      "poseidon": 902
     }
   },
   {
@@ -323,6 +341,15 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 40006,
+      "arith": 2289,
+      "binary": 5839,
+      "memAlign": 0,
+      "keccaks": 17,
+      "padding": 24,
+      "poseidon": 1430
     }
   }
 ]

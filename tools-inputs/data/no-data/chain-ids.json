@@ -84,6 +84,15 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 10878,
+      "arith": 577,
+      "binary": 1500,
+      "memAlign": 0,
+      "keccaks": 7,
+      "padding": 9,
+      "poseidon": 899
     }
   },
   {
@@ -184,6 +193,15 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 21204,
+      "arith": 1153,
+      "binary": 2979,
+      "memAlign": 0,
+      "keccaks": 11,
+      "padding": 18,
+      "poseidon": 1424
     }
   },
   {
@@ -284,6 +302,15 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 20172,
+      "arith": 1143,
+      "binary": 2924,
+      "memAlign": 0,
+      "keccaks": 10,
+      "padding": 11,
+      "poseidon": 901
     }
   },
   {
@@ -397,6 +424,15 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 30498,
+      "arith": 1719,
+      "binary": 4403,
+      "memAlign": 0,
+      "keccaks": 14,
+      "padding": 20,
+      "poseidon": 1426
     }
   }
 ]

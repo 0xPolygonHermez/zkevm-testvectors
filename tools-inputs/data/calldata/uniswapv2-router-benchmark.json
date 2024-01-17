@@ -2234,6 +2234,15 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 7,
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 1813243,
+      "arith": 18506,
+      "binary": 110619,
+      "memAlign": 18533,
+      "keccaks": 230,
+      "padding": 3114,
+      "poseidon": 14647
+    }
   }
 ]

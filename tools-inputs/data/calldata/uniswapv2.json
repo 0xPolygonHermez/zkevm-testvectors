@@ -82,7 +82,16 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 7,
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 5012028,
+      "arith": 82165,
+      "binary": 246692,
+      "memAlign": 1859,
+      "keccaks": 288,
+      "padding": 685,
+      "poseidon": 1865
+    }
   },
   {
     "id": 1,
@@ -1350,6 +1359,15 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 7,
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 1821421,
+      "arith": 19630,
+      "binary": 114119,
+      "memAlign": 18658,
+      "keccaks": 256,
+      "padding": 2131,
+      "poseidon": 15130
+    }
   }
 ]

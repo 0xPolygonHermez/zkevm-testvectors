@@ -84,6 +84,15 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 10878,
+      "arith": 577,
+      "binary": 1500,
+      "memAlign": 0,
+      "keccaks": 7,
+      "padding": 9,
+      "poseidon": 899
     }
   },
   {
@@ -262,6 +271,15 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 49407,
+      "arith": 2857,
+      "binary": 7269,
+      "memAlign": 0,
+      "keccaks": 20,
+      "padding": 27,
+      "poseidon": 1433
     }
   },
   {
@@ -349,6 +367,15 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 10167,
+      "arith": 573,
+      "binary": 1463,
+      "memAlign": 0,
+      "keccaks": 6,
+      "padding": 3,
+      "poseidon": 377
     }
   },
   {
@@ -449,6 +476,15 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 19354,
+      "arith": 1137,
+      "binary": 2881,
+      "memAlign": 0,
+      "keccaks": 9,
+      "padding": 6,
+      "poseidon": 380
     }
   },
   {
@@ -539,6 +575,15 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 9953,
+      "arith": 569,
+      "binary": 1451,
+      "memAlign": 0,
+      "keccaks": 6,
+      "padding": 3,
+      "poseidon": 377
     }
   },
   {
@@ -652,6 +697,15 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 31530,
+      "arith": 1729,
+      "binary": 4458,
+      "memAlign": 0,
+      "keccaks": 15,
+      "padding": 27,
+      "poseidon": 1949
     }
   },
   {
@@ -765,6 +819,15 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 29397,
+      "arith": 1717,
+      "binary": 4347,
+      "memAlign": 0,
+      "keccaks": 12,
+      "padding": 9,
+      "poseidon": 383
     }
   },
   {
@@ -823,6 +886,15 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 372,
+      "arith": 1,
+      "binary": 5,
+      "memAlign": 0,
+      "keccaks": 1,
+      "padding": 0,
+      "poseidon": 82
     }
   }
 ]

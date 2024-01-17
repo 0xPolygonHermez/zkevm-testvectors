@@ -272,7 +272,16 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 7,
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 14898,
+      "arith": 586,
+      "binary": 1705,
+      "memAlign": 2,
+      "keccaks": 8,
+      "padding": 42,
+      "poseidon": 1068
+    }
   },
   {
     "id": 1,
@@ -547,7 +556,16 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 7,
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 16430,
+      "arith": 586,
+      "binary": 1768,
+      "memAlign": 2,
+      "keccaks": 8,
+      "padding": 42,
+      "poseidon": 1068
+    }
   },
   {
     "id": 2,
@@ -822,7 +840,16 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 7,
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 16092,
+      "arith": 586,
+      "binary": 1767,
+      "memAlign": 2,
+      "keccaks": 8,
+      "padding": 42,
+      "poseidon": 1068
+    }
   },
   {
     "id": 3,
@@ -1097,7 +1124,16 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 7,
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 16064,
+      "arith": 586,
+      "binary": 1750,
+      "memAlign": 2,
+      "keccaks": 8,
+      "padding": 42,
+      "poseidon": 1068
+    }
   },
   {
     "id": 4,
@@ -1372,6 +1408,15 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 7,
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 16104,
+      "arith": 586,
+      "binary": 1754,
+      "memAlign": 2,
+      "keccaks": 8,
+      "padding": 42,
+      "poseidon": 1068
+    }
   }
 ]
