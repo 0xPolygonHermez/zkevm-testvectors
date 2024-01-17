@@ -158,6 +158,9 @@ describe('Generate inputs executor from test-vectors', async function () {
                 Constants.DEFAULT_MAX_TX,
                 {
                     skipVerifyL1InfoRoot: (typeof skipVerifyL1InfoRoot === 'undefined' || skipVerifyL1InfoRoot !== false),
+                    vcmConfig: {
+                        skipCounters: true,
+                    },
                 },
                 extraData,
             );

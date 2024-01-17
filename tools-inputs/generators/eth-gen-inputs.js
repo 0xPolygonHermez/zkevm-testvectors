@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 /* eslint-disable no-use-before-define */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
@@ -267,7 +268,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         }
 
                         const oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
-                        const timestamp = Scalar.e(currentTest.blocks[0].blockHeader.timestamp, 16).toString();
+                        const { timestamp } = currentTest.blocks[0].blockHeader;
                         const sequencerAddress = currentTest.blocks[0].blockHeader.coinbase;
                         const forcedBlockHashL1 = '0x0000000000000000000000000000000000000000000000000000000000000000';
                         const chainIdSequencer = 1000;
@@ -307,6 +308,9 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         const extraData = { l1Info: {} };
                         options.skipVerifyL1InfoRoot = true;
+                        options.vcmConfig = {
+                            skipCounters: true,
+                        };
                         const batch = await zkEVMDB.buildBatch(
                             timestamp,
                             sequencerAddress,
@@ -400,14 +404,14 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         const res = await batch.executeTxs();
 
-                        if (batch.evmSteps[0] && batch.evmSteps[0].length > 0) {
+                        if (batch.evmSteps[0] && batch.evmSteps[0].steps && batch.evmSteps[0].steps.length > 0) {
                             const { updatedAccounts } = batch;
                             if (updatedAccounts['0x0000000000000000000000000000000000000003']) {
                                 await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExecNew);
                             } else if (updatedAccounts['0x0000000000000000000000000000000000000009']) {
                                 await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExecNew);
                             }
-                            const steps = batch.evmSteps[0];
+                            const steps = batch.evmSteps[0].steps;
                             const selfDestructs = steps.filter((step) => step.opcode.name === 'SELFDESTRUCT');
                             if (selfDestructs.length > 0 && !newOutputName.includes('sendall')) {
                                 await updateNoExec(dir, newOutputName, 'Selfdestruct', noExecNew);
@@ -461,7 +465,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                             const storage = await zkEVMDB.dumpStorage(address);
                                             for (let elem in infoExpect.storage) {
                                                 if (Scalar.e(infoExpect.storage[elem]) !== Scalar.e(0)) {
-                                                    expect(Scalar.e(infoExpect.storage[elem])).to.be.equal(Scalar.e(storage[`0x${elem.slice(2).padStart(64, '0')}`]));
+                                                    const sto = storage[`0x${elem.slice(2).padStart(64, '0')}`] || '0x0';
+                                                    expect(Scalar.e(infoExpect.storage[elem])).to.be.equal(Scalar.e(sto));
                                                 }
                                             }
                                         }
@@ -487,22 +492,36 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                 }
                             }
                         }
-                        let listOOC = require('../testsOOC-list.json');
-                        if (listOOC.filter((elem) => writeOutputName.includes(elem.fileName)).length > 0) {
-                            const elem = listOOC.filter((testOOC) => writeOutputName.includes(testOOC.fileName))[0];
-                            if (elem.stepsN) { circuitInput.stepsN = elem.stepsN; }
+                        let listOOC = [];
+                        const dirOOC = (writeOutputName.replace(writeOutputName.split('/')[writeOutputName.split('/').length - 2], 'tests-OOC')).replace(writeOutputName.split('/')[writeOutputName.split('/').length - 1], '');
+                        if (fs.existsSync(`${dirOOC}/testsOOC-list.json`)) {
+                            listOOC = require(`${dirOOC}/testsOOC-list.json`);
                         }
-                        console.log(`WRITE: ${writeOutputName}\n`);
-                        await fs.writeFileSync(writeOutputName, JSON.stringify(circuitInput, null, 2));
+                        if (listOOC.filter((elem) => elem.fileName.split('/')[3] === writeOutputName.split('/GeneralStateTests/')[1].split('/')[1]).length > 0) {
+                            const writeNameOOC = writeOutputName.replace(writeOutputName.split('/')[writeOutputName.split('/').length - 2], 'tests-OOC');
+                            const testOOC = require(writeNameOOC);
+
+                            if (testOOC.stepsN) { circuitInput.stepsN = testOOC.stepsN; } else { circuitInput.stepsN = 8388608; }
+                            console.log(`WRITE: ${writeNameOOC}\n`);
+                            await fs.writeFileSync(writeNameOOC, JSON.stringify(circuitInput, null, 2));
+                            if (flag30M) {
+                                if (fs.existsSync(writeOutputName)) {
+                                    console.log('DELETE: ', writeOutputName);
+                                    fs.unlinkSync(writeOutputName);
+                                }
+                            }
+                        } else {
+                            console.log(`WRITE: ${writeOutputName}\n`);
+                            await fs.writeFileSync(writeOutputName, JSON.stringify(circuitInput, null, 2));
+                        }
                         if (!flag30M) counts.countOK += 1;
                     } catch (e) {
-                        console.log(e);
                         if (options.newBlockGasLimit && Scalar.eq(options.newBlockGasLimit, Scalar.e('0x7FFFFFFF')) && (e.toString() !== 'Error: not supported')) {
                             let auxDir = dir.endsWith('/') ? dir.substring(0, dir.length - 1) : dir;
                             auxDir = auxDir.split('/');
                             const nameTest = `${auxDir[auxDir.length - 1]}/${newOutputName.replace('.json', '')}`;
                             noExec['not-supported'].push({ name: nameTest.endsWith('.json') ? nameTest : `${nameTest}.json`, description: 'tx gas > max int' });
-                            await fs.writeFileSync(paths['no-exec'], JSON.stringify(noExec, null, 2));
+                            await fs.writeFileSync(path.join(__dirname, paths['no-exec']), JSON.stringify(noExec, null, 2));
                             counts.countNotSupport += 1;
                             infoErrors += 'Error: not supported\n';
                             infoErrors += `${newOutputName}\n`;
@@ -510,7 +529,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             console.log('Error: not supported\n');
                         } else {
                             console.log(e);
-                            console.log();
+                            console.log(`${newOutputName}\n`);
                             if (flag30M) {
                                 tests30M = tests30M.filter((test30M) => test30M.writeOutputName !== writeOutputName);
                             }
@@ -544,7 +563,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                 if (list.indexOf(tests30M[i]) === -1) { list.push(tests30M[i]); }
             }
             console.log('WRITE list 30M: ../tools-eth/tests30M-list.json');
-            await fs.writeFileSync('../tools-eth/tests30M-list.json', JSON.stringify(list, null, 2));
+            await fs.writeFileSync(path.join(__dirname, '../tools-eth/tests30M-list.json'), JSON.stringify(list, null, 2));
             counts.countTests -= tests30M.length;
         }
         if (allTests) {
@@ -570,37 +589,35 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
         }
         const data = {};
         let txId = 0;
-        for (const txSteps of evmTxSteps) {
-            if (txSteps) {
-                const stepObjs = [];
-                for (const step of txSteps) {
-                    if (step) {
-                        // Format memory
-                        let memory = step.memory.map((v) => v.toString(16)).join('').padStart(192, '0');
-                        memory = memory.match(/.{1,32}/g); // split in 32 bytes slots
-                        memory = memory.map((v) => `0x${v}`);
+        if (evmTxSteps[0].steps) {
+            const stepObjs = [];
+            for (const step of evmTxSteps[0].steps) {
+                if (step) {
+                    // Format memory
+                    let memory = step.memory.map((v) => v.toString(16)).join('').padStart(192, '0');
+                    memory = memory.match(/.{1,32}/g); // split in 32 bytes slots
+                    memory = memory.map((v) => `0x${v}`);
 
-                        stepObjs.push({
-                            pc: step.pc,
-                            depth: step.depth,
-                            opcode: {
-                                name: step.opcode.name,
-                                fee: step.opcode.fee,
-                            },
-                            gasLeft: Number(step.gasLeft),
-                            gasRefund: Number(step.gasRefund),
-                            memory,
-                            stack: step.stack.map((v) => `0x${v.toString('hex')}`),
-                            codeAddress: step.codeAddress.buf.reduce(
-                                (previousValue, currentValue) => previousValue + currentValue,
-                                '0x',
-                            ),
-                        });
-                    }
+                    stepObjs.push({
+                        pc: step.pc,
+                        depth: step.depth,
+                        opcode: {
+                            name: step.opcode.name,
+                            fee: step.opcode.fee,
+                        },
+                        gasLeft: Number(step.gasLeft),
+                        gasRefund: Number(step.gasRefund),
+                        memory,
+                        stack: step.stack.map((v) => `0x${v.toString('hex')}`),
+                        codeAddress: step.codeAddress.buf.reduce(
+                            (previousValue, currentValue) => previousValue + currentValue,
+                            '0x',
+                        ),
+                    });
                 }
-                data[txId] = stepObjs;
-                txId += 1;
             }
+            data[txId] = stepObjs;
+            txId += 1;
         }
         console.log(path.join(dir, fileName));
         await fs.writeFileSync(path.join(dir, fileName), JSON.stringify(data, null, 2));
