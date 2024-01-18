@@ -86,13 +86,14 @@
       "skipVerifyL1InfoRoot": true
     },
     "virtualCounters": {
-      "steps": 10878,
-      "arith": 577,
-      "binary": 1500,
+      "steps": 11174,
+      "arith": 582,
+      "binary": 730,
       "memAlign": 0,
-      "keccaks": 7,
-      "padding": 9,
-      "poseidon": 899
+      "keccaks": 41,
+      "padding": 10,
+      "poseidon": 900,
+      "sha256": 0
     }
   },
   {
@@ -273,13 +274,14 @@
       "skipVerifyL1InfoRoot": true
     },
     "virtualCounters": {
-      "steps": 49407,
-      "arith": 2857,
-      "binary": 7269,
+      "steps": 49887,
+      "arith": 2882,
+      "binary": 3411,
       "memAlign": 0,
-      "keccaks": 20,
-      "padding": 27,
-      "poseidon": 1433
+      "keccaks": 54,
+      "padding": 29,
+      "poseidon": 1435,
+      "sha256": 0
     }
   },
   {
@@ -369,13 +371,14 @@
       "skipVerifyL1InfoRoot": true
     },
     "virtualCounters": {
-      "steps": 10167,
-      "arith": 573,
-      "binary": 1463,
+      "steps": 10463,
+      "arith": 578,
+      "binary": 693,
       "memAlign": 0,
-      "keccaks": 6,
+      "keccaks": 40,
       "padding": 3,
-      "poseidon": 377
+      "poseidon": 377,
+      "sha256": 0
     }
   },
   {
@@ -478,13 +481,14 @@
       "skipVerifyL1InfoRoot": true
     },
     "virtualCounters": {
-      "steps": 19354,
-      "arith": 1137,
-      "binary": 2881,
+      "steps": 19696,
+      "arith": 1147,
+      "binary": 1339,
       "memAlign": 0,
-      "keccaks": 9,
+      "keccaks": 43,
       "padding": 6,
-      "poseidon": 380
+      "poseidon": 380,
+      "sha256": 0
     }
   },
   {
@@ -577,13 +581,14 @@
       "skipVerifyL1InfoRoot": true
     },
     "virtualCounters": {
-      "steps": 9953,
-      "arith": 569,
-      "binary": 1451,
+      "steps": 10249,
+      "arith": 574,
+      "binary": 681,
       "memAlign": 0,
-      "keccaks": 6,
+      "keccaks": 40,
       "padding": 3,
-      "poseidon": 377
+      "poseidon": 377,
+      "sha256": 0
     }
   },
   {
@@ -699,13 +704,14 @@
       "skipVerifyL1InfoRoot": true
     },
     "virtualCounters": {
-      "steps": 31530,
-      "arith": 1729,
-      "binary": 4458,
+      "steps": 31918,
+      "arith": 1744,
+      "binary": 2144,
       "memAlign": 0,
-      "keccaks": 15,
-      "padding": 27,
-      "poseidon": 1949
+      "keccaks": 49,
+      "padding": 30,
+      "poseidon": 1952,
+      "sha256": 0
     }
   },
   {
@@ -821,13 +827,14 @@
       "skipVerifyL1InfoRoot": true
     },
     "virtualCounters": {
-      "steps": 29397,
-      "arith": 1717,
-      "binary": 4347,
+      "steps": 29785,
+      "arith": 1732,
+      "binary": 2033,
       "memAlign": 0,
-      "keccaks": 12,
+      "keccaks": 46,
       "padding": 9,
-      "poseidon": 383
+      "poseidon": 383,
+      "sha256": 0
     }
   },
   {
@@ -890,11 +897,12 @@
     "virtualCounters": {
       "steps": 372,
       "arith": 1,
-      "binary": 5,
+      "binary": 6,
       "memAlign": 0,
-      "keccaks": 1,
+      "keccaks": 3,
       "padding": 0,
-      "poseidon": 82
+      "poseidon": 82,
+      "sha256": 0
     }
   }
 ]

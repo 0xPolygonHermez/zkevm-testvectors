@@ -256,12 +256,13 @@
     ]
   },
   "virtualCounters": {
-    "steps": 38963,
-    "arith": 844,
-    "binary": 2830,
+    "steps": 39259,
+    "arith": 849,
+    "binary": 2060,
     "memAlign": 4,
-    "keccaks": 10,
+    "keccaks": 43,
     "padding": 24,
-    "poseidon": 1014
+    "poseidon": 1014,
+    "sha256": 0
   }
 }

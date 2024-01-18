@@ -493,11 +493,11 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             }
                         }
                         let listOOC = [];
-                        const dirOOC = (writeOutputName.replace(writeOutputName.split('/')[writeOutputName.split('/').length - 2], 'tests-OOC')).replace(writeOutputName.split('/')[writeOutputName.split('/').length - 1], '');
-                        if (fs.existsSync(`${dirOOC}/testsOOC-list.json`)) {
-                            listOOC = require(`${dirOOC}/testsOOC-list.json`);
+                        const dirOOC = path.join(__dirname, '../testsOOC-list.json');
+                        if (fs.existsSync(dirOOC)) {
+                            listOOC = require(dirOOC);
                         }
-                        if (listOOC.filter((elem) => elem.fileName.split('/')[3] === writeOutputName.split('/GeneralStateTests/')[1].split('/')[1]).length > 0) {
+                        if (listOOC.filter((elem) => elem.fileName.split('/')[3] === writeOutputName.split('/GeneralStateTests/')[1].split('/')[1].split('.')[0]).length > 0) {
                             const writeNameOOC = writeOutputName.replace(writeOutputName.split('/')[writeOutputName.split('/').length - 2], 'tests-OOC');
                             const testOOC = require(writeNameOOC);
 

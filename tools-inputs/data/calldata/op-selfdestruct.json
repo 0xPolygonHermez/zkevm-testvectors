@@ -186,13 +186,14 @@
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "timestampLimit": "1944498031",
     "virtualCounters": {
-      "steps": 60315,
-      "arith": 1965,
-      "binary": 5834,
+      "steps": 60703,
+      "arith": 1980,
+      "binary": 3527,
       "memAlign": 7,
-      "keccaks": 17,
+      "keccaks": 50,
       "padding": 71,
-      "poseidon": 2619
+      "poseidon": 2619,
+      "sha256": 0
     }
   },
   {
@@ -382,13 +383,14 @@
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "timestampLimit": "1944498031",
     "virtualCounters": {
-      "steps": 60315,
-      "arith": 1965,
-      "binary": 5834,
+      "steps": 60703,
+      "arith": 1980,
+      "binary": 3527,
       "memAlign": 7,
-      "keccaks": 17,
+      "keccaks": 50,
       "padding": 71,
-      "poseidon": 2619
+      "poseidon": 2619,
+      "sha256": 0
     }
   },
   {
@@ -587,13 +589,14 @@
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "timestampLimit": "1944498031",
     "virtualCounters": {
-      "steps": 69892,
-      "arith": 2527,
-      "binary": 7271,
+      "steps": 70326,
+      "arith": 2547,
+      "binary": 4192,
       "memAlign": 7,
-      "keccaks": 21,
+      "keccaks": 54,
       "padding": 80,
-      "poseidon": 3144
+      "poseidon": 3144,
+      "sha256": 0
     }
   },
   {
@@ -792,13 +795,14 @@
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "timestampLimit": "1944498031",
     "virtualCounters": {
-      "steps": 73985,
-      "arith": 2562,
-      "binary": 7467,
+      "steps": 74419,
+      "arith": 2582,
+      "binary": 4389,
       "memAlign": 7,
-      "keccaks": 21,
+      "keccaks": 54,
       "padding": 80,
-      "poseidon": 3226
+      "poseidon": 3226,
+      "sha256": 0
     }
   },
   {
@@ -997,13 +1001,14 @@
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "timestampLimit": "1944498031",
     "virtualCounters": {
-      "steps": 71796,
-      "arith": 2527,
-      "binary": 7374,
+      "steps": 72230,
+      "arith": 2547,
+      "binary": 4295,
       "memAlign": 7,
-      "keccaks": 21,
+      "keccaks": 54,
       "padding": 80,
-      "poseidon": 3244
+      "poseidon": 3244,
+      "sha256": 0
     }
   }
 ]

@@ -152,13 +152,14 @@
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "timestampLimit": "1944498031",
     "virtualCounters": {
-      "steps": 211555,
-      "arith": 5343,
-      "binary": 15071,
+      "steps": 212035,
+      "arith": 5368,
+      "binary": 11215,
       "memAlign": 132,
-      "keccaks": 40,
+      "keccaks": 73,
       "padding": 70,
-      "poseidon": 3492
+      "poseidon": 3492,
+      "sha256": 0
     }
   }
 ]
