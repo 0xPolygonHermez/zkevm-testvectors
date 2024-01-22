@@ -101,6 +101,16 @@
       "0000000000000000"
     ]
   },
+  "virtualCounters": {
+    "steps": 201339,
+    "arith": 3678,
+    "binary": 10025,
+    "memAlign": 90,
+    "keccaks": 51,
+    "padding": 32,
+    "poseidon": 1158,
+    "sha256": 0
+  },
   "genesis": [
     {
       "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
