@@ -359,7 +359,6 @@ describe('Header timestamp', function () {
                 },
                 indexL1InfoTree: 1,
             };
-            console.log(tx);
             helpers.addRawTxChangeL2Block(batch, extraData, extraData, tx);
 
             for (let j = 0; j < rawTxs.length; j++) {

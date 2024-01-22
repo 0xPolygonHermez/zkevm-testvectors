@@ -39,7 +39,7 @@
     ],
     "license": "pending",
     "devDependencies": {
-        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#feature/cumulative-gas-fix",
+        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#feature/fork-etrog",
         "@0xpolygonhermez/zkevm-contracts": "github:0xPolygonHermez/zkevm-contracts#feature/fork-etrog",
         "@grpc/grpc-js": "^1.6.10",
         "@nomiclabs/hardhat-ethers": "^2.0.5",
@@ -47,7 +47,7 @@
         "@openzeppelin/contracts": "^4.9.0",
         "@openzeppelin/hardhat-upgrades": "^1.20.0",
         "@polygon-hermez/common": "2.6.3",
-        "@polygon-hermez/vm": "5.7.39",
+        "@polygon-hermez/vm": "5.7.42",
         "chai": "^4.3.6",
         "circom_tester": "^0.0.9",
         "circomlibjs": "0.1.1",
