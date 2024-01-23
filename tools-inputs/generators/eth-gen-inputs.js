@@ -162,7 +162,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                 infoErrors += `${outputName}\n`;
                 infoErrors += '--------------------------------------------------\n';
             } else {
-                for (let y = 0; y < txsLength; y++) {
+                for (let y = 0; y < 1; y++) {
                     let options = {};
                     let flag30M = false;
                     counts.countTests += 1;

@@ -245,6 +245,9 @@ async function createRawTxs(txCount, isSetup) {
         Constants.DEFAULT_MAX_TX,
         {
             skipVerifyL1InfoRoot: (typeof skipVerifyL1InfoRoot === 'undefined' || skipVerifyL1InfoRoot !== false),
+            vcmConfig: {
+                skipCounters: true,
+            },
         },
         extraData,
     );

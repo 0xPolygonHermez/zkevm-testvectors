@@ -86,13 +86,13 @@
       "skipVerifyL1InfoRoot": true
     },
     "virtualCounters": {
-      "steps": 11174,
+      "steps": 11162,
       "arith": 582,
-      "binary": 730,
+      "binary": 729,
       "memAlign": 0,
       "keccaks": 41,
-      "padding": 10,
-      "poseidon": 900,
+      "padding": 13,
+      "poseidon": 903,
       "sha256": 0
     }
   },
@@ -274,13 +274,13 @@
       "skipVerifyL1InfoRoot": true
     },
     "virtualCounters": {
-      "steps": 49887,
+      "steps": 49827,
       "arith": 2882,
-      "binary": 3411,
+      "binary": 3409,
       "memAlign": 0,
       "keccaks": 54,
-      "padding": 29,
-      "poseidon": 1435,
+      "padding": 44,
+      "poseidon": 1450,
       "sha256": 0
     }
   },
@@ -371,13 +371,13 @@
       "skipVerifyL1InfoRoot": true
     },
     "virtualCounters": {
-      "steps": 10463,
+      "steps": 10451,
       "arith": 578,
       "binary": 693,
       "memAlign": 0,
       "keccaks": 40,
-      "padding": 3,
-      "poseidon": 377,
+      "padding": 6,
+      "poseidon": 380,
       "sha256": 0
     }
   },
@@ -481,13 +481,13 @@
       "skipVerifyL1InfoRoot": true
     },
     "virtualCounters": {
-      "steps": 19696,
+      "steps": 19672,
       "arith": 1147,
       "binary": 1339,
       "memAlign": 0,
       "keccaks": 43,
-      "padding": 6,
-      "poseidon": 380,
+      "padding": 12,
+      "poseidon": 386,
       "sha256": 0
     }
   },
@@ -581,13 +581,13 @@
       "skipVerifyL1InfoRoot": true
     },
     "virtualCounters": {
-      "steps": 10249,
+      "steps": 10237,
       "arith": 574,
       "binary": 681,
       "memAlign": 0,
       "keccaks": 40,
-      "padding": 3,
-      "poseidon": 377,
+      "padding": 6,
+      "poseidon": 380,
       "sha256": 0
     }
   },
@@ -704,13 +704,13 @@
       "skipVerifyL1InfoRoot": true
     },
     "virtualCounters": {
-      "steps": 31918,
+      "steps": 31882,
       "arith": 1744,
-      "binary": 2144,
+      "binary": 2141,
       "memAlign": 0,
       "keccaks": 49,
-      "padding": 30,
-      "poseidon": 1952,
+      "padding": 39,
+      "poseidon": 1961,
       "sha256": 0
     }
   },
@@ -827,13 +827,13 @@
       "skipVerifyL1InfoRoot": true
     },
     "virtualCounters": {
-      "steps": 29785,
+      "steps": 29749,
       "arith": 1732,
       "binary": 2033,
       "memAlign": 0,
       "keccaks": 46,
-      "padding": 9,
-      "poseidon": 383,
+      "padding": 18,
+      "poseidon": 392,
       "sha256": 0
     }
   },
