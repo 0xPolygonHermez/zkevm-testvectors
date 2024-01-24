@@ -51,7 +51,7 @@ describe('Header timestamp', function () {
     let genTestVectors;
     let genInput;
     let updateTestVectors;
-    const chainID = 1000;
+    const chainId = 1000;
 
     before(async () => {
         poseidon = await getPoseidon();
@@ -216,7 +216,7 @@ describe('Header timestamp', function () {
             genesis,
             null,
             null,
-            chainID,
+            chainId,
             testvectorsGlobalConfig.forkID,
         );
 

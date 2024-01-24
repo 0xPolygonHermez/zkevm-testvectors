@@ -58,7 +58,7 @@ describe('Run state-transition tests: calldata', async function () {
                     l1InfoRoot,
                     timestamp,
                     timestampLimit,
-                    chainID,
+                    chainId,
                     forcedBlockHashL1,
                     skipVerifyL1InfoRoot,
                     autoChangeL2Block,
@@ -66,7 +66,7 @@ describe('Run state-transition tests: calldata', async function () {
 
                 // Adapts input
                 if (typeof forcedBlockHashL1 === 'undefined') forcedBlockHashL1 = Constants.ZERO_BYTES32;
-                if (!chainID) chainID = 1000;
+                if (!chainId) chainId = 1000;
                 if (typeof oldAccInputHash === 'undefined') {
                     oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
                 }
@@ -87,7 +87,7 @@ describe('Run state-transition tests: calldata', async function () {
                     genesis,
                     null,
                     null,
-                    chainID,
+                    chainId,
                     testvectorsGlobalConfig.forkID,
                 );
 
@@ -108,7 +108,7 @@ describe('Run state-transition tests: calldata', async function () {
 
                 // TRANSACTIONS
                 const txsList = [];
-                let commonCustom = Common.custom({ chainId: chainID }, { hardfork: Hardfork.Berlin });
+                let commonCustom = Common.custom({ chainId: chainId }, { hardfork: Hardfork.Berlin });
 
                 // If first tx is not TX_CHANGE_L2_BLOCK, add one by default
                 const addChangeL2Block = typeof autoChangeL2Block === 'undefined' || autoChangeL2Block !== false;
@@ -165,7 +165,7 @@ describe('Run state-transition tests: calldata', async function () {
                     };
                     if (typeof currentTx.chainId === 'undefined') {
                         isLegacy = true;
-                        commonCustom = Common.custom({ chainId: chainID }, { hardfork: Hardfork.TangerineWhistle });
+                        commonCustom = Common.custom({ chainId: chainId }, { hardfork: Hardfork.TangerineWhistle });
                     } else {
                         txData.chainId = new BN(currentTx.chainId);
                     }
