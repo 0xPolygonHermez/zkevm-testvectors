@@ -108,7 +108,7 @@ describe('Run state-transition tests: calldata', async function () {
 
                 // TRANSACTIONS
                 const txsList = [];
-                let commonCustom = Common.custom({ chainId: chainId }, { hardfork: Hardfork.Berlin });
+                let commonCustom = Common.custom({ chainId }, { hardfork: Hardfork.Berlin });
 
                 // If first tx is not TX_CHANGE_L2_BLOCK, add one by default
                 const addChangeL2Block = typeof autoChangeL2Block === 'undefined' || autoChangeL2Block !== false;
@@ -165,7 +165,7 @@ describe('Run state-transition tests: calldata', async function () {
                     };
                     if (typeof currentTx.chainId === 'undefined') {
                         isLegacy = true;
-                        commonCustom = Common.custom({ chainId: chainId }, { hardfork: Hardfork.TangerineWhistle });
+                        commonCustom = Common.custom({ chainId }, { hardfork: Hardfork.TangerineWhistle });
                     } else {
                         txData.chainId = new BN(currentTx.chainId);
                     }
