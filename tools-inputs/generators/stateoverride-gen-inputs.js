@@ -5,7 +5,7 @@ const fs = require('fs');
 const listStateOverride = [
     {
         fileNameInput: '../../inputs-executor/no-data/chain-ids_0.json',
-        fileNameOutput: '../../inputs-executor/special-inputs/stateoverride-inputs/chainId.json',
+        fileNameOutput: '../../inputs-executor/special-inputs-ignore/stateoverride-inputs-ignore/chainId.json',
         stateOverride: {
             '0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D': {
                 balance: '200000000000000000000',
