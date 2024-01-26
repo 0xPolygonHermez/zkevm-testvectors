@@ -1,5 +1,5 @@
 # Tests Vectors
-This repository aims to provide test vectors for polygon-hermez zkevm implementation
+This repository aims to provide test vectors for polygon zkevm implementation
 
 [![Check test-vectors](https://github.com/0xPolygonHermez/zkevm-testvectors/actions/workflows/main.yaml/badge.svg)](https://github.com/0xPolygonHermez/zkevm-testvectors/actions/workflows/main.yaml)
 
