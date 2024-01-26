@@ -1,3 +1,4 @@
+/* eslint-disable no-continue */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-undef */
 /* eslint-disable no-loop-func */
@@ -16,11 +17,13 @@ const { Transaction } = require('@ethereumjs/tx');
 const { ethers } = require('ethers');
 const { newCommitPolsArray, compile } = require('pilcom');
 const fs = require('fs');
-const helpers = require('../../tools-calldata/helpers/helpers');
-const smMain = require('../../../zkevm-proverjs/src/sm/sm_main/sm_main');
-const rom = require('../../../zkevm-rom/build/rom.json');
+const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
+const { Scalar } = require('ffjavascript');
+const helpers = require('../../tools-inputs/helpers/helpers');
+const smMain = require('../../../zkevm-proverjs-internal/src/sm/sm_main/sm_main');
+const rom = require('../../../zkevm-rom-internal/build/rom.json');
 const configs = require('./benchmark_config.json');
-const pilCache = require('../../../zkevm-proverjs/cache-main-pil.json');
+const pilCache = require('../../../zkevm-proverjs-internal/cache-main-pil.json');
 
 let F;
 let poseidon;
@@ -51,6 +54,7 @@ async function main() {
     // Build poseidon and PIL
     const cmPols = await initBuild();
     console.log(`Starting config ${CONFIG_ID}`);
+    console.log(`Generate inputs: ${genInputs}`);
     while (!errFound) {
         // Build genesis
         await buildGenesis();
@@ -84,10 +88,11 @@ async function main() {
 }
 
 async function readTracer(txCount, dataLen) {
-    const result = JSON.parse(fs.readFileSync(path.join(__dirname, '../../../zkevm-proverjs/src/sm/sm_main/logs-full-trace/benchmark-trace__full_trace.json')));
+    const result = JSON.parse(fs.readFileSync(path.join(__dirname, '../../../zkevm-proverjs-internal/src/sm/sm_main/logs-full-trace/benchmark-trace__full_trace.json')));
     printTracerResults(result);
     let errFound = false;
-    result.responses.forEach(function (res) {
+    const { responses } = result.block_responses[0];
+    responses.forEach(function (res) {
         if (res.error !== '') {
             errFound = true;
             console.log(`Found error: ${res.error}`);
@@ -111,8 +116,9 @@ function updateBenchmark(result, txCount, dataLen) {
         cntKeccak: result.cnt_keccak_hashes,
         cntPadding: result.cnt_poseidon_paddings,
         cntPoseidon: result.cnt_poseidon_hashes,
-        cntSeps: result.cnt_steps,
-        cumulativeGasUsed: result.cumulative_gas_used,
+        cntSha256: result.cnt_sha256_hashes,
+        cntSteps: result.cnt_steps,
+        cumulativeGasUsed: result.gas_used,
         additionalGenesisAccountsFactor,
     };
 }
@@ -125,8 +131,9 @@ function printTracerResults(result) {
     keccak: ${result.cnt_keccak_hashes}
     padding: ${result.cnt_poseidon_paddings}
     poseidon: ${result.cnt_poseidon_hashes}
+    sha256: ${result.cnt_sha256_hashes}
     steps: ${result.cnt_steps}
-    totalGas: ${result.cumulative_gas_used}
+    totalGas: ${result.gas_used}
     `);
 }
 async function executeTx(circuitInput, cmPols) {
@@ -217,7 +224,7 @@ async function initBuild() {
             namespaces: ['Main', 'Global'],
             disableUnusedError: true,
         };
-        const pilPath = path.join(__dirname, '../../../zkevm-proverjs/pil/main.pil');
+        const pilPath = path.join(__dirname, '../../../zkevm-proverjs-internal/pil/main.pil');
         pil = await compile(F, pilPath, null, pilConfig);
     }
     // build pil
@@ -226,13 +233,20 @@ async function initBuild() {
 
 async function createRawTxs(txCount, isSetup) {
     const {
-        txs, genesis, chainID, timestamp, sequencerAddress, globalExitRoot,
+        skipVerifyL1InfoRoot, l1InfoRoot, txs, genesis, chainID, timestampLimit, sequencerAddress,
     } = testObject;
 
+    const extraData = { l1Info: {} };
     const batch = await zkEVMDB.buildBatch(
-        timestamp,
+        Scalar.add(Scalar.e(timestampLimit), 1000),
         sequencerAddress,
-        zkcommonjs.smtUtils.stringToH4(globalExitRoot),
+        zkcommonjs.smtUtils.stringToH4(l1InfoRoot),
+        Constants.ZERO_BYTES32,
+        Constants.DEFAULT_MAX_TX,
+        {
+            skipVerifyL1InfoRoot: (typeof skipVerifyL1InfoRoot === 'undefined' || skipVerifyL1InfoRoot !== false),
+        },
+        extraData,
     );
     let finalTxs;
     if (!isSetup) {
@@ -240,9 +254,35 @@ async function createRawTxs(txCount, isSetup) {
     } else {
         finalTxs = setupTxs;
     }
+    // process and remove changel2block tx
+    if (txs[0].type === Constants.TX_CHANGE_L2_BLOCK) {
+        txs[0].deltaTimestamp = 1;
+        const rawChangeL2BlockTx = zkcommonjs.processorUtils.serializeChangeL2Block(txs[0]);
+        const customRawTx = `0x${rawChangeL2BlockTx}`;
+
+        // Append l1Info to l1Info object
+        extraData.l1Info[txs[0].indexL1InfoTree] = txs[0].l1Info;
+
+        batch.addRawTx(customRawTx);
+    } else {
+        const txChangeL2Block = {
+            type: 11,
+            deltaTimestamp: 1,
+            l1Info: {
+                globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
+                blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
+                timestamp: '42',
+            },
+            indexL1InfoTree: 0,
+        };
+        const rawChangeL2BlockTx = zkcommonjs.processorUtils.serializeChangeL2Block(txChangeL2Block);
+        const customRawTx = `0x${rawChangeL2BlockTx}`;
+        batch.addRawTx(customRawTx);
+    }
     for (let i = 0; i < txCount; i++) {
         for (const [j, index] of finalTxs.entries()) {
             const currentTx = txs[index];
+
             const accountFrom = genesis.filter((x) => x.address.toLowerCase() === currentTx.from.toLowerCase())[0];
             const acc = await zkEVMDB.vm.stateManager.getAccount(new Address(toBuffer(currentTx.from)));
 

@@ -6,12 +6,14 @@ const path = require('path');
 class RomCoverage {
     constructor(romPath, outputFolder) {
         const rom = JSON.parse(fs.readFileSync(romPath));
+        this.romPath = `${romPath.split('build/')[0]}main/`;
 
         this.outputFolder = outputFolder;
 
         this.labels = this._swapObject(rom.labels);
         this._parseLabels();
         this._parseRom(rom);
+        this._parseJMPS(rom);
         this.program = rom.program;
     }
 
@@ -44,6 +46,28 @@ class RomCoverage {
         }
     }
 
+    _parseJMPS(rom) {
+        this.JMPS = {};
+        for (let i = 0; i < rom.program.length; i++) {
+            const instruction = rom.program[i];
+            if (instruction.JMPN) {
+                const keyJMPN = `${instruction.fileName}:${instruction.line}:JMPN`;
+                this.JMPS[`${keyJMPN}:jmp`] = 0;
+                this.JMPS[`${keyJMPN}:else`] = 0;
+            }
+            if (instruction.JMPZ) {
+                const keyJMPZ = `${instruction.fileName}:${instruction.line}:JMPZ`;
+                this.JMPS[`${keyJMPZ}:jmp`] = 0;
+                this.JMPS[`${keyJMPZ}:else`] = 0;
+            }
+            if (instruction.JMPC) {
+                const keyJMPC = `${instruction.fileName}:${instruction.line}:JMPC`;
+                this.JMPS[`${keyJMPC}:jmp`] = 0;
+                this.JMPS[`${keyJMPC}:else`] = 0;
+            }
+        }
+    }
+
     _findLabel(zkPC) {
         return this.labels[zkPC];
     }
@@ -68,6 +92,33 @@ class RomCoverage {
             if (typeof this.traceInstructions[keyInstruction] !== 'undefined') {
                 this.traceInstructions[keyInstruction].hits += 1;
             }
+
+            // add jmps hit
+            const nextZkPC = arrayZkPC[i + 1];
+            if (instruction.JMPN) {
+                const keyJMPN = `${instruction.fileName}:${instruction.line}:JMPN`;
+                if (instruction.jmpAddr === nextZkPC) {
+                    this.JMPS[`${keyJMPN}:jmp`] += 1;
+                } else {
+                    this.JMPS[`${keyJMPN}:else`] += 1;
+                }
+            }
+            if (instruction.JMPZ) {
+                const keyJMPZ = `${instruction.fileName}:${instruction.line}:JMPZ`;
+                if (instruction.jmpAddr === nextZkPC) {
+                    this.JMPS[`${keyJMPZ}:jmp`] += 1;
+                } else {
+                    this.JMPS[`${keyJMPZ}:else`] += 1;
+                }
+            }
+            if (instruction.JMPC) {
+                const keyJMPC = `${instruction.fileName}:${instruction.line}:JMPC`;
+                if (instruction.jmpAddr === nextZkPC) {
+                    this.JMPS[`${keyJMPC}:jmp`] += 1;
+                } else {
+                    this.JMPS[`${keyJMPC}:else`] += 1;
+                }
+            }
         }
 
         // sort labels
@@ -82,6 +133,11 @@ class RomCoverage {
         }
         sortArray = tmpArray.sort((a, b) => b[1] - a[1]);
         this.traceInstructions = Object.fromEntries(sortArray);
+
+        // sort jmps
+        tmpArray = Object.entries(this.JMPS);
+        sortArray = tmpArray.sort((a, b) => b[1] - a[1]);
+        this.JMPS = Object.fromEntries(sortArray);
     }
 
     _initSingle(inputPath) {
@@ -117,6 +173,33 @@ class RomCoverage {
                 if (typeof this.traceInstructions[keyInstruction] !== 'undefined') {
                     this.traceInstructions[keyInstruction].hits += 1;
                 }
+
+                // add jmps hit
+                const nextZkPC = arrayZkPC[i + 1];
+                if (instruction.JMPN) {
+                    const keyJMPN = `${instruction.fileName}:${instruction.line}:JMPN`;
+                    if (instruction.jmpAddr === nextZkPC) {
+                        this.JMPS[`${keyJMPN}:jmp`] += 1;
+                    } else {
+                        this.JMPS[`${keyJMPN}:else`] += 1;
+                    }
+                }
+                if (instruction.JMPZ) {
+                    const keyJMPZ = `${instruction.fileName}:${instruction.line}:JMPZ`;
+                    if (instruction.jmpAddr === nextZkPC) {
+                        this.JMPS[`${keyJMPZ}:jmp`] += 1;
+                    } else {
+                        this.JMPS[`${keyJMPZ}:else`] += 1;
+                    }
+                }
+                if (instruction.JMPC) {
+                    const keyJMPC = `${instruction.fileName}:${instruction.line}:JMPC`;
+                    if (instruction.jmpAddr === nextZkPC) {
+                        this.JMPS[`${keyJMPC}:jmp`] += 1;
+                    } else {
+                        this.JMPS[`${keyJMPC}:else`] += 1;
+                    }
+                }
             }
         }
 
@@ -132,6 +215,11 @@ class RomCoverage {
         }
         sortArray = tmpArray.sort((a, b) => b[1] - a[1]);
         this.traceInstructions = Object.fromEntries(sortArray);
+
+        // sort jmps
+        tmpArray = Object.entries(this.JMPS);
+        sortArray = tmpArray.sort((a, b) => b[1] - a[1]);
+        this.JMPS = Object.fromEntries(sortArray);
     }
 
     _initMulti() {
@@ -139,13 +227,17 @@ class RomCoverage {
         this.baseName = `${new Date().toISOString()}`;
     }
 
-    exportCoverage() {
+    async exportCoverage() {
         if (!fs.existsSync(this.outputFolder)) {
             fs.mkdirSync(this.outputFolder);
+        }
+        if (!fs.existsSync(`${this.outputFolder}/rom`)) {
+            fs.mkdirSync(`${this.outputFolder}/rom`);
         }
 
         let labelPath;
         let instructionsPath;
+        let jmpsPath;
 
         if (this.multiFile) {
             labelPath = `${this.outputFolder}/${this.baseName}-multi-labels.json`;
@@ -159,8 +251,72 @@ class RomCoverage {
             instructionsPath = `${this.outputFolder}/${this.baseName}-instructions.json`;
         }
 
+        if (this.multiFile) {
+            jmpsPath = `${this.outputFolder}/${this.baseName}-multi-jmps.json`;
+        } else {
+            jmpsPath = `${this.outputFolder}/${this.baseName}-jmps.json`;
+        }
+
         fs.writeFileSync(labelPath, JSON.stringify(this.traceLabels, null, 2));
         fs.writeFileSync(instructionsPath, JSON.stringify(this.traceInstructions, null, 2));
+        fs.writeFileSync(jmpsPath, JSON.stringify(this.JMPS, null, 2));
+
+        // EXPORTS ROM
+        const noHitLines = [];
+        const noHitFiles = [];
+
+        for (const line in this.traceInstructions) {
+            if (this.traceInstructions[line] === 0) {
+                noHitLines.push(line);
+                const fileRom = line.split(':')[0];
+                if (noHitFiles.filter((file) => file.file === fileRom).length === 0) {
+                    noHitFiles.push({ file: fileRom, lines: [line.split(':')[1]], jmps: [] });
+                } else {
+                    noHitFiles[noHitFiles.findIndex((loopFiles) => loopFiles.file === fileRom)].lines.push(line.split(':')[1]);
+                }
+            }
+        }
+
+        // for (const jmp in this.JMPS) {
+        //     if (this.JMPS[jmp] === 0) {
+        //         const fileRom = jmp.split(':')[0];
+        //         if (noHitFiles.filter((file) => file.file === fileRom).length === 0) {
+        //             noHitFiles.push({ file: fileRom, lines: [], jmps: [`${jmp.split(':')[1]}:${jmp.split(':')[3]}`] });
+        //         } else {
+        //             noHitFiles[noHitFiles.findIndex((loopFiles) => loopFiles.file === fileRom)].jmps.push(`${jmp.split(':')[1]}:${jmp.split(':')[3]}`);
+        //         }
+        //     }
+        // }
+
+        for (let i = 0; i < noHitFiles.length; i++) {
+            if (noHitFiles[i].file) {
+                const outputArray = `${this.outputFolder}/rom/${noHitFiles[i].file}`.split('/rom/')[1].split('/');
+                let acc = `${this.outputFolder}/rom`;
+                for (let j = 0; j < outputArray.length - 1; j++) {
+                    acc += `/${outputArray[j]}`;
+                    if (!fs.existsSync(acc)) {
+                        fs.mkdirSync(acc);
+                    }
+                }
+                const fileData = fs.readFileSync(this.romPath + noHitFiles[i].file, 'utf-8').split('\n');
+                for (let k = 0; k < noHitFiles[i].lines.length; k++) {
+                    const line = fileData[noHitFiles[i].lines[k] - 1];
+                    if (line !== '') {
+                        fileData[noHitFiles[i].lines[k] - 1] = `++++++++${line}`;
+                    }
+                }
+                // for (let k = 0; k < noHitFiles[i].jmps.length; k++) {
+                //     const line = fileData[noHitFiles[i].jmps[k].split(':')[0] - 1];
+                //     if (line !== '') {
+                //         fileData[noHitFiles[i].jmps[k].split(':')[0]] = `--------${noHitFiles[i].jmps[k].split(':')[1]}`;
+                //     }
+                // }
+                // if (noHitFiles[i].lines.length > 0 || noHitFiles[i].jmps.length > 0) {
+                if (noHitFiles[i].lines.length > 0) {
+                    fs.writeFileSync(`${this.outputFolder}/rom/${noHitFiles[i].file}`, fileData.join('\n'));
+                }
+            }
+        }
     }
 
     verbose(numLines) {

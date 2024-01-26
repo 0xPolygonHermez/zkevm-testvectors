@@ -36,7 +36,17 @@ module.exports = {
                     },
                 },
             },
+            {
+                version: '0.5.16',
+            },
+            {
+                version: '0.8.7',
+            },
+            {
+                version: '0.6.6',
+            },
         ],
+
     },
     networks: {
         localhost: {
@@ -49,7 +59,13 @@ module.exports = {
             },
         },
         hardhat: {
-          allowUnlimitedContractSize: true,
-        }
+            allowUnlimitedContractSize: true,
+        },
+    },
+    paths: {
+        sources: './tools-inputs/tools-calldata/contracts',
+        tests: './test',
+        cache: './cache',
+        artifacts: './artifacts',
     },
 };

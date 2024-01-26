@@ -1,0 +1,66 @@
+{
+  "expectedOldStateRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+  "expectedNewStateRoot": "0x672713c39a071b4ac6533f92f5cbac185ce6e782c878fd006d06cd8576cdf61c",
+  "batchL2Data": "0xd880843b9aca00839896808080865f6003015f558203e980808e370526273aab701ba27cdd0514aa11b75fc069e8f19e5220399d62965031ee00b7a4eef8c491ee1cd3238c603318287877d54920fcfe167bd4d5c40953ddeb1bff",
+  "genesis": [
+    {
+      "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+      "nonce": "0",
+      "balance": "100000000000000000000",
+      "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+      "isSmartContract": false
+    },
+    {
+      "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+      "nonce": "0",
+      "balance": "200000000000000000000",
+      "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
+      "isSmartContract": false
+    }
+  ],
+  "expectedNewLeafs": [
+    {
+      "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+      "nonce": "0",
+      "balance": "100000000000000000000",
+      "storage": null,
+      "isSmartContract": false,
+      "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "bytecodeLength": 0
+    },
+    {
+      "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+      "nonce": "1",
+      "balance": "199999924794000000000",
+      "storage": null,
+      "isSmartContract": false,
+      "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "bytecodeLength": 0
+    },
+    {
+      "address": "0xA72217948Ea7D968A64c77F83908cea136bBF964",
+      "nonce": "1",
+      "balance": "0",
+      "storage": {
+        "0x0000000000000000000000000000000000000000000000000000000000000000": "0x03"
+      },
+      "isSmartContract": false,
+      "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "bytecodeLength": 0
+    },
+    {
+      "address": "0x000000000000000000000000000000005ca1ab1e",
+      "nonce": "0",
+      "balance": "0",
+      "storage": {
+        "0x0000000000000000000000000000000000000000000000000000000000000000": "0x01",
+        "0x0000000000000000000000000000000000000000000000000000000000000002": "0x73e6af6f",
+        "0xa6eef7e35abe7026729641147f7915573c7e97b47efa546f5f6e3230263bcb49": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+        "0x0000000000000000000000000000000000000000000000000000000000000003": "0x8d86832060aec00482c111348018a5ecdeec1a00f37b948e83c25f5f4de29491"
+      },
+      "isSmartContract": false,
+      "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "bytecodeLength": 0
+    }
+  ]
+}

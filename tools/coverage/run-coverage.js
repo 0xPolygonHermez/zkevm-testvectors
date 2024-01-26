@@ -5,12 +5,37 @@ const fs = require('fs');
 const path = require('path');
 
 const { argv } = require('yargs')
-    .usage('run-coverage')
-    .alias('r', 'rom')
-    .alias('i', 'input')
-    .alias('f', 'folder')
-    .alias('o', 'output')
-    .alias('v', 'verbose');
+    .usage('\nUsage:\n\r\r\r\r$0 [options]')
+    .alias('h', 'help')
+    .option('r', {
+        alias: 'rom',
+        demandOption: true,
+        describe: 'ROM file path to be analyzed',
+        type: 'string'
+    })
+    .option('i', {
+        alias: 'input',
+        describe: 'Stats file path to be analyzed',
+        type: 'string'
+    })
+    .option('f', {
+        alias: 'folder',
+        describe: 'Stats folder path to be analyzed',
+        type: 'string'
+    })
+    .conflicts('i', 'f')
+    .option('o', {
+        alias: 'output',
+        describe: 'Output folder path to store the report',
+        type: 'string'
+    })
+    .option('v', {
+        alias: 'verbose',
+        describe: 'Prints N lines of the report',
+        type: 'number'
+    })
+    .example('$0 -r arrayTrim.rom.json -i arrayTrim.stats.json -o ~/tmp -v 25')
+    .version(false)
 
 const RomCoverage = require('./rom-coverage');
 
@@ -80,7 +105,7 @@ async function main() {
     }
 
     if (flagOutput) {
-        iRomCov.exportCoverage();
+        await iRomCov.exportCoverage();
     }
 
     if (flagVerbose) {

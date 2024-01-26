@@ -1,0 +1,126 @@
+{
+  "oldStateRoot": "0x578e171361a3c555beb304974ab5d5d5f92260454faf141239abb64231e92bd1",
+  "newStateRoot": "0xd717c71c2c5c9d70b9bddced7f714100d42cafe34cb0e9f5fea03418f6ec0f3b",
+  "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "newAccInputHash": "0x0516fb42bd50e9c283468d23318b9b3b9f18358c7a1042fe11c43dd1fb6a190b",
+  "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "oldNumBatch": 0,
+  "newNumBatch": 1,
+  "chainID": 1000,
+  "forkID": 7,
+  "forcedBlockHashL1": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "batchL2Data": "0x0b000003e800000000e2800a830f424094100000000000000000000000000000000000000001808203e88080a176c87b82f01afca13717b30c038a2acc83b9f72da4374058b230471621903d3029643f6aec833b4ffdf15f1a356c4c10c95fb941e94072c970bd3898ab21251cff",
+  "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+  "timestampLimit": "1000",
+  "sequencerAddr": "0x2adc25665018aa1fe0e6bc666dac8fc2697ff9ba",
+  "batchHashData": "0xb2714ff622de499318194d2f2ce647e0ad2225563a6d4547901d4e73ee54f4dc",
+  "contractsBytecode": {
+    "0x6907a82146b058751a52a578c71f675c9ac36df611ee143ca4e26af7c83b3e91": "0x600080505063ffffffff80505067ffffffffffffffff8050506fffffffffffffffffffffffffffffffff8050507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff805050600060008150505063ffffffff63ffffffff8150505067ffffffffffffffff67ffffffffffffffff815050506fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff815050507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff81505050600060006000825050505063ffffffff63ffffffff63ffffffff825050505067ffffffffffffffff67ffffffffffffffff67ffffffffffffffff82505050506fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff82505050507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff8250505050600060006000600083505050505063ffffffff63ffffffff63ffffffff63ffffffff83505050505067ffffffffffffffff67ffffffffffffffff67ffffffffffffffff67ffffffffffffffff8350505050506fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff8350505050507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff835050505050600060006000600060008450505050505063ffffffff63ffffffff63ffffffff63ffffffff63ffffffff8450505050505067ffffffffffffffff67ffffffffffffffff67ffffffffffffffff67ffffffffffffffff67ffffffffffffffff845050505050506fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff845050505050507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff84505050505050600060006000600060006000855050505050505063ffffffff63ffffffff63ffffffff63ffffffff63ffffffff63ffffffff855050505050505067ffffffffffffffff67ffffffffffffffff67ffffffffffffffff67ffffffffffffffff67ffffffffffffffff67ffffffffffffffff85505050505050506fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff85505050505050507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff8550505050505050600060006000600060006000600086505050505050505063ffffffff63ffffffff63ffffffff63ffffffff63ffffffff63ffffffff63ffffffff86505050505050505067ffffffffffffffff67ffffffffffffffff67ffffffffffffffff67ffffffffffffffff67ffffffffffffffff67ffffffffffffffff67ffffffffffffffff8650505050505050506fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff8650505050505050507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff865050505050505050600060006000600060006000600060008750505050505050505063ffffffff63ffffffff63ffffffff63ffffffff63ffffffff63ffffffff63ffffffff63ffffffff8750505050505050505067ffffffffffffffff67ffffffffffffffff67ffffffffffffffff67ffffffffffffffff67ffffffffffffffff67ffffffffffffffff67ffffffffffffffff67ffffffffffffffff875050505050505050506fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff875050505050505050507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff87"
+  },
+  "l1InfoTree": {
+    "skipVerifyL1InfoRoot": true
+  },
+  "db": {
+    "0x578e171361a3c555beb304974ab5d5d5f92260454faf141239abb64231e92bd1": [
+      "cf7903b953c0f321",
+      "e58b8040bcf8fe0f",
+      "20ea60f859ed2af8",
+      "2e3120eaf06f6133",
+      "2e71c81e3895b71a",
+      "5cbff27951dea9ab",
+      "82b9bd3438bdc9aa",
+      "222ded3f02fb7765",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000"
+    ],
+    "0x2e3120eaf06f613320ea60f859ed2af8e58b8040bcf8fe0fcf7903b953c0f321": [
+      "7e10f4804541e230",
+      "43373b6f1c5c3d13",
+      "a985a81ba100a3d5",
+      "b570d134ff4e3dc6",
+      "a0dc4882dc3890a8",
+      "e5f2b6eeba0f6c88",
+      "2e8ab38fb9e54220",
+      "a40d309050ce0eaa",
+      "0000000000000001",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000"
+    ],
+    "0xa40d309050ce0eaa2e8ab38fb9e54220e5f2b6eeba0f6c88a0dc4882dc3890a8": [
+      "0000000000000a43",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000"
+    ],
+    "0x222ded3f02fb776582b9bd3438bdc9aa5cbff27951dea9ab2e71c81e3895b71a": [
+      "a73067f4262d1b30",
+      "9f2cb56257ec5ee9",
+      "d713cffe85348ef0",
+      "4b4f4bdb56976d5c",
+      "4ca3c52f3f1b1bc0",
+      "9d6c3dc922082852",
+      "9d755e396005fdc4",
+      "b50221d678557d3b",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000"
+    ],
+    "0x4b4f4bdb56976d5cd713cffe85348ef09f2cb56257ec5ee9a73067f4262d1b30": [
+      "03f9603c18ca8923",
+      "4cee8230467ac42e",
+      "c6e83cab45303e09",
+      "b7bcff04713850a0",
+      "658fbd5867287469",
+      "b8c76a9060578f67",
+      "5e0d7fca0d947e02",
+      "ea1cbd634c44e7a7",
+      "0000000000000001",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000"
+    ],
+    "0xea1cbd634c44e7a75e0d7fca0d947e02b8c76a9060578f67658fbd5867287469": [
+      "00000000c83b3e91",
+      "00000000a4e26af7",
+      "0000000011ee143c",
+      "000000009ac36df6",
+      "00000000c71f675c",
+      "000000001a52a578",
+      "0000000046b05875",
+      "000000006907a821"
+    ],
+    "0xb50221d678557d3b9d755e396005fdc49d6c3dc9220828524ca3c52f3f1b1bc0": [
+      "3241f1affdae9770",
+      "1f02d07ac50b8806",
+      "778d0d06981a0e9e",
+      "e23a251135aed0d3",
+      "6aec16bf2488377f",
+      "4fca11a312fa5622",
+      "065ba7a0a039c688",
+      "25467e7af2cc6fae",
+      "0000000000000001",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000"
+    ],
+    "0x25467e7af2cc6fae065ba7a0a039c6884fca11a312fa56226aec16bf2488377f": [
+      "00000000ffffffff",
+      "000000007fffffff",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000"
+    ]
+  },
+  "gasLimit": "2147483647"
+}

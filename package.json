@@ -1,6 +1,6 @@
 {
     "name": "@0xpolygonhermez/test-vectors",
-    "version": "3.0.0",
+    "version": "4.0.0",
     "description": "zkEVM test vectors",
     "main": "index.js",
     "scripts": {
@@ -9,20 +9,24 @@
         "eslint:fix": "npx eslint test/** --fix",
         "test:smt": "npx mocha ./test/merkle-tree/**.js",
         "update:smt": "npx mocha ./test/merkle-tree/**.js --update",
-        "test:st:no-data": "npx mocha ./test/state-transition/no-data/st-all.test.js && npx mocha ./test/state-transition/separate-batches/separate-batches.test.js",
+        "test:st:no-data": "npx mocha ./test/state-transition/no-data/st-all.test.js && npx mocha ./test/state-transition/separate-batches/separate-batches.test.js && npx mocha ./test/state-transition/batch-header-timestamp/header-timestamp.test.js",
         "test:st:calldata": "npx mocha ./test/state-transition/calldata/st-all.test.js",
         "test:mt:bridge": "npx mocha ./test/mt-bridge/**.test.js",
         "test:e2e": "npx mocha ./test/state-transition/e2e/e2e.test.js",
         "update:mt:bridge": "npx mocha ./test/mt-bridge/**.test.js --update",
-        "update:st:calldata": "cd ./tools-calldata/evm && ./gen-all.sh",
+        "update:st:calldata": "cd ./tools-inputs/tools-calldata && ./gen-all.sh",
         "update:st:no-data": "npx mocha ./test/state-transition/no-data/st-all.test.js --update && npx mocha ./test/state-transition/separate-batches/separate-batches.test.js --update && npx mocha ./test/state-transition/batch-header-timestamp/header-timestamp.test.js --update",
         "update:e2e": "npx mocha ./test/state-transition/e2e/e2e.test.js --update",
-        "update:error-rlp": "node tools/update-test/update-rlp-error-inputs.js",
-        "update:calldata-custom": "node tools/update-test/update-calldata-custom.js",
-        "update:eth-tests": "cd ./tools/ethereum-tests && ./update-tests-general.sh",
+        "update:error-rlp": "node tools-inputs/updaters/update-rlp-error-inputs.js",
+        "update:calldata-custom": "node tools-inputs/updaters/update-calldata-custom.js",
+        "update:eth-tests": "cd ./tools-inputs/tools-eth && ./update-tests-general.sh",
+        "update:forcedtx": "cd ./tools-inputs/generate-test-forced && ./gen-forced.sh",
+        "update:stateoverride": "cd ./tools-inputs/generators && node stateoverride-gen-inputs.js",
         "test:contracts": "npx mocha ./test/state-transition/no-data/contracts.test.js",
         "update:all": "npm run update:smt && npm run update:mt:bridge && npm run update:st:calldata && npm run update:st:no-data && npm run update:e2e && npm run update:error-rlp && npm run update:eth-tests",
-        "regen-tests": "sh regen-tests.sh"
+        "regen-tests": "sh regen-tests.sh",
+        "test:gen": "node tools-inputs/tests-parallel/gen-parallel-tests.js",
+        "test:start": "npx mocha --jobs 7 --timeout 0 --max-old-space-size=8192 --parallel tools-inputs/tests-parallel/parallel-tests/*.test.js"
     },
     "repository": {
         "type": "git",
@@ -31,20 +35,19 @@
     "keywords": [],
     "author": "0xPolygonHermez",
     "files": [
-        "inputs-executor",
-        "tools/ethereum-tests/GeneralStateTests"
+        "inputs-executor"
     ],
     "license": "pending",
     "devDependencies": {
-        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#v3.0.0-fork.6",
-        "@0xpolygonhermez/zkevm-contracts": "github:0xPolygonHermez/zkevm-contracts#v3.0.0-fork.6",
+        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#v4.0.0-rc.4-fork.7",
+        "@0xpolygonhermez/zkevm-contracts": "github:0xPolygonHermez/zkevm-contracts#feature/fork-etrog",
         "@grpc/grpc-js": "^1.6.10",
         "@nomiclabs/hardhat-ethers": "^2.0.5",
         "@nomiclabs/hardhat-waffle": "^2.0.2",
         "@openzeppelin/contracts": "^4.9.0",
         "@openzeppelin/hardhat-upgrades": "^1.20.0",
         "@polygon-hermez/common": "2.6.3",
-        "@polygon-hermez/vm": "5.7.36",
+        "@polygon-hermez/vm": "5.7.42",
         "chai": "^4.3.6",
         "circom_tester": "^0.0.9",
         "circomlibjs": "0.1.1",
