@@ -1,13 +1,13 @@
-const fs = require('fs');
-const path = require('path');
 const { Scalar } = require('ffjavascript');
 const { expect } = require('chai');
+const fs = require('fs');
+const path = require('path');
 const { argv } = require('yargs');
 
 const {
     MemDB, SMT, smtUtils, getPoseidon,
 } = require('@0xpolygonhermez/zkevm-commonjs');
-const { pathTestVectors } = require('../helpers/helpers');
+const { pathTestVectors } = require('../../tools-inputs/helpers/helpers');
 
 describe('smt-genesis', async function () {
     this.timeout(10000);

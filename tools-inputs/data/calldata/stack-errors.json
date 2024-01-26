@@ -1,0 +1,422 @@
+[
+  {
+    "id": 0,
+    "description": "Stack overflow",
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x6080604052348015600f57600080fd5b5060043610603c5760003560e01c80638c192bc9146041578063d0657416146049578063ddf91d0c146051575b600080fd5b60476059565b005b604f6065565b005b605760a0565b005b60046003018060005550565b7fddf91d0c00000000000000000000000000000000000000000000000000000000608052602060806004608060003060025a04f18060015550565b60a660a0565b56fea26469706673582212204754b050b67b0fa8d2d3af7a1fb8c84f837fe13285cd45cb22379c98fa17787964736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [],
+            "name": "stackOverflow",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "stackOverflowCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "stackUnderflow",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      }
+    ],
+    "expectedOldRoot": "0x93b182e8326f49ef9fd0a67b42b570925c3380951326f37ecdaa20cffddaaf36",
+    "txs": [
+      {
+        "type": 11,
+        "deltaTimestamp": 1944498031,
+        "l1Info": {
+          "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+          "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
+          "timestamp": "42"
+        },
+        "indexL1InfoTree": 0
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "0",
+        "value": "0",
+        "data": "0xddf91d0c",
+        "gasLimit": 8000000,
+        "gasPrice": "1000000000",
+        "chainId": 1000
+      }
+    ],
+    "expectedNewRoot": "0xe08ca315e818cd37475314208945fc9e3fa98ed8ffd2ee04b6aa833078184f81",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100008000000000000000",
+        "nonce": "0",
+        "storage": null
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "199992000000000000000",
+        "nonce": "1",
+        "storage": null
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {},
+        "hashBytecode": "0xb4717b68ae8478d2182712ab4aa175d6b4135d04bd860569b5a7a7e81644330e",
+        "bytecodeLength": 222
+      },
+      "0x000000000000000000000000000000005ca1ab1e": {
+        "balance": "0",
+        "nonce": "0",
+        "storage": {
+          "0x0000000000000000000000000000000000000000000000000000000000000000": "0x01",
+          "0x0000000000000000000000000000000000000000000000000000000000000002": "0x73e6af6f",
+          "0xa6eef7e35abe7026729641147f7915573c7e97b47efa546f5f6e3230263bcb49": "0x93b182e8326f49ef9fd0a67b42b570925c3380951326f37ecdaa20cffddaaf36",
+          "0x0000000000000000000000000000000000000000000000000000000000000003": "0x4c8b080a958cdca2282a8dc4c860f54f1b10e93084b2d9448aca0faa1a157690"
+        }
+      }
+    },
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0x20649b2403ea388f62e30e34e3960abc7c481f22e044bd889118f047cb9d0dbf",
+    "batchL2Data": "0x0b73e6af6f00000000ea80843b9aca00837a1200941275fbb540c8efc58b812ba83b0d0b8b9917ae988084ddf91d0c8203e880801affaffc3eb16cb4af9062d1532f70f67d311bbcf6d9c647c8eef684a5cca3481c1631f072b0a9af3ebd151abefeb4f712a2b1f9e567f5cf395fd3d8bce0ee4e1bff",
+    "chainID": 1000,
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 7,
+    "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "timestampLimit": "1944498031"
+  },
+  {
+    "id": 1,
+    "description": "Stack overflow call",
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x6080604052348015600f57600080fd5b5060043610603c5760003560e01c80638c192bc9146041578063d0657416146049578063ddf91d0c146051575b600080fd5b60476059565b005b604f6065565b005b605760a0565b005b60046003018060005550565b7fddf91d0c00000000000000000000000000000000000000000000000000000000608052602060806004608060003060025a04f18060015550565b60a660a0565b56fea26469706673582212204754b050b67b0fa8d2d3af7a1fb8c84f837fe13285cd45cb22379c98fa17787964736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [],
+            "name": "stackOverflow",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "stackOverflowCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "stackUnderflow",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      }
+    ],
+    "expectedOldRoot": "0x93b182e8326f49ef9fd0a67b42b570925c3380951326f37ecdaa20cffddaaf36",
+    "txs": [
+      {
+        "type": 11,
+        "deltaTimestamp": 1944498031,
+        "l1Info": {
+          "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+          "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
+          "timestamp": "42"
+        },
+        "indexL1InfoTree": 0
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "0",
+        "value": "0",
+        "data": "0xd0657416",
+        "gasLimit": 8000000,
+        "gasPrice": "1000000000",
+        "chainId": 1000
+      }
+    ],
+    "expectedNewRoot": "0x1429320bb40add80cfb3d97726a25df0cacd869aaa3617fc2c9ea70ad926e158",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100004012940000000000",
+        "nonce": "0",
+        "storage": null
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "199995987060000000000",
+        "nonce": "1",
+        "storage": null
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {},
+        "hashBytecode": "0xb4717b68ae8478d2182712ab4aa175d6b4135d04bd860569b5a7a7e81644330e",
+        "bytecodeLength": 222
+      },
+      "0x000000000000000000000000000000005ca1ab1e": {
+        "balance": "0",
+        "nonce": "0",
+        "storage": {
+          "0x0000000000000000000000000000000000000000000000000000000000000000": "0x01",
+          "0x0000000000000000000000000000000000000000000000000000000000000002": "0x73e6af6f",
+          "0xa6eef7e35abe7026729641147f7915573c7e97b47efa546f5f6e3230263bcb49": "0x93b182e8326f49ef9fd0a67b42b570925c3380951326f37ecdaa20cffddaaf36",
+          "0x0000000000000000000000000000000000000000000000000000000000000003": "0x8ef5bd17891cd21f4e955b84d48891321ab3bc65799462f9c596e0b4021d40a2"
+        }
+      }
+    },
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0xc8496426d40f841c993fb2824fc245711779485b5a6dab7e9598c4bf6fd77a9b",
+    "batchL2Data": "0x0b73e6af6f00000000ea80843b9aca00837a1200941275fbb540c8efc58b812ba83b0d0b8b9917ae988084d06574168203e880806628ef5ab09193d848838e69411e935c04929364aa2c789a7748596880b826b7482f8d8edcb1425ddd5cba6e65838645c58b10d04172e3e76e2232f3735055881bff",
+    "chainID": 1000,
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 7,
+    "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "timestampLimit": "1944498031"
+  },
+  {
+    "id": 2,
+    "description": "stack underflow",
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x60806040526004361061004a5760003560e01c806327c845dc1461004f5780633c77eba3146100595780635b8e995914610089578063b88c4aa9146100c6578063e3306a25146100f6575b600080fd5b610057610133565b005b610073600480360381019061006e9190610232565b610141565b604051610080919061029d565b60405180910390f35b34801561009557600080fd5b506100b060048036038101906100ab9190610232565b61015b565b6040516100bd919061029d565b60405180910390f35b6100e060048036038101906100db9190610232565b610174565b6040516100ed919061029d565b60405180910390f35b34801561010257600080fd5b5061011d60048036038101906101189190610232565b610192565b60405161012a919061029d565b60405180910390f35b600034810190508060015550565b6000808260a06101f4f09050806000558091505092915050565b6000808260a06000f09050806000558091505092915050565b600080620555558360a061012cf59050806000558091505092915050565b60008060028360a06000f59050806000558091505092915050565b60006101c06101bb846102dd565b6102b8565b9050828152602081018484840111156101dc576101db6103be565b5b6101e784828561034a565b509392505050565b600082601f830112610204576102036103b9565b5b81356102148482602086016101ad565b91505092915050565b60008135905061022c816103de565b92915050565b60008060408385031215610249576102486103c8565b5b600083013567ffffffffffffffff811115610267576102666103c3565b5b610273858286016101ef565b92505060206102848582860161021d565b9150509250929050565b6102978161030e565b82525050565b60006020820190506102b2600083018461028e565b92915050565b60006102c26102d3565b90506102ce8282610359565b919050565b6000604051905090565b600067ffffffffffffffff8211156102f8576102f761038a565b5b610301826103cd565b9050602081019050919050565b600061031982610320565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b82818337600083830152505050565b610362826103cd565b810181811067ffffffffffffffff821117156103815761038061038a565b5b80604052505050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b600080fd5b600080fd5b600080fd5b600080fd5b6000601f19601f8301169050919050565b6103e781610340565b81146103f257600080fd5b5056fea2646970667358221220f3f0c2de86f561fc62292c20ed11c4fcf22248f17c44730e2875475b3dd1581b64736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [
+              {
+                "internalType": "bytes",
+                "name": "bytecode",
+                "type": "bytes"
+              },
+              {
+                "internalType": "uint256",
+                "name": "length",
+                "type": "uint256"
+              }
+            ],
+            "name": "opCreate",
+            "outputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "bytes",
+                "name": "bytecode",
+                "type": "bytes"
+              },
+              {
+                "internalType": "uint256",
+                "name": "length",
+                "type": "uint256"
+              }
+            ],
+            "name": "opCreate2",
+            "outputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "bytes",
+                "name": "bytecode",
+                "type": "bytes"
+              },
+              {
+                "internalType": "uint256",
+                "name": "length",
+                "type": "uint256"
+              }
+            ],
+            "name": "opCreate2Value",
+            "outputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "bytes",
+                "name": "bytecode",
+                "type": "bytes"
+              },
+              {
+                "internalType": "uint256",
+                "name": "length",
+                "type": "uint256"
+              }
+            ],
+            "name": "opCreateValue",
+            "outputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "sendValue",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      }
+    ],
+    "expectedOldRoot": "0x9cbfa2b0c92d9aba63799d2bca2dd04dfd317ec788398ac96ac5b7262e969199",
+    "txs": [
+      {
+        "type": 11,
+        "deltaTimestamp": 1944498031,
+        "l1Info": {
+          "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+          "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
+          "timestamp": "42"
+        },
+        "indexL1InfoTree": 0
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "0",
+        "value": "0",
+        "data": "0x5b8e99590000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000000000000000000035050500000000000000000000000000000000000000000000000000000000000",
+        "gasLimit": 800000,
+        "gasPrice": "1000000000",
+        "chainId": 1000
+      }
+    ],
+    "expectedNewRoot": "0x37f2a76a012bef6e11eb516d451600e132d20aacf2af5e08be5a0cd2667a7689",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100000790819000000000",
+        "nonce": "0",
+        "storage": null
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "199999209181000000000",
+        "nonce": "1",
+        "storage": null
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "2",
+        "storage": {},
+        "hashBytecode": "0x118f17cac64442bb9d12f23cdcdbb69f94cd6cd2e04cb52210d7bc7282f23b62",
+        "bytecodeLength": 1067
+      },
+      "0x0ccfcb97611c13f90693e568e432ecd5f724be52": {
+        "balance": "0",
+        "nonce": "0",
+        "storage": null
+      },
+      "0x000000000000000000000000000000005ca1ab1e": {
+        "balance": "0",
+        "nonce": "0",
+        "storage": {
+          "0x0000000000000000000000000000000000000000000000000000000000000000": "0x01",
+          "0x0000000000000000000000000000000000000000000000000000000000000002": "0x73e6af6f",
+          "0xa6eef7e35abe7026729641147f7915573c7e97b47efa546f5f6e3230263bcb49": "0x9cbfa2b0c92d9aba63799d2bca2dd04dfd317ec788398ac96ac5b7262e969199",
+          "0x0000000000000000000000000000000000000000000000000000000000000003": "0x2ca9cc76fc450fb78a0d75ee04db4b6f9467cc65a8e59473f7e8a6f373632235"
+        }
+      }
+    },
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0xb080e9b7fb2e57ebeec3a6c7ec3013572cf3e476267939d7e0ec4b3f7971fd2c",
+    "batchL2Data": "0x0b73e6af6f00000000f8ab80843b9aca00830c3500941275fbb540c8efc58b812ba83b0d0b8b9917ae9880b8845b8e995900000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000003000000000000000000000000000000000000000000000000000000000000000350505000000000000000000000000000000000000000000000000000000000008203e8808081b52f7454a2ad0724819382c2fd5f92826cf673c1cb91329e1bfee96d0c5c3e128091f2a0e68e855f1dc8bfc5f7940c8fdcaa475c166f8c3276b2d915033fa21bff",
+    "chainID": 1000,
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 7,
+    "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "timestampLimit": "1944498031"
+  }
+]

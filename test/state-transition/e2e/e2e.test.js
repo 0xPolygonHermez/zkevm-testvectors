@@ -1,9 +1,9 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable max-len, no-plusplus, guard-for-in */
 /* eslint-disable import/no-dynamic-require, global-require */
+const { Scalar } = require('ffjavascript');
 const fs = require('fs');
 const path = require('path');
-const { Scalar } = require('ffjavascript');
 const { ethers } = require('hardhat');
 const { expect } = require('chai');
 const { argv } = require('yargs');
@@ -27,17 +27,16 @@ const {
 } = require('@0xpolygonhermez/zkevm-contracts');
 
 const contractsPolygonHermez = require('@0xpolygonhermez/zkevm-contracts');
+const helpers = require('../../../tools-inputs/helpers/helpers');
 
-const { pathTestVectors } = require('../../helpers/helpers');
-
-const pathStateTransition = path.join(pathTestVectors, './state-transition/e2e/e2e.json');
+const pathStateTransition = path.join(helpers.pathTestVectors, './tools-inputs/data/e2e/e2e.json');
 const testE2E = JSON.parse(fs.readFileSync(pathStateTransition));
 
 async function setNextBlockTimestamp(timestamp) {
     return (ethers.provider.send('evm_setNextBlockTimestamp', [timestamp]));
 }
 
-const configTestvectors = require('../../../testvectors.config.json');
+const configTestvectors = require('../../../tools-inputs/testvectors.config.json');
 
 describe('Proof of efficiency test vectors', function () {
     this.timeout(0);
@@ -145,11 +144,10 @@ describe('Proof of efficiency test vectors', function () {
             expectedNewLeafs,
             batchL2Data,
             newLocalExitRoot,
-            globalExitRoot,
             batchHashData,
             newAccInputHash,
             oldAccInputHash,
-            timestamp,
+            timestampLimit,
             bridgeDeployed,
             sequencerPvtKey,
             chainID,
@@ -343,7 +341,31 @@ describe('Proof of efficiency test vectors', function () {
             txProcessed.push(txData);
         }
 
-        const batch = await zkEVMDB.buildBatch(timestamp, deployer.address, smtUtils.stringToH4(globalExitRoot));
+        const historicGERRootContract = await polygonZkEVMGlobalExitRootContract.getRoot();
+        const globalExitRootContract = await polygonZkEVMGlobalExitRootContract.getLastGlobalExitRoot();
+        const deltaTimestamp = 1;
+        const extraData = { GERS: {} };
+        const batch = await zkEVMDB.buildBatch(
+            timestampLimit,
+            sequencerAddress,
+            smtUtils.stringToH4(historicGERRootContract), // historic root
+            0,
+            Constants.DEFAULT_MAX_TX,
+            {
+                skipVerifyGER: true,
+            },
+            extraData,
+        );
+
+        const tx = {
+            type: 11,
+            deltaTimestamp,
+            newGER: globalExitRootContract, // global exit root
+            indexHistoricalGERTree: 1,
+            reason: '',
+        };
+        helpers.addRawTxChangeL2Block(batch, extraData, extraData, tx);
+
         for (let j = 0; j < rawTxs.length; j++) {
             batch.addRawTx(rawTxs[j]);
         }
@@ -361,7 +383,8 @@ describe('Proof of efficiency test vectors', function () {
         }
 
         // Check errors on decode transactions
-        const decodedTx = await batch.getDecodedTxs();
+        const decodedTxInit = await batch.getDecodedTxs();
+        const decodedTx = decodedTxInit.filter((txDecoded) => txDecoded.tx.type !== 11);
 
         for (let j = 0; j < decodedTx.length; j++) {
             const currentTx = decodedTx[j];
@@ -420,7 +443,7 @@ describe('Proof of efficiency test vectors', function () {
         // Check global and local exit roots
         const addressInstanceGlobalExitRoot = new Address(toBuffer(Constants.ADDRESS_GLOBAL_EXIT_ROOT_MANAGER_L2));
         const localExitRootPosBuffer = toBuffer(ethers.utils.hexZeroPad(Constants.LOCAL_EXIT_ROOT_STORAGE_POS, 32));
-        const globalExitRootPos = ethers.utils.solidityKeccak256(['uint256', 'uint256'], [globalExitRoot, Constants.GLOBAL_EXIT_ROOT_STORAGE_POS]);
+        const globalExitRootPos = ethers.utils.solidityKeccak256(['uint256', 'uint256'], [globalExitRootContract, Constants.GLOBAL_EXIT_ROOT_STORAGE_POS]);
         const globalExitRootPosBuffer = toBuffer(globalExitRootPos);
 
         // Check local exit root
@@ -453,23 +476,23 @@ describe('Proof of efficiency test vectors', function () {
         ))[Scalar.e(globalExitRootPos)];
 
         expect(Scalar.fromString(timestampVm.toString('hex'), 16)).to.equal(timestampSmt);
-        expect(timestampSmt).to.equal(Scalar.e(batch.timestamp));
+        expect(timestampSmt).to.equal(Scalar.e(deltaTimestamp));
 
         // Check through a call in the EVM
         if (bridgeDeployed) {
             const interfaceGlobal = new ethers.utils.Interface(['function globalExitRootMap(bytes32)']);
-            const encodedData = interfaceGlobal.encodeFunctionData('globalExitRootMap', [globalExitRoot]);
+            const encodedData = interfaceGlobal.encodeFunctionData('globalExitRootMap', [globalExitRootContract]);
             const globalExitRootResult = await zkEVMDB.vm.runCall({
                 to: addressInstanceGlobalExitRoot,
                 caller: Address.zero(),
                 data: Buffer.from(encodedData.slice(2), 'hex'),
             });
-            expect(globalExitRootResult.execResult.returnValue.toString('hex')).to.be.equal(ethers.utils.hexZeroPad(batch.timestamp, 32).slice(2));
+            expect(globalExitRootResult.execResult.returnValue.toString('hex')).to.be.equal(ethers.utils.hexZeroPad(deltaTimestamp, 32).slice(2));
         }
 
         // Check the circuit input
         const circuitInput = await batch.getStarkInput();
-
+        circuitInput.GERS = extraData.GERS;
         // Check the encode transaction match with the vector test
         if (!update) {
             expect(batchL2Data).to.be.equal(batch.getBatchL2Data());
@@ -485,7 +508,7 @@ describe('Proof of efficiency test vectors', function () {
             testE2E.oldAccInputHash = circuitInput.oldAccInputHash;
             testE2E.newLocalExitRoot = circuitInput.newLocalExitRoot;
             // Write executor input
-            const folderInputsExecutor = path.join(pathTestVectors, './inputs-executor/e2e');
+            const folderInputsExecutor = path.join(helpers.pathTestVectors, './inputs-executor/e2e');
             const fileName = path.join(folderInputsExecutor, 'e2e_0.json');
             await fs.writeFileSync(fileName, JSON.stringify(circuitInput, null, 2));
         }
@@ -497,7 +520,6 @@ describe('Proof of efficiency test vectors', function () {
          */
         const currentStateRoot = `0x${Scalar.e(expectedOldRoot).toString(16).padStart(64, '0')}`;
         const newStateRoot = `0x${Scalar.e(expectedNewRoot).toString(16).padStart(64, '0')}`;
-        const currentGlobalExitRoot = `0x${Scalar.e(globalExitRoot).toString(16).padStart(64, '0')}`;
 
         // sequencer send the batch
         const lastBatchSequenced = await polygonZkEVMContract.lastBatchSequenced();
@@ -509,15 +531,15 @@ describe('Proof of efficiency test vectors', function () {
         ).to.emit(maticTokenContract, 'Approval');
 
         // set timestamp for the sendBatch call
-        await setNextBlockTimestamp(timestamp);
+        await setNextBlockTimestamp(timestampLimit);
 
         const sequence = {
             transactions: l2txData,
-            globalExitRoot: currentGlobalExitRoot,
-            timestamp,
+            forcedHistoricGlobalExitRoot: historicGERRootContract,
             minForcedTimestamp: 0,
         };
-        await expect(polygonZkEVMContract.connect(walletSequencer).sequenceBatches([sequence], deployer.address))
+
+        await expect(polygonZkEVMContract.connect(walletSequencer).sequenceBatches([sequence], sequencerAddress))
             .to.emit(polygonZkEVMContract, 'SequenceBatches')
             .withArgs(lastBatchSequenced + 1);
 
@@ -532,11 +554,11 @@ describe('Proof of efficiency test vectors', function () {
 
         // Check inputs mathces de smart contract
         const numBatch = Number((await polygonZkEVMContract.lastVerifiedBatch())) + 1;
-        const fflonkProof = new Array(24).fill(ethers.constants.HashZero);
+        const fflonkProof = '0x';
         const pendingStateNum = 0;
 
         // calculate circuit input
-        const nextSnarkInput = await polygonZkEVMContract.getNextSnarkInput(
+        const nextSnarkInput = await polygonZkEVMContract.connect(walletSequencer).getNextSnarkInput(
             pendingStateNum,
             numBatch - 1,
             numBatch,
@@ -554,7 +576,7 @@ describe('Proof of efficiency test vectors', function () {
             numBatch - 1,
             numBatch,
             chainID,
-            deployer.address,
+            sequencerAddress,
             forkID,
         );
 

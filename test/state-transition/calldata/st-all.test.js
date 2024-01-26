@@ -1,3 +1,4 @@
+/* eslint-disable no-continue */
 /* eslint-disable no-loop-func */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
@@ -6,24 +7,24 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable import/no-extraneous-dependencies */
-
-const fs = require('fs');
-const path = require('path');
 const Common = require('@ethereumjs/common').default;
 const { Hardfork } = require('@ethereumjs/common');
 const { BN, toBuffer } = require('ethereumjs-util');
 const { ethers } = require('ethers');
+const { Scalar } = require('ffjavascript');
 
 const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
 const { expect } = require('chai');
 const { Transaction } = require('@ethereumjs/tx');
 
-const helpers = require('../../../tools-calldata/helpers/helpers');
-
+const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
+const fs = require('fs');
+const path = require('path');
+const helpers = require('../../../tools-inputs/helpers/helpers');
+const testvectorsGlobalConfig = require('../../../tools-inputs/testvectors.config.json');
 // load list test-vectors
-const { pathTestVectors } = require('../../helpers/helpers');
 
-const folderStateTransition = path.join(pathTestVectors, './state-transition/calldata');
+const folderStateTransition = path.join(__dirname, '../../../tools-inputs/data/calldata');
 let listTests = fs.readdirSync(folderStateTransition);
 listTests = listTests.filter((fileName) => path.extname(fileName) === '.json');
 
@@ -41,8 +42,10 @@ describe('Run state-transition tests: calldata', async function () {
         it(`check test vectors: ${listTests[m]}`, async () => {
             const pathTestVector = path.join(folderStateTransition, listTests[m]);
             const testVectors = JSON.parse(fs.readFileSync(pathTestVector));
-
+            const testName = listTests[m];
             for (let i = 0; i < testVectors.length; i++) {
+                if (!pathTestVector.includes('change-l2-block')) continue;
+                console.log(`check test vectors: ${pathTestVector}`);
                 console.log(`check test vectors: ${testVectors[i].id}`);
                 let {
                     genesis,
@@ -52,13 +55,27 @@ describe('Run state-transition tests: calldata', async function () {
                     sequencerAddress,
                     expectedNewLeafs,
                     oldAccInputHash,
-                    globalExitRoot,
+                    l1InfoRoot,
                     timestamp,
+                    timestampLimit,
                     chainID,
-                    forkID,
+                    forcedBlockHashL1,
+                    skipVerifyL1InfoRoot,
+                    autoChangeL2Block,
                 } = testVectors[i];
 
+                // Adapts input
+                if (typeof forcedBlockHashL1 === 'undefined') forcedBlockHashL1 = Constants.ZERO_BYTES32;
                 if (!chainID) chainID = 1000;
+                if (typeof oldAccInputHash === 'undefined') {
+                    oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
+                }
+                if (typeof timestampLimit === 'undefined') {
+                    timestampLimit = timestamp;
+                }
+                if (typeof l1InfoRoot === 'undefined') {
+                    l1InfoRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
+                }
 
                 // init SMT Db
                 const db = new zkcommonjs.MemDB(F);
@@ -71,24 +88,64 @@ describe('Run state-transition tests: calldata', async function () {
                     null,
                     null,
                     chainID,
-                    forkID,
+                    testvectorsGlobalConfig.forkID,
                 );
 
                 expect(zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
 
+                const extraData = { l1Info: {} };
                 const batch = await zkEVMDB.buildBatch(
-                    timestamp,
+                    Scalar.e(timestampLimit),
                     sequencerAddress,
-                    zkcommonjs.smtUtils.stringToH4(globalExitRoot),
+                    zkcommonjs.smtUtils.stringToH4(l1InfoRoot),
+                    forcedBlockHashL1,
+                    Constants.DEFAULT_MAX_TX,
+                    {
+                        skipVerifyL1InfoRoot: (typeof skipVerifyL1InfoRoot === 'undefined' || skipVerifyL1InfoRoot !== false),
+                    },
+                    extraData,
                 );
 
                 // TRANSACTIONS
                 const txsList = [];
                 let commonCustom = Common.custom({ chainId: chainID }, { hardfork: Hardfork.Berlin });
 
+                // If first tx is not TX_CHANGE_L2_BLOCK, add one by default
+                const addChangeL2Block = typeof autoChangeL2Block === 'undefined' || autoChangeL2Block !== false;
+
+                // If first tx is not TX_CHANGE_L2_BLOCK, add one by default
+                if (addChangeL2Block && txs.length > 0 && txs[0].type !== Constants.TX_CHANGE_L2_BLOCK) {
+                    const txChangeL2Block = {
+                        type: 11,
+                        deltaTimestamp: timestampLimit,
+                        l1Info: {
+                            globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
+                            blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
+                            timestamp: '42',
+                        },
+                        indexL1InfoTree: 0,
+                    };
+                    txs.unshift(txChangeL2Block);
+                }
+
                 for (let j = 0; j < txs.length; j++) {
                     let isLegacy = false;
                     const currentTx = txs[j];
+                    // Check for TX_CHANGE_L2_BLOCK
+                    if (currentTx.type === Constants.TX_CHANGE_L2_BLOCK) {
+                        const rawChangeL2BlockTx = zkcommonjs.processorUtils.serializeChangeL2Block(currentTx);
+                        const customRawTx = `0x${rawChangeL2BlockTx}`;
+
+                        // Append l1Info to l1Info object
+                        extraData.l1Info[currentTx.indexL1InfoTree] = currentTx.l1Info;
+
+                        batch.addRawTx(customRawTx);
+                        continue;
+                    } else if (j === 0 && !testName.includes('change-l2-block')) {
+                    // If first tx is not TX_CHANGE_L2_BLOCK, add one
+                        const batchL2TxRaw = helpers.addRawTxChangeL2Block(batch, extraData, extraData);
+                        txsList.push(batchL2TxRaw);
+                    }
                     const isSigned = !!(currentTx.r && currentTx.v && currentTx.s);
                     const accountFrom = genesis.filter((x) => x.address.toLowerCase() === currentTx.from.toLowerCase())[0];
                     if (!accountFrom && !isSigned) {

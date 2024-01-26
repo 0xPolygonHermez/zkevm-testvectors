@@ -1,12 +1,12 @@
+const { expect } = require('chai');
 const fs = require('fs');
 const path = require('path');
-const { expect } = require('chai');
 const { argv } = require('yargs');
 
 const {
     getPoseidon,
 } = require('@0xpolygonhermez/zkevm-commonjs');
-const { pathTestVectors } = require('../helpers/helpers');
+const { pathTestVectors } = require('../../tools-inputs/helpers/helpers');
 
 describe('poseidon', async function () {
     this.timeout(10000);

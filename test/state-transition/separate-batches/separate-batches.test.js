@@ -7,17 +7,17 @@ const ethers = require('ethers');
 const { argv } = require('yargs');
 const { expect } = require('chai');
 const {
-    MemDB, ZkEVMDB, processorUtils, smtUtils, getPoseidon,
+    MemDB, ZkEVMDB, processorUtils, smtUtils, getPoseidon, Constants,
 } = require('@0xpolygonhermez/zkevm-commonjs');
 
 // input file
 const pathInput = path.join(__dirname, './input_gen.json');
 
 // input executor folder
-const { pathTestVectors } = require('../../helpers/helpers');
+const helpers = require('../../../tools-inputs/helpers/helpers');
 
-const pathInputExecutor = path.join(pathTestVectors, 'inputs-executor/no-data');
-
+const testvectorsGlobalConfig = require(path.join(__dirname, '../../../tools-inputs/testvectors.config.json'));
+const pathInputExecutor = path.join(helpers.pathTestVectors, 'inputs-executor/no-data');
 describe('Check roots same txs in different batches', function () {
     let update;
 
@@ -59,19 +59,44 @@ describe('Check roots same txs in different batches', function () {
             null,
             null,
             generateData.chainID,
-            generateData.forkID,
+            testvectorsGlobalConfig.forkID,
         );
 
+        if (typeof generateData.forcedBlockHashL1 === 'undefined') generateData.forcedBlockHashL1 = Constants.ZERO_BYTES32;
+        if (typeof generateData.l1InfoRoot === 'undefined') {
+            generateData.l1InfoRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
+        }
+
         // start batch
+        const extraData = { l1Info: {} };
         const batch = await zkEVMDB.buildBatch(
             generateData.timestamp,
             generateData.sequencerAddr,
-            smtUtils.stringToH4(generateData.globalExitRoot),
+            smtUtils.stringToH4(generateData.l1InfoRoot),
+            generateData.forcedBlockHashL1,
+            Constants.DEFAULT_MAX_TX,
+            {
+                skipVerifyL1InfoRoot: true,
+            },
+            extraData,
         );
 
         // build txs
         for (let i = 0; i < generateData.tx.length; i++) {
             const genTx = generateData.tx[i];
+
+            const dataChangeL2Block = {
+                type: 11,
+                deltaTimestamp: '1000',
+                l1Info: {
+                    globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
+                    blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
+                    timestamp: '42',
+                },
+                indexL1InfoTree: batch.rawTxs.length + 1,
+            };
+
+            helpers.addRawTxChangeL2Block(batch, extraData, extraData, dataChangeL2Block);
 
             const tx = {
                 to: genTx.to,
@@ -97,12 +122,17 @@ describe('Check roots same txs in different batches', function () {
 
         // get stark input
         const starkInput = await batch.getStarkInput();
-
         rootTxSameBatch = starkInput.newStateRoot;
-
+        starkInput.l1InfoTree = Object.assign(starkInput.l1InfoTree, extraData.l1Info);
         if (update) {
             const pathOutput = path.join(pathInputExecutor, 'txs-same-batch.json');
             await fs.writeFileSync(pathOutput, JSON.stringify(starkInput, null, 2));
+            generateData.newStateRoot = starkInput.newStateRoot;
+            generateData.newAccInputHash = starkInput.newAccInputHash;
+            generateData.forkID = testvectorsGlobalConfig.forkID;
+            generateData.l1InfoTree = starkInput.l1InfoTree;
+            delete generateData.globalExitRoot;
+            await fs.writeFileSync(pathInput, JSON.stringify(generateData, null, 2));
         }
     });
 
@@ -137,7 +167,7 @@ describe('Check roots same txs in different batches', function () {
             null,
             null,
             generateData.chainID,
-            generateData.forkID,
+            testvectorsGlobalConfig.forkID,
         );
 
         // build txs
@@ -145,11 +175,20 @@ describe('Check roots same txs in different batches', function () {
 
         for (let i = 0; i < generateData.tx.length; i++) {
             // start batch
+            const extraData = { l1Info: {} };
             batch = await zkEVMDB.buildBatch(
                 generateData.timestamp,
                 generateData.sequencerAddr,
-                smtUtils.stringToH4(generateData.globalExitRoot),
+                smtUtils.stringToH4(generateData.l1InfoRoot),
+                generateData.forcedBlockHashL1,
+                Constants.DEFAULT_MAX_TX,
+                {
+                    skipVerifyL1InfoRoot: true,
+                },
+                extraData,
             );
+
+            helpers.addRawTxChangeL2Block(batch, extraData, extraData);
 
             const genTx = generateData.tx[i];
 
@@ -172,6 +211,8 @@ describe('Check roots same txs in different batches', function () {
             // build batch
             await batch.executeTxs();
             const starkInput = await batch.getStarkInput();
+            starkInput.l1InfoTree = Object.assign(starkInput.l1InfoTree, extraData.l1Info);
+            // console.log(starkInput);
 
             if (update) {
                 const pathOutput = path.join(pathInputExecutor, `txs-different-batch_${i}.json`);
