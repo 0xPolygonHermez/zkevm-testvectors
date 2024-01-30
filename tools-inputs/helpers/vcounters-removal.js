@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-use-before-define */
 const fs = require('fs');
 const path = require('path');
@@ -6,9 +7,11 @@ const path = require('path');
  * In case we remove the virtualCounters param from the inputs, the test will fail.
  */
 function main() {
+    console.log('Removing virtualCounters from inputs');
     const inputsPath = path.join(__dirname, '../../inputs-executor');
     const inputs = fs.readdirSync(inputsPath);
     removeVirtualCountersFromInputs(inputs, inputsPath);
+    console.log('Finished removing virtualCounters from inputs');
 }
 
 function removeVirtualCountersFromInputs(files, inputsPath) {
