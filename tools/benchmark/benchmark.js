@@ -35,6 +35,8 @@ let initialzkEVMDB;
  * ######################################################### */
 const CONFIG_ID = typeof argv.config_id !== 'undefined' ? Number(argv.config_id) : 0; // Set config id here
 const genInputs = argv.inputs;
+const skipCounters = typeof argv.counters === 'undefined';
+console.log('skipCounters:', skipCounters);
 const compilePil = false;
 const config = configs[CONFIG_ID];
 const {
@@ -62,18 +64,31 @@ async function main() {
         if (setupTxs.length > 0) {
             await createRawTxs(1, true);
         }
+        console.log(`Run with ${txCount} transactions`);
         // Create raw transactions
-        const circuitInput = await createRawTxs(txCount, false);
-        if (genInputs) {
-            fs.writeFileSync(path.join(__dirname, `./inputs/${config.name}-${txCount}.json`), JSON.stringify(circuitInput, null, 2));
+        let circuitInput;
+        try {
+            circuitInput = await createRawTxs(txCount, false);
+        } catch (e) {
+            if (e.message.includes('Out of counters')) {
+                console.log(e.message);
+                errFound = true;
+            } else {
+                console.log(e);
+                throw e;
+            }
         }
-        const dataLen = circuitInput.batchL2Data.slice(2).length / 2;
-        console.log('batchL2DataLen: ', dataLen);
-        // Execute transactions
-        console.log(`Execute with ${txCount} transactions`);
-        await executeTx(circuitInput, cmPols);
-        // Read tracer result
-        errFound = await readTracer(txCount, dataLen);
+        if (!errFound) {
+            if (genInputs) {
+                fs.writeFileSync(path.join(__dirname, `./inputs/${config.name}-${txCount}.json`), JSON.stringify(circuitInput, null, 2));
+            }
+            const dataLen = circuitInput.batchL2Data.slice(2).length / 2;
+            console.log('batchL2DataLen: ', dataLen);
+            // Execute transactions
+            await executeTx(circuitInput, cmPols);
+            // Read tracer result
+            errFound = await readTracer(txCount, dataLen);
+        }
         if (!errFound) {
             txCount += testStep;
             lastTestIsError = false;
@@ -246,7 +261,7 @@ async function createRawTxs(txCount, isSetup) {
         {
             skipVerifyL1InfoRoot: (typeof skipVerifyL1InfoRoot === 'undefined' || skipVerifyL1InfoRoot !== false),
             vcmConfig: {
-                skipCounters: true,
+                skipCounters,
             },
         },
         extraData,
@@ -334,9 +349,10 @@ async function createRawTxs(txCount, isSetup) {
             batch.addRawTx(calldata);
         }
     }
-    await batch.executeTxs();
+    const vcounters = await batch.executeTxs();
     await zkEVMDB.consolidate(batch);
     const circuitInput = await batch.getStarkInput();
+    circuitInput.virtualCounters = vcounters.virtualCounters;
     // append contracts bytecode
     for (let j = 0; j < genesis.length; j++) {
         const { bytecode } = genesis[j];
