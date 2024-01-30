@@ -1295,123 +1295,23 @@
       "description": "rom NUMBER != eth NUMBER"
     },
     {
-      "name": "stReturnDataTest/modexp_modsize0_returndatasize_4.json",
+      "name": "stRandom/randomStatetest146.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stReturnDataTest/returndatacopy_after_failing_callcode.json",
+      "name": "stRandom/randomStatetest159.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stReturnDataTest/returndatacopy_after_failing_staticcall.json",
+      "name": "stRandom/randomStatetest303.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stReturnDataTest/returndatacopy_following_create.json",
+      "name": "stRandom/randomStatetest50.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stReturnDataTest/returndatacopy_following_failing_call.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/returndatacopy_following_successful_create.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/returndatacopy_following_too_big_transfer.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/returndatacopy_initial.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/returndatacopy_initial_256_0.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/returndatacopy_initial_256_1.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/returndatacopy_initial_256_2.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/returndatacopy_initial_big_sum.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/returndatacopy_overrun.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/tooLongReturnDataCopy_1.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/tooLongReturnDataCopy_2.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/tooLongReturnDataCopy_4.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/tooLongReturnDataCopy_7.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/tooLongReturnDataCopy_9.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/tooLongReturnDataCopy_11.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/tooLongReturnDataCopy_12.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/tooLongReturnDataCopy_13.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/tooLongReturnDataCopy_14.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/tooLongReturnDataCopy_15.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/tooLongReturnDataCopy_18.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/tooLongReturnDataCopy_20.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/tooLongReturnDataCopy_22.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/tooLongReturnDataCopy_23.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/modexp_modsize0_returndatasize_2.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/modexp_modsize0_returndatasize_3.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stReturnDataTest/modexp_modsize0_returndatasize_1.json",
+      "name": "stRandom/randomStatetest7.json",
       "description": "tx gas > max int"
     }
   ]

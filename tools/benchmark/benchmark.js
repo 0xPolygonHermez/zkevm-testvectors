@@ -20,10 +20,10 @@ const fs = require('fs');
 const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
 const { Scalar } = require('ffjavascript');
 const helpers = require('../../tools-inputs/helpers/helpers');
-const smMain = require('../../../zkevm-proverjs-internal/src/sm/sm_main/sm_main');
-const rom = require('../../../zkevm-rom-internal/build/rom.json');
+const smMain = require('../../../zkevm-proverjs/src/sm/sm_main/sm_main');
+const rom = require('../../../zkevm-rom/build/rom.json');
 const configs = require('./benchmark_config.json');
-const pilCache = require('../../../zkevm-proverjs-internal/cache-main-pil.json');
+const pilCache = require('../../../zkevm-proverjs/cache-main-pil.json');
 
 let F;
 let poseidon;
@@ -88,7 +88,7 @@ async function main() {
 }
 
 async function readTracer(txCount, dataLen) {
-    const result = JSON.parse(fs.readFileSync(path.join(__dirname, '../../../zkevm-proverjs-internal/src/sm/sm_main/logs-full-trace/benchmark-trace__full_trace.json')));
+    const result = JSON.parse(fs.readFileSync(path.join(__dirname, '../../../zkevm-proverjs/src/sm/sm_main/logs-full-trace/benchmark-trace__full_trace.json')));
     printTracerResults(result);
     let errFound = false;
     const { responses } = result.block_responses[0];
@@ -224,7 +224,7 @@ async function initBuild() {
             namespaces: ['Main', 'Global'],
             disableUnusedError: true,
         };
-        const pilPath = path.join(__dirname, '../../../zkevm-proverjs-internal/pil/main.pil');
+        const pilPath = path.join(__dirname, '../../../zkevm-proverjs/pil/main.pil');
         pil = await compile(F, pilPath, null, pilConfig);
     }
     // build pil
