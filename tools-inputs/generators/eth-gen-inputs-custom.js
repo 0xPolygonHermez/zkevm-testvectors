@@ -385,7 +385,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             batch.addRawTx(calldata);
                         }
 
-                        await batch.executeTxs();
+                        const res = await batch.executeTxs();
 
                         if (batch.evmSteps[0] && batch.evmSteps[0].length > 0) {
                             const { updatedAccounts } = batch;
@@ -466,6 +466,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         //     }
                         // }
                         const circuitInput = await batch.getStarkInput();
+                        circuitInput.virtualCounters = res.virtualCounters;
                         if (options.newBlockGasLimit) { circuitInput.gasLimit = Scalar.e(options.newBlockGasLimit).toString(); }
                         Object.keys(circuitInput.contractsBytecode).forEach((key) => {
                             if (!circuitInput.contractsBytecode[key].startsWith('0x')) {

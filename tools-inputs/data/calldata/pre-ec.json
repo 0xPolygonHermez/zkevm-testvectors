@@ -356,7 +356,17 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 44532,
+      "arith": 799,
+      "binary": 2267,
+      "memAlign": 39,
+      "keccaks": 41,
+      "padding": 75,
+      "poseidon": 2085,
+      "sha256": 0
+    }
   },
   {
     "id": 1,
@@ -711,7 +721,17 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 45287,
+      "arith": 799,
+      "binary": 2310,
+      "memAlign": 39,
+      "keccaks": 41,
+      "padding": 75,
+      "poseidon": 2085,
+      "sha256": 0
+    }
   },
   {
     "id": 2,
@@ -1070,7 +1090,17 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 204917,
+      "arith": 19914,
+      "binary": 18537,
+      "memAlign": 37,
+      "keccaks": 41,
+      "padding": 75,
+      "poseidon": 2085,
+      "sha256": 0
+    }
   },
   {
     "id": 3,
@@ -1425,7 +1455,17 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 38109,
+      "arith": 701,
+      "binary": 1984,
+      "memAlign": 29,
+      "keccaks": 41,
+      "padding": 75,
+      "poseidon": 2085,
+      "sha256": 0
+    }
   },
   {
     "id": 4,
@@ -1782,7 +1822,17 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 394131,
+      "arith": 29767,
+      "binary": 6597,
+      "memAlign": 21,
+      "keccaks": 41,
+      "padding": 75,
+      "poseidon": 1801,
+      "sha256": 0
+    }
   },
   {
     "id": 5,
@@ -2137,7 +2187,17 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 36518,
+      "arith": 621,
+      "binary": 1872,
+      "memAlign": 13,
+      "keccaks": 41,
+      "padding": 75,
+      "poseidon": 1801,
+      "sha256": 0
+    }
   },
   {
     "id": 6,
@@ -2498,7 +2558,17 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 31268,
+      "arith": 771,
+      "binary": 1700,
+      "memAlign": 29,
+      "keccaks": 41,
+      "padding": 75,
+      "poseidon": 2369,
+      "sha256": 0
+    }
   },
   {
     "id": 7,
@@ -2858,7 +2928,17 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 190757,
+      "arith": 19876,
+      "binary": 17931,
+      "memAlign": 24,
+      "keccaks": 41,
+      "padding": 75,
+      "poseidon": 2227,
+      "sha256": 0
+    }
   },
   {
     "id": 8,
@@ -3216,6 +3296,16 @@
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 382623,
+      "arith": 29791,
+      "binary": 6109,
+      "memAlign": 23,
+      "keccaks": 41,
+      "padding": 75,
+      "poseidon": 1943,
+      "sha256": 0
+    }
   }
 ]

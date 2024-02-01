@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 /* eslint-disable no-use-before-define */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
@@ -267,7 +268,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         }
 
                         const oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
-                        const timestamp = Scalar.e(currentTest.blocks[0].blockHeader.timestamp, 16).toString();
+                        const { timestamp } = currentTest.blocks[0].blockHeader;
                         const sequencerAddress = currentTest.blocks[0].blockHeader.coinbase;
                         const forcedBlockHashL1 = '0x0000000000000000000000000000000000000000000000000000000000000000';
                         const chainIdSequencer = 1000;
@@ -307,6 +308,9 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         const extraData = { l1Info: {} };
                         options.skipVerifyL1InfoRoot = true;
+                        options.vcmConfig = {
+                            skipCounters: true,
+                        };
                         const batch = await zkEVMDB.buildBatch(
                             timestamp,
                             sequencerAddress,
@@ -398,16 +402,16 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             batch.addRawTx(calldata);
                         }
 
-                        await batch.executeTxs();
+                        const res = await batch.executeTxs();
 
-                        if (batch.evmSteps[0] && batch.evmSteps[0].length > 0) {
+                        if (batch.evmSteps[0] && batch.evmSteps[0].steps && batch.evmSteps[0].steps.length > 0) {
                             const { updatedAccounts } = batch;
                             if (updatedAccounts['0x0000000000000000000000000000000000000003']) {
                                 await updateNoExec(dir, newOutputName, 'Precompiled ripemd160 is not supported', noExecNew);
                             } else if (updatedAccounts['0x0000000000000000000000000000000000000009']) {
                                 await updateNoExec(dir, newOutputName, 'Precompiled blake2f is not supported', noExecNew);
                             }
-                            const steps = batch.evmSteps[0];
+                            const steps = batch.evmSteps[0].steps;
                             const selfDestructs = steps.filter((step) => step.opcode.name === 'SELFDESTRUCT');
                             if (selfDestructs.length > 0 && !newOutputName.includes('sendall')) {
                                 await updateNoExec(dir, newOutputName, 'Selfdestruct', noExecNew);
@@ -461,7 +465,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                             const storage = await zkEVMDB.dumpStorage(address);
                                             for (let elem in infoExpect.storage) {
                                                 if (Scalar.e(infoExpect.storage[elem]) !== Scalar.e(0)) {
-                                                    expect(Scalar.e(infoExpect.storage[elem])).to.be.equal(Scalar.e(storage[`0x${elem.slice(2).padStart(64, '0')}`]));
+                                                    const sto = storage[`0x${elem.slice(2).padStart(64, '0')}`] || '0x0';
+                                                    expect(Scalar.e(infoExpect.storage[elem])).to.be.equal(Scalar.e(sto));
                                                 }
                                             }
                                         }
@@ -470,6 +475,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             }
                         }
                         const circuitInput = await batch.getStarkInput();
+                        circuitInput.virtualCounters = res.virtualCounters;
+
                         if (options.newBlockGasLimit) { circuitInput.gasLimit = Scalar.e(options.newBlockGasLimit).toString(); }
                         Object.keys(circuitInput.contractsBytecode).forEach((key) => {
                             if (!circuitInput.contractsBytecode[key].startsWith('0x')) {
@@ -542,7 +549,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                 if (list.indexOf(tests30M[i]) === -1) { list.push(tests30M[i]); }
             }
             console.log('WRITE list 30M: ../tools-eth/tests30M-list.json');
-            await fs.writeFileSync('../tools-eth/tests30M-list.json', JSON.stringify(list, null, 2));
+            await fs.writeFileSync(path.join(__dirname, '../tools-eth/tests30M-list.json'), JSON.stringify(list, null, 2));
             counts.countTests -= tests30M.length;
         }
         if (allTests) {
@@ -568,37 +575,35 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
         }
         const data = {};
         let txId = 0;
-        for (const txSteps of evmTxSteps) {
-            if (txSteps) {
-                const stepObjs = [];
-                for (const step of txSteps) {
-                    if (step) {
-                        // Format memory
-                        let memory = step.memory.map((v) => v.toString(16)).join('').padStart(192, '0');
-                        memory = memory.match(/.{1,32}/g); // split in 32 bytes slots
-                        memory = memory.map((v) => `0x${v}`);
+        if (evmTxSteps[0].steps) {
+            const stepObjs = [];
+            for (const step of evmTxSteps[0].steps) {
+                if (step) {
+                    // Format memory
+                    let memory = step.memory.map((v) => v.toString(16)).join('').padStart(192, '0');
+                    memory = memory.match(/.{1,32}/g); // split in 32 bytes slots
+                    memory = memory.map((v) => `0x${v}`);
 
-                        stepObjs.push({
-                            pc: step.pc,
-                            depth: step.depth,
-                            opcode: {
-                                name: step.opcode.name,
-                                fee: step.opcode.fee,
-                            },
-                            gasLeft: Number(step.gasLeft),
-                            gasRefund: Number(step.gasRefund),
-                            memory,
-                            stack: step.stack.map((v) => `0x${v.toString('hex')}`),
-                            codeAddress: step.codeAddress.buf.reduce(
-                                (previousValue, currentValue) => previousValue + currentValue,
-                                '0x',
-                            ),
-                        });
-                    }
+                    stepObjs.push({
+                        pc: step.pc,
+                        depth: step.depth,
+                        opcode: {
+                            name: step.opcode.name,
+                            fee: step.opcode.fee,
+                        },
+                        gasLeft: Number(step.gasLeft),
+                        gasRefund: Number(step.gasRefund),
+                        memory,
+                        stack: step.stack.map((v) => `0x${v.toString('hex')}`),
+                        codeAddress: step.codeAddress.buf.reduce(
+                            (previousValue, currentValue) => previousValue + currentValue,
+                            '0x',
+                        ),
+                    });
                 }
-                data[txId] = stepObjs;
-                txId += 1;
             }
+            data[txId] = stepObjs;
+            txId += 1;
         }
         console.log(path.join(dir, fileName));
         await fs.writeFileSync(path.join(dir, fileName), JSON.stringify(data, null, 2));

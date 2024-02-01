@@ -97,6 +97,16 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 20547,
+      "arith": 1154,
+      "binary": 1384,
+      "memAlign": 0,
+      "keccaks": 44,
+      "padding": 19,
+      "poseidon": 1269,
+      "sha256": 0
     }
   },
   {
@@ -197,6 +207,16 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 20547,
+      "arith": 1154,
+      "binary": 1384,
+      "memAlign": 0,
+      "keccaks": 44,
+      "padding": 19,
+      "poseidon": 1269,
+      "sha256": 0
     }
   },
   {
@@ -323,6 +343,16 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 40292,
+      "arith": 2307,
+      "binary": 2745,
+      "memAlign": 0,
+      "keccaks": 51,
+      "padding": 38,
+      "poseidon": 2084,
+      "sha256": 0
     }
   }
 ]

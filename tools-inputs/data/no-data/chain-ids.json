@@ -84,6 +84,16 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 11112,
+      "arith": 581,
+      "binary": 726,
+      "memAlign": 0,
+      "keccaks": 41,
+      "padding": 13,
+      "poseidon": 1263,
+      "sha256": 0
     }
   },
   {
@@ -184,6 +194,16 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 21422,
+      "arith": 1161,
+      "binary": 1429,
+      "memAlign": 0,
+      "keccaks": 45,
+      "padding": 26,
+      "poseidon": 2072,
+      "sha256": 0
     }
   },
   {
@@ -284,6 +304,16 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 20440,
+      "arith": 1152,
+      "binary": 1378,
+      "memAlign": 0,
+      "keccaks": 44,
+      "padding": 18,
+      "poseidon": 1268,
+      "sha256": 0
     }
   },
   {
@@ -397,6 +427,16 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 30750,
+      "arith": 1732,
+      "binary": 2081,
+      "memAlign": 0,
+      "keccaks": 48,
+      "padding": 31,
+      "poseidon": 2077,
+      "sha256": 0
     }
   }
 ]

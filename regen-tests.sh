@@ -1,4 +1,5 @@
 # Regen tests
+node tools-inputs/helpers/vcounters-removal.js
 npm run update:smt
 npm run update:mt:bridge
 npm run update:st:calldata

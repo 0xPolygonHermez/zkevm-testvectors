@@ -96,6 +96,16 @@
       "0000000000000000"
     ]
   },
+  "virtualCounters": {
+    "steps": 11112,
+    "arith": 581,
+    "binary": 726,
+    "memAlign": 0,
+    "keccaks": 41,
+    "padding": 13,
+    "poseidon": 1263,
+    "sha256": 0
+  },
   "stateOverride": {
     "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
       "balance": "200000000000000000000",

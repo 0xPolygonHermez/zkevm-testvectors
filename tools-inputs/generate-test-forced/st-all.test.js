@@ -217,7 +217,7 @@ describe('Run state-transition tests', function () {
                 }
 
                 // execute the transactions added to the batch
-                await batch.executeTxs();
+                const res = await batch.executeTxs();
 
                 const newRoot = batch.currentStateRoot;
                 if (update) {
@@ -274,6 +274,7 @@ describe('Run state-transition tests', function () {
                 const circuitInput = await batch.getStarkInput();
                 circuitInput.genesis = genesis;
                 circuitInput.expectedNewLeafs = expectedNewLeafs;
+                circuitInput.virtualCounters = res.virtualCounters;
 
                 if (update) {
                     testVectors[j].batchL2Data = batch.getBatchL2Data();
@@ -285,7 +286,7 @@ describe('Run state-transition tests', function () {
                     testVectors[j].newLocalExitRoot = circuitInput.newLocalExitRoot;
                     testVectors[j].oldAccInputHash = oldAccInputHash;
                     testVectors[j].forkID = testvectorsGlobalConfig.forkID;
-
+                    testVectors[j].virtualCounters = circuitInput.virtualCounters;
                     // delete old unused values
                     delete testVectors[j].globalExitRoot;
                     delete testVectors[j].timestamp;

@@ -11,7 +11,7 @@
   "forcedBlockHashL1": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "batchL2Data": "0x0b000003e800000000f847800a8401c9c38094cccccccccccccccccccccccccccccccccccccccc01a4693c613900000000000000000000000000000000000000000000000000000000000000158203e8808075e0a89f40832a7560027091a396f95d2482f643d3a2b863f94e0ee4e99cdfdd5bd4443c266a0cb97042e53101b2e1812f46b3eb704cce68b9e663650735b9d41cff",
   "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-  "timestampLimit": "1000",
+  "timestampLimit": "0x03e8",
   "sequencerAddr": "0x2adc25665018aa1fe0e6bc666dac8fc2697ff9ba",
   "batchHashData": "0x7c32e2574ed72c9324551e602a6e4cb32a6c54173b37342b22e05fd9f01a63ce",
   "contractsBytecode": {
@@ -4153,5 +4153,15 @@
       "0000000000000000",
       "0000000000000000"
     ]
+  },
+  "virtualCounters": {
+    "steps": 17246,
+    "arith": 639,
+    "binary": 1012,
+    "memAlign": 1,
+    "keccaks": 43,
+    "padding": 15,
+    "poseidon": 1741,
+    "sha256": 0
   }
 }

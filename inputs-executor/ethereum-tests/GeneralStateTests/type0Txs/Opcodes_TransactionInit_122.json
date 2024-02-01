@@ -292,5 +292,15 @@
       "0000000000000000",
       "0000000000000000"
     ]
+  },
+  "virtualCounters": {
+    "steps": 25255,
+    "arith": 802,
+    "binary": 1359,
+    "memAlign": 25,
+    "keccaks": 41,
+    "padding": 13,
+    "poseidon": 1327,
+    "sha256": 0
   }
 }

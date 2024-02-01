@@ -86,5 +86,15 @@
       "timestamp": "42"
     },
     "skipVerifyL1InfoRoot": true
+  },
+  "virtualCounters": {
+    "steps": 21852,
+    "arith": 1161,
+    "binary": 1446,
+    "memAlign": 0,
+    "keccaks": 80,
+    "padding": 26,
+    "poseidon": 2448,
+    "sha256": 0
   }
 }

@@ -169,7 +169,17 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 7,
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 13699,
+      "arith": 583,
+      "binary": 854,
+      "memAlign": 2,
+      "keccaks": 41,
+      "padding": 25,
+      "poseidon": 1275,
+      "sha256": 0
+    }
   },
   {
     "id": 1,
@@ -341,7 +351,17 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 7,
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 14586,
+      "arith": 583,
+      "binary": 901,
+      "memAlign": 2,
+      "keccaks": 41,
+      "padding": 25,
+      "poseidon": 1417,
+      "sha256": 0
+    }
   },
   {
     "id": 2,
@@ -513,7 +533,17 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 7,
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 15260,
+      "arith": 584,
+      "binary": 933,
+      "memAlign": 2,
+      "keccaks": 41,
+      "padding": 25,
+      "poseidon": 1417,
+      "sha256": 0
+    }
   },
   {
     "id": 3,
@@ -685,7 +715,17 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 7,
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 15196,
+      "arith": 583,
+      "binary": 933,
+      "memAlign": 2,
+      "keccaks": 41,
+      "padding": 25,
+      "poseidon": 1417,
+      "sha256": 0
+    }
   },
   {
     "id": 4,
@@ -857,7 +897,17 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 7,
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 14329,
+      "arith": 584,
+      "binary": 887,
+      "memAlign": 2,
+      "keccaks": 41,
+      "padding": 25,
+      "poseidon": 1417,
+      "sha256": 0
+    }
   },
   {
     "id": 5,
@@ -1029,7 +1079,17 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 7,
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 39259,
+      "arith": 849,
+      "binary": 2059,
+      "memAlign": 4,
+      "keccaks": 43,
+      "padding": 27,
+      "poseidon": 1419,
+      "sha256": 0
+    }
   },
   {
     "id": 6,
@@ -1201,7 +1261,17 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 7,
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 39115,
+      "arith": 850,
+      "binary": 2064,
+      "memAlign": 4,
+      "keccaks": 43,
+      "padding": 27,
+      "poseidon": 1419,
+      "sha256": 0
+    }
   },
   {
     "id": 7,
@@ -1373,6 +1443,16 @@
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 7,
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 14648,
+      "arith": 578,
+      "binary": 906,
+      "memAlign": 2,
+      "keccaks": 41,
+      "padding": 25,
+      "poseidon": 1417,
+      "sha256": 0
+    }
   }
 ]

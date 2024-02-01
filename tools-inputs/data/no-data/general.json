@@ -84,6 +84,16 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 11112,
+      "arith": 581,
+      "binary": 726,
+      "memAlign": 0,
+      "keccaks": 41,
+      "padding": 13,
+      "poseidon": 1263,
+      "sha256": 0
     }
   },
   {
@@ -262,6 +272,16 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 49727,
+      "arith": 2880,
+      "binary": 3403,
+      "memAlign": 0,
+      "keccaks": 54,
+      "padding": 44,
+      "poseidon": 2090,
+      "sha256": 0
     }
   },
   {
@@ -349,6 +369,16 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 10451,
+      "arith": 578,
+      "binary": 693,
+      "memAlign": 0,
+      "keccaks": 40,
+      "padding": 6,
+      "poseidon": 460,
+      "sha256": 0
     }
   },
   {
@@ -449,6 +479,16 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 19672,
+      "arith": 1147,
+      "binary": 1339,
+      "memAlign": 0,
+      "keccaks": 43,
+      "padding": 12,
+      "poseidon": 466,
+      "sha256": 0
     }
   },
   {
@@ -539,6 +579,16 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 10237,
+      "arith": 574,
+      "binary": 681,
+      "memAlign": 0,
+      "keccaks": 40,
+      "padding": 6,
+      "poseidon": 460,
+      "sha256": 0
     }
   },
   {
@@ -652,6 +702,16 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 31732,
+      "arith": 1741,
+      "binary": 2132,
+      "memAlign": 0,
+      "keccaks": 49,
+      "padding": 39,
+      "poseidon": 2881,
+      "sha256": 0
     }
   },
   {
@@ -765,6 +825,16 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 29749,
+      "arith": 1732,
+      "binary": 2033,
+      "memAlign": 0,
+      "keccaks": 46,
+      "padding": 18,
+      "poseidon": 472,
+      "sha256": 0
     }
   },
   {
@@ -823,6 +893,16 @@
     "timestampLimit": "1944498031",
     "l1InfoTree": {
       "skipVerifyL1InfoRoot": true
+    },
+    "virtualCounters": {
+      "steps": 372,
+      "arith": 1,
+      "binary": 6,
+      "memAlign": 0,
+      "keccaks": 3,
+      "padding": 0,
+      "poseidon": 78,
+      "sha256": 0
     }
   }
 ]

@@ -20,10 +20,10 @@ const fs = require('fs');
 const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
 const { Scalar } = require('ffjavascript');
 const helpers = require('../../tools-inputs/helpers/helpers');
-const smMain = require('../../../zkevm-proverjs-internal/src/sm/sm_main/sm_main');
-const rom = require('../../../zkevm-rom-internal/build/rom.json');
+const smMain = require('../../../zkevm-proverjs/src/sm/sm_main/sm_main');
+const rom = require('../../../zkevm-rom/build/rom.json');
 const configs = require('./benchmark_config.json');
-const pilCache = require('../../../zkevm-proverjs-internal/cache-main-pil.json');
+const pilCache = require('../../../zkevm-proverjs/cache-main-pil.json');
 
 let F;
 let poseidon;
@@ -35,6 +35,8 @@ let initialzkEVMDB;
  * ######################################################### */
 const CONFIG_ID = typeof argv.config_id !== 'undefined' ? Number(argv.config_id) : 0; // Set config id here
 const genInputs = argv.inputs;
+const skipCounters = typeof argv.counters === 'undefined';
+console.log('skipCounters:', skipCounters);
 const compilePil = false;
 const config = configs[CONFIG_ID];
 const {
@@ -62,18 +64,31 @@ async function main() {
         if (setupTxs.length > 0) {
             await createRawTxs(1, true);
         }
+        console.log(`Run with ${txCount} transactions`);
         // Create raw transactions
-        const circuitInput = await createRawTxs(txCount, false);
-        if (genInputs) {
-            fs.writeFileSync(path.join(__dirname, `./inputs/${config.name}-${txCount}.json`), JSON.stringify(circuitInput, null, 2));
+        let circuitInput;
+        try {
+            circuitInput = await createRawTxs(txCount, false);
+        } catch (e) {
+            if (e.message.includes('Out of counters')) {
+                console.log(e.message);
+                errFound = true;
+            } else {
+                console.log(e);
+                throw e;
+            }
         }
-        const dataLen = circuitInput.batchL2Data.slice(2).length / 2;
-        console.log('batchL2DataLen: ', dataLen);
-        // Execute transactions
-        console.log(`Execute with ${txCount} transactions`);
-        await executeTx(circuitInput, cmPols);
-        // Read tracer result
-        errFound = await readTracer(txCount, dataLen);
+        if (!errFound) {
+            if (genInputs) {
+                fs.writeFileSync(path.join(__dirname, `./inputs/${config.name}-${txCount}.json`), JSON.stringify(circuitInput, null, 2));
+            }
+            const dataLen = circuitInput.batchL2Data.slice(2).length / 2;
+            console.log('batchL2DataLen: ', dataLen);
+            // Execute transactions
+            await executeTx(circuitInput, cmPols);
+            // Read tracer result
+            errFound = await readTracer(txCount, dataLen);
+        }
         if (!errFound) {
             txCount += testStep;
             lastTestIsError = false;
@@ -88,7 +103,7 @@ async function main() {
 }
 
 async function readTracer(txCount, dataLen) {
-    const result = JSON.parse(fs.readFileSync(path.join(__dirname, '../../../zkevm-proverjs-internal/src/sm/sm_main/logs-full-trace/benchmark-trace__full_trace.json')));
+    const result = JSON.parse(fs.readFileSync(path.join(__dirname, '../../../zkevm-proverjs/src/sm/sm_main/logs-full-trace/benchmark-trace__full_trace.json')));
     printTracerResults(result);
     let errFound = false;
     const { responses } = result.block_responses[0];
@@ -224,7 +239,7 @@ async function initBuild() {
             namespaces: ['Main', 'Global'],
             disableUnusedError: true,
         };
-        const pilPath = path.join(__dirname, '../../../zkevm-proverjs-internal/pil/main.pil');
+        const pilPath = path.join(__dirname, '../../../zkevm-proverjs/pil/main.pil');
         pil = await compile(F, pilPath, null, pilConfig);
     }
     // build pil
@@ -245,6 +260,9 @@ async function createRawTxs(txCount, isSetup) {
         Constants.DEFAULT_MAX_TX,
         {
             skipVerifyL1InfoRoot: (typeof skipVerifyL1InfoRoot === 'undefined' || skipVerifyL1InfoRoot !== false),
+            vcmConfig: {
+                skipCounters,
+            },
         },
         extraData,
     );
@@ -331,9 +349,10 @@ async function createRawTxs(txCount, isSetup) {
             batch.addRawTx(calldata);
         }
     }
-    await batch.executeTxs();
+    const vcounters = await batch.executeTxs();
     await zkEVMDB.consolidate(batch);
     const circuitInput = await batch.getStarkInput();
+    circuitInput.virtualCounters = vcounters.virtualCounters;
     // append contracts bytecode
     for (let j = 0; j < genesis.length; j++) {
         const { bytecode } = genesis[j];

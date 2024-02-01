@@ -106,6 +106,16 @@
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "timestampLimit": "1944498031",
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "virtualCounters": {
+      "steps": 78108,
+      "arith": 949,
+      "binary": 3771,
+      "memAlign": 117,
+      "keccaks": 73,
+      "padding": 23,
+      "poseidon": 1273,
+      "sha256": 0
+    }
   }
 ]

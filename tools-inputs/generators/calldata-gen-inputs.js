@@ -158,6 +158,9 @@ describe('Generate inputs executor from test-vectors', async function () {
                 Constants.DEFAULT_MAX_TX,
                 {
                     skipVerifyL1InfoRoot: (typeof skipVerifyL1InfoRoot === 'undefined' || skipVerifyL1InfoRoot !== false),
+                    vcmConfig: {
+                        skipCounters: true,
+                    },
                 },
                 extraData,
             );
@@ -285,11 +288,11 @@ describe('Generate inputs executor from test-vectors', async function () {
             }
 
             // Compare storage
-            await batch.executeTxs();
+            const res = await batch.executeTxs();
 
             if (evmDebug) {
                 try {
-                    await generateEvmDebugFile(batch.evmSteps, `${file.split('.')[0]}-${i}.json`);
+                    await generateEvmDebugFile(batch, `${file.split('.')[0]}-${i}.json`);
                 } catch (e) {
                     console.log(`Can't generate evm debug file: ${e}`);
                 }
@@ -297,6 +300,7 @@ describe('Generate inputs executor from test-vectors', async function () {
 
             await zkEVMDB.consolidate(batch);
             const circuitInput = await batch.getStarkInput();
+            circuitInput.virtualCounters = res.virtualCounters;
 
             if (update) {
                 expectedNewRoot = zkcommonjs.smtUtils.h4toString(batch.currentStateRoot);
@@ -382,6 +386,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 internalTestVectors[i].oldAccInputHash = oldAccInputHash;
                 internalTestVectors[i].expectedNewLeafs = expectedNewLeafs;
                 internalTestVectors[i].forkID = testvectorsGlobalConfig.forkID;
+                testVectors[i].virtualCounters = res.virtualCounters;
 
                 // delete old unused values
                 delete testVectors[i].globalExitRoot;
@@ -411,18 +416,18 @@ describe('Generate inputs executor from test-vectors', async function () {
         }
     });
 
-    async function generateEvmDebugFile(evmTxSteps, fileName) {
+    async function generateEvmDebugFile(batch, fileName) {
         // Create dir if not exists
         const dir = path.join(__dirname, '/evm-stack-logs');
         if (!fs.existsSync(dir)) {
             fs.mkdirSync(dir);
         }
-        const data = {};
-        let txId = 0;
-        for (const txSteps of evmTxSteps) {
-            if (txSteps) {
+        const txs = [];
+        for (const txSteps of batch.evmSteps) {
+            const { steps } = txSteps;
+            if (steps) {
                 const stepObjs = [];
-                for (const step of txSteps) {
+                for (const step of steps) {
                     if (step) {
                         // Format memory
                         let memory = step.memory.map((v) => v.toString(16)).join('').padStart(192, '0');
@@ -431,22 +436,33 @@ describe('Generate inputs executor from test-vectors', async function () {
 
                         stepObjs.push({
                             pc: step.pc,
+                            depth: step.depth,
                             opcode: {
                                 name: step.opcode.name,
                                 fee: step.opcode.fee,
                             },
-                            gasLeft: Number(`0x${step.gasLeft}`),
-                            gasRefund: Number(`0x${step.gasRefund}`),
+                            gasLeft: Number(step.gasLeft),
+                            gasRefund: Number(step.gasRefund),
                             memory,
                             stack: step.stack.map((v) => `0x${v.toString('hex')}`),
+                            codeAddress: step.codeAddress.buf.reduce(
+                                (previousValue, currentValue) => previousValue + currentValue,
+                                '0x',
+                            ),
                         });
                     }
                 }
-                data[txId] = stepObjs;
-                txId += 1;
+                txs.push({
+                    steps: stepObjs,
+                    counters: txSteps.counters,
+                });
             }
         }
-        fs.writeFileSync(path.join(dir, fileName), JSON.stringify(data, null, 2));
+        const debugFile = {
+            txs,
+            counters: batch.vcm.getCurrentSpentCounters(),
+        };
+        fs.writeFileSync(path.join(dir, fileName), JSON.stringify(debugFile, null, 2));
     }
 
     async function verifyInvalidBatch(inputPath, expectedNewRoot) {
