@@ -4,9 +4,16 @@ const { argv } = require('yargs')
 const path = require('path');
 
 let folders = [
-    '../../../inputs-executor',
-    '../../../inputs-executor/ethereum-tests/GeneralStateTests',
-    '../../data',
+    '../inputs-executor',
+    '../inputs-executor/ethereum-tests/GeneralStateTests',
+    '../inputs-executor/special-inputs-ignore/forcedtx-inputs-ignore',
+    '../inputs-executor/special-inputs-ignore/stateoverride-inputs-ignore',
+    './data',
+    '../receipt-test-vectors',
+    '../test/state-transition',
+    '../tools/out-of-counters',
+    './generate-test-forced',
+    './tools-calldata'
 ];
 
 async function writeParams(keys, values, jsonPath) {
@@ -35,14 +42,14 @@ async function main() {
     // Folder path
     const folderPath = typeof (argv.folder) === 'string' ? argv.folder.trim() : undefined;
     const keys = ['forkID'];
-    const values = [6];
+    const values = [8];
 
     if (folderPath) {
         folders = [folderPath];
     }
 
     if (keys.indexOf('forkID') !== -1) {
-        const jsonConfig = '../../../testvectors.config.json';
+        const jsonConfig = './testvectors.config.json';
         const config = require(jsonConfig);
         config.forkID = values[keys.indexOf('forkID')];
         await fs.writeFileSync(jsonConfig, JSON.stringify(config, null, 2));
