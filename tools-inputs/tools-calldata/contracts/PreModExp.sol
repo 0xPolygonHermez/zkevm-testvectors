@@ -8,16 +8,14 @@ contract PreModExp {
     uint256 dataRes;
 
     uint retDataSize;
-
     bytes32[32] arrayStorage;
+    bytes32[32] arrayStorageFull;
 
-
-
-    function modExpGeneric(bytes memory input) public {
+    function modExpGeneric(bytes memory input, uint64 outputLen) public {
         bytes32[32] memory output;
 
         assembly {
-            let success := staticcall(gas(), 0x05, add(input, 32), mload(input), output, 0x140)
+            let success := staticcall(gas(), 0x05, add(input, 32), mload(input), output, outputLen)
             sstore(0x00, success)
         }
 
@@ -28,6 +26,16 @@ contract PreModExp {
 
         for (uint i = 0; i < 32; i++) {
             arrayStorage[i] = output[i];
+        }
+
+        bytes32[2] memory outputSpecial;
+
+        assembly {
+            returndatacopy(outputSpecial, 0, returndatasize())
+        }
+
+        for (uint i = 0; i < 2; i++) {
+            arrayStorageFull[i] = outputSpecial[i];
         }
     }
 
