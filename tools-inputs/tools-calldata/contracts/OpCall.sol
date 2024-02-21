@@ -134,6 +134,19 @@ contract OpCall{
         require(success, "Failed to send money");
     }
 
+    function sendMoreValueThanBalanceToAddr(address payable addr) public payable {
+            (bool success,) = addr.call{value: msg.sender.balance + 10000000}(abi.encodeWithSignature(
+                "opCallSelfBalance()"
+            ));
+            require(success, "Failed to send money");
+    }
+
+    function sendMoreValueThanBalanceToAddrNoRevert(address payable addr) public payable {
+            (bool success,) = addr.call{value: msg.sender.balance + 10000000}(abi.encodeWithSignature(
+                "opCallSelfBalance()"
+            ));
+    }
+
     function opDelegateCall(address addr) external payable returns(uint256) {
         assembly {
             mstore(0x80, auxUpdateValues)
