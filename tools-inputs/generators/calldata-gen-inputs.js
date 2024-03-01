@@ -363,7 +363,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 testVectors[i].expectedOldRoot = expectedOldRoot;
                 testVectors[i].expectedNewRoot = expectedNewRoot;
                 testVectors[i].batchHashData = circuitInput.batchHashData;
-                testVectors[i].inputHash = circuitInput.inputHash;
+                testVectors[i].newAccInputHash = circuitInput.newAccInputHash;
                 testVectors[i].l1InfoRoot = circuitInput.l1InfoRoot;
                 testVectors[i].timestampLimit = circuitInput.timestampLimit;
                 testVectors[i].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
@@ -377,7 +377,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 internalTestVectors[i].expectedOldRoot = expectedOldRoot;
                 internalTestVectors[i].expectedNewRoot = expectedNewRoot;
                 internalTestVectors[i].batchHashData = circuitInput.batchHashData;
-                internalTestVectors[i].inputHash = circuitInput.inputHash;
+                internalTestVectors[i].newAccInputHash = circuitInput.newAccInputHash;
                 internalTestVectors[i].l1InfoRoot = circuitInput.l1InfoRoot;
                 internalTestVectors[i].timestampLimit = circuitInput.timestampLimit;
                 internalTestVectors[i].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
