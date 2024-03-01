@@ -59,7 +59,7 @@ async function main() {
         inputRLP.timestampLimit = generalInput.timestampLimit;
         inputRLP.forcedBlockHashL1 = Constants.ZERO_BYTES32;
 
-        inputRLP.batchHashData = contractUtils.calculateBatchHashData(
+        inputRLP.batchHashData = await contractUtils.calculateBatchHashData(
             inputRLP.batchL2Data,
         );
 
