@@ -1,13 +1,13 @@
 {
   "oldStateRoot": "0xd1af31cda8ca5dde53de1ba5e05b7651888df85538421ed70889933a2b7d651e",
-  "newStateRoot": "0x1cadc7c72e00ba3a80f8ffd1a24a953a3e6d14cd68ed36e95e4e9b97696b2606",
+  "newStateRoot": "0xb9c432bf57e9ca1402febba126007258d6613dbba27cf333ab7581cb7468f119",
   "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "newAccInputHash": "0xff51d6798f1e23c715c86e1d7535d10e2b7c1476e33d4b9201616ff522a7aa8f",
   "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "oldNumBatch": 0,
   "newNumBatch": 1,
   "chainID": 1000,
-  "forkID": 7,
+  "forkID": 8,
   "forcedBlockHashL1": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "batchL2Data": "0x0b73e6af6f00000000ea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae98808476d79e1b8203e88080ef91066bfa5419d9aee9b2e15d0a411eea2d27c012d616ad463ed0e3d435c1e00f6eead245bb18a52f4acc72ad0c0d3b5afb84780d81751149bcddf1a6caee791cff",
   "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
@@ -266,9 +266,9 @@
     ]
   },
   "virtualCounters": {
-    "steps": 14896,
+    "steps": 12868,
     "arith": 583,
-    "binary": 917,
+    "binary": 771,
     "memAlign": 2,
     "keccaks": 41,
     "padding": 22,
