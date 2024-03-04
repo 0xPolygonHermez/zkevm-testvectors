@@ -10,6 +10,17 @@ contract OpLog {
         }
     }
 
+    function opLog00() public payable {
+        assembly {
+            log0(0, 0)
+        }
+    }
+
+     function opLog01() public payable {
+        assembly {
+            log0(0, 28)
+        }
+    }
     // opcode 0xa1
     function opLog1() public payable {
         assembly {
@@ -34,6 +45,17 @@ contract OpLog {
     // opcode 0xa4
     function opLog4() public payable {
         assembly {
+            log4(0, 32, 0, 0, 0, 0)
+        }
+    }
+
+    function opMultipleLogs() public payable {
+        assembly {
+            log0(0, 30)
+            log1(0, 32, 0)
+            log2(0, 32, 0, 0)
+            log0(0, 0)
+            log3(0, 32, 0, 0, 0)
             log4(0, 32, 0, 0, 0, 0)
         }
     }
