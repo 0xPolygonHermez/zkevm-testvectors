@@ -1,13 +1,13 @@
 {
-  "oldStateRoot": "0x121a38ce032a24df07d2ab99235181876a6b767d039b184660e3514a27f0dc15",
-  "newStateRoot": "0x5b2fbd05abd68c31dcf3303dbdbc6656e3e325fdb310c2a3e5b6d5799968b4f4",
+  "oldStateRoot": "0xa9ca1ac05644c03fb5ef1ca806734d6da0713183030e11838e9be3fd53af2b5a",
+  "newStateRoot": "0x073a6de9f343368f59ea0c81cca9dc2b5606669d68f6d62b43c1ec1a742219fe",
   "oldAccInputHash": "0xb2ed02f68a703088bcbf89b01eab74a5c7e21f34106718cc8b765f813b1085e8",
   "newAccInputHash": "0x41b5f0fa7b218ea2281cdcbc28dfc02f93f9ce5ac159066b97a31953b1a6306a",
   "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "oldNumBatch": 1,
   "newNumBatch": 2,
   "chainID": 1000,
-  "forkID": 7,
+  "forkID": 8,
   "forcedBlockHashL1": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "batchL2Data": "0x0b000003e800000001ee01843b9aca00830186a0944d5cf5032b2a844602278b01199ed191a86c93ff8829a2241af62c0000808203e880800e90fac05da6b2e66448765d0c303c51e0789554f1584e5bf493b6b4825770de5c2d964fbaad26badead6f2627e93e2f8547ab9b0c3b408c4fa1959ab03b254d1cff",
   "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
@@ -24,11 +24,11 @@
     "skipVerifyL1InfoRoot": true
   },
   "db": {
-    "0x121a38ce032a24df07d2ab99235181876a6b767d039b184660e3514a27f0dc15": [
-      "89c4abb207c2d0a4",
-      "b3ed35d38912914b",
-      "cbeb4d64a9de9bf1",
-      "5ba9d7c57324a799",
+    "0xa9ca1ac05644c03fb5ef1ca806734d6da0713183030e11838e9be3fd53af2b5a": [
+      "da161efaf7851681",
+      "b63e408baf900fff",
+      "9e8c5152d19f36cd",
+      "a458dc7d35834a26",
       "1d907fb961db8ec2",
       "8b08b95b015d372b",
       "c51a5b40041f3ad0",
@@ -38,11 +38,11 @@
       "0000000000000000",
       "0000000000000000"
     ],
-    "0x5ba9d7c57324a799cbeb4d64a9de9bf1b3ed35d38912914b89c4abb207c2d0a4": [
-      "bc63e312975ed0d3",
-      "b234db2fa8c7eeb4",
-      "551f9fcdcc49fb44",
-      "63ae24c363c31f27",
+    "0xa458dc7d35834a269e8c5152d19f36cdb63e408baf900fffda161efaf7851681": [
+      "b598e55545313275",
+      "950046e7bc851928",
+      "f4861cc9aba3865a",
+      "a79072eac65b235b",
       "a3d6a464f59f21c5",
       "88ab023e9d556cd9",
       "ce50fa4e6cf2ab07",
@@ -52,29 +52,29 @@
       "0000000000000000",
       "0000000000000000"
     ],
-    "0x63ae24c363c31f27551f9fcdcc49fb44b234db2fa8c7eeb4bc63e312975ed0d3": [
+    "0xa79072eac65b235bf4861cc9aba3865a950046e7bc851928b598e55545313275": [
       "40ec72fd7db6a1e5",
       "6bba532b78666608",
       "d16fececc9dbf194",
       "62dc6ae3ffcc2dbc",
-      "c0026832dcfc1042",
-      "0dc8e8d5ee7b6607",
-      "c96453671c37ee8e",
-      "46fe76e795dec4d7",
+      "e9dd78c0cb7cb7f2",
+      "bd82be9282c6dfe8",
+      "6594087682d4e876",
+      "dd8dd3ffeaae2f56",
       "0000000000000001",
       "0000000000000000",
       "0000000000000000",
       "0000000000000000"
     ],
-    "0x46fe76e795dec4d7c96453671c37ee8e0dc8e8d5ee7b6607c0026832dcfc1042": [
-      "0000000074418151",
-      "00000000efbd8147",
-      "000000009c6e4ec6",
-      "00000000d3f34062",
-      "000000005c6b5d7f",
-      "000000008e620bf9",
-      "0000000061ea4777",
-      "00000000712dd1e5"
+    "0xdd8dd3ffeaae2f566594087682d4e876bd82be9282c6dfe8e9dd78c0cb7cb7f2": [
+      "00000000437e9374",
+      "000000000d664ece",
+      "000000008412d365",
+      "00000000fe41b31c",
+      "0000000088326934",
+      "000000000b8458ec",
+      "000000006cbd18f1",
+      "0000000000188eca"
     ],
     "0x1702cc429389432dce50fa4e6cf2ab0788ab023e9d556cd9a3d6a464f59f21c5": [
       "0000000000000000",
@@ -364,7 +364,7 @@
   "virtualCounters": {
     "steps": 11112,
     "arith": 581,
-    "binary": 726,
+    "binary": 728,
     "memAlign": 0,
     "keccaks": 41,
     "padding": 13,

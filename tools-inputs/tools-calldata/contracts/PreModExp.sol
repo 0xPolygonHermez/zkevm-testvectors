@@ -7,6 +7,30 @@ contract PreModExp {
     bytes dataResult;
     uint256 dataRes;
 
+    uint retDataSize;
+
+    bytes32[32] arrayStorage;
+
+
+
+    function modExpGeneric(bytes memory input) public {
+        bytes32[32] memory output;
+
+        assembly {
+            let success := staticcall(gas(), 0x05, add(input, 32), mload(input), output, 0x140)
+            sstore(0x00, success)
+        }
+
+        assembly {
+            let result := returndatasize()
+            sstore(0x0, result)
+        }
+
+        for (uint i = 0; i < 32; i++) {
+            arrayStorage[i] = output[i];
+        }
+    }
+
     function modexp_0(bytes32 base, bytes32 exponent, bytes32 modulus) public {
         bytes memory result;
         assembly {
