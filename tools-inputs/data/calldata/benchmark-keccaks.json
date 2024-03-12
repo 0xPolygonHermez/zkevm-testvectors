@@ -46,7 +46,6 @@
         "storage": {}
       }
     ],
-    "expectedOldRoot": "0x900b1009adeb5c278d0aceac46f41a107d41349b74852fb9159e7df0ba3df7b6",
     "txs": [
       {
         "type": 11,
@@ -69,7 +68,6 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x08f118bed2c658f4ac5133a247ae825fbff95edf5126d98c407eb97e23fa31ed",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000000000000024345",
@@ -102,12 +100,17 @@
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "batchHashData": "0xc1d6f02f12205b75214fb19b063027d516c11c6605c30c58e87b2db3c2534e60",
     "batchL2Data": "0x0b73e6af6f00000000f8468001830f4240941275fbb540c8efc58b812ba83b0d0b8b9917ae9880a4c1171f23000000000000000000000000000000000000000000000000000000000000000a8203e880800d9e6d7a26b75d607d384f9ae58bc4ad92e092a5af9efc768c114ef8ebaab9f655b4cfd61939e4b838508e2f73baba13e4efc6d5af032c034070ad7128ec147f1bff",
-    "forkID": 8,
-    "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031",
+    "forkID": 9,
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "newAccInputHash": "0x6ff7c62e087fdb225398cc99a30ceaee123291a3e948b1bad3b19546f2f6fdde",
+    "type": 0,
+    "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "previousL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+    "previousL1InfoTreeIndex": 1,
+    "oldStateRoot": "0x900b1009adeb5c278d0aceac46f41a107d41349b74852fb9159e7df0ba3df7b6",
+    "newStateRoot": "0x08f118bed2c658f4ac5133a247ae825fbff95edf5126d98c407eb97e23fa31ed",
+    "newBatchAccInputHash": "0xf0b10bd0c09bb10644f4a85ecffc51cd1b5a62dbd2fc55b6147e3ed090f27eac",
+    "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "virtualCounters": {
       "steps": 55658,
       "arith": 949,

@@ -33,12 +33,11 @@
       "chainId": 1000
     }
   ],
-  "sequencerAddr": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-  "newStateRoot": "0x073a6de9f343368f59ea0c81cca9dc2b5606669d68f6d62b43c1ec1a742219fe",
-  "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "newAccInputHash": "0xb6e0b5a37578a04106d225d6b1cf115449db55ae94ef3428e769b00677d12a49",
+  "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+  "newStateRoot": "0xb5bd49e1d968d8d60b20a33d0bf5f58b9c7a870f9cd53780e5629a2b8dde1051",
+  "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "newBatchAccInputHash": "0x1092ea5fa674d32e99189483af49ac37ebb9f0bb44683e61e1c0c9976c0e81a3",
   "numBatch": 1,
-  "timestamp": 1944498031,
   "chainID": 1000,
   "contractsBytecode": {},
   "expectedLeafs": {
@@ -71,9 +70,8 @@
       "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
     }
   },
-  "forkID": 8,
+  "forkID": 9,
   "forcedBlockHashL1": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
   "l1InfoTree": {
     "1": {
       "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
@@ -96,5 +94,9 @@
     "padding": 26,
     "poseidon": 2448,
     "sha256": 0
-  }
+  },
+  "type": 0,
+  "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "previousL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+  "previousL1InfoTreeIndex": 1
 }

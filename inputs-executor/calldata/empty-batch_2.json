@@ -1,23 +1,26 @@
 {
   "oldStateRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
-  "newStateRoot": "0x03771aa7517499411c7dd81481907c24654a3c2ce0a2145005346915ac792d45",
-  "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "newAccInputHash": "0x1a731e32ec94dbd2dcbf5e5920cab1cea8ef2629973f49f53425192ffcaebd92",
+  "newStateRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+  "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "newBatchAccInputHash": "0xa71df7435d8689c1bee200a4220cc6389f9e7a6f59be71873c3bf928f8273988",
   "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "newTimestamp": "0",
   "oldNumBatch": 0,
   "newNumBatch": 1,
   "chainID": 1000,
-  "forkID": 8,
-  "forcedBlockHashL1": "0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3",
+  "forkID": 9,
+  "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "batchL2Data": "0xdf2a8080944d5cf5032b2a844602278b01199ed191a86c93ff8080821092808000000000000000000000000000000000000000000000000000000005ca1ab1e000000000000000000000000000000000000000000000000000000005ca1ab1e01bff",
-  "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-  "timestampLimit": "1944498031",
   "sequencerAddr": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
   "batchHashData": "0x532d21dc28a4c020e09d27c92ab1e7ebcccf0237a338e7e6669b90c3f7aee04f",
   "contractsBytecode": {},
-  "l1InfoTree": {
-    "skipVerifyL1InfoRoot": true
-  },
+  "type": 0,
+  "forcedData": {},
+  "previousL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+  "previousL1InfoTreeIndex": 1,
+  "newL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+  "newL1InfoTreeIndex": 1,
+  "l1InfoTree": {},
   "db": {
     "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d": [
       "0000000000000000",
@@ -97,13 +100,13 @@
     ]
   },
   "virtualCounters": {
-    "steps": 8582,
+    "steps": 8202,
     "arith": 544,
-    "binary": 593,
+    "binary": 576,
     "memAlign": 0,
-    "keccaks": 40,
+    "keccaks": 5,
     "padding": 5,
-    "poseidon": 459,
+    "poseidon": 83,
     "sha256": 0
   }
 }

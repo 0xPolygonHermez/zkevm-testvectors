@@ -234,9 +234,11 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         const oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
                         const timestamp = Scalar.e(currentTest.blocks[0].blockHeader.timestamp, 16).toString();
                         const sequencerAddress = currentTest.blocks[0].blockHeader.coinbase;
-                        const forcedBlockHashL1 = '0x0000000000000000000000000000000000000000000000000000000000000000';
+                        const forcedHashData = '0x0000000000000000000000000000000000000000000000000000000000000000';
                         const chainIdSequencer = 1000;
-                        const l1InfoRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
+                        const type = 0;
+                        const previousL1InfoTreeRoot = '0x0000000000000000000000000000000000000000000000000000000000000000';
+                        const previousL1InfoTreeIndex = 0;
                         const txsTest = currentTest.blocks[0].transactions;
                         const { pre } = currentTest;
 
@@ -271,18 +273,21 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         );
                         const extraData = { l1Info: {} };
                         const options = {};
-                        options.skipVerifyL1InfoRoot = true;
+                        options.vcmConfig = {
+                            skipCounters: true,
+                        };
                         const batch = await zkEVMDB.buildBatch(
-                            timestamp,
                             sequencerAddress,
-                            zkcommonjs.smtUtils.stringToH4(l1InfoRoot),
-                            forcedBlockHashL1,
+                            type,
+                            forcedHashData,
+                            previousL1InfoTreeRoot,
+                            previousL1InfoTreeIndex,
                             Constants.DEFAULT_MAX_TX,
                             options,
                             extraData,
                         );
 
-                        // Ethereum test to add by default a changeL2Block trnsaction
+                        // Ethereum test to add by default a changeL2Block transaction
                         const txChangeL2Block = {
                             type: 11,
                             deltaTimestamp: timestamp,

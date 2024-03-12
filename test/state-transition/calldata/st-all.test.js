@@ -21,7 +21,6 @@ const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
 const fs = require('fs');
 const path = require('path');
 const helpers = require('../../../tools-inputs/helpers/helpers');
-const testvectorsGlobalConfig = require('../../../tools-inputs/testvectors.config.json');
 // load list test-vectors
 
 const folderStateTransition = path.join(__dirname, '../../../tools-inputs/data/calldata');
@@ -49,32 +48,33 @@ describe('Run state-transition tests: calldata', async function () {
                 console.log(`check test vectors: ${testVectors[i].id}`);
                 let {
                     genesis,
-                    expectedOldRoot,
+                    oldStateRoot,
                     txs,
-                    expectedNewRoot,
+                    newStateRoot,
                     sequencerAddress,
                     expectedNewLeafs,
-                    oldAccInputHash,
-                    l1InfoRoot,
-                    timestamp,
-                    timestampLimit,
+                    oldBatchAccInputHash,
                     chainID,
-                    forcedBlockHashL1,
-                    skipVerifyL1InfoRoot,
                     autoChangeL2Block,
+                    type,
+                    forcedHashData,
+                    forcedData,
+                    previousL1InfoTreeRoot,
+                    previousL1InfoTreeIndex,
+                    forkID,
+                    expectedNewRoot,
+                    expectedOldRoot,
+                    oldAccInputHash,
                 } = testVectors[i];
 
-                // Adapts input
-                if (typeof forcedBlockHashL1 === 'undefined') forcedBlockHashL1 = Constants.ZERO_BYTES32;
-                if (!chainID) chainID = 1000;
-                if (typeof oldAccInputHash === 'undefined') {
-                    oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
+                if (typeof expectedNewRoot === 'undefined') {
+                    expectedNewRoot = newStateRoot;
                 }
-                if (typeof timestampLimit === 'undefined') {
-                    timestampLimit = timestamp;
+                if (typeof expectedOldRoot === 'undefined') {
+                    expectedOldRoot = oldStateRoot;
                 }
-                if (typeof l1InfoRoot === 'undefined') {
-                    l1InfoRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
+                if (typeof oldBatchAccInputHash === 'undefined') {
+                    oldBatchAccInputHash = oldAccInputHash;
                 }
 
                 // init SMT Db
@@ -83,26 +83,25 @@ describe('Run state-transition tests: calldata', async function () {
                     db,
                     poseidon,
                     [F.zero, F.zero, F.zero, F.zero],
-                    zkcommonjs.smtUtils.stringToH4(oldAccInputHash),
+                    zkcommonjs.smtUtils.stringToH4(oldBatchAccInputHash),
                     genesis,
                     null,
                     null,
                     chainID,
-                    testvectorsGlobalConfig.forkID,
+                    forkID,
                 );
 
-                expect(zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
+                expect(zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(oldStateRoot);
 
-                const extraData = { l1Info: {} };
+                const extraData = { forcedData, l1Info: {} };
                 const batch = await zkEVMDB.buildBatch(
-                    Scalar.e(timestampLimit),
                     sequencerAddress,
-                    zkcommonjs.smtUtils.stringToH4(l1InfoRoot),
-                    forcedBlockHashL1,
+                    type,
+                    forcedHashData,
+                    previousL1InfoTreeRoot,
+                    previousL1InfoTreeIndex,
                     Constants.DEFAULT_MAX_TX,
-                    {
-                        skipVerifyL1InfoRoot: (typeof skipVerifyL1InfoRoot === 'undefined' || skipVerifyL1InfoRoot !== false),
-                    },
+                    {},
                     extraData,
                 );
 
@@ -117,7 +116,7 @@ describe('Run state-transition tests: calldata', async function () {
                 if (addChangeL2Block && txs.length > 0 && txs[0].type !== Constants.TX_CHANGE_L2_BLOCK) {
                     const txChangeL2Block = {
                         type: 11,
-                        deltaTimestamp: timestampLimit,
+                        deltaTimestamp: '1944498030',
                         l1Info: {
                             globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
                             blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
@@ -137,7 +136,9 @@ describe('Run state-transition tests: calldata', async function () {
                         const customRawTx = `0x${rawChangeL2BlockTx}`;
 
                         // Append l1Info to l1Info object
-                        extraData.l1Info[currentTx.indexL1InfoTree] = currentTx.l1Info;
+                        if (currentTx.indexL1InfoTree !== 0) {
+                            extraData.l1Info[currentTx.indexL1InfoTree] = currentTx.l1Info;
+                        }
 
                         batch.addRawTx(customRawTx);
                         continue;
@@ -238,7 +239,7 @@ describe('Run state-transition tests: calldata', async function () {
                 }
                 await zkEVMDB.consolidate(batch);
                 // Check new root
-                expect(zkcommonjs.smtUtils.h4toString(batch.currentStateRoot)).to.be.equal(expectedNewRoot);
+                expect(zkcommonjs.smtUtils.h4toString(batch.currentStateRoot)).to.be.equal(newStateRoot);
 
                 // Check balances and nonces
                 // eslint-disable-next-line no-restricted-syntax

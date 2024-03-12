@@ -9,9 +9,7 @@ const {
     Address, Account, BN, toBuffer,
 } = require('ethereumjs-util');
 const { ethers } = require('ethers');
-const hre = require('hardhat');
 
-const { argv } = require('yargs');
 const fs = require('fs');
 const path = require('path');
 const helpers = require('../helpers/helpers');
@@ -25,7 +23,6 @@ const testAccountDeploy = {
 
 describe('Generate test-vectors from generate-test-vectors', async function () {
     this.timeout(100000);
-    let outputName;
     const testVectorDataPath = './sources/';
     let listTestVectors;
     let testVectors;
@@ -46,16 +43,9 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                     id,
                     genesis,
                     txs,
-                    defaultChainID,
                     chainID,
                     expectedNewLeafs,
                 } = testVectors[i];
-
-                // adapt input // TODO: remove after full upgrade
-                if (typeof chainID === 'undefined') {
-                    outputTestVector.chainID = defaultChainID;
-                    testVectors[i].chainID = defaultChainID;
-                }
 
                 if (expectedNewLeafs) {
                     outputTestVector.expectedNewLeafs = expectedNewLeafs;
@@ -234,7 +224,7 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                 outputTestVector.txs = auxTxs;
                 output.push(outputTestVector);
             }
-            // Save outuput in file
+            // Save output in file
             const dir = path.join(__dirname, testVectorDataPath);
             console.log('WRITE: ', `${dir}${listTestVectors[s].substring(4)}`);
             await fs.writeFileSync(`${dir}${listTestVectors[s].substring(4)}`, JSON.stringify(output, null, 2));

@@ -15,7 +15,6 @@ const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
 const { expect } = require('chai');
 const { Transaction } = require('@ethereumjs/tx');
 
-const { argv } = require('yargs');
 const fs = require('fs');
 const path = require('path');
 const helpers = require('../helpers/helpers');
@@ -27,20 +26,9 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
     this.timeout(800000);
     let poseidon;
     let F;
-    let outputName;
-    let outputPath;
     let test;
     let file;
-    let folder;
-    let group;
-    let evmDebug;
-    let info = '';
-    let infoErrors = '';
     let basePath = '../tools-eth/tests/';
-    let tests30M = [];
-    let dir30M;
-    // let allTests;
-    let allTests = true;
     let counts = {};
     counts.countTests = 0;
     counts.countErrors = 0;
@@ -92,11 +80,8 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             }
 
             const oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
-            const { timestamp } = currentTest.blocks[0].blockHeader;
             const sequencerAddress = '0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266';
             const chainIdSequencer = 1001;
-            const forcedBlockHashL1 = '0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3';
-            const l1InfoRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
             const txsTest = currentTest.blocks[0].transactions;
             const { pre } = currentTest;
 
@@ -131,16 +116,27 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
             );
 
             // start batch
-            const extraData = { l1Info: {} };
+            const forcedData = {
+                GER: '0x16994edfddddb9480667b64174fc00d3b6da7290d37b8db3a16571b4ddf0789f',
+                blockHashL1: '0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3',
+                minTimestamp: '1944498031',
+            };
+            const forcedHashData = zkcommonjs.l1InfoTreeUtils.getL1InfoTreeValue(
+                forcedData.GER,
+                forcedData.blockHashL1,
+                forcedData.minTimestamp,
+            );
+            const previousL1InfoTreeRoot = '0x16994edfddddb9480667b64174fc00d3b6da7290d37b8db3a16571b4ddf0789f';
+            const previousL1InfoTreeIndex = 1;
+            const extraData = { forcedData, l1Info: {} };
             const batch = await zkEVMDB.buildBatch(
-                Scalar.e(timestamp),
                 sequencerAddress,
-                zkcommonjs.smtUtils.stringToH4(l1InfoRoot),
-                forcedBlockHashL1,
+                2, // Type is 2 for forced transactions
+                forcedHashData,
+                previousL1InfoTreeRoot,
+                previousL1InfoTreeIndex,
                 zkcommonjs.Constants.DEFAULT_MAX_TX,
-                {
-                    skipVerifyL1InfoRoot: true,
-                },
+                {},
                 extraData,
             );
 
@@ -239,8 +235,9 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                     }
                 }
             }
-            console.log(`WRITE: ../../inputs-executor/special-inputs-ignored/forcedtx-inputs-ignore/${keys[x]}`);
-            await fs.writeFileSync(`../../inputs-executor/special-inputs-ignored/forcedtx-inputs-ignore/eth-${keys[x]}`, JSON.stringify(circuitInput, null, 2));
+            const outPath = path.join(__dirname, `../../inputs-executor/special-inputs-ignore/forcedtx-inputs-ignore/eth-${keys[x]}`);
+            console.log(`WRITE: ${outPath}`);
+            await fs.writeFileSync(outPath, JSON.stringify(circuitInput, null, 2));
         }
     });
 });

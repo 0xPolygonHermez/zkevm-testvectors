@@ -16,7 +16,6 @@ const { BN, toBuffer } = require('ethereumjs-util');
 const { ethers } = require('ethers');
 const hre = require('hardhat');
 const lodash = require('lodash');
-const { Scalar } = require('ffjavascript');
 
 const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
 const { expect } = require('chai');
@@ -28,7 +27,6 @@ const paths = require('./paths.json');
 
 const helpers = require(paths.helpers);
 
-const testvectorsGlobalConfig = require(paths['testvectors-config']);
 // example: npx mocha gen-inputs.js --vectors txs-calldata --inputs input_ --update --output
 
 describe('Generate inputs executor from test-vectors', async function () {
@@ -74,37 +72,42 @@ describe('Generate inputs executor from test-vectors', async function () {
             let {
                 id,
                 genesis,
-                expectedOldRoot,
+                oldStateRoot,
                 txs,
-                expectedNewRoot,
+                newStateRoot,
                 sequencerAddress,
                 expectedNewLeafs,
-                oldAccInputHash,
-                l1InfoRoot,
-                timestamp,
-                timestampLimit,
+                oldBatchAccInputHash,
+                newBatchAccInputHash,
                 chainID,
-                forcedBlockHashL1,
                 autoChangeL2Block,
-                skipVerifyL1InfoRoot,
                 invalidBatch,
                 additionalGenesisAccountsFactor,
+                type,
+                forcedHashData,
+                forcedData,
+                previousL1InfoTreeRoot,
+                previousL1InfoTreeIndex,
+                forkID,
+                expectedNewRoot,
+                expectedOldRoot,
+                oldAccInputHash,
+                newAccInputHash,
             } = testVectors[i];
             console.log(`Executing test-vector id: ${id}`);
 
-            // Adapts input
-            if (typeof forcedBlockHashL1 === 'undefined') forcedBlockHashL1 = Constants.ZERO_BYTES32;
-            if (!chainID) chainID = 1000;
-            if (typeof oldAccInputHash === 'undefined') {
-                oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
+            if (typeof expectedNewRoot === 'undefined') {
+                expectedNewRoot = newStateRoot;
             }
-            if (typeof timestampLimit === 'undefined') {
-                timestampLimit = timestamp;
+            if (typeof expectedOldRoot === 'undefined') {
+                expectedOldRoot = oldStateRoot;
             }
-            if (typeof l1InfoRoot === 'undefined') {
-                l1InfoRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
+            if (typeof oldBatchAccInputHash === 'undefined') {
+                oldBatchAccInputHash = oldAccInputHash;
             }
-
+            if (typeof newAccInputHash === 'undefined') {
+                newAccInputHash = newBatchAccInputHash;
+            }
             // Add additionalGenesisAccountsFactor
             if (additionalGenesisAccountsFactor) {
                 const additionalAccounts = 2 ** additionalGenesisAccountsFactor;
@@ -124,12 +127,12 @@ describe('Generate inputs executor from test-vectors', async function () {
                 db,
                 poseidon,
                 [F.zero, F.zero, F.zero, F.zero],
-                zkcommonjs.smtUtils.stringToH4(oldAccInputHash),
+                zkcommonjs.smtUtils.stringToH4(oldBatchAccInputHash),
                 genesis,
                 null,
                 null,
                 chainID,
-                testvectorsGlobalConfig.forkID,
+                forkID,
             );
 
             // NEW VM
@@ -145,19 +148,19 @@ describe('Generate inputs executor from test-vectors', async function () {
             }
 
             if (update) {
-                expectedOldRoot = zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot);
+                oldStateRoot = zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot);
             }
-            expect(zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
+            expect(zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(oldStateRoot);
 
-            const extraData = { l1Info: {} };
+            const extraData = { forcedData, l1Info: {} };
             const batch = await zkEVMDB.buildBatch(
-                Scalar.e(timestampLimit),
                 sequencerAddress,
-                zkcommonjs.smtUtils.stringToH4(l1InfoRoot),
-                forcedBlockHashL1,
+                type,
+                forcedHashData,
+                previousL1InfoTreeRoot,
+                previousL1InfoTreeIndex,
                 Constants.DEFAULT_MAX_TX,
                 {
-                    skipVerifyL1InfoRoot: (typeof skipVerifyL1InfoRoot === 'undefined' || skipVerifyL1InfoRoot !== false),
                     vcmConfig: {
                         skipCounters: true,
                     },
@@ -174,7 +177,7 @@ describe('Generate inputs executor from test-vectors', async function () {
             if (addChangeL2Block && txs.length > 0 && txs[0].type !== Constants.TX_CHANGE_L2_BLOCK) {
                 const txChangeL2Block = {
                     type: 11,
-                    deltaTimestamp: timestampLimit,
+                    deltaTimestamp: '1944498030',
                     l1Info: {
                         globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
                         blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
@@ -196,8 +199,9 @@ describe('Generate inputs executor from test-vectors', async function () {
                     const customRawTx = `0x${rawChangeL2BlockTx}`;
 
                     // Append l1Info to l1Info object
-                    extraData.l1Info[currentTx.indexL1InfoTree] = currentTx.l1Info;
-
+                    if (currentTx.indexL1InfoTree !== 0) {
+                        extraData.l1Info[currentTx.indexL1InfoTree] = currentTx.l1Info;
+                    }
                     batch.addRawTx(customRawTx);
                     continue;
                 }
@@ -303,10 +307,10 @@ describe('Generate inputs executor from test-vectors', async function () {
             circuitInput.virtualCounters = res.virtualCounters;
 
             if (update) {
-                expectedNewRoot = zkcommonjs.smtUtils.h4toString(batch.currentStateRoot);
+                newStateRoot = zkcommonjs.smtUtils.h4toString(batch.currentStateRoot);
             }
             // Check new root
-            expect(zkcommonjs.smtUtils.h4toString(batch.currentStateRoot)).to.be.equal(expectedNewRoot);
+            expect(zkcommonjs.smtUtils.h4toString(batch.currentStateRoot)).to.be.equal(newStateRoot);
 
             // Check balances and nonces
             // eslint-disable-next-line no-restricted-syntax
@@ -346,8 +350,8 @@ describe('Generate inputs executor from test-vectors', async function () {
             }
 
             if (invalidBatch) {
-                expectedNewRoot = expectedOldRoot;
-                circuitInput.newStateRoot = expectedOldRoot;
+                newStateRoot = oldStateRoot;
+                circuitInput.newStateRoot = oldStateRoot;
                 testVectors[i].invalidBatch = invalidBatch;
                 internalTestVectors[i].invalidBatch = invalidBatch;
             }
@@ -360,52 +364,46 @@ describe('Generate inputs executor from test-vectors', async function () {
             }
             if (update) {
                 testVectors[i].batchL2Data = batch.getBatchL2Data();
-                testVectors[i].expectedOldRoot = expectedOldRoot;
-                testVectors[i].expectedNewRoot = expectedNewRoot;
+                testVectors[i].oldStateRoot = oldStateRoot;
+                testVectors[i].newStateRoot = newStateRoot;
                 testVectors[i].batchHashData = circuitInput.batchHashData;
-                testVectors[i].newAccInputHash = circuitInput.newAccInputHash;
-                testVectors[i].l1InfoRoot = circuitInput.l1InfoRoot;
-                testVectors[i].timestampLimit = circuitInput.timestampLimit;
+                testVectors[i].newBatchAccInputHash = circuitInput.newBatchAccInputHash;
                 testVectors[i].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                 testVectors[i].chainID = chainID;
-                testVectors[i].oldAccInputHash = oldAccInputHash;
+                testVectors[i].oldBatchAccInputHash = oldBatchAccInputHash;
                 testVectors[i].txs = txs;
                 testVectors[i].expectedNewLeafs = expectedNewLeafs;
-                testVectors[i].forkID = testvectorsGlobalConfig.forkID;
+                testVectors[i].forkID = forkID;
                 internalTestVectors[i].batchL2Data = batch.getBatchL2Data();
                 internalTestVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
-                internalTestVectors[i].expectedOldRoot = expectedOldRoot;
-                internalTestVectors[i].expectedNewRoot = expectedNewRoot;
+                internalTestVectors[i].oldStateRoot = oldStateRoot;
+                internalTestVectors[i].newStateRoot = newStateRoot;
                 internalTestVectors[i].batchHashData = circuitInput.batchHashData;
-                internalTestVectors[i].newAccInputHash = circuitInput.newAccInputHash;
-                internalTestVectors[i].l1InfoRoot = circuitInput.l1InfoRoot;
-                internalTestVectors[i].timestampLimit = circuitInput.timestampLimit;
+                internalTestVectors[i].newBatchAccInputHash = circuitInput.newBatchAccInputHash;
                 internalTestVectors[i].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                 internalTestVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
                 internalTestVectors[i].chainID = chainID;
-                internalTestVectors[i].oldAccInputHash = oldAccInputHash;
+                internalTestVectors[i].oldBatchAccInputHash = oldBatchAccInputHash;
                 internalTestVectors[i].expectedNewLeafs = expectedNewLeafs;
-                internalTestVectors[i].forkID = testvectorsGlobalConfig.forkID;
+                internalTestVectors[i].forkID = forkID;
                 testVectors[i].virtualCounters = res.virtualCounters;
 
                 // delete old unused values
-                delete testVectors[i].globalExitRoot;
-                delete testVectors[i].timestamp;
-                delete testVectors[i].historicGERRoot;
-                delete testVectors[i].arity;
-                delete testVectors[i].chainIdSequencer;
-                delete testVectors[i].defaultChainId;
+                delete testVectors[i].l1InfoRoot;
+                delete testVectors[i].timestampLimit;
+                delete testVectors[i].expectedOldRoot;
+                delete testVectors[i].expectedNewRoot;
+                delete testVectors[i].oldAccInputHash;
 
-                delete internalTestVectors[i].globalExitRoot;
-                delete internalTestVectors[i].timestamp;
-                delete internalTestVectors[i].historicGERRoot;
-                delete internalTestVectors[i].arity;
-                delete internalTestVectors[i].chainIdSequencer;
-                delete internalTestVectors[i].defaultChainId;
+                delete internalTestVectors[i].l1InfoRoot;
+                delete internalTestVectors[i].timestampLimit;
+                delete internalTestVectors[i].expectedOldRoot;
+                delete internalTestVectors[i].expectedNewRoot;
+                delete internalTestVectors[i].oldAccInputHash;
             }
             if (invalidBatch && argv.verify) {
                 const dir = path.join(__dirname, inputsPath);
-                await verifyInvalidBatch(`${dir}${inputName}${id}.json`, expectedNewRoot);
+                await verifyInvalidBatch(`${dir}${inputName}${id}.json`, newStateRoot);
             }
         }
         if (update) {
@@ -465,7 +463,7 @@ describe('Generate inputs executor from test-vectors', async function () {
         fs.writeFileSync(path.join(dir, fileName), JSON.stringify(debugFile, null, 2));
     }
 
-    async function verifyInvalidBatch(inputPath, expectedNewRoot) {
+    async function verifyInvalidBatch(inputPath, newStateRoot) {
         const pathProverJs = '../../../zkevm-proverjs-internal';
         const pathRom = '../../../zkevm-rom-internal';
         const { newCommitPolsArray, compile } = require('pilcom');
@@ -510,7 +508,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                 }
             }
             expect(found).to.be.equal(true);
-            expect(res.output.newStateRoot).to.be.equal(expectedNewRoot);
+            expect(res.output.newStateRoot).to.be.equal(newStateRoot);
         } catch (e) {
             expect(true).to.be.equal(false);
         }

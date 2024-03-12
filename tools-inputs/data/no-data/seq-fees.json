@@ -78,12 +78,10 @@
     "batchHashData": "0x1355ed2ba8d76ad58afa5f5ae77115d9d46a13ab6693c2870f8f77dd2d2328fe",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "forkID": 8,
+    "forkID": 9,
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "timestampLimit": "1944498031",
-    "l1InfoTree": {
-      "skipVerifyL1InfoRoot": true
-    },
+    "l1InfoTree": {},
     "virtualCounters": {
       "steps": 11112,
       "arith": 581,
@@ -93,7 +91,14 @@
       "padding": 13,
       "poseidon": 1263,
       "sha256": 0
-    }
+    },
+    "type": 0,
+    "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "previousL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+    "previousL1InfoTreeIndex": 1,
+    "oldStateRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+    "newStateRoot": "0xa0498e7c0a65d76336880b71a8478fd4d2dc9d0329bcf5177e132a4a36b70f1e",
+    "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
   {
     "id": 1,
@@ -188,12 +193,10 @@
     "batchHashData": "0x2571b6cc39b833b4c94767462d1ed829e42799e465e2d188e36d2df78b1b5d19",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "forkID": 8,
+    "forkID": 9,
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "timestampLimit": "1944498031",
-    "l1InfoTree": {
-      "skipVerifyL1InfoRoot": true
-    },
+    "l1InfoTree": {},
     "virtualCounters": {
       "steps": 20887,
       "arith": 1151,
@@ -203,6 +206,13 @@
       "padding": 25,
       "poseidon": 2071,
       "sha256": 0
-    }
+    },
+    "type": 0,
+    "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "previousL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+    "previousL1InfoTreeIndex": 1,
+    "oldStateRoot": "0x8397a02db0909df274170a8a1a4e45f6d7f24e66606976cd00960d8c6c850c97",
+    "newStateRoot": "0x912bb5bee266e830076cec0b101a304b4f6ecb0e6b251d349beb60a3c94419f1",
+    "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
   }
 ]
