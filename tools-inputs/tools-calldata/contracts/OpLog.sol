@@ -60,6 +60,10 @@ contract OpLog {
         }
     }
 
+    function opCallMultipleLogs() external payable {
+        address(this).call(abi.encodeWithSignature("opMultipleLogs()"));
+    }
+
     function opLog4CustomDataSize(uint256 _dataSize) public payable {
         if(_dataSize == 0) {
             _dataSize = 15120000; // 270000 * 56
