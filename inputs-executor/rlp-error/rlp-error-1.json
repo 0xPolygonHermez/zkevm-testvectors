@@ -86,13 +86,10 @@
   "contractsBytecode": {},
   "inputHash": "0x658c5eea34cc1b7f3849b90f26ed7a33c93a1c61cef16e972224eb5592576cb9",
   "chainID": 1000,
-  "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "newAccInputHash": "0x5d853e17febc2838a5a24d0152a96f4259242d6989013fb65629b44086c67469",
   "oldNumBatch": 0,
   "newNumBatch": 1,
   "forkID": 9,
   "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-  "timestampLimit": "1944498031",
   "forcedBlockHashL1": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "l1InfoTree": {},
   "type": 0,
@@ -100,7 +97,7 @@
   "previousL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
   "previousL1InfoTreeIndex": 1,
   "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "newBatchAccInputHash": "0x460f12acea1ea0b50093a48a732dec208b351dead643309949a7e8b6e257b61c",
+  "newBatchAccInputHash": "0x5d853e17febc2838a5a24d0152a96f4259242d6989013fb65629b44086c67469",
   "virtualCounters": {
     "steps": 8172503,
     "arith": 200919,
@@ -109,5 +106,8 @@
     "keccaks": 2200,
     "padding": 140000,
     "poseidon": 260000
-  }
+  },
+  "newTimestamp": 0,
+  "newL1InfoTreeIndex": 1,
+  "newL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d"
 }

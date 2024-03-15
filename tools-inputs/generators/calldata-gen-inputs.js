@@ -78,7 +78,6 @@ describe('Generate inputs executor from test-vectors', async function () {
                 sequencerAddress,
                 expectedNewLeafs,
                 oldBatchAccInputHash,
-                newBatchAccInputHash,
                 chainID,
                 autoChangeL2Block,
                 invalidBatch,
@@ -89,25 +88,9 @@ describe('Generate inputs executor from test-vectors', async function () {
                 previousL1InfoTreeRoot,
                 previousL1InfoTreeIndex,
                 forkID,
-                expectedNewRoot,
-                expectedOldRoot,
-                oldAccInputHash,
-                newAccInputHash,
             } = testVectors[i];
             console.log(`Executing test-vector id: ${id}`);
 
-            if (typeof expectedNewRoot === 'undefined') {
-                expectedNewRoot = newStateRoot;
-            }
-            if (typeof expectedOldRoot === 'undefined') {
-                expectedOldRoot = oldStateRoot;
-            }
-            if (typeof oldBatchAccInputHash === 'undefined') {
-                oldBatchAccInputHash = oldAccInputHash;
-            }
-            if (typeof newAccInputHash === 'undefined') {
-                newAccInputHash = newBatchAccInputHash;
-            }
             // Add additionalGenesisAccountsFactor
             if (additionalGenesisAccountsFactor) {
                 const additionalAccounts = 2 ** additionalGenesisAccountsFactor;
@@ -374,32 +357,29 @@ describe('Generate inputs executor from test-vectors', async function () {
                 testVectors[i].txs = txs;
                 testVectors[i].expectedNewLeafs = expectedNewLeafs;
                 testVectors[i].forkID = forkID;
+                testVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
+                testVectors[i].newL1InfoTreeIndex = circuitInput.newL1InfoTreeIndex;
+                testVectors[i].newL1InfoTreeRoot = circuitInput.newL1InfoTreeRoot;
+                testVectors[i].newTimestamp = circuitInput.newTimestamp;
+                testVectors[i].oldNumBatch = circuitInput.oldNumBatch;
+                testVectors[i].newNumBatch = circuitInput.newNumBatch;
                 internalTestVectors[i].batchL2Data = batch.getBatchL2Data();
-                internalTestVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
                 internalTestVectors[i].oldStateRoot = oldStateRoot;
                 internalTestVectors[i].newStateRoot = newStateRoot;
                 internalTestVectors[i].batchHashData = circuitInput.batchHashData;
                 internalTestVectors[i].newBatchAccInputHash = circuitInput.newBatchAccInputHash;
                 internalTestVectors[i].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                 internalTestVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
+                internalTestVectors[i].newL1InfoTreeIndex = circuitInput.newL1InfoTreeIndex;
+                internalTestVectors[i].newL1InfoTreeRoot = circuitInput.newL1InfoTreeRoot;
+                internalTestVectors[i].newTimestamp = circuitInput.newTimestamp;
+                internalTestVectors[i].oldNumBatch = circuitInput.oldNumBatch;
+                internalTestVectors[i].newNumBatch = circuitInput.newNumBatch;
                 internalTestVectors[i].chainID = chainID;
                 internalTestVectors[i].oldBatchAccInputHash = oldBatchAccInputHash;
                 internalTestVectors[i].expectedNewLeafs = expectedNewLeafs;
                 internalTestVectors[i].forkID = forkID;
                 testVectors[i].virtualCounters = res.virtualCounters;
-
-                // delete old unused values
-                delete testVectors[i].l1InfoRoot;
-                delete testVectors[i].timestampLimit;
-                delete testVectors[i].expectedOldRoot;
-                delete testVectors[i].expectedNewRoot;
-                delete testVectors[i].oldAccInputHash;
-
-                delete internalTestVectors[i].l1InfoRoot;
-                delete internalTestVectors[i].timestampLimit;
-                delete internalTestVectors[i].expectedOldRoot;
-                delete internalTestVectors[i].expectedNewRoot;
-                delete internalTestVectors[i].oldAccInputHash;
             }
             if (invalidBatch && argv.verify) {
                 const dir = path.join(__dirname, inputsPath);

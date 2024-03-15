@@ -56,12 +56,14 @@ async function main() {
         inputRLP.l1InfoRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
         inputRLP.forcedHashData = Constants.ZERO_BYTES32;
         inputRLP.type = 0;
-
+        inputRLP.newTimestamp = 0;
+        inputRLP.newL1InfoTreeIndex = generalInput.newL1InfoTreeIndex;
+        inputRLP.newL1InfoTreeRoot = generalInput.newL1InfoTreeRoot;
         inputRLP.batchHashData = await blobUtils.computeBatchL2HashData(
             inputRLP.batchL2Data,
         );
 
-        inputRLP.newAccInputHash = await blobUtils.computeBatchAccInputHash(
+        inputRLP.newBatchAccInputHash = await blobUtils.computeBatchAccInputHash(
             inputRLP.oldBatchAccInputHash,
             inputRLP.batchHashData,
             inputRLP.sequencerAddr,
