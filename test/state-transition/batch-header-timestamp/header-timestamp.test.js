@@ -359,7 +359,7 @@ describe('Header timestamp', function () {
                 l1Info: {
                     globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
                     blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
-                    timestamp: '42',
+                    minTimestamp: '42',
                     historicRoot: '0x887c22bd8750d34016ac3c66b5ff102dacdd73f6b014e710b51e8022af9a1968',
                 },
                 indexL1InfoTree: k === 0 ? 1 : 0,

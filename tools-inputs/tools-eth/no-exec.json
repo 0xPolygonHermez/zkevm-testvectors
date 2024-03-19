@@ -1295,39 +1295,135 @@
       "description": "rom NUMBER != eth NUMBER"
     },
     {
-      "name": "stQuadraticComplexityTest/Call1MB1024Calldepth_1.json",
+      "name": "stBadOpcode/opc5FDiffPlaces_0.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stQuadraticComplexityTest/Call50000_ecrec_1.json",
+      "name": "stBadOpcode/opc5FDiffPlaces_1.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stQuadraticComplexityTest/Call50000_rip160_0.json",
-      "description": "Precompiled ripemd160 is not supported"
-    },
-    {
-      "name": "stQuadraticComplexityTest/Call50000_rip160_1.json",
+      "name": "stBadOpcode/opc5FDiffPlaces_2.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stQuadraticComplexityTest/Call50000_sha256_1.json",
+      "name": "stBadOpcode/opc5FDiffPlaces_3.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stQuadraticComplexityTest/Callcode50000_1.json",
+      "name": "stBadOpcode/opc5FDiffPlaces_4.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stQuadraticComplexityTest/Create1000_1.json",
+      "name": "stBadOpcode/opc5FDiffPlaces_5.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stQuadraticComplexityTest/Create1000Byzantium_1.json",
+      "name": "stBadOpcode/opc5FDiffPlaces_6.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stQuadraticComplexityTest/Call20KbytesContract50_2_1.json",
+      "name": "stBadOpcode/opc5FDiffPlaces_7.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_8.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_9.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_10.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_11.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_12.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_13.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_14.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_16.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_17.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_18.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_19.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_20.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_21.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_22.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_23.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_24.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_25.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_26.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_28.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_29.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_30.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_31.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_32.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_33.json",
+      "description": "tx gas > max int"
+    },
+    {
+      "name": "stBadOpcode/opc5FDiffPlaces_34.json",
       "description": "tx gas > max int"
     }
   ]

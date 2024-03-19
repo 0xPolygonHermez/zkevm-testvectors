@@ -76,12 +76,12 @@ describe('Generate inputs executor from test-vectors', async function () {
                 } = testVectors[i];
                 console.log(`Executing test-vector id: ${id}`);
                 forcedData = {
-                    GER: '0x16994edfddddb9480667b64174fc00d3b6da7290d37b8db3a16571b4ddf0789f',
+                    globalExitRoot: '0x16994edfddddb9480667b64174fc00d3b6da7290d37b8db3a16571b4ddf0789f',
                     blockHashL1: '0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3',
                     minTimestamp: '1944498031',
                 };
                 forcedHashData = l1InfoTreeUtils.getL1InfoTreeValue(
-                    forcedData.GER,
+                    forcedData.globalExitRoot,
                     forcedData.blockHashL1,
                     forcedData.minTimestamp,
                 );

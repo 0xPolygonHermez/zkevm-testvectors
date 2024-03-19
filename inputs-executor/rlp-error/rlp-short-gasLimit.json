@@ -2,8 +2,6 @@
   "oldStateRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
   "newStateRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
   "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "oldNumBatch": 0,
-  "newNumBatch": 1,
   "chainID": 1000,
   "batchL2Data": "0x0b000186a000000000e82a17816e944d5cf5032b2a844602278b01199ed191a86c93ff88016345785d8a0000808203e880805a1fa32e097dad926332d2b16a5694acdccde9cfb98e568bc0077208c5171156653c3bb1fb6ffe28599c0b032040a2f107295400d3b9823725e4f59297c2f9a41c",
   "sequencerAddr": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
@@ -97,6 +95,9 @@
   "previousL1InfoTreeIndex": 1,
   "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "newBatchAccInputHash": "0x3f5b4abb92d2e65aa03ef7719644706b3f77e6deef543e4ae3d91900f660243e",
+  "newTimestamp": 0,
+  "newL1InfoTreeIndex": 1,
+  "newL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
   "virtualCounters": {
     "steps": 8172503,
     "arith": 200919,
@@ -105,8 +106,5 @@
     "keccaks": 2200,
     "padding": 140000,
     "poseidon": 260000
-  },
-  "newTimestamp": 0,
-  "newL1InfoTreeIndex": 1,
-  "newL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d"
+  }
 }
