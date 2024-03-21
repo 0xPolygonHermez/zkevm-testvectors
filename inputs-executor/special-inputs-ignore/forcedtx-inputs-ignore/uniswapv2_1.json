@@ -22,7 +22,6 @@
     "0x13db4b51c5174ee2366e878a367aa1d426970ade": "0x8bb5add6c738db3e7e466dd4a6eb0e53e431ca70850cad3d489bfc574599c7f2",
     "0x000000000000000000000000000000005ca1ab1e": "0x0000000000000000000000000000000000000000000000000000000000000000"
   },
-  "type": 2,
   "forcedData": {
     "globalExitRoot": "0x16994edfddddb9480667b64174fc00d3b6da7290d37b8db3a16571b4ddf0789f",
     "blockHashL1": "0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3",
@@ -1018,16 +1017,6 @@
       "0000000000000000",
       "0000000000000000"
     ]
-  },
-  "virtualCounters": {
-    "steps": 1760883,
-    "arith": 19599,
-    "binary": 98109,
-    "memAlign": 18658,
-    "keccaks": 289,
-    "padding": 2159,
-    "poseidon": 21276,
-    "sha256": 0
   },
   "genesis": [
     {

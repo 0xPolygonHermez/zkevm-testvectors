@@ -236,7 +236,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         const sequencerAddress = currentTest.blocks[0].blockHeader.coinbase;
                         const forcedHashData = '0x0000000000000000000000000000000000000000000000000000000000000000';
                         const chainIdSequencer = 1000;
-                        const type = 0;
                         const previousL1InfoTreeRoot = '0x0000000000000000000000000000000000000000000000000000000000000000';
                         const previousL1InfoTreeIndex = 0;
                         const txsTest = currentTest.blocks[0].transactions;
@@ -278,7 +277,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         };
                         const batch = await zkEVMDB.buildBatch(
                             sequencerAddress,
-                            type,
                             forcedHashData,
                             previousL1InfoTreeRoot,
                             previousL1InfoTreeIndex,

@@ -205,7 +205,6 @@ describe('Header timestamp', function () {
             oldBatchAccInputHash,
             forkID,
             forcedData,
-            type,
             forcedHashData,
             previousL1InfoTreeRoot,
             previousL1InfoTreeIndex,
@@ -344,7 +343,6 @@ describe('Header timestamp', function () {
             const extraData = { forcedData, l1Info: {} };
             const batch = await zkEVMDB.buildBatch(
                 sequencerAddress,
-                type,
                 forcedHashData,
                 previousL1InfoTreeRoot,
                 previousL1InfoTreeIndex,

@@ -53,10 +53,8 @@ describe('Run state-transition tests', function () {
                     sequencerAddress,
                     expectedNewLeafs,
                     oldBatchAccInputHash,
-                    newBatchAccInputHash,
                     chainID,
                     autoChangeL2Block,
-                    type,
                     forcedHashData,
                     forcedData,
                     previousL1InfoTreeRoot,
@@ -219,7 +217,6 @@ describe('Run state-transition tests', function () {
 
                 const batch = await zkEVMDB.buildBatch(
                     sequencerAddress,
-                    type,
                     forcedHashData,
                     previousL1InfoTreeRoot,
                     previousL1InfoTreeIndex,

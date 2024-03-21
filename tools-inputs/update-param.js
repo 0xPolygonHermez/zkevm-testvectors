@@ -44,7 +44,7 @@ async function writeParams(keys, values, jsonPath) {
 async function main() {
     // Folder path
     const folderPath = typeof (argv.folder) === 'string' ? argv.folder.trim() : undefined;
-    const keys = ['oldAccInputHash', 'newAccInputHash'];
+    const keys = ['type'];
     const values = [];
 
     if (folderPath) {

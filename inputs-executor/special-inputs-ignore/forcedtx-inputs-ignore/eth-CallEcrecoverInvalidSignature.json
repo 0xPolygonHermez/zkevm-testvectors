@@ -14,7 +14,6 @@
   "contractsBytecode": {
     "0x0a5eeb8d8d1251c076368ce61bee4ec42cfd6d4e1cb9ce1899a9ed6fa4d9ccfc": "0x7f1122334455667788991011121314151617181920212223242526272829303132608052602060806080600060006001620493e0f15060805160005500"
   },
-  "type": 2,
   "forcedData": {
     "globalExitRoot": "0x16994edfddddb9480667b64174fc00d3b6da7290d37b8db3a16571b4ddf0789f",
     "blockHashL1": "0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3",
@@ -206,15 +205,5 @@
       "000000008d1251c0",
       "000000000a5eeb8d"
     ]
-  },
-  "virtualCounters": {
-    "steps": 14181,
-    "arith": 612,
-    "binary": 862,
-    "memAlign": 8,
-    "keccaks": 41,
-    "padding": 15,
-    "poseidon": 1741,
-    "sha256": 0
   }
 }

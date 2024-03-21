@@ -169,7 +169,6 @@ describe('Proof of efficiency test vectors', function () {
             batchHashData,
             chainID,
             autoChangeL2Block,
-            type,
             forcedHashData,
             forcedData,
             previousL1InfoTreeRoot,
@@ -339,7 +338,6 @@ describe('Proof of efficiency test vectors', function () {
             const lastGlobalExitRoot = await globalExitRootManager.getRoot();
             const batch = await zkEVMDB.buildBatch(
                 sequencerAddress,
-                type,
                 forcedHashData,
                 previousL1InfoTreeRoot,
                 previousL1InfoTreeIndex,

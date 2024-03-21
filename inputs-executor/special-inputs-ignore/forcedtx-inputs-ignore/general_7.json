@@ -12,7 +12,6 @@
   "sequencerAddr": "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266",
   "batchHashData": "0x3baed9289a384f6c1c05d92b56c801c2d2e2a7050d6c16538b814fa186835c79",
   "contractsBytecode": {},
-  "type": 2,
   "forcedData": {
     "globalExitRoot": "0x16994edfddddb9480667b64174fc00d3b6da7290d37b8db3a16571b4ddf0789f",
     "blockHashL1": "0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3",
@@ -137,15 +136,5 @@
       "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000",
       "bytecodeLength": 0
     }
-  },
-  "virtualCounters": {
-    "steps": 372,
-    "arith": 1,
-    "binary": 8,
-    "memAlign": 0,
-    "keccaks": 3,
-    "padding": 0,
-    "poseidon": 78,
-    "sha256": 0
   }
 }

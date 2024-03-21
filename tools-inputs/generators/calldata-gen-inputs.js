@@ -82,7 +82,6 @@ describe('Generate inputs executor from test-vectors', async function () {
                 autoChangeL2Block,
                 invalidBatch,
                 additionalGenesisAccountsFactor,
-                type,
                 forcedHashData,
                 forcedData,
                 previousL1InfoTreeRoot,
@@ -138,7 +137,6 @@ describe('Generate inputs executor from test-vectors', async function () {
             const extraData = { forcedData, l1Info: {} };
             const batch = await zkEVMDB.buildBatch(
                 sequencerAddress,
-                type,
                 forcedHashData,
                 previousL1InfoTreeRoot,
                 previousL1InfoTreeIndex,
@@ -464,7 +462,7 @@ describe('Generate inputs executor from test-vectors', async function () {
             };
             const pilPath = path.join(pathProverJs, 'pil/main.pil');
             pil = await compile(Fr, pilPath, null, pilConfig);
-            await fs.promises.writeFile(fileCachePil, `${JSON.stringify(pil, null, 1)}\n`, 'utf8');
+            fs.writeFileSync(fileCachePil, `${JSON.stringify(pil, null, 1)}\n`, 'utf8');
         }
         const cmPols = newCommitPolsArray(pil);
         // config object --> execute proverjs

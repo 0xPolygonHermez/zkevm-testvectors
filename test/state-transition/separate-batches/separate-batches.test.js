@@ -66,7 +66,6 @@ describe('Check roots same txs in different batches', function () {
         const extraData = { forcedData: generateData.forcedData, l1Info: {} };
         const batch = await zkEVMDB.buildBatch(
             generateData.sequencerAddress,
-            generateData.type,
             generateData.forcedHashData,
             generateData.previousL1InfoTreeRoot,
             generateData.previousL1InfoTreeIndex,
@@ -205,7 +204,6 @@ describe('Check roots same txs in different batches', function () {
             const extraData = { forcedData: generateData.forcedData, l1Info: {} };
             batch = await zkEVMDB.buildBatch(
                 generateData.sequencerAddress,
-                generateData.type,
                 generateData.forcedHashData,
                 generateData.previousL1InfoTreeRoot,
                 generateData.previousL1InfoTreeIndex,
