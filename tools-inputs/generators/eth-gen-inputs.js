@@ -270,9 +270,10 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         const oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
                         const { timestamp } = currentTest.blocks[0].blockHeader;
                         const sequencerAddress = currentTest.blocks[0].blockHeader.coinbase;
-                        const forcedBlockHashL1 = '0x0000000000000000000000000000000000000000000000000000000000000000';
+                        const forcedHashData = '0x0000000000000000000000000000000000000000000000000000000000000000';
                         const chainIdSequencer = 1000;
-                        const l1InfoRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
+                        const previousL1InfoTreeRoot = '0x0000000000000000000000000000000000000000000000000000000000000000';
+                        const previousL1InfoTreeIndex = 0;
                         const txsTest = currentTest.blocks[0].transactions;
                         const { pre } = currentTest;
 
@@ -307,28 +308,26 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         );
 
                         const extraData = { l1Info: {} };
-                        options.skipVerifyL1InfoRoot = true;
                         options.vcmConfig = {
                             skipCounters: true,
                         };
                         const batch = await zkEVMDB.buildBatch(
-                            timestamp,
                             sequencerAddress,
-                            zkcommonjs.smtUtils.stringToH4(l1InfoRoot),
-                            forcedBlockHashL1,
+                            forcedHashData,
+                            previousL1InfoTreeRoot,
+                            previousL1InfoTreeIndex,
                             Constants.DEFAULT_MAX_TX,
                             options,
                             extraData,
                         );
-
-                        // Ethereum test to add by default a changeL2Block trnsaction
+                        // Ethereum test to add by default a changeL2Block transaction
                         const txChangeL2Block = {
                             type: 11,
                             deltaTimestamp: timestamp,
                             l1Info: {
                                 globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
                                 blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
-                                timestamp: '42',
+                                minTimestamp: '42',
                             },
                             indexL1InfoTree: 0,
                         };
@@ -507,7 +506,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             auxDir = auxDir.split('/');
                             const nameTest = `${auxDir[auxDir.length - 1]}/${newOutputName.replace('.json', '')}`;
                             noExec['not-supported'].push({ name: nameTest.endsWith('.json') ? nameTest : `${nameTest}.json`, description: 'tx gas > max int' });
-                            await fs.writeFileSync(paths['no-exec'], JSON.stringify(noExec, null, 2));
+                            await fs.writeFileSync(path.join(__dirname, paths['no-exec']), JSON.stringify(noExec, null, 2));
                             counts.countNotSupport += 1;
                             infoErrors += 'Error: not supported\n';
                             infoErrors += `${newOutputName}\n`;

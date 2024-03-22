@@ -26,7 +26,6 @@
         }
       ]
     },
-    "expectedOldRoot": "0xbecc85c8f87fa3c2b2e10327a793a949bc561cd4828fb1695a22e984280353d6",
     "txs": [
       {
         "type": 11,
@@ -51,7 +50,6 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x4acb43ae39212d1caf69c60636e601394555534b197db4eeff3dc408f51bd940",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000043600000000000",
@@ -84,13 +82,20 @@
       }
     },
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "batchHashData": "0xa94ceb3e961dec8bab2c76f9ca0a8bc6d3bd0306dec71b35f834fda493698e4d",
+    "batchHashData": "0x241ce98beab8b58fb23ab57a2d52be28995c8f49938c86567d337deb1b3533e4",
     "batchL2Data": "0x0b73e6af6f00000000ea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084de01ac948203e88080eddcc709876c362e7934a2482ab021e24edb34a7662ea68793c3d050eae6e5cf50344942e8ccc5b66b8dc1725425c6dfc416d20243c66fec0cec14ba3d71a3351bff",
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "forkID": 8,
-    "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "forkID": 9,
+    "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "previousL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+    "previousL1InfoTreeIndex": 1,
+    "oldStateRoot": "0xbecc85c8f87fa3c2b2e10327a793a949bc561cd4828fb1695a22e984280353d6",
+    "newStateRoot": "0x4acb43ae39212d1caf69c60636e601394555534b197db4eeff3dc408f51bd940",
+    "newBatchAccInputHash": "0xf1cb45bc01fdea56ecd90a9557db34283d150f4aca946e551c8c8f51172b197f",
+    "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "newL1InfoTreeIndex": 1,
+    "newL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+    "newTimestamp": "1944498031"
   },
   {
     "id": 1,
@@ -119,7 +124,6 @@
         }
       ]
     },
-    "expectedOldRoot": "0xbecc85c8f87fa3c2b2e10327a793a949bc561cd4828fb1695a22e984280353d6",
     "txs": [
       {
         "type": 11,
@@ -144,7 +148,6 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0xf2bd9172c1d9f0317c701ca5bbb87c327796a889fad6ecc8836119e165bb0d7b",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000044414000000000",
@@ -177,12 +180,19 @@
       }
     },
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "batchHashData": "0x23c53061908f718d225f63f9894d81ab878eeb411a3d2f8169bdf7aafd7207f5",
+    "batchHashData": "0x27f719eb91aa99eb9c81e4835ac4a588a87b065efb79597dd8dd61edbedbdb3c",
     "batchL2Data": "0x0b73e6af6f00000000ea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880841556dba98203e88080b9565f9ba2bf74797f7611af9ad2e75c47f72f049b839638f55510c37620b4011d9b4b7714b7f5f60e0da6c798c8fd7fcab9dfb7ac2296f6fa2168d93b40f8fa1bff",
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "forkID": 8,
-    "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031"
+    "forkID": 9,
+    "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "previousL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+    "previousL1InfoTreeIndex": 1,
+    "oldStateRoot": "0xbecc85c8f87fa3c2b2e10327a793a949bc561cd4828fb1695a22e984280353d6",
+    "newStateRoot": "0xf2bd9172c1d9f0317c701ca5bbb87c327796a889fad6ecc8836119e165bb0d7b",
+    "newBatchAccInputHash": "0xe75a90666cd8d681771ffab66875cf199b2ab77e5afedb32875acea4cfdbca16",
+    "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "newL1InfoTreeIndex": 1,
+    "newL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+    "newTimestamp": "1944498031"
   }
 ]

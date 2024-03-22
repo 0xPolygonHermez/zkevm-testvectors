@@ -11,17 +11,16 @@ const fs = require('fs');
 const path = require('path');
 const { argv } = require('yargs');
 const {
-    MemDB, stateUtils, ZkEVMDB, processorUtils, smtUtils, getPoseidon,
+    MemDB, stateUtils, ZkEVMDB, processorUtils, smtUtils, getPoseidon, l1InfoTreeUtils,
 } = require('@0xpolygonhermez/zkevm-commonjs');
 
 const { rawTxToCustomRawTx } = processorUtils;
 const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
-const testvectorsGlobalConfig = require('../testvectors.config.json');
 
 // load list test-vectors
 
-const folderStateTransition = './sources';
-const folderInputsExecutor = '../../inputs-executor/special-inputs-ignored/forcedtx-inputs-ignore/';
+const folderStateTransition = path.join(__dirname, './sources');
+const folderInputsExecutor = path.join(__dirname, '../../inputs-executor/special-inputs-ignore/forcedtx-inputs-ignore/');
 
 let listTests = fs.readdirSync(folderStateTransition).filter((x) => x.startsWith('general'));
 listTests = listTests.filter((fileName) => path.extname(fileName) === '.json');
@@ -48,37 +47,23 @@ describe('Run state-transition tests', function () {
                 let {
                     id,
                     genesis,
-                    expectedOldRoot,
+                    oldStateRoot,
                     txs,
-                    expectedNewRoot,
+                    newStateRoot,
                     sequencerAddress,
                     expectedNewLeafs,
-                    batchL2Data,
-                    oldAccInputHash,
-                    l1InfoRoot,
-                    batchHashData,
-                    inputHash,
-                    timestamp,
-                    timestampLimit,
+                    oldBatchAccInputHash,
+                    newBatchAccInputHash,
                     chainID,
-                    forcedBlockHashL1,
+                    type,
+                    forcedHashData,
+                    forcedData,
+                    previousL1InfoTreeRoot,
+                    previousL1InfoTreeIndex,
+                    forkID,
+                    batchL2Data,
+                    batchHashData,
                 } = testVectors[j];
-
-                // Adapts input
-                if (typeof forcedBlockHashL1 === 'undefined') forcedBlockHashL1 = '0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3';
-                if (!chainID) chainID = 1000;
-                if (typeof oldAccInputHash === 'undefined') {
-                    oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
-                }
-                if (typeof timestamp === 'undefined') {
-                    timestamp = 1944498031;
-                }
-                if (typeof timestampLimit === 'undefined') {
-                    timestampLimit = timestamp;
-                }
-                if (typeof l1InfoRoot === 'undefined') {
-                    l1InfoRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
-                }
 
                 const db = new MemDB(F);
 
@@ -87,6 +72,16 @@ describe('Run state-transition tests', function () {
                 const amountArray = [];
                 const nonceArray = [];
 
+                forcedData = {
+                    globalExitRoot: '0x16994edfddddb9480667b64174fc00d3b6da7290d37b8db3a16571b4ddf0789f',
+                    blockHashL1: '0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3',
+                    minTimestamp: '1944498031',
+                };
+                forcedHashData = l1InfoTreeUtils.getL1InfoTreeValue(
+                    forcedData.globalExitRoot,
+                    forcedData.blockHashL1,
+                    forcedData.minTimestamp,
+                );
                 // create genesis block
                 for (let k = 0; k < genesis.length; k++) {
                     const {
@@ -177,12 +172,12 @@ describe('Run state-transition tests', function () {
                     db,
                     poseidon,
                     [F.zero, F.zero, F.zero, F.zero],
-                    smtUtils.stringToH4(oldAccInputHash),
+                    smtUtils.stringToH4(oldBatchAccInputHash),
                     genesis,
                     null,
                     null,
                     chainID,
-                    testvectorsGlobalConfig.forkID,
+                    forkID,
                 );
 
                 // check genesis root
@@ -194,21 +189,20 @@ describe('Run state-transition tests', function () {
                 }
 
                 if (update) {
-                    testVectors[j].expectedOldRoot = smtUtils.h4toString(zkEVMDB.stateRoot);
+                    testVectors[j].oldStateRoot = smtUtils.h4toString(zkEVMDB.stateRoot);
                 } else {
-                    expect(smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
+                    expect(smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(oldStateRoot);
                 }
 
-                const extraData = { l1Info: {} };
+                const extraData = { forcedData, l1Info: {} };
                 const batch = await zkEVMDB.buildBatch(
-                    Scalar.e(timestampLimit),
                     sequencerAddress,
-                    smtUtils.stringToH4(l1InfoRoot),
-                    forcedBlockHashL1,
+                    2, // Type is 2 for forced transactions
+                    forcedHashData,
+                    previousL1InfoTreeRoot,
+                    previousL1InfoTreeIndex,
                     Constants.DEFAULT_MAX_TX,
-                    {
-                        skipVerifyL1InfoRoot: true,
-                    },
+                    {},
                     extraData,
                 );
 
@@ -221,13 +215,13 @@ describe('Run state-transition tests', function () {
 
                 const newRoot = batch.currentStateRoot;
                 if (update) {
-                    testVectors[j].expectedNewRoot = smtUtils.h4toString(newRoot);
+                    testVectors[j].newStateRoot = smtUtils.h4toString(newRoot);
                     // testVectors[j].chainID = 1000;
                 } else {
-                    expect(smtUtils.h4toString(newRoot)).to.be.equal(expectedNewRoot);
+                    expect(smtUtils.h4toString(newRoot)).to.be.equal(newStateRoot);
                 }
 
-                // consoldate state
+                // consolidate state
                 await zkEVMDB.consolidate(batch);
 
                 // Check balances and nonces
@@ -279,21 +273,13 @@ describe('Run state-transition tests', function () {
                 if (update) {
                     testVectors[j].batchL2Data = batch.getBatchL2Data();
                     testVectors[j].batchHashData = circuitInput.batchHashData;
-                    testVectors[j].inputHash = circuitInput.inputHash;
-                    testVectors[j].l1InfoRoot = circuitInput.l1InfoRoot;
-                    testVectors[j].timestampLimit = circuitInput.timestampLimit;
                     testVectors[j].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                     testVectors[j].newLocalExitRoot = circuitInput.newLocalExitRoot;
-                    testVectors[j].oldAccInputHash = oldAccInputHash;
-                    testVectors[j].forkID = testvectorsGlobalConfig.forkID;
+                    testVectors[j].oldBatchAccInputHash = oldBatchAccInputHash;
+                    testVectors[j].forkID = forkID;
                     testVectors[j].virtualCounters = circuitInput.virtualCounters;
-                    // delete old unused values
-                    delete testVectors[j].globalExitRoot;
-                    delete testVectors[j].timestamp;
-                    delete testVectors[j].historicGERRoot;
-                    delete testVectors[j].arity;
-                    delete testVectors[j].chainIdSequencer;
-                    delete testVectors[j].defaultChainId;
+                    testVectors[j].forcedData = circuitInput.forcedData;
+                    testVectors[j].forcedHashData = circuitInput.forcedHashData;
 
                     const fileName = path.join(folderInputsExecutor, `${path.parse(listTests[i]).name}_${id}.json`);
                     await fs.writeFileSync(fileName, JSON.stringify(circuitInput, null, 2));
@@ -303,7 +289,6 @@ describe('Run state-transition tests', function () {
 
                     // Check the batchHashData and the input hash
                     expect(batchHashData).to.be.equal(circuitInput.batchHashData);
-                    expect(inputHash).to.be.equal(circuitInput.inputHash);
                 }
 
                 if (update) {

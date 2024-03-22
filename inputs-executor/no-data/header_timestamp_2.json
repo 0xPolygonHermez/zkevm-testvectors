@@ -1,34 +1,36 @@
 {
-  "oldStateRoot": "0x036a1dd4a80417722f07d91582cdffe593dd06ed85350bb73ff707d1df4a4ceb",
-  "newStateRoot": "0x6b11910137f032ccadf913c0b483e43fe96a4ef3aaf347c9b21152e2a62a875c",
-  "oldAccInputHash": "0xb7c7abde8ec69c0fa32f09eb10c8d14424c30b611414511079f85d1ed717ffba",
-  "newAccInputHash": "0xf6cfd2b07a7085df24019e33204f7f08780a8630a2674b5cc6c81b6783b1f51a",
+  "oldStateRoot": "0xa4079e8ca78c7b5aabf5cb3812e4c4c991c9a6795c469639aa90fc79582c5552",
+  "newStateRoot": "0x6974241cb0e11e6c64618b74e8c4d6b945c647ac0f97fb4f64474862debb25ef",
+  "oldBatchAccInputHash": "0x092c411829687b1a89e6dc45e6ad0a43d381db656cd8402108af9b538eaceca5",
+  "newBatchAccInputHash": "0x83e2c66262aebee79c137c92c16337410fd453a19591d3050d47d5e4b4d69292",
   "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "oldNumBatch": 2,
-  "newNumBatch": 3,
+  "newTimestamp": "3000",
   "chainID": 1000,
-  "forkID": 8,
-  "forcedBlockHashL1": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "batchL2Data": "0x0b000003e800000001",
-  "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-  "timestampLimit": "1944498033",
+  "forkID": 9,
+  "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "batchL2Data": "0x0b000003e800000000",
   "sequencerAddr": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
-  "batchHashData": "0x5d429ec6fa06f8aa7cda7a3be839944bd2ac0b3c7678d1c65b2e1f1e84f0cfa4",
+  "batchHashData": "0x0c1ceed2d4568c8438794040388d6892216e58449d3832ea6e348d38d41d58d0",
   "contractsBytecode": {},
+  "forcedData": {},
+  "previousL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+  "previousL1InfoTreeIndex": 0,
+  "newL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+  "newL1InfoTreeIndex": 0,
   "l1InfoTree": {
-    "1": {
+    "0": {
       "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
       "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
-      "timestamp": "42"
-    },
-    "skipVerifyL1InfoRoot": true
+      "minTimestamp": "42",
+      "historicRoot": "0x887c22bd8750d34016ac3c66b5ff102dacdd73f6b014e710b51e8022af9a1968"
+    }
   },
   "db": {
-    "0x036a1dd4a80417722f07d91582cdffe593dd06ed85350bb73ff707d1df4a4ceb": [
-      "a883548efa14aab4",
-      "8a41f75bcec6a4d7",
-      "dd1efdda23ece50f",
-      "e6ffaabcb00f9662",
+    "0xa4079e8ca78c7b5aabf5cb3812e4c4c991c9a6795c469639aa90fc79582c5552": [
+      "551fe727be7ed520",
+      "14cdd93893001472",
+      "e7b3c72e85e0d97c",
+      "cc06ff168331a4fd",
       "076b60de3d32cd72",
       "553177fdb546948e",
       "f4d95640742dd468",
@@ -38,11 +40,11 @@
       "0000000000000000",
       "0000000000000000"
     ],
-    "0xe6ffaabcb00f9662dd1efdda23ece50f8a41f75bcec6a4d7a883548efa14aab4": [
-      "f39d07914dc2aa54",
-      "48c76a436edc570b",
-      "4e530cab6ff05349",
-      "fc238396f35cfa02",
+    "0xcc06ff168331a4fde7b3c72e85e0d97c14cdd93893001472551fe727be7ed520": [
+      "aeb76b6a3ec05fc3",
+      "5c4c1d575dc88fe2",
+      "17de0a89709574d8",
+      "8b6f1a25730959c0",
       "af491805dac83dc6",
       "e5ab9b91e7377575",
       "e568db9aa97f1360",
@@ -52,29 +54,29 @@
       "0000000000000000",
       "0000000000000000"
     ],
-    "0xfc238396f35cfa024e530cab6ff0534948c76a436edc570bf39d07914dc2aa54": [
+    "0x8b6f1a25730959c017de0a89709574d85c4c1d575dc88fe2aeb76b6a3ec05fc3": [
       "40ec72fd7db6a1e5",
       "6bba532b78666608",
       "d16fececc9dbf194",
       "62dc6ae3ffcc2dbc",
-      "6eafbcf10faa6dd6",
-      "111264e6705fd640",
-      "793cf971c8d9e56a",
-      "a6a1b1e3f5bce1c3",
+      "d517620a825fbf35",
+      "7faf4a7ac1254450",
+      "9aeb4af429f6641e",
+      "490efd78f601af01",
       "0000000000000001",
       "0000000000000000",
       "0000000000000000",
       "0000000000000000"
     ],
-    "0xa6a1b1e3f5bce1c3793cf971c8d9e56a111264e6705fd6406eafbcf10faa6dd6": [
-      "00000000b3a82449",
-      "000000006a0a16af",
-      "000000003d5881a6",
-      "0000000020dd4589",
-      "000000002e13e78d",
-      "000000002a9d09b4",
-      "000000002d41c098",
-      "000000005459e88f"
+    "0x490efd78f601af019aeb4af429f6641e7faf4a7ac1254450d517620a825fbf35": [
+      "0000000058c481b0",
+      "00000000c542ae89",
+      "00000000c6a44d49",
+      "0000000018b32c51",
+      "0000000007d7618e",
+      "000000004ad006f9",
+      "00000000d996536e",
+      "00000000d894aa50"
     ],
     "0x02a17d533549389fe568db9aa97f1360e5ab9b91e7377575af491805dac83dc6": [
       "9b0b5a4fd2bd6db1",

@@ -18,7 +18,6 @@
         "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
       }
     ],
-    "expectedOldRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
     "txs": [
       {
         "type": 11,
@@ -41,7 +40,6 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0x0748183d6d2d3f260ebc15ab59c1d0fa6ac5492ef86743e4fd75dcc982e80a46",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "99999999999999999999",
@@ -65,13 +63,20 @@
       }
     },
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "batchHashData": "0x1618e8ead90c36cf24040d58cb712b96102c7b01789673836d4f6e19bd367f21",
+    "batchHashData": "0x233cd4064777347652f9f222213753b94da06b6e2c1b351f34efb4601de95b45",
     "batchL2Data": "0x0b73e6af6f00000000e3800a8401c9c380944d5cf5032b2a844602278b01199ed191a86c93ff01808203e88080b091173dbf91b3b0c7d72ace33bb96fa0d4b43868fe4be91e5ae0b9de52c3dd6362efc031939fb5797c30577e66edd5ffbc34b30b4585a1a8632dd71c13f74201cff",
     "chainID": 1000,
-    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "forkID": 8,
-    "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-    "timestampLimit": "1944498031",
+    "forkID": 9,
+    "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "previousL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+    "previousL1InfoTreeIndex": 1,
+    "oldStateRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+    "newStateRoot": "0x0748183d6d2d3f260ebc15ab59c1d0fa6ac5492ef86743e4fd75dcc982e80a46",
+    "newBatchAccInputHash": "0x4f55381b9118e37fafa6c89b7fe7b2949b3d7b5d0861d2b8fb20e4c9c1d464eb",
+    "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "newL1InfoTreeIndex": 1,
+    "newL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+    "newTimestamp": "1944498031",
     "virtualCounters": {
       "steps": 10149,
       "arith": 563,

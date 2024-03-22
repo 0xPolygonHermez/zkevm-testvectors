@@ -26,7 +26,7 @@ const helpers = require('../../../tools-inputs/helpers/helpers');
 const pathStateTransition = path.join(helpers.pathTestVectors, './tools-inputs/data/no-data/general.json');
 const testVectors = JSON.parse(fs.readFileSync(pathStateTransition));
 
-async function takeSnapshop() {
+async function takeSnapshot() {
     return (ethers.provider.send('evm_snapshot', []));
 }
 
@@ -158,19 +158,21 @@ describe('Proof of efficiency test vectors', function () {
         const {
             id,
             genesis,
-            expectedOldRoot,
+            oldStateRoot,
             txs,
-            expectedNewRoot,
+            newStateRoot,
             sequencerAddress,
             expectedNewLeafs,
             batchL2Data,
-            oldAccInputHash,
+            oldBatchAccInputHash,
             l1InfoRoot,
-            timestampLimit,
             batchHashData,
-            inputHash,
             chainID,
             autoChangeL2Block,
+            forcedHashData,
+            forcedData,
+            previousL1InfoTreeRoot,
+            previousL1InfoTreeIndex,
         } = testVectors[i];
 
         let {
@@ -179,7 +181,7 @@ describe('Proof of efficiency test vectors', function () {
 
         // eslint-disable-next-line no-loop-func
         it(`Test vectors id: ${id}`, async () => {
-            const snapshotID = await takeSnapshop();
+            const snapshotID = await takeSnapshot();
 
             const db = new MemDB(F);
 
@@ -212,11 +214,11 @@ describe('Proof of efficiency test vectors', function () {
             if (addChangeL2Block && txs[0].type !== Constants.TX_CHANGE_L2_BLOCK) {
                 const txChangeL2Block = {
                     type: 11,
-                    deltaTimestamp: timestampLimit,
+                    deltaTimestamp: '1944498030',
                     l1Info: {
                         globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
                         blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
-                        timestamp: '42',
+                        minTimestamp: '42',
                     },
                     indexL1InfoTree: 0,
                 };
@@ -227,7 +229,7 @@ describe('Proof of efficiency test vectors', function () {
              * build, sign transaction and generate rawTxs
              * rawTxs would be the calldata inserted in the contract
              */
-            const extraData = { l1Info: {} };
+            const extraData = { forcedData, l1Info: {} };
             const txProcessed = [];
             const rawTxs = [];
             for (let j = 0; j < txs.length; j++) {
@@ -311,7 +313,7 @@ describe('Proof of efficiency test vectors', function () {
                 db,
                 poseidon,
                 [F.zero, F.zero, F.zero, F.zero],
-                smtUtils.stringToH4(oldAccInputHash),
+                smtUtils.stringToH4(oldBatchAccInputHash),
                 genesis,
                 null,
                 null,
@@ -328,21 +330,19 @@ describe('Proof of efficiency test vectors', function () {
             }
 
             if (update) {
-                testVectors[i].expectedOldRoot = smtUtils.h4toString(zkEVMDB.stateRoot);
+                testVectors[i].oldStateRoot = smtUtils.h4toString(zkEVMDB.stateRoot);
             } else {
-                expect(smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
+                expect(smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(oldStateRoot);
             }
 
             const lastGlobalExitRoot = await globalExitRootManager.getRoot();
             const batch = await zkEVMDB.buildBatch(
-                timestampLimit,
                 sequencerAddress,
-                smtUtils.stringToH4(lastGlobalExitRoot),
-                forcedBlockHashL1,
+                forcedHashData,
+                previousL1InfoTreeRoot,
+                previousL1InfoTreeIndex,
                 Constants.DEFAULT_MAX_TX,
-                {
-                    skipVerifyL1InfoRoot: true,
-                },
+                {},
                 extraData,
             );
 
@@ -356,9 +356,9 @@ describe('Proof of efficiency test vectors', function () {
             const newRoot = batch.currentStateRoot;
 
             if (update) {
-                testVectors[i].expectedNewRoot = smtUtils.h4toString(newRoot);
+                testVectors[i].newStateRoot = smtUtils.h4toString(newRoot);
             } else {
-                expect(smtUtils.h4toString(newRoot)).to.be.equal(expectedNewRoot);
+                expect(smtUtils.h4toString(newRoot)).to.be.equal(newStateRoot);
             }
 
             // consoldate state
@@ -414,7 +414,6 @@ describe('Proof of efficiency test vectors', function () {
 
                 // Check the batchHashData and the input hash
                 expect(batchHashData).to.be.equal(circuitInput.batchHashData);
-                expect(inputHash).to.be.equal(circuitInput.inputHash);
             }
 
             /*
@@ -423,9 +422,9 @@ describe('Proof of efficiency test vectors', function () {
              * /////////////////////////////////////////////////
              */
             if (!update) {
-                const currentStateRoot = `0x${Scalar.e(expectedOldRoot).toString(16).padStart(64, '0')}`;
-                const newStateRoot = `0x${Scalar.e(expectedNewRoot).toString(16).padStart(64, '0')}`;
-                const newLocalExitRoot = `0x${Scalar.e(oldAccInputHash).toString(16).padStart(64, '0')}`;
+                const currentStateRoot = `0x${Scalar.e(oldStateRoot).toString(16).padStart(64, '0')}`;
+                const newSR = `0x${Scalar.e(newStateRoot).toString(16).padStart(64, '0')}`;
+                const newLocalExitRoot = `0x${Scalar.e(oldBatchAccInputHash).toString(16).padStart(64, '0')}`;
                 const currentGlobalExitRoot = `0x${Scalar.e(l1InfoRoot).toString(16).padStart(64, '0')}`;
 
                 const walletSequencer = walletMap[sequencerAddress].connect(ethers.provider);
@@ -452,11 +451,6 @@ describe('Proof of efficiency test vectors', function () {
                     maticTokenContract.connect(walletSequencer).approve(polygonZkEVMContract.address, maticAmount),
                 ).to.emit(maticTokenContract, 'Approval');
 
-                // set timestamp for the sendBatch call
-                if ((await ethers.provider.getBlock()).timestamp < timestampLimit) {
-                    await setNextBlockTimestamp(Number(timestampLimit));
-                }
-
                 const sequence = {
                     transactions: l2txData,
                     lastGlobalExitRoot,
@@ -475,7 +469,7 @@ describe('Proof of efficiency test vectors', function () {
                 // check batch sent
                 const { accInputHash } = await polygonZkEVMContract.sequencedBatches(1);
 
-                expect(accInputHash).to.be.equal(circuitInput.newAccInputHash);
+                expect(accInputHash).to.be.equal(circuitInput.newBatchAccInputHash);
                 const batchHashDataSC = calculateBatchHashData(
                     l2txData,
                 );
@@ -488,16 +482,16 @@ describe('Proof of efficiency test vectors', function () {
                     numBatch - 1,
                     numBatch,
                     newLocalExitRoot,
-                    newStateRoot,
+                    newSR,
                 );
 
                 // Compute Js input
                 const circuitInputJS = await calculateSnarkInput(
                     currentStateRoot,
-                    newStateRoot,
+                    newSR,
                     newLocalExitRoot,
-                    oldAccInputHash,
-                    circuitInput.newAccInputHash,
+                    oldBatchAccInputHash,
+                    circuitInput.newBatchAccInputHash,
                     numBatch - 1,
                     numBatch,
                     chainID,
@@ -518,11 +512,11 @@ describe('Proof of efficiency test vectors', function () {
                         numBatch - 1,
                         numBatch,
                         newLocalExitRoot,
-                        newStateRoot,
+                        newSR,
                         fflonkProof,
                     ),
                 ).to.emit(polygonZkEVMContract, 'VerifyBatchesTrustedAggregator')
-                    .withArgs(numBatch, newStateRoot, trustedAggregator.address);
+                    .withArgs(numBatch, newSR, trustedAggregator.address);
 
                 const finalAggregatorMatic = await maticTokenContract.balanceOf(
                     await trustedAggregator.getAddress(),

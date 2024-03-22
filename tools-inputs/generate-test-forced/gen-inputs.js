@@ -21,11 +21,10 @@ const { Scalar } = require('ffjavascript');
 const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
 const { expect } = require('chai');
 const { Transaction } = require('@ethereumjs/tx');
-const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
+const { Constants, l1InfoTreeUtils } = require('@0xpolygonhermez/zkevm-commonjs');
 
 const { argv } = require('yargs');
 const helpers = require('../helpers/helpers');
-const testvectorsGlobalConfig = require('../testvectors.config.json');
 
 // example: npx mocha gen-inputs.js --vectors txs-calldata --inputs input_ --update --output
 
@@ -46,8 +45,8 @@ describe('Generate inputs executor from test-vectors', async function () {
 
     it('load test vectors', async () => {
         update = !!argv.update;
-        listTestVectors = fs.readdirSync('./sources');
-        listTestVectors = fs.readdirSync('./sources').filter((x) => !x.startsWith('eth-') && !x.startsWith('in-') && !x.startsWith('general'));
+        listTestVectors = fs.readdirSync(path.join(__dirname, './sources'));
+        listTestVectors = fs.readdirSync(path.join(__dirname, './sources')).filter((x) => !x.startsWith('eth-') && !x.startsWith('in-') && !x.startsWith('general'));
         await hre.run('compile');
         console.log(`   test vector name: ${file}`);
     });
@@ -61,45 +60,43 @@ describe('Generate inputs executor from test-vectors', async function () {
                 let {
                     id,
                     genesis,
-                    expectedOldRoot,
+                    oldStateRoot,
                     txs,
-                    expectedNewRoot,
+                    newStateRoot,
                     sequencerAddress,
                     expectedNewLeafs,
-                    oldAccInputHash,
-                    l1InfoRoot,
-                    timestamp,
-                    timestampLimit,
+                    oldBatchAccInputHash,
                     chainID,
-                    forcedBlockHashL1,
+                    forkID,
+                    type,
+                    forcedHashData,
+                    previousL1InfoTreeRoot,
+                    previousL1InfoTreeIndex,
+                    forcedData,
                 } = testVectors[i];
                 console.log(`Executing test-vector id: ${id}`);
-
-                // Adapts input
-                if (typeof forcedBlockHashL1 === 'undefined') { forcedBlockHashL1 = '0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3'; }
-                if (!chainID) chainID = 1000;
-                if (typeof oldAccInputHash === 'undefined') {
-                    oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
-                }
-                if (typeof timestampLimit === 'undefined') {
-                    timestampLimit = timestamp;
-                }
-                if (typeof l1InfoRoot === 'undefined') {
-                    l1InfoRoot = '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9';
-                }
-
+                forcedData = {
+                    globalExitRoot: '0x16994edfddddb9480667b64174fc00d3b6da7290d37b8db3a16571b4ddf0789f',
+                    blockHashL1: '0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3',
+                    minTimestamp: '1944498031',
+                };
+                forcedHashData = l1InfoTreeUtils.getL1InfoTreeValue(
+                    forcedData.globalExitRoot,
+                    forcedData.blockHashL1,
+                    forcedData.minTimestamp,
+                );
                 // init SMT Db
                 const db = new zkcommonjs.MemDB(F);
                 const zkEVMDB = await zkcommonjs.ZkEVMDB.newZkEVM(
                     db,
                     poseidon,
                     [F.zero, F.zero, F.zero, F.zero],
-                    zkcommonjs.smtUtils.stringToH4(oldAccInputHash),
+                    zkcommonjs.smtUtils.stringToH4(oldBatchAccInputHash),
                     genesis,
                     null,
                     null,
                     chainID,
-                    testvectorsGlobalConfig.forkID,
+                    forkID,
                 );
 
                 // NEW VM
@@ -114,19 +111,22 @@ describe('Generate inputs executor from test-vectors', async function () {
                 }
 
                 if (update) {
-                    expectedOldRoot = zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot);
+                    oldStateRoot = zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot);
                 }
-                expect(zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
+                expect(zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(oldStateRoot);
 
-                const extraData = { l1Info: {} };
+                const extraData = { forcedData, l1Info: {} };
                 const batch = await zkEVMDB.buildBatch(
-                    Scalar.e(timestampLimit),
                     sequencerAddress,
-                    zkcommonjs.smtUtils.stringToH4(l1InfoRoot),
-                    forcedBlockHashL1,
+                    2, // Type is 2 for forced transactions
+                    forcedHashData,
+                    previousL1InfoTreeRoot,
+                    previousL1InfoTreeIndex,
                     Constants.DEFAULT_MAX_TX,
                     {
-                        skipVerifyL1InfoRoot: true,
+                        vcmConfig: {
+                            skipCounters: true,
+                        },
                     },
                     extraData,
                 );
@@ -241,30 +241,32 @@ describe('Generate inputs executor from test-vectors', async function () {
                 const circuitInput = await batch.getStarkInput();
                 circuitInput.virtualCounters = res.virtualCounters;
                 if (update) {
-                    expectedNewRoot = zkcommonjs.smtUtils.h4toString(batch.currentStateRoot);
+                    newStateRoot = zkcommonjs.smtUtils.h4toString(batch.currentStateRoot);
                 }
                 // Check new root
-                expect(zkcommonjs.smtUtils.h4toString(batch.currentStateRoot)).to.be.equal(expectedNewRoot);
+                expect(zkcommonjs.smtUtils.h4toString(batch.currentStateRoot)).to.be.equal(newStateRoot);
 
                 // Check balances and nonces
                 // eslint-disable-next-line no-restricted-syntax
-                // Add address sytem at expected new leafs
-                expectedNewLeafs[Constants.ADDRESS_SYSTEM] = {};
                 for (const [address] of Object.entries(expectedNewLeafs)) {
                     const newLeaf = await zkEVMDB.getCurrentAccountState(address);
-                    if (update) { expectedNewLeafs[address] = { balance: newLeaf.balance.toString(), nonce: newLeaf.nonce.toString() }; }
-
-                    expect(newLeaf.balance.toString()).to.equal(expectedNewLeafs[address].balance);
-                    expect(newLeaf.nonce.toString()).to.equal(expectedNewLeafs[address].nonce);
-
                     const storage = await zkEVMDB.dumpStorage(address);
                     const hashBytecode = await zkEVMDB.getHashBytecode(address);
                     const bytecodeLength = await zkEVMDB.getLength(address);
-                    if (update) { expectedNewLeafs[address].storage = storage; }
-                    expect(lodash.isEqual(storage, expectedNewLeafs[address].storage)).to.be.equal(true);
+                    if (!update) {
+                        expect(newLeaf.balance.toString()).to.equal(expectedNewLeafs[address].balance);
+                        expect(newLeaf.nonce.toString()).to.equal(expectedNewLeafs[address].nonce);
 
+                        expect(lodash.isEqual(storage, expectedNewLeafs[address].storage)).to.be.equal(true);
+                    }
                     if (update) {
-                        expectedNewLeafs[address].hashBytecode = hashBytecode;
+                        expectedNewLeafs[address] = {
+                            balance: newLeaf.balance.toString(),
+                            nonce: newLeaf.nonce.toString(),
+                            hashBytecode,
+                            storage,
+                            bytecodeLength,
+                        };
                         if (!output.contractsBytecode[address.toLowerCase()]) {
                             output.contractsBytecode[address.toLowerCase()] = hashBytecode;
                         }
@@ -282,32 +284,22 @@ describe('Generate inputs executor from test-vectors', async function () {
                 }
                 circuitInput.genesis = genesis;
                 circuitInput.expectedNewLeafs = expectedNewLeafs;
-                // Save outuput in file
-                console.log(`WRITE: ../../inputs-executor/special-inputs-ignored/forcedtx-inputs-ignore/${listTestVectors[q].replace('.json', '')}_${id}.json`);
-                await fs.writeFileSync(`../../inputs-executor/special-inputs-ignored/forcedtx-inputs-ignore/${listTestVectors[q].replace('.json', '')}_${id}.json`, JSON.stringify(circuitInput, null, 2));
+                // Save output in file
+                const outPath = path.join(__dirname, `../../inputs-executor/special-inputs-ignore/forcedtx-inputs-ignore/${listTestVectors[q].replace('.json', '')}_${id}.json`);
+                console.log(outPath);
+                await fs.writeFileSync(outPath, JSON.stringify(circuitInput, null, 2));
                 if (update) {
                     testVectors[i].batchL2Data = batch.getBatchL2Data();
-                    testVectors[i].expectedOldRoot = expectedOldRoot;
-                    testVectors[i].expectedNewRoot = expectedNewRoot;
+                    testVectors[i].oldStateRoot = oldStateRoot;
+                    testVectors[i].newStateRoot = newStateRoot;
                     testVectors[i].batchHashData = circuitInput.batchHashData;
-                    testVectors[i].inputHash = circuitInput.inputHash;
-                    testVectors[i].l1InfoRoot = circuitInput.l1InfoRoot;
-                    testVectors[i].timestampLimit = circuitInput.timestampLimit;
                     testVectors[i].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                     testVectors[i].chainID = chainID;
-                    testVectors[i].oldAccInputHash = oldAccInputHash;
+                    testVectors[i].oldBatchAccInputHash = oldBatchAccInputHash;
                     testVectors[i].txs = txs;
                     testVectors[i].expectedNewLeafs = expectedNewLeafs;
-                    testVectors[i].forkID = testvectorsGlobalConfig.forkID;
+                    testVectors[i].forkID = forkID;
                     testVectors[i].virtualCounters = res.virtualCounters;
-
-                    // delete old unused values
-                    delete testVectors[i].globalExitRoot;
-                    delete testVectors[i].timestamp;
-                    delete testVectors[i].historicGERRoot;
-                    delete testVectors[i].arity;
-                    delete testVectors[i].chainIdSequencer;
-                    delete testVectors[i].defaultChainId;
                 }
             }
             if (update) {

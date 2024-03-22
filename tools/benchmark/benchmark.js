@@ -18,7 +18,6 @@ const { ethers } = require('ethers');
 const { newCommitPolsArray, compile } = require('pilcom');
 const fs = require('fs');
 const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
-const { Scalar } = require('ffjavascript');
 const helpers = require('../../tools-inputs/helpers/helpers');
 const smMain = require('../../../zkevm-proverjs/src/sm/sm_main/sm_main');
 const rom = require('../../../zkevm-rom/build/rom.json');
@@ -116,7 +115,9 @@ async function readTracer(txCount, dataLen) {
     });
     if (!errFound && config.benchmark.txs < txCount) {
         updateBenchmark(result, txCount, dataLen);
-        fs.writeFileSync(path.join(__dirname, './benchmark_config.json'), JSON.stringify(configs, null, 2));
+        const file = JSON.parse(fs.readFileSync(path.join(__dirname, './benchmark_config.json')));
+        file[CONFIG_ID] = config;
+        fs.writeFileSync(path.join(__dirname, './benchmark_config.json'), JSON.stringify(file, null, 2));
     }
     return errFound;
 }
@@ -166,7 +167,7 @@ async function executeTx(circuitInput, cmPols) {
 
 async function buildGenesis() {
     const {
-        genesis, oldAccInputHash, chainID,
+        genesis, oldBatchAccInputHash, chainID,
     } = testObject;
     let { forkID } = testObject;
     if (!forkID) {
@@ -206,7 +207,7 @@ async function buildGenesis() {
         db,
         poseidon,
         [F.zero, F.zero, F.zero, F.zero],
-        zkcommonjs.smtUtils.stringToH4(oldAccInputHash),
+        zkcommonjs.smtUtils.stringToH4(oldBatchAccInputHash),
         genesis,
         null,
         null,
@@ -248,22 +249,21 @@ async function initBuild() {
 
 async function createRawTxs(txCount, isSetup) {
     const {
-        skipVerifyL1InfoRoot, l1InfoRoot, txs, genesis, chainID, timestampLimit, sequencerAddress,
+        txs, genesis, chainID, sequencerAddress, forcedHashData, previousL1InfoTreeRoot, previousL1InfoTreeIndex, forcedData,
     } = testObject;
-
-    const extraData = { l1Info: {} };
-    const batch = await zkEVMDB.buildBatch(
-        Scalar.add(Scalar.e(timestampLimit), 1000),
-        sequencerAddress,
-        zkcommonjs.smtUtils.stringToH4(l1InfoRoot),
-        Constants.ZERO_BYTES32,
-        Constants.DEFAULT_MAX_TX,
-        {
-            skipVerifyL1InfoRoot: (typeof skipVerifyL1InfoRoot === 'undefined' || skipVerifyL1InfoRoot !== false),
-            vcmConfig: {
-                skipCounters,
-            },
+    const options = {
+        vcmConfig: {
+            skipCounters,
         },
+    };
+    const extraData = { forcedData, l1Info: {} };
+    const batch = await zkEVMDB.buildBatch(
+        sequencerAddress,
+        forcedHashData,
+        previousL1InfoTreeRoot,
+        previousL1InfoTreeIndex,
+        Constants.DEFAULT_MAX_TX,
+        options,
         extraData,
     );
     let finalTxs;
@@ -289,7 +289,7 @@ async function createRawTxs(txCount, isSetup) {
             l1Info: {
                 globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
                 blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
-                timestamp: '42',
+                minTimestamp: '42',
             },
             indexL1InfoTree: 0,
         };

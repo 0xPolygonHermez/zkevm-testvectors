@@ -16,11 +16,6 @@ contract OpLog {
         }
     }
 
-     function opLog01() public payable {
-        assembly {
-            log0(0, 28)
-        }
-    }
     // opcode 0xa1
     function opLog1() public payable {
         assembly {

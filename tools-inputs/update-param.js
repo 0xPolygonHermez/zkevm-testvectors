@@ -1,23 +1,26 @@
+/* eslint-disable no-console */
+/* eslint-disable global-require */
+/* eslint-disable import/no-dynamic-require */
 const fs = require('fs');
 const { argv } = require('yargs')
     .alias('f', 'folder');
 const path = require('path');
 
 let folders = [
-    '../inputs-executor',
-    '../inputs-executor/ethereum-tests/GeneralStateTests',
-    '../inputs-executor/special-inputs-ignore/forcedtx-inputs-ignore',
-    '../inputs-executor/special-inputs-ignore/stateoverride-inputs-ignore',
-    './data',
-    '../receipt-test-vectors',
-    '../test/state-transition',
-    '../tools/out-of-counters',
-    './generate-test-forced',
-    './tools-calldata'
+    path.join(__dirname, '../inputs-executor'),
+    path.join(__dirname, '../inputs-executor/ethereum-tests/GeneralStateTests'),
+    path.join(__dirname, '../inputs-executor/special-inputs-ignore/forcedtx-inputs-ignore'),
+    path.join(__dirname, '../inputs-executor/special-inputs-ignore/stateoverride-inputs-ignore'),
+    path.join(__dirname, './data'),
+    path.join(__dirname, '../receipt-test-vectors'),
+    path.join(__dirname, '../test/state-transition'),
+    path.join(__dirname, '../tools/out-of-counters'),
+    path.join(__dirname, './generate-test-forced'),
+    path.join(__dirname, './tools-calldata'),
 ];
 
 async function writeParams(keys, values, jsonPath) {
-    const origin = require(path.join(__dirname, jsonPath));
+    const origin = require(jsonPath);
     if (!origin.length) {
         for (let i = 0; i < keys.length; i++) {
             const key = keys[i];
@@ -26,12 +29,12 @@ async function writeParams(keys, values, jsonPath) {
             origin[key] = value;
         }
     } else {
-        for (let ii = 0; ii < origin.length; ii++) {
+        for (let j = 0; j < origin.length; j++) {
             for (let i = 0; i < keys.length; i++) {
                 const key = keys[i];
                 const value = values[i];
 
-                origin[ii][key] = value;
+                origin[j][key] = value;
             }
         }
     }
@@ -41,8 +44,8 @@ async function writeParams(keys, values, jsonPath) {
 async function main() {
     // Folder path
     const folderPath = typeof (argv.folder) === 'string' ? argv.folder.trim() : undefined;
-    const keys = ['forkID'];
-    const values = [8];
+    const keys = ['type'];
+    const values = [];
 
     if (folderPath) {
         folders = [folderPath];
@@ -76,6 +79,7 @@ async function main() {
             }
         }
     }
+    console.log('Finished updating params');
 }
 
 main();

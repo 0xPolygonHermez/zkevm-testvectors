@@ -1,26 +1,26 @@
 {
   "oldStateRoot": "0x62578f312c7d15b79bc7a2a8ccadd471d048bc5b808e85b6e8507f175d61e3f4",
   "newStateRoot": "0x70da31f625800088784ddada7efb89e73172b236c96c0627fd4e376e55a6fe05",
-  "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "newAccInputHash": "0xa782e562ab847e9aacdabbe1989d37192cc3a82cbb9ddb9a2119caf85e67a89b",
+  "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "newBatchAccInputHash": "0x4bfab8180d352580d4f1d8cc73905082fdb13d7f3db48e2da146f8799f1d9084",
   "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "oldNumBatch": 0,
-  "newNumBatch": 1,
+  "newTimestamp": "1000",
   "chainID": 1000,
-  "forkID": 8,
-  "forcedBlockHashL1": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "forkID": 9,
+  "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "batchL2Data": "0x0b000003e800000000e2800a830249f094100000000000000000000000000000000000000001808203e88080fd1176fbf6fae9cd611dc85fff54c1268b27c9bf1dcdc54fb7af9da0642ed39b047d39ba621939906791813f5cda5063e7516d3f57f9f0ee46a76238f898c5101cff",
-  "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
-  "timestampLimit": "0x03e8",
   "sequencerAddr": "0x2adc25665018aa1fe0e6bc666dac8fc2697ff9ba",
-  "batchHashData": "0x0f21dd2d6d68997bcafcf2bec9834452b06e270823b1f34e21130724892ee5a6",
+  "batchHashData": "0xd13a5ad56c1cf1da0872f6e1076d412cf6d2f09fe9f2e895444630f582be01e0",
   "contractsBytecode": {
     "0x956f00401e63b22390e54707015d9a3e492080681f96f833971a57b3cb0a1886": "0x67ffffffffffffffff600067ffffffffffffffff600060007310000000000000000000000000000000000000016707fffffffffffffff2506fffffffffffffffffffffffffffffffff60006fffffffffffffffffffffffffffffffff600060007310000000000000000000000000000000000000016707fffffffffffffff2507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff60007fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff600060007310000000000000000000000000000000000000016707fffffffffffffff25067ffffffffffffffff67ffffffffffffffff67ffffffffffffffff67ffffffffffffffff60007310000000000000000000000000000000000000016707fffffffffffffff25067ffffffffffffffff67ffffffffffffffff67ffffffffffffffff67ffffffffffffffff60007310000000000000000000000000000000000000016707fffffffffffffff2507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff60007310000000000000000000000000000000000000016707fffffffffffffff2506fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff6fffffffffffffffffffffffffffffffff60007310000000000000000000000000000000000000016707fffffffffffffff200",
     "0x932023c4b29665e349e481389befb179083691ce2fac91cfd8917e694761b3bb": "0x60005460010160005500"
   },
-  "l1InfoTree": {
-    "skipVerifyL1InfoRoot": true
-  },
+  "forcedData": {},
+  "previousL1InfoTreeRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "previousL1InfoTreeIndex": 0,
+  "newL1InfoTreeRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "newL1InfoTreeIndex": 0,
+  "l1InfoTree": {},
   "db": {
     "0x62578f312c7d15b79bc7a2a8ccadd471d048bc5b808e85b6e8507f175d61e3f4": [
       "3025ef2f14a5b255",

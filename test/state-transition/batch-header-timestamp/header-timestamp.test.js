@@ -40,7 +40,6 @@ const pathGenTestVector = path.join(__dirname, './gen_test-vector.json');
 const pathGenInput = path.join(__dirname, './input_gen.json');
 
 // input executor folder
-const testvectorsGlobalConfig = require(path.join(__dirname, '../../../tools-inputs/testvectors.config.json'));
 const pathInputExecutor = path.join(__dirname, '../../../inputs-executor/no-data');
 
 describe('Header timestamp', function () {
@@ -200,10 +199,15 @@ describe('Header timestamp', function () {
         const {
             id,
             genesis,
-            expectedOldRoot,
+            oldStateRoot,
             batches,
             sequencerAddress,
-            oldAccInputHash,
+            oldBatchAccInputHash,
+            forkID,
+            forcedData,
+            forcedHashData,
+            previousL1InfoTreeRoot,
+            previousL1InfoTreeIndex,
         } = genInput;
 
         const db = new MemDB(F);
@@ -212,12 +216,12 @@ describe('Header timestamp', function () {
             db,
             poseidon,
             [F.zero, F.zero, F.zero, F.zero],
-            smtUtils.stringToH4(oldAccInputHash),
+            smtUtils.stringToH4(oldBatchAccInputHash),
             genesis,
             null,
             null,
             chainId,
-            testvectorsGlobalConfig.forkID,
+            forkID,
         );
 
         // Check evm contract params
@@ -242,10 +246,10 @@ describe('Header timestamp', function () {
         }
 
         if (!update) {
-            expect(smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
+            expect(smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(oldStateRoot);
         } else {
-            updateTestVectors[0].expectedOldRoot = smtUtils.h4toString(zkEVMDB.stateRoot);
-            genInput.expectedOldRoot = smtUtils.h4toString(zkEVMDB.stateRoot);
+            updateTestVectors[0].oldStateRoot = smtUtils.h4toString(zkEVMDB.stateRoot);
+            genInput.oldStateRoot = smtUtils.h4toString(zkEVMDB.stateRoot);
         }
 
         /*
@@ -255,8 +259,8 @@ describe('Header timestamp', function () {
         const txProcessed = [];
         for (let k = 0; k < batches.length; k++) {
             const {
-                txs, expectedNewRoot, expectedNewLeafs, batchL2Data,
-                inputHash, timestamp, batchHashData, newLocalExitRoot,
+                txs, newStateRoot, expectedNewLeafs, batchL2Data,
+                batchHashData, newLocalExitRoot, newL1InfoTreeRoot, newL1InfoTreeIndex,
             } = batches[k];
 
             let l1InfoRoot;
@@ -336,16 +340,14 @@ describe('Header timestamp', function () {
                 rawTxs.push(customRawTx);
                 txProcessed.push(txData);
             }
-            const extraData = { l1Info: {} };
+            const extraData = { forcedData, l1Info: {} };
             const batch = await zkEVMDB.buildBatch(
-                timestamp,
                 sequencerAddress,
-                smtUtils.stringToH4(l1InfoRoot),
-                forcedBlockHashL1,
+                forcedHashData,
+                previousL1InfoTreeRoot,
+                previousL1InfoTreeIndex,
                 Constants.DEFAULT_MAX_TX,
-                {
-                    skipVerifyL1InfoRoot: true,
-                },
+                {},
                 extraData,
             );
 
@@ -355,9 +357,10 @@ describe('Header timestamp', function () {
                 l1Info: {
                     globalExitRoot: '0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9',
                     blockHash: '0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb',
-                    timestamp: '42',
+                    minTimestamp: '42',
+                    historicRoot: '0x887c22bd8750d34016ac3c66b5ff102dacdd73f6b014e710b51e8022af9a1968',
                 },
-                indexL1InfoTree: 1,
+                indexL1InfoTree: k === 0 ? 1 : 0,
             };
             helpers.addRawTxChangeL2Block(batch, extraData, extraData, tx);
 
@@ -372,10 +375,16 @@ describe('Header timestamp', function () {
 
             const newRoot = batch.currentStateRoot;
             if (!update) {
-                expect(smtUtils.h4toString(newRoot)).to.be.equal(expectedNewRoot);
+                expect(smtUtils.h4toString(newRoot)).to.be.equal(newStateRoot);
+                expect(batch.currentL1InfoTreeRoot).to.be.equal(newL1InfoTreeRoot);
+                expect(batch.currentL1InfoTreeIndex).to.be.equal(newL1InfoTreeIndex);
             } else {
-                updateTestVectors[0].batches[k].expectedNewRoot = smtUtils.h4toString(newRoot);
-                genInput.batches[k].expectedNewRoot = smtUtils.h4toString(newRoot);
+                updateTestVectors[0].batches[k].newStateRoot = smtUtils.h4toString(newRoot);
+                genInput.batches[k].newStateRoot = smtUtils.h4toString(newRoot);
+                updateTestVectors[0].batches[k].newL1InfoTreeRoot = batch.currentL1InfoTreeRoot;
+                genInput.batches[k].newL1InfoTreeRoot = batch.currentL1InfoTreeRoot;
+                updateTestVectors[0].batches[k].newL1InfoTreeIndex = batch.currentL1InfoTreeIndex;
+                genInput.batches[k].newL1InfoTreeIndex = batch.currentL1InfoTreeIndex;
             }
 
             // Check errors on decode transactions
@@ -495,20 +504,19 @@ describe('Header timestamp', function () {
                 expect(batchL2Data).to.be.equal(batch.getBatchL2Data());
                 // Check the batchHashData and the input hash
                 expect(batchHashData).to.be.equal(circuitInput.batchHashData);
-                expect(inputHash).to.be.equal(circuitInput.inputHash);
                 expect(newLocalExitRoot).to.be.equal(circuitInput.newLocalExitRoot);
             } else {
                 updateTestVectors[0].batches[k].batchL2Data = batch.getBatchL2Data();
                 updateTestVectors[0].batches[k].batchHashData = circuitInput.batchHashData;
-                updateTestVectors[0].batches[k].inputHash = circuitInput.inputHash;
                 updateTestVectors[0].batches[k].newLocalExitRoot = circuitInput.newLocalExitRoot;
-                updateTestVectors[0].forkID = testvectorsGlobalConfig.forkID;
+                updateTestVectors[0].batches[k].newTimestamp = circuitInput.newTimestamp;
+                updateTestVectors[0].forkID = forkID;
                 genInput.batches[k].batchL2Data = batch.getBatchL2Data();
                 genInput.batches[k].batchHashData = circuitInput.batchHashData;
-                genInput.batches[k].inputHash = circuitInput.inputHash;
                 genInput.batches[k].l1InfoTree = circuitInput.l1InfoTree;
                 genInput.batches[k].newLocalExitRoot = circuitInput.newLocalExitRoot;
-                genInput.forkID = testvectorsGlobalConfig.forkID;
+                genInput.batches[k].newTimestamp = circuitInput.newTimestamp;
+                genInput.forkID = forkID;
                 console.log('WRITE: ', pathGenInput);
                 await fs.writeFileSync(pathGenInput, JSON.stringify([genInput], null, 2));
                 // Save outuput in file

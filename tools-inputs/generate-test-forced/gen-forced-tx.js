@@ -11,6 +11,7 @@ const { Scalar } = require('ffjavascript');
 
 const folderForcedTxInputs = './forced-tx';
 const { smtUtils } = require('@0xpolygonhermez/zkevm-commonjs');
+const path = require('path');
 const genesisList = require('./genesis-list.json');
 const testEthList = require('./test-eth-list.json');
 
@@ -57,9 +58,9 @@ describe('Generate inputs executor from test-vectors', async function () {
     const jsonInputList = [];
 
     it('load test vectors', async () => {
-        const listTests = fs.readdirSync('../../inputs-executor/special-inputs-ignored/forcedtx-inputs-ignore').filter((x) => x.endsWith('.json'));
+        const listTests = fs.readdirSync(path.join(__dirname, '../../inputs-executor/special-inputs-ignore/forcedtx-inputs-ignore')).filter((x) => x.endsWith('.json'));
         for (let j = 0; j < listTests.length; j++) {
-            const jsonTest = require(`../../inputs-executor/special-inputs-ignored/forcedtx-inputs-ignore/${listTests[j]}`);
+            const jsonTest = require(`../../inputs-executor/special-inputs-ignore/forcedtx-inputs-ignore/${listTests[j]}`);
             const name = listTests[j].split('/')[listTests[j].split('/').length - 1];
             console.log(name);
             if (listTests[j].startsWith('eth-')) {
