@@ -8,13 +8,12 @@ on:
     branches:
       - main
       - develop
-      - feature/fork-etrog
+      - develop-feijoa
   pull_request:
     branches:
       - main
       - develop
-      - feature/fork-etrog
-
+      - develop-feijoa
 jobs:
   build:
     runs-on: ubuntu-latest
