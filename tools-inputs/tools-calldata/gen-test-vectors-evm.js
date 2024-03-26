@@ -61,7 +61,6 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                 chainID,
                 expectedNewLeafs,
             } = testVectors[i];
-
             // adapt input // TODO: remove after full upgrade
             if (typeof chainID === 'undefined') {
                 outputTestVector.chainID = defaultChainID;
