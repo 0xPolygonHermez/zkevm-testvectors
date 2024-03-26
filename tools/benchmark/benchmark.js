@@ -102,7 +102,7 @@ async function main() {
 }
 
 async function readTracer(txCount, dataLen) {
-    const result = JSON.parse(fs.readFileSync(path.join(__dirname, '../../../zkevm-proverjs/src/sm/sm_main/logs-full-trace/benchmark-trace__full_trace.json')));
+    const result = JSON.parse(fs.readFileSync(path.join(__dirname, '../../../zkevm-proverjs/src/sm/sm_main/logs-full-trace/benchmark-trace__full_trace_FULL_BATCH.json')));
     printTracerResults(result);
     let errFound = false;
     const { responses } = result.block_responses[0];
