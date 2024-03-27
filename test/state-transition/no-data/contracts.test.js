@@ -35,9 +35,9 @@ async function revertToSnapshot(snapshotId) {
     return revert;
 }
 
-async function setNextBlockTimestamp(timestamp) {
-    return (ethers.provider.send('evm_setNextBlockTimestamp', [timestamp]));
-}
+// async function setNextBlockTimestamp(timestamp) {
+//    return (ethers.provider.send('evm_setNextBlockTimestamp', [timestamp]));
+// }
 
 const configTestvectors = require('../../../tools-inputs/testvectors.config.json');
 
