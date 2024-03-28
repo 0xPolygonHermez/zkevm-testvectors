@@ -18,7 +18,7 @@ const {
     blobInner, MemDB, SMT, getPoseidon, smtUtils, Constants, stateUtils,
 } = require('@0xpolygonhermez/zkevm-commonjs');
 
-const pathInputs = path.join(__dirname, '../../inputs-executor-blob/calldata');
+const pathInputs = path.join(__dirname, '../../inputs-executor-blob');
 
 describe('BlobProcessor', async function () {
     this.timeout(100000);
@@ -50,6 +50,7 @@ describe('BlobProcessor', async function () {
                 batchesData,
                 blobData,
                 expected,
+                forkID
             } = testVectors[i];
 
             const db = new MemDB(F);
@@ -67,6 +68,7 @@ describe('BlobProcessor', async function () {
             );
             // add oldStateRoot to publics
             inputBlob.publics.oldStateRoot = smtUtils.h4toString(oldStateRoot);
+            inputBlob.publics.forkID = forkID;
 
             // parse inputs
             const inPublics = blobInner.parsers.parseGlobalInputs(inputBlob.publics);
@@ -130,6 +132,7 @@ describe('BlobProcessor', async function () {
                 }
 
                 await fs.writeFileSync(dstFile, JSON.stringify(inputBlobInner, null, 2));
+                inputBlob.publics.forkID = undefined;
             }
 
             console.log(`       Completed test ${i + 1}/${testVectors.length}: ${description}`);
