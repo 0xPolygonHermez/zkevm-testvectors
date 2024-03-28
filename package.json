@@ -13,6 +13,7 @@
         "test:st:calldata": "npx mocha ./test/state-transition/calldata/st-all.test.js",
         "test:mt:bridge": "npx mocha ./test/mt-bridge/**.test.js",
         "test:e2e": "npx mocha ./test/state-transition/e2e/e2e.test.js",
+        "test:blob": "npx mocha ./tools-inputs/generators/blob-calldata-gen-input.js",
         "update:mt:bridge": "npx mocha ./test/mt-bridge/**.test.js --update",
         "update:st:calldata": "cd ./tools-inputs/tools-calldata && ./gen-all.sh",
         "update:st:no-data": "npx mocha ./test/state-transition/no-data/st-all.test.js --update && npx mocha ./test/state-transition/separate-batches/separate-batches.test.js --update && npx mocha ./test/state-transition/batch-header-timestamp/header-timestamp.test.js --update",
@@ -22,6 +23,7 @@
         "update:eth-tests": "cd ./tools-inputs/tools-eth && ./update-tests-general.sh",
         "update:forcedtx": "cd ./tools-inputs/generate-test-forced && ./gen-forced.sh",
         "update:stateoverride": "cd ./tools-inputs/generators && node stateoverride-gen-inputs.js",
+        "update:blob": "npx mocha ./tools-inputs/generators/blob-calldata-gen-input.js --update --geninput",
         "test:contracts": "npx mocha ./test/state-transition/no-data/contracts.test.js --exit",
         "update:all": "npm run update:smt && npm run update:mt:bridge && npm run update:st:calldata && npm run update:st:no-data && npm run update:e2e && npm run update:error-rlp && npm run update:eth-tests",
         "regen-tests": "sh regen-tests.sh",
@@ -35,11 +37,12 @@
     "keywords": [],
     "author": "0xPolygonHermez",
     "files": [
-        "inputs-executor"
+        "inputs-executor",
+        "inputs-executor-blob"
     ],
     "license": "pending",
     "devDependencies": {
-        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#feature/feijoa-batch",
+        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#develop-feijoa",
         "@0xpolygonhermez/zkevm-contracts": "github:0xPolygonHermez/zkevm-contracts#feature/fork-etrog",
         "@grpc/grpc-js": "^1.6.10",
         "@nomiclabs/hardhat-ethers": "^2.0.5",

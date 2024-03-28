@@ -8,6 +8,7 @@ const path = require('path');
 
 let folders = [
     path.join(__dirname, '../inputs-executor'),
+    path.join(__dirname, '../inputs-executor-blob'),
     path.join(__dirname, '../inputs-executor/ethereum-tests/GeneralStateTests'),
     path.join(__dirname, '../inputs-executor/special-inputs-ignore/forcedtx-inputs-ignore'),
     path.join(__dirname, '../inputs-executor/special-inputs-ignore/stateoverride-inputs-ignore'),
@@ -44,8 +45,8 @@ async function writeParams(keys, values, jsonPath) {
 async function main() {
     // Folder path
     const folderPath = typeof (argv.folder) === 'string' ? argv.folder.trim() : undefined;
-    const keys = ['type'];
-    const values = [];
+    const keys = ['forkID'];
+    const values = [10];
 
     if (folderPath) {
         folders = [folderPath];

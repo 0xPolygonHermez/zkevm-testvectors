@@ -11,7 +11,6 @@ const Common = require('@ethereumjs/common').default;
 const { Hardfork } = require('@ethereumjs/common');
 const { BN, toBuffer } = require('ethereumjs-util');
 const { ethers } = require('ethers');
-const { Scalar } = require('ffjavascript');
 
 const zkcommonjs = require('@0xpolygonhermez/zkevm-commonjs');
 const { expect } = require('chai');
