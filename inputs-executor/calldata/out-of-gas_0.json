@@ -4,9 +4,9 @@
   "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "newBatchAccInputHash": "0x78ccdf1f305942f7f7becc8b3585221edd4a08f4851a47f13bdd09952877cbd7",
   "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "newTimestamp": "1944498031",
+  "newLastTimestamp": "1944498031",
   "chainID": 1000,
-  "forkID": 9,
+  "forkID": 10,
   "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "batchL2Data": "0x0b73e6af6f00000000e980843b9aca00825334941275fbb540c8efc58b812ba83b0d0b8b9917ae988084f6d97e8c8203e8808044ff6e4fe61e7256e4d0d5dacd99bac811bda7cb3a2d3661dc41e35317ee18ac049cc2e5f62bf2f1bbfe6e754ff5eff0ca7b0e83b7ff7949ec1d6acc5a3cf3071bff",
   "sequencerAddr": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
@@ -18,8 +18,8 @@
   "forcedData": {},
   "previousL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
   "previousL1InfoTreeIndex": 1,
-  "newL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
-  "newL1InfoTreeIndex": 1,
+  "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+  "currentL1InfoTreeIndex": 1,
   "l1InfoTree": {},
   "db": {
     "0x06b8b8a4a125550db3b2d01776d8373bc09f33f1498b5095b14754734cbf15b8": [

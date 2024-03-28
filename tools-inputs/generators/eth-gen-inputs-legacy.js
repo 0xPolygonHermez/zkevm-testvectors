@@ -231,7 +231,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             if (s.substring(indNum, indNum + 2) === '0x') { indNum += 2; }
                             accountPkFrom = toBuffer(`0x${s.substring(indNum, indNum + 64)}`);
                         }
-                        const oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
+                        const oldBatchAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
                         const timestamp = Scalar.e(currentTest.blocks[0].blockHeader.timestamp, 16).toString();
                         const sequencerAddress = currentTest.blocks[0].blockHeader.coinbase;
                         const forcedHashData = '0x0000000000000000000000000000000000000000000000000000000000000000';
@@ -263,7 +263,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             db,
                             poseidon,
                             [F.zero, F.zero, F.zero, F.zero],
-                            zkcommonjs.smtUtils.stringToH4(oldAccInputHash),
                             genesis,
                             null,
                             null,
@@ -278,6 +277,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         const batch = await zkEVMDB.buildBatch(
                             sequencerAddress,
                             forcedHashData,
+                            oldBatchAccInputHash,
                             previousL1InfoTreeRoot,
                             previousL1InfoTreeIndex,
                             Constants.DEFAULT_MAX_TX,

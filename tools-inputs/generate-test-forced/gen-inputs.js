@@ -68,7 +68,6 @@ describe('Generate inputs executor from test-vectors', async function () {
                     oldBatchAccInputHash,
                     chainID,
                     forkID,
-                    type,
                     forcedHashData,
                     previousL1InfoTreeRoot,
                     previousL1InfoTreeIndex,
@@ -91,7 +90,6 @@ describe('Generate inputs executor from test-vectors', async function () {
                     db,
                     poseidon,
                     [F.zero, F.zero, F.zero, F.zero],
-                    zkcommonjs.smtUtils.stringToH4(oldBatchAccInputHash),
                     genesis,
                     null,
                     null,
@@ -120,6 +118,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                     sequencerAddress,
                     2, // Type is 2 for forced transactions
                     forcedHashData,
+                    oldBatchAccInputHash,
                     previousL1InfoTreeRoot,
                     previousL1InfoTreeIndex,
                     Constants.DEFAULT_MAX_TX,

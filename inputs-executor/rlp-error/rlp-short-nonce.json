@@ -84,7 +84,7 @@
       "0000000000000000"
     ]
   },
-  "forkID": 9,
+  "forkID": 10,
   "batchHashData": "0x9eec2ade0052355807369987fc7bff348c611a362ae9bf3c04b328360ec2022d",
   "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
   "forcedBlockHashL1": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -94,10 +94,10 @@
   "previousL1InfoTreeIndex": 1,
   "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "newBatchAccInputHash": "0xf9b3d53c6494f106c84fbf1c95ab9acaf1770dc2d10b663179f15bbfe0d6c4f8",
-  "newTimestamp": 0,
-  "newL1InfoTreeIndex": 1,
-  "newL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
   "type": 0,
+  "newLastTimestamp": 0,
+  "currentL1InfoTreeIndex": 1,
+  "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
   "virtualCounters": {
     "steps": 8172503,
     "arith": 200919,

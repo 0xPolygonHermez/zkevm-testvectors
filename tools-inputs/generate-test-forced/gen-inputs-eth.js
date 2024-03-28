@@ -79,7 +79,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                 throw new Error('Error info source (json or yml)');
             }
 
-            const oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
+            const oldBatchAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
             const sequencerAddress = '0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266';
             const chainIdSequencer = 1001;
             const txsTest = currentTest.blocks[0].transactions;
@@ -107,7 +107,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                 db,
                 poseidon,
                 [F.zero, F.zero, F.zero, F.zero],
-                zkcommonjs.smtUtils.stringToH4(oldAccInputHash),
                 genesis,
                 null,
                 null,
@@ -133,6 +132,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                 sequencerAddress,
                 2, // Type is 2 for forced transactions
                 forcedHashData,
+                oldBatchAccInputHash,
                 previousL1InfoTreeRoot,
                 previousL1InfoTreeIndex,
                 zkcommonjs.Constants.DEFAULT_MAX_TX,

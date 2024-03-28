@@ -8,7 +8,7 @@ const ethers = require('ethers');
 const { argv } = require('yargs');
 const { expect } = require('chai');
 const {
-    MemDB, ZkEVMDB, processorUtils, smtUtils, getPoseidon, Constants,
+    MemDB, ZkEVMDB, processorUtils, getPoseidon, Constants,
 } = require('@0xpolygonhermez/zkevm-commonjs');
 
 // input file
@@ -54,7 +54,6 @@ describe('Check roots same txs in different batches', function () {
             db,
             poseidon,
             [F.zero, F.zero, F.zero, F.zero], // empty smt
-            smtUtils.stringToH4(generateData.oldBatchAccInputHash),
             generateData.genesis,
             null,
             null,
@@ -67,6 +66,7 @@ describe('Check roots same txs in different batches', function () {
         const batch = await zkEVMDB.buildBatch(
             generateData.sequencerAddress,
             generateData.forcedHashData,
+            generateData.oldBatchAccInputHash,
             generateData.previousL1InfoTreeRoot,
             generateData.previousL1InfoTreeIndex,
             Constants.DEFAULT_MAX_TX,
@@ -188,7 +188,6 @@ describe('Check roots same txs in different batches', function () {
             db,
             poseidon,
             [F.zero, F.zero, F.zero, F.zero], // empty smt
-            smtUtils.stringToH4(generateData.oldBatchAccInputHash),
             generateData.genesis,
             null,
             null,
@@ -205,6 +204,7 @@ describe('Check roots same txs in different batches', function () {
             batch = await zkEVMDB.buildBatch(
                 generateData.sequencerAddress,
                 generateData.forcedHashData,
+                generateData.oldBatchAccInputHash,
                 generateData.previousL1InfoTreeRoot,
                 generateData.previousL1InfoTreeIndex,
                 Constants.DEFAULT_MAX_TX,

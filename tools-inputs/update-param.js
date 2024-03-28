@@ -45,8 +45,8 @@ async function writeParams(keys, values, jsonPath) {
 async function main() {
     // Folder path
     const folderPath = typeof (argv.folder) === 'string' ? argv.folder.trim() : undefined;
-    const keys = ['forkID'];
-    const values = [10];
+    const keys = ['newLastTimestamp'];
+    const values = [];
 
     if (folderPath) {
         folders = [folderPath];

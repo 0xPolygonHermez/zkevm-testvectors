@@ -109,7 +109,6 @@ describe('Generate inputs executor from test-vectors', async function () {
                 db,
                 poseidon,
                 [F.zero, F.zero, F.zero, F.zero],
-                zkcommonjs.smtUtils.stringToH4(oldBatchAccInputHash),
                 genesis,
                 null,
                 null,
@@ -138,6 +137,7 @@ describe('Generate inputs executor from test-vectors', async function () {
             const batch = await zkEVMDB.buildBatch(
                 sequencerAddress,
                 forcedHashData,
+                oldBatchAccInputHash,
                 previousL1InfoTreeRoot,
                 previousL1InfoTreeIndex,
                 Constants.DEFAULT_MAX_TX,
@@ -356,9 +356,9 @@ describe('Generate inputs executor from test-vectors', async function () {
                 testVectors[i].expectedNewLeafs = expectedNewLeafs;
                 testVectors[i].forkID = forkID;
                 testVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
-                testVectors[i].newL1InfoTreeIndex = circuitInput.newL1InfoTreeIndex;
-                testVectors[i].newL1InfoTreeRoot = circuitInput.newL1InfoTreeRoot;
-                testVectors[i].newTimestamp = circuitInput.newTimestamp;
+                testVectors[i].currentL1InfoTreeIndex = circuitInput.currentL1InfoTreeIndex;
+                testVectors[i].currentL1InfoTreeRoot = circuitInput.currentL1InfoTreeRoot;
+                testVectors[i].newLastTimestamp = circuitInput.newLastTimestamp;
                 testVectors[i].oldNumBatch = circuitInput.oldNumBatch;
                 testVectors[i].newNumBatch = circuitInput.newNumBatch;
                 internalTestVectors[i].batchL2Data = batch.getBatchL2Data();
@@ -368,9 +368,9 @@ describe('Generate inputs executor from test-vectors', async function () {
                 internalTestVectors[i].newBatchAccInputHash = circuitInput.newBatchAccInputHash;
                 internalTestVectors[i].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
                 internalTestVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
-                internalTestVectors[i].newL1InfoTreeIndex = circuitInput.newL1InfoTreeIndex;
-                internalTestVectors[i].newL1InfoTreeRoot = circuitInput.newL1InfoTreeRoot;
-                internalTestVectors[i].newTimestamp = circuitInput.newTimestamp;
+                internalTestVectors[i].currentL1InfoTreeIndex = circuitInput.currentL1InfoTreeIndex;
+                internalTestVectors[i].currentL1InfoTreeRoot = circuitInput.currentL1InfoTreeRoot;
+                internalTestVectors[i].newLastTimestamp = circuitInput.newLastTimestamp;
                 internalTestVectors[i].oldNumBatch = circuitInput.oldNumBatch;
                 internalTestVectors[i].newNumBatch = circuitInput.newNumBatch;
                 internalTestVectors[i].chainID = chainID;

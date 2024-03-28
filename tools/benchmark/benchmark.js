@@ -102,7 +102,7 @@ async function main() {
 }
 
 async function readTracer(txCount, dataLen) {
-    const result = JSON.parse(fs.readFileSync(path.join(__dirname, '../../../zkevm-proverjs/src/sm/sm_main/logs-full-trace/benchmark-trace__full_trace.json')));
+    const result = JSON.parse(fs.readFileSync(path.join(__dirname, '../../../zkevm-proverjs/src/sm/sm_main/logs-full-trace/benchmark-trace__full_trace_FULL_BATCH.json')));
     printTracerResults(result);
     let errFound = false;
     const { responses } = result.block_responses[0];
@@ -167,7 +167,7 @@ async function executeTx(circuitInput, cmPols) {
 
 async function buildGenesis() {
     const {
-        genesis, oldBatchAccInputHash, chainID,
+        genesis, chainID,
     } = testObject;
     let { forkID } = testObject;
     if (!forkID) {
@@ -179,7 +179,6 @@ async function buildGenesis() {
             Object.assign(Object.create(Object.getPrototypeOf(initialzkEVMDB.db)), initialzkEVMDB.db),
             0,
             initialzkEVMDB.stateRoot,
-            initialzkEVMDB.accInputHash,
             initialzkEVMDB.localExitRoot,
             poseidon,
             initialzkEVMDB.vm.copy(),
@@ -207,7 +206,6 @@ async function buildGenesis() {
         db,
         poseidon,
         [F.zero, F.zero, F.zero, F.zero],
-        zkcommonjs.smtUtils.stringToH4(oldBatchAccInputHash),
         genesis,
         null,
         null,
@@ -220,7 +218,6 @@ async function buildGenesis() {
         Object.assign(Object.create(Object.getPrototypeOf(zkEVMDB.db)), zkEVMDB.db),
         0,
         zkEVMDB.stateRoot,
-        zkEVMDB.accInputHash,
         zkEVMDB.localExitRoot,
         poseidon,
         zkEVMDB.vm.copy(),
@@ -249,7 +246,8 @@ async function initBuild() {
 
 async function createRawTxs(txCount, isSetup) {
     const {
-        txs, genesis, chainID, sequencerAddress, forcedHashData, previousL1InfoTreeRoot, previousL1InfoTreeIndex, forcedData,
+        txs, genesis, chainID, sequencerAddress, forcedHashData, previousL1InfoTreeRoot,
+        previousL1InfoTreeIndex, forcedData, oldBatchAccInputHash,
     } = testObject;
     const options = {
         vcmConfig: {
@@ -260,6 +258,7 @@ async function createRawTxs(txCount, isSetup) {
     const batch = await zkEVMDB.buildBatch(
         sequencerAddress,
         forcedHashData,
+        oldBatchAccInputHash,
         previousL1InfoTreeRoot,
         previousL1InfoTreeIndex,
         Constants.DEFAULT_MAX_TX,
