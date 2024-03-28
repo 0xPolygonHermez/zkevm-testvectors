@@ -193,7 +193,6 @@ describe('Run state-transition tests', function () {
                     db,
                     poseidon,
                     [F.zero, F.zero, F.zero, F.zero],
-                    smtUtils.stringToH4(oldBatchAccInputHash),
                     genesis,
                     null,
                     null,
@@ -218,6 +217,7 @@ describe('Run state-transition tests', function () {
                 const batch = await zkEVMDB.buildBatch(
                     sequencerAddress,
                     forcedHashData,
+                    oldBatchAccInputHash,
                     previousL1InfoTreeRoot,
                     previousL1InfoTreeIndex,
                     Constants.DEFAULT_MAX_TX,

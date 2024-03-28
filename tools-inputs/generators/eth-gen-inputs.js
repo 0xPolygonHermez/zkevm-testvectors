@@ -267,7 +267,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             throw new Error('Error info source (json or yml)');
                         }
 
-                        const oldAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
+                        const oldBatchAccInputHash = '0x0000000000000000000000000000000000000000000000000000000000000000';
                         const { timestamp } = currentTest.blocks[0].blockHeader;
                         const sequencerAddress = currentTest.blocks[0].blockHeader.coinbase;
                         const forcedHashData = '0x0000000000000000000000000000000000000000000000000000000000000000';
@@ -299,7 +299,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             db,
                             poseidon,
                             [F.zero, F.zero, F.zero, F.zero],
-                            zkcommonjs.smtUtils.stringToH4(oldAccInputHash),
                             genesis,
                             null,
                             null,
@@ -314,6 +313,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         const batch = await zkEVMDB.buildBatch(
                             sequencerAddress,
                             forcedHashData,
+                            oldBatchAccInputHash,
                             previousL1InfoTreeRoot,
                             previousL1InfoTreeIndex,
                             Constants.DEFAULT_MAX_TX,

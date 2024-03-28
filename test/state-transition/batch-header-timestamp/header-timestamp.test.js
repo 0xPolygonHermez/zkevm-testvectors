@@ -216,7 +216,6 @@ describe('Header timestamp', function () {
             db,
             poseidon,
             [F.zero, F.zero, F.zero, F.zero],
-            smtUtils.stringToH4(oldBatchAccInputHash),
             genesis,
             null,
             null,
@@ -260,7 +259,7 @@ describe('Header timestamp', function () {
         for (let k = 0; k < batches.length; k++) {
             const {
                 txs, newStateRoot, expectedNewLeafs, batchL2Data,
-                batchHashData, newLocalExitRoot, newL1InfoTreeRoot, newL1InfoTreeIndex,
+                batchHashData, newLocalExitRoot, currentL1InfoTreeRoot, currentL1InfoTreeIndex,
             } = batches[k];
 
             let l1InfoRoot;
@@ -344,6 +343,7 @@ describe('Header timestamp', function () {
             const batch = await zkEVMDB.buildBatch(
                 sequencerAddress,
                 forcedHashData,
+                oldBatchAccInputHash,
                 previousL1InfoTreeRoot,
                 previousL1InfoTreeIndex,
                 Constants.DEFAULT_MAX_TX,
@@ -376,15 +376,15 @@ describe('Header timestamp', function () {
             const newRoot = batch.currentStateRoot;
             if (!update) {
                 expect(smtUtils.h4toString(newRoot)).to.be.equal(newStateRoot);
-                expect(batch.currentL1InfoTreeRoot).to.be.equal(newL1InfoTreeRoot);
-                expect(batch.currentL1InfoTreeIndex).to.be.equal(newL1InfoTreeIndex);
+                expect(batch.currentL1InfoTreeRoot).to.be.equal(currentL1InfoTreeRoot);
+                expect(batch.currentL1InfoTreeIndex).to.be.equal(currentL1InfoTreeIndex);
             } else {
                 updateTestVectors[0].batches[k].newStateRoot = smtUtils.h4toString(newRoot);
                 genInput.batches[k].newStateRoot = smtUtils.h4toString(newRoot);
-                updateTestVectors[0].batches[k].newL1InfoTreeRoot = batch.currentL1InfoTreeRoot;
-                genInput.batches[k].newL1InfoTreeRoot = batch.currentL1InfoTreeRoot;
-                updateTestVectors[0].batches[k].newL1InfoTreeIndex = batch.currentL1InfoTreeIndex;
-                genInput.batches[k].newL1InfoTreeIndex = batch.currentL1InfoTreeIndex;
+                updateTestVectors[0].batches[k].currentL1InfoTreeRoot = batch.currentL1InfoTreeRoot;
+                genInput.batches[k].currentL1InfoTreeRoot = batch.currentL1InfoTreeRoot;
+                updateTestVectors[0].batches[k].currentL1InfoTreeIndex = batch.currentL1InfoTreeIndex;
+                genInput.batches[k].currentL1InfoTreeIndex = batch.currentL1InfoTreeIndex;
             }
 
             // Check errors on decode transactions
@@ -509,13 +509,13 @@ describe('Header timestamp', function () {
                 updateTestVectors[0].batches[k].batchL2Data = batch.getBatchL2Data();
                 updateTestVectors[0].batches[k].batchHashData = circuitInput.batchHashData;
                 updateTestVectors[0].batches[k].newLocalExitRoot = circuitInput.newLocalExitRoot;
-                updateTestVectors[0].batches[k].newTimestamp = circuitInput.newTimestamp;
+                updateTestVectors[0].batches[k].newLastTimestamp = circuitInput.newLastTimestamp;
                 updateTestVectors[0].forkID = forkID;
                 genInput.batches[k].batchL2Data = batch.getBatchL2Data();
                 genInput.batches[k].batchHashData = circuitInput.batchHashData;
                 genInput.batches[k].l1InfoTree = circuitInput.l1InfoTree;
                 genInput.batches[k].newLocalExitRoot = circuitInput.newLocalExitRoot;
-                genInput.batches[k].newTimestamp = circuitInput.newTimestamp;
+                genInput.batches[k].newLastTimestamp = circuitInput.newLastTimestamp;
                 genInput.forkID = forkID;
                 console.log('WRITE: ', pathGenInput);
                 await fs.writeFileSync(pathGenInput, JSON.stringify([genInput], null, 2));

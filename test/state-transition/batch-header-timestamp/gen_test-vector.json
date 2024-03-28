@@ -189,9 +189,9 @@
         "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "batchHashData": "0x07a432d365a567df51cbc39a8744f92f469fb0d16ee3f4319d3a68c305442d5f",
         "timestamp": 1944498031,
-        "newL1InfoTreeRoot": "0x7b7158db88da6155e257d54f25853a309d9405f5d093e28faacae1972b8850e5",
-        "newL1InfoTreeIndex": 1,
-        "newTimestamp": "1000"
+        "currentL1InfoTreeRoot": "0x7b7158db88da6155e257d54f25853a309d9405f5d093e28faacae1972b8850e5",
+        "currentL1InfoTreeIndex": 1,
+        "newLastTimestamp": "1000"
       },
       {
         "txs": [
@@ -345,9 +345,9 @@
         "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "batchHashData": "0xea77522da173bd92553c3f8f3a48d096cd684da9333672355b46264ad143de2d",
         "timestamp": 1944498031,
-        "newL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
-        "newL1InfoTreeIndex": 0,
-        "newTimestamp": "2000"
+        "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+        "currentL1InfoTreeIndex": 0,
+        "newLastTimestamp": "2000"
       },
       {
         "txs": [],
@@ -496,9 +496,9 @@
         "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "batchHashData": "0x0c1ceed2d4568c8438794040388d6892216e58449d3832ea6e348d38d41d58d0",
         "timestamp": 1944498033,
-        "newL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
-        "newL1InfoTreeIndex": 0,
-        "newTimestamp": "3000"
+        "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+        "currentL1InfoTreeIndex": 0,
+        "newLastTimestamp": "3000"
       },
       {
         "txs": [],
@@ -648,9 +648,9 @@
         "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "batchHashData": "0x0c1ceed2d4568c8438794040388d6892216e58449d3832ea6e348d38d41d58d0",
         "timestamp": 1944498042,
-        "newL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
-        "newL1InfoTreeIndex": 0,
-        "newTimestamp": "4000"
+        "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+        "currentL1InfoTreeIndex": 0,
+        "newLastTimestamp": "4000"
       }
     ],
     "forkID": 10,

@@ -4,7 +4,7 @@
   "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "newBatchAccInputHash": "0x21e995d21e8bd464d3f8232f9d45095c94b0b394aa740971ccbe4826d1cd3388",
   "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "newTimestamp": "240",
+  "newLastTimestamp": "240",
   "chainID": 1000,
   "forkID": 10,
   "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -15,8 +15,8 @@
   "forcedData": {},
   "previousL1InfoTreeRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "previousL1InfoTreeIndex": 0,
-  "newL1InfoTreeRoot": "0xe0c4fe427ee2d7f5300bfc9967cbe03cf2f3c9874765baa3e107cf6bc0c0adc0",
-  "newL1InfoTreeIndex": 7,
+  "currentL1InfoTreeRoot": "0xe0c4fe427ee2d7f5300bfc9967cbe03cf2f3c9874765baa3e107cf6bc0c0adc0",
+  "currentL1InfoTreeIndex": 7,
   "l1InfoTree": {
     "2": {
       "globalExitRoot": "0x887c22bd8750d34016ac3c66b5ff102dacdd73f6b014e710b51e8022af9a1968",

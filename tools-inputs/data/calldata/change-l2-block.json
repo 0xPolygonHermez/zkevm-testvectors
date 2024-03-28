@@ -77,9 +77,19 @@
     "newStateRoot": "0xf0ac32379a0374e38cd2444e95e7c473342d127bfaff847a3427e44b35c915e1",
     "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "newBatchAccInputHash": "0xa396d28f1b2b96ebe6e6fe8659ecc903058439dfcd212eaf5b5058074a0464e0",
-    "newL1InfoTreeIndex": 1,
-    "newL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
-    "newTimestamp": "1944498031"
+    "currentL1InfoTreeIndex": 1,
+    "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+    "newLastTimestamp": "1944498031",
+    "virtualCounters": {
+      "steps": 802,
+      "arith": 1,
+      "binary": 25,
+      "memAlign": 0,
+      "keccaks": 38,
+      "padding": 0,
+      "poseidon": 454,
+      "sha256": 0
+    }
   },
   {
     "id": 1,
@@ -170,9 +180,19 @@
     "newStateRoot": "0xd12019f91ab79c772f0a96beae5e3d4e6068f60970a143df052261cbce2d1e89",
     "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "newBatchAccInputHash": "0x5268960e6b8c2b9a2f64e50154d5cfa199042af6bcd082454d85cf7e8c91ac13",
-    "newL1InfoTreeIndex": 1,
-    "newL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
-    "newTimestamp": "1944498031"
+    "currentL1InfoTreeIndex": 1,
+    "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+    "newLastTimestamp": "1944498031",
+    "virtualCounters": {
+      "steps": 1232,
+      "arith": 1,
+      "binary": 42,
+      "memAlign": 0,
+      "keccaks": 73,
+      "padding": 0,
+      "poseidon": 830,
+      "sha256": 0
+    }
   },
   {
     "id": 2,
@@ -303,9 +323,19 @@
     "newStateRoot": "0x26814c8e2a494a061e89404a7f877080067159f1cc1c73ca6757453273bf4d0e",
     "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "newBatchAccInputHash": "0x6140ac3fb02ca22fa757ec71ebf39430bd16d4121ad206c27d254c065f0f7d9f",
-    "newL1InfoTreeIndex": 1,
-    "newL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
-    "newTimestamp": "1944498031"
+    "currentL1InfoTreeIndex": 1,
+    "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+    "newLastTimestamp": "1944498031",
+    "virtualCounters": {
+      "steps": 42472,
+      "arith": 2321,
+      "binary": 2854,
+      "memAlign": 0,
+      "keccaks": 88,
+      "padding": 52,
+      "poseidon": 4066,
+      "sha256": 0
+    }
   },
   {
     "id": 3,
@@ -395,9 +425,19 @@
     "newStateRoot": "0x15bb32fd771849248ee997dcf547f70f4b67b481a4e7f5b2bc7e28b99541aa2f",
     "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "newBatchAccInputHash": "0x5fd3b2bccd7d2c028b80239cb5f28da1727960c112059abf949ee7158db66c59",
-    "newL1InfoTreeIndex": 1,
-    "newL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
-    "newTimestamp": "1944498032"
+    "currentL1InfoTreeIndex": 1,
+    "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+    "newLastTimestamp": "1944498032",
+    "virtualCounters": {
+      "steps": 11112,
+      "arith": 581,
+      "binary": 728,
+      "memAlign": 0,
+      "keccaks": 41,
+      "padding": 13,
+      "poseidon": 1263,
+      "sha256": 0
+    }
   },
   {
     "id": 4,
@@ -494,9 +534,19 @@
     "newStateRoot": "0xe36ad70c6b2922eed0efd6a400bdacdfbb58ae902ffdb6194ecb31463d33281a",
     "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "newBatchAccInputHash": "0x26b1348e06a4c8ca4aab4aa4cd60f15d7eb51d746a96868a1853964a66731f06",
-    "newL1InfoTreeIndex": 1,
-    "newL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
-    "newTimestamp": "1944498031"
+    "currentL1InfoTreeIndex": 1,
+    "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+    "newLastTimestamp": "1944498031",
+    "virtualCounters": {
+      "steps": 21372,
+      "arith": 1161,
+      "binary": 1431,
+      "memAlign": 0,
+      "keccaks": 45,
+      "padding": 26,
+      "poseidon": 2072,
+      "sha256": 0
+    }
   },
   {
     "id": 5,
@@ -588,9 +638,19 @@
     "newStateRoot": "0x9e88ad623662912afd2dba0c9c407409b4c6a7806de1234ff5000e950a5c2d63",
     "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "newBatchAccInputHash": "0x3ae79df9637e00cc2756e2c6de55eaec0efa583c5cfe055e5a59b3047e3d1d75",
-    "newL1InfoTreeIndex": 1,
-    "newL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
-    "newTimestamp": "0"
+    "currentL1InfoTreeIndex": 1,
+    "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+    "newLastTimestamp": "0",
+    "virtualCounters": {
+      "steps": 372,
+      "arith": 1,
+      "binary": 8,
+      "memAlign": 0,
+      "keccaks": 3,
+      "padding": 0,
+      "poseidon": 78,
+      "sha256": 0
+    }
   },
   {
     "id": 6,
@@ -702,9 +762,19 @@
     "newStateRoot": "0x9e88ad623662912afd2dba0c9c407409b4c6a7806de1234ff5000e950a5c2d63",
     "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "newBatchAccInputHash": "0xefbd6ee9d694c748387b5284c519300b2825c36edb5912c54fc256700fe2589f",
-    "newL1InfoTreeIndex": 1,
-    "newL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
-    "newTimestamp": "0"
+    "currentL1InfoTreeIndex": 1,
+    "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+    "newLastTimestamp": "0",
+    "virtualCounters": {
+      "steps": 19242,
+      "arith": 1147,
+      "binary": 1324,
+      "memAlign": 0,
+      "keccaks": 9,
+      "padding": 12,
+      "poseidon": 90,
+      "sha256": 0
+    }
   },
   {
     "id": 7,
@@ -862,9 +932,19 @@
     "newStateRoot": "0xcdd055e9a39d9cbb480fb866ef5c70c0b282bf3be6cccb1d6566f728fe75912e",
     "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "newBatchAccInputHash": "0x2c7e63e478d05abd1d6632af143ded95ef91aad291a3aa19a3982e33a272861b",
-    "newL1InfoTreeIndex": 1,
-    "newL1InfoTreeRoot": "0x65f47361deaba7b24e670a30a06317fb2b4c92e8d77cb5434fb61f64347118e8",
-    "newTimestamp": "43"
+    "currentL1InfoTreeIndex": 1,
+    "currentL1InfoTreeRoot": "0x65f47361deaba7b24e670a30a06317fb2b4c92e8d77cb5434fb61f64347118e8",
+    "newLastTimestamp": "43",
+    "virtualCounters": {
+      "steps": 32162,
+      "arith": 1741,
+      "binary": 2151,
+      "memAlign": 0,
+      "keccaks": 84,
+      "padding": 39,
+      "poseidon": 3257,
+      "sha256": 0
+    }
   },
   {
     "id": 8,
@@ -1041,9 +1121,19 @@
     "newStateRoot": "0x9e88ad623662912afd2dba0c9c407409b4c6a7806de1234ff5000e950a5c2d63",
     "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "newBatchAccInputHash": "0xe6af54989178f613d7e94a5a6d0ba272304071ec3c2f9a050477bbde27687cfd",
-    "newL1InfoTreeIndex": 1,
-    "newL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
-    "newTimestamp": "3"
+    "currentL1InfoTreeIndex": 1,
+    "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+    "newLastTimestamp": "3",
+    "virtualCounters": {
+      "steps": 41152,
+      "arith": 2307,
+      "binary": 2781,
+      "memAlign": 0,
+      "keccaks": 121,
+      "padding": 38,
+      "poseidon": 2836,
+      "sha256": 0
+    }
   },
   {
     "id": 9,
@@ -1150,8 +1240,18 @@
     "newStateRoot": "0x9e88ad623662912afd2dba0c9c407409b4c6a7806de1234ff5000e950a5c2d63",
     "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "newBatchAccInputHash": "0xfdc928f491714b60110afc1f3b3e029471255550bbd8fce2032f00a7cfc6b243",
-    "newL1InfoTreeIndex": 1,
-    "newL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
-    "newTimestamp": "0"
+    "currentL1InfoTreeIndex": 1,
+    "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+    "newLastTimestamp": "0",
+    "virtualCounters": {
+      "steps": 38112,
+      "arith": 2293,
+      "binary": 2640,
+      "memAlign": 0,
+      "keccaks": 14,
+      "padding": 24,
+      "poseidon": 102,
+      "sha256": 0
+    }
   }
 ]
