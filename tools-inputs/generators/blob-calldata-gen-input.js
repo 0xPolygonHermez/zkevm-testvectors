@@ -21,8 +21,6 @@ const {
 const pathInputs = path.join(__dirname, '../../inputs-executor-blob');
 
 describe('BlobProcessor', async function () {
-    this.timeout(100000);
-
     let pathBlobTests = path.join(__dirname, "../data/blob");
 
     let update;
@@ -32,11 +30,16 @@ describe('BlobProcessor', async function () {
 
     let testVectorsFiles;
     let testVectors;
+    let newTestVectors;
 
     before(async () => {
         poseidon = await getPoseidon();
         F = poseidon.F;
-        testVectorsFiles = fs.readdirSync(pathBlobTests);
+        if(typeof argv.test !== 'undefined') {
+            testVectorsFiles = [argv.test];
+        } else {
+            testVectorsFiles = fs.readdirSync(pathBlobTests);            
+        }
 
         update = (argv.update === true);
         geninput = (argv.geninput === true);
@@ -47,7 +50,12 @@ describe('BlobProcessor', async function () {
             const pathBlobTestsFile = `${pathBlobTests}/${testVectorsFiles[j]}`;
             testVectors = JSON.parse(fs.readFileSync(pathBlobTestsFile))
             console.log(`   Init tests from ${testVectorsFiles[j]}`);
-            for (let i = 0; i < testVectors.length; i++) {
+            if(typeof argv.index !== 'undefined') {
+                newTestVectors = [testVectors[argv.index]];
+            } else {
+                newTestVectors = testVectors;
+            }
+            for (let i = 0; i < newTestVectors.length; i++) {
                 let {
                     description,
                     preExecution,
@@ -56,7 +64,7 @@ describe('BlobProcessor', async function () {
                     blobData,
                     expected,
                     forkID
-                } = testVectors[i];
+                } = newTestVectors[i];
 
                 const db = new MemDB(F);
 
@@ -135,7 +143,7 @@ describe('BlobProcessor', async function () {
                     if (!fs.existsSync(folder)) {
                         fs.mkdirSync(folder);
                     }
-
+                    console.log(`WRITE: ${dstFile}`)
                     await fs.writeFileSync(dstFile, JSON.stringify(inputBlobInner, null, 2));
                     inputBlob.publics.forkID = undefined;
                 }
