@@ -74,7 +74,8 @@ describe('BlobProcessor', async function () {
                 if(invalidTest) {
                     let blobData;
                     if(testVector.batchesData) {
-                        blobData = blobInner.utils.computeBlobDataFromBatches(testVector.batchesData, testVector.inputBlob.private.blobType);
+                        const res = blobInner.utils.computeBlobDataFromBatches(testVector.batchesData, testVector.inputBlob.private.blobType);
+                        blobData = res.blobData;
                     } else {
                         blobData = testVector.blobData;
                     }
