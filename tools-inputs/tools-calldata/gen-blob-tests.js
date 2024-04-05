@@ -15,7 +15,7 @@ const { argv } = require('yargs');
 const { expect } = require('chai');
 
 const {
-    blobInner, MemDB, SMT, getPoseidon, smtUtils, Constants, stateUtils,
+    blobInner, getPoseidon,
 } = require('@0xpolygonhermez/zkevm-commonjs');
 
 const pathInputData = path.join(__dirname, '../data/blob');
@@ -70,7 +70,32 @@ describe('BlobProcessor', async function () {
                         }
                     }
                 }
+                const invalidTest = testVector.invalidTest;
+                if(invalidTest) {
+                    let blobData;
+                    if(testVector.batchesData) {
+                        const res = blobInner.utils.computeBlobDataFromBatches(testVector.batchesData, testVector.inputBlob.private.blobType);
+                        blobData = res.blobData;
+                    } else {
+                        blobData = testVector.blobData;
+                    }
+                    if(invalidTest.error === "msb_byte") {
+                        console.log("UPDATE MSB BYTE")
+                        blobDataNew = blobData.substring(0,2+invalidTest.index*64);
+                        blobDataNew += "ff";
+                        blobDataNew += blobData.substring(2+invalidTest.index*64+2);
+                    }
+                    if(invalidTest.error === "change_byte") {
+                        console.log("UPDATE BYTE")
+                        blobDataNew = blobData.substring(0,2+invalidTest.index*2);
+                        blobDataNew += invalidTest.data;
+                        blobDataNew += blobData.substring(2+invalidTest.index*2+2);
+                    }
+                    testVector.batchesData = undefined;
+                    testVector.blobData = blobDataNew;
+                }
             }
+            console.log(`WRITE: ${pathInputDataFile}`);
             await fs.writeFileSync(pathInputDataFile, JSON.stringify(testVectors, null, 2));
         }   
     });
