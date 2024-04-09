@@ -87,7 +87,6 @@
   },
   {
     "id": 1,
-    "invalidBatch": true,
     "description": "2 accounts and 1 invalid transaction (length data).",
     "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
     "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
@@ -160,7 +159,7 @@
     "previousL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
     "previousL1InfoTreeIndex": 1,
     "oldStateRoot": "0xc14d4d9f490cd974197f01ed1adecc4024d53fa3c7e81763a03808f65b84ae71",
-    "newStateRoot": "0xc14d4d9f490cd974197f01ed1adecc4024d53fa3c7e81763a03808f65b84ae71",
+    "newStateRoot": "0x186fa1e981185d4c46bf20a01826d974e620614e800145f200b8bbe4777fe1d7",
     "newBatchAccInputHash": "0x70e4ac8aa6545fd8b07c80f8496e0d621715d5cef58e6080415f3d3bd0ec07f9",
     "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "currentL1InfoTreeIndex": 1,
