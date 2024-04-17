@@ -2214,5 +2214,81 @@
       "dataBatches": "0xff",
       "fullBatches": false
     }
+  },
+  {
+    "id": 4,
+    "description": "blob type 1, batchlen on the top",
+    "preExecution": {
+      "initLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000001"
+    },
+    "inputBlob": {
+      "publics": {
+        "oldBlobStateRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "oldBlobAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "oldNumBlob": 0,
+        "oldStateRoot": "0x799c98013da3f7a43b6e8086d0cedd89bd6a9bfef7179ce30755b27f7e9be302"
+      },
+      "private": {
+        "lastL1InfoTreeIndex": 42,
+        "lastL1InfoTreeRoot": "0x4242424242424242424242424242424242424242424242424242424242424242",
+        "timestampLimit": "1944498031",
+        "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "blobType": 1,
+        "zkGasLimit": "1000000000000000000",
+        "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    "batchesData": [
+      "0x0b73e6af6f00000000ee80843b9aca00830186a0944d",
+      "0x0b73e6af6f00000000ee80843b9aca00830186a0944d5cf5032b2a84",
+      "0x0b73e6af6f"
+    ],
+    "expected": {
+      "newBlobStateRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "newBlobAccInputHash": "0xac1aee801bfe74f8c378c0529887207bc06d9690ec227f2353aa734779ff3af7",
+      "newNumBlob": 1,
+      "finalAccBatchHashData": "0x809a36de83aca7376b89531392c497ddc5eb2ee866dc1d6c6aa01e0d16db3d13",
+      "localExitRootFromBlob": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "isInvalid": false
+    },
+    "forkID": 10
+  },
+  {
+    "id": 5,
+    "description": "blob type 1, batchlen on the top 2",
+    "preExecution": {
+      "initLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000001"
+    },
+    "inputBlob": {
+      "publics": {
+        "oldBlobStateRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "oldBlobAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "oldNumBlob": 0,
+        "oldStateRoot": "0x799c98013da3f7a43b6e8086d0cedd89bd6a9bfef7179ce30755b27f7e9be302"
+      },
+      "private": {
+        "lastL1InfoTreeIndex": 42,
+        "lastL1InfoTreeRoot": "0x4242424242424242424242424242424242424242424242424242424242424242",
+        "timestampLimit": "1944498031",
+        "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "blobType": 1,
+        "zkGasLimit": "1000000000000000000",
+        "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    "batchesData": [
+      "0x0b73e6af6f00000000ee80843b9aca00830186a0944d5cf5032b2a844602278b01199ed191a86c93ff88016345785d8a0000808203",
+      "0x0b73e6af6f00000000ee80843b9aca00830186a0944d5cf5032b2a84",
+      "0x0b73e6af6f"
+    ],
+    "expected": {
+      "newBlobStateRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "newBlobAccInputHash": "0xac1aee801bfe74f8c378c0529887207bc06d9690ec227f2353aa734779ff3af7",
+      "newNumBlob": 1,
+      "finalAccBatchHashData": "0xc965007b2934ed65985e9333da756863fe3142bd790ad13bff4aee3f8e69fe3d",
+      "localExitRootFromBlob": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "isInvalid": false
+    },
+    "forkID": 10
   }
 ]
