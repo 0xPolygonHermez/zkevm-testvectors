@@ -1,0 +1,123 @@
+[
+  {
+    "id": 0,
+    "description": "Deploy OpBitLogic contract (test)",
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "11000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x608060405260043610601f5760003560e01c80636ca7c21614603257602d565b36602d576001600081905550005b600080fd5b348015603d57600080fd5b5060446058565b604051604f9190606b565b60405180910390f35b60005481565b6065816084565b82525050565b6000602082019050607e6000830184605e565b92915050565b600081905091905056fea2646970667358221220ad2cb434a8b8fc1e70285d29eb476be3685524fb0ec2df89e8d4946d56907b3b64736f6c63430008070033",
+        "abi": [
+          {
+            "inputs": [],
+            "name": "gas",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "stateMutability": "payable",
+            "type": "receive"
+          }
+        ],
+        "storage": {}
+      }
+    ],
+    "expectedOldRoot": "0x04e8154a59dd75bfa0db6053cb09adbd1f8d42a8ee556eae224d510d8d588a36",
+    "txs": [
+      {
+        "type": 11,
+        "deltaTimestamp": "1944498031",
+        "l1Info": {
+          "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+          "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
+          "timestamp": "42"
+        },
+        "indexL1InfoTree": 0
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "0",
+        "value": "2000000000000000000",
+        "gasLimit": 21000,
+        "gasPrice": "1000000000",
+        "chainId": 1000
+      }
+    ],
+    "expectedNewRoot": "0x973be5252a255c37be78957fdc004e36df7b9be63e50f0ffad838740ccabcf0b",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100000021000000000000",
+        "nonce": "0",
+        "storage": null
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "10999979000000000000",
+        "nonce": "1",
+        "storage": null
+      },
+      "0x1000000000000000000000000000000000000000": {
+        "balance": "0",
+        "nonce": "0",
+        "storage": null
+      },
+      "0x000000000000000000000000000000005ca1ab1e": {
+        "balance": "0",
+        "nonce": "0",
+        "storage": {
+          "0x0000000000000000000000000000000000000000000000000000000000000000": "0x01",
+          "0x0000000000000000000000000000000000000000000000000000000000000002": "0x73e6af6f",
+          "0xa6eef7e35abe7026729641147f7915573c7e97b47efa546f5f6e3230263bcb49": "0x04e8154a59dd75bfa0db6053cb09adbd1f8d42a8ee556eae224d510d8d588a36",
+          "0x0000000000000000000000000000000000000000000000000000000000000003": "0xf98a881d57ecb0f4e30cb3c039be6a52e0ab19311250cd20f67b1fd8a0111e95"
+        }
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {},
+        "hashBytecode": "0xfbeccd2898933b39a54bb44ef8051671776f730baa94f8344949ee6e26372c0c",
+        "bytecodeLength": 196
+      }
+    },
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0xbcc927e33367de40acffb0be0d6b58e4a1f7e37cf2522297df17870ad946e17b",
+    "batchL2Data": "0x0b73e6af6f00000000ed80843b9aca00825208941275fbb540c8efc58b812ba83b0d0b8b9917ae98881bc16d674ec80000808203e88080a629cbf2ea0a4ac74f6ca8fe7ac59b0ab9fa3369a6e70d0f6ee165ce342063795dcb6deab089d989d87611823ded102412bf82528f95bcd871acbc9afcbcb8e81bff",
+    "chainID": 1000,
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 9,
+    "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 11055,
+      "arith": 580,
+      "binary": 725,
+      "memAlign": 0,
+      "keccaks": 41,
+      "padding": 16,
+      "poseidon": 1266,
+      "sha256": 0
+    }
+  }
+]
