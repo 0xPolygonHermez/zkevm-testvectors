@@ -231,8 +231,14 @@ class RomCoverage {
         if (!fs.existsSync(this.outputFolder)) {
             fs.mkdirSync(this.outputFolder);
         }
-        if (!fs.existsSync(`${this.outputFolder}/rom`)) {
-            fs.mkdirSync(`${this.outputFolder}/rom`);
+        if(this.romPath.includes("blob")) {
+            if (!fs.existsSync(`${this.outputFolder}/rom-blob`)) {
+                fs.mkdirSync(`${this.outputFolder}/rom-blob`);
+            }
+        } else {
+            if (!fs.existsSync(`${this.outputFolder}/rom`)) {
+                fs.mkdirSync(`${this.outputFolder}/rom`);
+            }
         }
 
         let labelPath;
@@ -290,8 +296,16 @@ class RomCoverage {
 
         for (let i = 0; i < noHitFiles.length; i++) {
             if (noHitFiles[i].file) {
-                const outputArray = `${this.outputFolder}/rom/${noHitFiles[i].file}`.split('/rom/')[1].split('/');
-                let acc = `${this.outputFolder}/rom`;
+                let outputArray;
+                let acc = '';
+                if(this.romPath.includes("blob")) {
+                    outputArray = `${this.outputFolder}/rom-blob/${noHitFiles[i].file}`.split('/rom-blob/')[1].split('/');
+                    acc = `${this.outputFolder}/rom-blob`;
+                } else {
+                    outputArray = `${this.outputFolder}/rom/${noHitFiles[i].file}`.split('/rom/')[1].split('/');
+                    acc = `${this.outputFolder}/rom`;
+                }
+                
                 for (let j = 0; j < outputArray.length - 1; j++) {
                     acc += `/${outputArray[j]}`;
                     if (!fs.existsSync(acc)) {
@@ -313,7 +327,11 @@ class RomCoverage {
                 // }
                 // if (noHitFiles[i].lines.length > 0 || noHitFiles[i].jmps.length > 0) {
                 if (noHitFiles[i].lines.length > 0) {
-                    fs.writeFileSync(`${this.outputFolder}/rom/${noHitFiles[i].file}`, fileData.join('\n'));
+                    if(this.romPath.includes("blob")) {
+                        fs.writeFileSync(`${this.outputFolder}/rom-blob/${noHitFiles[i].file}`, fileData.join('\n'));
+                    } else {
+                        fs.writeFileSync(`${this.outputFolder}/rom/${noHitFiles[i].file}`, fileData.join('\n'));
+                    }
                 }
             }
         }
