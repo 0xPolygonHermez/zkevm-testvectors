@@ -311,7 +311,6 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                             skipCounters: true,
                         };
                         const batch = await zkEVMDB.buildBatch(
-                            sequencerAddress,
                             forcedHashData,
                             oldBatchAccInputHash,
                             previousL1InfoTreeRoot,
@@ -330,6 +329,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                                 minTimestamp: '42',
                             },
                             indexL1InfoTree: 0,
+                            coinbase: sequencerAddress,
                         };
 
                         const rawChangeL2BlockTx = zkcommonjs.processorUtils.serializeChangeL2Block(txChangeL2Block);

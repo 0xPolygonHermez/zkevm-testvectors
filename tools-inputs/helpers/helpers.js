@@ -117,6 +117,7 @@ function addRawTxChangeL2Block(batch, output, extraData, tx = undefined) {
                 ],
             },
             indexL1InfoTree: 0,
+            coinbase: '0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D',
         };
     }
     const rawChangeL2BlockTx = processorUtils.serializeChangeL2Block(dataChangeL2Block);

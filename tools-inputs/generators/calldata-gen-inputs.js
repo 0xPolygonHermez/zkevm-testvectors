@@ -75,7 +75,6 @@ describe('Generate inputs executor from test-vectors', async function () {
                 oldStateRoot,
                 txs,
                 newStateRoot,
-                sequencerAddress,
                 expectedNewLeafs,
                 oldBatchAccInputHash,
                 chainID,
@@ -135,7 +134,6 @@ describe('Generate inputs executor from test-vectors', async function () {
 
             const extraData = { forcedData, l1Info: {} };
             const batch = await zkEVMDB.buildBatch(
-                sequencerAddress,
                 forcedHashData,
                 oldBatchAccInputHash,
                 previousL1InfoTreeRoot,
@@ -165,6 +163,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                         minTimestamp: '42',
                     },
                     indexL1InfoTree: 0,
+                    coinbase: '0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D',
                 };
                 internalTestVectors[i].txs.unshift(txChangeL2Block);
                 txs.unshift(txChangeL2Block);

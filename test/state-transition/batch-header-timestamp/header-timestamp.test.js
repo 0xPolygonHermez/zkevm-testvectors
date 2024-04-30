@@ -201,7 +201,6 @@ describe('Header timestamp', function () {
             genesis,
             oldStateRoot,
             batches,
-            sequencerAddress,
             oldBatchAccInputHash,
             forkID,
             forcedData,
@@ -341,7 +340,6 @@ describe('Header timestamp', function () {
             }
             const extraData = { forcedData, l1Info: {} };
             const batch = await zkEVMDB.buildBatch(
-                sequencerAddress,
                 forcedHashData,
                 oldBatchAccInputHash,
                 previousL1InfoTreeRoot,
@@ -361,6 +359,7 @@ describe('Header timestamp', function () {
                     historicRoot: '0x887c22bd8750d34016ac3c66b5ff102dacdd73f6b014e710b51e8022af9a1968',
                 },
                 indexL1InfoTree: k === 0 ? 1 : 0,
+                coinbase: '0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D',
             };
             helpers.addRawTxChangeL2Block(batch, extraData, extraData, tx);
 

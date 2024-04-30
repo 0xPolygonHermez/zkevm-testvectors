@@ -13,6 +13,7 @@ const {
 } = require('ethereumjs-util');
 const { ethers } = require('ethers');
 const hre = require('hardhat');
+const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
 
 const { argv } = require('yargs');
 const helpers = require('../helpers/helpers');
@@ -152,6 +153,9 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
 
             for (let j = 0; j < txs.length; j++) {
                 const currentTx = txs[j];
+                if (currentTx.type === Constants.TX_CHANGE_L2_BLOCK && typeof txs[j].coinbase === 'undefined') {
+                    txs[j].coinbase = '0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D';
+                }
                 let outputTx = {};
                 if (currentTx.to === 'contract') {
                     let contract;
@@ -244,7 +248,7 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
             outputTestVector.txs = auxTxs;
             output.push(outputTestVector);
         }
-        // Save outuput in file
+        // Save output in file
         const dir = path.join(__dirname, testVectorDataPath);
         console.log('WRITE: ', `${dir}${outputName}`);
         await fs.writeFileSync(`${dir}${outputName}`, JSON.stringify(output, null, 2));

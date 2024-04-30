@@ -2,15 +2,15 @@
   "oldStateRoot": "0xeadcbf5dc14418b207b45730d25b862d89f6a680af441147a2ec3661d38d796e",
   "newStateRoot": "0x305dbaab636eb127812ef8a61a0fe4edf66b12abe398fd05b106e62ba1c84c0b",
   "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "newBatchAccInputHash": "0x639cd2ea39a2e86eb6e627a5d2ff03b49dd4d39581d89cacc7bbb0cd57c578cb",
+  "newBatchAccInputHash": "0x9da9ffecb68fbf39958c9aa9de08b0f3059f3634d6f2b0cf7906310f24cd0479",
   "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "newLastTimestamp": "1000",
   "chainID": 1000,
   "forkID": 10,
   "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "batchL2Data": "0x0b000003e800000000ef800a83061a8080830186a0a37bffffffffffffffffffffffffffffffffffffffffffffffffffffffff5060006000f3f1faf73a09d996719aec2119d643cfa88b591bc9bbf25ad3325f4c3cdd0a001a1013022b00190d6f9e4c7db34d0d67705da4cdc6c086a8dafe87daf62051c6a21bff",
+  "batchL2Data": "0x0b000003e8000000002adc25665018aa1fe0e6bc666dac8fc2697ff9baef800a83061a8080830186a0a37bffffffffffffffffffffffffffffffffffffffffffffffffffffffff5060006000f3f1faf73a09d996719aec2119d643cfa88b591bc9bbf25ad3325f4c3cdd0a001a1013022b00190d6f9e4c7db34d0d67705da4cdc6c086a8dafe87daf62051c6a21bff",
   "sequencerAddr": "0x2adc25665018aa1fe0e6bc666dac8fc2697ff9ba",
-  "batchHashData": "0x9e3c9f78ae1e54bade64b04cfd7fd13345c76eea72802a90ca9e123faf5ddaaf",
+  "batchHashData": "0xf89479043ee0840684a1a80e73177d4a63370fda50e7b70dd11f66de5f246ef8",
   "contractsBytecode": {
     "0xb31708f2d98ea676f1d6a62ccdd4d692fefcab01435cc6cf2f95ebc2e5ec9c14": "0x61ffff5060046000f3",
     "0x0d4c9ca238bf1e37ccb8f8c28bc31b89f13cc4d705cb61d69ce4fe1cb0ca5d4a": "0x6001600055"
@@ -298,7 +298,7 @@
     "arith": 674,
     "binary": 1006,
     "memAlign": 7,
-    "keccaks": 41,
+    "keccaks": 42,
     "padding": 13,
     "poseidon": 1327,
     "sha256": 0

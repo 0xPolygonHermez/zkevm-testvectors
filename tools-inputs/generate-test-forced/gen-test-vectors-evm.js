@@ -12,6 +12,7 @@ const { ethers } = require('ethers');
 
 const fs = require('fs');
 const path = require('path');
+const { Constants } = require('@0xpolygonhermez/zkevm-commonjs');
 const helpers = require('../helpers/helpers');
 
 const artifactsPath = path.join(__dirname, '../../artifacts/tools-inputs/tools-calldata/contracts');
@@ -136,6 +137,9 @@ describe('Generate test-vectors from generate-test-vectors', async function () {
                 for (let j = 0; j < txs.length; j++) {
                     const currentTx = txs[j];
                     let outputTx = {};
+                    if (currentTx.type === Constants.TX_CHANGE_L2_BLOCK && typeof txs[j].coinbase === 'undefined') {
+                        txs[j].coinbase = '0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D';
+                    }
                     if (currentTx.to === 'contract') {
                         let contract;
                         let functionData;

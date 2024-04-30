@@ -135,7 +135,8 @@
           "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
           "timestamp": "42"
         },
-        "indexL1InfoTree": 0
+        "indexL1InfoTree": 0,
+        "coinbase": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D"
       },
       {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -180,8 +181,8 @@
       }
     },
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "batchHashData": "0xf29c1a578b636697fcbe47bad2ed5641e975bf7032eea585d5cd1e1d03af675d",
-    "batchL2Data": "0x0b73e6af6f00000000ea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880847f0637258203e8808025fe11f02a3e8aa7cca6b550ca51194230ca5eff4c5c0843f599668025ca8dbb10ebad36677dcaf593372fb86f9292b7602393a56b026972474f1da5e5f44e611bff",
+    "batchHashData": "0x86f2b8e179771169ed14616e8d88bc722605b250646e4a51987a5b16fbeeb3fb",
+    "batchL2Data": "0x0b73e6af6f00000000617b3a3528f9cdd6630fd3301b9c8911f7bf063dea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880847f0637258203e8808025fe11f02a3e8aa7cca6b550ca51194230ca5eff4c5c0843f599668025ca8dbb10ebad36677dcaf593372fb86f9292b7602393a56b026972474f1da5e5f44e611bff",
     "chainID": 1000,
     "forkID": 10,
     "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -189,7 +190,7 @@
     "previousL1InfoTreeIndex": 1,
     "oldStateRoot": "0xd1af31cda8ca5dde53de1ba5e05b7651888df85538421ed70889933a2b7d651e",
     "newStateRoot": "0x2967cac9e71e97eccab55386c4528627de47b2606fb20d824af824fa6a37dc44",
-    "newBatchAccInputHash": "0x7144aba1b8e0c961050de5b3e2e431a5c491400c35c7099e0c7875261246f8b4",
+    "newBatchAccInputHash": "0xb25db4c09f5cd37d9697f4ad4cbbcdd1766ffaeb70888e7b6d8b922f86282f64",
     "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "currentL1InfoTreeIndex": 1,
     "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
@@ -199,7 +200,7 @@
       "arith": 583,
       "binary": 774,
       "memAlign": 2,
-      "keccaks": 41,
+      "keccaks": 42,
       "padding": 22,
       "poseidon": 1414,
       "sha256": 0
@@ -341,7 +342,8 @@
           "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
           "timestamp": "42"
         },
-        "indexL1InfoTree": 0
+        "indexL1InfoTree": 0,
+        "coinbase": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D"
       },
       {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -386,8 +388,8 @@
       }
     },
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "batchHashData": "0x1940ca870ad70eedeeff2d89efb6bfded92cdb1ddc451da0b5782984a1400271",
-    "batchL2Data": "0x0b73e6af6f00000000ea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084be08a7068203e88080ba3ac72f29ae7616c11402ddff2c7befd6b808e29b55558fb7b5b239141dd46f3fab6273310faeb31438f3c9c06f363a0e45a79538da2cbe988a1ee1bf9fb06a1cff",
+    "batchHashData": "0x570f1532e5507f7b3193e662c556a1862da999f455a6b8d2f356ec023985834f",
+    "batchL2Data": "0x0b73e6af6f00000000617b3a3528f9cdd6630fd3301b9c8911f7bf063dea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084be08a7068203e88080ba3ac72f29ae7616c11402ddff2c7befd6b808e29b55558fb7b5b239141dd46f3fab6273310faeb31438f3c9c06f363a0e45a79538da2cbe988a1ee1bf9fb06a1cff",
     "chainID": 1000,
     "forkID": 10,
     "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -395,7 +397,7 @@
     "previousL1InfoTreeIndex": 1,
     "oldStateRoot": "0xd1af31cda8ca5dde53de1ba5e05b7651888df85538421ed70889933a2b7d651e",
     "newStateRoot": "0x4a851115240a02252c5b24ad786f863162e973fbef9125bddf28fc43592a42fe",
-    "newBatchAccInputHash": "0x1e518bf9ae16e948444fc0ca165cd0823f001fdfb15969f332c6e42cfb7f139c",
+    "newBatchAccInputHash": "0x64f46f4affd6bb38c690dab8584496009dc8fe587b65a0f2246efde1adc564f8",
     "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "currentL1InfoTreeIndex": 1,
     "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
@@ -405,7 +407,7 @@
       "arith": 583,
       "binary": 774,
       "memAlign": 2,
-      "keccaks": 41,
+      "keccaks": 42,
       "padding": 22,
       "poseidon": 1414,
       "sha256": 0
@@ -547,7 +549,8 @@
           "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
           "timestamp": "42"
         },
-        "indexL1InfoTree": 0
+        "indexL1InfoTree": 0,
+        "coinbase": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D"
       },
       {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -592,8 +595,8 @@
       }
     },
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "batchHashData": "0x87ef87db79bbebba3df835b5a0061a42c0cb253b2771d2f04e886ab9c26e68b7",
-    "batchL2Data": "0x0b73e6af6f00000000ea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880842e1209808203e88080ff6c9b0954cdde657861fae070cfbee1ac414a06e2a06714111927ecec516d34068fde1fe576c5173fb77402e8e8464c4f9ab5ca5223262988d5e3c20063e4621cff",
+    "batchHashData": "0xf6cb690b3b8da88211b88999fd0af3ff3c159e51f9d5eee14aeefad1cf35b8f4",
+    "batchL2Data": "0x0b73e6af6f00000000617b3a3528f9cdd6630fd3301b9c8911f7bf063dea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880842e1209808203e88080ff6c9b0954cdde657861fae070cfbee1ac414a06e2a06714111927ecec516d34068fde1fe576c5173fb77402e8e8464c4f9ab5ca5223262988d5e3c20063e4621cff",
     "chainID": 1000,
     "forkID": 10,
     "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -601,7 +604,7 @@
     "previousL1InfoTreeIndex": 1,
     "oldStateRoot": "0xd1af31cda8ca5dde53de1ba5e05b7651888df85538421ed70889933a2b7d651e",
     "newStateRoot": "0x853cb959b74b64750321eca51cee42425e66bc2dc81b923f6ce767683eea8a8a",
-    "newBatchAccInputHash": "0xb0578a59a8db1b36a9b5c374a0a53f246c3d8651ce4ca771b5dcde383c6a27e8",
+    "newBatchAccInputHash": "0x424cab561195b9359594815df4f11fbbe53ec9e0012e1a58c90d62d813d67777",
     "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "currentL1InfoTreeIndex": 1,
     "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
@@ -611,7 +614,7 @@
       "arith": 583,
       "binary": 774,
       "memAlign": 2,
-      "keccaks": 41,
+      "keccaks": 42,
       "padding": 22,
       "poseidon": 1414,
       "sha256": 0
@@ -753,7 +756,8 @@
           "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
           "timestamp": "42"
         },
-        "indexL1InfoTree": 0
+        "indexL1InfoTree": 0,
+        "coinbase": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D"
       },
       {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -798,8 +802,8 @@
       }
     },
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "batchHashData": "0x707080c003da8b26fc48dee693ad658f7324581ead01f2f8cbc42f9b0db2787e",
-    "batchL2Data": "0x0b73e6af6f00000000ea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084084a32fc8203e880800f4d5babac39248a9a24f3df2e4d33d6ac4f188b02d7d20afb7c3d1e31dba4c109233d028b384c7b9bc209123f5ac994f38da4e4c2f307157f4ec779c1e1e47d1bff",
+    "batchHashData": "0x416d056fd095dba7a1c1ab2a07d1dce4e79548fb9a01fc8e52da07aa68e1f184",
+    "batchL2Data": "0x0b73e6af6f00000000617b3a3528f9cdd6630fd3301b9c8911f7bf063dea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084084a32fc8203e880800f4d5babac39248a9a24f3df2e4d33d6ac4f188b02d7d20afb7c3d1e31dba4c109233d028b384c7b9bc209123f5ac994f38da4e4c2f307157f4ec779c1e1e47d1bff",
     "chainID": 1000,
     "forkID": 10,
     "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -807,7 +811,7 @@
     "previousL1InfoTreeIndex": 1,
     "oldStateRoot": "0xd1af31cda8ca5dde53de1ba5e05b7651888df85538421ed70889933a2b7d651e",
     "newStateRoot": "0x0628780effa98a885fa27d99585788faa0345d0ebc09bb3c89e3ff36470575e2",
-    "newBatchAccInputHash": "0x1c3e33a205c38abb20da1bd142f4090ca46dd4be76604d6b9578210a0c35031a",
+    "newBatchAccInputHash": "0x12a88b4ce9cb070000e5c49feb53a4dee6a4b6f8a9b22774cc122d6c57efc966",
     "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "currentL1InfoTreeIndex": 1,
     "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
@@ -817,7 +821,7 @@
       "arith": 583,
       "binary": 765,
       "memAlign": 2,
-      "keccaks": 41,
+      "keccaks": 42,
       "padding": 22,
       "poseidon": 1414,
       "sha256": 0
@@ -959,7 +963,8 @@
           "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
           "timestamp": "42"
         },
-        "indexL1InfoTree": 0
+        "indexL1InfoTree": 0,
+        "coinbase": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D"
       },
       {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -1004,8 +1009,8 @@
       }
     },
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "batchHashData": "0x2c2b3062857d897733546839d01cdb97d1e7a225643aaac7b68ef657e8b78572",
-    "batchL2Data": "0x0b73e6af6f00000000ea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae98808461bf3aec8203e880804594d34d084015d9fab180dd03ec754102d6b962cbbb3e6e102b2ae2f7a244ce1d2f41b48139d9c7258161ae76dd9c4869a1fc606c151c93af1ed38c86ba841d1cff",
+    "batchHashData": "0xdbe9a40bb2b668084af11cf5bfc1cf6094ff95356b4ae2e59470b733c3595edb",
+    "batchL2Data": "0x0b73e6af6f00000000617b3a3528f9cdd6630fd3301b9c8911f7bf063dea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae98808461bf3aec8203e880804594d34d084015d9fab180dd03ec754102d6b962cbbb3e6e102b2ae2f7a244ce1d2f41b48139d9c7258161ae76dd9c4869a1fc606c151c93af1ed38c86ba841d1cff",
     "chainID": 1000,
     "forkID": 10,
     "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -1013,7 +1018,7 @@
     "previousL1InfoTreeIndex": 1,
     "oldStateRoot": "0xd1af31cda8ca5dde53de1ba5e05b7651888df85538421ed70889933a2b7d651e",
     "newStateRoot": "0xd81bd113ca385a352c9d1fbbe24b336de1e5c24ca755e8fd7ce2585b4e0ee6cc",
-    "newBatchAccInputHash": "0x29b3d61922fe3b4d82e923e56f383897616d195b01944aae867e4ad33bd4d938",
+    "newBatchAccInputHash": "0x458c786ef732cb311c94e7fc8cfdb65f034de5a82621a7e02d685d8770d56b1f",
     "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "currentL1InfoTreeIndex": 1,
     "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
@@ -1023,7 +1028,7 @@
       "arith": 583,
       "binary": 768,
       "memAlign": 2,
-      "keccaks": 41,
+      "keccaks": 42,
       "padding": 22,
       "poseidon": 1414,
       "sha256": 0
@@ -1165,7 +1170,8 @@
           "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
           "timestamp": "42"
         },
-        "indexL1InfoTree": 0
+        "indexL1InfoTree": 0,
+        "coinbase": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D"
       },
       {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -1210,8 +1216,8 @@
       }
     },
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "batchHashData": "0xf390b9dfeefdee4359e1d4f90acd12c82396eee586f14ab607b42e740250b49c",
-    "batchL2Data": "0x0b73e6af6f00000000ea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae98808476d79e1b8203e88080ef91066bfa5419d9aee9b2e15d0a411eea2d27c012d616ad463ed0e3d435c1e00f6eead245bb18a52f4acc72ad0c0d3b5afb84780d81751149bcddf1a6caee791cff",
+    "batchHashData": "0xf9c26e476a57c4f6ba7264216e050dfcd8671ef3b2f5b1955cbed49a954f3485",
+    "batchL2Data": "0x0b73e6af6f00000000617b3a3528f9cdd6630fd3301b9c8911f7bf063dea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae98808476d79e1b8203e88080ef91066bfa5419d9aee9b2e15d0a411eea2d27c012d616ad463ed0e3d435c1e00f6eead245bb18a52f4acc72ad0c0d3b5afb84780d81751149bcddf1a6caee791cff",
     "chainID": 1000,
     "forkID": 10,
     "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -1219,7 +1225,7 @@
     "previousL1InfoTreeIndex": 1,
     "oldStateRoot": "0xd1af31cda8ca5dde53de1ba5e05b7651888df85538421ed70889933a2b7d651e",
     "newStateRoot": "0xb9c432bf57e9ca1402febba126007258d6613dbba27cf333ab7581cb7468f119",
-    "newBatchAccInputHash": "0x8ba4c06e307ca51351b54c24a385585ef9a6a96227bb77ad321573cce15648c8",
+    "newBatchAccInputHash": "0xee2faeac967a0b2ca05ffdd8d8b2adc396cbbb625190b5aa7a51750b6d12da93",
     "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "currentL1InfoTreeIndex": 1,
     "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
@@ -1229,7 +1235,7 @@
       "arith": 583,
       "binary": 771,
       "memAlign": 2,
-      "keccaks": 41,
+      "keccaks": 42,
       "padding": 22,
       "poseidon": 1414,
       "sha256": 0
@@ -1371,7 +1377,8 @@
           "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
           "timestamp": "42"
         },
-        "indexL1InfoTree": 0
+        "indexL1InfoTree": 0,
+        "coinbase": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D"
       },
       {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -1416,8 +1423,8 @@
       }
     },
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "batchHashData": "0x4d08d8cd7071cfb62016bb81ca690cf15f232e877cc77915087395035594f11e",
-    "batchL2Data": "0x0b73e6af6f00000000ea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084a6a7b1868203e88080dbc02ec796cde2ad9a578c915ea7acf9288580cf691e45488a83725608748ead3d25e32d95f16030678d47496e201a58b065785d03c9a475bbacaf21d3d394f31bff",
+    "batchHashData": "0x6594aa1a3c7c33bc80f24306676104f5d8927d2ed6350e12dac3219f686a3f28",
+    "batchL2Data": "0x0b73e6af6f00000000617b3a3528f9cdd6630fd3301b9c8911f7bf063dea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084a6a7b1868203e88080dbc02ec796cde2ad9a578c915ea7acf9288580cf691e45488a83725608748ead3d25e32d95f16030678d47496e201a58b065785d03c9a475bbacaf21d3d394f31bff",
     "chainID": 1000,
     "forkID": 10,
     "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -1425,7 +1432,7 @@
     "previousL1InfoTreeIndex": 1,
     "oldStateRoot": "0xd1af31cda8ca5dde53de1ba5e05b7651888df85538421ed70889933a2b7d651e",
     "newStateRoot": "0x019233766ebb6a8e9a17051af8bddf788dbc181d88ebc30ebd898e6f9f93748e",
-    "newBatchAccInputHash": "0x0933b64a44fe4da119baa1eb7dca2e14f22026fbd2d226e97ad14a275ddaa71f",
+    "newBatchAccInputHash": "0xe2f6a275bd54cd4868e1619bab392f000715b19647012742da012872d194b1a6",
     "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "currentL1InfoTreeIndex": 1,
     "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
@@ -1435,7 +1442,7 @@
       "arith": 583,
       "binary": 771,
       "memAlign": 2,
-      "keccaks": 41,
+      "keccaks": 42,
       "padding": 22,
       "poseidon": 1414,
       "sha256": 0
@@ -1577,7 +1584,8 @@
           "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
           "timestamp": "42"
         },
-        "indexL1InfoTree": 0
+        "indexL1InfoTree": 0,
+        "coinbase": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D"
       },
       {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -1622,8 +1630,8 @@
       }
     },
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "batchHashData": "0xcb78f0ee40c66348f3d686d6425e9614f4579b5cca5ad07ec3a209acf14b0370",
-    "batchL2Data": "0x0b73e6af6f00000000ea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880842fd743c18203e880805f42edbf933bf4d7eca0ad30d645d80d4d930f0fb62353a5fe8d7b55344fc2876b48d94d5754d53cc446a1148409acc12ee4de4932c6fa940096bc3949c494941bff",
+    "batchHashData": "0xe4fe1d9e29a85f29c6df6a8e9685d2388f6f5e379f1a8125b6b651dcc299737c",
+    "batchL2Data": "0x0b73e6af6f00000000617b3a3528f9cdd6630fd3301b9c8911f7bf063dea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880842fd743c18203e880805f42edbf933bf4d7eca0ad30d645d80d4d930f0fb62353a5fe8d7b55344fc2876b48d94d5754d53cc446a1148409acc12ee4de4932c6fa940096bc3949c494941bff",
     "chainID": 1000,
     "forkID": 10,
     "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -1631,7 +1639,7 @@
     "previousL1InfoTreeIndex": 1,
     "oldStateRoot": "0xd1af31cda8ca5dde53de1ba5e05b7651888df85538421ed70889933a2b7d651e",
     "newStateRoot": "0x57659582feb079b0d5a1422fa40b5a56d58d3e7c08b8fbe6cd01b8acc1d39da7",
-    "newBatchAccInputHash": "0x3b402f8986e65aed3720314cdd2494a6b8823952cd8621ad0dbfb7c800ffe107",
+    "newBatchAccInputHash": "0x9bef21f8d1b0ab5c5ef5ec5341489b7eea14f1f326db3c389457233088dda7cc",
     "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "currentL1InfoTreeIndex": 1,
     "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
@@ -1641,7 +1649,7 @@
       "arith": 583,
       "binary": 777,
       "memAlign": 2,
-      "keccaks": 41,
+      "keccaks": 42,
       "padding": 22,
       "poseidon": 1414,
       "sha256": 0
@@ -1783,7 +1791,8 @@
           "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
           "timestamp": "42"
         },
-        "indexL1InfoTree": 0
+        "indexL1InfoTree": 0,
+        "coinbase": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D"
       },
       {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -1828,8 +1837,8 @@
       }
     },
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "batchHashData": "0x4f28c7ca0619135918e41ede5991a1491df334817b043ad330205e9d64e2452a",
-    "batchL2Data": "0x0b73e6af6f00000000ea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084d44f43a08203e88080a8ed141a21fdd37088f1639490d27e5e1961003b40a558064e23c6b37cb0d1d4600c62bbd93189f2d39a7ec52c74e94a437f636d32841a676565e919bf5831c81cff",
+    "batchHashData": "0xb368a4509879641cadfe1e3235d07862efc64181951d933092306c0671399cc0",
+    "batchL2Data": "0x0b73e6af6f00000000617b3a3528f9cdd6630fd3301b9c8911f7bf063dea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae988084d44f43a08203e88080a8ed141a21fdd37088f1639490d27e5e1961003b40a558064e23c6b37cb0d1d4600c62bbd93189f2d39a7ec52c74e94a437f636d32841a676565e919bf5831c81cff",
     "chainID": 1000,
     "forkID": 10,
     "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -1837,7 +1846,7 @@
     "previousL1InfoTreeIndex": 1,
     "oldStateRoot": "0xd1af31cda8ca5dde53de1ba5e05b7651888df85538421ed70889933a2b7d651e",
     "newStateRoot": "0xbbe202b1f4e7606bcbd80121e92d5b7fd1875cdfd7936d838ba0707751451554",
-    "newBatchAccInputHash": "0xdc7d413ef787aa61e83a6299e2438ad120a13b2cda19b87a177c5b062dddc8d0",
+    "newBatchAccInputHash": "0x041dc3aaca9876b761b1eb16b306355477cda0cd121a3b76b8c178a08a1804e6",
     "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "currentL1InfoTreeIndex": 1,
     "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
@@ -1847,7 +1856,7 @@
       "arith": 583,
       "binary": 777,
       "memAlign": 2,
-      "keccaks": 41,
+      "keccaks": 42,
       "padding": 22,
       "poseidon": 1414,
       "sha256": 0
@@ -1989,7 +1998,8 @@
           "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
           "timestamp": "42"
         },
-        "indexL1InfoTree": 0
+        "indexL1InfoTree": 0,
+        "coinbase": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D"
       },
       {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -2034,8 +2044,8 @@
       }
     },
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "batchHashData": "0x4b2b693f33389470c049667d4bdd7f609d31bfd0e51c5b70558ef31cd1c069d9",
-    "batchL2Data": "0x0b73e6af6f00000000ea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae98808442f83ab78203e88080edc81fb9a0e09d850ba5ac46ca964871cc11e54b3fb776030f2317f705573445739bc4fe827b90976bda47baa57bff5a291a597e83ad29ce419ae483729318a31cff",
+    "batchHashData": "0x2e7c2642710f65faa68a667ad54023951468f366e627bd045ba5c835b3004779",
+    "batchL2Data": "0x0b73e6af6f00000000617b3a3528f9cdd6630fd3301b9c8911f7bf063dea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae98808442f83ab78203e88080edc81fb9a0e09d850ba5ac46ca964871cc11e54b3fb776030f2317f705573445739bc4fe827b90976bda47baa57bff5a291a597e83ad29ce419ae483729318a31cff",
     "chainID": 1000,
     "forkID": 10,
     "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -2043,7 +2053,7 @@
     "previousL1InfoTreeIndex": 1,
     "oldStateRoot": "0xd1af31cda8ca5dde53de1ba5e05b7651888df85538421ed70889933a2b7d651e",
     "newStateRoot": "0xe6d1eb586a44431d6d063ec7e4bddc608e4d733a3d09e6e689ef5dfcbda6c8d0",
-    "newBatchAccInputHash": "0x8eb7bc9bbabc09760719f6a27e51cacfd6b5be529d8c164f908f45535894458a",
+    "newBatchAccInputHash": "0xdfa0a65e2205e4b0a10d70cdc0b65927ed153004df4d5d145e3e1435a27b2669",
     "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "currentL1InfoTreeIndex": 1,
     "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
@@ -2053,7 +2063,7 @@
       "arith": 583,
       "binary": 780,
       "memAlign": 2,
-      "keccaks": 41,
+      "keccaks": 42,
       "padding": 22,
       "poseidon": 1414,
       "sha256": 0
@@ -2195,7 +2205,8 @@
           "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
           "timestamp": "42"
         },
-        "indexL1InfoTree": 0
+        "indexL1InfoTree": 0,
+        "coinbase": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D"
       },
       {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -2240,8 +2251,8 @@
       }
     },
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "batchHashData": "0x4452e5bb99092142f174769d5c06dea1600efdfb99e323b77ac18348148fdb77",
-    "batchL2Data": "0x0b73e6af6f00000000ea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880842a654e298203e88080bb8dc8c662289e62cff3cfc8e0a3729b978af71bf7fc2f296487e26b5ab5a5530f277d35007baf7c09ae0e13b4269cbe4ee7532ba0fa13733749e719b2488ceb1bff",
+    "batchHashData": "0xd1fbabd4e57ba9716dfba1c442241dafe90a67f22b29406b1766ffe69bb9b441",
+    "batchL2Data": "0x0b73e6af6f00000000617b3a3528f9cdd6630fd3301b9c8911f7bf063dea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880842a654e298203e88080bb8dc8c662289e62cff3cfc8e0a3729b978af71bf7fc2f296487e26b5ab5a5530f277d35007baf7c09ae0e13b4269cbe4ee7532ba0fa13733749e719b2488ceb1bff",
     "chainID": 1000,
     "forkID": 10,
     "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -2249,7 +2260,7 @@
     "previousL1InfoTreeIndex": 1,
     "oldStateRoot": "0xd1af31cda8ca5dde53de1ba5e05b7651888df85538421ed70889933a2b7d651e",
     "newStateRoot": "0x067129a173aabc035c43ce84dc04d8fc56df0a1d59e7dc2f9ba9bdf01f4f04e5",
-    "newBatchAccInputHash": "0x2b4d071b8fdeedb98730262b0761d0129c4a5e50c3456db814a2e7757169dca5",
+    "newBatchAccInputHash": "0x6aba1e51de616ad05c64fc017a746384b616096802b4dc7473a1d24554e2140a",
     "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "currentL1InfoTreeIndex": 1,
     "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
@@ -2259,7 +2270,7 @@
       "arith": 583,
       "binary": 771,
       "memAlign": 2,
-      "keccaks": 41,
+      "keccaks": 42,
       "padding": 22,
       "poseidon": 1414,
       "sha256": 0
@@ -2401,7 +2412,8 @@
           "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
           "timestamp": "42"
         },
-        "indexL1InfoTree": 0
+        "indexL1InfoTree": 0,
+        "coinbase": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D"
       },
       {
         "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
@@ -2446,8 +2458,8 @@
       }
     },
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "batchHashData": "0x4a209cb6d9f16b5a84f67240420f0a1fd6b7bfc38dbd5cbddccd1d7975399e46",
-    "batchL2Data": "0x0b73e6af6f00000000ea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880849b4c3b818203e88080408b921d490ec5a536caa92f9d6d491bf75ea73ae832a72d634e3b7a8f7972e013ed3fc0271623bbb6a3fbe2e66693014e2080af2d926c543d40ebce0a0ec8211cff",
+    "batchHashData": "0xc8d524f5fdff75144ddc07f1e793edd5128cfcd8462d3dcce5cf26e9fa484e76",
+    "batchL2Data": "0x0b73e6af6f00000000617b3a3528f9cdd6630fd3301b9c8911f7bf063dea80843b9aca00830186a0941275fbb540c8efc58b812ba83b0d0b8b9917ae9880849b4c3b818203e88080408b921d490ec5a536caa92f9d6d491bf75ea73ae832a72d634e3b7a8f7972e013ed3fc0271623bbb6a3fbe2e66693014e2080af2d926c543d40ebce0a0ec8211cff",
     "chainID": 1000,
     "forkID": 10,
     "forcedHashData": "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -2455,7 +2467,7 @@
     "previousL1InfoTreeIndex": 1,
     "oldStateRoot": "0xd1af31cda8ca5dde53de1ba5e05b7651888df85538421ed70889933a2b7d651e",
     "newStateRoot": "0x43d899dcdad9d55d9235d2717e2455b12cefb8a9a2b97103ac623bfaf7f9ce55",
-    "newBatchAccInputHash": "0xb335ac58874e01ec3d5b3ccfd86d8bd1cd825fa9808cf2517663697d9a20f6a1",
+    "newBatchAccInputHash": "0x55dcac7a4bbe184899464209f7bdfe6fe450281571163e5b7bd8d74df69c194e",
     "oldBatchAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "currentL1InfoTreeIndex": 1,
     "currentL1InfoTreeRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
@@ -2465,7 +2477,7 @@
       "arith": 583,
       "binary": 768,
       "memAlign": 2,
-      "keccaks": 41,
+      "keccaks": 42,
       "padding": 22,
       "poseidon": 1414,
       "sha256": 0

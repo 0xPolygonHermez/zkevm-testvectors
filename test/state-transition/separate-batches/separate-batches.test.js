@@ -64,7 +64,6 @@ describe('Check roots same txs in different batches', function () {
         // start batch
         const extraData = { forcedData: generateData.forcedData, l1Info: {} };
         const batch = await zkEVMDB.buildBatch(
-            generateData.sequencerAddress,
             generateData.forcedHashData,
             generateData.oldBatchAccInputHash,
             generateData.previousL1InfoTreeRoot,
@@ -122,6 +121,7 @@ describe('Check roots same txs in different batches', function () {
                     ],
                 },
                 indexL1InfoTree: batch.rawTxs.length + 2,
+                coinbase: '0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D',
             };
 
             helpers.addRawTxChangeL2Block(batch, extraData, extraData, dataChangeL2Block);
@@ -202,7 +202,6 @@ describe('Check roots same txs in different batches', function () {
             // start batch
             const extraData = { forcedData: generateData.forcedData, l1Info: {} };
             batch = await zkEVMDB.buildBatch(
-                generateData.sequencerAddress,
                 generateData.forcedHashData,
                 generateData.oldBatchAccInputHash,
                 generateData.previousL1InfoTreeRoot,
@@ -256,6 +255,7 @@ describe('Check roots same txs in different batches', function () {
                     ],
                 },
                 indexL1InfoTree: batch.rawTxs.length + 2,
+                coinbase: '0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D',
             };
             helpers.addRawTxChangeL2Block(batch, extraData, extraData, dataChangeL2Block);
 

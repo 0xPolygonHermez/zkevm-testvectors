@@ -50,7 +50,6 @@ describe('Run state-transition tests: calldata', async function () {
                     oldStateRoot,
                     txs,
                     newStateRoot,
-                    sequencerAddress,
                     expectedNewLeafs,
                     oldBatchAccInputHash,
                     chainID,
@@ -92,7 +91,6 @@ describe('Run state-transition tests: calldata', async function () {
 
                 const extraData = { forcedData, l1Info: {} };
                 const batch = await zkEVMDB.buildBatch(
-                    sequencerAddress,
                     forcedHashData,
                     oldBatchAccInputHash,
                     previousL1InfoTreeRoot,
@@ -120,6 +118,7 @@ describe('Run state-transition tests: calldata', async function () {
                             minTimestamp: '42',
                         },
                         indexL1InfoTree: 0,
+                        coinbase: '0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D',
                     };
                     txs.unshift(txChangeL2Block);
                 }
@@ -129,6 +128,7 @@ describe('Run state-transition tests: calldata', async function () {
                     const currentTx = txs[j];
                     // Check for TX_CHANGE_L2_BLOCK
                     if (currentTx.type === Constants.TX_CHANGE_L2_BLOCK) {
+                        currentTx.coinbase = '0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D';
                         const rawChangeL2BlockTx = zkcommonjs.processorUtils.serializeChangeL2Block(currentTx);
                         const customRawTx = `0x${rawChangeL2BlockTx}`;
 

@@ -26,6 +26,7 @@ async function main() {
             minTimestamp: '42',
         },
         indexL1InfoTree: 0,
+        coinbase: '0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D',
     };
 
     const rawChangeL2BlockTx = processorUtils.serializeChangeL2Block(txChangeL2Block);
@@ -66,7 +67,6 @@ async function main() {
         inputRLP.newBatchAccInputHash = await blobUtils.computeBatchAccInputHash(
             inputRLP.oldBatchAccInputHash,
             inputRLP.batchHashData,
-            inputRLP.sequencerAddr,
             inputRLP.forcedHashData,
             inputRLP.type,
         );
