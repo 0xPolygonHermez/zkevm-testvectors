@@ -103,7 +103,7 @@ async function main() {
 }
 
 async function readTracer(txCount, dataLen) {
-    const result = JSON.parse(fs.readFileSync(path.join(__dirname, '../../../zkevm-proverjs/src/sm/sm_main/logs-full-trace/benchmark-trace__full_trace.json')));
+    const result = JSON.parse(fs.readFileSync(path.join(__dirname, '../../../zkevm-proverjs/src/sm/sm_main/logs-full-trace/benchmark-trace__full_trace_FULL_BATCH.json')));
     printTracerResults(result);
     let errFound = false;
     const { responses } = result.block_responses[0];
@@ -158,7 +158,7 @@ async function executeTx(circuitInput, cmPols) {
         debugInfo: {
             inputName: 'benchmark-trace',
         },
-        stepsN: 8388608,
+        stepsN: 2**24,
         tracer: true,
     };
     await smMain.execute(cmPols.Main, circuitInput, rom, pilConfig);
@@ -257,7 +257,7 @@ async function createRawTxs(txCount, isSetup) {
         sequencerAddress,
         zkcommonjs.smtUtils.stringToH4(l1InfoRoot),
         Constants.ZERO_BYTES32,
-        Constants.DEFAULT_MAX_TX,
+        2000,
         {
             skipVerifyL1InfoRoot: (typeof skipVerifyL1InfoRoot === 'undefined' || skipVerifyL1InfoRoot !== false),
             vcmConfig: {
