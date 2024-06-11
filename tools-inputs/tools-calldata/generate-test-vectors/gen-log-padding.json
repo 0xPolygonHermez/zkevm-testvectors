@@ -26,7 +26,7 @@
         }
       ]
     },
-    "expectedOldRoot": "0x61aef6e29081ce126f991495c52c93cb9af888c2074948a288645e7ec5d35196",
+    "expectedOldRoot": "0x58d5d24ef20905a10cd6b31a981899871cacd60d349f14273065c2b5f22cf4de",
     "txs": [
       {
         "type": 11,
@@ -51,7 +51,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0xcc61c2d3d9d7bbf2d8d9fcce85d8c4680b8950bed037fda335c308b46799b0eb",
+    "expectedNewRoot": "0xab5fb800b5dd573ea27ad59695648447f09a067e184662fbe40f485cae724902",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000000000000000000",
@@ -67,8 +67,8 @@
         "balance": "0",
         "nonce": "1",
         "storage": {},
-        "hashBytecode": "0x6d19935899608a6c365deecc54da2c6d68ceba1bc04be4a7e35745520d71c59f",
-        "bytecodeLength": 218
+        "hashBytecode": "0x919f5c85bd86606c1596ca9c3208ac5329d61957e076e5bef97361e50f0be803",
+        "bytecodeLength": 509
       },
       "0x000000000000000000000000000000005ca1ab1e": {
         "balance": "0",
@@ -76,14 +76,107 @@
         "storage": {
           "0x0000000000000000000000000000000000000000000000000000000000000000": "0x01",
           "0x0000000000000000000000000000000000000000000000000000000000000002": "0x73e6af6f",
-          "0xa6eef7e35abe7026729641147f7915573c7e97b47efa546f5f6e3230263bcb49": "0x61aef6e29081ce126f991495c52c93cb9af888c2074948a288645e7ec5d35196",
-          "0x0000000000000000000000000000000000000000000000000000000000000003": "0xed0f761756e44f10291361bbf97894cc469ddbbdd77f438146dae011b00d37c9"
+          "0xa6eef7e35abe7026729641147f7915573c7e97b47efa546f5f6e3230263bcb49": "0x58d5d24ef20905a10cd6b31a981899871cacd60d349f14273065c2b5f22cf4de",
+          "0x0000000000000000000000000000000000000000000000000000000000000003": "0xcd0cd954167a0dbc5c7f3568386d5d271decd1cc842d3482faa106e6ee8e4828"
         }
       }
     },
     "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "batchHashData": "0x076d9555e053e5b8ac4baa5803078850864d8f90256583414bdfdb281825fe3b",
     "batchL2Data": "0x0b73e6af6f00000000e6808083989680941275fbb540c8efc58b812ba83b0d0b8b9917ae9880847b0cb8398203e88080ccc807312256912775cebdb5345d6f083c22222ba4233ccc7400d404d119885e42590c3cb48e562aa745d47b69313e9ad0ce1084f41cf8da94567674c3b1ca101bff",
+    "chainID": 1000,
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 9,
+    "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "timestampLimit": "1944498031"
+  },
+  {
+    "id": 1,
+    "description": "Log padding",
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": {
+      "accounts": [
+        {
+          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+          "balance": "100000000000000000000",
+          "nonce": "0"
+        },
+        {
+          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
+          "balance": "200000000000000000000",
+          "nonce": "0"
+        }
+      ],
+      "contracts": [
+        {
+          "contractName": "LogPadding",
+          "paramsDeploy": {}
+        }
+      ]
+    },
+    "expectedOldRoot": "0x58d5d24ef20905a10cd6b31a981899871cacd60d349f14273065c2b5f22cf4de",
+    "txs": [
+      {
+        "type": 11,
+        "deltaTimestamp": 1944498031,
+        "l1Info": {
+          "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+          "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
+          "timestamp": "42"
+        },
+        "indexL1InfoTree": 0
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "contract",
+        "nonce": "0",
+        "value": "0",
+        "contractName": "LogPadding",
+        "function": "emitEventLarger",
+        "params": [
+          60
+        ],
+        "gasLimit": 10000000,
+        "gasPrice": "0",
+        "chainId": 1000
+      }
+    ],
+    "expectedNewRoot": "0x612fb3fc94a7e6dd3108e28cf251757179e0ede902b833223cfd7119413aa6a6",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100000000000000000000",
+        "nonce": "0",
+        "storage": null
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "200000000000000000000",
+        "nonce": "1",
+        "storage": null
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {},
+        "hashBytecode": "0x919f5c85bd86606c1596ca9c3208ac5329d61957e076e5bef97361e50f0be803",
+        "bytecodeLength": 509
+      },
+      "0x000000000000000000000000000000005ca1ab1e": {
+        "balance": "0",
+        "nonce": "0",
+        "storage": {
+          "0x0000000000000000000000000000000000000000000000000000000000000000": "0x01",
+          "0x0000000000000000000000000000000000000000000000000000000000000002": "0x73e6af6f",
+          "0xa6eef7e35abe7026729641147f7915573c7e97b47efa546f5f6e3230263bcb49": "0x58d5d24ef20905a10cd6b31a981899871cacd60d349f14273065c2b5f22cf4de",
+          "0x0000000000000000000000000000000000000000000000000000000000000003": "0x11e23d1f07f4c4d0bf563c3fe1b629e533632fa7398489fb66a0a70a417cc4b4"
+        }
+      }
+    },
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0x45843b1fb37ba3747e7a0690613b03e6b33dc48669691ecf035350fc89f197b9",
+    "batchL2Data": "0x0b73e6af6f00000000f846808083989680941275fbb540c8efc58b812ba83b0d0b8b9917ae9880a4fc1748bf000000000000000000000000000000000000000000000000000000000000003c8203e88080c8e00ecc5d5a02684c6cd331c1de80b6a649531e42860bec6ff0360cf2ebb2a779449f40fa7eec2a3b2bee1dea5746c8c238e7f6ed076574134d2a2636b7ec651bff",
     "chainID": 1000,
     "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "forkID": 9,

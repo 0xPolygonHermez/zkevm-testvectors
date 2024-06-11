@@ -21,7 +21,7 @@
         "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
         "nonce": 1,
         "balance": 0,
-        "bytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c80637b0cb83914602d575b600080fd5b60336035565b005b60006040518060400160405280600381526020017f0102030000000000000000000000000000000000000000000000000000000000815250905060007f1ea5ab62888366c058d9c8bd1be1081b32b39c8fbc3f91500bbd8a434be393699050602082018251828183a15050505056fea2646970667358221220efda0131277e28081f8f6f3a0315b4b9bce1e615cc7751bc9def72873d8020e964736f6c63430008090033",
+        "bytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c80637b0cb8391461003b578063fc1748bf14610045575b600080fd5b610043610061565b005b61005f600480360381019061005a919061015e565b6100d0565b005b60006040518060400160405280600381526020017f0102030000000000000000000000000000000000000000000000000000000000815250905060007f1ea5ab62888366c058d9c8bd1be1081b32b39c8fbc3f91500bbd8a434be393699050602082018251828183a150505050565b60006040518060600160405280603c815260200161018c603c9139905060007f4917bb2ef02c528e80277dfddb6b185e590f9f8cef1e08f060275280b2f14b219050602082018251828583a15050505050565b600080fd5b6000819050919050565b61013b81610128565b811461014657600080fd5b50565b60008135905061015881610132565b92915050565b60006020828403121561017457610173610123565b5b600061018284828501610149565b9150509291505056fe0102030405060708090a0b0c0d0e0f0102030405060708090a0b0c0d0e0f0102030405060708090a0b0c0d0e0f0102030405060708090a0b0c0d0e0fa26469706673582212208af16539054fa19ed1a1aa76807c3d53f844792c406e8a1c6f80bf464fc69c7d64736f6c63430008090033",
         "abi": [
           {
             "anonymous": false,
@@ -42,12 +42,25 @@
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint256",
+                "name": "lengthLog",
+                "type": "uint256"
+              }
+            ],
+            "name": "emitEventLarger",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
           }
         ],
         "storage": {}
       }
     ],
-    "expectedOldRoot": "0x61aef6e29081ce126f991495c52c93cb9af888c2074948a288645e7ec5d35196",
+    "expectedOldRoot": "0x58d5d24ef20905a10cd6b31a981899871cacd60d349f14273065c2b5f22cf4de",
     "txs": [
       {
         "type": 11,
@@ -70,7 +83,7 @@
         "chainId": 1000
       }
     ],
-    "expectedNewRoot": "0xcc61c2d3d9d7bbf2d8d9fcce85d8c4680b8950bed037fda335c308b46799b0eb",
+    "expectedNewRoot": "0xab5fb800b5dd573ea27ad59695648447f09a067e184662fbe40f485cae724902",
     "expectedNewLeafs": {
       "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
         "balance": "100000000000000000000",
@@ -86,8 +99,8 @@
         "balance": "0",
         "nonce": "1",
         "storage": {},
-        "hashBytecode": "0x6d19935899608a6c365deecc54da2c6d68ceba1bc04be4a7e35745520d71c59f",
-        "bytecodeLength": 218
+        "hashBytecode": "0x919f5c85bd86606c1596ca9c3208ac5329d61957e076e5bef97361e50f0be803",
+        "bytecodeLength": 509
       },
       "0x000000000000000000000000000000005ca1ab1e": {
         "balance": "0",
@@ -95,8 +108,8 @@
         "storage": {
           "0x0000000000000000000000000000000000000000000000000000000000000000": "0x01",
           "0x0000000000000000000000000000000000000000000000000000000000000002": "0x73e6af6f",
-          "0xa6eef7e35abe7026729641147f7915573c7e97b47efa546f5f6e3230263bcb49": "0x61aef6e29081ce126f991495c52c93cb9af888c2074948a288645e7ec5d35196",
-          "0x0000000000000000000000000000000000000000000000000000000000000003": "0xed0f761756e44f10291361bbf97894cc469ddbbdd77f438146dae011b00d37c9"
+          "0xa6eef7e35abe7026729641147f7915573c7e97b47efa546f5f6e3230263bcb49": "0x58d5d24ef20905a10cd6b31a981899871cacd60d349f14273065c2b5f22cf4de",
+          "0x0000000000000000000000000000000000000000000000000000000000000003": "0xcd0cd954167a0dbc5c7f3568386d5d271decd1cc842d3482faa106e6ee8e4828"
         }
       }
     },
@@ -109,13 +122,146 @@
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "timestampLimit": "1944498031",
     "virtualCounters": {
-      "steps": 10632,
-      "arith": 570,
-      "binary": 695,
-      "memAlign": 0,
+      "steps": 15040,
+      "arith": 617,
+      "binary": 861,
+      "memAlign": 11,
       "keccaks": 41,
-      "padding": 15,
-      "poseidon": 1265,
+      "padding": 26,
+      "poseidon": 1299,
+      "sha256": 0
+    }
+  },
+  {
+    "id": 1,
+    "description": "Log padding",
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": [
+      {
+        "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+        "nonce": "0",
+        "balance": "100000000000000000000",
+        "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+      },
+      {
+        "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "nonce": "0",
+        "balance": "200000000000000000000",
+        "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23"
+      },
+      {
+        "address": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": 1,
+        "balance": 0,
+        "bytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c80637b0cb8391461003b578063fc1748bf14610045575b600080fd5b610043610061565b005b61005f600480360381019061005a919061015e565b6100d0565b005b60006040518060400160405280600381526020017f0102030000000000000000000000000000000000000000000000000000000000815250905060007f1ea5ab62888366c058d9c8bd1be1081b32b39c8fbc3f91500bbd8a434be393699050602082018251828183a150505050565b60006040518060600160405280603c815260200161018c603c9139905060007f4917bb2ef02c528e80277dfddb6b185e590f9f8cef1e08f060275280b2f14b219050602082018251828583a15050505050565b600080fd5b6000819050919050565b61013b81610128565b811461014657600080fd5b50565b60008135905061015881610132565b92915050565b60006020828403121561017457610173610123565b5b600061018284828501610149565b9150509291505056fe0102030405060708090a0b0c0d0e0f0102030405060708090a0b0c0d0e0f0102030405060708090a0b0c0d0e0f0102030405060708090a0b0c0d0e0fa26469706673582212208af16539054fa19ed1a1aa76807c3d53f844792c406e8a1c6f80bf464fc69c7d64736f6c63430008090033",
+        "abi": [
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": false,
+                "internalType": "bytes",
+                "name": "data",
+                "type": "bytes"
+              }
+            ],
+            "name": "Test0",
+            "type": "event"
+          },
+          {
+            "inputs": [],
+            "name": "emitEvent",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint256",
+                "name": "lengthLog",
+                "type": "uint256"
+              }
+            ],
+            "name": "emitEventLarger",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          }
+        ],
+        "storage": {}
+      }
+    ],
+    "expectedOldRoot": "0x58d5d24ef20905a10cd6b31a981899871cacd60d349f14273065c2b5f22cf4de",
+    "txs": [
+      {
+        "type": 11,
+        "deltaTimestamp": 1944498031,
+        "l1Info": {
+          "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+          "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
+          "timestamp": "42"
+        },
+        "indexL1InfoTree": 0
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98",
+        "nonce": "0",
+        "value": "0",
+        "data": "0xfc1748bf000000000000000000000000000000000000000000000000000000000000003c",
+        "gasLimit": 10000000,
+        "gasPrice": "0",
+        "chainId": 1000
+      }
+    ],
+    "expectedNewRoot": "0x612fb3fc94a7e6dd3108e28cf251757179e0ede902b833223cfd7119413aa6a6",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100000000000000000000",
+        "nonce": "0",
+        "storage": null
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "200000000000000000000",
+        "nonce": "1",
+        "storage": null
+      },
+      "0x1275fbb540c8efc58b812ba83b0d0b8b9917ae98": {
+        "balance": "0",
+        "nonce": "1",
+        "storage": {},
+        "hashBytecode": "0x919f5c85bd86606c1596ca9c3208ac5329d61957e076e5bef97361e50f0be803",
+        "bytecodeLength": 509
+      },
+      "0x000000000000000000000000000000005ca1ab1e": {
+        "balance": "0",
+        "nonce": "0",
+        "storage": {
+          "0x0000000000000000000000000000000000000000000000000000000000000000": "0x01",
+          "0x0000000000000000000000000000000000000000000000000000000000000002": "0x73e6af6f",
+          "0xa6eef7e35abe7026729641147f7915573c7e97b47efa546f5f6e3230263bcb49": "0x58d5d24ef20905a10cd6b31a981899871cacd60d349f14273065c2b5f22cf4de",
+          "0x0000000000000000000000000000000000000000000000000000000000000003": "0x11e23d1f07f4c4d0bf563c3fe1b629e533632fa7398489fb66a0a70a417cc4b4"
+        }
+      }
+    },
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0x45843b1fb37ba3747e7a0690613b03e6b33dc48669691ecf035350fc89f197b9",
+    "batchL2Data": "0x0b73e6af6f00000000f846808083989680941275fbb540c8efc58b812ba83b0d0b8b9917ae9880a4fc1748bf000000000000000000000000000000000000000000000000000000000000003c8203e88080c8e00ecc5d5a02684c6cd331c1de80b6a649531e42860bec6ff0360cf2ebb2a779449f40fa7eec2a3b2bee1dea5746c8c238e7f6ed076574134d2a2636b7ec651bff",
+    "chainID": 1000,
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 9,
+    "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "timestampLimit": "1944498031",
+    "virtualCounters": {
+      "steps": 35264,
+      "arith": 915,
+      "binary": 1841,
+      "memAlign": 128,
+      "keccaks": 43,
+      "padding": 28,
+      "poseidon": 1301,
       "sha256": 0
     }
   }
