@@ -85,13 +85,13 @@
       "skipVerifyL1InfoRoot": true
     },
     "virtualCounters": {
-      "steps": 11112,
+      "steps": 10312,
       "arith": 581,
-      "binary": 728,
+      "binary": 726,
       "memAlign": 0,
-      "keccaks": 41,
+      "keccaks": 8,
       "padding": 13,
-      "poseidon": 1263,
+      "poseidon": 911,
       "sha256": 0
     }
   },
@@ -195,13 +195,13 @@
       "skipVerifyL1InfoRoot": true
     },
     "virtualCounters": {
-      "steps": 20887,
+      "steps": 19647,
       "arith": 1151,
-      "binary": 1401,
+      "binary": 1397,
       "memAlign": 0,
-      "keccaks": 45,
+      "keccaks": 12,
       "padding": 25,
-      "poseidon": 2071,
+      "poseidon": 1459,
       "sha256": 0
     }
   }

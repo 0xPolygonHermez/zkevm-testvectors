@@ -181,13 +181,13 @@
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "timestampLimit": "1944498031",
     "virtualCounters": {
-      "steps": 13978853,
+      "steps": 13777293,
       "arith": 20647,
-      "binary": 240974,
+      "binary": 240968,
       "memAlign": 10003,
-      "keccaks": 43,
+      "keccaks": 10,
       "padding": 28,
-      "poseidon": 1278,
+      "poseidon": 926,
       "sha256": 0
     }
   },
@@ -373,13 +373,13 @@
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "timestampLimit": "1944498031",
     "virtualCounters": {
-      "steps": 8086152,
+      "steps": 5583662,
       "arith": 125698,
-      "binary": 376147,
+      "binary": 313623,
       "memAlign": 31261,
-      "keccaks": 31294,
+      "keccaks": 7363,
       "padding": 28,
-      "poseidon": 1278,
+      "poseidon": 926,
       "sha256": 0
     }
   },
@@ -5688,13 +5688,13 @@
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "timestampLimit": "1944498031",
     "virtualCounters": {
-      "steps": 6492988,
+      "steps": 6490658,
       "arith": 687,
-      "binary": 116116,
+      "binary": 116094,
       "memAlign": 10,
-      "keccaks": 43,
+      "keccaks": 10,
       "padding": 28,
-      "poseidon": 711358,
+      "poseidon": 515993,
       "sha256": 0
     }
   }
