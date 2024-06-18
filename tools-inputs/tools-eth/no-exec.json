@@ -1295,135 +1295,331 @@
       "description": "rom NUMBER != eth NUMBER"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_0.json",
+      "name": "stPreCompiledContracts/blake2B_0.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_1.json",
+      "name": "stPreCompiledContracts/blake2B_1.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/blake2B_2.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/blake2B_3.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/blake2B_4.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/blake2B_5.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/blake2B_6.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/blake2B_7.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/blake2B_8.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/blake2B_9.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/blake2B_10.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/blake2B_11.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_2.json",
+      "name": "stPreCompiledContracts/blake2B_12.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/blake2B_13.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/blake2B_14.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/blake2B_15.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/blake2B_16.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/blake2B_17.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/blake2B_18.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_3.json",
+      "name": "stPreCompiledContracts/blake2B_19.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_4.json",
+      "name": "stPreCompiledContracts/blake2B_20.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/blake2B_21.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/blake2B_22.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/blake2B_23.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/blake2B_24.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/blake2B_25.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/delegatecall09Undefined.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/idPrecomps_177.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/idPrecomps_199.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_5.json",
+      "name": "stPreCompiledContracts/idPrecomps_210.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_6.json",
+      "name": "stPreCompiledContracts/idPrecomps_221.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_7.json",
+      "name": "stPreCompiledContracts/idPrecomps_232.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_8.json",
+      "name": "stPreCompiledContracts/idPrecomps_243.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_9.json",
+      "name": "stPreCompiledContracts/modexp_80.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_10.json",
+      "name": "stPreCompiledContracts/modexp_88.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_11.json",
+      "name": "stPreCompiledContracts/modexp_116.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_12.json",
+      "name": "stPreCompiledContracts/modexp_120.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_13.json",
+      "name": "stPreCompiledContracts/precompsEIP2929_12.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_18.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_31.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_38.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_51.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_58.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_71.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_78.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_91.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_97.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_112.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_118.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_122.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_131.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_138.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_151.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_158.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_171.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_178.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_188.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_191.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_197.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_211.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_217.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_222.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_231.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_238.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_321.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_334.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_347.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_354.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_367.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_374.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_384.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_387.json",
+      "description": "Precompiled ripemd160 is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_393.json",
+      "description": "Precompiled blake2f is not supported"
+    },
+    {
+      "name": "stPreCompiledContracts/precompsEIP2929_144.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_14.json",
+      "name": "stPreCompiledContracts/precompsEIP2929_193.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_16.json",
+      "name": "stPreCompiledContracts/precompsEIP2929_213.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_17.json",
+      "name": "stPreCompiledContracts/precompsEIP2929_234.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_18.json",
+      "name": "stPreCompiledContracts/precompsEIP2929_330.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_19.json",
+      "name": "stPreCompiledContracts/precompsEIP2929_340.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_20.json",
+      "name": "stPreCompiledContracts/precompsEIP2929_349.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_21.json",
+      "name": "stPreCompiledContracts/precompsEIP2929_369.json",
       "description": "tx gas > max int"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_22.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stBadOpcode/opc5FDiffPlaces_23.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stBadOpcode/opc5FDiffPlaces_24.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stBadOpcode/opc5FDiffPlaces_25.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stBadOpcode/opc5FDiffPlaces_26.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stBadOpcode/opc5FDiffPlaces_28.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stBadOpcode/opc5FDiffPlaces_29.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stBadOpcode/opc5FDiffPlaces_30.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stBadOpcode/opc5FDiffPlaces_31.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stBadOpcode/opc5FDiffPlaces_32.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stBadOpcode/opc5FDiffPlaces_33.json",
-      "description": "tx gas > max int"
-    },
-    {
-      "name": "stBadOpcode/opc5FDiffPlaces_34.json",
+      "name": "stPreCompiledContracts/precompsEIP2929_389.json",
       "description": "tx gas > max int"
     }
   ]
