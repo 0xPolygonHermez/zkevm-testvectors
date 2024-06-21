@@ -1,0 +1,2 @@
+
+npx mocha --max-old-space-size=4096 ../../tools-inputs/generators/calldata-gen-inputs.js --timeout 0 --vectors block-383933-testvector.json --output --evm-debug --update --nointernal --countersteps --cardona

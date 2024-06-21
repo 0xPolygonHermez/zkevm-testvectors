@@ -87,6 +87,11 @@ async function main() {
         path.join(__dirname, `./output/${network}/block-${blockNum}-input.json`),
         JSON.stringify(input, null, 2),
     );
+    console.log(`WRITE: ../../../inputs/block-${blockNum}.json`);
+    await fs.writeFileSync(
+        path.join(__dirname, `../../../inputs/block-${blockNum}.json`),
+        JSON.stringify(input, null, 2),
+    );
 }
 
 main();

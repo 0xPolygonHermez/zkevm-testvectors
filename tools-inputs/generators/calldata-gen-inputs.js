@@ -58,12 +58,19 @@ describe('Generate inputs executor from test-vectors', async function () {
         file = (argv.vectors) ? argv.vectors : 'txs-calldata.json';
         file = file.endsWith('.json') ? file : `${file}.json`;
         inputName = (argv.inputs) ? argv.inputs : (`${file.replace('.json', '_')}`);
-        testVectorDataPath = `../data/calldata/${file}`;
-        testVectors = require(testVectorDataPath);
-        internalTestVectorsPath = `../tools-calldata/generate-test-vectors/gen-${file}`;
-        internalTestVectors = require(internalTestVectorsPath);
-        inputsPath = '../../inputs-executor/calldata/';
+        if(!argv.nointernal) {
+            internalTestVectorsPath = `../tools-calldata/generate-test-vectors/gen-${file}`;
+            internalTestVectors = require(internalTestVectorsPath);
+        }
+        if(argv.cardona) {
+            testVectorDataPath = `../../tools/internal-tools/output/cardona/${file}`;
+            inputsPath = '../../../inputs/';
+        } else {
+            testVectorDataPath = `../data/calldata/${file}`;
+            inputsPath = '../../inputs-executor/calldata/';
+        }
 
+        testVectors = require(testVectorDataPath);
         await hre.run('compile');
         console.log(`   test vector name: ${file}`);
     });
@@ -148,7 +155,6 @@ describe('Generate inputs executor from test-vectors', async function () {
                 expectedOldRoot = zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot);
             }
             expect(zkcommonjs.smtUtils.h4toString(zkEVMDB.stateRoot)).to.be.equal(expectedOldRoot);
-
             const extraData = { l1Info: {} };
             const batch = await zkEVMDB.buildBatch(
                 Scalar.e(timestampLimit),
@@ -160,6 +166,7 @@ describe('Generate inputs executor from test-vectors', async function () {
                     skipVerifyL1InfoRoot: (typeof skipVerifyL1InfoRoot === 'undefined' || skipVerifyL1InfoRoot !== false),
                     vcmConfig: {
                         skipCounters: true,
+                        verbose: argv.verbose ? true : false,
                     },
                 },
                 extraData,
@@ -372,21 +379,24 @@ describe('Generate inputs executor from test-vectors', async function () {
                 testVectors[i].txs = txs;
                 testVectors[i].expectedNewLeafs = expectedNewLeafs;
                 testVectors[i].forkID = testvectorsGlobalConfig.forkID;
-                internalTestVectors[i].batchL2Data = batch.getBatchL2Data();
-                internalTestVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
-                internalTestVectors[i].expectedOldRoot = expectedOldRoot;
-                internalTestVectors[i].expectedNewRoot = expectedNewRoot;
-                internalTestVectors[i].batchHashData = circuitInput.batchHashData;
-                internalTestVectors[i].inputHash = circuitInput.inputHash;
-                internalTestVectors[i].l1InfoRoot = circuitInput.l1InfoRoot;
-                internalTestVectors[i].timestampLimit = circuitInput.timestampLimit;
-                internalTestVectors[i].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
-                internalTestVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
-                internalTestVectors[i].chainID = chainID;
-                internalTestVectors[i].oldAccInputHash = oldAccInputHash;
-                internalTestVectors[i].expectedNewLeafs = expectedNewLeafs;
-                internalTestVectors[i].forkID = testvectorsGlobalConfig.forkID;
                 testVectors[i].virtualCounters = res.virtualCounters;
+                if(!argv.nointernal) {
+                    internalTestVectors[i].batchL2Data = batch.getBatchL2Data();
+                    internalTestVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
+                    internalTestVectors[i].expectedOldRoot = expectedOldRoot;
+                    internalTestVectors[i].expectedNewRoot = expectedNewRoot;
+                    internalTestVectors[i].batchHashData = circuitInput.batchHashData;
+                    internalTestVectors[i].inputHash = circuitInput.inputHash;
+                    internalTestVectors[i].l1InfoRoot = circuitInput.l1InfoRoot;
+                    internalTestVectors[i].timestampLimit = circuitInput.timestampLimit;
+                    internalTestVectors[i].oldLocalExitRoot = circuitInput.oldLocalExitRoot;
+                    internalTestVectors[i].newLocalExitRoot = circuitInput.newLocalExitRoot;
+                    internalTestVectors[i].chainID = chainID;
+                    internalTestVectors[i].oldAccInputHash = oldAccInputHash;
+                    internalTestVectors[i].expectedNewLeafs = expectedNewLeafs;
+                    internalTestVectors[i].forkID = testvectorsGlobalConfig.forkID;
+                }
+                
 
                 // delete old unused values
                 delete testVectors[i].globalExitRoot;
@@ -395,13 +405,14 @@ describe('Generate inputs executor from test-vectors', async function () {
                 delete testVectors[i].arity;
                 delete testVectors[i].chainIdSequencer;
                 delete testVectors[i].defaultChainId;
-
-                delete internalTestVectors[i].globalExitRoot;
-                delete internalTestVectors[i].timestamp;
-                delete internalTestVectors[i].historicGERRoot;
-                delete internalTestVectors[i].arity;
-                delete internalTestVectors[i].chainIdSequencer;
-                delete internalTestVectors[i].defaultChainId;
+                if(!argv.nointernal) {
+                    delete internalTestVectors[i].globalExitRoot;
+                    delete internalTestVectors[i].timestamp;
+                    delete internalTestVectors[i].historicGERRoot;
+                    delete internalTestVectors[i].arity;
+                    delete internalTestVectors[i].chainIdSequencer;
+                    delete internalTestVectors[i].defaultChainId;
+                }
             }
             if (invalidBatch && argv.verify) {
                 const dir = path.join(__dirname, inputsPath);
@@ -410,9 +421,12 @@ describe('Generate inputs executor from test-vectors', async function () {
         }
         if (update) {
             console.log(`WRITE UPDATE: ${testVectorDataPath}`);
-            console.log(`WRITE UPDATE: ${internalTestVectorsPath}`);
             await fs.writeFileSync(path.join(__dirname, testVectorDataPath), JSON.stringify(testVectors, null, 2));
-            await fs.writeFileSync(path.join(__dirname, internalTestVectorsPath), JSON.stringify(internalTestVectors, null, 2));
+            if(!argv.nointernal) {
+                console.log(`WRITE UPDATE: ${internalTestVectorsPath}`);
+                await fs.writeFileSync(path.join(__dirname, internalTestVectorsPath), JSON.stringify(internalTestVectors, null, 2)); 
+            }
+            
         }
     });
 
@@ -433,23 +447,38 @@ describe('Generate inputs executor from test-vectors', async function () {
                         let memory = step.memory.map((v) => v.toString(16)).join('').padStart(192, '0');
                         memory = memory.match(/.{1,32}/g); // split in 32 bytes slots
                         memory = memory.map((v) => `0x${v}`);
-
-                        stepObjs.push({
-                            pc: step.pc,
-                            depth: step.depth,
-                            opcode: {
-                                name: step.opcode.name,
-                                fee: step.opcode.fee,
-                            },
-                            gasLeft: Number(step.gasLeft),
-                            gasRefund: Number(step.gasRefund),
-                            memory,
-                            stack: step.stack.map((v) => `0x${v.toString('hex')}`),
-                            codeAddress: step.codeAddress.buf.reduce(
-                                (previousValue, currentValue) => previousValue + currentValue,
-                                '0x',
-                            ),
-                        });
+                        let objectInfo;
+                        if(!argv.countersteps) {
+                            objectInfo = {
+                                pc: step.pc,
+                                depth: step.depth,
+                                opcode: {
+                                    name: step.opcode.name,
+                                    fee: step.opcode.fee,
+                                },
+                                gasLeft: Number(step.gasLeft),
+                                gasRefund: Number(step.gasRefund),
+                                memory,
+                                stack: step.stack.map((v) => `0x${v.toString('hex')}`),
+                                codeAddress: step.codeAddress.buf.reduce(
+                                    (previousValue, currentValue) => previousValue + currentValue,
+                                    '0x',
+                                )
+                            }
+                        } else {
+                            objectInfo = {
+                                pc: step.pc,
+                                depth: step.depth,
+                                opcode: {
+                                    name: step.opcode.name,
+                                    fee: step.opcode.fee,
+                                },
+                                gasLeft: Number(step.gasLeft),
+                                gasRefund: Number(step.gasRefund),
+                                counters: step.counters,
+                            }
+                        }
+                        stepObjs.push(objectInfo);
                     }
                 }
                 txs.push({
