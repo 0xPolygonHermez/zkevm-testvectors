@@ -81,6 +81,18 @@ async function main() {
             poseidon: 260000,
         };
 
+        if(pathTest.includes("test-length-data_1") || pathTest.includes("test-length-data_2")) {
+            inputRLP.virtualCounters = {
+                steps: 10166763,
+                arith: 221547,
+                binary: 701619,
+                memAlign: 200000,
+                keccaks: 2200,
+                padding: 140000,
+                poseidon: 260000,
+            };
+        }
+
         inputRLP.db = generalInput.db;
 
         inputRLP.l1InfoTree = {
