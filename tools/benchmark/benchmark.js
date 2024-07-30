@@ -45,6 +45,7 @@ const {
 const testFilePath = path.join(__dirname, testPath);
 const testObject = require(testFilePath)[testIndex];
 let lastTestIsError = true;
+const isVCountersMode = true;
 
 async function main() {
     let errFound = false;
@@ -81,6 +82,10 @@ async function main() {
         if (!errFound) {
             if (genInputs) {
                 fs.writeFileSync(path.join(__dirname, `./inputs/${config.name}-${txCount}.json`), JSON.stringify(circuitInput, null, 2));
+            }
+            if (isVCountersMode) {
+                console.log('Finish vcounters limit, check or generate input');
+                process.exit(0);
             }
             const dataLen = circuitInput.batchL2Data.slice(2).length / 2;
             console.log('batchL2DataLen: ', dataLen);
@@ -257,11 +262,12 @@ async function createRawTxs(txCount, isSetup) {
         sequencerAddress,
         zkcommonjs.smtUtils.stringToH4(l1InfoRoot),
         Constants.ZERO_BYTES32,
-        Constants.DEFAULT_MAX_TX,
+        2200,
         {
             skipVerifyL1InfoRoot: (typeof skipVerifyL1InfoRoot === 'undefined' || skipVerifyL1InfoRoot !== false),
             vcmConfig: {
-                skipCounters,
+                steps: 16357785,
+                // verbose: true,
             },
         },
         extraData,
@@ -350,6 +356,7 @@ async function createRawTxs(txCount, isSetup) {
         }
     }
     const vcounters = await batch.executeTxs();
+    await generateEvmDebugFile(batch, 'asd.json');
     await zkEVMDB.consolidate(batch);
     const circuitInput = await batch.getStarkInput();
     circuitInput.virtualCounters = vcounters.virtualCounters;
@@ -364,3 +371,80 @@ async function createRawTxs(txCount, isSetup) {
     return circuitInput;
 }
 main();
+
+async function generateEvmDebugFile(batch, fileName) {
+    // Create dir if not exists
+    const dir = path.join(__dirname, '/evm-stack-logs');
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir);
+    }
+    const txs = [];
+    for (const txSteps of batch.evmSteps) {
+        const { steps } = txSteps;
+        if (steps) {
+            const stepObjs = [];
+            for (const step of steps) {
+                if (step) {
+                    // Format memory
+                    let memory = step.memory.map((v) => v.toString(16)).join('').padStart(192, '0');
+                    memory = memory.match(/.{1,32}/g); // split in 32 bytes slots
+                    memory = memory.map((v) => `0x${v}`);
+
+                    stepObjs.push({
+                        pc: step.pc,
+                        depth: step.depth,
+                        opcode: {
+                            name: step.opcode.name,
+                            fee: step.opcode.fee,
+                        },
+                        gasLeft: Number(step.gasLeft),
+                        gasRefund: Number(step.gasRefund),
+                        memory,
+                        stack: step.stack.map((v) => `0x${v.toString('hex')}`),
+                        codeAddress: step.codeAddress.buf.reduce(
+                            (previousValue, currentValue) => previousValue + currentValue,
+                            '0x',
+                        ),
+                    });
+                }
+            }
+            txs.push({
+                steps: stepObjs,
+                counters: txSteps.counters,
+            });
+        }
+    }
+    const debugFile = {
+        txs,
+        counters: batch.vcm.getCurrentSpentCounters(),
+    };
+    fs.writeFileSync(path.join(dir, fileName), JSON.stringify(debugFile, null, 2));
+    fs.writeFileSync(path.join(dir, 'report.json'), JSON.stringify(batch.vcm.consumptionReport, null, 2));
+    // Join consumptions
+    const cr = batch.vcm.consumptionReport;
+    const nr = {};
+    for (let i = 0; i < cr.length; i++) {
+        const f = cr[i];
+        if (typeof nr[f.function] === 'undefined') {
+            nr[f.function] = {
+                function: f.function,
+                vcounters: f.vcounters,
+            };
+        } else {
+            nr[f.function] = {
+                function: f.function,
+                vcounters: {
+                    steps: nr[f.function].vcounters.steps + f.vcounters.steps,
+                    arith: nr[f.function].vcounters.arith + f.vcounters.arith,
+                    binary: nr[f.function].vcounters.binary + f.vcounters.binary,
+                    memAlign: nr[f.function].vcounters.memAlign + f.vcounters.memAlign,
+                    keccaks: nr[f.function].vcounters.keccaks + f.vcounters.keccaks,
+                    padding: nr[f.function].vcounters.padding + f.vcounters.padding,
+                    poseidon: nr[f.function].vcounters.poseidon + f.vcounters.poseidon,
+                    sha256: nr[f.function].vcounters.sha256 + f.vcounters.sha256,
+                },
+            };
+        }
+    }
+    fs.writeFileSync(path.join(dir, 'report2.json'), JSON.stringify(nr, null, 2));
+}
