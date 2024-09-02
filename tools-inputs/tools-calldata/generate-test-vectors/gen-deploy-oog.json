@@ -1,0 +1,84 @@
+[
+  {
+    "id": 0,
+    "description": "Deployment of a contract that goes out of gas using sequenced create2",
+    "sequencerAddress": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+    "sequencerPvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+    "genesis": {
+      "accounts": [
+        {
+          "address": "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D",
+          "pvtKey": "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e",
+          "balance": "100000000000000000000",
+          "nonce": "0"
+        },
+        {
+          "address": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+          "pvtKey": "0x4d27a600dce8c29b7bd080e29a26972377dbb04d7a27d919adbb602bf13cfd23",
+          "balance": "200000000000000000000",
+          "nonce": "0"
+        }
+      ]
+    },
+    "expectedOldRoot": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+    "txs": [
+      {
+        "type": 11,
+        "deltaTimestamp": 1944498031,
+        "l1Info": {
+          "globalExitRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+          "blockHash": "0x24a5871d68723340d9eadc674aa8ad75f3e33b61d5a9db7db92af856a19270bb",
+          "timestamp": "42"
+        },
+        "indexL1InfoTree": 0
+      },
+      {
+        "from": "0x4d5Cf5032B2a844602278b01199ED191A86c93ff",
+        "to": "deploy-custom",
+        "nonce": "0",
+        "value": "0",
+        "data": "0x3860006000393860006000f000",
+        "deployedBytecode": "0x3860006000393860006000f000",
+        "gasLimit": 10000000,
+        "gasPrice": "1",
+        "chainId": 1000
+      }
+    ],
+    "expectedNewRoot": "0x91a9d7c6ef95ea35c8f2f4eafcb5e2ed1bbe5a26d77a0b0d41c499ad350308c9",
+    "expectedNewLeafs": {
+      "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D": {
+        "balance": "100000000000003672962",
+        "nonce": "0",
+        "storage": null
+      },
+      "0x4d5Cf5032B2a844602278b01199ED191A86c93ff": {
+        "balance": "199999999999996327038",
+        "nonce": "1",
+        "storage": null
+      },
+      "0xA72217948Ea7D968A64c77F83908cea136bBF964": {
+        "balance": "0",
+        "nonce": "2",
+        "storage": null
+      },
+      "0x000000000000000000000000000000005ca1ab1e": {
+        "balance": "0",
+        "nonce": "0",
+        "storage": {
+          "0x0000000000000000000000000000000000000000000000000000000000000000": "0x01",
+          "0x0000000000000000000000000000000000000000000000000000000000000002": "0x73e6af6f",
+          "0xa6eef7e35abe7026729641147f7915573c7e97b47efa546f5f6e3230263bcb49": "0x4a9bfcb163ec91c5beb22e6aca41592433092c8c7821b01d37fd0de483f9265d",
+          "0x0000000000000000000000000000000000000000000000000000000000000003": "0xdebcae0ac05bdd333de04dfc36796d2ada4521ddda3c6a744a7dd3f9f95183ba"
+        }
+      }
+    },
+    "newLocalExitRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "batchHashData": "0x9c6ab3a860a0fb6cd29f6dabcfb5fc34bb8790bf93dcfe5a7d4f4804e7dd5d79",
+    "batchL2Data": "0x0b73e6af6f00000000db80018398968080808d3860006000393860006000f0008203e88080af7734292d960290d3b59c8841558aa09d9072a6d9bf64a36df010538c3ab6fb40436be9eea53b126589079dd1ac0e0d3aeb9911b2adf31092e4619485476d9b1cff",
+    "chainID": 1000,
+    "oldAccInputHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "forkID": 12,
+    "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
+    "timestampLimit": "1944498031"
+  }
+]
