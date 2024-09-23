@@ -16,12 +16,11 @@ contract OOC {
         }
     }
 
-    // set gasLimit = 30000000 & steps = 50000
     function outOfCountersPoseidon(
         uint256 _iterations
     ) public returns (bytes32 res) {
         if (_iterations == 0) {
-            _iterations = 50000;
+            _iterations = 5000000;
         }
         assembly {
             res := sload(0x00)
@@ -29,12 +28,13 @@ contract OOC {
         for (uint256 i = 0; i < _iterations; i++) {
             assembly {
                 sstore(0x00, i)
+                sstore(0x00, i)
+                sstore(0x00, i)
             }
         }
         return res;
     }
 
-    // bytesKeccak = 1000000 & gasLimit = 50000
     function outOfCountersKeccaks(
         uint256 _bytes
     ) public pure returns (bytes32 test) {
@@ -43,15 +43,16 @@ contract OOC {
         }
         assembly {
             test := keccak256(0, _bytes)
+            test := keccak256(0, _bytes)
+            test := keccak256(0, _bytes)
         }
         return test;
     }
 
     // set number and gas limit
-    // gasLimit = 50000 & iterations = 10000
     function outOfCountersSteps(uint256 _iterations) public pure {
         if (_iterations == 0) {
-            _iterations = 10000;
+            _iterations = 100000;
         }
         for (uint i = 0; i < _iterations; i++) {
             assembly {
