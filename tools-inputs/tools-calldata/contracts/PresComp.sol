@@ -121,5 +121,26 @@ contract PresComp {
         Fpairing(x1, y1, x2, y2, x3, y3);
     }
     
+    function p256verify() public {
+        bytes32 hashBytes = 0xbb5a52f42f9c9261ed4361f59422a1e30036e7c32b270c8807a419feca605023;
+        bytes32 r = 0x2ba3a8be6b94d5ec80a6d9d1190a436effe50d85a1eee859b8cc6af9bd5c2e18;
+        bytes32 s = 0x4cd60b855d442f5b3c7b11eb6c4e0ae7525fe710fab9aa7c77a67f79e6fadd76;
+        bytes32 x = 0x2927b10512bae3eddcfe467828128bad2903269919f7086069c8c4df6c732838;
+        bytes32 y = 0xc7787964eaac00e5921fb1498a60f4606766b3d9685001558d1a974e7341513e;
+        bytes memory result;
+        assembly {
+            // free memory pointer
+            let memPtr := mload(0x40)
+            mstore(memPtr, hashBytes)
+            mstore(add(memPtr, 0x20), r)
+            mstore(add(memPtr, 0x40), s)
+            mstore(add(memPtr, 0x60), x)
+            mstore(add(memPtr, 0x80), y)
+
+            let success := call(gas(), 0x100, 0x0, memPtr, 0xa0, memPtr, 0x20)
+            result := mload(memPtr)
+            sstore(0x1, result)
+        }
+    }
 
 }
