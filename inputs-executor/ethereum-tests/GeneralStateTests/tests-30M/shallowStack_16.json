@@ -45,13 +45,13 @@
     ]
   },
   "virtualCounters": {
-    "steps": 12069,
-    "arith": 592,
-    "binary": 762,
-    "memAlign": 4,
-    "keccaks": 41,
+    "steps": 10719,
+    "arith": 586,
+    "binary": 738,
+    "memAlign": 3,
+    "keccaks": 8,
     "padding": 12,
-    "poseidon": 1326,
+    "poseidon": 948,
     "sha256": 0
   },
   "gasLimit": "2147483647"
