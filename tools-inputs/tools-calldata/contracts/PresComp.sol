@@ -139,7 +139,7 @@ contract PresComp {
 
             let success := call(gas(), 0x100, 0x0, memPtr, 0xa0, memPtr, 0x20)
             result := mload(memPtr)
-            sstore(0x1, result)
+            sstore(0xb, result)
         }
     }
 
