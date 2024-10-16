@@ -1295,18 +1295,6 @@
       "description": "rom NUMBER != eth NUMBER"
     },
     {
-      "name": "VMTests/suicide_0.json",
-      "description": "Selfdestruct"
-    },
-    {
-      "name": "VMTests/suicide_1.json",
-      "description": "Selfdestruct"
-    },
-    {
-      "name": "VMTests/suicide_2.json",
-      "description": "Selfdestruct"
-    },
-    {
       "name": "VMTests/log0_0.json",
       "description": "Berlin --> no test with 0x100 address"
     },
@@ -1325,6 +1313,14 @@
     {
       "name": "VMTests/log4_0.json",
       "description": "Berlin --> no test with 0x100 address"
+    },
+    {
+      "name": "VMTests/loopMul_0.json",
+      "description": "Berlin --> no test with 0x100 address"
+    },
+    {
+      "name": "VMTests/suicide_0.json",
+      "description": "Selfdestruct"
     },
     {
       "name": "VMTests/loopExp_1.json",
@@ -1369,6 +1365,14 @@
     {
       "name": "VMTests/performanceTester_4.json",
       "description": "Berlin --> no test with 0x100 address"
+    },
+    {
+      "name": "VMTests/suicide_1.json",
+      "description": "Selfdestruct"
+    },
+    {
+      "name": "VMTests/suicide_2.json",
+      "description": "Selfdestruct"
     },
     {
       "name": "VMTests/loopExp_1.json",
@@ -1414,6 +1418,5 @@
       "name": "VMTests/performanceTester_4.json",
       "description": "Berlin --> no test with 0x100 address"
     }
-  ],
-  "forkID": 13
+  ]
 }
