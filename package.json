@@ -39,7 +39,7 @@
     ],
     "license": "pending",
     "devDependencies": {
-        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#feature/p256verify",
+        "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#v9.0.0-rc.2-fork.13",
         "@0xpolygonhermez/zkevm-contracts": "github:0xPolygonHermez/zkevm-contracts#feature/fork-etrog",
         "@grpc/grpc-js": "^1.6.10",
         "@nomiclabs/hardhat-ethers": "^2.0.5",
