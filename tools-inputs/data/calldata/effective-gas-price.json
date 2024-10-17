@@ -172,13 +172,13 @@
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "timestampLimit": "1944498031",
     "virtualCounters": {
-      "steps": 12742,
+      "steps": 11872,
       "arith": 583,
       "binary": 768,
       "memAlign": 2,
-      "keccaks": 41,
+      "keccaks": 8,
       "padding": 25,
-      "poseidon": 1417,
+      "poseidon": 1026,
       "sha256": 0
     }
   },
@@ -458,13 +458,13 @@
     "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
     "timestampLimit": "1944498031",
     "virtualCounters": {
-      "steps": 42955,
+      "steps": 40675,
       "arith": 2293,
-      "binary": 2777,
+      "binary": 2772,
       "memAlign": 4,
-      "keccaks": 51,
+      "keccaks": 18,
       "padding": 90,
-      "poseidon": 2420,
+      "poseidon": 1730,
       "sha256": 0
     }
   }
