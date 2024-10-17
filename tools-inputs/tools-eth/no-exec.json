@@ -1295,136 +1295,172 @@
       "description": "rom NUMBER != eth NUMBER"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_0.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/log0_0.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_1.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/log1_0.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_2.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/log2_0.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_3.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/log3_0.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_4.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/log4_0.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_5.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/loopMul_0.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_6.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/suicide_0.json",
+      "description": "Selfdestruct"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_7.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/loopExp_1.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_8.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/loopExp_2.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_9.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/loopExp_3.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_10.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/loopExp_4.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_11.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/loopExp_5.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_12.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/loopExp_13.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_13.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/loopExp_14.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_14.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/loopMul_0.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_16.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/loopMul_1.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_17.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/loopMul_2.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_18.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/performanceTester_4.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_19.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/suicide_1.json",
+      "description": "Selfdestruct"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_20.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/suicide_2.json",
+      "description": "Selfdestruct"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_21.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/loopExp_1.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_22.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/loopExp_2.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_23.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/loopExp_3.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_24.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/loopExp_4.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_25.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/loopExp_5.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_26.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/loopExp_13.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_28.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/loopExp_14.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_29.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/loopMul_0.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_30.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/loopMul_1.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_31.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/loopMul_2.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_32.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/performanceTester_4.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_33.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/loopExp_1.json",
+      "description": "Berlin --> no test with 0x100 address"
     },
     {
-      "name": "stBadOpcode/opc5FDiffPlaces_34.json",
-      "description": "tx gas > max int"
+      "name": "VMTests/loopExp_2.json",
+      "description": "Berlin --> no test with 0x100 address"
+    },
+    {
+      "name": "VMTests/loopExp_3.json",
+      "description": "Berlin --> no test with 0x100 address"
+    },
+    {
+      "name": "VMTests/loopExp_4.json",
+      "description": "Berlin --> no test with 0x100 address"
+    },
+    {
+      "name": "VMTests/loopExp_5.json",
+      "description": "Berlin --> no test with 0x100 address"
+    },
+    {
+      "name": "VMTests/loopExp_13.json",
+      "description": "Berlin --> no test with 0x100 address"
+    },
+    {
+      "name": "VMTests/loopExp_14.json",
+      "description": "Berlin --> no test with 0x100 address"
+    },
+    {
+      "name": "VMTests/loopMul_0.json",
+      "description": "Berlin --> no test with 0x100 address"
+    },
+    {
+      "name": "VMTests/loopMul_1.json",
+      "description": "Berlin --> no test with 0x100 address"
+    },
+    {
+      "name": "VMTests/loopMul_2.json",
+      "description": "Berlin --> no test with 0x100 address"
+    },
+    {
+      "name": "VMTests/performanceTester_4.json",
+      "description": "Berlin --> no test with 0x100 address"
     }
   ]
 }

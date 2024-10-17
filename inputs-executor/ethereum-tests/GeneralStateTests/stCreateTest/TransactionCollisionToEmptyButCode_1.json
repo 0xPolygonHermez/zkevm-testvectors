@@ -7,7 +7,7 @@
   "oldNumBatch": 0,
   "newNumBatch": 1,
   "chainID": 1000,
-  "forkID": 12,
+  "forkID": 13,
   "forcedBlockHashL1": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "batchL2Data": "0x0b000003e800000000d3800a830927c080018560016001558203e880808c09c77c47c19357d1801280d3db12fd71616a31c83d09a98ee283a5f70c16a1597032d7e5b408c69809e07000a209ec72e9cb98677adbae1ef8c2d01556cb821cff",
   "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
@@ -207,13 +207,13 @@
     ]
   },
   "virtualCounters": {
-    "steps": 11552,
+    "steps": 10622,
     "arith": 584,
-    "binary": 739,
+    "binary": 737,
     "memAlign": 2,
-    "keccaks": 41,
+    "keccaks": 8,
     "padding": 12,
-    "poseidon": 1326,
+    "poseidon": 948,
     "sha256": 0
   }
 }

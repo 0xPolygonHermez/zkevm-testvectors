@@ -7,7 +7,7 @@
   "oldNumBatch": 0,
   "newNumBatch": 1,
   "chainID": 1000,
-  "forkID": 12,
+  "forkID": 13,
   "forcedBlockHashL1": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "batchL2Data": "0x0b000003e800000000f8a3010a830249f094b94f5374fce5edbc8e2a8697c15331677e6ebf0b80b8800f25929bcb43d5a57391564615c9e70a992b10eafa4db109709649cf48c50dd216da2f5cb6be7a0aa72c440c53c9bbdfec6c36c7d515536431b3a865468acbba0f25919bcb43d5a57391564615c9e70a992b10eafa4db109709649cf48c50dd216da2f5cb6be7a0aa72c440c53c9bbdfec6c36c7d515536431b3a865468acbba8203e88080c88b9d3771c3406faf9feb9b4b4c88236d11967936a1d1734c5a45680ac76b13360ae6004c68e6793c50b27e7867ec33f0dfa63cca061d8341c28ac8287fcd271bff",
   "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
@@ -161,13 +161,13 @@
     ]
   },
   "virtualCounters": {
-    "steps": 48186,
-    "arith": 1198,
-    "binary": 2516,
+    "steps": 41193,
+    "arith": 1208,
+    "binary": 2500,
     "memAlign": 17,
-    "keccaks": 43,
+    "keccaks": 10,
     "padding": 18,
-    "poseidon": 1506,
+    "poseidon": 1076,
     "sha256": 0
   }
 }

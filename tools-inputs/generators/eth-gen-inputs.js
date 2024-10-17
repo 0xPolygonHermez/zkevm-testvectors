@@ -42,6 +42,7 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
     let basePath = `${paths['tests-ethereum']}/BlockchainTests`;
     let tests30M = [];
     let dir30M;
+    let testWith0x100 = false;
     // let allTests;
     let allTests = true;
     let counts = {};
@@ -278,6 +279,9 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
 
                         const genesis = [];
                         for (let i in pre) {
+                            if(Number(i) === Number("0x100")) {
+                                testWith0x100 = true;
+                            }
                             const account = {
                                 address: i,
                                 nonce: Scalar.e(pre[i].nonce, 16).toString(),
@@ -502,11 +506,22 @@ describe('Generate inputs executor from ethereum tests GeneralStateTests\n\n', a
                         if (!flag30M) counts.countOK += 1;
                     } catch (e) {
                         console.log(e);
-                        if (options.newBlockGasLimit && Scalar.eq(options.newBlockGasLimit, Scalar.e('0x7FFFFFFF')) && (e.toString() !== 'Error: not supported')) {
+                        if ((options.newBlockGasLimit && Scalar.eq(options.newBlockGasLimit, Scalar.e('0x7FFFFFFF')) && (e.toString() !== 'Error: not supported'))) {
                             let auxDir = dir.endsWith('/') ? dir.substring(0, dir.length - 1) : dir;
                             auxDir = auxDir.split('/');
                             const nameTest = `${auxDir[auxDir.length - 1]}/${newOutputName.replace('.json', '')}`;
                             noExec['not-supported'].push({ name: nameTest.endsWith('.json') ? nameTest : `${nameTest}.json`, description: 'tx gas > max int' });
+                            await fs.writeFileSync(paths['no-exec'], JSON.stringify(noExec, null, 2));
+                            counts.countNotSupport += 1;
+                            infoErrors += 'Error: not supported\n';
+                            infoErrors += `${newOutputName}\n`;
+                            infoErrors += '--------------------------------------------------\n';
+                            console.log('Error: not supported\n');
+                        } else if (testWith0x100 && (e.toString() !== 'Error: not supported')) {
+                            let auxDir = dir.endsWith('/') ? dir.substring(0, dir.length - 1) : dir;
+                            auxDir = auxDir.split('/');
+                            const nameTest = `${auxDir[auxDir.length - 1]}/${newOutputName.replace('.json', '')}`;
+                            noExec['not-supported'].push({ name: nameTest.endsWith('.json') ? nameTest : `${nameTest}.json`, description: 'Berlin --> no test with 0x100 address' });
                             await fs.writeFileSync(paths['no-exec'], JSON.stringify(noExec, null, 2));
                             counts.countNotSupport += 1;
                             infoErrors += 'Error: not supported\n';
