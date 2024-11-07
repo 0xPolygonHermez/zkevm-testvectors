@@ -23,7 +23,6 @@ contract PreSha256 {
             // free memory pointer
             let memPtr := mload(0x40)
 
-            // length of base, exponent, modulus
             mstore(memPtr, 0xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA)
             mstore(add(memPtr, 0x20), 0xBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB)
 
