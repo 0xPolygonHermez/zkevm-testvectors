@@ -1,4 +1,5 @@
 const fs = require("fs");
+const crypto = require("crypto");
 
 const NUM_TESTS = 10;
 
@@ -7,7 +8,7 @@ function main() {
     for(let i = 0; i < NUM_TESTS; i++) {
         let bytesTest = "0x";
         for(let j = 0; j < 160; j++) {
-          const random = Math.trunc(Math.random()*255);
+          const random = crypto.randomBytes(1)[0];
           const num = random.toString(16).toString(16).padStart(2, 0);
           bytesTest += num;
         }

@@ -8,7 +8,7 @@ function main() {
           bytesTest += "00";
         } else {
           for(let j = 0; j < i; j++) {
-            const random = Math.trunc(Math.random()*255);
+            const random = crypto.randomBytes(1)[0];
             const num = random.toString(16).toString(16).padStart(2, 0);
             bytesTest += num;
           }
