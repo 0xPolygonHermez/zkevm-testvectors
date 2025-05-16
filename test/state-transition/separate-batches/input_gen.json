@@ -71,7 +71,7 @@
       "hashBytecode": "0x0000000000000000000000000000000000000000000000000000000000000000"
     }
   },
-  "forkID": 12,
+  "forkID": 13,
   "forcedBlockHashL1": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
   "l1InfoTree": {
@@ -88,13 +88,13 @@
     "skipVerifyL1InfoRoot": true
   },
   "virtualCounters": {
-    "steps": 21852,
+    "steps": 20762,
     "arith": 1161,
-    "binary": 1448,
+    "binary": 1453,
     "memAlign": 0,
     "keccaks": 80,
     "padding": 26,
-    "poseidon": 2448,
+    "poseidon": 1758,
     "sha256": 0
   }
 }
