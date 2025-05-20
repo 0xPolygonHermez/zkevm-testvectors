@@ -131,4 +131,22 @@ contract ReturnPreCompiled {
             arrayStorage[i] = output[i];
         }
     }
+
+    function p256verifyGeneric(bytes memory input, uint256 retSize) public {
+        bytes32[32] memory output;
+
+        assembly {
+            let success := staticcall(gas(), 0x100, add(input, 32), mload(input), output, retSize)
+            sstore(0x00, success)
+        }
+
+        assembly {
+            let result := returndatasize()
+            sstore(0x01, result)
+        }
+
+        for (uint i = 0; i < 32; i++) {
+            arrayStorage[i] = output[i];
+        }
+    }
 }

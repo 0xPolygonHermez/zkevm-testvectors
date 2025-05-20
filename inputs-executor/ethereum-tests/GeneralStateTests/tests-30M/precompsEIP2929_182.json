@@ -7,7 +7,7 @@
   "oldNumBatch": 0,
   "newNumBatch": 1,
   "chainID": 1000,
-  "forkID": 12,
+  "forkID": 13,
   "forcedBlockHashL1": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "batchL2Data": "0x0b000003e800000000f86b800a8402625a0094cccccccccccccccccccccccccccccccccccccccc830186a0b8441a8451e6000000000000000000000000000000000000000000000000000000000000000d000000000000000000000000000000000000000000000000000000000000f4048203e880809dc4897fc2f78854da106947727fe6f6fdd79959ade0ff300b81f07f6e3b0cdd53b28bbc1f4d8808605e5fdbd1c9dcec9af6113e10ff37b38fb6cc16d6ec6cc11cff",
   "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
@@ -430,13 +430,13 @@
     ]
   },
   "virtualCounters": {
-    "steps": 32761,
+    "steps": 29111,
     "arith": 856,
-    "binary": 1696,
+    "binary": 1697,
     "memAlign": 4,
-    "keccaks": 43,
+    "keccaks": 10,
     "padding": 41,
-    "poseidon": 2385,
+    "poseidon": 1682,
     "sha256": 0
   },
   "gasLimit": "2147483647"

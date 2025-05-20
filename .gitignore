@@ -44,3 +44,6 @@ tools-inputs/tests-parallel/parallel-tests
 tools/coverage/reports*
 inputs-executor/ethereum-tests/GeneralStateTests/no-exec-*
 inputs-executor/ethereum-tests/GeneralStateTests/*/no-exec-*
+inputs-executor/calldata/pre-rip7212-*
+tools-inputs/data/calldata/pre-rip7212-*
+tools-inputs/tools-calldata/generate-test-vectors/gen-pre-rip7212-*

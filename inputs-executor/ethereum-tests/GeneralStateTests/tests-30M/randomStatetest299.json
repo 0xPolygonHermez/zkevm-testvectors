@@ -7,7 +7,7 @@
   "oldNumBatch": 0,
   "newNumBatch": 1,
   "chainID": 1000,
-  "forkID": 12,
+  "forkID": 13,
   "forcedBlockHashL1": "0x0000000000000000000000000000000000000000000000000000000000000000",
   "batchL2Data": "0x0b000003e800000000f90141800a8405416db194095e7baea6a6c7c4c2dfeb977efac326af552d87841a47b134b901187f00000000000000000000000000000000000000000000000000000000000000007f00000000000000000000000000000000000000000000000000000000000000017ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7f000000000000000000000000ffffffffffffffffffffffffffffffffffffffff7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe6f540813697adf70f20906389d128bf08203e8808011e3739672dd0313215e3dcb6828ba4e6005d3a3c95ec8b91a9ec2093ececd837eb53f53264de828fcd43f141143517ac04943195e45e3079a3dc87fd9eb29341bff",
   "l1InfoRoot": "0x090bcaf734c4f06c93954a827b45a6e8c67b8e0fd1e0a35a1c5982d6961828f9",
@@ -280,13 +280,13 @@
     ]
   },
   "virtualCounters": {
-    "steps": 79614,
+    "steps": 67624,
     "arith": 1696,
     "binary": 4085,
     "memAlign": 1,
-    "keccaks": 45,
+    "keccaks": 12,
     "padding": 22,
-    "poseidon": 1414,
+    "poseidon": 1023,
     "sha256": 0
   },
   "gasLimit": "2147483647"
